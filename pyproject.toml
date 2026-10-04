@@ -1,0 +1,15 @@
+[project]
+name = "ledgerly"
+version = "0.1.0"
+description = "Agentic invoice + payout copilot for freelancers (PayPal Invoicing v2)"
+license = { text = "MIT" }
+authors = [{ name = "Jacob Scott-Metoyer" }]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]

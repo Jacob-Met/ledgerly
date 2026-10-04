@@ -1,0 +1,16 @@
+From: Emily Tremblay <emily@northmaple.example>
+To: jacob@ledgerly.example
+Subject: Monthly retainer - March
+
+Hi Jacob, all prices are in CAD.
+
+| Item              | Qty | Unit price |
+|-------------------|-----|------------|
+| Social posts      | 12  | $45        |
+| Analytics report  | 1   | $200       |
+| Total             |     | $740       |
+
+Net 10 please.
+
+Thanks,
+Emily

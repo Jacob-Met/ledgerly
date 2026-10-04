@@ -1,0 +1,15 @@
+From: Sofia Marquez <sofia@lunaria-studio.example>
+To: jacob@ledgerly.example
+Subject: Website build agreed
+
+Hi Jacob,
+
+We're happy with the quote:
+
+* Website build — €2,400.00
+* Hosting setup — €150
+
+Invoice due within 14 days please.
+
+Best,
+Sofia Marquez

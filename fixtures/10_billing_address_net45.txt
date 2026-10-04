@@ -1,0 +1,15 @@
+From: Rafael Costa <rafael.costa@atlasfreight.example>
+To: jacob@ledgerly.example
+Subject: Dashboard project PO-4471
+
+Hi Jacob,
+
+Approved under PO-4471:
+
+- Data dashboard design — $1,800
+- 8 hours of stakeholder workshops at $110/hr
+
+Please send invoices to ap@atlasfreight.example. Our terms are net 45.
+
+Regards,
+Rafael Costa

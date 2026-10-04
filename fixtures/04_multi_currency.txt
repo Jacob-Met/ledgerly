@@ -1,0 +1,15 @@
+From: Priya Nair <priya@orbitlabs.example>
+To: jacob@ledgerly.example
+Subject: Two workstreams, two budgets
+
+Hi Jacob,
+
+Our US entity and EU entity are paying separately:
+
+- 20 hours of React development at $95/hr
+- 6 hours of localisation QA at €60/hr
+
+Net 30 for both.
+
+Thanks,
+Priya
