@@ -1,6 +1,6 @@
 # Ledgerly
 
-An agentic invoice and payout copilot for freelancers. You paste in a client's job email.
+An agentic invoice and payment-follow-up copilot for freelancers. You paste in a client's job email.
 Ledgerly pulls out the line items, creates a **PayPal Invoicing v2** draft and puts the send
 in a queue. **Nothing is sent and no money moves until a human approves it.** After that it
 watches the payment webhooks and drafts escalating reminders for overdue invoices. Those

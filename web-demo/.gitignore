@@ -1,0 +1,6 @@
+node_modules/
+dist/
+public/pyodide/
+public/python/
+public/fixtures/__pycache__/
+*.py[cod]

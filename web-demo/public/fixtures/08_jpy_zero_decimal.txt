@@ -1,0 +1,15 @@
+From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>
+To: jacob@ledgerly.example
+Subject: Localization review
+
+Jacob-san,
+
+Please invoice:
+
+- 25 hours of game script review at ¥6,000/hr
+- 1 x Glossary build @ ¥30,000
+
+Payment within 30 days.
+
+Thank you,
+Ken Sato

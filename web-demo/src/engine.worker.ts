@@ -1,0 +1,23 @@
+import { loadPyodide, type PyodideInterface } from 'pyodide';
+type Request={id:number;action:string;payload?:Record<string,unknown>};
+const scope=self as unknown as DedicatedWorkerGlobalScope;
+let engine:PyodideInterface|undefined,loading:Promise<PyodideInterface>|undefined;
+async function boot():Promise<PyodideInterface>{
+ if(engine)return engine;if(loading)return loading;
+ loading=(async()=>{
+  const py=await loadPyodide({indexURL:new URL('../pyodide/',scope.location.href).href});
+  py.FS.mkdirTree('/demo/ledgerly');
+  for(const name of ['__init__.py','agent.py','extract.py','paypal.py']){
+   const r=await fetch(new URL(`../python/ledgerly/${name}`,scope.location.href));if(!r.ok)throw new Error(`Python source ${name}: HTTP ${r.status}`);
+   py.FS.writeFile(`/demo/ledgerly/${name}`,await r.text());
+  }
+  const bridge=await fetch(new URL('../python/bridge.py',scope.location.href));if(!bridge.ok)throw new Error(`Python bridge: HTTP ${bridge.status}`);
+  py.FS.writeFile('/demo/bridge.py',await bridge.text());await py.runPythonAsync("import sys; sys.path.insert(0, '/demo'); import bridge");
+  engine=py;scope.postMessage({type:'ready'});return py;
+ })();return loading;
+}
+async function run(request:Request):Promise<void>{
+ try{const py=await boot();py.globals.set('request_json',JSON.stringify({action:request.action,...(request.payload||{})}));const result=await py.runPythonAsync('bridge.handle_json(request_json)');py.globals.delete('request_json');scope.postMessage({id:request.id,ok:true,data:JSON.parse(String(result))});}
+ catch(error){scope.postMessage({id:request.id,ok:false,error:String(error)});}
+}
+let queue=Promise.resolve();scope.addEventListener('message',(event:MessageEvent<Request>)=>{const request=event.data;queue=queue.then(()=>run(request));});

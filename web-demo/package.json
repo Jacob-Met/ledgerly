@@ -1,0 +1,9 @@
+{
+  "name": "ledgerly-offline-browser-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {"dev":"vite","build":"node scripts/stage-python.mjs && tsc --noEmit && vite build","test":"node scripts/stage-python.mjs && vitest run","preview":"vite preview"},
+  "dependencies": {"pyodide":"0.29.3"},
+  "devDependencies": {"typescript":"^5.9.3","vite":"^8.3.3","vitest":"^5.0.3"}
+}
