@@ -191,10 +191,20 @@ def test_read_only_reminder_preflight_can_retry_same_id(clock, error):
 
 def test_existing_paypal_refusal_retains_body_and_failure_audit(clock):
     agent, mock, invoice = setup_invoice(clock)
-    # A provider-side status change makes the real mock reject the send.
-    mock.invoices[invoice["invoice_id"]]["status"] = "CANCELLED"
+    # The preflight sees the reviewed DRAFT. The provider then refuses the real
+    # POST, exercising outgoing error consumption rather than a stale review.
+    send_invoice = mock.send_invoice
+
+    def refuse_after_fresh_read(invoice_id, body=None):
+        assert mock.requests[-1][:2] == ("GET", f"/v2/invoicing/invoices/{invoice_id}")
+        assert mock.invoices[invoice_id]["status"] == "DRAFT"
+        mock.invoices[invoice_id]["status"] = "CANCELLED"
+        return send_invoice(invoice_id, body)
+
+    mock.send_invoice = refuse_after_fresh_read
     with pytest.raises(PayPalError) as caught:
         agent.approve(invoice["approval_id"])
+    assert len(outgoing(mock, "/send")) == 1
     action = agent.pending[invoice["approval_id"]]
     assert action.status == "FAILED"
     assert action.result is caught.value.body

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/32",
+  "base_main": "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+  "base_tree": "bf2f5bab390bef22da1d07c1eb3164b7147f3e0a",
+  "original_baseline": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "files": [
+    {
+      "path": "ledgerly/agent.py",
+      "bytes": 38681,
+      "git_blob": "45b8fc05cd18b3e8ca5a42bf97b0ade9a4fbbb98",
+      "sha256": "f2bc79188eb9b4933f969ba3c6a08397fec5b6b3f4678add22c396fb5d0584eb"
+    },
+    {
+      "path": "out/receiving/send-review-ac386303dce2/author-evidence.tar.gz",
+      "bytes": 155624,
+      "sha256": "17a0c1e0b76d2ffb73b0006636e67435d75ff7527af8ef22bc40f01f7163121c",
+      "git_blob": "473df93f838e31090680058aeb880dc40beb3c4c"
+    },
+    {
+      "path": "out/receiving/send-review-ac386303dce2/AUTHOR-QUALIFICATION.md",
+      "bytes": 8566,
+      "sha256": "5d202134e8e42c7093185e507b578a6d59570171096d64d764557a7919f2f489",
+      "git_blob": "b43b48e22588dc3feee3def64576e509dbbdc3b5"
+    },
+    {
+      "path": "out/receiving/send-review-ac386303dce2/current-main-receiving.json",
+      "bytes": 24122,
+      "sha256": "c3f19acfc0040d97a6e43be191948e047ef93612d6b6cfd38b393b550e0b3c20",
+      "git_blob": "121701ac32cae6d4ed4f1ef0d22322ef70d35746"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7799,
+      "git_blob": "fff70beba18c9e043c1cccc0a4e88ecfcf998c0d",
+      "sha256": "329a45689275275ee7db14c659364a3990b1c21f3db36c6f959c2f73af719df1"
+    },
+    {
+      "path": "tests/test_approval_outcomes.py",
+      "bytes": 8665,
+      "git_blob": "f01f9fadb168543bab230a20175c9b90224ce25a",
+      "sha256": "3d178a8200e771d4c3ceda056d78efdc0486813f7971ffb9eef0a5927bb6a3f3"
+    },
+    {
+      "path": "tests/test_browser_invoice_details.py",
+      "bytes": 8228,
+      "git_blob": "c861ef775517ac7561e01596aa50ba3c74a24b6d",
+      "sha256": "1e899a9070b8ced77eb01f87633dda62531f857bff3d7b2fe40b49f6bcbbc6b3"
+    },
+    {
+      "path": "tests/test_invoice_send_freshness.py",
+      "bytes": 5017,
+      "git_blob": "e1d7bd6dbbe607a331b4d4e029e6f16b4f2f3bd0",
+      "sha256": "a97347bd3635c05aa4d94047b6aaf79bd65d8230efc30856d7dfda203cbc4959"
+    },
+    {
+      "path": "tests/test_receipt_term_receiving.py",
+      "bytes": 15565,
+      "git_blob": "35f9c1fdf330fd32e374968d2bd7b9670036be9d",
+      "sha256": "635b01a43b27594fca056abfce20d3d044d7356512b55eab691e5da2a8679b29"
+    },
+    {
+      "path": "tests/test_send_review_boundary.py",
+      "bytes": 9633,
+      "git_blob": "c4a59e8299d372bc3435e60da014ea8b754a5224",
+      "sha256": "d922bb8e2af7f110f3460fe1e82de7c2d1d573a94fc45e1d57092103cfcc4f2d"
+    }
+  ],
+  "author_archive": {
+    "members": 95,
+    "raw_content_bytes": 741964,
+    "all_members_verified": true
+  },
+  "source_scope": {
+    "existing_agent_methods_changed": [
+      "approve"
+    ],
+    "new_agent_methods": [
+      "_check_send_review",
+      "_send_review_content"
+    ],
+    "other_existing_agent_methods_byte_identical": 19
+  },
+  "native_receiving": {
+    "source_sha256": "f2bc79188eb9b4933f969ba3c6a08397fec5b6b3f4678add22c396fb5d0584eb",
+    "current_main_full": "230 passed, 63 subtests passed",
+    "historical_source_full": "222 passed, 63 subtests passed",
+    "network_calls": 0
+  },
+  "manifest_scope": "This manifest covers the authored frozen candidate; any independent review packet is added and bound separately before branch publication."
+}

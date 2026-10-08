@@ -1,0 +1,73 @@
+{
+  "schema": "ledgerly.send-review.current-native-receiving.v1",
+  "repository": "Jacob-Met/ledgerly",
+  "receiving_commit": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+  "receiving_tree": "0f457eb8ded2b462bd1be4d335c3a257cd19c630",
+  "original_authored_receiving_tree": "e49e69a599bc821950a35d1af6d2e9d420b4978b",
+  "candidate": {
+    "file": "ledgerly/agent.py",
+    "algorithm": "SHA-256",
+    "digest": "f2bc79188eb9b4933f969ba3c6a08397fec5b6b3f4678add22c396fb5d0584eb",
+    "git_blob": "45b8fc05cd18b3e8ca5a42bf97b0ade9a4fbbb98"
+  },
+  "source_changes": "No additional candidate or test changes; the already documented exact details-request adapter remains c861ef775517ac7561e01596aa50ba3c74a24b6d.",
+  "incoming_native_files": [
+    {
+      "path": "tests/test_browser_invoice_details.py",
+      "git_blob": "c861ef775517ac7561e01596aa50ba3c74a24b6d",
+      "sha256": "1e899a9070b8ced77eb01f87633dda62531f857bff3d7b2fe40b49f6bcbbc6b3"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+      "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0"
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015",
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "git_blob": "a1da2ebff1ec2963ab94ca094300c8f5b42aa704",
+      "sha256": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace"
+    },
+    {
+      "path": "tests/test_sandbox_payment_admission.py",
+      "git_blob": "214cbf0b692e088c0cc34684024bfaef9865e18d",
+      "sha256": "7f971cc281485417f83eed9f48db55b420b06287aee4966092252f61b489cedf"
+    }
+  ],
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider"
+  ],
+  "runtime": "Python 3.12.14, pytest 9.1.1, Linux",
+  "result": {
+    "exit_code": 0,
+    "passed": 242,
+    "subtests_passed": 96,
+    "skipped": 0,
+    "stdout": "................................................................... [ 27%]\n........................................... [ 45%]\n........................................... [ 63%]\n....................................... [ 79%]\n..................................................                       [100%]\n242 passed, 96 subtests passed in 0.95s\n",
+    "stderr": ""
+  },
+  "output_identity": [
+    {
+      "file": "stdout",
+      "algorithm": "SHA-256",
+      "digest": "c5dc10995f9ee4679b96ef2a732e1336c646c0bd91807266c30b47065350600c"
+    },
+    {
+      "file": "stderr",
+      "algorithm": "SHA-256",
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "fixture_custody": "The exact current files were verified by Git blob before overlay onto the frozen source capsule. The composed source and child TMPDIR lived inside one exec-owned /dev temporary directory and were removed on completion. The original 2d/2ab source/negative evidence and authored tree remain unchanged.",
+  "integration_limit": "This is native Python receiving of the main consumer and payment-admission delta, not hosted browser qualification or an installed application claim. Final PR merge-tree CI remains required."
+}
