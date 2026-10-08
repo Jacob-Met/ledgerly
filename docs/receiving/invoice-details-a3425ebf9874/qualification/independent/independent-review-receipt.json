@@ -1,0 +1,80 @@
+{
+  "schema": "hamon.independent_review.v1",
+  "reviewer": "estate-a3425ebf9874-local-estate",
+  "reviewed_at": "2026-10-08T13:27:43.207487+00:00",
+  "disposition": "ACCEPT_SCOPED_CORRECTED_SOURCE",
+  "project": "Jacob-Met/Ledgerly",
+  "issue": 28,
+  "owner": "estate-a3425ebf9874-remote-estate",
+  "source_modified_by_reviewer": false,
+  "current_native_source_base": "bf045d48b556443ca93516f00fcd00740b571d47",
+  "current_native_tree": "f5921f24bb1a07f17eca28db8d811653c386b4a1",
+  "current_upstream": "5493205cd69a32be75ed2f7dfc669b122efe5563",
+  "native_selected_capture_manifest_sha256": "d12faa348e865a738671340d2f7e95ce2f6c97acdc3b1efe7e05ecabddecd636",
+  "independently_verified_selected_files": 38,
+  "current_owner_agent_blob": "3ae7fcae5b1b243f608ab1bea6e25313a2fea091",
+  "initial_source_manifest_sha256": "d390bfc52722120becfd28e7fc2c0f9150c472b77d54515d30e3478b56ef31a1",
+  "accepted_renderer": {
+    "path": "web-demo/src/invoice-details.ts",
+    "sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+    "git_blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd",
+    "layered_on_native_base": true,
+    "final_native_commit": "pending owner publication pin; no native execution of this renderer claimed here"
+  },
+  "unchanged_production": [
+    {
+      "path": "web-demo/python/bridge.py",
+      "bytes": 6357,
+      "sha256": "f2af2c3e569569baff9ff7856c79211fbd9ef8640ccd272977fbb9d843973f2a",
+      "blob": "5093df1a0626ccb7658cf987c96a0fed50838dd8"
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "bytes": 1196,
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "blob": "019c1b43c3785894ec8e181983497c46bf57e015"
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "bytes": 995,
+      "sha256": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+      "blob": "5c1be224027f6bc5c691a0bbb62ca55098482e81"
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "bytes": 1736,
+      "sha256": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+      "blob": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96"
+    },
+    {
+      "path": "web-demo/src/invoice-details.css",
+      "bytes": 2214,
+      "sha256": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+      "blob": "1cb25514753f3c8104f13afb575633e7fce5811b"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "bytes": 18074,
+      "sha256": "18885cfaa66121311c2c68417c081d1b32f010d2869a27d6d6110b95c5d46b81",
+      "blob": "1c81ecc1e97ee4e8ff07fa0428d1b811109297f5"
+    }
+  ],
+  "finding": {
+    "id": "queued_disclosure_toggle_lost_on_snapshot_refresh",
+    "original_renderer_sha256": "5c579b46532a45bf5a8862bf80ae6a0e93d1da0072240bee5dc9a20bda8ff5a3",
+    "original_report_sha256": "26cd14f5f66f51545554ed68c9ff6d036f955bab322704f6df0e60977629d194",
+    "original_pass": 1,
+    "original_fail": 2,
+    "corrected_report_sha256": "00108da7e9faa76613a0395fdfe17431815814db736cbd1ea42e53d1aced92fe",
+    "corrected_pass": 3,
+    "corrected_fail": 0,
+    "same_receiver_sha256": "5380fb8bced68fdd2ab1bcd210f58ced82c50fde5781ac6e9e0b23ecc0d66794",
+    "receiver_unchanged": true,
+    "negative_control": "Already-delivered toggle preserves open state; removing an identity clears its retained presentation."
+  },
+  "browser_scope": "Isolated synthetic DOM using the exact production renderer and integration hook order; no Pyodide, native-host, provider, layout or full-app qualification claimed.",
+  "browser_version": "153.0.8010.0",
+  "node": "v24.19.0",
+  "native_full_app_layout_ax_and_full_suites": "Owner qualification, not independently repeated or claimed. Parent aria-disabled override reviewed statically and owner-native AX evidence remains separate.",
+  "remaining_gate": "Owner final native/full-app receiving and normal exact-head source/CI integration. If production changes, preserve this packet and add a narrow parity disposition."
+}

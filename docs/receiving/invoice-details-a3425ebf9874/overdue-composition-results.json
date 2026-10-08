@@ -1,0 +1,32 @@
+{
+  "head": "47f9f427f66ff69b7ba356359905965d96d0111f",
+  "results": [
+    {
+      "name": "overdue-composed-native",
+      "exit_code": 0,
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_browser_invoice_details.py",
+        "tests/test_browser_overdue_scan.py",
+        "--junitxml=/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/overdue-composed-native.xml"
+      ],
+      "log": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/overdue-composed-native.log",
+      "sha256": "9e8fa03b2302f6a78eb407a7e64c6f0618771ad6768713a55f7edca172f486a5"
+    },
+    {
+      "name": "overdue-composed-stage",
+      "exit_code": 1,
+      "command": [
+        "npm",
+        "run",
+        "stage:python"
+      ],
+      "log": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/overdue-composed-stage.log",
+      "sha256": "34b98b9b4de1a0265c54152cc7d83443317ab60e48cb493fa4410040dcf935d2"
+    }
+  ],
+  "time": "2026-10-08T13:29:20.771188+00:00"
+}

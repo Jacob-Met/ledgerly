@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="13" failures="0" errors="0" time="0.516863547">
+    <testsuite name="src/invoice-details.test.ts" timestamp="2026-10-08T13:25:54.093Z" hostname="hamon-thinkpad" tests="8" failures="0" errors="0" skipped="0" time="0.019802397">
+        <testcase classname="src/invoice-details.test.ts" name="shows retained item, recipient, terms and provider fields with explicit provenance" time="0.008623469">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="escapes all imported text and identifiers without generating active elements" time="0.001209946">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="retains original decimal strings and each amount currency without arithmetic" time="0.000907544">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="requires one exact matching identity and never falls back to another record" time="0.001024646">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="labels absent, empty and malformed data without inventing zero amounts or actions" time="0.00069802">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="does not change the received snapshot or add pending approval semantics" time="0.001043025">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="provides native disclosure semantics and labeled scrollable tables" time="0.002461038">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="preserves unknown provider status and receipt terms instead of inventing interpretations" time="0.000624765">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/engine-recovery.test.ts" timestamp="2026-10-08T13:25:54.102Z" hostname="hamon-thinkpad" tests="5" failures="0" errors="0" skipped="0" time="0.49706115">
+        <testcase classname="tests/engine-recovery.test.ts" name="actual startup hook settles a worker error, retains intake and enables an explicit empty restart" time="0.210966393">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="actual action hook disables the lost ledger and settles a pending draft without replay" time="0.080412827">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="actual startup hook refuses a completed transport whose initialization result is not ok" time="0.056369012">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="actual worker startup retries a rejected runtime load on the next explicit init" time="0.032032875">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="retains typed corrections across failure and reopens analysis only on explicit revalidation" time="0.113692137">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -7,6 +7,7 @@ import {WorkerClient, WorkerUnavailableError} from '../src/worker-client';
 import {retryableLoader} from '../src/retryable-loader';
 import {createLedgerExport} from '../src/ledger-export';
 import {approvalListMarkup} from '../src/approval-preview';
+import {createInvoiceDetailsView} from '../src/invoice-details';
 import {readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup} from '../src/review';
 
 const sourceRoot = process.env.LEDGERLY_RECOVERY_SOURCE_ROOT || path.resolve(process.cwd(), 'src');
@@ -96,7 +97,7 @@ function app() {
     }),
   };
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport});
+    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;

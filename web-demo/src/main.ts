@@ -3,12 +3,15 @@ import './review.css';
 import './ledger-export.css';
 import {createLedgerExport} from './ledger-export';
 import './approval-preview.css';
+import './invoice-details.css';
+import {createInvoiceDetailsView} from './invoice-details';
 import {approvalListMarkup} from './approval-preview';
 import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
 import {WorkerClient, WorkerUnavailableError} from './worker-client';
 const $=<T extends HTMLElement>(selector:string)=>document.querySelector(selector) as T;
 const ledgerExport=createLedgerExport($<HTMLButtonElement>('#ledger-export'),$<HTMLElement>('#ledger-export-note'));
 const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
+const invoiceDetails=createInvoiceDetailsView($<HTMLElement>('#ledger-list'));
 const worker=new WorkerClient(()=>new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'}),{
  ready:()=>status('Python loaded locally. No external service is connected.','ready'),
  unavailable:engineUnavailable,
@@ -41,6 +44,7 @@ function analysisBlocked(ex:any){return !ex||ex.issues?.some((x:any)=>x.severity
 function syncControls(){
  const enabled=ready&&!busy;
  ledgerExport.setAvailable(enabled);
+ invoiceDetails.setAvailability(ready,busy);
  for(const id of ['fixture-select','load-fixture','job-email','analyze','demo-date','advance-clock','run-chase','reset-sandbox','payment-amount'])$<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>(`#${id}`).disabled=!enabled;
  for(const el of Array.from(document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#review-form input,#review-form select,#review-form button,#approval-list button,#ledger-list button')))el.disabled=!enabled;
  const checked=$<HTMLInputElement>('#review-confirm');
@@ -74,7 +78,8 @@ function renderAnalysis(ex:any){
  $<HTMLElement>('#mock-requests').textContent=String(state.mock_requests??0);$<HTMLElement>('#external-calls').textContent=String(state.external_calls??0);
  const dateInput=$<HTMLInputElement>('#demo-date');if(document.activeElement!==dateInput)dateInput.value=state.today||'';$<HTMLButtonElement>('#replay-webhook').disabled=!ready||!state.can_replay||busy;
  const queue=state.pending||[];$<HTMLElement>('#approval-list').innerHTML=approvalListMarkup(queue);
- const ledger=state.ledger||[];$<HTMLElement>('#ledger-list').innerHTML=ledger.length?ledger.map((e:any)=>{const open=['SENT','PARTIALLY_PAID','UNPAID'].includes(e.status)&&Number(e.balance)>0;return `<article class="invoice-card" data-due="${esc(e.due_on||'')}"><div class="invoice-head"><div><span class="eyebrow">${esc(e.invoice_number)}</span><h3>${esc(e.client_name||e.client_email||'Client')}</h3></div><span class="status-chip ${esc(String(e.status).toLowerCase())}">${esc(e.status)}</span></div><div class="invoice-meta"><span>${esc(e.currency)} ${esc(e.total)}</span><span>PAID ${esc(e.paid_amount)}</span><span>BALANCE ${esc(e.balance)}</span></div><div class="invoice-meta"><span>DUE ${esc(e.due_on||'Terms missing')}</span><span>REMINDERS ${esc(e.reminders_sent)}</span></div>${open?`<button class="button button-payment" data-pay="${esc(e.invoice_id)}">Simulate sandbox payment</button>`:''}</article>`;}).join(''):'<p class="empty">No invoices in this sandbox ledger yet.</p>';
+ const ledger=state.ledger||[];invoiceDetails.beforeRender(ledger.map((entry:any)=>entry.invoice_id));$<HTMLElement>('#ledger-list').innerHTML=ledger.length?ledger.map((e:any)=>{const open=['SENT','PARTIALLY_PAID','UNPAID'].includes(e.status)&&Number(e.balance)>0;return `<article class="invoice-card invoice-card-with-details" data-due="${esc(e.due_on||'')}"><div class="invoice-head"><div><span class="eyebrow">${esc(e.invoice_number)}</span><h3>${esc(e.client_name||e.client_email||'Client')}</h3></div><span class="status-chip ${esc(String(e.status).toLowerCase())}">${esc(e.status)}</span></div><div class="invoice-meta"><span>${esc(e.currency)} ${esc(e.total)}</span><span>PAID ${esc(e.paid_amount)}</span><span>BALANCE ${esc(e.balance)}</span></div><div class="invoice-meta"><span>DUE ${esc(e.due_on||'Terms missing')}</span><span>REMINDERS ${esc(e.reminders_sent)}</span></div>${open?`<button class="button button-payment" data-pay="${esc(e.invoice_id)}">Simulate sandbox payment</button>`:''}${invoiceDetails.markup(e.invoice_id,state)}</article>`;}).join(''):'<p class="empty">No invoices in this sandbox ledger yet.</p>';
+ invoiceDetails.afterRender();invoiceDetails.setAvailability(ready,busy);
  const audit=state.audit||[];$<HTMLOListElement>('#audit-list').innerHTML=audit.length?audit.map((e:any)=>`<li><span>${esc(e.event||'event')}</span><code>${esc(e.kind||e.tool||e.invoice||e.action||'')}</code><time>${esc((e.at||'').slice(11,19))}</time></li>`).join(''):'<li class="empty">Agent events will appear here as work runs.</li>';
 }
 async function runAction(name:string,payload:Record<string,unknown>={}){

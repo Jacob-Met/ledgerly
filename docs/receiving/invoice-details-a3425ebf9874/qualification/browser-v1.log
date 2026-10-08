@@ -1,0 +1,57 @@
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+
+Error: Cannot find module '/usr/share/nodejs/playwright/cli.js'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Module._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.22.1
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 92, in main
+    with sync_playwright() as playwright:
+         ~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3/dist-packages/playwright/sync_api/_context_manager.py", line 79, in __enter__
+    playwright = self._playwright
+                 ^^^^^^^^^^^^^^^^
+AttributeError: 'PlaywrightContextManager' object has no attribute '_playwright'
+
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 331, in <module>
+    main()
+    ~~~~^^
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 92, in main
+    with sync_playwright() as playwright:
+         ~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3/dist-packages/playwright/sync_api/_context_manager.py", line 79, in __enter__
+    playwright = self._playwright
+                 ^^^^^^^^^^^^^^^^
+AttributeError: 'PlaywrightContextManager' object has no attribute '_playwright'
+Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<Connection.run.<locals>.init() done, defined at /usr/lib/python3/dist-packages/playwright/_impl/_connection.py:307> exception=Exception('Connection.init: Connection closed while reading from the driver')>
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/playwright/_impl/_connection.py", line 308, in init
+    self.playwright_future.set_result(await self._root_object.initialize())
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/playwright/_impl/_connection.py", line 249, in initialize
+    await self._channel.send(
+    ...<5 lines>...
+    )
+  File "/usr/lib/python3/dist-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/usr/lib/python3/dist-packages/playwright/_impl/_connection.py", line 558, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+Exception: Connection.init: Connection closed while reading from the driver

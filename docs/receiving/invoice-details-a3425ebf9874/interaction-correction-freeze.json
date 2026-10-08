@@ -1,0 +1,30 @@
+{
+  "schema": "ledgerly.invoice-details.interaction-correction.v1",
+  "head": "d8c33cf5ed16fc96be3883313c80d56a8bbc752e",
+  "parent": "bf045d48b556443ca93516f00fcd00740b571d47",
+  "files": [
+    {
+      "path": "web-demo/src/invoice-details.ts",
+      "sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff"
+    },
+    {
+      "path": "web-demo/tools/check_invoice_details_browser.py",
+      "sha256": "82460b21d1982b66e8847353cddb8c1376c6db2f5dd1a38a42778158d7379271"
+    }
+  ],
+  "results": [
+    {
+      "name": "interaction-focused",
+      "exit_code": 0,
+      "log": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/interaction-focused.log",
+      "sha256": "62a9fecf8ce2c572eb1f8f4bb95df78c507e610a4c94554da1a45abcdaf4fc1a"
+    },
+    {
+      "name": "interaction-build",
+      "exit_code": 0,
+      "log": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/interaction-build.log",
+      "sha256": "b1e764a09da438727f6aa251c1ee98bd5db578431e91397fc4da4a596799d4f0"
+    }
+  ],
+  "time": "2026-10-08T13:25:58.018483+00:00"
+}

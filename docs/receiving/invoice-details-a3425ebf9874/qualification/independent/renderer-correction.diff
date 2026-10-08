@@ -1,0 +1,25 @@
+--- renderer-5c579
++++ renderer-db7a
+@@ -100,7 +100,8 @@
+     '<p class="invoice-detail-explanation">Amounts and payment entries are copied from the sandbox provider record. The ledger summary above is the agent’s view; these values are not recalculated or combined across currencies.</p>' +
+     '<h4>Invoice note</h4><div class="invoice-detail-note">' + escape(text(detail.note)) + '</div>' + paymentsMarkup(record.payments) :
+     '<p class="invoice-detail-empty">No matching retained sandbox invoice record is available. The ledger summary above may still be inspected.</p>';
+-  return '<details class="invoice-details" data-invoice-detail-id="' + escape(invoiceId) + '"' + (open ? ' open' : '') +
++  // This read-only disclosure stays usable when its parent action area is disabled.
++  return '<details class="invoice-details" aria-disabled="false" data-invoice-detail-id="' + escape(invoiceId) + '"' + (open ? ' open' : '') +
+     '><summary>Invoice details <span>· sandbox record</span></summary><div class="invoice-detail-content">' +
+     '<p class="invoice-detail-provenance">Sandbox clock at snapshot: ' + escape(text(snapshot.today)) + '</p>' +
+     '<p class="invoice-detail-state" data-invoice-details-state></p>' + content + '</div></details>';
+@@ -118,6 +119,12 @@
+   }, true);
+   return {
+     beforeRender(ids: readonly string[]): void {
++      // Native details.open changes before the browser dispatches its queued toggle.
++      // Read the current DOM before replacing it so an arriving snapshot cannot undo a click.
++      for (const detail of Array.from(container.querySelectorAll<HTMLDetailsElement>('.invoice-details'))) {
++        const id = detail.dataset.invoiceDetailId;
++        if (id !== undefined) { if (detail.open) openIds.add(id); else openIds.delete(id); }
++      }
+       for (const id of openIds) if (!ids.includes(id)) openIds.delete(id);
+       const focused = container.ownerDocument?.activeElement;
+       const detail = focused?.closest<HTMLDetailsElement>('.invoice-details');

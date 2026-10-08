@@ -1,0 +1,26 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run --maxWorkers=1 --reporter=default --reporter=junit --outputFile=/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/candidate-vitest.xml
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo[39m
+
+ [32m✓[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 703[2mms[22m[39m
+   [33m[2m✓[22m[39m actual startup hook settles a worker error, retains intake and enables an explicit empty restart[33m 341[2mms[22m[39m
+ [32m✓[39m tests/review.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 4035[2mms[22m[39m
+ [32m✓[39m tests/approval-preview.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 6448[2mms[22m[39m
+ [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 62[2mms[22m[39m
+ [32m✓[39m src/invoice-details.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m tests/invoice-details.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 3590[2mms[22m[39m
+ [32m✓[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 2526[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m7 passed[39m[22m[90m (7)[39m
+[2m      Tests [22m [1m[32m45 passed[39m[22m[90m (45)[39m
+[2m   Start at [22m 12:56:33
+[2m   Duration [22m 22.51s[2m (tests 90%, import 6%, transform 3%)[22m
+
+[2m    Isolate [22m [33m7 workers spawned[39m[2m · ~444ms startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~2.66s faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+
+JUNIT report written to /srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/candidate-vitest.xml

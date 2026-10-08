@@ -1,0 +1,51 @@
+{
+  "head": "47f9f427f66ff69b7ba356359905965d96d0111f",
+  "results": [
+    {
+      "name": "overdue-composed-stage-v2",
+      "exit_code": 0,
+      "command": [
+        "node",
+        "scripts/stage-python.mjs"
+      ],
+      "log": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/overdue-composed-stage-v2.log",
+      "sha256": "ab54b6ee123bec03b52e093ebadfeb9665a971ba12b5601671a588d82a2b89d5"
+    },
+    {
+      "name": "overdue-composed-web",
+      "exit_code": 0,
+      "command": [
+        "npm",
+        "exec",
+        "--",
+        "vitest",
+        "run",
+        "tests/overdue-scan.test.ts",
+        "tests/invoice-details.test.ts",
+        "--maxWorkers=1",
+        "--reporter=default",
+        "--reporter=junit",
+        "--outputFile=/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/overdue-composed-web.xml"
+      ],
+      "log": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/overdue-composed-web.log",
+      "sha256": "43cc2dca7dc8a4c544ab217600def6fe05c524190b369add4901f7c81ca7ce7b"
+    },
+    {
+      "name": "overdue-composed-build",
+      "exit_code": 0,
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--",
+        "--outDir",
+        "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist"
+      ],
+      "log": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/overdue-composed-build.log",
+      "sha256": "f502bfdc3dd06241f23ab5e220a5a59cd6fa98cda99fc789a81d1701c94bb827"
+    }
+  ],
+  "time": "2026-10-08T13:30:24.188726+00:00",
+  "prior_native": "overdue-composition-results.json",
+  "note": "Corrected runner command to the existing node staging script; no source or test assertion changed."
+}

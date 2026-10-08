@@ -1,0 +1,7 @@
+npm ERR! Missing script: "stage:python"
+npm ERR! 
+npm ERR! To see a list of scripts, run:
+npm ERR!   npm run
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2026-10-08T13_29_20_574Z-debug-0.log

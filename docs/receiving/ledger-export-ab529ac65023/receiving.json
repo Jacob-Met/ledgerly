@@ -1,5 +1,5 @@
 {
-  "status": "actual_browser_qualified_final_current_main_gate_pending",
+  "status": "actual_browser_qualified_invoice_details_composition_gate_pending",
   "identity": "hamon-ultra-ab529ac65023-20261008/coordination-integration",
   "issue": "https://github.com/Jacob-Met/ledgerly/issues/23",
   "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/27",
@@ -138,5 +138,51 @@
     "delta": "Separate merged PR30 changes only the bridge chase bound and adds overdue tests/evidence; none of our10 production/test/workflow paths changed.",
     "preservation": "Every current unowned file/mode, full PR21/24/26/30 source and existing action refs preserved. No CSV/controller/receiver/test/workflow bytes change from the passed real-Chrome composition.",
     "gate": "Existing CI on this final composition and expected-head merge pending; no main adoption claimed."
+  },
+  "latest_browser_gate": {
+    "head": "575df8a3eb505377cc4425dc680e489e8f1892e8",
+    "checkout": "3e51e967b8e0db434a400dd6ac497d7f7ca9a243",
+    "main": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+    "run": 37786675463,
+    "browser_job": 113343091707,
+    "python_job": 113343091712,
+    "status": "success",
+    "frontend_tests": 64,
+    "python_tests": 185,
+    "python_subtests": 63,
+    "downloads": 8,
+    "controls": 7,
+    "packet_sha256": "debda18bd35dc9c8ad6ab11f8740bf6affb96a3572b1a6e20fda1f8253e49717",
+    "receipt": "hosted-chrome-main2d3/browser-receiving.json",
+    "integrity": "hosted-chrome-main2d3/bundle-integrity.json"
+  },
+  "current_main_composition": {
+    "main": "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+    "tree": "bf2f5bab390bef22da1d07c1eb3164b7147f3e0a",
+    "newly_received_pr": 33,
+    "changes": "Retain all invoice inspector source, additive snapshot/loader/tests and evidence. Compose only original CSV main hooks, real recovery-VM binding, and README sections.",
+    "transform_proof": [
+      {
+        "path": "web-demo/src/main.ts",
+        "changes": 5,
+        "baseline_diff_exact": true,
+        "peer_bytes_preserved_under_inverse_patch": true
+      },
+      {
+        "path": "web-demo/tests/engine-recovery.test.ts",
+        "changes": 2,
+        "baseline_diff_exact": true,
+        "peer_bytes_preserved_under_inverse_patch": true
+      },
+      {
+        "path": "web-demo/README.md",
+        "changes": 2,
+        "baseline_diff_exact": true,
+        "peer_bytes_preserved_under_inverse_patch": true
+      }
+    ],
+    "required_hosted_gate": "pending; rerun justified by actual display/snapshot and lifecycle overlap",
+    "product_module_unchanged": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+    "browser_receiver_unchanged": "da830c6452b395a63d3879fbc06ca0b0374b1479"
   }
 }
