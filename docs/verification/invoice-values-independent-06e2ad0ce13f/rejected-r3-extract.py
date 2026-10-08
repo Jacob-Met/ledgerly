@@ -44,7 +44,7 @@ _CODE = "|".join(sorted(PAYPAL_CURRENCIES))
 # Consume a complete number-like token first. _dec checks comma grouping, so
 # malformed text cannot be silently shortened to its first valid numeric prefix.
 _NUM = r"[+-]?(?:\d(?:[\d,]*\d)?(?:\.\d+)?|\.\d+)(?:[eE][+-]?\d+)?"
-_NO_SUFFIX = r"(?!\d|[\d.,]*[kKmM]\b|[eE]|[.,]\d)"
+_NO_SUFFIX = r"(?![\d.,]*[kKmM]\b|[eE]|[.,]\d)"
 MONEY_RE = re.compile(
     rf"(?:(?P<sign>[+-])?(?P<pre>{_SYM}|\b(?:{_CODE})\b)\s?(?P<num>{_NUM}){_NO_SUFFIX}"
     rf"|(?<![\w.,])(?P<num2>{_NUM}){_NO_SUFFIX}\s?(?P<post>\b(?:{_CODE})\b|€|£))"

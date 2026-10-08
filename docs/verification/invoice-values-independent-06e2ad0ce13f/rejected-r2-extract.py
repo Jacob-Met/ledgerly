@@ -44,7 +44,7 @@ _CODE = "|".join(sorted(PAYPAL_CURRENCIES))
 # Consume a complete number-like token first. _dec checks comma grouping, so
 # malformed text cannot be silently shortened to its first valid numeric prefix.
 _NUM = r"[+-]?(?:\d(?:[\d,]*\d)?(?:\.\d+)?|\.\d+)(?:[eE][+-]?\d+)?"
-_NO_SUFFIX = r"(?!\d|[\d.,]*[kKmM]\b|[eE]|[.,]\d)"
+_NO_SUFFIX = r"(?![\d.,]*[kKmM]\b|[eE]|[.,]\d)"
 MONEY_RE = re.compile(
     rf"(?:(?P<sign>[+-])?(?P<pre>{_SYM}|\b(?:{_CODE})\b)\s?(?P<num>{_NUM}){_NO_SUFFIX}"
     rf"|(?<![\w.,])(?P<num2>{_NUM}){_NO_SUFFIX}\s?(?P<post>\b(?:{_CODE})\b|€|£))"
@@ -217,11 +217,6 @@ def _dec(v: Any) -> Decimal:
         raise ValueError(f"not a number: {v!r}")
     if not value.is_finite():
         raise ValueError(f"not a finite number: {v!r}")
-    # No accepted invoice can represent more than 28 integer digits in the
-    # existing Decimal context. Refuse before rules summaries or deposit sums
-    # perform arithmetic, including newly recognized exponent notation.
-    if value.adjusted() > 27:
-        raise ValueError(f"number exceeds supported invoice arithmetic range: {v!r}")
     return value
 
 
@@ -408,7 +403,7 @@ def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
     if paid_ok and ex.amount_paid > 0:
         if len(ccys) > 1:
             out.append(Issue("amount_paid", "error", "Prior payment reported on a multi-currency job; assign it manually."))
-        elif valid_amounts and ex.currency in currency_totals and ex.amount_paid >= currency_totals[ex.currency]:
+        elif valid_amounts and ex.line_items and ex.amount_paid >= currency_totals[ex.currency]:
             out.append(Issue("amount_paid", "error", f"Reported payment {ex.amount_paid} >= invoice total {currency_totals[ex.currency]}."))
     return out
 

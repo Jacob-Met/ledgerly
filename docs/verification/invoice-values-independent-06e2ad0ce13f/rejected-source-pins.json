@@ -1,0 +1,49 @@
+{
+  "baseline_commit": "d4d3802b7f5ccd78795d91159d907b08cb3e978f",
+  "r1_commit": "5293f42a2365976afd76eee10f67944272b7dc70",
+  "versions": {
+    "r1": {
+      "extract.py": {
+        "git_blob": "9e9fb7a94b05e89bc8c24f5d67bab9632cdd2f7c",
+        "sha256": "b064f16bbe7dbb2ce8d7362f7174c5fe712eba57664b056bb93ecf45dd4fc93c"
+      },
+      "paypal.py": {
+        "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f",
+        "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+      },
+      "agent.py": {
+        "git_blob": "41082ddcb64985a838220e602d6ad99e631fcc4b",
+        "sha256": "be59a4e305ff0dc3874a7070f7b446b06fd11a5d199caa9cdc11039eb0e1c773"
+      }
+    },
+    "r2": {
+      "extract.py": {
+        "git_blob": "15117b84b3722fa6ba4f7d702c68d512cec8d210",
+        "sha256": "88c7705fc7912e7481b34c2d0ebdc7a1a7b36853608226a5592afab6315b5678"
+      },
+      "paypal.py": {
+        "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f",
+        "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+      },
+      "agent.py": {
+        "git_blob": "41082ddcb64985a838220e602d6ad99e631fcc4b",
+        "sha256": "be59a4e305ff0dc3874a7070f7b446b06fd11a5d199caa9cdc11039eb0e1c773"
+      }
+    },
+    "r3": {
+      "extract.py": {
+        "git_blob": "11d289a49d3816eefb1d160e4dfaac5ebaaba442",
+        "sha256": "c883d09e12f2bcce4dc6adac3a16dce1eab24f6d687d34522a2b93cde8e8750e"
+      },
+      "paypal.py": {
+        "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f",
+        "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+      },
+      "agent.py": {
+        "git_blob": "41082ddcb64985a838220e602d6ad99e631fcc4b",
+        "sha256": "be59a4e305ff0dc3874a7070f7b446b06fd11a5d199caa9cdc11039eb0e1c773"
+      }
+    }
+  },
+  "provenance": "Each rejected source was copied from exact observed author files before subsequent correction, hash-verified, and executed from a separate reviewer package. No reconstruction was used. Agent and paypal files are unchanged from r1 through r3."
+}
