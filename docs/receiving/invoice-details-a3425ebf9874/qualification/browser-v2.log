@@ -1,0 +1,90 @@
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 93, in main
+    browser = playwright.chromium.launch(executable_path=args.chrome, headless=True,
+        args=["--no-sandbox", "--disable-background-networking", "--disable-component-update", "--disable-sync", "--no-first-run"])
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/sync_api/_generated.py", line 14502, in launch
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.launch(
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<17 lines>...
+        )
+        ^
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_browser_type.py", line 98, in launch
+    await self._channel.send(
+        "launch", TimeoutSettings.launch_timeout, params
+    )
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 558, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch: Failed to create a ProcessSingleton for your profile directory. This usually means that the profile is already in use by another instance of Chromium.
+Call log:
+  - <launching> /snap/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --disable-background-networking --disable-component-update --disable-sync --no-first-run --user-data-dir=/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/tmp/playwright_chromiumdev_profile-solqw7 --remote-debugging-pipe --no-startup-window
+  - <launched> pid=2685377
+  - [pid=2685377][err] [2685377:2685377:1008/130618.083371:ERROR:chrome/browser/process_singleton_posix.cc:347] Failed to create /dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/tmp/playwright_chromiumdev_profile-solqw7/SingletonLock: Permission denied (13)
+  - [pid=2685377][err] [2685377:2685377:1008/130618.085498:ERROR:chrome/app/chrome_main_delegate.cc:550] Failed to create a ProcessSingleton for your profile directory. This means that running multiple instances would start multiple browser processes rather than opening a new window in the existing process. Aborting now to avoid profile corruption.
+  - [pid=2685377] <gracefully close start>
+  - [pid=2685377] <kill>
+  - [pid=2685377] <will force kill>
+  - [pid=2685377] <process did exit: exitCode=21, signal=null>
+  - [pid=2685377] starting temporary directories cleanup
+  - [pid=2685377] finished temporary directories cleanup
+  - [pid=2685377] <gracefully close end>
+
+
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 331, in <module>
+    main()
+    ~~~~^^
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 93, in main
+    browser = playwright.chromium.launch(executable_path=args.chrome, headless=True,
+        args=["--no-sandbox", "--disable-background-networking", "--disable-component-update", "--disable-sync", "--no-first-run"])
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/sync_api/_generated.py", line 14502, in launch
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.launch(
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<17 lines>...
+        )
+        ^
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_browser_type.py", line 98, in launch
+    await self._channel.send(
+        "launch", TimeoutSettings.launch_timeout, params
+    )
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 558, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: BrowserType.launch: Failed to create a ProcessSingleton for your profile directory. This usually means that the profile is already in use by another instance of Chromium.
+Call log:
+  - <launching> /snap/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --disable-background-networking --disable-component-update --disable-sync --no-first-run --user-data-dir=/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/tmp/playwright_chromiumdev_profile-solqw7 --remote-debugging-pipe --no-startup-window
+  - <launched> pid=2685377
+  - [pid=2685377][err] [2685377:2685377:1008/130618.083371:ERROR:chrome/browser/process_singleton_posix.cc:347] Failed to create /dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/tmp/playwright_chromiumdev_profile-solqw7/SingletonLock: Permission denied (13)
+  - [pid=2685377][err] [2685377:2685377:1008/130618.085498:ERROR:chrome/app/chrome_main_delegate.cc:550] Failed to create a ProcessSingleton for your profile directory. This means that running multiple instances would start multiple browser processes rather than opening a new window in the existing process. Aborting now to avoid profile corruption.
+  - [pid=2685377] <gracefully close start>
+  - [pid=2685377] <kill>
+  - [pid=2685377] <will force kill>
+  - [pid=2685377] <process did exit: exitCode=21, signal=null>
+  - [pid=2685377] starting temporary directories cleanup
+  - [pid=2685377] finished temporary directories cleanup
+  - [pid=2685377] <gracefully close end>
+

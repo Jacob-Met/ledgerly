@@ -1,0 +1,23 @@
+PASS actual local Python engine starts with an empty inspector and no external calls
+PASS keyboard opens original draft details without changing the queued approval, snapshot or request count
+PASS details stay open and retain the original invoice when explicit approval removes its queued payload
+PASS analyzing another email does not replace the retained invoice record
+PASS real signed mock payment and duplicate replay update the correct retained payment facts
+PASS whole-ledger updates preserve disclosure state and keyboard focus while labeling the new sandbox clock
+PASS the existing reminder preview and approval remain separate from read-only invoice inspection
+PASS reset clears old details and mixed-currency invoices retain separate exact identities and amount strings
+PASS actual corrected Python invoice renders Unicode and hostile-looking text literally without active markup
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 286, in main
+    assert not overflow
+           ^^^^^^^^^^^^
+AssertionError
+
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 352, in <module>
+    main()
+    ~~~~^^
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 286, in main
+    assert not overflow
+           ^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.073" timestamp="2026-10-08T12:56:30.521129+00:00" hostname="hamon-thinkpad"><testcase classname="tests.test_browser_invoice_details.InvoiceDetailsTests" name="test_original_items_and_recipient_remain_after_explicit_approval" time="0.006"><failure message="KeyError: 'invoice_details'">self = &lt;test_browser_invoice_details.InvoiceDetailsTests testMethod=test_original_items_and_recipient_remain_after_explicit_approval&gt;
+
+    def test_original_items_and_recipient_remain_after_explicit_approval(self):
+        before = self.draft()
+        self.assertEqual(before["mock_requests"], 3)
+&gt;       original = self.record(before)
+                   ^^^^^^^^^^^^^^^^^^^
+
+tests/test_browser_invoice_details.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_browser_invoice_details.InvoiceDetailsTests testMethod=test_original_items_and_recipient_remain_after_explicit_approval&gt;
+snapshot = {'audit': [{'action': 'apv_fe28131baa', 'at': '2026-10-08T12:56:30.559980+00:00', 'event': 'queued', 'invoice': 'INV2-...ce': '1320', 'client_email': 'maya.chen@brightfern.example', 'client_name': 'Maya Chen', 'currency': 'USD', ...}], ...}
+invoice_id = 'INV2-MOCK-0001-0A76'
+
+    def record(self, snapshot, invoice_id=None):
+        invoice_id = invoice_id or snapshot["ledger"][0]["invoice_id"]
+&gt;       return next(row["record"] for row in snapshot["invoice_details"] if row["invoice_id"] == invoice_id)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'invoice_details'
+
+tests/test_browser_invoice_details.py:31: KeyError</failure></testcase></testsuite></testsuites>

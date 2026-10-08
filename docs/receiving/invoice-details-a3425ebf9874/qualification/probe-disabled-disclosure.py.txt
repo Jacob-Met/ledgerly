@@ -1,0 +1,16 @@
+import json
+from pathlib import Path
+from playwright.sync_api import sync_playwright
+rows=[]
+with sync_playwright() as p:
+ browser=p.chromium.launch(executable_path='/snap/bin/chromium',headless=True,args=['--no-sandbox'])
+ page=browser.new_page()
+ variants=[('inherited',''),('details-false',' aria-disabled="false"')]
+ for name,attr in variants:
+  page.set_content('<section aria-disabled="true"><details'+attr+'><summary>'+name+'</summary><div tabindex="0" role="region" aria-label="Read-only table">Contents</div></details><button disabled>Owner action</button></section>')
+  summary=page.locator('summary');summary.focus();page.keyboard.press('Enter')
+  cdp=page.context.new_cdp_session(page);nodes=cdp.send('Accessibility.getFullAXTree')['nodes'];cdp.detach()
+  rows.append({'variant':name,'open':page.locator('details').evaluate('(n)=>n.open'),'nodes':[n for n in nodes if n.get('role',{}).get('value') in ['DisclosureTriangle','region','button']]})
+ browser.close()
+Path('/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/disabled-disclosure-probe.json').write_text(json.dumps(rows,indent=2)+'\n')
+print(json.dumps(rows))

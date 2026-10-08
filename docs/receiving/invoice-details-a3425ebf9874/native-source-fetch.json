@@ -1,0 +1,51 @@
+[
+  {
+    "command": [
+      "git",
+      "init",
+      "-b",
+      "work/invoice-details-a3425ebf9874"
+    ],
+    "exit": 0,
+    "stdout": "Initialized empty Git repository in /srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/.git/\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "remote",
+      "add",
+      "origin",
+      "https://github.com/Jacob-Met/ledgerly.git"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "fetch",
+      "--depth=1",
+      "origin",
+      "f044ee3c5f77ab062d51684d8718f888e48540b2"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "From https://github.com/Jacob-Met/ledgerly\n * branch            f044ee3c5f77ab062d51684d8718f888e48540b2 -> FETCH_HEAD\n"
+  },
+  {
+    "command": [
+      "git",
+      "checkout",
+      "-B",
+      "work/invoice-details-a3425ebf9874",
+      "FETCH_HEAD"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "Reset branch 'work/invoice-details-a3425ebf9874'\n"
+  }
+]

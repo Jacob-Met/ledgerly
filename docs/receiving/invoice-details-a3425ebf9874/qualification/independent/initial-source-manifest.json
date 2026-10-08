@@ -1,0 +1,71 @@
+{
+  "schema": "hamon.independent_source_review.v1",
+  "reviewer": "estate-a3425ebf9874-local-estate",
+  "captured_at": "2026-10-08T13:22:31.904448+00:00",
+  "source": "/dev/shm/hamon-a3425ebf9874/remote-estate/ledgerly-invoice-details/source",
+  "reported_upstream": "f044ee3c5f77ab062d51684d8718f888e48540b2",
+  "scope": "Read-only independent review; first observed main/CSS already include owner narrow-width repair. No claim to have inspected the pre-repair layout bytes.",
+  "files": [
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "bytes": 1196,
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "bytes": 6357,
+      "sha256": "f2af2c3e569569baff9ff7856c79211fbd9ef8640ccd272977fbb9d843973f2a",
+      "git_blob": "5093df1a0626ccb7658cf987c96a0fed50838dd8"
+    },
+    {
+      "path": "web-demo/src/invoice-details.ts",
+      "bytes": 8762,
+      "sha256": "5c579b46532a45bf5a8862bf80ae6a0e93d1da0072240bee5dc9a20bda8ff5a3",
+      "git_blob": "48c3c24a2768f1ee31d7ec7fedc7a770b034a09a"
+    },
+    {
+      "path": "web-demo/src/invoice-details.css",
+      "bytes": 2214,
+      "sha256": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+      "git_blob": "1cb25514753f3c8104f13afb575633e7fce5811b"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "bytes": 18074,
+      "sha256": "18885cfaa66121311c2c68417c081d1b32f010d2869a27d6d6110b95c5d46b81",
+      "git_blob": "1c81ecc1e97ee4e8ff07fa0428d1b811109297f5"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "bytes": 31101,
+      "sha256": "743d283a5525a33820b1a2616054384e0013927c5e54cd12275c9160b9b8fd3a",
+      "git_blob": "493370706f68f37baa4f5932ac5ba14c065a91f4"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "bytes": 24917,
+      "sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "git_blob": "04cc47d78c29154435fb429ffa931d2727addb96"
+    },
+    {
+      "path": "tests/test_browser_invoice_details.py",
+      "bytes": 7922,
+      "sha256": "90a0b33ea5bb74cf76f2874387d5fa0c69bf9bbbdd9d7ba2c7ef58df551b60dc",
+      "git_blob": "4fc4c0b5e110a3a3eebee4791846195c539088c2"
+    },
+    {
+      "path": "web-demo/src/invoice-details.test.ts",
+      "bytes": 5840,
+      "sha256": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da",
+      "git_blob": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69"
+    },
+    {
+      "path": "web-demo/tests/invoice-details.test.ts",
+      "bytes": 4160,
+      "sha256": "bad73e1557c4edda6535cd0c00e8435e7020945522695da4a687bd0df8a21604",
+      "git_blob": "3ede1915f3527bd9548f100950bb3a74d9b6af18"
+    }
+  ],
+  "native_or_full_suite_execution": false
+}

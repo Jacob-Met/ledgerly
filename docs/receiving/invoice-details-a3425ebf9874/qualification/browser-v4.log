@@ -1,0 +1,116 @@
+PASS actual local Python engine starts with an empty inspector and no external calls
+PASS keyboard opens original draft details without changing the queued approval, snapshot or request count
+PASS details stay open and retain the original invoice when explicit approval removes its queued payload
+PASS analyzing another email does not replace the retained invoice record
+PASS real signed mock payment and duplicate replay update the correct retained payment facts
+PASS whole-ledger updates preserve disclosure state and keyboard focus while labeling the new sandbox clock
+PASS the existing reminder preview and approval remain separate from read-only invoice inspection
+PASS reset clears old details and mixed-currency invoices retain separate exact identities and amount strings
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 257, in main
+    page.locator("#review-client-name").fill("日本語 <b>Client</b> 😀")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/sync_api/_generated.py", line 15889, in fill
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.fill(
+        ^^^^^^^^^^^^^^^^^^^^
+            value=value, timeout=timeout, noWaitAfter=no_wait_after, force=force
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_locator.py", line 212, in fill
+    return await self._frame.fill(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_frame.py", line 590, in fill
+    await self._fill(**locals_to_params(locals()))
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_frame.py", line 602, in _fill
+    await self._channel.send("fill", self._timeout, locals_to_params(locals()))
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 558, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#review-client-name")
+    - locator resolved to <input name="client_name" autocomplete="off" value="Darnell Brooks" id="review-client-name"/>
+    - fill("日本語 <b>Client</b> 😀")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    60 × waiting for element to be visible, enabled and editable
+       - element is not visible
+     - retrying fill action
+       - waiting 500ms
+
+
+Traceback (most recent call last):
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 339, in <module>
+    main()
+    ~~~~^^
+  File "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py", line 257, in main
+    page.locator("#review-client-name").fill("日本語 <b>Client</b> 😀")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/sync_api/_generated.py", line 15889, in fill
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.fill(
+        ^^^^^^^^^^^^^^^^^^^^
+            value=value, timeout=timeout, noWaitAfter=no_wait_after, force=force
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_locator.py", line 212, in fill
+    return await self._frame.fill(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_frame.py", line 590, in fill
+    await self._fill(**locals_to_params(locals()))
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_frame.py", line 602, in _fill
+    await self._channel.send("fill", self._timeout, locals_to_params(locals()))
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py", line 558, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#review-client-name")
+    - locator resolved to <input name="client_name" autocomplete="off" value="Darnell Brooks" id="review-client-name"/>
+    - fill("日本語 <b>Client</b> 😀")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    60 × waiting for element to be visible, enabled and editable
+       - element is not visible
+     - retrying fill action
+       - waiting 500ms
+

@@ -1,0 +1,24 @@
+
+> ledgerly-offline-browser-demo@0.1.0 build
+> node scripts/stage-python.mjs && tsc --noEmit && vite build --outDir /dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+vite v8.3.3 building client environment for production...
+transforming...
+[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+✓ 12 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../../../../dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist/assets/__vite-browser-external-DKcLY8Mr.js   0.11 kB
+../../../../../../dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist/index.html                                   5.70 kB │ gzip: 2.36 kB
+../../../../../../dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist/assets/engine.worker-B5Sd8fS4.js            20.22 kB
+../../../../../../dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist/assets/index-B_o7e1xd.css                   12.66 kB │ gzip: 3.32 kB
+../../../../../../dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist/assets/index-BL_ZCmdh.js                    28.96 kB │ gzip: 9.70 kB
+
+✓ built in 378ms

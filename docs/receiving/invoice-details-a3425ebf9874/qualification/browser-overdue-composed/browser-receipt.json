@@ -1,0 +1,486 @@
+{
+  "schema": "ledgerly.invoice-details.browser-receiving.v1",
+  "started_at": "2026-10-08T13:30:24.460053+00:00",
+  "status": "passed",
+  "synthetic_only": true,
+  "checks": [
+    "actual local Python engine starts with an empty inspector and no external calls",
+    "keyboard opens original draft details without changing the queued approval, snapshot or request count",
+    "details stay open and retain the original invoice when explicit approval removes its queued payload",
+    "analyzing another email does not replace the retained invoice record",
+    "real signed mock payment and duplicate replay update the correct retained payment facts",
+    "whole-ledger updates preserve disclosure state and keyboard focus while labeling the new sandbox clock",
+    "the existing reminder preview and approval remain separate from read-only invoice inspection",
+    "reset clears old details and mixed-currency invoices retain separate exact identities and amount strings",
+    "actual corrected Python invoice renders Unicode and hostile-looking text literally without active markup",
+    "390px viewport contains long invoice text and keyboard users can focus and scroll the item table",
+    "terminal worker loss labels retained details inactive while inspection remains read-only",
+    "explicit empty restart clears old invoice details, retains source text and replays no prior action",
+    "all browser and worker requests stay on the loopback build, with no page error or source change"
+  ],
+  "requests": [
+    "http://127.0.0.1:37943/",
+    "http://127.0.0.1:37943/assets/index-BEygz_CU.js",
+    "http://127.0.0.1:37943/assets/index-B_o7e1xd.css",
+    "http://127.0.0.1:37943/favicon.svg",
+    "http://127.0.0.1:37943/assets/engine.worker-B5Sd8fS4.js",
+    "http://127.0.0.1:37943/pyodide/pyodide-lock.json",
+    "http://127.0.0.1:37943/pyodide/python_stdlib.zip",
+    "http://127.0.0.1:37943/pyodide/pyodide.asm.wasm",
+    "http://127.0.0.1:37943/pyodide/pyodide.asm.js",
+    "http://127.0.0.1:37943/python/ledgerly/__init__.py",
+    "http://127.0.0.1:37943/python/ledgerly/agent.py",
+    "http://127.0.0.1:37943/python/ledgerly/extract.py",
+    "http://127.0.0.1:37943/python/ledgerly/paypal.py",
+    "http://127.0.0.1:37943/python/bridge.py",
+    "http://127.0.0.1:37943/python/review.py",
+    "http://127.0.0.1:37943/python/invoice_details.py",
+    "http://127.0.0.1:37943/fixtures/01_simple_usd_hourly.txt",
+    "http://127.0.0.1:37943/fixtures/04_multi_currency.txt",
+    "http://127.0.0.1:37943/fixtures/05_missing_email.txt",
+    "http://127.0.0.1:37943/assets/engine.worker-B5Sd8fS4.js",
+    "http://127.0.0.1:37943/pyodide/pyodide-lock.json",
+    "http://127.0.0.1:37943/pyodide/python_stdlib.zip",
+    "http://127.0.0.1:37943/pyodide/pyodide.asm.wasm",
+    "http://127.0.0.1:37943/pyodide/pyodide.asm.js",
+    "http://127.0.0.1:37943/python/ledgerly/__init__.py",
+    "http://127.0.0.1:37943/python/ledgerly/agent.py",
+    "http://127.0.0.1:37943/python/ledgerly/extract.py",
+    "http://127.0.0.1:37943/python/ledgerly/paypal.py",
+    "http://127.0.0.1:37943/python/bridge.py",
+    "http://127.0.0.1:37943/python/review.py",
+    "http://127.0.0.1:37943/python/invoice_details.py"
+  ],
+  "blocked_requests": [],
+  "errors": [],
+  "files": {
+    "desktop-original-details.png": {
+      "bytes": 94247,
+      "sha256": "bb8dd8bebfdcff6333945bd6c923b5977577b4739256c2ed3093c4cfa1c01d63"
+    },
+    "desktop-recorded-payment.png": {
+      "bytes": 84513,
+      "sha256": "70cd883ced91b26fbb30144ba18578cb164c8b22bc8687f1753b1ed8b66a992a"
+    },
+    "phone-literal-details.png": {
+      "bytes": 54813,
+      "sha256": "fa28728161017d69f921a371aebaf7eb3296c619e03b769e3f100f90be02a99a"
+    },
+    "phone-table-keyboard-scroll.png": {
+      "bytes": 50579,
+      "sha256": "7ba7d5b0165f0fef2e77fcfd8ddb126eb406da8b2bc2a666d7721716aa04b455"
+    }
+  },
+  "source": {
+    "ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "web-demo/python/bridge.py": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+    "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "web-demo/src/invoice-details.ts": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+    "web-demo/src/invoice-details.css": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+    "web-demo/src/main.ts": "18885cfaa66121311c2c68417c081d1b32f010d2869a27d6d6110b95c5d46b81",
+    "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1"
+  },
+  "origin": "http://127.0.0.1:37943",
+  "browser": "153.0.8010.47",
+  "inactive_disclosures_ax": [
+    {
+      "nodeId": "117",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "DisclosureTriangle"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 37
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details · sandbox record",
+        "sources": [
+          {
+            "type": "relatedElement",
+            "attribute": "aria-labelledby"
+          },
+          {
+            "type": "attribute",
+            "attribute": "aria-label"
+          },
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice details · sandbox record"
+            }
+          },
+          {
+            "type": "attribute",
+            "attribute": "title",
+            "superseded": true
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "expanded",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ],
+      "parentId": "145",
+      "childIds": [
+        "146",
+        "799",
+        "800"
+      ],
+      "backendDOMNodeId": 117
+    },
+    {
+      "nodeId": "799",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "StaticText"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 158
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details ",
+        "sources": [
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice details "
+            }
+          }
+        ]
+      },
+      "properties": [],
+      "parentId": "117",
+      "childIds": [
+        "-1000000181"
+      ],
+      "backendDOMNodeId": 799
+    },
+    {
+      "nodeId": "-1000000181",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "InlineTextBox"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 101
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details "
+      },
+      "properties": [],
+      "parentId": "799",
+      "childIds": []
+    }
+  ],
+  "inactive_readonly_controls_ax": [
+    {
+      "nodeId": "117",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "DisclosureTriangle"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 37
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details · sandbox record",
+        "sources": [
+          {
+            "type": "relatedElement",
+            "attribute": "aria-labelledby"
+          },
+          {
+            "type": "attribute",
+            "attribute": "aria-label"
+          },
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice details · sandbox record"
+            }
+          },
+          {
+            "type": "attribute",
+            "attribute": "title",
+            "superseded": true
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "expanded",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ],
+      "parentId": "145",
+      "childIds": [
+        "146",
+        "799",
+        "800"
+      ],
+      "backendDOMNodeId": 117
+    },
+    {
+      "nodeId": "147",
+      "ignored": false,
+      "role": {
+        "type": "role",
+        "value": "region"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 143
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice items; scroll horizontally if needed",
+        "sources": [
+          {
+            "type": "relatedElement",
+            "attribute": "aria-labelledby"
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice items; scroll horizontally if needed"
+            },
+            "attribute": "aria-label",
+            "attributeValue": {
+              "type": "string",
+              "value": "Invoice items; scroll horizontally if needed"
+            }
+          },
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice items"
+            },
+            "superseded": true
+          },
+          {
+            "type": "attribute",
+            "attribute": "title",
+            "superseded": true
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "focused",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ],
+      "parentId": "585",
+      "childIds": [
+        "613"
+      ],
+      "backendDOMNodeId": 147
+    }
+  ],
+  "worker_calls": [
+    {
+      "id": 1,
+      "action": "init",
+      "payload": {}
+    },
+    {
+      "id": 2,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n"
+      }
+    },
+    {
+      "id": 3,
+      "action": "draft",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n"
+      }
+    },
+    {
+      "id": 4,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_b58a3312cb"
+      }
+    },
+    {
+      "id": 5,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Oliver Hughes <oliver@thamesreads.example>\nTo: jacob@ledgerly.example\nSubject: Manuscript proofreading\n\nHello,\n\nPlease go ahead with the following:\n\nProofreading: 18 hours @ £40/hr\nStyle sheet preparation: 2 hrs @ £40/hr\n\nWe pay within 30 days of invoice.\n\nKind regards,\nOliver Hughes\n"
+      }
+    },
+    {
+      "id": 6,
+      "action": "payment",
+      "payload": {
+        "invoice_id": "INV2-MOCK-0001-D16E",
+        "amount": "100.25"
+      }
+    },
+    {
+      "id": 7,
+      "action": "replay",
+      "payload": {}
+    },
+    {
+      "id": 8,
+      "action": "advance",
+      "payload": {
+        "day": "2050-01-01"
+      }
+    },
+    {
+      "id": 9,
+      "action": "chase",
+      "payload": {}
+    },
+    {
+      "id": 10,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_a5ada05a90"
+      }
+    },
+    {
+      "id": 11,
+      "action": "reset",
+      "payload": {}
+    },
+    {
+      "id": 12,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+      }
+    },
+    {
+      "id": 13,
+      "action": "draft",
+      "payload": {
+        "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+      }
+    },
+    {
+      "id": 14,
+      "action": "reset",
+      "payload": {}
+    },
+    {
+      "id": 15,
+      "action": "analyze",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n"
+      }
+    },
+    {
+      "id": 16,
+      "action": "review",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "fields": {
+          "client_name": "日本語 <b>Client</b> 😀",
+          "client_email": "receiver@example.test",
+          "due_days": "7",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Retained <img src=x onerror=\"window.detailExecuted=1\"> & 日本語 😀",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": ""
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 17,
+      "action": "draft",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "review_id": "3f9840cf82cd48acbe942b82d8ba29ac"
+      }
+    },
+    {
+      "id": 18,
+      "action": "init",
+      "payload": {}
+    }
+  ],
+  "last_state": {
+    "today": "2026-10-08",
+    "ledger": [],
+    "invoice_details": [],
+    "pending": [],
+    "audit": [],
+    "mock_requests": 0,
+    "external_calls": 0,
+    "can_replay": false
+  },
+  "state_count": 18,
+  "finished_at": "2026-10-08T13:30:46.233992+00:00"
+}

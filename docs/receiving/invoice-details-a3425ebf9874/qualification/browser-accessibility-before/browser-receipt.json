@@ -1,0 +1,341 @@
+{
+  "schema": "ledgerly.invoice-details.browser-receiving.v1",
+  "started_at": "2026-10-08T13:25:01.697565+00:00",
+  "status": "failed",
+  "synthetic_only": true,
+  "checks": [
+    "actual local Python engine starts with an empty inspector and no external calls",
+    "keyboard opens original draft details without changing the queued approval, snapshot or request count",
+    "details stay open and retain the original invoice when explicit approval removes its queued payload",
+    "analyzing another email does not replace the retained invoice record",
+    "real signed mock payment and duplicate replay update the correct retained payment facts",
+    "whole-ledger updates preserve disclosure state and keyboard focus while labeling the new sandbox clock",
+    "the existing reminder preview and approval remain separate from read-only invoice inspection",
+    "reset clears old details and mixed-currency invoices retain separate exact identities and amount strings",
+    "actual corrected Python invoice renders Unicode and hostile-looking text literally without active markup",
+    "390px viewport contains long invoice text and keyboard users can focus and scroll the item table"
+  ],
+  "requests": [
+    "http://127.0.0.1:36493/",
+    "http://127.0.0.1:36493/assets/index-BL_ZCmdh.js",
+    "http://127.0.0.1:36493/assets/index-B_o7e1xd.css",
+    "http://127.0.0.1:36493/favicon.svg",
+    "http://127.0.0.1:36493/assets/engine.worker-B5Sd8fS4.js",
+    "http://127.0.0.1:36493/pyodide/pyodide-lock.json",
+    "http://127.0.0.1:36493/pyodide/python_stdlib.zip",
+    "http://127.0.0.1:36493/pyodide/pyodide.asm.wasm",
+    "http://127.0.0.1:36493/pyodide/pyodide.asm.js",
+    "http://127.0.0.1:36493/python/ledgerly/__init__.py",
+    "http://127.0.0.1:36493/python/ledgerly/agent.py",
+    "http://127.0.0.1:36493/python/ledgerly/extract.py",
+    "http://127.0.0.1:36493/python/ledgerly/paypal.py",
+    "http://127.0.0.1:36493/python/bridge.py",
+    "http://127.0.0.1:36493/python/review.py",
+    "http://127.0.0.1:36493/python/invoice_details.py",
+    "http://127.0.0.1:36493/fixtures/01_simple_usd_hourly.txt",
+    "http://127.0.0.1:36493/fixtures/04_multi_currency.txt",
+    "http://127.0.0.1:36493/fixtures/05_missing_email.txt"
+  ],
+  "blocked_requests": [],
+  "errors": [],
+  "files": {
+    "desktop-original-details.png": {
+      "bytes": 94232,
+      "sha256": "890f54dab4d667d29f774f215584e8487be883da7130fc762d19788d0226d250"
+    },
+    "desktop-recorded-payment.png": {
+      "bytes": 84792,
+      "sha256": "b604da509b983d1b179dac4d26634a431879955cef9f25c36fa45885e5f931c3"
+    },
+    "phone-literal-details.png": {
+      "bytes": 54980,
+      "sha256": "de371a33c00e0d1e16d63c8b178418e27d4da07a36f78ca360183cd1b48fd2a4"
+    },
+    "phone-table-keyboard-scroll.png": {
+      "bytes": 50590,
+      "sha256": "4939bbe117c312b739513826287a46e5062b19fc42145327afab79841265dc48"
+    }
+  },
+  "source": {
+    "ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "web-demo/python/bridge.py": "f2af2c3e569569baff9ff7856c79211fbd9ef8640ccd272977fbb9d843973f2a",
+    "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "web-demo/src/invoice-details.ts": "5c579b46532a45bf5a8862bf80ae6a0e93d1da0072240bee5dc9a20bda8ff5a3",
+    "web-demo/src/invoice-details.css": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+    "web-demo/src/main.ts": "18885cfaa66121311c2c68417c081d1b32f010d2869a27d6d6110b95c5d46b81",
+    "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1"
+  },
+  "origin": "http://127.0.0.1:36493",
+  "browser": "153.0.8010.47",
+  "inactive_disclosures_ax": [
+    {
+      "nodeId": "115",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "DisclosureTriangle"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 37
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details · sandbox record",
+        "sources": [
+          {
+            "type": "relatedElement",
+            "attribute": "aria-labelledby"
+          },
+          {
+            "type": "attribute",
+            "attribute": "aria-label"
+          },
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice details · sandbox record"
+            }
+          },
+          {
+            "type": "attribute",
+            "attribute": "title",
+            "superseded": true
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "disabled",
+          "value": {
+            "type": "boolean",
+            "value": true
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "expanded",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ],
+      "parentId": "144",
+      "childIds": [
+        "145",
+        "799",
+        "800"
+      ],
+      "backendDOMNodeId": 115
+    },
+    {
+      "nodeId": "799",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "StaticText"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 158
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details ",
+        "sources": [
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice details "
+            }
+          }
+        ]
+      },
+      "properties": [],
+      "parentId": "115",
+      "childIds": [
+        "-1000000181"
+      ],
+      "backendDOMNodeId": 799
+    },
+    {
+      "nodeId": "-1000000181",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "InlineTextBox"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 101
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details "
+      },
+      "properties": [],
+      "parentId": "799",
+      "childIds": []
+    }
+  ],
+  "inactive_readonly_controls_ax": [
+    {
+      "nodeId": "115",
+      "ignored": false,
+      "role": {
+        "type": "internalRole",
+        "value": "DisclosureTriangle"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 37
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice details · sandbox record",
+        "sources": [
+          {
+            "type": "relatedElement",
+            "attribute": "aria-labelledby"
+          },
+          {
+            "type": "attribute",
+            "attribute": "aria-label"
+          },
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice details · sandbox record"
+            }
+          },
+          {
+            "type": "attribute",
+            "attribute": "title",
+            "superseded": true
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "disabled",
+          "value": {
+            "type": "boolean",
+            "value": true
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "expanded",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ],
+      "parentId": "144",
+      "childIds": [
+        "145",
+        "799",
+        "800"
+      ],
+      "backendDOMNodeId": 115
+    },
+    {
+      "nodeId": "148",
+      "ignored": false,
+      "role": {
+        "type": "role",
+        "value": "region"
+      },
+      "chromeRole": {
+        "type": "internalRole",
+        "value": 143
+      },
+      "name": {
+        "type": "computedString",
+        "value": "Invoice items; scroll horizontally if needed",
+        "sources": [
+          {
+            "type": "relatedElement",
+            "attribute": "aria-labelledby"
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice items; scroll horizontally if needed"
+            },
+            "attribute": "aria-label",
+            "attributeValue": {
+              "type": "string",
+              "value": "Invoice items; scroll horizontally if needed"
+            }
+          },
+          {
+            "type": "contents",
+            "value": {
+              "type": "computedString",
+              "value": "Invoice items"
+            },
+            "superseded": true
+          },
+          {
+            "type": "attribute",
+            "attribute": "title",
+            "superseded": true
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "disabled",
+          "value": {
+            "type": "boolean",
+            "value": true
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "focused",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ],
+      "parentId": "585",
+      "childIds": [
+        "612"
+      ],
+      "backendDOMNodeId": 148
+    }
+  ],
+  "failure": "Traceback (most recent call last):\n  File \"/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/browser-accessibility-gate.py.txt\", line 315, in main\n    assert readonly_controls and all(not any(prop.get(\"name\") == \"disabled\" and\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        prop.get(\"value\", {}).get(\"value\") is True for prop in node.get(\"properties\", []))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        for node in readonly_controls), \"Read-only invoice controls must stay enabled in the accessibility tree\"\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Read-only invoice controls must stay enabled in the accessibility tree\n",
+  "finished_at": "2026-10-08T13:25:17.919131+00:00"
+}

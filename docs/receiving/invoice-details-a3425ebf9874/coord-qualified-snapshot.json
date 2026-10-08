@@ -1,0 +1,121 @@
+{
+  "schema": "hamon.estate.external-contribution.v1",
+  "worker_id": "estate-a3425ebf9874-ledgerly-invoice-details",
+  "identity_kind": "external_independent_source_contributor",
+  "source_route": "ChatGPT / remote_estate through authorized Remote Desktop Commander",
+  "authority_source": "Jacob's standing execution mandate in upload/01-Pasted-markdown.md; root assigned next substantive unowned product outcome",
+  "state": "source_qualified_awaiting_publication",
+  "updated_at": "2026-10-08T13:36:02.025028+00:00",
+  "repository": "Jacob-Met/ledgerly",
+  "issue": "https://github.com/Jacob-Met/ledgerly/issues/28",
+  "base": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "base_tree": "cb1877320fc40166cc7f10c035d5e7866be53713",
+  "scope": {
+    "outcome": "Read-only retained sandbox invoice details for browser-demo visitors after approval and later activity",
+    "paths": [
+      "web-demo/python/invoice_details.py",
+      "web-demo/src/invoice-details.ts",
+      "web-demo/src/invoice-details.css",
+      "web-demo/src/invoice-details.test.ts",
+      "tests/test_browser_invoice_details.py",
+      "web-demo/tests/invoice-details.test.ts",
+      "web-demo/tools/check_invoice_details_browser.py",
+      "docs/receiving/invoice-details-a3425ebf9874/**"
+    ],
+    "shared_hooks": {
+      "web-demo/python/bridge.py": "import plus Demo.snapshot field only",
+      "web-demo/src/main.ts": "import/setup, ledger-card mount, snapshot and availability hooks",
+      "web-demo/scripts/stage-python.mjs": "new Python filename in existing copy list",
+      "web-demo/src/engine.worker.ts": "new Python filename in existing load list",
+      "web-demo/README.md": "usage addition",
+      "web-demo/tests/{engine,review,approval-preview,overdue-scan}.test.ts": "new Python filename in each isolated fixture only; existing assertions unchanged",
+      "web-demo/tests/engine-recovery.test.ts": "bind actual controller in import-stripping VM; existing assertions unchanged"
+    }
+  },
+  "dependencies": [
+    {
+      "issue": 22,
+      "pr": 26,
+      "state": "merged",
+      "scope": "pending approval preview"
+    },
+    {
+      "issue": 23,
+      "pr": 27,
+      "state": "active owner",
+      "scope": "ledger CSV export; preserve controller and shared lifecycle hooks"
+    },
+    {
+      "issue": 25,
+      "state": "merged",
+      "scope": "Demo.dispatch chase call only",
+      "pr": 30,
+      "head": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db"
+    },
+    {
+      "issue": 21,
+      "state": "merged and retained",
+      "scope": "current webhook invoice refresh",
+      "head": "5493205cd69a32be75ed2f7dfc669b122efe5563"
+    },
+    {
+      "issue": 31,
+      "state": "separate active owner",
+      "scope": "completed reviews, own module/snapshot/mount; coexists with invoice details",
+      "coordination": "https://github.com/Jacob-Met/ledgerly/issues/28#issuecomment-6060908304"
+    }
+  ],
+  "exclusions": [
+    "core Agent/provider/extraction/value/approval rules",
+    "worker recovery or queue logic",
+    "active CSV and approval-preview implementation",
+    "real PayPal or accounting effects",
+    "live source/deployment/hosting",
+    "resident identity/live lease/goal adoption"
+  ],
+  "native_root": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details",
+  "baseline": {
+    "base": "350868091702d60f3dc340be4a017ba49d99f8a0",
+    "receipt_sha256": "0425af3f8d943c3dc1c006ba640ad5b45bf7ddc4c3f6e8497d09c48e7a93c610",
+    "provider_requests_from_snapshot": 0,
+    "external_calls": 0
+  },
+  "source_freeze": {
+    "commit": "47f9f427f66ff69b7ba356359905965d96d0111f",
+    "tree": "46a03be471b4fd3199735c4a9cc341da878bc82e",
+    "received_current_upstream": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+    "receipt": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/docs/receiving/invoice-details-a3425ebf9874/source-manifest.json",
+    "receipt_sha256": "b5475f7a9270b17eb8320b42d4fd669850f3c674637239e792620ace1fef2aee",
+    "browser_driver_sha256": "82460b21d1982b66e8847353cddb8c1376c6db2f5dd1a38a42778158d7379271"
+  },
+  "qualification": {
+    "native_python_5493": "187 passed;60 subtests passed",
+    "web_suite_before_interaction_correction": "45 passed",
+    "corrected_renderer_recovery": "13 passed",
+    "final_overdue_composition_native": "14 passed;3 subtests passed",
+    "final_overdue_composition_pyodide": "5 passed including6 actual native overdue controls",
+    "final_typescript_build": "passed",
+    "browser": {
+      "status": "passed",
+      "checks": 13,
+      "actual_chromium": "153.0.8010.47",
+      "receipt": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/qualification/browser-overdue-composed/browser-receipt.json",
+      "sha256": "ff65bf24150d43aea89a05b8a0d1d9e11a60ef91c60b94d585050c16f9cf11a2"
+    },
+    "independent_reviewer": "estate-a3425ebf9874/local_estate",
+    "independent_result": "original1pass2fail; corrected3pass; static current-main composition accepted",
+    "independent_manifest_sha256": "ab1249f4e8b57de33430d8df293ee5ae7c675621b0fd007453c7990c2e4da7b9",
+    "composition_manifest_sha256": "51238beaf84eb03ba9a8b42e9dba04645935d69fe1b09325e0cd43fe18b4deb7"
+  },
+  "initial_base": "f044ee3c5f77ab062d51684d8718f888e48540b2",
+  "prior_source_freeze": {
+    "commit": "e4ba5dfffa98ce0f533a57d57ba6c56cf74a7009",
+    "actual_parent": "f044ee3c5f77ab062d51684d8718f888e48540b2",
+    "receipt": "/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source-freeze-v1.json",
+    "receipt_sha256": "a159f471da837cd2ded6d599e40a6e87e294c5b1f21718610d259e449f5fe79c",
+    "browser_driver_correction_pending": true
+  },
+  "application_deployment": false,
+  "live_account_action": false,
+  "ephemeral_test_dependency_install": true
+}

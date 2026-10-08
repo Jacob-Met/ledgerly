@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "/dev/shm/hamon-a3425ebf9874/local-estate/ledgerly-invoice-details-review/check_disclosure_refresh.mjs",
+    "/dev/shm/hamon-a3425ebf9874/local-estate/ledgerly-invoice-details-review/invoice-details-corrected.ts",
+    "/dev/shm/hamon-a3425ebf9874/local-estate/ledgerly-invoice-details-review/corrected-browser-report.json"
+  ],
+  "returncode": 0,
+  "stdout_sha256": "84560870946d87b29afa97b86870a55bd6b8a79566af817e49d76c21b673f3cc",
+  "stderr_sha256": "2a72ce8ac2074acb91b2005f675878f8449beb6a58e0a07534ccaca6948cea3c"
+}

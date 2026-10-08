@@ -1,0 +1,115 @@
+{
+  "schema": "ledgerly.invoice-details.source-manifest.v1",
+  "native_head": "47f9f427f66ff69b7ba356359905965d96d0111f",
+  "native_tree": "46a03be471b4fd3199735c4a9cc341da878bc82e",
+  "current_upstream": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "upstream_tree": "cb1877320fc40166cc7f10c035d5e7866be53713",
+  "upstream_leaf_count": 364,
+  "unchanged_upstream_leaves": 354,
+  "all_unowned_upstream_leaves_exact": true,
+  "agents_files": [],
+  "changed_files": [
+    {
+      "path": "tests/test_browser_invoice_details.py",
+      "bytes": 7922,
+      "sha256": "90a0b33ea5bb74cf76f2874387d5fa0c69bf9bbbdd9d7ba2c7ef58df551b60dc",
+      "git_blob": "4fc4c0b5e110a3a3eebee4791846195c539088c2"
+    },
+    {
+      "path": "web-demo/README.md",
+      "bytes": 6442,
+      "sha256": "4e3fa276f08dba553cb66eda11fcfc274f623b3bbfbe38915a2ed2724f1c84e5",
+      "git_blob": "6184fce0ffc642038f93f32faaea6061bb802c3e"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "bytes": 6609,
+      "sha256": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+      "git_blob": "6a3391bcba29ea65a2c6155914bda5a51d152db3"
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "bytes": 1196,
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015"
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "bytes": 995,
+      "sha256": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+      "git_blob": "5c1be224027f6bc5c691a0bbb62ca55098482e81"
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "bytes": 1736,
+      "sha256": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+      "git_blob": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96"
+    },
+    {
+      "path": "web-demo/src/invoice-details.css",
+      "bytes": 2214,
+      "sha256": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+      "git_blob": "1cb25514753f3c8104f13afb575633e7fce5811b"
+    },
+    {
+      "path": "web-demo/src/invoice-details.test.ts",
+      "bytes": 5840,
+      "sha256": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da",
+      "git_blob": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69"
+    },
+    {
+      "path": "web-demo/src/invoice-details.ts",
+      "bytes": 9311,
+      "sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+      "git_blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "bytes": 18074,
+      "sha256": "18885cfaa66121311c2c68417c081d1b32f010d2869a27d6d6110b95c5d46b81",
+      "git_blob": "1c81ecc1e97ee4e8ff07fa0428d1b811109297f5"
+    },
+    {
+      "path": "web-demo/tests/approval-preview.test.ts",
+      "bytes": 9146,
+      "sha256": "a9b93d25e5b31f681e32592f3a6740ebc16e79326e3313251e6bd2cb93f24dc1",
+      "git_blob": "c02c82f16413dc8d5c88858dc8c8dec5c0ff1bc0"
+    },
+    {
+      "path": "web-demo/tests/engine-recovery.test.ts",
+      "bytes": 15713,
+      "sha256": "256701b21934cb3152504c7840b8daed705b063cd8b97e3ba0d1d5bcee83ad47",
+      "git_blob": "60001473a2553070892cd9c4c1fa0e9d6dcc8300"
+    },
+    {
+      "path": "web-demo/tests/engine.test.ts",
+      "bytes": 3030,
+      "sha256": "34d9ad388fc191783e296d7c8ebd4f7b02910231cb0db976b49f6c8fb9f88cad",
+      "git_blob": "ccdc50843946b4b562e183f38d45948ec20cd614"
+    },
+    {
+      "path": "web-demo/tests/invoice-details.test.ts",
+      "bytes": 4160,
+      "sha256": "bad73e1557c4edda6535cd0c00e8435e7020945522695da4a687bd0df8a21604",
+      "git_blob": "3ede1915f3527bd9548f100950bb3a74d9b6af18"
+    },
+    {
+      "path": "web-demo/tests/overdue-scan.test.ts",
+      "bytes": 2144,
+      "sha256": "dff470bf583ef7d0b55b705e34f9997db400635035cf897e8adcb7ab3a6d4202",
+      "git_blob": "772a4595d6444221a5b9fb46d5d7833bf09f67da"
+    },
+    {
+      "path": "web-demo/tests/review.test.ts",
+      "bytes": 9415,
+      "sha256": "5d89fa38794f021dca8c304e85c45f9092c55b7df94528aa46aa790d1b019d9d",
+      "git_blob": "784b30a2ceb21b5ec651f80ef9fffa37054d73b9"
+    },
+    {
+      "path": "web-demo/tools/check_invoice_details_browser.py",
+      "bytes": 20616,
+      "sha256": "82460b21d1982b66e8847353cddb8c1376c6db2f5dd1a38a42778158d7379271",
+      "git_blob": "9cb13dc4065d4a0beacd0f6a70141b7f49bff45e"
+    }
+  ]
+}
