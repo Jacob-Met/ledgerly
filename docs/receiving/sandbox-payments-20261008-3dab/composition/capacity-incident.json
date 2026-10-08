@@ -1,0 +1,9 @@
+{
+  "operation": "write unexecuted composition controller",
+  "error": "ENOSPC",
+  "partial_path": "/dev/shm/memory-delivery-ledgerly-3dab/publication-composition/run_native_composition.py",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "verified_prefix_of_unexecuted_source": true,
+  "action": "removed only this incomplete unexecuted owner file; final exact runner and receipts held in process memory"
+}

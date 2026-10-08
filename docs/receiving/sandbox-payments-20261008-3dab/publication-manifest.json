@@ -1,0 +1,743 @@
+{
+  "repository": "Jacob-Met/ledgerly",
+  "issue": 29,
+  "base": "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+  "base_tree": "bf2f5bab390bef22da1d07c1eb3164b7147f3e0a",
+  "source_scope": [
+    "ledgerly/paypal.py",
+    "web-demo/python/bridge.py",
+    "tests/test_sandbox_payment_admission.py"
+  ],
+  "source_qualification": {
+    "v2_manifest_sha256": "0c0576bacea4c05d662157d1fd8e3dcf5594a03b56cec792bac2ceefc85ee816",
+    "final_composition_manifest_sha256": "b92bc2abbbd0b5d8c8f00eb057f88f6b88a6b9a9b77a28dab636fa907e18d428",
+    "captured_upstream_inputs": 36,
+    "composition_methods_per_mode": 20
+  },
+  "independent_packet": {
+    "payloads": 27,
+    "manifest_sha256": "dac61e7b4b568f8d010048bd0bf79a916c62c14545882d7e9cdcac470c3bd77a",
+    "qualified_subject": "exact V2; final PR33 composition is separately recorded"
+  },
+  "preservation": {
+    "base_leaves": 467,
+    "modified_existing": 2,
+    "preserved_existing": 465,
+    "additions_including_this_manifest": 78,
+    "deletions": 0
+  },
+  "manifest_excludes_itself": true,
+  "payloads": [
+    {
+      "path": "ledgerly/paypal.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 25901,
+      "sha256": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace",
+      "git_blob": "a1da2ebff1ec2963ab94ca094300c8f5b42aa704",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-pr33/ledgerly/paypal.py"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6627,
+      "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+      "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-pr33/web-demo/python/bridge.py"
+    },
+    {
+      "path": "tests/test_sandbox_payment_admission.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 15321,
+      "sha256": "7f971cc281485417f83eed9f48db55b420b06287aee4966092252f61b489cedf",
+      "git_blob": "214cbf0b692e088c0cc34684024bfaef9865e18d",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-pr33/tests/test_sandbox_payment_admission.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/baseline/baseline-pins.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2171,
+      "sha256": "b0f76c02cf0078751103fff1e49ae056d7164e9e4353eed55c7eb8339f324e26",
+      "git_blob": "85fcb552ef9bd777da226924658439c186890199",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/baseline-pins.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/baseline/current-before-pins.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2171,
+      "sha256": "b0ba2aa5780506dcdbeb48122e859c0c811d415d9051b5f9080da9437707af75",
+      "git_blob": "9ffd6f1b223799fa85a6f2d6b21bc315f678f6c8",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/current-before-pins.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/baseline/payment-baseline.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 10703,
+      "sha256": "39592d94a7b0c1461d99f8cc0c37c8f4e82b651bd3c8ca62cc1fe3a45c81058f",
+      "git_blob": "6a2a037cf37595f121f7f0e45366dfbb6647a97f",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/payment-baseline.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/baseline/payment-current-before.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 10725,
+      "sha256": "f75e35d39660f123756f75fd497ba4f8fe47d4544e79c803a4051d1671bebeee",
+      "git_blob": "b6d74e3f2cb9b1bb5c8984998d57bb1b131efac9",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/payment-current-before.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/baseline/payment-zero-transport-before.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2485,
+      "sha256": "65c6a183eb5485b179d9e2b1d644416bce89154559c66904a8115686786cc951",
+      "git_blob": "4311099384eeadfaba4b00e3d0ba0d434ae51114",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/payment-zero-transport-before.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/baseline/probe_payment_baseline.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2632,
+      "sha256": "09645e0ab4bd42dd9188d42f60219b32a1411c3d83778ef21d1ae451e9e91d11",
+      "git_blob": "3933cfdd5d44cd99180034e441c9faf45481a14b",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/probe_payment_baseline.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/baseline/probe_payment_current.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2644,
+      "sha256": "434b653fee1763689ac87393d98d4c93b5ab008372851cc9a90e7d5c35a63e5d",
+      "git_blob": "962b1f0e163f850ba6a909bca4ba2cf28e4b4074",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/probe_payment_current.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/author-test-correction.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 618,
+      "sha256": "335c78ae3e95aef17d28bf5e44a52c4ecbe49a5034cf93054e3d1eaf30e8035f",
+      "git_blob": "79e6d44c12fb7e74016b1621aba636e39e0d9c5d",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/author-test-correction.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/full-native-normal.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/full-native-normal.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/full-native-normal.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 271,
+      "sha256": "17fb873467765eb25d6f8f84acc2eccfab8674ca749828b3234e52306210fca3",
+      "git_blob": "95cd40a5a1b450817fc0fbb41f919172ac13ff73",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/full-native-normal.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/full-native-optimized.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/full-native-optimized.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/full-native-optimized.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 928,
+      "sha256": "fe6711c4d1092ee992ddd0fd433d752336a8642acaafcb0ff3893c5c837bd756",
+      "git_blob": "13e6338a96bdbe72833f401d305d625efeab29c0",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/full-native-optimized.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/full-native-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1683,
+      "sha256": "67a597d0034ab39ae6432e89b2a470b8ff3653ae7ecc8ab9ae30e5600cdfc2df",
+      "git_blob": "b786878272538e84f489aa916e47b808159931a2",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/full-native-receipt.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/run_full_native.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2031,
+      "sha256": "7f5b8f428aa346454732bdd13b5826dc0a492921b715ee6a0b88e556cb2372e1",
+      "git_blob": "93ef9974d6f498149119351f384ecd5d5a3ffc58",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/run_full_native.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/run_targeted.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3388,
+      "sha256": "43f46730df79337c2fbbfcebdd9b1bb41d5cf63fdc51c281d70ac22ef29bce14",
+      "git_blob": "0ac581b26d45e08e25bb9d7c95c3536b96240ec7",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/run_targeted.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/source-freeze-v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 22818,
+      "sha256": "35e9f10586d0ed3637b3c048de500f0e4fa4d335cec24d623a6ea306dd4a4109",
+      "git_blob": "56331104f3361607aa983599d0fc7ffab23825de",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/source-freeze-v1.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-before-normal.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 44477,
+      "sha256": "66d5c459289d9f99794ccf361b6c340904ed46b9663e6c39923b899f4dd1368e",
+      "git_blob": "03f522a72c8e0b77b11fce9df9f143e0a49574cb",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-before-normal.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-before-normal.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1384,
+      "sha256": "8e51fca66a56955e22186183b2029744b89783d2d86e628405fb6a0924aeb300",
+      "git_blob": "ac8d119f7a800fcdc4e4790792aab6d7cc95fe41",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-before-normal.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-before-optimized.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 44477,
+      "sha256": "5bc97469c06c21019d2f700a8f86f4fd58a5e2535e26f3338d97e30dc520ea76",
+      "git_blob": "4ac442a3332c12c79f62937829538dbfbf7e7aa6",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-before-optimized.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-before-optimized.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1384,
+      "sha256": "8e51fca66a56955e22186183b2029744b89783d2d86e628405fb6a0924aeb300",
+      "git_blob": "ac8d119f7a800fcdc4e4790792aab6d7cc95fe41",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-before-optimized.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-candidate-normal.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2374,
+      "sha256": "59915e8302fb374fa84fed2a94d5edc958c959e73a3e870a53b78f5743d8d6ee",
+      "git_blob": "340176da9cd4a8948ebfe7414caefa4860816011",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-candidate-normal.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-candidate-normal.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1354,
+      "sha256": "33edb0d78bf6d94ebf85f9e5b15b163da237ebcd1d0731799bd9fb5a92cc0e26",
+      "git_blob": "276f67e0840e26d0c7ab3755f4dea75e891a0822",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-candidate-normal.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-candidate-optimized.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2374,
+      "sha256": "8ab7c9851e8b7777dc551fb240f5ec60a71a79fb72fbba8db5ff2e2482c2961c",
+      "git_blob": "c25e98b77cf04d6d4a048401de5ba138e6687fe0",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-candidate-optimized.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-candidate-optimized.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1354,
+      "sha256": "33edb0d78bf6d94ebf85f9e5b15b163da237ebcd1d0731799bd9fb5a92cc0e26",
+      "git_blob": "276f67e0840e26d0c7ab3755f4dea75e891a0822",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-candidate-optimized.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/targeted-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7559,
+      "sha256": "de56c2097c58889607d465822dcdd52fc44bd0c7e97e89664f24ac3a50ab6590",
+      "git_blob": "a0d470133e0a38b400f770f6e522b4ebc3bf67b5",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/targeted-receipt.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/test_author_v1.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 13421,
+      "sha256": "478c853b75b8c49aa75272c26513a9c350c70cdb163b0acff03c7e8fe5291c26",
+      "git_blob": "8e8124bf83a2c9b0eb040776106d0b4b3914c53d",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving/test_author_v1.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/full-native-normal.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/full-native-normal.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/full-native-normal.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 328,
+      "sha256": "0c55191f2ca129b4f040b2284c1a16d7dddfcf106dcb41179e1d0c9e1bc9f237",
+      "git_blob": "2ae3c5d33afbb2cfa11242807ebe67138be8f9b6",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/full-native-normal.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/full-native-optimized.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/full-native-optimized.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/full-native-optimized.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 985,
+      "sha256": "7b1241b9393e38aa9bbc55ccb86a965a79a897a49a1bd45a0908d937ee7ddbdd",
+      "git_blob": "4167b6f2aae981d4b929c4983de74eccf9ca3bad",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/full-native-optimized.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/full-native-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1695,
+      "sha256": "a8b266eb775d02373daead9e4a828f984fb888b06ee038aa952bc7cabb8302f1",
+      "git_blob": "396ba1590ba653bd5227a786cd24dd2e2ed42130",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/full-native-receipt.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/incoming-pr30-bridge.diff",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 985,
+      "sha256": "9126dbdb0b84263755cc6aaaccfbceea8daa5b2efb1f536545cc637149fe6650",
+      "git_blob": "e511748f914b12cae96cdaa0fc41a8cbc9402105",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/incoming-pr30-bridge.diff"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/production.patch",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3757,
+      "sha256": "990caf02fb896ffe49f95d105e2502f2b8e960bd0c6c969096f6d300222768d4",
+      "git_blob": "94b117e9d75b57b4357431541e32766fe2a158a2",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/production.patch"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/run_full_native.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2040,
+      "sha256": "ff8b728e585f793b9dca0d38bbb22760121a377f70c7a51d868bc874e42b2665",
+      "git_blob": "eaea9874e3ce00d78d51fd68ec7b51f15f0f480f",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/run_full_native.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v2/source-freeze-v2.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 23706,
+      "sha256": "0c0576bacea4c05d662157d1fd8e3dcf5594a03b56cec792bac2ceefc85ee816",
+      "git_blob": "e0b4e9398918704f31d1a9aa703b22f22c140ff5",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/receiving-v2/source-freeze-v2.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/v1/test_sandbox_payment_admission.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 13511,
+      "sha256": "ab9820106237b1cc4b5f844693f37064639a9f2871fa8f1814f164f4bbc49ce7",
+      "git_blob": "65f39ebb7ea1a62c6b8eef1fcd6bf8196925a4e8",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/REVIEW.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5136,
+      "sha256": "7cf4fff5d5fa6762d0972e299007daac33ecc98fe5d8ee00c44106cc69d66734",
+      "git_blob": "545dc8557b1414979a3a6c1a69b2b03bc3d66e7b",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/REVIEW.md"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/V1_FINDING.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2976,
+      "sha256": "e71bbfd8dc6adbd24430869024c96ff50de03919160674d2d63014a3fde3067f",
+      "git_blob": "21fefeeb909823a068495d53fd435a24ebf545c8",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/V1_FINDING.md"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/before-source-guards.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7061,
+      "sha256": "1d0c5ee733b3da45ae262c4cb794ab067bc9c2d14fd0c431a083dabdd105b610",
+      "git_blob": "ba06b76441b632c3f8926f34a0835501206cc116",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/before-source-guards.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/candidate-v1.patch",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3823,
+      "sha256": "f58f36808cc7ec1638954d7b02505d4a6b6f9186e2fca8817b4a90061b12f9ca",
+      "git_blob": "c44f572754e452e488ce50c622a233c0d6c5293e",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/candidate-v1.patch"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/fractional-before.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 12732,
+      "sha256": "809d499f97e22075d13291490a84c0f9318e3730bdff0fd4d26929373e540603",
+      "git_blob": "be5af92915022afec2dcdaec239b90aeda0c658d",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/fractional-before.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/fractional-candidate.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7856,
+      "sha256": "6533ebf3c5ee8b612778acc48b2a5d7c5e591f401df0545e1a553bc987b919ff",
+      "git_blob": "e60c770063286f7be6530f2329693d50620de837",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/fractional-candidate.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-before.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2289,
+      "sha256": "2de9f575334c974a76a6a3942a16d5c572030da5349cffb9c69a2fd036360941",
+      "git_blob": "84328a163f883e079c8b401d42413d589e9bfedd",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-before.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-before.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2319,
+      "sha256": "d9b2395e4526400fb861f872515145c8ba52e98d8d3402bbd43cfa2210121032",
+      "git_blob": "e97c7567125647407ed60d1d206e1de284fc63e7",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-before.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-before.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 48,
+      "sha256": "636e888f5e2f67b2477dffcb91f8ad0fc840276073504369af48df4f661b7c9e",
+      "git_blob": "56f7c17bbb26042d5f91e2cbfc3f0aa0f0ef9360",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-before.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-candidate.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4706,
+      "sha256": "393f5df9d546cff95d44a587caf69769361824bd50c763fc8a0b3eff5dbe28e2",
+      "git_blob": "f223a7e776edf9917e459b8963b4a5b9a5bfba90",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-candidate.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-candidate.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4095,
+      "sha256": "284afc0747186ae9ed1b73d5c264e3551eefb0a1ae3fcf1523fc76cdeb7bf9bd",
+      "git_blob": "c184aae103e6968768b781920bb4cb0bfab5ecad",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-candidate.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-candidate.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 48,
+      "sha256": "1746e33f9164bc16a0d351adb4b3610b3b0a20b1dbdbe9c5dc74481f4e0203e2",
+      "git_blob": "76ef06ffee2d7e98456e0f09805f86faf530eae8",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-candidate.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-v2-normal.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4793,
+      "sha256": "b5194ec3798fcdc7763acc5e465748e435c8cea7a18d70b7f5bb547feacb5976",
+      "git_blob": "f366f3d115bb81e8df812969d9c7ae267a9dcc43",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-v2-normal.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-v2-normal.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 434,
+      "sha256": "f53a432ad7dd0d1f025c745bd95fcea61b1fcdcefc1938b9fdcbd656421e01f8",
+      "git_blob": "6b7d72ba06ad104211693b7eac14ec9311838fd7",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-v2-normal.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-v2-normal.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 46,
+      "sha256": "257135d31c0a3cadafea0d9e78a76d13e7b3a0a09637fe0770aecb9cf27e915c",
+      "git_blob": "7eeb85b870f0ce57b19b2d2c010bc4bc05e0f1c1",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-v2-normal.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-v2-optimized.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4793,
+      "sha256": "1e8e60e31d648e87b152e6bc82f4f384330d27bbee9b71f21832452249152ba0",
+      "git_blob": "7fdccb36c80e0c7deb9fc1717e0f0ca82578231f",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-v2-optimized.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-v2-optimized.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 434,
+      "sha256": "a34647d72748501b2ae41b08e445e41cda4e3b763287a7ac335e6e42fbaa89a7",
+      "git_blob": "71b2577cae8241b2243efe0fbeaca9099ee2bf94",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-v2-optimized.stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/independent-v2-optimized.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 46,
+      "sha256": "257135d31c0a3cadafea0d9e78a76d13e7b3a0a09637fe0770aecb9cf27e915c",
+      "git_blob": "7eeb85b870f0ce57b19b2d2c010bc4bc05e0f1c1",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/independent-v2-optimized.stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4005,
+      "sha256": "dac61e7b4b568f8d010048bd0bf79a916c62c14545882d7e9cdcac470c3bd77a",
+      "git_blob": "96620008c025e7f1214e6836629d6421564c8c9e",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/manifest.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/owner-source-freeze-v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 22818,
+      "sha256": "35e9f10586d0ed3637b3c048de500f0e4fa4d335cec24d623a6ea306dd4a4109",
+      "git_blob": "56331104f3361607aa983599d0fc7ffab23825de",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/owner-source-freeze-v1.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/owner-source-freeze-v2.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 23706,
+      "sha256": "0c0576bacea4c05d662157d1fd8e3dcf5594a03b56cec792bac2ceefc85ee816",
+      "git_blob": "e0b4e9398918704f31d1a9aa703b22f22c140ff5",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/owner-source-freeze-v2.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/probe_fractional_invoice.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2258,
+      "sha256": "a2968f6260a6e1414f2a67afac775fa3cfc1ebcc3d6b84d4c9a1b9b45f03f692",
+      "git_blob": "6da858c19f12ab54200efa0f8c88602767156916",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/probe_fractional_invoice.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/test_payment_receiving_v1.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 9540,
+      "sha256": "606d3ae4818854aac0b7529f291942f684fb3e9d0073f97efeee1ffbd3b638e7",
+      "git_blob": "b3207d31bd78a388e95ad732d431556a1354aa3d",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/test_payment_receiving_v1.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/v1-after-source-guards.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 15503,
+      "sha256": "3493ffc9f15aa39f50414a25c33881df1bfcef5aa284ba883c6347ed962c6170",
+      "git_blob": "1211d4e60f04e278e248fc498061a2ae6f96288d",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/v1-after-source-guards.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/v1-finding-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2100,
+      "sha256": "a8f17cde0ba027dfb768e16f5ac667e114d38b9473097055f7953ec2f6424087",
+      "git_blob": "3cb822e163c4e4320ca301f66b31acee1e28aee0",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/v1-finding-manifest.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/v2-controller.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 3227,
+      "sha256": "b7ad4afbca275546c3f95c71bd3d770bc8f24121ed4bba37075e478ad8b42cf8",
+      "git_blob": "f9519e3b3d6eeb0d211eb9a86f88d5bd5e78b388",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/v2-controller.py"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/v2-copy-capacity-incident.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4193,
+      "sha256": "ea177a899cf07a76ea1a91ddf333116e05cb6b32d4b3db942ec0590df2ef9c87",
+      "git_blob": "fb1c201b7e17e711a6867451661c176345d28749",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/v2-copy-capacity-incident.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/independent/v2-independent-controller-receipt.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 9212,
+      "sha256": "69f30e55c8dae85ae2211558ad0312ebde3eb2a5da792ab8211438814b51af02",
+      "git_blob": "d45ef222c2c5474298fc39a08b435bb98759f1b4",
+      "origin": "/dev/shm/estate-runtime-ledger-payment-review-3dab/v2-independent-controller-receipt.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/incoming-pr33-bridge.diff",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1320,
+      "sha256": "c12db9f01d68862e4ed37ce8f23ad97a967730db161352f6f62920ca7c1d53fb",
+      "git_blob": "00ef88e8b63bd9c3f226266e5f124f326a608225",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/publication-composition/incoming-pr33-bridge.diff"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/production-and-test.patch",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 19452,
+      "sha256": "a1d506c14e4df7fa0bc3a0483b453bb63ddb07fc4419e1864d59f3dc50369bee",
+      "git_blob": "40e7d2b6f0c0c764227a45558281be305c126747",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/publication-composition/production-and-test.patch"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/source-freeze-pr33.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 20507,
+      "sha256": "b92bc2abbbd0b5d8c8f00eb057f88f6b88a6b9a9b77a28dab636fa907e18d428",
+      "git_blob": "1f103a1a736d9cc3a8850377cd1e42f459824306",
+      "origin": "/dev/shm/memory-delivery-ledgerly-3dab/publication-composition/source-freeze-pr33.json"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 6391,
+      "sha256": "d7d17641b6326afc522e1a778efd3ce82fe4af0c16d0079d0a2185b3c1e2714f",
+      "git_blob": "e6f882819552e1d7bf8a8619cef07e6051d4ff23",
+      "origin": "authored publication explanation"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/run_native_composition.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2912,
+      "sha256": "ddde7eb7b9d48776c4c3ae1448cc606e61ae53e4fa581b0088eee119d03d354a",
+      "git_blob": "c3cc6eeee314466b5600c68165a6542762a06f38",
+      "origin": "exact source compiled in memory for both recorded composition runs"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/run_in_memory.py",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2042,
+      "sha256": "603faf2d0d1ba54681a96c724167186304a4f75af2f2fc332bc4394d1d0ee1b7",
+      "git_blob": "1bb16113d311205179edbb04777a4fc9304fbe4b",
+      "origin": "exact controller used to compile and execute the composition runner"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/capacity-incident.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 456,
+      "sha256": "ebd63460fd7eb69433efecdb7b5012d74683b371602fbe7d07148cdee9548974",
+      "git_blob": "8df77f3cf6320c3366a593c364936d9c10d76038",
+      "origin": "observed owner-only failed allocation receipt"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/native-normal.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 9326,
+      "sha256": "7a8ce867cd5651a3e22918936c19071ccdb8a579c06677d239db92bb211c7cf0",
+      "git_blob": "d64a3510abdeaa44725ac50bac66dcbc56673cf1",
+      "origin": "verbatim composition normal stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/native-normal.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4139,
+      "sha256": "82ea4fbd9844efa58c44286b106da6d1e349b0ddd349cd1ef976cbdbc4b73ddf",
+      "git_blob": "01f3d75700d745d65cc86534e76f3261398a9a1b",
+      "origin": "verbatim composition normal stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/native-optimized.stdout",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 9326,
+      "sha256": "3b9f8b988698a45b82958aa2a7cead1d4b7989b017320c7d6eb73d35fa39acdd",
+      "git_blob": "b47e5f5f36c6d63f70af1d77bf7e15c8d75c9fe1",
+      "origin": "verbatim composition optimized stdout"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/native-optimized.stderr",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 4139,
+      "sha256": "4abb7e7d0d99ff73208aab9b9d8a5c251f3fa26df6abfb8e34d2be0cf784ff15",
+      "git_blob": "d374aaef6c6f1eb787e14fbf3df376fc895c16fd",
+      "origin": "verbatim composition optimized stderr"
+    },
+    {
+      "path": "docs/receiving/sandbox-payments-20261008-3dab/composition/execution.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2410,
+      "sha256": "d388452f2f317b0cc90564e9801a437defcd9f80420d92c36c7f122bde3e4dd1",
+      "git_blob": "64499a9c99c7206964c093da46435fd9c4a7c6cf",
+      "origin": "summary of exact recorded composition commands and outcomes; raw outputs retained alongside"
+    }
+  ]
+}

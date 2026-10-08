@@ -1,0 +1,134 @@
+{
+  "incident": "ENOSPC during unexecuted V2 private source copy",
+  "action": "removed only the incomplete reviewer-owned duplicate before-v2 after verifying every file was an exact original or truncated prefix",
+  "removed_files": [
+    {
+      "path": "pyproject.toml",
+      "bytes": 380,
+      "complete": true,
+      "sha256": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b"
+    },
+    {
+      "path": "tests/test_approval_outcomes.py",
+      "bytes": 4096,
+      "complete": false,
+      "sha256": "fa5ecbcc6b541c7e4c05f1cc122bf24f7ef89da18f6315fffeaf6cfb148b1630"
+    },
+    {
+      "path": "tests/test_agent_paypal.py",
+      "bytes": 11582,
+      "complete": true,
+      "sha256": "4e02c80b725c9532e3f80db8328770ce03731741bc8978991877ca25bc2f25c5"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 788,
+      "complete": true,
+      "sha256": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "bytes": 24917,
+      "complete": true,
+      "sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "bytes": 28143,
+      "complete": true,
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653"
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "bytes": 3169,
+      "complete": true,
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "bytes": 32210,
+      "complete": true,
+      "sha256": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05"
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "bytes": 119,
+      "complete": true,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    {
+      "path": "fixtures/12_prompt_injection.txt",
+      "bytes": 315,
+      "complete": true,
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e"
+    },
+    {
+      "path": "fixtures/11_range_qty_approx.txt",
+      "bytes": 239,
+      "complete": true,
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee"
+    },
+    {
+      "path": "fixtures/10_billing_address_net45.txt",
+      "bytes": 330,
+      "complete": true,
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d"
+    },
+    {
+      "path": "fixtures/09_table_cad.txt",
+      "bytes": 380,
+      "complete": true,
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97"
+    },
+    {
+      "path": "fixtures/08_jpy_zero_decimal.txt",
+      "bytes": 271,
+      "complete": true,
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28"
+    },
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "bytes": 319,
+      "complete": true,
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42"
+    },
+    {
+      "path": "fixtures/06_ambiguous_qty.txt",
+      "bytes": 246,
+      "complete": true,
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0"
+    },
+    {
+      "path": "fixtures/05_missing_email.txt",
+      "bytes": 238,
+      "complete": true,
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9"
+    },
+    {
+      "path": "fixtures/04_multi_currency.txt",
+      "bytes": 288,
+      "complete": true,
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3"
+    },
+    {
+      "path": "fixtures/03_eur_fixed_project.txt",
+      "bytes": 265,
+      "complete": true,
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540"
+    },
+    {
+      "path": "fixtures/02_gbp_proofreading.txt",
+      "bytes": 293,
+      "complete": true,
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e"
+    },
+    {
+      "path": "fixtures/01_simple_usd_hourly.txt",
+      "bytes": 282,
+      "complete": true,
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902"
+    }
+  ],
+  "owner_inputs_changed": false,
+  "v1_packet_changed": false
+}
