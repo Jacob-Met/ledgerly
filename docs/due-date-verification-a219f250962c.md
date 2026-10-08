@@ -1,7 +1,10 @@
 # Preserve invoice deadlines through delayed approval
 
-Receiving base: [`main@dc5e188c062bb7b45a8ddbbd23a3da75126e17a8`](https://github.com/Jacob-Met/ledgerly/tree/dc5e188c062bb7b45a8ddbbd23a3da75126e17a8).
+Initial receiving base: [`main@dc5e188c062bb7b45a8ddbbd23a3da75126e17a8`](https://github.com/Jacob-Met/ledgerly/tree/dc5e188c062bb7b45a8ddbbd23a3da75126e17a8).
 Verified locally on October 8, 2026, with Python 3.12.14 and pytest 9.1.1.
+
+The original observations below are preserved. The **Current main composition**
+section records the subsequent reminder integration and its receipt-term limitation.
 
 ## Product behavior
 
@@ -111,7 +114,36 @@ integrated. The source patch changes only date facts and their selection; existi
 approval, provider, reminder, webhook, and browser implementations remain owned by
 their existing contributors.
 
-## Source identities
+## Current main composition
+
+The original PR13 head passed both GitHub CI jobs, but a merge attempt returned a
+conflict after the reminder correction landed. The receiving base is now
+[`1871942ecb19aa9756bb36b380795bc6c7bf238d`](https://github.com/Jacob-Met/ledgerly/commit/1871942ecb19aa9756bb36b380795bc6c7bf238d),
+complete tree `a26d5ff9705e83bc248857d4b501068da0b6fb16`. All current-main files were
+materialized and the full tree was checked before applying this correction.
+
+The composition preserves `provider_due_on` and `provider_due_known` in their
+existing positions, appends `invoice_due_on` after them, and retains confirmed
+provider terms as the first branch of `due_on`, including confirmed `NO_DUE_DATE`.
+The saved positive draft deadline is a fallback only when provider terms are not
+known. The provider, approval, reminder, demo, and browser changes are preserved.
+
+The full composed native suite passes **108 tests and 2 subtests**. The two added
+receiving cases replace the mock provider's positive draft term with a future
+specified date or `NO_DUE_DATE`, read it through the actual status tool, and verify
+that neither overdue scanning nor reminder drafting revives the saved deadline.
+
+The original zero-day observation requires a qualification on this base. Independent
+execution of `Demo -> RulePlanner -> Agent -> SandboxMock` on untouched `1871942`
+reproduces a receipt-term issue: the builder/mock retains an October 1 draft date,
+the planner's status read marks it as a confirmed provider date, and sending on
+October 8 leaves the invoice seven days overdue. The same control passes on the
+original pre-provider source. This correction does not override confirmed provider
+facts to mask that separate mock-backed product issue. A receipt-term entry without
+that provider refresh retains its existing actual-send-date fallback. No live
+PayPal behavior is asserted by either receiving result.
+
+## Initial source identities
 
 - Corrected `ledgerly/agent.py` SHA-256:
   `24b04881943c6649ccb0f5ba5be2eab582f08253cadf1c79928b1640f3ec024e`

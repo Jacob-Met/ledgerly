@@ -128,3 +128,30 @@ def test_legacy_positional_ledger_entry_keeps_its_send_date_fallback():
     assert entry.last_reminder_on == date(2026, 10, 7)
     assert entry.prepaid == Decimal("5")
     assert entry.due_on == date(2026, 10, 20)
+
+
+@pytest.mark.parametrize("provider_date", ["2026-11-01", None], ids=["provider-date", "provider-no-due-date"])
+def test_confirmed_provider_terms_override_the_retained_positive_draft_date(
+    agent, mock, clock, provider_date,
+):
+    clock.d = date(2026, 10, 1)
+    invoice = draft_with_terms(agent, 12)
+    invoice_id = invoice["invoice_id"]
+    clock.d = date(2026, 10, 8)
+    agent.approve(invoice["approval_id"])
+    entry = agent.ledger[invoice_id]
+    assert entry.invoice_due_on == date(2026, 10, 13)
+    assert entry.due_on == date(2026, 10, 13)
+
+    mock.invoices[invoice_id]["detail"]["payment_term"] = (
+        {"term_type": "DUE_ON_DATE_SPECIFIED", "due_date": provider_date}
+        if provider_date else {"term_type": "NO_DUE_DATE"}
+    )
+    agent.tool_get_status(invoice_id)
+    assert entry.provider_due_known is True
+    assert entry.due_on == (date.fromisoformat(provider_date) if provider_date else None)
+    assert entry.invoice_due_on == date(2026, 10, 13)
+    clock.d = date(2026, 10, 20)
+    assert agent.tool_list_overdue()["overdue"] == []
+    assert agent.tool_send_reminder(invoice_id)["ok"] is False
+    assert not any(path.endswith("/remind") for _, path, _ in mock.requests)

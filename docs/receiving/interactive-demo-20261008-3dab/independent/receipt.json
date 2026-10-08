@@ -1,0 +1,58 @@
+{
+  "mock": "explicit existing SandboxMock",
+  "network": "LEDGERLY_ALLOW_NETWORK=0; no real provider/credential/client construction",
+  "probe_sha256": "ed7f7e03fe9917f9c13c40c18ca8ca16cf69b738e390e49f0cc101c96265defc",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "runs": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/3dab0b9d2ce9/optimizer-recovery/ledgerly-review/test_declined_demo_review.py"
+      ],
+      "returncode": 1,
+      "source_pins": {
+        "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+        "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+        "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+        "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+        "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+        "ledgerly/agent.py": "27753ac9d8f3432dfda5526178758420908b9a42f9dea1a3e670dd09a6f4e740",
+        "ledgerly/demo.py": "fc6bfeb8587dbe4e73da1fdd10257e51da7b1e8c91d1f5b2ac3aa1fcd0b6a199",
+        "ledgerly/extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+        "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+        "pyproject.toml": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b"
+      },
+      "sources_unchanged": true,
+      "stderr_sha256": "7b7fd5d8ed2004c85b9a163fe6196ef56e33ea37d8a234bb5f649f9eccb6c27e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "subject": "baseline"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/3dab0b9d2ce9/optimizer-recovery/ledgerly-review/test_declined_demo_review.py"
+      ],
+      "returncode": 0,
+      "source_pins": {
+        "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+        "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+        "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+        "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+        "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+        "ledgerly/agent.py": "27753ac9d8f3432dfda5526178758420908b9a42f9dea1a3e670dd09a6f4e740",
+        "ledgerly/demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+        "ledgerly/extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+        "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+        "pyproject.toml": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b"
+      },
+      "sources_unchanged": true,
+      "stderr_sha256": "c3dcc6d2384c923b59b9f5852a54c6a5dc3b8d4e1bd36f8db77d9ca3079dd04c",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "subject": "candidate"
+    }
+  ],
+  "schema": "ledgerly.independent-declined-demo-review.v1",
+  "source_base": "d4d3802b7f5ccd78795d91159d907b08cb3e978f"
+}
