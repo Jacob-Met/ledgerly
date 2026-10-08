@@ -1,0 +1,184 @@
+{
+  "schema": "ledgerly.history.receivables-current-visual-review.v1",
+  "reviewer": "hamon-ultra-9319fb3272b2-20261008/integration",
+  "head": "de285f67d3edf2de571557fdef0ba870ab82e159",
+  "tree": "7bfe5e60a7aa2109d2bad7a95019fb3e13ee57e1",
+  "actual_checkout": "620b2058315fdcaf3cc97f7d7738cbdef74a20f4",
+  "receipt_git_blob": "27971a2362e3a4670f59880910bcfece405548f7",
+  "images": [
+    {
+      "name": "desktop-completed-reviews.png",
+      "sha256": "60318bc9eaf6de49795c68cb4af71848cc073c69d30dd0a6dc62ebfa86b96e52",
+      "git_blob": "308f0a2f1432d07ec40a11fc4f36fdc60f9d9a55",
+      "bytes": 180657,
+      "png": {
+        "width": 546,
+        "height": 2471
+      },
+      "geometry": {
+        "clip": {
+          "x": 851.5,
+          "y": 1269.84375,
+          "width": 546.5,
+          "height": 2471.3125,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "clientWidth": 1440,
+          "scrollX": 0,
+          "scrollY": 1270
+        },
+        "viewportRect": {
+          "x": 851.5,
+          "y": -0.15625,
+          "width": 546.5,
+          "height": 2471.3125
+        },
+        "firstText": "APPROVED SEND REMINDER INV2-MOCK-0001-85C1Send friendly reminder for LDG-0001 (2d overdue, USD 1,320 due) to maya.chen@brightfern.exampleAction IDapv_8506913b60"
+      },
+      "after": {
+        "x": 851.5,
+        "y": 1269.84375,
+        "width": 546.5,
+        "height": 2471.3125
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "visual_pass": true,
+      "observation": "All four retained records are complete and legible, with distinct approved/rejected reminder identities, original invoices and recorded results."
+    },
+    {
+      "name": "phone-completed-reminder.png",
+      "sha256": "022fea14eda30830da47b1e33244f9a922d4cd765744396861f95521a8e418af",
+      "git_blob": "76d92b1b12bd9f536765b6b7113de0f51024d5dc",
+      "bytes": 39385,
+      "png": {
+        "width": 336,
+        "height": 595
+      },
+      "geometry": {
+        "clip": {
+          "x": 27,
+          "y": 3661.6875,
+          "width": 336,
+          "height": 595.1875,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "clientWidth": 390,
+          "scrollX": 0,
+          "scrollY": 3662
+        },
+        "viewportRect": {
+          "x": 27,
+          "y": -0.3125,
+          "width": 336,
+          "height": 595.1875
+        },
+        "firstText": "APPROVED SEND REMINDER INV2-MOCK-0001-85C1Send friendly reminder for LDG-0001 (2d overdue, USD 1,320 due) to maya.chen@brightfern.exampleAction IDapv_8506913b60"
+      },
+      "after": {
+        "x": 27,
+        "y": 3661.6875,
+        "width": 336,
+        "height": 595.1875
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "visual_pass": true,
+      "observation": "Full APPROVED heading, original reminder subject/body and reminded:true result are visible, with no neighboring card intruding."
+    },
+    {
+      "name": "phone-literal-invoice.png",
+      "sha256": "8a1615b4e3c993731e289188cd386c145d1770233ca2f2829bf5f900865541cf",
+      "git_blob": "504aec0c17fdf7067dcc74dd18277a43e88750a9",
+      "bytes": 49605,
+      "png": {
+        "width": 336,
+        "height": 790
+      },
+      "geometry": {
+        "clip": {
+          "x": 27,
+          "y": 4904.0625,
+          "width": 336,
+          "height": 790.53125,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "clientWidth": 390,
+          "scrollX": 0,
+          "scrollY": 4904
+        },
+        "viewportRect": {
+          "x": 27,
+          "y": 0.0625,
+          "width": 336,
+          "height": 790.53125
+        },
+        "firstText": "REJECTED SEND INVOICE INV2-MOCK-0002-F1FBSend invoice LDG-0002 for EUR 120.0000 to history-receiver@example.testAction IDapv_ebbe50ae5fQueued at2026-10-08T17:07"
+      },
+      "after": {
+        "x": 27,
+        "y": 4904.0625,
+        "width": 336,
+        "height": 790.53125
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "visual_pass": true,
+      "observation": "Full REJECTED heading, recipient and Unicode/HTML-like line item remain literal and wrap within the card; original invoice and refusal reason are visible."
+    },
+    {
+      "name": "phone-outcome-unknown.png",
+      "sha256": "328615123a994708434f43619b59d548ccc938ad61019daa952454d1b4b0ab35",
+      "git_blob": "72dcb27f167cb84d7f410131db457b0ff0872755",
+      "bytes": 58789,
+      "png": {
+        "width": 336,
+        "height": 944
+      },
+      "geometry": {
+        "clip": {
+          "x": 27,
+          "y": 1859.296875,
+          "width": 336,
+          "height": 944.859375,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "clientWidth": 390,
+          "scrollX": 0,
+          "scrollY": 1859
+        },
+        "viewportRect": {
+          "x": 27,
+          "y": 0.296875,
+          "width": 336,
+          "height": 944.859375
+        },
+        "firstText": "FAILED · OUTCOME UNKNOWN SEND INVOICE INV2-MOCK-0001-270BSend invoice LDG-0001 for USD 1,320 to maya.chen@brightfern.exampleAction IDapv_30f1fdea73Queued at2026"
+      },
+      "after": {
+        "x": 27,
+        "y": 1859.296875,
+        "width": 336,
+        "height": 944.859375
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "visual_pass": true,
+      "observation": "Full FAILED / OUTCOME UNKNOWN heading, original invoice, warning and UNKNOWN/TimeoutError result are visible."
+    }
+  ],
+  "condition": "The receiver hides page scrollbars through Emulation before navigation; product styles and source remain unchanged.",
+  "scope": "Direct inspection of the four exact returned PNGs by the integration reviewer. Full document-space card captures do not imply that a long card fits within the phone viewport."
+}

@@ -1,0 +1,175 @@
+{
+  "schema": "ledgerly.history.actual-worker-readback.v1",
+  "source_head": "de285f67d3edf2de571557fdef0ba870ab82e159",
+  "actual_checkout": "620b2058315fdcaf3cc97f7d7738cbdef74a20f4",
+  "healthy_received_ids": [
+    14,
+    15
+  ],
+  "approved_reminder": "apv_8506913b60",
+  "previous_auto_rejected_reminder": "apv_aacc5e7e5c",
+  "unrelated_pending_before": [
+    {
+      "id": "apv_a438c0b2ac",
+      "kind": "send_invoice",
+      "invoice_id": "INV2-MOCK-0003-61AE",
+      "summary": "Send invoice LDG-0003 for USD 180 to history-receiver@example.test",
+      "payload": {
+        "invoice": {
+          "detail": {
+            "invoice_number": "LDG-0003",
+            "invoice_date": "2026-10-08",
+            "currency_code": "USD",
+            "note": "Thank you for your business.",
+            "payment_term": {
+              "term_type": "NET_30",
+              "due_date": "2026-11-07"
+            }
+          },
+          "invoicer": {
+            "name": {
+              "given_name": "Ledgerly",
+              "surname": "Demo"
+            },
+            "email_address": "freelancer@example.test"
+          },
+          "primary_recipients": [
+            {
+              "billing_info": {
+                "name": {
+                  "given_name": "Zoë <img src=x",
+                  "surname": "onerror=window.historyInjected=1>"
+                },
+                "email_address": "history-receiver@example.test"
+              }
+            }
+          ],
+          "items": [
+            {
+              "name": "Brand colour guide",
+              "quantity": "1",
+              "unit_amount": {
+                "currency_code": "USD",
+                "value": "180.00"
+              },
+              "unit_of_measure": "QUANTITY"
+            }
+          ],
+          "configuration": {
+            "partial_payment": {
+              "allow_partial_payment": false
+            },
+            "allow_tip": false,
+            "tax_calculated_after_discount": true,
+            "tax_inclusive": false
+          }
+        },
+        "prepaid": "0"
+      },
+      "status": "PENDING",
+      "result": null,
+      "created_at": "2026-10-08T17:07:47.984000+00:00"
+    }
+  ],
+  "unrelated_pending_after": [
+    {
+      "id": "apv_a438c0b2ac",
+      "kind": "send_invoice",
+      "invoice_id": "INV2-MOCK-0003-61AE",
+      "summary": "Send invoice LDG-0003 for USD 180 to history-receiver@example.test",
+      "payload": {
+        "invoice": {
+          "detail": {
+            "invoice_number": "LDG-0003",
+            "invoice_date": "2026-10-08",
+            "currency_code": "USD",
+            "note": "Thank you for your business.",
+            "payment_term": {
+              "term_type": "NET_30",
+              "due_date": "2026-11-07"
+            }
+          },
+          "invoicer": {
+            "name": {
+              "given_name": "Ledgerly",
+              "surname": "Demo"
+            },
+            "email_address": "freelancer@example.test"
+          },
+          "primary_recipients": [
+            {
+              "billing_info": {
+                "name": {
+                  "given_name": "Zoë <img src=x",
+                  "surname": "onerror=window.historyInjected=1>"
+                },
+                "email_address": "history-receiver@example.test"
+              }
+            }
+          ],
+          "items": [
+            {
+              "name": "Brand colour guide",
+              "quantity": "1",
+              "unit_amount": {
+                "currency_code": "USD",
+                "value": "180.00"
+              },
+              "unit_of_measure": "QUANTITY"
+            }
+          ],
+          "configuration": {
+            "partial_payment": {
+              "allow_partial_payment": false
+            },
+            "allow_tip": false,
+            "tax_calculated_after_discount": true,
+            "tax_inclusive": false
+          }
+        },
+        "prepaid": "0"
+      },
+      "status": "PENDING",
+      "result": null,
+      "created_at": "2026-10-08T17:07:47.984000+00:00"
+    }
+  ],
+  "exact_pending_preservation": true,
+  "fault": {
+    "worker_actions": [
+      "init",
+      "analyze",
+      "draft",
+      "approve"
+    ],
+    "data_ok": false,
+    "error": "TimeoutError",
+    "completed_status": "FAILED",
+    "result": {
+      "outcome": "UNKNOWN",
+      "reason": "The outgoing action may have completed. Check the invoice before creating another approval.",
+      "error_type": "TimeoutError"
+    },
+    "provider_status": "SENT",
+    "ledger_status": "DRAFT",
+    "pending_count": 0,
+    "external_calls": 0
+  },
+  "worker_bridge_correlations": [
+    {
+      "phase": "healthy",
+      "worker_session": "D6B9049FAEFB8A8C2EC76547A4243D3B",
+      "bridge_requests": 1
+    },
+    {
+      "phase": "healthy",
+      "worker_session": "B8473443E0E5D7CFC09B7A4801947E56",
+      "bridge_requests": 1
+    },
+    {
+      "phase": "lost-response",
+      "worker_session": "7AB4E54155D7BDBA2B695C83084BD708",
+      "bridge_requests": 1
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+﻿2026-10-08T17:07:03.0880947Z Current runner version: '2.337.0'
+2026-10-08T17:07:03.0906797Z ##[group]Runner Image Provisioner
+2026-10-08T17:07:03.0907797Z Hosted Compute Agent
+2026-10-08T17:07:03.0908509Z Version: 20261002.596
+2026-10-08T17:07:03.0909186Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T17:07:03.0909920Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T17:07:03.0910733Z Worker ID: {1a79eb4b-5d7e-4723-abe7-7be9aa82d00c}
+2026-10-08T17:07:03.0911460Z Region: eastus
+2026-10-08T17:07:03.0912054Z Cloud: Azure
+2026-10-08T17:07:03.0912632Z ##[endgroup]
+2026-10-08T17:07:03.0914080Z ##[group]Operating System
+2026-10-08T17:07:03.0915143Z Ubuntu
+2026-10-08T17:07:03.0915755Z 24.04.5
+2026-10-08T17:07:03.0916314Z LTS
+2026-10-08T17:07:03.0916887Z ##[endgroup]
+2026-10-08T17:07:03.0917473Z ##[group]Runner Image
+2026-10-08T17:07:03.0918163Z Image: ubuntu-24.04
+2026-10-08T17:07:03.0918764Z Version: 20261004.327.1
+2026-10-08T17:07:03.0920096Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T17:07:03.0921668Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T17:07:03.0922754Z ##[endgroup]
+2026-10-08T17:07:03.0923867Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T17:07:03.0926546Z Contents: read
+2026-10-08T17:07:03.0927201Z Metadata: read
+2026-10-08T17:07:03.0927790Z ##[endgroup]
+2026-10-08T17:07:03.0930067Z Secret source: Actions
+2026-10-08T17:07:03.0931059Z Cache mode: write
+2026-10-08T17:07:03.0932090Z Prepare workflow directory
+2026-10-08T17:07:03.1263293Z Prepare all required actions
+2026-10-08T17:07:03.1311205Z Getting action download info
+2026-10-08T17:07:03.3609823Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T17:07:03.4515143Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-08T17:07:03.5368766Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-08T17:07:03.7277042Z Complete job name: browser-engine
+2026-10-08T17:07:03.8073070Z ##[group]Run actions/checkout@v4
+2026-10-08T17:07:03.8073988Z with:
+2026-10-08T17:07:03.8074756Z   repository: Jacob-Met/ledgerly
+2026-10-08T17:07:03.8082318Z   token: ***
+2026-10-08T17:07:03.8082821Z   ssh-strict: true
+2026-10-08T17:07:03.8083265Z   ssh-user: git
+2026-10-08T17:07:03.8083723Z   persist-credentials: true
+2026-10-08T17:07:03.8084223Z   clean: true
+2026-10-08T17:07:03.8084872Z   sparse-checkout-cone-mode: true
+2026-10-08T17:07:03.8085409Z   fetch-depth: 1
+2026-10-08T17:07:03.8085849Z   fetch-tags: false
+2026-10-08T17:07:03.8086298Z   show-progress: true
+2026-10-08T17:07:03.8086767Z   lfs: false
+2026-10-08T17:07:03.8087195Z   submodules: false
+2026-10-08T17:07:03.8087657Z   set-safe-directory: true
+2026-10-08T17:07:03.8088180Z   allow-unsafe-pr-checkout: false
+2026-10-08T17:07:03.8089252Z ##[endgroup]
+2026-10-08T17:07:03.9110603Z Syncing repository: Jacob-Met/ledgerly
+2026-10-08T17:07:03.9113161Z ##[group]Getting Git version info
+2026-10-08T17:07:03.9114341Z Working directory is '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T17:07:03.9116226Z [command]/usr/bin/git version
+2026-10-08T17:07:03.9224401Z git version 2.55.0
+2026-10-08T17:07:03.9252444Z ##[endgroup]
+2026-10-08T17:07:03.9269840Z Temporarily overriding HOME='/home/runner/work/_temp/42e93bb4-e4e0-4ba0-98f1-21825c13ca76' before making global git config changes
+2026-10-08T17:07:03.9272249Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T17:07:03.9276458Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T17:07:03.9328657Z Deleting the contents of '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T17:07:03.9333117Z ##[group]Initializing the repository
+2026-10-08T17:07:03.9337347Z [command]/usr/bin/git init /home/runner/work/ledgerly/ledgerly
+2026-10-08T17:07:03.9466126Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T17:07:03.9468218Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T17:07:03.9469829Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T17:07:03.9471113Z hint: call:
+2026-10-08T17:07:03.9471785Z hint:
+2026-10-08T17:07:03.9472640Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T17:07:03.9473982Z hint:
+2026-10-08T17:07:03.9475209Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T17:07:03.9476766Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T17:07:03.9477987Z hint:
+2026-10-08T17:07:03.9478633Z hint: 	git branch -m <name>
+2026-10-08T17:07:03.9479379Z hint:
+2026-10-08T17:07:03.9480381Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T17:07:03.9482052Z Initialized empty Git repository in /home/runner/work/ledgerly/ledgerly/.git/
+2026-10-08T17:07:03.9485228Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/ledgerly
+2026-10-08T17:07:03.9533071Z ##[endgroup]
+2026-10-08T17:07:03.9534270Z ##[group]Disabling automatic garbage collection
+2026-10-08T17:07:03.9537309Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T17:07:03.9571437Z ##[endgroup]
+2026-10-08T17:07:03.9572560Z ##[group]Setting up auth
+2026-10-08T17:07:03.9578941Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T17:07:03.9612778Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T17:07:03.9997172Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T17:07:04.0038153Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T17:07:04.0309286Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T17:07:04.0349681Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T17:07:04.0588076Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T17:07:04.0636374Z ##[endgroup]
+2026-10-08T17:07:04.0637554Z ##[group]Fetching the repository
+2026-10-08T17:07:04.0651665Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +620b2058315fdcaf3cc97f7d7738cbdef74a20f4:refs/remotes/pull/36/merge
+2026-10-08T17:07:05.0919106Z From https://github.com/Jacob-Met/ledgerly
+2026-10-08T17:07:05.0920436Z  * [new ref]         620b2058315fdcaf3cc97f7d7738cbdef74a20f4 -> pull/36/merge
+2026-10-08T17:07:05.0924886Z ##[endgroup]
+2026-10-08T17:07:05.0926255Z ##[group]Determining the checkout info
+2026-10-08T17:07:05.0928033Z ##[endgroup]
+2026-10-08T17:07:05.0936829Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T17:07:05.1036323Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T17:07:05.1055690Z ##[group]Checking out the ref
+2026-10-08T17:07:05.1061195Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/36/merge
+2026-10-08T17:07:05.1803024Z Note: switching to 'refs/remotes/pull/36/merge'.
+2026-10-08T17:07:05.1804146Z 
+2026-10-08T17:07:05.1805225Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T17:07:05.1806983Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T17:07:05.1808592Z state without impacting any branches by switching back to a branch.
+2026-10-08T17:07:05.1809633Z 
+2026-10-08T17:07:05.1810432Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T17:07:05.1812233Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T17:07:05.1813690Z 
+2026-10-08T17:07:05.1814099Z   git switch -c <new-branch-name>
+2026-10-08T17:07:05.1814980Z 
+2026-10-08T17:07:05.1815371Z Or undo this operation with:
+2026-10-08T17:07:05.1815896Z 
+2026-10-08T17:07:05.1816118Z   git switch -
+2026-10-08T17:07:05.1816436Z 
+2026-10-08T17:07:05.1816979Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T17:07:05.1817763Z 
+2026-10-08T17:07:05.1818968Z HEAD is now at 620b205 Merge de285f67d3edf2de571557fdef0ba870ab82e159 into 295153cc0c354415c39bcee7d2384412b4fa629f
+2026-10-08T17:07:05.1822012Z ##[endgroup]
+2026-10-08T17:07:05.1871888Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T17:07:05.1900001Z 620b2058315fdcaf3cc97f7d7738cbdef74a20f4
+2026-10-08T17:07:05.2222433Z ##[group]Run actions/setup-node@v4
+2026-10-08T17:07:05.2223112Z with:
+2026-10-08T17:07:05.2223551Z   node-version: 22
+2026-10-08T17:07:05.2224023Z   cache: npm
+2026-10-08T17:07:05.2224983Z   cache-dependency-path: web-demo/package-lock.json
+2026-10-08T17:07:05.2225833Z   always-auth: false
+2026-10-08T17:07:05.2226332Z   check-latest: false
+2026-10-08T17:07:05.2231598Z   token: ***
+2026-10-08T17:07:05.2232059Z ##[endgroup]
+2026-10-08T17:07:05.3675169Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-08T17:07:05.3679736Z (node:2323) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T17:07:05.3682348Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T17:07:05.3683920Z ##[group]Environment details
+2026-10-08T17:07:05.7664311Z node: v22.23.3
+2026-10-08T17:07:05.7665547Z npm: 10.9.9
+2026-10-08T17:07:05.7666255Z yarn: 1.22.22
+2026-10-08T17:07:05.7667688Z ##[endgroup]
+2026-10-08T17:07:05.7708267Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-08T17:07:05.8770503Z /home/runner/.npm
+2026-10-08T17:07:05.9563599Z Cache hit for: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T17:07:05.9677018Z (node:2323) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T17:07:06.3523189Z Received 35957454 of 35957454 (100.0%), 100.0 MBs/sec
+2026-10-08T17:07:06.3525637Z Cache Size: ~34 MB (35957454 B)
+2026-10-08T17:07:06.3551675Z [command]/usr/bin/tar -xf /home/runner/work/_temp/71615113-1b41-4d78-987a-68888671bf11/cache.tzst -P -C /home/runner/work/ledgerly/ledgerly --use-compress-program unzstd
+2026-10-08T17:07:06.4311937Z Cache restored successfully
+2026-10-08T17:07:06.4332039Z Cache restored from key: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T17:07:06.4539010Z ##[group]Run npm ci
+2026-10-08T17:07:06.4539397Z [36;1mnpm ci[0m
+2026-10-08T17:07:06.4823022Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:06.4823427Z ##[endgroup]
+2026-10-08T17:07:07.8939348Z 
+2026-10-08T17:07:07.8947671Z added 41 packages, and audited 42 packages in 1s
+2026-10-08T17:07:07.8948478Z 
+2026-10-08T17:07:07.8948907Z 13 packages are looking for funding
+2026-10-08T17:07:07.8949518Z   run `npm fund` for details
+2026-10-08T17:07:07.8951015Z 
+2026-10-08T17:07:07.8951560Z found 0 vulnerabilities
+2026-10-08T17:07:07.9447305Z ##[group]Run npm audit --audit-level=moderate
+2026-10-08T17:07:07.9447749Z [36;1mnpm audit --audit-level=moderate[0m
+2026-10-08T17:07:07.9513620Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:07.9513920Z ##[endgroup]
+2026-10-08T17:07:08.3569251Z found 0 vulnerabilities
+2026-10-08T17:07:08.3676598Z ##[group]Run npm test
+2026-10-08T17:07:08.3676887Z [36;1mnpm test[0m
+2026-10-08T17:07:08.3740698Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:08.3740975Z ##[endgroup]
+2026-10-08T17:07:08.4850539Z 
+2026-10-08T17:07:08.4851364Z > ledgerly-offline-browser-demo@0.1.0 test
+2026-10-08T17:07:08.4852016Z > node scripts/stage-python.mjs && vitest run
+2026-10-08T17:07:08.4852728Z 
+2026-10-08T17:07:08.5238449Z Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+2026-10-08T17:07:08.8452829Z 
+2026-10-08T17:07:08.8457173Z [1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/home/runner/work/ledgerly/ledgerly/web-demo[39m
+2026-10-08T17:07:08.8458198Z 
+2026-10-08T17:07:09.3491594Z  [32m✓[39m tests/invoice-record.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 74[2mms[22m[39m
+2026-10-08T17:07:10.6227194Z  [32m✓[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 684[2mms[22m[39m
+2026-10-08T17:07:10.8085798Z  [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+2026-10-08T17:07:12.8845275Z  [32m✓[39m tests/review.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 3752[2mms[22m[39m
+2026-10-08T17:07:13.0578042Z  [32m✓[39m tests/approval-preview.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 3499[2mms[22m[39m
+2026-10-08T17:07:13.0883486Z  [32m✓[39m src/invoice-details.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+2026-10-08T17:07:13.2455865Z  [32m✓[39m src/ledger-export.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+2026-10-08T17:07:15.1863466Z  [32m✓[39m tests/review-history.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 4208[2mms[22m[39m
+2026-10-08T17:07:15.1876626Z    [33m[2m✓[22m[39m runs all ten unchanged native receiving cases through actual Pyodide[33m 1788[2mms[22m[39m
+2026-10-08T17:07:16.4696932Z  [32m✓[39m tests/invoice-details.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 3228[2mms[22m[39m
+2026-10-08T17:07:16.6701190Z  [32m✓[39m tests/receivables.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+2026-10-08T17:07:16.7854717Z  [32m✓[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 3338[2mms[22m[39m
+2026-10-08T17:07:18.4979890Z [90mstdout[2m | tests/overdue-scan.test.ts[2m > [22m[2mexecutes the native overdue-batch contracts in the actual Pyodide runtime
+2026-10-08T17:07:18.4982977Z [22m[39m{"native_tests_run":6,"successful":true,"python":"3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489"}
+2026-10-08T17:07:18.4984360Z 
+2026-10-08T17:07:18.4990955Z  [32m✓[39m tests/overdue-scan.test.ts [2m([22m[2m1 test[22m[2m)[22m[33m 3172[2mms[22m[39m
+2026-10-08T17:07:18.4993025Z    [33m[2m✓[22m[39m executes the native overdue-batch contracts in the actual Pyodide runtime[33m 3171[2mms[22m[39m
+2026-10-08T17:07:18.5032183Z 
+2026-10-08T17:07:18.5038614Z [2m Test Files [22m [1m[32m12 passed[39m[22m[90m (12)[39m
+2026-10-08T17:07:18.5040151Z [2m      Tests [22m [1m[32m108 passed[39m[22m[90m (108)[39m
+2026-10-08T17:07:18.5065636Z [2m   Start at [22m 17:07:08
+2026-10-08T17:07:18.5082698Z [2m   Duration [22m 9.65s[2m (tests 93%, import 4%, transform 3%)[22m
+2026-10-08T17:07:18.5083539Z 
+2026-10-08T17:07:18.5423203Z ##[group]Run npm run build
+2026-10-08T17:07:18.5423683Z [36;1mnpm run build[0m
+2026-10-08T17:07:18.5490093Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:18.5490362Z ##[endgroup]
+2026-10-08T17:07:18.6531250Z 
+2026-10-08T17:07:18.6531996Z > ledgerly-offline-browser-demo@0.1.0 build
+2026-10-08T17:07:18.6532937Z > node scripts/stage-python.mjs && tsc --noEmit && vite build
+2026-10-08T17:07:18.6533441Z 
+2026-10-08T17:07:18.6998734Z Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+2026-10-08T17:07:20.5111712Z [36mvite v8.3.3 [32mbuilding client environment for production...[36m[39m
+2026-10-08T17:07:20.5265689Z transforming...
+2026-10-08T17:07:20.5999754Z [33m[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:20.6005620Z [33m[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:20.6011042Z [33m[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:20.6016346Z [33m[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:20.6021406Z [33m[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:20.6026643Z [33m[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:20.6031739Z [33m[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:20.6215450Z ✓ 20 modules transformed.
+2026-10-08T17:07:20.6416999Z rendering chunks...
+2026-10-08T17:07:20.6491173Z computing gzip size...
+2026-10-08T17:07:20.6502839Z dist/assets/__vite-browser-external-BJKaNrHK.js   0.11 kB
+2026-10-08T17:07:20.6504267Z dist/index.html                                   7.79 kB │ gzip:  2.88 kB
+2026-10-08T17:07:20.6505531Z dist/assets/engine.worker-DDtPc8DO.js            20.24 kB
+2026-10-08T17:07:20.6506753Z dist/assets/index-Cen1TXeQ.css                   16.99 kB │ gzip:  4.14 kB
+2026-10-08T17:07:20.6508029Z dist/assets/index-CPxINDuk.js                    51.13 kB │ gzip: 16.94 kB
+2026-10-08T17:07:20.6508691Z 
+2026-10-08T17:07:20.6509146Z [32m✓ built in 138ms[39m
+2026-10-08T17:07:20.6821629Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-10-08T17:07:20.6822528Z with:
+2026-10-08T17:07:20.6822983Z   python-version: 3.12
+2026-10-08T17:07:20.6823499Z   check-latest: false
+2026-10-08T17:07:20.6829327Z   token: ***
+2026-10-08T17:07:20.6829597Z   update-environment: true
+2026-10-08T17:07:20.6829856Z   allow-prereleases: false
+2026-10-08T17:07:20.6830098Z   freethreaded: false
+2026-10-08T17:07:20.6830318Z ##[endgroup]
+2026-10-08T17:07:20.8247967Z ##[group]Installed versions
+2026-10-08T17:07:20.8347743Z (node:2596) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T17:07:20.8349425Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T17:07:20.8350286Z Successfully set up CPython (3.12.15)
+2026-10-08T17:07:20.8351255Z ##[endgroup]
+2026-10-08T17:07:20.8473974Z ##[group]Run python -m pip install --disable-pip-version-check -r tools/requirements-browser.txt
+2026-10-08T17:07:20.8475045Z [36;1mpython -m pip install --disable-pip-version-check -r tools/requirements-browser.txt[0m
+2026-10-08T17:07:20.8558363Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:20.8558768Z env:
+2026-10-08T17:07:20.8559200Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:20.8560170Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-08T17:07:20.8560907Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:20.8561557Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:20.8562218Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:20.8562878Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-08T17:07:20.8563432Z ##[endgroup]
+2026-10-08T17:07:21.7787243Z Collecting playwright==1.63.0 (from -r tools/requirements-browser.txt (line 1))
+2026-10-08T17:07:21.8311528Z   Downloading playwright-1.63.0-py3-none-manylinux1_x86_64.whl.metadata (3.3 kB)
+2026-10-08T17:07:21.8471022Z Collecting pyee<14,>=13 (from playwright==1.63.0->-r tools/requirements-browser.txt (line 1))
+2026-10-08T17:07:21.8524596Z   Downloading pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)
+2026-10-08T17:07:22.0153183Z Collecting greenlet<4.0.0,>=3.1.1 (from playwright==1.63.0->-r tools/requirements-browser.txt (line 1))
+2026-10-08T17:07:22.0195174Z   Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-10-08T17:07:22.0380217Z Collecting typing-extensions (from pyee<14,>=13->playwright==1.63.0->-r tools/requirements-browser.txt (line 1))
+2026-10-08T17:07:22.0418805Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-08T17:07:22.0494937Z Downloading playwright-1.63.0-py3-none-manylinux1_x86_64.whl (48.2 MB)
+2026-10-08T17:07:22.2483679Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 MB 266.9 MB/s  0:00:00
+2026-10-08T17:07:22.2523949Z Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
+2026-10-08T17:07:22.2579061Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 621.4/621.4 kB 121.7 MB/s  0:00:00
+2026-10-08T17:07:22.2616920Z Downloading pyee-13.0.1-py3-none-any.whl (15 kB)
+2026-10-08T17:07:22.2690805Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-08T17:07:22.3651256Z Installing collected packages: typing-extensions, greenlet, pyee, playwright
+2026-10-08T17:07:23.2418195Z 
+2026-10-08T17:07:23.2430417Z Successfully installed greenlet-3.5.6 playwright-1.63.0 pyee-13.0.1 typing-extensions-4.16.0
+2026-10-08T17:07:23.2943217Z ##[group]Run chrome_bin="$(command -v google-chrome)"
+2026-10-08T17:07:23.2943662Z [36;1mchrome_bin="$(command -v google-chrome)"[0m
+2026-10-08T17:07:23.2943978Z [36;1m"$chrome_bin" --version[0m
+2026-10-08T17:07:23.2944863Z [36;1mpython tools/check_ledger_export_browser.py dist "$RUNNER_TEMP/ledger-export-receiving" --chrome "$chrome_bin" --emit-bundle[0m
+2026-10-08T17:07:23.3007937Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:23.3008198Z env:
+2026-10-08T17:07:23.3008473Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:23.3008943Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-08T17:07:23.3009395Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:23.3009799Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:23.3010183Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:23.3010732Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-08T17:07:23.3011085Z ##[endgroup]
+2026-10-08T17:07:24.5832966Z Google Chrome 154.0.8037.97 
+2026-10-08T17:07:39.9834902Z {"ok": true, "baseline": false, "checks": ["disabled before ready and for empty ledger", "disabled UI and controller guard during an actual pending Worker action", "actual human correction retains Unicode/commas/quotes with documented formula prefix", "failed browser download has no effects and explicit retry retains exact bytes", "390px layout without overflow and focused Enter activation", "reset disables empty export without deleting an explicitly downloaded file", "synthetic terminal Worker error blocks stale ledger through UI and controller guard; explicit restart starts empty"], "downloads": [{"case": "01-drafts", "filename": "ledgerly-sandbox-2026-10-08.csv", "rows": 2, "sha256": "3913d793ad6f9e49485e0565f34da657aef832393db2012035a240f91b77c32b", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}, {"case": "02-sent", "filename": "ledgerly-sandbox-2026-10-08.csv", "rows": 2, "sha256": "0f4d7a4e4124ca9b9d0f190218f05857a105b6e135cdd5c86cb5ac431ea5efe5", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}, {"case": "03-partial-payment", "filename": "ledgerly-sandbox-2026-10-08.csv", "rows": 2, "sha256": "2b0d2aa5697f2dada5f4466a5a0ed3460a9d6c48c7ae1a600c1bfc08f7601733", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}, {"case": "04-reminders", "filename": "ledgerly-sandbox-2026-11-08.csv", "rows": 2, "sha256": "44d8f8dc61565f63fd8603ab9747d0bdf470cca9297bc05470e6536c5bcef275", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}, {"case": "05-corrected-name", "filename": "ledgerly-sandbox-2026-11-08.csv", "rows": 3, "sha256": "45d890f26c3ca2e4ca825b38b1fc10dc627e9b96e77d9a33466b4825cf449556", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}, {"case": "06-repeat", "filename": "ledgerly-sandbox-2026-11-08.csv", "rows": 3, "sha256": "45d890f26c3ca2e4ca825b38b1fc10dc627e9b96e77d9a33466b4825cf449556", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}, {"case": "07-retry", "filename": "ledgerly-sandbox-2026-11-08.csv", "rows": 3, "sha256": "45d890f26c3ca2e4ca825b38b1fc10dc627e9b96e77d9a33466b4825cf449556", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}, {"case": "08-phone-keyboard", "filename": "ledgerly-sandbox-2026-11-08.csv", "rows": 3, "sha256": "45d890f26c3ca2e4ca825b38b1fc10dc627e9b96e77d9a33466b4825cf449556", "exact_snapshot_fields": true, "canonical_file_bytes": true, "state_and_requests_unchanged": true}], "page_errors": [], "off_origin_requests": [], "checkout": "620b2058315fdcaf3cc97f7d7738cbdef74a20f4", "python": "3.12.15", "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "playwright": "1.63.0", "source_sha256": {"src/main.ts": "6bfe4778c6e25bbbe22aff93f57a80e733488c03ffc5ac2b81c2d9a3b832bc74", "src/engine.worker.ts": "f621780b493a4c504da9613d38f2802b5ee231f41707ce4c915bbec59a12aa8d", "src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1", "src/ledger-export.ts": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc", "python/bridge.py": "9542f71915912be8499afb1af388d6e1f4defe2de6d1401086577c1c69b111df", "index.html": "2f1f8a31ff322bcf8e4d3dd1f3a67b21fe2bb37e08fe4f0836f2745d93831b5e", "tools/check_ledger_export_browser.py": "d37c01ac93a8996684dc89caf9bd7fe05535d0df9a3d0421a4948dcc7f20d747", "package-lock.json": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e", "vite.config.ts": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c"}, "dist_sha256": {"assets/__vite-browser-external-BJKaNrHK.js": "22c0fc26ada2ebfc4aa61eb6aa5f45520992bf9a1858eae16305d882e81343cf", "assets/engine.worker-DDtPc8DO.js": "88582aa1bba5277ce0b6352d99204583b298ac8f77608673b5922d142a70adc6", "assets/index-CPxINDuk.js": "11416f20de2fcbd11821c035414eb6c9341c5afd40fdee90d026945ff45b73ac", "assets/index-Cen1TXeQ.css": "5d59e7bba95071b3e5cd7355beb42819c0916b539b41d03a7293d83a027d04c6", "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df", "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5", "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337", "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902", "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e", "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540", "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3", "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9", "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0", "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42", "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28", "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97", "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d", "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee", "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e", "index.html": "9337b56fe5ad66e1d2a3031d9d1d63c5f06b5eb49fbb34e8975ca074012c4bde", "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac", "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91", "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480", "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b", "python/bridge.py": "9542f71915912be8499afb1af388d6e1f4defe2de6d1401086577c1c69b111df", "python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6", "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a", "python/ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19", "python/ledgerly/extract.py": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58", "python/ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3", "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447", "python/review_history.py": "e9e42d99681102cec8961761f5da2b337ea235b0c286067c054f708aa9d06a2f"}, "browser": "154.0.8037.97"}
+2026-10-08T17:07:43.8307636Z ##[group]Run chrome_bin="$(command -v google-chrome)"
+2026-10-08T17:07:43.8308072Z [36;1mchrome_bin="$(command -v google-chrome)"[0m
+2026-10-08T17:07:43.8308748Z [36;1mnode tools/check_review_history_browser.mjs --source .. --dist dist --chrome "$chrome_bin" --output "$RUNNER_TEMP/completed-reviews-receiving"[0m
+2026-10-08T17:07:43.8371372Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:43.8371623Z env:
+2026-10-08T17:07:43.8371888Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:43.8372331Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-08T17:07:43.8372763Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:43.8373140Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:43.8373682Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T17:07:43.8374063Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-08T17:07:43.8374675Z   LEDGERLY_HISTORY_EMIT_BUNDLE: 1
+2026-10-08T17:07:43.8375038Z ##[endgroup]
+2026-10-08T17:07:46.8613779Z PASS healthy actual empty Python session
+2026-10-08T17:07:47.1067333Z PASS healthy pending stays out of history
+2026-10-08T17:07:47.2169740Z PASS retained original approved
+2026-10-08T17:07:47.2404334Z PASS keyboard disclosure and result selection are read only
+2026-10-08T17:07:47.3588588Z PASS outer disclosure and focus survive immediate snapshot
+2026-10-08T17:07:47.4776232Z PASS nested disclosure and focus survive immediate snapshot
+2026-10-08T17:07:47.5718094Z PASS existing invoice details remain independently usable
+2026-10-08T17:07:48.1069948Z PASS retained original rejected
+2026-10-08T17:07:48.1206469Z PASS reviewed literal fields and rejection reason stay exact
+2026-10-08T17:07:48.2742836Z PASS retained original rejected
+2026-10-08T17:07:48.2904795Z PASS automatic rejection retains its original message and actual reason
+2026-10-08T17:07:48.4250293Z PASS retained original approved
+2026-10-08T17:07:48.4407073Z PASS explicit reminder approval retains its separate identity
+2026-10-08T17:07:48.7161706Z PASS phone history has no horizontal overflow or Worker effect
+2026-10-08T17:07:48.7370140Z PASS authored unavailable event labels retained history without replay
+2026-10-08T17:07:50.7825584Z PASS explicit restart opens empty history and retains source email
+2026-10-08T17:07:51.2347527Z PASS fresh session retains its own completed review
+2026-10-08T17:07:51.2500694Z PASS explicit confirmed Reset clears history
+2026-10-08T17:07:54.1989449Z PASS lost-response actual empty Python session
+2026-10-08T17:07:54.4412034Z PASS lost-response pending stays out of history
+2026-10-08T17:07:54.5555302Z PASS real send then lost response reaches FAILED UNKNOWN
+2026-10-08T17:07:54.5588886Z PASS UNKNOWN label is visibly rendered while collapsed
+2026-10-08T17:07:54.5617510Z PASS retained original failed
+2026-10-08T17:07:54.6501271Z PASS reading FAILED history does not retry or change provider state
+2026-10-08T17:07:54.7635513Z PASS both browser contexts requested the exact staged Python modules
+2026-10-08T17:07:54.7641031Z PASS page and Worker requests remained on loopback
+2026-10-08T17:07:54.7646962Z PASS no uncaught page or Worker exceptions
+2026-10-08T17:07:54.7655215Z PASS exactly one labeled fault bridge served
+2026-10-08T17:07:54.7660327Z PASS both owned browsers exited and profiles were removed
+2026-10-08T17:07:58.5154584Z {"ok":true,"checks":29,"sourceUnchanged":true,"distUnchanged":true,"output":"/home/runner/work/_temp/completed-reviews-receiving"}
+2026-10-08T17:07:58.5237367Z Post job cleanup.
+2026-10-08T17:07:58.6459728Z (node:3173) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T17:07:58.6460826Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T17:07:58.6641610Z Post job cleanup.
+2026-10-08T17:07:58.8015118Z (node:3181) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T17:07:58.8016847Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T17:07:58.8019973Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d, not saving cache.
+2026-10-08T17:07:58.8215711Z Post job cleanup.
+2026-10-08T17:07:58.9097574Z [command]/usr/bin/git version
+2026-10-08T17:07:58.9143097Z git version 2.55.0
+2026-10-08T17:07:58.9189816Z Temporarily overriding HOME='/home/runner/work/_temp/24545f12-f090-4993-8b8c-9be30cd2e77c' before making global git config changes
+2026-10-08T17:07:58.9191632Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T17:07:58.9199223Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T17:07:58.9243160Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T17:07:58.9286844Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T17:07:58.9564344Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T17:07:58.9595080Z http.https://github.com/.extraheader
+2026-10-08T17:07:58.9608018Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T17:07:58.9650753Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T17:07:58.9925563Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T17:07:58.9967033Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T17:07:59.0383274Z Cleaning up orphan processes
+2026-10-08T17:07:59.0667980Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

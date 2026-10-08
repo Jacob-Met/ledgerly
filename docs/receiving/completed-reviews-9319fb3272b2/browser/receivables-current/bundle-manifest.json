@@ -1,0 +1,83 @@
+{
+  "format": "ledgerly-history-log-bundle/1",
+  "rawBytes": 644523,
+  "files": [
+    {
+      "name": "browser.json",
+      "bytes": 33207,
+      "sha256": "5a975618f0eef5fa001bfbf761dfcc92bdf5bbaff3233a8f2f0f4e3e4a00d568",
+      "git_blob": "27971a2362e3a4670f59880910bcfece405548f7",
+      "chunks": 11
+    },
+    {
+      "name": "desktop-completed-reviews.png",
+      "bytes": 180657,
+      "sha256": "60318bc9eaf6de49795c68cb4af71848cc073c69d30dd0a6dc62ebfa86b96e52",
+      "git_blob": "308f0a2f1432d07ec40a11fc4f36fdc60f9d9a55",
+      "chunks": 59
+    },
+    {
+      "name": "healthy-chromium.log",
+      "bytes": 4222,
+      "sha256": "f2204a98564abbc05fa0d4f3ba8b682450a70632eefc56a89f953393e84a09e7",
+      "git_blob": "0c330b2bc1b26e74d8716c38c8feb4ef75d51209",
+      "chunks": 2
+    },
+    {
+      "name": "healthy-worker-observation.json",
+      "bytes": 245122,
+      "sha256": "3134dbb2ab1da146f4232791284881d0206aaaa27f368b640c8a6adcb86e5534",
+      "git_blob": "3abab4a1385b6c79baba23a56df0c83b446a9a46",
+      "chunks": 80
+    },
+    {
+      "name": "lost-response-chromium.log",
+      "bytes": 4222,
+      "sha256": "50905558666fbab4c784f21f717f399c03bd2940aa835faa1eede41ce4b576db",
+      "git_blob": "c80e291fe63d6587d2143f7757dcc8e676329353",
+      "chunks": 2
+    },
+    {
+      "name": "lost-response-suffix.py",
+      "bytes": 817,
+      "sha256": "65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c",
+      "git_blob": "4c8eb59cb941f6fec85b9c692970fa2cff644544",
+      "chunks": 1
+    },
+    {
+      "name": "lost-response-worker-observation.json",
+      "bytes": 20495,
+      "sha256": "53042ef3873e2e587305e832114ff10ce38a2523fb19cc726cb15df2266feb62",
+      "git_blob": "d991e19a6ba3c03bab569c51aa76d2b98fb81878",
+      "chunks": 7
+    },
+    {
+      "name": "phone-completed-reminder.png",
+      "bytes": 39385,
+      "sha256": "022fea14eda30830da47b1e33244f9a922d4cd765744396861f95521a8e418af",
+      "git_blob": "76d92b1b12bd9f536765b6b7113de0f51024d5dc",
+      "chunks": 13
+    },
+    {
+      "name": "phone-literal-invoice.png",
+      "bytes": 49605,
+      "sha256": "8a1615b4e3c993731e289188cd386c145d1770233ca2f2829bf5f900865541cf",
+      "git_blob": "504aec0c17fdf7067dcc74dd18277a43e88750a9",
+      "chunks": 17
+    },
+    {
+      "name": "phone-outcome-unknown.png",
+      "bytes": 58789,
+      "sha256": "328615123a994708434f43619b59d548ccc938ad61019daa952454d1b4b0ab35",
+      "git_blob": "72dcb27f167cb84d7f410131db457b0ff0872755",
+      "chunks": 20
+    },
+    {
+      "name": "source-binding.json",
+      "bytes": 8002,
+      "sha256": "60542002e7bcac2f67ffe48fa8f207e4187ea6e7e7882497cbdbac173c8ff175",
+      "git_blob": "7c667189cbefdda3fe17dde43574b993d18e9ddb",
+      "chunks": 3
+    }
+  ]
+}
