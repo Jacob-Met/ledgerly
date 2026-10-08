@@ -1,5 +1,7 @@
 import './style.css';
 import './review.css';
+import './ledger-export.css';
+import {createLedgerExport} from './ledger-export';
 import './approval-preview.css';
 import './invoice-details.css';
 import {createInvoiceDetailsView} from './invoice-details';
@@ -7,6 +9,7 @@ import {approvalListMarkup} from './approval-preview';
 import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
 import {WorkerClient, WorkerUnavailableError} from './worker-client';
 const $=<T extends HTMLElement>(selector:string)=>document.querySelector(selector) as T;
+const ledgerExport=createLedgerExport($<HTMLButtonElement>('#ledger-export'),$<HTMLElement>('#ledger-export-note'));
 const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const invoiceDetails=createInvoiceDetailsView($<HTMLElement>('#ledger-list'));
 const worker=new WorkerClient(()=>new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'}),{
@@ -40,6 +43,7 @@ function engineUnavailable(error:WorkerUnavailableError){
 function analysisBlocked(ex:any){return !ex||ex.issues?.some((x:any)=>x.severity==='error')||(ex.confidence||0)<0.5||!ex.line_items?.length;}
 function syncControls(){
  const enabled=ready&&!busy;
+ ledgerExport.setAvailable(enabled);
  invoiceDetails.setAvailability(ready,busy);
  for(const id of ['fixture-select','load-fixture','job-email','analyze','demo-date','advance-clock','run-chase','reset-sandbox','payment-amount'])$<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>(`#${id}`).disabled=!enabled;
  for(const el of Array.from(document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#review-form input,#review-form select,#review-form button,#approval-list button,#ledger-list button')))el.disabled=!enabled;
@@ -69,6 +73,7 @@ function renderAnalysis(ex:any){
  panel.insertAdjacentHTML('beforeend',reviewMarkup(ex));
  syncControls();
 }function renderState(state:any){
+ ledgerExport.setSnapshot(state);
  canReplay=Boolean(state.can_replay);
  $<HTMLElement>('#mock-requests').textContent=String(state.mock_requests??0);$<HTMLElement>('#external-calls').textContent=String(state.external_calls??0);
  const dateInput=$<HTMLInputElement>('#demo-date');if(document.activeElement!==dateInput)dateInput.value=state.today||'';$<HTMLButtonElement>('#replay-webhook').disabled=!ready||!state.can_replay||busy;
@@ -166,4 +171,4 @@ $('#ledger-list').addEventListener('click',async(event)=>{const b=(event.target 
 $('#advance-clock').addEventListener('click',async()=>{const day=$<HTMLInputElement>('#demo-date').value;if(!day){status('Choose a date for the local clock.','error');return;}await runAction('advance',{day});});
 $('#run-chase').addEventListener('click',async()=>{status('Running the overdue scan and reminder rules...','loading');await runAction('chase');});
 $('#replay-webhook').addEventListener('click',async()=>{const reply=await runAction('replay');if(reply?.ok)status(reply.result.duplicate?'Duplicate webhook safely ignored by Ledgerly.':'Webhook processed.','ready');});
-$('#reset-sandbox').addEventListener('click',async()=>{if(busy||!confirm('Discard the in-memory ledger and clear the pasted email?'))return;const reply=await runAction('reset');if(reply?.ok){$<HTMLTextAreaElement>('#job-email').value='';invalidateAnalysis('Sandbox reset. Load a fixture or paste a new email.');$<HTMLInputElement>('#payment-amount').value='';status('Sandbox reset. No records were persisted.','ready');}});
+$('#reset-sandbox').addEventListener('click',async()=>{if(busy||!confirm('Discard the in-memory ledger and clear the pasted email?'))return;const reply=await runAction('reset');if(reply?.ok){$<HTMLTextAreaElement>('#job-email').value='';invalidateAnalysis('Sandbox reset. Load a fixture or paste a new email.');$<HTMLInputElement>('#payment-amount').value='';status('Sandbox reset. The in-memory ledger was cleared.','ready');}});

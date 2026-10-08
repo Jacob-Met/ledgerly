@@ -1,0 +1,56 @@
+{
+  "base": "5493205cd69a32be75ed2f7dfc669b122efe5563",
+  "tree": "cc84de9a71fb23be5af6467a59f8e994c388114a",
+  "files": {
+    "ledgerly/__init__.py": {
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "bytes": 119
+    },
+    "ledgerly/agent.py": {
+      "git_blob": "3ae7fcae5b1b243f608ab1bea6e25313a2fea091",
+      "sha256": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+      "bytes": 32210
+    },
+    "ledgerly/paypal.py": {
+      "git_blob": "04cc47d78c29154435fb429ffa931d2727addb96",
+      "sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "bytes": 24917
+    },
+    "ledgerly/extract.py": {
+      "git_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "bytes": 28143
+    },
+    "web-demo/python/bridge.py": {
+      "git_blob": "5573f8b488ee4421e073fce057e6928aac6f6630",
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "bytes": 6223
+    },
+    "web-demo/python/review.py": {
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "bytes": 4379
+    },
+    "fixtures/02_gbp_proofreading.txt": {
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "bytes": 293
+    },
+    "tests/test_agent_paypal.py": {
+      "git_blob": "7aa2e496f57ee49b090d5b8607301c81222fad94",
+      "sha256": "4e02c80b725c9532e3f80db8328770ce03731741bc8978991877ca25bc2f25c5",
+      "bytes": 11582
+    },
+    "tests/conftest.py": {
+      "git_blob": "ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+      "sha256": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+      "bytes": 788
+    },
+    "pyproject.toml": {
+      "git_blob": "46b2ea48656b953bb27026e0247efb219b03670e",
+      "sha256": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+      "bytes": 380
+    }
+  }
+}

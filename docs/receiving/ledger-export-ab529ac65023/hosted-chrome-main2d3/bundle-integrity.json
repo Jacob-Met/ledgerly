@@ -1,0 +1,139 @@
+{
+  "schema": "ledgerly.csv-browser-bundle-receiving.v1",
+  "run": 37786675463,
+  "browser_job": 113343091707,
+  "python_job": 113343091712,
+  "source_head": "575df8a3eb505377cc4425dc680e489e8f1892e8",
+  "actual_checkout": "3e51e967b8e0db434a400dd6ac497d7f7ca9a243",
+  "main": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "packet": {
+    "bytes": 199918,
+    "sha256": "debda18bd35dc9c8ad6ab11f8740bf6affb96a3572b1a6e20fda1f8253e49717",
+    "chunks": 66
+  },
+  "all_chunks_and_files_verified": true,
+  "decoded_files": [
+    {
+      "path": "01-drafts-snapshot.json",
+      "bytes": 5726,
+      "sha256": "5bdd340ce64ba41ec34844c275ae50bb4531571b10f03db26420b357313c3f1a",
+      "preserved_path": "hosted-chrome-main2d3/01-drafts-snapshot.json"
+    },
+    {
+      "path": "01-drafts.csv",
+      "bytes": 472,
+      "sha256": "391e0657a484672cb49dd35becc6572393f85b532e576b6d26d3537d9c3d21b2",
+      "preserved_path": "hosted-chrome-main2d3/01-drafts.csv"
+    },
+    {
+      "path": "02-sent-snapshot.json",
+      "bytes": 2477,
+      "sha256": "702cd14bcbbdde6198ceca1cb90f8bf5973caa5836fc122e1f911253fcb28006",
+      "preserved_path": "hosted-chrome-main2d3/02-sent-snapshot.json"
+    },
+    {
+      "path": "02-sent.csv",
+      "bytes": 490,
+      "sha256": "7434363c7b694c80d3a712aa7c7d97bb62cdbe655a4e2ffcfbea4fe2a24ee042",
+      "preserved_path": "hosted-chrome-main2d3/02-sent.csv"
+    },
+    {
+      "path": "03-partial-payment-snapshot.json",
+      "bytes": 2724,
+      "sha256": "e0f8d7b52b27ebb497ea5786f78340263743ae5c1bcf9e6604dc7d1025fe07da",
+      "preserved_path": "hosted-chrome-main2d3/03-partial-payment-snapshot.json"
+    },
+    {
+      "path": "03-partial-payment.csv",
+      "bytes": 500,
+      "sha256": "becac167feaefdb74123c14dd64f9dad04700685c9ae0cc153abe586e0f33741",
+      "preserved_path": "hosted-chrome-main2d3/03-partial-payment.csv"
+    },
+    {
+      "path": "04-reminders-snapshot.json",
+      "bytes": 4094,
+      "sha256": "c1520da0cd238799bb555095b46b9f58d1897463fe2499c4bf795a6ab19f16b7",
+      "preserved_path": "hosted-chrome-main2d3/04-reminders-snapshot.json"
+    },
+    {
+      "path": "04-reminders.csv",
+      "bytes": 500,
+      "sha256": "2b4d539cfe878befc1c30b837b72b30a120445d3deae096312d35a7c8afb1bb9",
+      "preserved_path": "hosted-chrome-main2d3/04-reminders.csv"
+    },
+    {
+      "path": "05-corrected-name-snapshot.json",
+      "bytes": 7339,
+      "sha256": "0f6643bd01f9407b84cab28d4d20af32e32374d298625a2cf65c77d3858c3b4e",
+      "preserved_path": "hosted-chrome-main2d3/05-corrected-name-snapshot.json"
+    },
+    {
+      "path": "05-corrected-name.csv",
+      "bytes": 675,
+      "sha256": "2a150a2ac3289c2cf9bb469b35bea1b44de5c3e387cc0d0d151800bf2cdfc1c0",
+      "preserved_path": "hosted-chrome-main2d3/05-corrected-name.csv"
+    },
+    {
+      "path": "06-repeat-snapshot.json",
+      "bytes": 7339,
+      "sha256": "0f6643bd01f9407b84cab28d4d20af32e32374d298625a2cf65c77d3858c3b4e",
+      "preserved_path": "hosted-chrome-main2d3/06-repeat-snapshot.json"
+    },
+    {
+      "path": "06-repeat.csv",
+      "bytes": 675,
+      "sha256": "2a150a2ac3289c2cf9bb469b35bea1b44de5c3e387cc0d0d151800bf2cdfc1c0",
+      "preserved_path": "hosted-chrome-main2d3/06-repeat.csv"
+    },
+    {
+      "path": "07-retry-snapshot.json",
+      "bytes": 7339,
+      "sha256": "0f6643bd01f9407b84cab28d4d20af32e32374d298625a2cf65c77d3858c3b4e",
+      "preserved_path": "hosted-chrome-main2d3/07-retry-snapshot.json"
+    },
+    {
+      "path": "07-retry.csv",
+      "bytes": 675,
+      "sha256": "2a150a2ac3289c2cf9bb469b35bea1b44de5c3e387cc0d0d151800bf2cdfc1c0",
+      "preserved_path": "hosted-chrome-main2d3/07-retry.csv"
+    },
+    {
+      "path": "08-phone-keyboard-snapshot.json",
+      "bytes": 7339,
+      "sha256": "0f6643bd01f9407b84cab28d4d20af32e32374d298625a2cf65c77d3858c3b4e",
+      "preserved_path": "hosted-chrome-main2d3/08-phone-keyboard-snapshot.json"
+    },
+    {
+      "path": "08-phone-keyboard.csv",
+      "bytes": 675,
+      "sha256": "2a150a2ac3289c2cf9bb469b35bea1b44de5c3e387cc0d0d151800bf2cdfc1c0",
+      "preserved_path": "hosted-chrome-main2d3/08-phone-keyboard.csv"
+    },
+    {
+      "path": "browser-receiving.json",
+      "bytes": 7398,
+      "sha256": "515d795db414a16de411c617fa2335abf914cb60000cd0203ce2e57195bd22a9",
+      "preserved_path": "hosted-chrome-main2d3/browser-receiving.json"
+    },
+    {
+      "path": "desktop-ledger.png",
+      "bytes": 42279,
+      "sha256": "383a819537fba74dcd95b77e49ff1bccf747e54dca8e8adb9f6872d272ebef6d",
+      "preserved_path": "hosted-chrome/desktop-ledger.png"
+    },
+    {
+      "path": "phone-ledger.png",
+      "bytes": 49287,
+      "sha256": "1cf45469161e61036907f17ad07604648230976d9aa0a7bab5978379208d49dd",
+      "preserved_path": "hosted-chrome/phone-ledger.png"
+    }
+  ],
+  "counts": {
+    "frontend_tests": 64,
+    "python_tests": 185,
+    "python_subtests": 63,
+    "downloads": 8,
+    "controls": 7
+  },
+  "reuse_note": "Both screenshots match the existing hosted-chrome files byte-for-byte and are referenced there. All seventeen distinct CSV/snapshot/receipt files are preserved in this packet directory. Distinct per-run generated invoice IDs are expected; each download was checked against its same-run actual Worker snapshot. The complete original packet remains in the raw job log."
+}

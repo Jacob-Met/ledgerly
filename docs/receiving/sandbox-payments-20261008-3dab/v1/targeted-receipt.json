@@ -1,0 +1,112 @@
+[
+  {
+    "subject": "before",
+    "mode": "normal",
+    "started_utc": "2026-10-08T13:22:46.388049+00:00",
+    "argv": [
+      "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "-B",
+      "-c",
+      "import hashlib,json,sys,unittest\nfrom pathlib import Path\nsuite=unittest.defaultTestLoader.discover(sys.argv[1],pattern=\"test_sandbox_payment_admission.py\")\nmodules={}\nfor name in [\"ledgerly\",\"ledgerly.agent\",\"ledgerly.paypal\",\"ledgerly.extract\",\"review\",\"test_sandbox_payment_admission\"]:\n    m=sys.modules.get(name)\n    if m is not None and getattr(m,\"__file__\",None):\n        p=Path(m.__file__).resolve();modules[name]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nm=sys.modules[\"test_sandbox_payment_admission\"].bridge\np=Path(m.__file__).resolve();modules[\"bridge\"]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nprint(json.dumps({\"runtime\":sys.version,\"loaded\":modules}),flush=True)\nr=unittest.TextTestRunner(verbosity=2).run(suite)\nraise SystemExit(not r.wasSuccessful())\n",
+      "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests"
+    ],
+    "cwd": "/dev/shm/memory-delivery-ledgerly-3dab/current-before",
+    "environment": {
+      "PYTHONPATH": "/dev/shm/memory-delivery-ledgerly-3dab/current-before",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 1,
+    "stdout": "targeted-before-normal.stdout",
+    "stderr": "targeted-before-normal.stderr",
+    "stdout_sha256": "8e51fca66a56955e22186183b2029744b89783d2d86e628405fb6a0924aeb300",
+    "stderr_sha256": "66d5c459289d9f99794ccf361b6c340904ed46b9663e6c39923b899f4dd1368e",
+    "source_unchanged": true,
+    "source_files": 32,
+    "test_sha256": "ab9820106237b1cc4b5f844693f37064639a9f2871fa8f1814f164f4bbc49ce7",
+    "methods": 11,
+    "result_summary": "FAILED (failures=21, errors=7)"
+  },
+  {
+    "subject": "before",
+    "mode": "optimized",
+    "started_utc": "2026-10-08T13:22:46.645754+00:00",
+    "argv": [
+      "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "-B",
+      "-O",
+      "-c",
+      "import hashlib,json,sys,unittest\nfrom pathlib import Path\nsuite=unittest.defaultTestLoader.discover(sys.argv[1],pattern=\"test_sandbox_payment_admission.py\")\nmodules={}\nfor name in [\"ledgerly\",\"ledgerly.agent\",\"ledgerly.paypal\",\"ledgerly.extract\",\"review\",\"test_sandbox_payment_admission\"]:\n    m=sys.modules.get(name)\n    if m is not None and getattr(m,\"__file__\",None):\n        p=Path(m.__file__).resolve();modules[name]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nm=sys.modules[\"test_sandbox_payment_admission\"].bridge\np=Path(m.__file__).resolve();modules[\"bridge\"]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nprint(json.dumps({\"runtime\":sys.version,\"loaded\":modules}),flush=True)\nr=unittest.TextTestRunner(verbosity=2).run(suite)\nraise SystemExit(not r.wasSuccessful())\n",
+      "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests"
+    ],
+    "cwd": "/dev/shm/memory-delivery-ledgerly-3dab/current-before",
+    "environment": {
+      "PYTHONPATH": "/dev/shm/memory-delivery-ledgerly-3dab/current-before",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 1,
+    "stdout": "targeted-before-optimized.stdout",
+    "stderr": "targeted-before-optimized.stderr",
+    "stdout_sha256": "8e51fca66a56955e22186183b2029744b89783d2d86e628405fb6a0924aeb300",
+    "stderr_sha256": "5bc97469c06c21019d2f700a8f86f4fd58a5e2535e26f3338d97e30dc520ea76",
+    "source_unchanged": true,
+    "source_files": 32,
+    "test_sha256": "ab9820106237b1cc4b5f844693f37064639a9f2871fa8f1814f164f4bbc49ce7",
+    "methods": 11,
+    "result_summary": "FAILED (failures=21, errors=7)"
+  },
+  {
+    "subject": "candidate",
+    "mode": "normal",
+    "started_utc": "2026-10-08T13:22:47.208492+00:00",
+    "argv": [
+      "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "-B",
+      "-c",
+      "import hashlib,json,sys,unittest\nfrom pathlib import Path\nsuite=unittest.defaultTestLoader.discover(sys.argv[1],pattern=\"test_sandbox_payment_admission.py\")\nmodules={}\nfor name in [\"ledgerly\",\"ledgerly.agent\",\"ledgerly.paypal\",\"ledgerly.extract\",\"review\",\"test_sandbox_payment_admission\"]:\n    m=sys.modules.get(name)\n    if m is not None and getattr(m,\"__file__\",None):\n        p=Path(m.__file__).resolve();modules[name]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nm=sys.modules[\"test_sandbox_payment_admission\"].bridge\np=Path(m.__file__).resolve();modules[\"bridge\"]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nprint(json.dumps({\"runtime\":sys.version,\"loaded\":modules}),flush=True)\nr=unittest.TextTestRunner(verbosity=2).run(suite)\nraise SystemExit(not r.wasSuccessful())\n",
+      "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests"
+    ],
+    "cwd": "/dev/shm/memory-delivery-ledgerly-3dab/candidate",
+    "environment": {
+      "PYTHONPATH": "/dev/shm/memory-delivery-ledgerly-3dab/candidate",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 0,
+    "stdout": "targeted-candidate-normal.stdout",
+    "stderr": "targeted-candidate-normal.stderr",
+    "stdout_sha256": "33edb0d78bf6d94ebf85f9e5b15b163da237ebcd1d0731799bd9fb5a92cc0e26",
+    "stderr_sha256": "59915e8302fb374fa84fed2a94d5edc958c959e73a3e870a53b78f5743d8d6ee",
+    "source_unchanged": true,
+    "source_files": 33,
+    "test_sha256": "ab9820106237b1cc4b5f844693f37064639a9f2871fa8f1814f164f4bbc49ce7",
+    "methods": 11,
+    "result_summary": "OK"
+  },
+  {
+    "subject": "candidate",
+    "mode": "optimized",
+    "started_utc": "2026-10-08T13:22:47.416567+00:00",
+    "argv": [
+      "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "-B",
+      "-O",
+      "-c",
+      "import hashlib,json,sys,unittest\nfrom pathlib import Path\nsuite=unittest.defaultTestLoader.discover(sys.argv[1],pattern=\"test_sandbox_payment_admission.py\")\nmodules={}\nfor name in [\"ledgerly\",\"ledgerly.agent\",\"ledgerly.paypal\",\"ledgerly.extract\",\"review\",\"test_sandbox_payment_admission\"]:\n    m=sys.modules.get(name)\n    if m is not None and getattr(m,\"__file__\",None):\n        p=Path(m.__file__).resolve();modules[name]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nm=sys.modules[\"test_sandbox_payment_admission\"].bridge\np=Path(m.__file__).resolve();modules[\"bridge\"]={\"path\":str(p),\"sha256\":hashlib.sha256(p.read_bytes()).hexdigest()}\nprint(json.dumps({\"runtime\":sys.version,\"loaded\":modules}),flush=True)\nr=unittest.TextTestRunner(verbosity=2).run(suite)\nraise SystemExit(not r.wasSuccessful())\n",
+      "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests"
+    ],
+    "cwd": "/dev/shm/memory-delivery-ledgerly-3dab/candidate",
+    "environment": {
+      "PYTHONPATH": "/dev/shm/memory-delivery-ledgerly-3dab/candidate",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 0,
+    "stdout": "targeted-candidate-optimized.stdout",
+    "stderr": "targeted-candidate-optimized.stderr",
+    "stdout_sha256": "33edb0d78bf6d94ebf85f9e5b15b163da237ebcd1d0731799bd9fb5a92cc0e26",
+    "stderr_sha256": "8ab7c9851e8b7777dc551fb240f5ec60a71a79fb72fbba8db5ff2e2482c2961c",
+    "source_unchanged": true,
+    "source_files": 33,
+    "test_sha256": "ab9820106237b1cc4b5f844693f37064639a9f2871fa8f1814f164f4bbc49ce7",
+    "methods": 11,
+    "result_summary": "OK"
+  }
+]

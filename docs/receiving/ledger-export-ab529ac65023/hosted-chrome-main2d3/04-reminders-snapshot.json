@@ -1,0 +1,177 @@
+{
+  "state": {
+    "today": "2026-11-08",
+    "ledger": [
+      {
+        "invoice_id": "INV2-MOCK-0001-B278",
+        "invoice_number": "LDG-0001",
+        "client_name": "Priya Nair",
+        "client_email": "priya@orbitlabs.example",
+        "currency": "EUR",
+        "total": "360",
+        "paid_amount": "1",
+        "balance": "359",
+        "status": "PARTIALLY_PAID",
+        "sent_on": "2026-10-08",
+        "due_on": "2026-11-07",
+        "reminders_sent": 1
+      },
+      {
+        "invoice_id": "INV2-MOCK-0002-37E2",
+        "invoice_number": "LDG-0002",
+        "client_name": "Priya Nair",
+        "client_email": "priya@orbitlabs.example",
+        "currency": "USD",
+        "total": "1900",
+        "paid_amount": "0",
+        "balance": "1900",
+        "status": "SENT",
+        "sent_on": "2026-10-08",
+        "due_on": "2026-11-07",
+        "reminders_sent": 1
+      }
+    ],
+    "pending": [],
+    "audit": [
+      {
+        "at": "2026-10-08T13:45:08.510000+00:00",
+        "event": "queued",
+        "action": "apv_7b9934a561",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0001-B278"
+      },
+      {
+        "at": "2026-10-08T13:45:08.511000+00:00",
+        "event": "queued",
+        "action": "apv_8fc8c49b9e",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0002-37E2"
+      },
+      {
+        "at": "2026-10-08T13:45:08.511000+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:45:08.511000+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:45:08.511000+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:45:08.791000+00:00",
+        "event": "approved",
+        "action": "apv_7b9934a561",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0001-B278"
+      },
+      {
+        "at": "2026-10-08T13:45:08.856999+00:00",
+        "event": "approved",
+        "action": "apv_8fc8c49b9e",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0002-37E2"
+      },
+      {
+        "at": "2026-10-08T13:45:09.160999+00:00",
+        "event": "webhook",
+        "invoice": "INV2-MOCK-0001-B278",
+        "event_type": "INVOICING.INVOICE.PAID"
+      },
+      {
+        "at": "2026-10-08T13:45:09.540000+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:45:09.540999+00:00",
+        "event": "queued",
+        "action": "apv_9ef55b7741",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0001-B278"
+      },
+      {
+        "at": "2026-10-08T13:45:09.540999+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:45:09.542000+00:00",
+        "event": "queued",
+        "action": "apv_f1f9741f8b",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0002-37E2"
+      },
+      {
+        "at": "2026-10-08T13:45:09.542000+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:45:09.608000+00:00",
+        "event": "approved",
+        "action": "apv_9ef55b7741",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0001-B278"
+      },
+      {
+        "at": "2026-10-08T13:45:09.688999+00:00",
+        "event": "approved",
+        "action": "apv_f1f9741f8b",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0002-37E2"
+      }
+    ],
+    "mock_requests": 15,
+    "external_calls": 0,
+    "can_replay": true
+  },
+  "requests": [
+    {
+      "id": 1,
+      "action": "init"
+    },
+    {
+      "id": 2,
+      "action": "analyze"
+    },
+    {
+      "id": 3,
+      "action": "draft"
+    },
+    {
+      "id": 4,
+      "action": "approve"
+    },
+    {
+      "id": 5,
+      "action": "approve"
+    },
+    {
+      "id": 6,
+      "action": "payment"
+    },
+    {
+      "id": 7,
+      "action": "advance"
+    },
+    {
+      "id": 8,
+      "action": "chase"
+    },
+    {
+      "id": 9,
+      "action": "approve"
+    },
+    {
+      "id": 10,
+      "action": "approve"
+    }
+  ],
+  "mock": "15",
+  "external": "0"
+}

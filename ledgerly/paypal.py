@@ -35,7 +35,7 @@ import os
 import uuid
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
-from decimal import Decimal
+from decimal import Decimal, DecimalException
 from typing import Any, Callable, Optional, Protocol
 
 from .extract import Extraction, quantize, validate
@@ -301,16 +301,32 @@ class SandboxMock:
 
     def _apply_payment(self, inv: dict, pid: str, amount: Decimal, method: str, pdate: str, external: bool) -> None:
         ccy = inv["detail"]["currency_code"]
-        inv["payments"]["transactions"].append({
+        if not amount.is_finite() or amount <= 0:
+            raise ValueError("Sandbox payment amount must be a finite number greater than zero.")
+        try:
+            money = _money(amount, ccy)
+        except DecimalException as exc:
+            raise ValueError(f"Sandbox payment amount cannot be represented in {ccy}.") from exc
+        if Decimal(money["value"]) != amount:
+            raise ValueError(f"Sandbox payment amount must be exact in {ccy}; it cannot be rounded.")
+
+        # Recalculation can still fail after admission. Prepare every changed
+        # invoice field before committing the payment to this retained record.
+        staged = copy.deepcopy(inv)
+        staged["payments"]["transactions"].append({
             "payment_id": pid, "type": "EXTERNAL" if external else "PAYPAL", "method": method,
-            "payment_date": pdate, "amount": _money(amount, ccy),
+            "payment_date": pdate, "amount": money,
         })
-        self._recalc(inv)
-        due = Decimal(inv["due_amount"]["value"])
-        if due <= 0:
-            inv["status"] = "MARKED_AS_PAID" if external else "PAID"
-        else:
-            inv["status"] = "PARTIALLY_PAID"
+        try:
+            self._recalc(staged)
+            due = Decimal(staged["due_amount"]["value"])
+            if due <= 0:
+                staged["status"] = "MARKED_AS_PAID" if external else "PAID"
+            else:
+                staged["status"] = "PARTIALLY_PAID"
+        except DecimalException as exc:
+            raise ValueError("Sandbox payment could not be calculated; the invoice was not changed.") from exc
+        inv.update({key: staged[key] for key in ("payments", "amount", "due_amount", "status")})
 
     def _public(self, inv: dict) -> dict:
         out = copy.deepcopy(inv)

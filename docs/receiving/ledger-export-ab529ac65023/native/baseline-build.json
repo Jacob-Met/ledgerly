@@ -1,0 +1,39 @@
+{
+  "results": [
+    {
+      "name": "stage",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/stage-python.mjs"
+      ],
+      "returncode": 0,
+      "seconds": 0.162
+    },
+    {
+      "name": "types",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "/Users/me/ledgerly-export-evidence-ab529ac65023/baseline-source/web-demo/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "returncode": 0,
+      "seconds": 0.52
+    },
+    {
+      "name": "build",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "/Users/me/ledgerly-export-evidence-ab529ac65023/baseline-source/web-demo/node_modules/vite/bin/vite.js",
+        "build",
+        "--outDir",
+        "/Users/me/ledgerly-export-evidence-ab529ac65023/baseline-dist"
+      ],
+      "returncode": 0,
+      "seconds": 0.445
+    }
+  ],
+  "node": "v26.3.0",
+  "done_at": "2026-10-08T12:07:43.841063+00:00",
+  "disk_free_after": 2227032064,
+  "donor_critical_unchanged": true
+}

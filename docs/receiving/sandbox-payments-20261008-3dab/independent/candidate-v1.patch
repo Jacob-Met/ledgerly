@@ -1,0 +1,62 @@
+--- a/ledgerly/paypal.py
++++ b/ledgerly/paypal.py
+@@ -35,7 +35,7 @@
+ import uuid
+ from dataclasses import dataclass
+ from datetime import date, datetime, timedelta, timezone
+-from decimal import Decimal
++from decimal import Decimal, DecimalException, Inexact, localcontext
+ from typing import Any, Callable, Optional, Protocol
+ 
+ from .extract import Extraction, quantize
+@@ -295,16 +295,31 @@
+ 
+     def _apply_payment(self, inv: dict, pid: str, amount: Decimal, method: str, pdate: str, external: bool) -> None:
+         ccy = inv["detail"]["currency_code"]
+-        inv["payments"]["transactions"].append({
++        if not amount.is_finite() or amount <= 0:
++            raise ValueError("Sandbox payment amount must be a finite number greater than zero.")
++        try:
++            money = _money(amount, ccy)
++        except DecimalException as exc:
++            raise ValueError(f"Sandbox payment amount cannot be represented in {ccy}.") from exc
++        if Decimal(money["value"]) != amount:
++            raise ValueError(f"Sandbox payment amount must be exact in {ccy}; it cannot be rounded.")
++
++        # Recalculation can still fail after admission. Prepare every changed
++        # invoice field before committing the payment to this retained record.
++        staged = copy.deepcopy(inv)
++        staged["payments"]["transactions"].append({
+             "payment_id": pid, "type": "EXTERNAL" if external else "PAYPAL", "method": method,
+-            "payment_date": pdate, "amount": _money(amount, ccy),
++            "payment_date": pdate, "amount": money,
+         })
+-        self._recalc(inv)
+-        due = Decimal(inv["due_amount"]["value"])
+-        if due <= 0:
+-            inv["status"] = "MARKED_AS_PAID" if external else "PAID"
+-        else:
+-            inv["status"] = "PARTIALLY_PAID"
++        try:
++            with localcontext() as context:
++                context.traps[Inexact] = True
++                self._recalc(staged)
++                due = Decimal(staged["due_amount"]["value"])
++                staged["status"] = ("MARKED_AS_PAID" if external else "PAID") if due <= 0 else "PARTIALLY_PAID"
++        except DecimalException as exc:
++            raise ValueError("Sandbox payment could not be applied exactly; the invoice was not changed.") from exc
++        inv.update({key: staged[key] for key in ("payments", "amount", "due_amount", "status")})
+ 
+     def _public(self, inv: dict) -> dict:
+         out = copy.deepcopy(inv)
+--- a/web-demo/python/bridge.py
++++ b/web-demo/python/bridge.py
+@@ -80,7 +80,7 @@
+             pending=next(a for a in self.agent.list_pending() if a["id"]==req["action_id"]);self.agent.approve(req["action_id"],approver="browser visitor");result={"approved":True,"kind":pending["kind"],"invoice_id":pending["invoice_id"]}
+         elif action=="reject": self.agent.reject(req["action_id"],"Rejected by the browser visitor");result={"rejected":True}
+         elif action=="payment":
+-            amount=req.get("amount");event=self.mock.simulate_payer_payment(req["invoice_id"],None if not amount else Decimal(str(amount)));raw=json.dumps(event,separators=(",",":")).encode("utf-8");headers=self.mock.sign(raw);self.last_event=(raw,headers);result=self.agent.handle_webhook(raw,headers)
++            amount=req.get("amount");event=self.mock.simulate_payer_payment(req["invoice_id"],None if amount is None or amount=="" else Decimal(str(amount)));raw=json.dumps(event,separators=(",",":")).encode("utf-8");headers=self.mock.sign(raw);self.last_event=(raw,headers);result=self.agent.handle_webhook(raw,headers)
+         elif action=="replay": result={"ok":False,"message":"No webhook to replay."} if self.last_event is None else self.agent.handle_webhook(*self.last_event)
+         elif action=="advance":
+             new_day=date.fromisoformat(req["day"])
