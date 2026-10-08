@@ -1,34 +1,121 @@
 import './style.css';
+import './review.css';
+import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
 type Reply={id?:number;type?:string;ok:boolean;data?:any;error?:string};
 const $=<T extends HTMLElement>(selector:string)=>document.querySelector(selector) as T;
 const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const worker=new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'});
 let nextId=0,ready=false,busy=false,analysisResult:any=null;
+let reviewId:string|null=null,reviewEngaged=false,canReplay=false,rawDraftUsed=false;
 const waiting=new Map<number,{resolve:(value:any)=>void;reject:(error:Error)=>void}>();
 function status(text:string,kind='info'){$<HTMLElement>('#status-message').textContent=text;$<HTMLElement>('#status-message').dataset.kind=kind;}
 function call(action:string,payload:Record<string,unknown>={}){return new Promise<any>((resolve,reject)=>{const id=++nextId;waiting.set(id,{resolve,reject});worker.postMessage({id,action,payload});});}
 worker.addEventListener('message',(event:MessageEvent<Reply>)=>{const m=event.data;if(m.type==='ready'){status('Python loaded locally. No external service is connected.','ready');return;}const task=waiting.get(m.id||0);if(!task)return;waiting.delete(m.id||0);m.ok?task.resolve(m.data):task.reject(new Error(m.error||'Worker failed'));});
-function setControls(enabled:boolean){ready=enabled;for(const id of ['fixture-select','load-fixture','job-email','analyze','demo-date','advance-clock','run-chase','reset-sandbox','payment-amount'])$<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>(`#${id}`).disabled=!enabled;}function renderAnalysis(ex:any){
+function analysisBlocked(ex:any){return !ex||ex.issues?.some((x:any)=>x.severity==='error')||(ex.confidence||0)<0.5||!ex.line_items?.length;}
+function syncControls(){
+ const enabled=ready&&!busy;
+ for(const id of ['fixture-select','load-fixture','job-email','analyze','demo-date','advance-clock','run-chase','reset-sandbox','payment-amount'])$<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>(`#${id}`).disabled=!enabled;
+ for(const el of Array.from(document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#review-form input,#review-form select,#review-form button,#approval-list button,#ledger-list button')))el.disabled=!enabled;
+ const checked=$<HTMLInputElement>('#review-confirm');
+ const check=$<HTMLButtonElement>('#review-check');if(check)check.disabled=!enabled||!checked?.checked;
+ const draft=$<HTMLButtonElement>('#draft');draft.disabled=!enabled||(reviewEngaged?!reviewId:rawDraftUsed||analysisBlocked(analysisResult));
+ draft.textContent=reviewEngaged?'Create reviewed sandbox draft':'Create sandbox draft';
+ $<HTMLButtonElement>('#replay-webhook').disabled=!enabled||!canReplay;
+}
+function setControls(enabled:boolean){ready=enabled;syncControls();}
+function invalidateAnalysis(message:string){
+ analysisResult=null;reviewId=null;reviewEngaged=false;rawDraftUsed=false;
+ $<HTMLElement>('#analysis').innerHTML=`<p class="empty">${esc(message)}</p>`;syncControls();
+}
+function markReviewDirty(message='Fields changed. Confirm your review and check them again.'){
+ reviewEngaged=true;reviewId=null;
+ const check=$<HTMLInputElement>('#review-confirm');if(check)check.checked=false;
+ const result=$<HTMLElement>('#review-result');if(result)result.textContent=message;
+ syncControls();
+}
+function renderAnalysis(ex:any){
+ reviewId=null;reviewEngaged=false;rawDraftUsed=false;
  analysisResult=ex;const panel=$<HTMLElement>('#analysis'),items=ex.line_items||[],issues=ex.issues||[];
  const rows=items.map((x:any)=>`<tr><td>${esc(x.desc)}</td><td>${esc(x.qty??'Unclear')} ${esc(x.unit||'')}</td><td>${esc(x.currency||ex.currency||'')}</td><td>${esc(x.unit_price)}</td></tr>`).join('');
  const flags=issues.length?issues.map((x:any)=>`<li class="issue ${esc(x.severity)}"><b>${esc(String(x.severity).toUpperCase())} / ${esc(x.field)}</b><span>${esc(x.message)}</span></li>`).join(''):'<li class="issue info"><b>NO FLAGS</b><span>The rule validator found no issue.</span></li>';
- panel.innerHTML=`<div class="analysis-head"><div><span class="eyebrow">RULE EXTRACTOR / REAL OUTPUT</span><strong>${Math.round((ex.confidence||0)*100)}% confidence</strong></div><span class="source-chip">${esc(ex.source||'rules')}</span></div><div class="client-row"><span>${esc(ex.client_name||'Client name not found')}</span><span>${esc(ex.client_email||'Recipient email not found')}</span></div><div class="field-row"><span>CURRENCY</span><b>${esc(ex.currency||'Unclear')}</b><span>TERMS</span><b>${ex.due_days?`NET ${esc(ex.due_days)} DAYS`:'NOT FOUND'}</b></div><div class="item-table"><table><thead><tr><th>LINE ITEM</th><th>QTY</th><th>CCY</th><th>UNIT</th></tr></thead><tbody>${rows||'<tr><td colspan="4">No line items recognized.</td></tr>'}</tbody><tfoot><tr><td colspan="3">EXTRACTED TOTAL</td><td>${esc(ex.currency||'')} ${esc(ex.total||'0')}</td></tr></tfoot></table></div><ul class="issue-list">${flags}</ul><p class="fine-print">Errors or confidence below the safety threshold block invoice drafting.</p>`;
- const blocked=issues.some((x:any)=>x.severity==='error')||(ex.confidence||0)<0.5||!items.length;$<HTMLButtonElement>('#draft').disabled=!ready||blocked||busy;
+ panel.innerHTML=`<div class="analysis-head"><div><span class="eyebrow">RULE EXTRACTOR / REAL OUTPUT</span><strong>${Math.round((ex.confidence||0)*100)}% confidence</strong></div><span class="source-chip">${esc(ex.source||'rules')}</span></div><div class="client-row"><span>${esc(ex.client_name||'Client name not found')}</span><span>${esc(ex.client_email||'Recipient email not found')}</span></div><div class="field-row"><span>CURRENCY</span><b>${esc(ex.currency||'Unclear')}</b><span>TERMS</span><b>${ex.due_days===0?'DUE ON RECEIPT':ex.due_days?`NET ${esc(ex.due_days)} DAYS`:'NOT FOUND'}</b></div><div class="item-table"><table><thead><tr><th>LINE ITEM</th><th>QTY</th><th>CCY</th><th>UNIT</th></tr></thead><tbody>${rows||'<tr><td colspan="4">No line items recognized.</td></tr>'}</tbody><tfoot><tr><td colspan="3">EXTRACTED TOTAL</td><td>${(ex.totals_by_currency||[{currency:ex.currency,total:ex.total}]).map((total:any)=>`${esc(total.currency||'')} ${esc(total.total||'0')}`).join('<br>')}</td></tr></tfoot></table></div><ul class="issue-list">${flags}</ul><p class="fine-print">Errors or low extraction confidence block drafting. Open the correction form to check the details yourself.</p>`;
+ panel.insertAdjacentHTML('beforeend',reviewMarkup(ex));
+ syncControls();
 }function renderState(state:any){
+ canReplay=Boolean(state.can_replay);
  $<HTMLElement>('#mock-requests').textContent=String(state.mock_requests??0);$<HTMLElement>('#external-calls').textContent=String(state.external_calls??0);
  const dateInput=$<HTMLInputElement>('#demo-date');if(document.activeElement!==dateInput)dateInput.value=state.today||'';$<HTMLButtonElement>('#replay-webhook').disabled=!ready||!state.can_replay||busy;
  const queue=state.pending||[];$<HTMLElement>('#approval-list').innerHTML=queue.length?queue.map((a:any)=>`<article class="approval-card"><div class="approval-head"><span class="source-chip">${esc(a.kind==='send_invoice'?'SEND INVOICE':'SEND REMINDER')}</span><span class="mono">${esc(a.invoice_id)}</span></div><p>${esc(a.summary)}</p><div class="button-row"><button class="button button-approve" data-approve="${esc(a.id)}">Approve in sandbox</button><button class="button button-reject" data-reject="${esc(a.id)}">Reject</button></div></article>`).join(''):'<p class="empty">No approvals waiting. Sends and reminders stay queued until you choose.</p>';
  const ledger=state.ledger||[];$<HTMLElement>('#ledger-list').innerHTML=ledger.length?ledger.map((e:any)=>{const open=['SENT','PARTIALLY_PAID','UNPAID'].includes(e.status)&&Number(e.balance)>0;return `<article class="invoice-card" data-due="${esc(e.due_on||'')}"><div class="invoice-head"><div><span class="eyebrow">${esc(e.invoice_number)}</span><h3>${esc(e.client_name||e.client_email||'Client')}</h3></div><span class="status-chip ${esc(String(e.status).toLowerCase())}">${esc(e.status)}</span></div><div class="invoice-meta"><span>${esc(e.currency)} ${esc(e.total)}</span><span>PAID ${esc(e.paid_amount)}</span><span>BALANCE ${esc(e.balance)}</span></div><div class="invoice-meta"><span>DUE ${esc(e.due_on||'Terms missing')}</span><span>REMINDERS ${esc(e.reminders_sent)}</span></div>${open?`<button class="button button-payment" data-pay="${esc(e.invoice_id)}">Simulate sandbox payment</button>`:''}</article>`;}).join(''):'<p class="empty">No invoices in this sandbox ledger yet.</p>';
  const audit=state.audit||[];$<HTMLOListElement>('#audit-list').innerHTML=audit.length?audit.map((e:any)=>`<li><span>${esc(e.event||'event')}</span><code>${esc(e.kind||e.tool||e.invoice||e.action||'')}</code><time>${esc((e.at||'').slice(11,19))}</time></li>`).join(''):'<li class="empty">Agent events will appear here as work runs.</li>';
-}async function runAction(name:string,payload:Record<string,unknown>={}){if(!ready&&name!=='init'){status('Load the local Python engine first.','error');return null;}try{const reply=await call(name,payload);if(!reply.ok){status(reply.message||reply.error||'The sandbox action failed.','error');return reply;}renderState(reply.state);if(reply.result?.message)status(reply.result.message,'ready');else if(reply.result?.final)status(reply.result.final,'ready');return reply;}catch(error){status(String(error),'error');return null;}}
-$('#engine-start').addEventListener('click',async()=>{const b=$<HTMLButtonElement>('#engine-start');b.disabled=true;status('Loading local Python and Ledgerly source...','loading');const reply=await runAction('init');if(reply){setControls(true);b.textContent='Python engine loaded';$<HTMLElement>('#engine-status').textContent='PYTHON READY / OFFLINE';$<HTMLElement>('#engine-dot').classList.add('ready');status('Local sandbox ready. No external service is connected.','ready');}else{b.disabled=false;}});
-$('#load-fixture').addEventListener('click',async()=>{try{const name=$<HTMLSelectElement>('#fixture-select').value;const r=await fetch(new URL(`fixtures/${name}`,new URL('./',window.location.href)));if(!r.ok)throw new Error(`Fixture HTTP ${r.status}`);$<HTMLTextAreaElement>('#job-email').value=await r.text();analysisResult=null;$<HTMLButtonElement>('#draft').disabled=true;status('Fictional input loaded. Analyze it with the real Python rules.','ready');}catch(error){status(String(error),'error');}});
-$('#job-email').addEventListener('input',()=>{analysisResult=null;$<HTMLButtonElement>('#draft').disabled=true;});
-$('#analyze').addEventListener('click',async()=>{const text=$<HTMLTextAreaElement>('#job-email').value;if(!text.trim()){status('Paste or load a job email first.','error');return;}status('Running RulesExtractor in Python...','loading');const reply=await runAction('analyze',{text});if(reply?.ok){renderAnalysis(reply.result);const bad=reply.result.issues?.some((x:any)=>x.severity==='error')||(reply.result.confidence||0)<0.5||!reply.result.line_items?.length;$<HTMLButtonElement>('#draft').disabled=bad;status(bad?'Review the blocking issue before drafting.':'Review extracted fields, then create the in-memory draft.','ready');}});
-$('#draft').addEventListener('click',async()=>{if(!analysisResult)return;$<HTMLButtonElement>('#draft').disabled=true;status('Running Ledgerly Agent + RulePlanner against SandboxMock...','loading');const reply=await runAction('draft',{text:$<HTMLTextAreaElement>('#job-email').value});if(reply?.ok)status(reply.result.unauthorized_send_blocked?'Gate verified: an unapproved send was blocked. '+reply.result.final:reply.result.final,'ready');});$('#approval-list').addEventListener('click',async(event)=>{const b=(event.target as HTMLElement).closest<HTMLButtonElement>('button[data-approve],button[data-reject]');if(!b)return;b.disabled=true;const id=b.dataset.approve||b.dataset.reject||'';const reply=await runAction(b.dataset.approve?'approve':'reject',{action_id:id});if(reply?.ok)status(reply.result.approved?'Approved in the in-memory sandbox. No PayPal request was made.':'Rejected; nothing was sent.','ready');});
+}
+async function runAction(name:string,payload:Record<string,unknown>={}){
+ if(busy)return null;
+ if(!ready&&name!=='init'){status('Load the local Python engine first.','error');return null;}
+ busy=true;syncControls();
+ try{
+  const reply=await call(name,payload);
+  if(reply.state)renderState(reply.state);
+  if(!reply.ok){status(reply.message||reply.error||'The sandbox action failed.','error');return reply;}
+  if(reply.result?.message)status(reply.result.message,'ready');else if(reply.result?.final)status(reply.result.final,'ready');
+  return reply;
+ }catch(error){status(String(error),'error');return null;}
+ finally{busy=false;syncControls();}
+}
+$('#engine-start').addEventListener('click',async()=>{const b=$<HTMLButtonElement>('#engine-start');b.disabled=true;status('Loading local Python and Ledgerly source...','loading');const reply=await runAction('init');if(reply?.ok){setControls(true);b.textContent='Python engine loaded';$<HTMLElement>('#engine-status').textContent='PYTHON READY / OFFLINE';$<HTMLElement>('#engine-dot').classList.add('ready');status('Local sandbox ready. No external service is connected.','ready');}else{b.disabled=false;}});
+$('#load-fixture').addEventListener('click',async()=>{
+ if(!ready||busy)return;busy=true;syncControls();
+ try{const name=$<HTMLSelectElement>('#fixture-select').value;const r=await fetch(new URL(`fixtures/${name}`,new URL('./',window.location.href)));if(!r.ok)throw new Error(`Fixture HTTP ${r.status}`);$<HTMLTextAreaElement>('#job-email').value=await r.text();invalidateAnalysis('Fictional input loaded. Analyze it to review and correct its fields.');status('Fictional input loaded. Analyze it with the real Python rules.','ready');}
+ catch(error){status(String(error),'error');}finally{busy=false;syncControls();}
+});
+$('#job-email').addEventListener('input',()=>invalidateAnalysis('Source text changed. Analyze it again before reviewing or drafting.'));
+$('#analyze').addEventListener('click',async()=>{
+ const text=$<HTMLTextAreaElement>('#job-email').value;if(!text.trim()){status('Paste or load a job email first.','error');return;}
+ invalidateAnalysis('Running the Python rules on this source...');status('Running RulesExtractor in Python...','loading');
+ const reply=await runAction('analyze',{text});if(reply?.ok){renderAnalysis(reply.result);const bad=analysisBlocked(reply.result);status(bad?'Open Review or correct invoice fields to resolve the blocking issue.':'Review extracted fields, then create the in-memory draft.','ready');}
+});
+$('#analysis').addEventListener('input',(event)=>{
+ const target=event.target as HTMLInputElement;
+ if(!target.closest('#review-form'))return;
+ if(target.id==='review-confirm'){reviewEngaged=true;reviewId=null;$<HTMLElement>('#review-result').textContent=target.checked?'Review confirmed. Check the fields with Python to prepare a draft.':'Confirm your review before checking the fields.';syncControls();return;}
+ markReviewDirty();
+});
+$('#analysis').addEventListener('click',(event)=>{
+ const button=(event.target as HTMLElement).closest<HTMLButtonElement>('#review-add-line,button[data-remove-line]');
+ if(!button||busy)return;
+ const form=$<HTMLFormElement>('#review-form'),fields=readReviewFields(form);
+ if(button.id==='review-add-line')fields.line_items.push({desc:'',qty:'1',unit_price:'',currency:analysisResult.currency||'',unit:''});
+ else fields.line_items.splice(Number(button.dataset.removeLine),1);
+ markReviewDirty();$<HTMLElement>('#review-lines').innerHTML=reviewLinesMarkup(fields.line_items,analysisResult.review_currencies||[]);syncControls();
+ if(button.id==='review-add-line')form.querySelector<HTMLInputElement>(`#review-line-${fields.line_items.length-1}-desc`)?.focus();
+ else $<HTMLButtonElement>('#review-add-line').focus();
+});
+$('#analysis').addEventListener('submit',async(event)=>{
+ const form=event.target as HTMLFormElement;if(form.id!=='review-form')return;event.preventDefault();
+ if(busy||!$<HTMLInputElement>('#review-confirm').checked)return;
+ reviewEngaged=true;reviewId=null;syncControls();
+ const result=$<HTMLElement>('#review-result');result.textContent='Checking the corrected fields with Python...';
+ const reply=await runAction('review',{text:$<HTMLTextAreaElement>('#job-email').value,fields:readReviewFields(form),confirmed:true});
+ if(reply?.ok){reviewId=reply.result.valid?reply.result.review_id:null;result.innerHTML=reviewResultMarkup(reply.result);}
+ else result.textContent=reply?.message||'The fields could not be checked. Your edits are still here.';
+ syncControls();
+});
+$('#draft').addEventListener('click',async()=>{
+ if(!analysisResult||busy||(reviewEngaged?!reviewId:rawDraftUsed||analysisBlocked(analysisResult)))return;
+ const payload:Record<string,unknown>={text:$<HTMLTextAreaElement>('#job-email').value};
+ if(reviewEngaged){payload.review_id=reviewId;reviewId=null;}else rawDraftUsed=true;
+ status('Running Ledgerly Agent + RulePlanner against SandboxMock...','loading');
+ const reply=await runAction('draft',payload);
+ if(reply?.ok){
+  status(reply.result.unauthorized_send_blocked?'Gate verified: an unapproved send was blocked. '+reply.result.final:reply.result.final,'ready');
+  if(reviewEngaged){$<HTMLElement>('#review-result').textContent='This checked revision was used. Review its pending sandbox send in the human gate. To prepare a different draft, edit and check the fields again.';$<HTMLInputElement>('#review-confirm').checked=false;}
+ }else if(reviewEngaged){$<HTMLElement>('#review-result').textContent='Drafting did not complete. Check the sandbox ledger before preparing another revision. Your edits remain here.';$<HTMLInputElement>('#review-confirm').checked=false;}
+ syncControls();
+});
+$('#approval-list').addEventListener('click',async(event)=>{const b=(event.target as HTMLElement).closest<HTMLButtonElement>('button[data-approve],button[data-reject]');if(!b||busy)return;b.disabled=true;const id=b.dataset.approve||b.dataset.reject||'';const reply=await runAction(b.dataset.approve?'approve':'reject',{action_id:id});if(reply?.ok)status(reply.result.approved?'Approved in the in-memory sandbox. No PayPal request was made.':'Rejected; nothing was sent.','ready');});
 $('#ledger-list').addEventListener('click',async(event)=>{const b=(event.target as HTMLElement).closest<HTMLButtonElement>('button[data-pay]');if(!b)return;b.disabled=true;const amount=$<HTMLInputElement>('#payment-amount').value.trim();const reply=await runAction('payment',{invoice_id:b.dataset.pay||'',amount:amount||null});if(reply?.ok)status(`Mock webhook verified: ${reply.result.from} -> ${reply.result.to}.`,'ready');});
 $('#advance-clock').addEventListener('click',async()=>{const day=$<HTMLInputElement>('#demo-date').value;if(!day){status('Choose a date for the local clock.','error');return;}await runAction('advance',{day});});
 $('#run-chase').addEventListener('click',async()=>{status('Running the overdue scan and reminder rules...','loading');await runAction('chase');});
 $('#replay-webhook').addEventListener('click',async()=>{const reply=await runAction('replay');if(reply?.ok)status(reply.result.duplicate?'Duplicate webhook safely ignored by Ledgerly.':'Webhook processed.','ready');});
-$('#reset-sandbox').addEventListener('click',async()=>{if(!confirm('Discard the in-memory ledger and clear the pasted email?'))return;const reply=await runAction('reset');if(reply?.ok){analysisResult=null;$<HTMLTextAreaElement>('#job-email').value='';$<HTMLElement>('#analysis').innerHTML='<p class="empty">Sandbox reset. Load a fixture or paste a new email.</p>';$<HTMLButtonElement>('#draft').disabled=true;$<HTMLInputElement>('#payment-amount').value='';status('Sandbox reset. No records were persisted.','ready');}});
+$('#reset-sandbox').addEventListener('click',async()=>{if(busy||!confirm('Discard the in-memory ledger and clear the pasted email?'))return;const reply=await runAction('reset');if(reply?.ok){$<HTMLTextAreaElement>('#job-email').value='';invalidateAnalysis('Sandbox reset. Load a fixture or paste a new email.');$<HTMLInputElement>('#payment-amount').value='';status('Sandbox reset. No records were persisted.','ready');}});
 worker.addEventListener('error',(event)=>status(`Python worker failed: ${event.message}`,'error'));
