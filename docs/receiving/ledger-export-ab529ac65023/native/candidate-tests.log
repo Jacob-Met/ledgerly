@@ -1,0 +1,80 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/me/ledgerly-export-ab529ac65023/web-demo[39m
+
+ [31m❯[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 143[2mms[22m[39m
+[31m   [31m×[31m actual startup hook settles a worker error, retains intake and enables an explicit empty restart[39m[32m 76[2mms[22m[39m
+[31m   [31m×[31m actual action hook disables the lost ledger and settles a pending draft without replay[39m[32m 25[2mms[22m[39m
+[31m   [31m×[31m actual startup hook refuses a completed transport whose initialization result is not ok[39m[32m 15[2mms[22m[39m
+   [32m✓[39m actual worker startup retries a rejected runtime load on the next explicit init[32m 9[2mms[22m[39m
+[31m   [31m×[31m retains typed corrections across failure and reopens analysis only on explicit revalidation[39m[32m 17[2mms[22m[39m
+ [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/ledger-export.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m tests/review.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 1613[2mms[22m[39m
+ [32m✓[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 1282[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook settles a worker error, retains intake and enables an explicit empty restart
+[31m[1mReferenceError[22m: createLedgerExport is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m2:22[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m98:6[22m[39m
+    [90m 96|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m 97|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m 98|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m 99|[39m   function click(selector: string) {
+    [90m100|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m114:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual action hook disables the lost ledger and settles a pending draft without replay
+[31m[1mReferenceError[22m: createLedgerExport is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m2:22[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m98:6[22m[39m
+    [90m 96|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m 97|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m 98|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m 99|[39m   function click(selector: string) {
+    [90m100|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m139:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook refuses a completed transport whose initialization result is not ok
+[31m[1mReferenceError[22m: createLedgerExport is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m2:22[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m98:6[22m[39m
+    [90m 96|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m 97|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m 98|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m 99|[39m   function click(selector: string) {
+    [90m100|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m168:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mretains typed corrections across failure and reopens analysis only on explicit revalidation
+[31m[1mReferenceError[22m: createLedgerExport is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m2:22[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m98:6[22m[39m
+    [90m 96|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m 97|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m 98|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m 99|[39m   function click(selector: string) {
+    [90m100|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m210:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m4 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m52 passed[39m[22m[90m (56)[39m
+[2m   Start at [22m 05:14:52
+[2m   Duration [22m 5.88s[2m (tests 87%, import 7%, transform 6%, worker 1%)[22m
+
+[2m    Isolate [22m [33m5 workers spawned[39m[2m · ~1.51s startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~2.27s faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m

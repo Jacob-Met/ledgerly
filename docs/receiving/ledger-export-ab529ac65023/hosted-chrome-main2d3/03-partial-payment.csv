@@ -1,0 +1,3 @@
+﻿"Record type","Snapshot date","Invoice ID","Invoice number","Client name","Client email","Currency","Total","Paid","Balance","Status","Sent date","Due date","Reminders sent"
+"SANDBOX","2026-10-08","INV2-MOCK-0001-B278","LDG-0001","Priya Nair","priya@orbitlabs.example","EUR","360","1","359","PARTIALLY_PAID","2026-10-08","2026-11-07","0"
+"SANDBOX","2026-10-08","INV2-MOCK-0002-37E2","LDG-0002","Priya Nair","priya@orbitlabs.example","USD","1900","0","1900","SENT","2026-10-08","2026-11-07","0"

@@ -1,0 +1,291 @@
+{
+  "state": {
+    "today": "2026-11-08",
+    "ledger": [
+      {
+        "invoice_id": "INV2-MOCK-0001-F137",
+        "invoice_number": "LDG-0001",
+        "client_name": "Priya Nair",
+        "client_email": "priya@orbitlabs.example",
+        "currency": "EUR",
+        "total": "360",
+        "paid_amount": "1",
+        "balance": "359",
+        "status": "PARTIALLY_PAID",
+        "sent_on": "2026-10-08",
+        "due_on": "2026-11-07",
+        "reminders_sent": 1
+      },
+      {
+        "invoice_id": "INV2-MOCK-0002-B706",
+        "invoice_number": "LDG-0002",
+        "client_name": "Priya Nair",
+        "client_email": "priya@orbitlabs.example",
+        "currency": "USD",
+        "total": "1900",
+        "paid_amount": "0",
+        "balance": "1900",
+        "status": "SENT",
+        "sent_on": "2026-10-08",
+        "due_on": "2026-11-07",
+        "reminders_sent": 1
+      },
+      {
+        "invoice_id": "INV2-MOCK-0003-2205",
+        "invoice_number": "LDG-0003",
+        "client_name": "=SUM(1,2) \u2014 \u4f50\u85e4 \"Studio\"",
+        "client_email": "maya.chen@brightfern.example",
+        "currency": "USD",
+        "total": "1320",
+        "paid_amount": "0",
+        "balance": "1320",
+        "status": "DRAFT",
+        "sent_on": null,
+        "due_on": "2026-11-23",
+        "reminders_sent": 0
+      }
+    ],
+    "pending": [
+      {
+        "id": "apv_34ca3801c4",
+        "kind": "send_invoice",
+        "invoice_id": "INV2-MOCK-0003-2205",
+        "summary": "Send invoice LDG-0003 for USD 1,320 to maya.chen@brightfern.example",
+        "payload": {
+          "invoice": {
+            "detail": {
+              "invoice_number": "LDG-0003",
+              "invoice_date": "2026-11-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-11-23"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "=SUM(1,2) \u2014 \u4f50\u85e4",
+                    "surname": "\"Studio\""
+                  },
+                  "email_address": "maya.chen@brightfern.example"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Copywriting",
+                "quantity": "12",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "85.00"
+                },
+                "unit_of_measure": "HOURS"
+              },
+              {
+                "name": "SEO keyword audit",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "300.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          },
+          "prepaid": "0"
+        },
+        "status": "PENDING",
+        "result": null,
+        "created_at": "2026-10-08T13:20:16.065999+00:00"
+      }
+    ],
+    "audit": [
+      {
+        "at": "2026-10-08T13:20:14.801999+00:00",
+        "event": "queued",
+        "action": "apv_1b2b3e177e",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0001-F137"
+      },
+      {
+        "at": "2026-10-08T13:20:14.801999+00:00",
+        "event": "queued",
+        "action": "apv_0c502e001f",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0002-B706"
+      },
+      {
+        "at": "2026-10-08T13:20:14.801999+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:20:14.801999+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:20:14.801999+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:20:14.966000+00:00",
+        "event": "approved",
+        "action": "apv_1b2b3e177e",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0001-F137"
+      },
+      {
+        "at": "2026-10-08T13:20:15.032999+00:00",
+        "event": "approved",
+        "action": "apv_0c502e001f",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0002-B706"
+      },
+      {
+        "at": "2026-10-08T13:20:15.184999+00:00",
+        "event": "webhook",
+        "invoice": "INV2-MOCK-0001-F137",
+        "event_type": "INVOICING.INVOICE.PAID"
+      },
+      {
+        "at": "2026-10-08T13:20:15.481999+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:20:15.483000+00:00",
+        "event": "queued",
+        "action": "apv_cec6c9ac41",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0001-F137"
+      },
+      {
+        "at": "2026-10-08T13:20:15.483000+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:20:15.483000+00:00",
+        "event": "queued",
+        "action": "apv_8dd57d3f26",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0002-B706"
+      },
+      {
+        "at": "2026-10-08T13:20:15.483000+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:20:15.548999+00:00",
+        "event": "approved",
+        "action": "apv_cec6c9ac41",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0001-F137"
+      },
+      {
+        "at": "2026-10-08T13:20:15.616000+00:00",
+        "event": "approved",
+        "action": "apv_8dd57d3f26",
+        "kind": "send_reminder",
+        "invoice": "INV2-MOCK-0002-B706"
+      },
+      {
+        "at": "2026-10-08T13:20:16.065999+00:00",
+        "event": "queued",
+        "action": "apv_34ca3801c4",
+        "kind": "send_invoice",
+        "invoice": "INV2-MOCK-0003-2205"
+      },
+      {
+        "at": "2026-10-08T13:20:16.065999+00:00",
+        "event": "tool",
+        "ok": true
+      },
+      {
+        "at": "2026-10-08T13:20:16.065999+00:00",
+        "event": "tool",
+        "ok": true
+      }
+    ],
+    "mock_requests": 18,
+    "external_calls": 0,
+    "can_replay": true
+  },
+  "requests": [
+    {
+      "id": 1,
+      "action": "init"
+    },
+    {
+      "id": 2,
+      "action": "analyze"
+    },
+    {
+      "id": 3,
+      "action": "draft"
+    },
+    {
+      "id": 4,
+      "action": "approve"
+    },
+    {
+      "id": 5,
+      "action": "approve"
+    },
+    {
+      "id": 6,
+      "action": "payment"
+    },
+    {
+      "id": 7,
+      "action": "advance"
+    },
+    {
+      "id": 8,
+      "action": "chase"
+    },
+    {
+      "id": 9,
+      "action": "approve"
+    },
+    {
+      "id": 10,
+      "action": "approve"
+    },
+    {
+      "id": 11,
+      "action": "analyze"
+    },
+    {
+      "id": 12,
+      "action": "review"
+    },
+    {
+      "id": 13,
+      "action": "draft"
+    }
+  ],
+  "mock": "18",
+  "external": "0"
+}

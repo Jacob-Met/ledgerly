@@ -1,0 +1,11 @@
+{
+  "first_authored_test_sha256": "478c853b75b8c49aa75272c26513a9c350c70cdb163b0acff03c7e8fe5291c26",
+  "first_run": {
+    "methods": 11,
+    "failed_assertions": 24,
+    "exit_code": 1,
+    "output_capture": "Initial tool output was truncated; no complete raw log is claimed."
+  },
+  "correction": "Five ledger-value assertions compare Decimal values. Current PR21 normalizes integral ledger amounts to strings such as 20; SandboxMock amount strings remain unchanged. Production source is unchanged by this correction.",
+  "corrected_test_sha256": "ab9820106237b1cc4b5f844693f37064639a9f2871fa8f1814f164f4bbc49ce7"
+}

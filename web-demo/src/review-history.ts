@@ -41,16 +41,27 @@ export function completedReviewsMarkup(value: unknown): string {
     '<p class="empty">No completed reviews in this sandbox yet.</p>';
 }
 
-/** Preserve disclosures across ordinary snapshots; reset removes their IDs. */
+/** Preserve both history disclosures and their focused summary across snapshots. */
 export function renderCompletedReviews(container: HTMLElement, value: unknown): void {
-  const openIds = new Set(Array.from(container.querySelectorAll<HTMLDetailsElement>('details.completed-review'))
-    .filter(panel => panel.open).map(panel => panel.dataset.reviewId));
   const focused = container.ownerDocument?.activeElement;
-  const focusId = focused?.tagName === 'SUMMARY' && container.contains(focused)
-    ? focused.parentElement?.dataset.reviewId : undefined;
+  const previous = new Map(Array.from(container.querySelectorAll<HTMLDetailsElement>('details.completed-review'))
+    .map(panel => {
+      const proposal = panel.querySelector<HTMLDetailsElement>('details.approval-preview');
+      return [panel.dataset.reviewId, {
+        open: panel.open,
+        proposalOpen: proposal?.open,
+        focus: focused === panel.querySelector(':scope > summary') ? 'review' :
+          proposal && focused === proposal.querySelector(':scope > summary') ? 'proposal' : undefined,
+      }] as const;
+    }));
   container.innerHTML = completedReviewsMarkup(value);
   for (const panel of Array.from(container.querySelectorAll<HTMLDetailsElement>('details.completed-review'))) {
-    if (openIds.has(panel.dataset.reviewId)) panel.open = true;
-    if (focusId !== undefined && panel.dataset.reviewId === focusId) panel.querySelector<HTMLElement>('summary')?.focus();
+    const saved = previous.get(panel.dataset.reviewId);
+    if (!saved) continue;
+    panel.open = saved.open;
+    const proposal = panel.querySelector<HTMLDetailsElement>('details.approval-preview');
+    if (proposal && saved.proposalOpen !== undefined) proposal.open = saved.proposalOpen;
+    const focusTarget = saved.focus === 'review' ? panel : saved.focus === 'proposal' ? proposal : undefined;
+    focusTarget?.querySelector<HTMLElement>(':scope > summary')?.focus({preventScroll: true});
   }
 }

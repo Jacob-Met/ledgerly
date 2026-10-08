@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import {WorkerClient, WorkerUnavailableError} from '../src/worker-client';
 import {retryableLoader} from '../src/retryable-loader';
+import {createLedgerExport} from '../src/ledger-export';
 import {approvalListMarkup} from '../src/approval-preview';
 import {renderCompletedReviews} from '../src/review-history';
 import {createInvoiceDetailsView} from '../src/invoice-details';
@@ -97,7 +98,7 @@ function app() {
     }),
   };
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, renderCompletedReviews, createInvoiceDetailsView});
+    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, renderCompletedReviews, createLedgerExport, createInvoiceDetailsView});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;

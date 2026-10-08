@@ -1,0 +1,128 @@
+{
+  "run": 37783466720,
+  "job": 113332140792,
+  "source_checkout": "d9ba98b369de41cc7b4f79bd5de1956b1b108df2",
+  "source_tree": "4ad1b34c7cd15616f2ae8e98ce672e18bd31648d",
+  "packet": {
+    "bytes": 199918,
+    "sha256": "695c72b55c70a2e0df321dca392445402f8a9e051acee1abb51070c42aa3103c",
+    "chunks": 66
+  },
+  "verification": "Complete ordered66-chunk framing and packet SHA256; all19 file lengths/SHA256 verified by receiver plus independent decoding and Python standard-library verification; binary Git blobs match computed original-file SHA1",
+  "files": [
+    {
+      "path": "01-drafts-snapshot.json",
+      "bytes": 5726,
+      "sha256": "3a9ee2ee9fdd5f8fa8ee661ee4ca747ab1a7451998098e880276cce275aba2af",
+      "git_blob": "e29aa01dd138768b813983d475451a2e4d694c84"
+    },
+    {
+      "path": "01-drafts.csv",
+      "bytes": 472,
+      "sha256": "d70a3cbeb08c1aa266dcaabfaf7d037131b4e473b197e8fad2029ec0df25aa8d",
+      "git_blob": "1816e2fb4b6dd6169696ec580ed394f453f3b95a"
+    },
+    {
+      "path": "02-sent-snapshot.json",
+      "bytes": 2477,
+      "sha256": "4bc00ec7674efd1d78dd5a36e4cb601eed4b42add8a46e46685308d65c29b199",
+      "git_blob": "92ac1bd39f26577fd2249de478801d252d242bfa"
+    },
+    {
+      "path": "02-sent.csv",
+      "bytes": 490,
+      "sha256": "8b49788c7e8ae35ed2864554e1c8054bbfdc5cd5fe5e03365b24eb09aa2918dd",
+      "git_blob": "73368abb12d10424c64dbcfc5331f5535a41d815"
+    },
+    {
+      "path": "03-partial-payment-snapshot.json",
+      "bytes": 2724,
+      "sha256": "97a0e185edfc345765373c7246944a8446fcbb3722f4bc9504b70e0418830f9e",
+      "git_blob": "6d35e29cc0427e0f784a923842348e1376295588"
+    },
+    {
+      "path": "03-partial-payment.csv",
+      "bytes": 500,
+      "sha256": "8cdbd54c9b84327f0b008f9e356b3951f6b17acb63e9be2b32c03281f13d9992",
+      "git_blob": "f18574df83620c5e2df7af7196bfe35cd5068a7c"
+    },
+    {
+      "path": "04-reminders-snapshot.json",
+      "bytes": 4094,
+      "sha256": "6598c3ef7ffc0ddad6f0d625d726886f93d88fa2c5b72331624dfc979b774a1c",
+      "git_blob": "fb2be1519b19ffe8e4df27ac52f79db83cd52e82"
+    },
+    {
+      "path": "04-reminders.csv",
+      "bytes": 500,
+      "sha256": "d3864afd93b7976360b28fdb94f11fb325cefcfebd5a079f8b2917f798dfcfa0",
+      "git_blob": "8ff197cafca67cdbd58ba7c1bcb3476aeafa3053"
+    },
+    {
+      "path": "05-corrected-name-snapshot.json",
+      "bytes": 7339,
+      "sha256": "4224607ec4c8277beb95231ac008c08e5a837af1673b04122289cafba8717d01",
+      "git_blob": "b87b9145488554105ba0932f2c998378bae2d45d"
+    },
+    {
+      "path": "05-corrected-name.csv",
+      "bytes": 675,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "git_blob": "cc9c3a62bd8747d6eed94cc6a7bbca2b4effbfcd"
+    },
+    {
+      "path": "06-repeat-snapshot.json",
+      "bytes": 7339,
+      "sha256": "4224607ec4c8277beb95231ac008c08e5a837af1673b04122289cafba8717d01",
+      "git_blob": "b87b9145488554105ba0932f2c998378bae2d45d"
+    },
+    {
+      "path": "06-repeat.csv",
+      "bytes": 675,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "git_blob": "cc9c3a62bd8747d6eed94cc6a7bbca2b4effbfcd"
+    },
+    {
+      "path": "07-retry-snapshot.json",
+      "bytes": 7339,
+      "sha256": "4224607ec4c8277beb95231ac008c08e5a837af1673b04122289cafba8717d01",
+      "git_blob": "b87b9145488554105ba0932f2c998378bae2d45d"
+    },
+    {
+      "path": "07-retry.csv",
+      "bytes": 675,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "git_blob": "cc9c3a62bd8747d6eed94cc6a7bbca2b4effbfcd"
+    },
+    {
+      "path": "08-phone-keyboard-snapshot.json",
+      "bytes": 7339,
+      "sha256": "4224607ec4c8277beb95231ac008c08e5a837af1673b04122289cafba8717d01",
+      "git_blob": "b87b9145488554105ba0932f2c998378bae2d45d"
+    },
+    {
+      "path": "08-phone-keyboard.csv",
+      "bytes": 675,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "git_blob": "cc9c3a62bd8747d6eed94cc6a7bbca2b4effbfcd"
+    },
+    {
+      "path": "browser-receiving.json",
+      "bytes": 7398,
+      "sha256": "25e2e772bf40a788b3335144ae90d539c11f61843cc61b5965f641908a0b8b81",
+      "git_blob": "f7106a69271d13cf318038e15f8237b9d7a7a3a6"
+    },
+    {
+      "path": "desktop-ledger.png",
+      "bytes": 42279,
+      "sha256": "383a819537fba74dcd95b77e49ff1bccf747e54dca8e8adb9f6872d272ebef6d",
+      "git_blob": "4da23d07c98a3cd644d3ef0417d276828d4fde59"
+    },
+    {
+      "path": "phone-ledger.png",
+      "bytes": 49287,
+      "sha256": "1cf45469161e61036907f17ad07604648230976d9aa0a7bab5978379208d49dd",
+      "git_blob": "62fcfc5f824129f7d790e97dbee2c2fdde166e2c"
+    }
+  ]
+}

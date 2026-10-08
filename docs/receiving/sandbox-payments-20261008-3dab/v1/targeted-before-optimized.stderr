@@ -1,0 +1,371 @@
+test_approved_prior_deposit_still_uses_the_existing_gate (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_approved_prior_deposit_still_uses_the_existing_gate) ... ok
+test_blank_null_and_absent_amount_keep_explicit_full_balance_behavior (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_blank_null_and_absent_amount_keep_explicit_full_balance_behavior) ... ok
+test_currency_exact_partial_and_full_payments_preserve_existing_values (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_currency_exact_partial_and_full_payments_preserve_existing_values) ... ok
+test_decimal_recalculation_failure_preserves_record_for_normal_context_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_decimal_recalculation_failure_preserves_record_for_normal_context_retry) ... FAIL
+test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) ... 
+  test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='-1') ... FAIL
+  test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='0') ... FAIL
+  test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='0.015') ... FAIL
+  test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='NaN') ... ERROR
+  test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='Infinity') ... ERROR
+test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) ... 
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='-50') ... FAIL
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='-0') ... FAIL
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='0') ... FAIL
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='0.015') ... FAIL
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='NaN') ... ERROR
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='sNaN') ... ERROR
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='Infinity') ... ERROR
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='-Infinity') ... ERROR
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='1e999999') ... ERROR
+  test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='1e-999999') ... FAIL
+test_postcommit_webhook_read_failure_keeps_existing_replay_semantics (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_postcommit_webhook_read_failure_keeps_existing_replay_semantics) ... ok
+test_recalculation_exception_preserves_record_and_valid_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_recalculation_exception_preserves_record_and_valid_retry) ... FAIL
+test_refusal_keeps_existing_webhook_and_pending_reminder_review (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_refusal_keeps_existing_webhook_and_pending_reminder_review) ... FAIL
+test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) ... 
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=0) ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=0.0) ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=False) ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=[]) ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount={}) ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='0') ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='-50') ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='NaN') ... FAIL
+  test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='0.015') ... FAIL
+test_zero_decimal_currency_refuses_fraction_without_changing_the_invoice (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_zero_decimal_currency_refuses_fraction_without_changing_the_invoice) ... FAIL
+
+======================================================================
+ERROR: test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 139, in test_external_payment_uses_the_same_refusal_before_record_mutation
+    demo.mock.record_payment(invoice_id, {
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 292, in record_payment
+    self._apply_payment(inv, pid, Decimal(body["amount"]["value"]), body.get("method", "BANK_TRANSFER"),
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 302, in _apply_payment
+    self._recalc(inv)
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 216, in _recalc
+    inv["due_amount"] = _money(max(total - paid, Decimal(0)), ccy)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+======================================================================
+ERROR: test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 139, in test_external_payment_uses_the_same_refusal_before_record_mutation
+    demo.mock.record_payment(invoice_id, {
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 292, in record_payment
+    self._apply_payment(inv, pid, Decimal(body["amount"]["value"]), body.get("method", "BANK_TRANSFER"),
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 300, in _apply_payment
+    "payment_date": pdate, "amount": _money(amount, ccy),
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 99, in _money
+    return {"currency_code": ccy, "value": str(quantize(Decimal(value), ccy))}
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/extract.py", line 228, in quantize
+    return value.quantize(exp, rounding=ROUND_HALF_UP)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+======================================================================
+ERROR: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 65, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    demo.mock.simulate_payer_payment(invoice_id, Decimal(amount))
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 328, in simulate_payer_payment
+    self._apply_payment(inv, uuid.uuid4().hex[:17].upper(), amt, "PAYPAL", self._now().date().isoformat(), external=False)
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 302, in _apply_payment
+    self._recalc(inv)
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 216, in _recalc
+    inv["due_amount"] = _money(max(total - paid, Decimal(0)), ccy)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+======================================================================
+ERROR: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='sNaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 65, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    demo.mock.simulate_payer_payment(invoice_id, Decimal(amount))
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 328, in simulate_payer_payment
+    self._apply_payment(inv, uuid.uuid4().hex[:17].upper(), amt, "PAYPAL", self._now().date().isoformat(), external=False)
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 300, in _apply_payment
+    "payment_date": pdate, "amount": _money(amount, ccy),
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 99, in _money
+    return {"currency_code": ccy, "value": str(quantize(Decimal(value), ccy))}
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/extract.py", line 228, in quantize
+    return value.quantize(exp, rounding=ROUND_HALF_UP)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+======================================================================
+ERROR: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 65, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    demo.mock.simulate_payer_payment(invoice_id, Decimal(amount))
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 328, in simulate_payer_payment
+    self._apply_payment(inv, uuid.uuid4().hex[:17].upper(), amt, "PAYPAL", self._now().date().isoformat(), external=False)
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 300, in _apply_payment
+    "payment_date": pdate, "amount": _money(amount, ccy),
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 99, in _money
+    return {"currency_code": ccy, "value": str(quantize(Decimal(value), ccy))}
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/extract.py", line 228, in quantize
+    return value.quantize(exp, rounding=ROUND_HALF_UP)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+======================================================================
+ERROR: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='-Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 65, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    demo.mock.simulate_payer_payment(invoice_id, Decimal(amount))
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 328, in simulate_payer_payment
+    self._apply_payment(inv, uuid.uuid4().hex[:17].upper(), amt, "PAYPAL", self._now().date().isoformat(), external=False)
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 300, in _apply_payment
+    "payment_date": pdate, "amount": _money(amount, ccy),
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 99, in _money
+    return {"currency_code": ccy, "value": str(quantize(Decimal(value), ccy))}
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/extract.py", line 228, in quantize
+    return value.quantize(exp, rounding=ROUND_HALF_UP)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+======================================================================
+ERROR: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='1e999999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 65, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    demo.mock.simulate_payer_payment(invoice_id, Decimal(amount))
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 328, in simulate_payer_payment
+    self._apply_payment(inv, uuid.uuid4().hex[:17].upper(), amt, "PAYPAL", self._now().date().isoformat(), external=False)
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 300, in _apply_payment
+    "payment_date": pdate, "amount": _money(amount, ccy),
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/paypal.py", line 99, in _money
+    return {"currency_code": ccy, "value": str(quantize(Decimal(value), ccy))}
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/memory-delivery-ledgerly-3dab/current-before/ledgerly/extract.py", line 228, in quantize
+    return value.quantize(exp, rounding=ROUND_HALF_UP)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+======================================================================
+FAIL: test_decimal_recalculation_failure_preserves_record_for_normal_context_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_decimal_recalculation_failure_preserves_record_for_normal_context_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 174, in test_decimal_recalculation_failure_preserves_record_for_normal_context_retry
+    self.assertEqual(self.retained(demo, invoice_id), before)
+AssertionError: Tuples differ: ({'de[1242 chars]s': [{'payment_id': 'E1DEAC36999145B49', 'type[2022 chars]None) != ({'de[1242 chars]s': [], 'paid_amount': {'currency_code': 'GBP'[1866 chars]None)
+
+First differing element 0:
+{'det[1241 chars]s': [{'payment_id': 'E1DEAC36999145B49', 'type[389 chars]00'}}
+{'det[1241 chars]s': [], 'paid_amount': {'currency_code': 'GBP'[233 chars]00'}}
+
+Diff is 4477 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='-1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 138, in test_external_payment_uses_the_same_refusal_before_record_mutation
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 138, in test_external_payment_uses_the_same_refusal_before_record_mutation
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) (amount='0.015')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 138, in test_external_payment_uses_the_same_refusal_before_record_mutation
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='-50')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 64, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='-0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 64, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 64, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='0.015')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 64, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) (amount='1e-999999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 64, in test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_recalculation_exception_preserves_record_and_valid_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_recalculation_exception_preserves_record_and_valid_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 162, in test_recalculation_exception_preserves_record_and_valid_retry
+    self.assertEqual(self.retained(demo, invoice_id), before)
+AssertionError: Tuples differ: ({'de[1242 chars]s': [{'payment_id': '971DA77D27D0414DA', 'type[2024 chars]None) != ({'de[1242 chars]s': [], 'paid_amount': {'currency_code': 'GBP'[1866 chars]None)
+
+First differing element 0:
+{'det[1241 chars]s': [{'payment_id': '971DA77D27D0414DA', 'type[391 chars]00'}}
+{'det[1241 chars]s': [], 'paid_amount': {'currency_code': 'GBP'[233 chars]00'}}
+
+Diff is 4800 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_refusal_keeps_existing_webhook_and_pending_reminder_review (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_refusal_keeps_existing_webhook_and_pending_reminder_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 190, in test_refusal_keeps_existing_webhook_and_pending_reminder_review
+    self.assertEqual(self.retained(demo, invoice_id), before)
+AssertionError: Tuples differ: ({'de[1409 chars]00'}}, {'payment_id': '7B1AE11340EB4E608', 'ty[7187 chars]K'})) != ({'de[1409 chars]00'}}], 'paid_amount': {'currency_code': 'GBP'[7032 chars]K'}))
+
+First differing element 0:
+{'det[1408 chars]00'}}, {'payment_id': '7B1AE11340EB4E608', 'ty[389 chars]00'}}
+{'det[1408 chars]00'}}], 'paid_amount': {'currency_code': 'GBP'[234 chars]00'}}
+
+Diff is 10875 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 82, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-1B9B', 'from': 'SENT', 'to': 'PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-1B9B', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '800', 'balance': '0', 'status': 'PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.170228+00:00', 'event': 'queued', 'action': 'apv_ee48616c96', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-1B9B'}, {'at': '2026-10-08T13:22:47.170235+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.170315+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.170436+00:00', 'event': 'approved', 'action': 'apv_ee48616c96', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-1B9B'}, {'at': '2026-10-08T13:22:47.170794+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-1B9B', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=0.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 82, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-093D', 'from': 'SENT', 'to': 'PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-093D', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '800', 'balance': '0', 'status': 'PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.171396+00:00', 'event': 'queued', 'action': 'apv_fcd17ccbd8', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-093D'}, {'at': '2026-10-08T13:22:47.171405+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.171498+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.171619+00:00', 'event': 'approved', 'action': 'apv_fcd17ccbd8', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-093D'}, {'at': '2026-10-08T13:22:47.171969+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-093D', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 82, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-48FB', 'from': 'SENT', 'to': 'PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-48FB', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '800', 'balance': '0', 'status': 'PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.172519+00:00', 'event': 'queued', 'action': 'apv_fda30e0090', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-48FB'}, {'at': '2026-10-08T13:22:47.172526+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.172604+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.172815+00:00', 'event': 'approved', 'action': 'apv_fda30e0090', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-48FB'}, {'at': '2026-10-08T13:22:47.173211+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-48FB', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 82, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-64B1', 'from': 'SENT', 'to': 'PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-64B1', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '800', 'balance': '0', 'status': 'PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.173679+00:00', 'event': 'queued', 'action': 'apv_8e5542dd58', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-64B1'}, {'at': '2026-10-08T13:22:47.173685+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.173758+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.173991+00:00', 'event': 'approved', 'action': 'apv_8e5542dd58', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-64B1'}, {'at': '2026-10-08T13:22:47.174434+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-64B1', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 82, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-EE2C', 'from': 'SENT', 'to': 'PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-EE2C', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '800', 'balance': '0', 'status': 'PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.174906+00:00', 'event': 'queued', 'action': 'apv_80ffa005b4', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-EE2C'}, {'at': '2026-10-08T13:22:47.174913+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.174988+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.175138+00:00', 'event': 'approved', 'action': 'apv_80ffa005b4', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-EE2C'}, {'at': '2026-10-08T13:22:47.175480+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-EE2C', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 82, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-430D', 'from': 'SENT', 'to': 'PARTIALLY_PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-430D', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '0', 'balance': '800', 'status': 'PARTIALLY_PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.175940+00:00', 'event': 'queued', 'action': 'apv_27b7e62dd6', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-430D'}, {'at': '2026-10-08T13:22:47.175946+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.176021+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.176174+00:00', 'event': 'approved', 'action': 'apv_27b7e62dd6', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-430D'}, {'at': '2026-10-08T13:22:47.176585+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-430D', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='-50')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 83, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertEqual(self.retained(demo, invoice_id), before)
+AssertionError: Tuples differ: ({'de[1205 chars]s': 'PARTIALLY_PAID', 'payments': {'transactio[4396 chars]K'})) != ({'de[1205 chars]s': 'SENT', 'payments': {'transactions': [], '[1903 chars]None)
+
+First differing element 0:
+{'det[1204 chars]s': 'PARTIALLY_PAID', 'payments': {'transactio[440 chars]00'}}
+{'det[1204 chars]s': 'SENT', 'payments': {'transactions': [], '[270 chars]00'}}
+
+Diff is 7417 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 83, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertEqual(self.retained(demo, invoice_id), before)
+AssertionError: Tuples differ: ({'de[1242 chars]s': [{'payment_id': 'BB932E16CE694441B', 'type[2020 chars]None) != ({'de[1242 chars]s': [], 'paid_amount': {'currency_code': 'GBP'[1866 chars]None)
+
+First differing element 0:
+{'det[1241 chars]s': [{'payment_id': 'BB932E16CE694441B', 'type[387 chars]00'}}
+{'det[1241 chars]s': [], 'paid_amount': {'currency_code': 'GBP'[233 chars]00'}}
+
+Diff is 4695 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) (amount='0.015')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 82, in test_supplied_zero_and_malformed_json_do_not_become_full_payments
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-C038', 'from': 'SENT', 'to': 'PARTIALLY_PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-C038', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '0.02', 'balance': '799.98', 'status': 'PARTIALLY_PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.183002+00:00', 'event': 'queued', 'action': 'apv_b500f432e0', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-C038'}, {'at': '2026-10-08T13:22:47.183009+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.183115+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.183236+00:00', 'event': 'approved', 'action': 'apv_b500f432e0', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-C038'}, {'at': '2026-10-08T13:22:47.183591+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-C038', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+======================================================================
+FAIL: test_zero_decimal_currency_refuses_fraction_without_changing_the_invoice (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_zero_decimal_currency_refuses_fraction_without_changing_the_invoice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/memory-delivery-ledgerly-3dab/candidate/tests/test_sandbox_payment_admission.py", line 127, in test_zero_decimal_currency_refuses_fraction_without_changing_the_invoice
+    self.assertFalse(refused["ok"], refused)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-31FB', 'from': 'SENT', 'to': 'PARTIALLY_PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-31FB', 'invoice_number': 'LDG-0001', 'client_name': 'Ken Sato', 'client_email': 'ken.sato@sakura-games.example', 'currency': 'JPY', 'total': '180000', 'paid_amount': '1', 'balance': '179999', 'status': 'PARTIALLY_PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:22:47.184473+00:00', 'event': 'queued', 'action': 'apv_6c0d002873', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-31FB'}, {'at': '2026-10-08T13:22:47.184480+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.184554+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:22:47.184670+00:00', 'event': 'approved', 'action': 'apv_6c0d002873', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-31FB'}, {'at': '2026-10-08T13:22:47.185111+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-31FB', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': True}}
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.149s
+
+FAILED (failures=21, errors=7)
