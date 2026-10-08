@@ -1,0 +1,138 @@
+{
+  "schema": "ledgerly.intake-hosted-qualification/1",
+  "repository": "Jacob-Met/ledgerly",
+  "pr": 48,
+  "head": "30dbdddabdc4db272e21ebbb9363270b4438fd32",
+  "actual_parent": "a4c7f05d511fb6e9ae4e357d78f696b464625ffc",
+  "virtual_checkout": "3502693543169ebed3ebe97d1954b63d99421ee7",
+  "tree": "1222b5b20efa2b6ced4d885b2a1c3649e860ed17",
+  "full_tree_gate": {
+    "tree": "1222b5b20efa2b6ced4d885b2a1c3649e860ed17",
+    "parent": "a4c7f05d511fb6e9ae4e357d78f696b464625ffc",
+    "parent_tree": "d67d6d0479ea2fad0e4778365c6fcd06aa13edf6",
+    "leaves": 760,
+    "payload_files": 33,
+    "preserved_other_parent_leaves": 727,
+    "all_expected_blobs_modes_match": true,
+    "truncated": false
+  },
+  "run_id": 37830909640,
+  "browser_job_id": 113495690867,
+  "python_job_id": 113495691168,
+  "checks": [
+    {
+      "id": 113495753907,
+      "name": "receive-client-balances",
+      "head_sha": "30dbdddabdc4db272e21ebbb9363270b4438fd32",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37830909655/job/113495753907"
+    },
+    {
+      "id": 113495691681,
+      "name": "receive-record",
+      "head_sha": "30dbdddabdc4db272e21ebbb9363270b4438fd32",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37830909639/job/113495691681"
+    },
+    {
+      "id": 113495691168,
+      "name": "python-core",
+      "head_sha": "30dbdddabdc4db272e21ebbb9363270b4438fd32",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37830909640/job/113495691168"
+    },
+    {
+      "id": 113495690867,
+      "name": "browser-engine",
+      "head_sha": "30dbdddabdc4db272e21ebbb9363270b4438fd32",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37830909640/job/113495690867"
+    }
+  ],
+  "python": {
+    "passed": 343,
+    "subtests_passed": 126
+  },
+  "vitest": {
+    "files_passed": 12,
+    "passed": 131
+  },
+  "browser": {
+    "groups": 9,
+    "assertions": 405,
+    "version": "Chrome/154.0.8037.97",
+    "source_inputs_matched": 54,
+    "source_unchanged": true,
+    "build_unchanged": true,
+    "exit_code": 0
+  },
+  "bundle": {
+    "bytes": 52687,
+    "sha256": "89e382d912ccf1fa3af7abc7ae1c00197b1549403bbee26dc0023de1cd7d7671",
+    "encoding": "gzip+base64",
+    "chunks": 18,
+    "member_manifest_sha256": "a3f34d4071de006feb7e89dbb26d61b0c1e3001cef60787eff7e6c501871136f",
+    "verified_members": 11,
+    "schema": "ledgerly.intake-receiving-bundle/1",
+    "storage": "receiving-bundle.json.gz.b64; decode base64 then gunzip; verify archive and all member hashes"
+  },
+  "artifact": {
+    "id": 11573162715,
+    "bytes": 234613,
+    "digest": "sha256:50a4d4de3a16964d83109f24f549d688bf8736fcb5ddc789b58eb8f2332d8016",
+    "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37830909640/artifacts/11573162715",
+    "expires_at": "2026-10-22T19:18:55Z",
+    "screenshots_recovered_locally": false,
+    "materialization": "Documented connector returned a reusable ZIP reference; one local HTTPS materialization returned HTTP403 before bytes. No retry or alternate route."
+  },
+  "prior_native_runs": "Preserved as historical, including full-suite failures and Chromium-version timeout. Hosted current-source pass does not relabel those attempts.",
+  "integration_state": "Draft qualification PR; root independently reviews and owns merge. No live rollout.",
+  "report": {
+    "path": "receiving-report.json",
+    "bytes": 39885,
+    "sha256": "8827eb343c935909cb35e0202419fa37fd2d30cd4f4f93205936abbbab9dcb2d",
+    "schema": "ledgerly.intake-file-browser/1",
+    "source_inputs": 54,
+    "all_source_hashes_match_published_current_qualification": true
+  },
+  "independent_rejection_composition_review": {
+    "reviewer": "estate-e3a41d2b3368/local_recovery",
+    "status": "no source blocker",
+    "method": "Read-only exact-source and Git-blob comparison; no new tests or host/source writes.",
+    "parent": "a4c7f05d511fb6e9ae4e357d78f696b464625ffc",
+    "head": "30dbdddabdc4db272e21ebbb9363270b4438fd32",
+    "preserved_functions": [
+      {
+        "name": "approval click-handler",
+        "bytes": 762,
+        "comparison": "byte-identical"
+      },
+      {
+        "name": "renderState",
+        "bytes": 2327,
+        "comparison": "byte-identical"
+      }
+    ],
+    "preserved_blobs": [
+      "rejection-reason module and CSS",
+      "Python bridge",
+      "approval preview",
+      "Worker and client",
+      "rejection owner tests and browser driver"
+    ],
+    "source_conclusion": "Stable action-ID Map retains rejection notes through successful or failed analysis. Busy disables rejection and approval; explicit engine restart clears pending IDs and notes under the unchanged owner contract.",
+    "executed_trace_counts": {
+      "init": 2,
+      "analyze": 8,
+      "review": 5,
+      "draft": 2,
+      "approve": 1,
+      "reject": 0
+    },
+    "coverage_boundary": "The 405-assertion intake browser gate does not type rejection notes or execute rejection. No typed-note -> intake replacement -> reject execution claim is made."
+  }
+}

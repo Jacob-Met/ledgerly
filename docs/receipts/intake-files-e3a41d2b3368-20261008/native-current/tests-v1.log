@@ -1,0 +1,174 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate/web-demo[39m
+
+ [32m✓[39m src/invoice-details.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 107[2mms[22m[39m
+ [32m✓[39m tests/intake-file.test.ts [2m([22m[2m31 tests[22m[2m)[22m[33m 334[2mms[22m[39m
+ [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 414[2mms[22m[39m
+ [32m✓[39m tests/invoice-record.test.ts [2m([22m[2m12 tests[22m[2m)[22m[33m 832[2mms[22m[39m
+   [32m✓[39m standalone retained invoice documents [2m(8)[22m
+     [33m[2m✓[22m[39m keeps the exact existing detail renderer and its local styles beside the distinct ledger summary[33m 312[2mms[22m[39m
+ [32m✓[39m src/ledger-export.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 183[2mms[22m[39m
+ [32m✓[39m tests/receivables.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 248[2mms[22m[39m
+ [31m❯[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[33m 2500[2mms[22m[39m
+[31m   [31m×[31m actual startup hook settles a worker error, retains intake and enables an explicit empty restart[39m[33m 992[2mms[22m[39m
+[31m   [31m×[31m actual action hook disables the lost ledger and settles a pending draft without replay[39m[33m 587[2mms[22m[39m
+[31m   [31m×[31m actual startup hook refuses a completed transport whose initialization result is not ok[39m[32m 71[2mms[22m[39m
+   [32m✓[39m actual worker startup retries a rejected runtime load on the next explicit init[32m 50[2mms[22m[39m
+[31m   [31m×[31m retains typed corrections across failure and reopens analysis only on explicit revalidation[39m[33m 756[2mms[22m[39m
+ [31m❯[39m tests/review.test.ts [2m([22m[2m8 tests[22m[2m | [22m[33m8 skipped[39m[2m)[22m[33m 18699[2mms[22m[39m
+   [2m[90m↓[39m[22m lets a visitor correct a missing recipient without changing the extraction or approving a send
+   [2m[90m↓[39m[22m requires explicit confirmation and refuses client-supplied derived metadata
+   [2m[90m↓[39m[22m keeps invalid recipient, quantity, price, currency and terms out of the draft queue
+   [2m[90m↓[39m[22m refuses non-finite and ambiguous numeric edits before invoice side effects
+   [2m[90m↓[39m[22m consumes a checked revision once and refuses a stale revision without duplicate drafts
+   [2m[90m↓[39m[22m invalidates checked fields after another analysis, failed correction or reset
+   [2m[90m↓[39m[22m keeps per-currency totals separate and gates every reviewed split invoice
+   [2m[90m↓[39m[22m preserves zero-decimal currency checks and requires a confirmed quantity
+ [31m❯[39m tests/approval-preview.test.ts [2m([22m[2m7 tests[22m[2m | [22m[33m7 skipped[39m[2m)[22m[33m 16642[2mms[22m[39m
+   [2m[90m↓[39m[22m renders exact multiline reminder content and action identifiers as literal text
+   [2m[90m↓[39m[22m keeps queued invoice values exact without rounding or merging currencies
+   [2m[90m↓[39m[22m does not invent a date for a queued due-on-receipt invoice
+   [2m[90m↓[39m[22m renders every recipient and replaces an invalidated queue with its existing empty state
+   [2m[90m↓[39m[22m previews the actual queued invoice after a different email is analyzed without any effect
+   [2m[90m↓[39m[22m shows the actual queued reminder subject and body that the existing approval sends
+   [2m[90m↓[39m[22m keeps separate currency actions and rejection independent while displaying the queued deposit
+ [31m❯[39m tests/overdue-scan.test.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 15377[2mms[22m[39m
+[31m   [31m×[31m executes the native overdue-batch contracts in the actual Pyodide runtime[39m[33m 15370[2mms[22m[39m
+ [31m❯[39m tests/invoice-details.test.ts [2m([22m[2m4 tests[22m[2m | [22m[33m4 skipped[39m[2m)[22m[33m 16365[2mms[22m[39m
+   [2m[90m↓[39m[22m keeps exact original items available when approval removes the queued payload
+   [2m[90m↓[39m[22m reports a real partial payment and zero-decimal invoice through Python WASM
+   [2m[90m↓[39m[22m keeps per-invoice currencies and original records after analyzing another input
+   [2m[90m↓[39m[22m copies nested records without mock requests and clears them on reset
+ [31m❯[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m | [22m[33m2 skipped[39m[2m)[22m[33m 17261[2mms[22m[39m
+   [2m[90m↓[39m[22m runs the actual Python invoice workflow through approval, signed webhook and overdue reminder
+   [2m[90m↓[39m[22m keeps draft sends blocked until the visitor approves or rejects the action
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/approval-preview.test.ts[2m [ tests/approval-preview.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/approval-preview.test.ts:[2m82:1[22m[39m
+
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine.test.ts[2m [ tests/engine.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/engine.test.ts:[2m5:1[22m[39m
+
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/invoice-details.test.ts[2m [ tests/invoice-details.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/invoice-details.test.ts:[2m14:1[22m[39m
+    [90m 12|[39m   finally { py.globals.delete('request_json'); }
+    [90m 13|[39m }
+    [90m 14|[39m beforeAll(async () => {
+    [90m   |[39m [31m^[39m
+    [90m 15|[39m   py = await loadPyodide();
+    [90m 16|[39m   py.FS.mkdirTree('/demo/ledgerly');
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/review.test.ts[2m [ tests/review.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/review.test.ts:[2m28:1[22m[39m
+    [90m 26|[39m   return {text, original: response.result, fields: editable(response.r…
+    [90m 27|[39m }
+    [90m 28|[39m beforeAll(async () => {
+    [90m   |[39m [31m^[39m
+    [90m 29|[39m   py = await loadPyodide();
+    [90m 30|[39m   py.FS.mkdirTree('/demo/ledgerly');
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯[22m[39m
+
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 5 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook settles a worker error, retains intake and enables an explicit empty restart
+[31m[1mReferenceError[22m: createIntakeFileControls is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m13:21[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m103:6[22m[39m
+    [90m101|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m102|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m103|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m104|[39m   function click(selector: string) {
+    [90m105|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m119:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual action hook disables the lost ledger and settles a pending draft without replay
+[31m[1mReferenceError[22m: createIntakeFileControls is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m13:21[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m103:6[22m[39m
+    [90m101|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m102|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m103|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m104|[39m   function click(selector: string) {
+    [90m105|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m144:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook refuses a completed transport whose initialization result is not ok
+[31m[1mReferenceError[22m: createIntakeFileControls is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m13:21[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m103:6[22m[39m
+    [90m101|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m102|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m103|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m104|[39m   function click(selector: string) {
+    [90m105|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m173:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mretains typed corrections across failure and reopens analysis only on explicit revalidation
+[31m[1mReferenceError[22m: createIntakeFileControls is not defined[39m
+[90m [2m❯[22m evalmachine.<anonymous>:[2m13:21[22m[39m
+[36m [2m❯[22m app tests/engine-recovery.test.ts:[2m103:6[22m[39m
+    [90m101|[39m   const context = vm.createContext({document, Worker: FakeWorker, URL,…
+    [90m102|[39m     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMar…
+    [90m103|[39m   vm.runInContext(executable('main.ts'), context);
+    [90m   |[39m      [31m^[39m
+    [90m104|[39m   function click(selector: string) {
+    [90m105|[39m     let settled = false;
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m215:19[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/overdue-scan.test.ts[2m > [22mexecutes the native overdue-batch contracts in the actual Pyodide runtime
+[31m[1mError[22m: ENOENT: no such file or directory, open '/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate/tests/test_browser_overdue_scan.py'[39m
+[36m [2m❯[22m tests/overdue-scan.test.ts:[2m17:69[22m[39m
+    [90m 15|[39m     py.FS.writeFile(`/project/web-demo/python/${name}`, fs.readFileSyn…
+    [90m 16|[39m   py.FS.writeFile('/project/fixtures/01_simple_usd_hourly.txt', fs.rea…
+    [90m 17|[39m   py.FS.writeFile('/project/tests/test_browser_overdue_scan.py', fs.re…
+    [90m   |[39m                                                                     [31m^[39m
+    [90m 18|[39m   const report = JSON.parse(String(await py.runPythonAsync(`
+    [90m 19|[39m import io, json, sys, unittest
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m6 failed[39m[22m[2m | [22m[1m[32m6 passed[39m[22m[90m (12)[39m
+[2m      Tests [22m [1m[31m5 failed[39m[22m[2m | [22m[1m[32m105 passed[39m[22m[2m | [22m[33m21 skipped[39m[90m (131)[39m
+[2m   Start at [22m 17:55:03
+[2m   Duration [22m 27.08s[2m (tests 81%, transform 13%, import 6%, worker 1%)[22m
+
+[2m    Isolate [22m [33m12 workers spawned[39m[2m · ~3.17s startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~2.27s faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+

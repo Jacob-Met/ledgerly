@@ -178,3 +178,7 @@ availability and an explicit empty restart. Node tests add missing/duplicate
 identity and oversized-document controls. Generated PNG/PDF artifacts are
 preserved with hashes; artifact generation alone is not a claim of direct pixel
 or PDF-text inspection.
+
+## Continue unfinished intake
+
+Use **Save intake** to keep source text and unfinished correction fields in a local file. **Open intake** previews that file; **Replace current intake** runs fresh Python source analysis and restores any fields unchecked. See [the intake workflow and format](docs/intake-files.md) for source-only behavior, fresh review and receiving instructions.

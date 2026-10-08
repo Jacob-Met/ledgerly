@@ -1,0 +1,103 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run --maxWorkers=2
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate/web-demo[39m
+
+ [31m❯[39m tests/review.test.ts [2m([22m[2m8 tests[22m[2m | [22m[33m8 skipped[39m[2m)[22m[33m 11412[2mms[22m[39m
+   [2m[90m↓[39m[22m lets a visitor correct a missing recipient without changing the extraction or approving a send
+   [2m[90m↓[39m[22m requires explicit confirmation and refuses client-supplied derived metadata
+   [2m[90m↓[39m[22m keeps invalid recipient, quantity, price, currency and terms out of the draft queue
+   [2m[90m↓[39m[22m refuses non-finite and ambiguous numeric edits before invoice side effects
+   [2m[90m↓[39m[22m consumes a checked revision once and refuses a stale revision without duplicate drafts
+   [2m[90m↓[39m[22m invalidates checked fields after another analysis, failed correction or reset
+   [2m[90m↓[39m[22m keeps per-currency totals separate and gates every reviewed split invoice
+   [2m[90m↓[39m[22m preserves zero-decimal currency checks and requires a confirmed quantity
+ [31m❯[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m | [22m[33m2 skipped[39m[2m)[22m[33m 12455[2mms[22m[39m
+   [2m[90m↓[39m[22m runs the actual Python invoice workflow through approval, signed webhook and overdue reminder
+   [2m[90m↓[39m[22m keeps draft sends blocked until the visitor approves or rejects the action
+ [31m❯[39m tests/invoice-details.test.ts [2m([22m[2m4 tests[22m[2m | [22m[33m4 skipped[39m[2m)[22m[33m 25629[2mms[22m[39m
+   [2m[90m↓[39m[22m keeps exact original items available when approval removes the queued payload
+   [2m[90m↓[39m[22m reports a real partial payment and zero-decimal invoice through Python WASM
+   [2m[90m↓[39m[22m keeps per-invoice currencies and original records after analyzing another input
+   [2m[90m↓[39m[22m copies nested records without mock requests and clears them on reset
+ [31m❯[39m tests/approval-preview.test.ts [2m([22m[2m7 tests[22m[2m | [22m[33m7 skipped[39m[2m)[22m[33m 27893[2mms[22m[39m
+   [2m[90m↓[39m[22m renders exact multiline reminder content and action identifiers as literal text
+   [2m[90m↓[39m[22m keeps queued invoice values exact without rounding or merging currencies
+   [2m[90m↓[39m[22m does not invent a date for a queued due-on-receipt invoice
+   [2m[90m↓[39m[22m renders every recipient and replaces an invalidated queue with its existing empty state
+   [2m[90m↓[39m[22m previews the actual queued invoice after a different email is analyzed without any effect
+   [2m[90m↓[39m[22m shows the actual queued reminder subject and body that the existing approval sends
+   [2m[90m↓[39m[22m keeps separate currency actions and rejection independent while displaying the queued deposit
+ [32m✓[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 3860[2mms[22m[39m
+   [33m[2m✓[22m[39m actual startup hook settles a worker error, retains intake and enables an explicit empty restart[33m 2587[2mms[22m[39m
+   [33m[2m✓[22m[39m actual action hook disables the lost ledger and settles a pending draft without replay[33m 320[2mms[22m[39m
+   [33m[2m✓[22m[39m retains typed corrections across failure and reopens analysis only on explicit revalidation[33m 829[2mms[22m[39m
+ [32m✓[39m tests/invoice-record.test.ts [2m([22m[2m12 tests[22m[2m)[22m[33m 367[2mms[22m[39m
+ [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 314[2mms[22m[39m
+ [32m✓[39m tests/intake-file.test.ts [2m([22m[2m31 tests[22m[2m)[22m[33m 655[2mms[22m[39m
+   [33m[2m✓[22m[39m uses UTF-8 byte limits at both encoder and decoder boundaries[33m 480[2mms[22m[39m
+[90mstdout[2m | tests/overdue-scan.test.ts[2m > [22m[2mexecutes the native overdue-batch contracts in the actual Pyodide runtime
+[22m[39m{"native_tests_run":6,"successful":true,"python":"3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489"}
+
+ [32m✓[39m tests/overdue-scan.test.ts [2m([22m[2m1 test[22m[2m)[22m[33m 23561[2mms[22m[39m
+   [33m[2m✓[22m[39m executes the native overdue-batch contracts in the actual Pyodide runtime[33m 23548[2mms[22m[39m
+ [32m✓[39m tests/receivables.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 127[2mms[22m[39m
+ [32m✓[39m src/ledger-export.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 91[2mms[22m[39m
+ [32m✓[39m src/invoice-details.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/approval-preview.test.ts[2m [ tests/approval-preview.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/approval-preview.test.ts:[2m82:1[22m[39m
+
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine.test.ts[2m [ tests/engine.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/engine.test.ts:[2m5:1[22m[39m
+
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/invoice-details.test.ts[2m [ tests/invoice-details.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/invoice-details.test.ts:[2m14:1[22m[39m
+    [90m 12|[39m   finally { py.globals.delete('request_json'); }
+    [90m 13|[39m }
+    [90m 14|[39m beforeAll(async () => {
+    [90m   |[39m [31m^[39m
+    [90m 15|[39m   py = await loadPyodide();
+    [90m 16|[39m   py.FS.mkdirTree('/demo/ledgerly');
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/review.test.ts[2m [ tests/review.test.ts ][22m
+[31m[1mError[22m: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".[39m
+[36m [2m❯[22m tests/review.test.ts:[2m28:1[22m[39m
+    [90m 26|[39m   return {text, original: response.result, fields: editable(response.r…
+    [90m 27|[39m }
+    [90m 28|[39m beforeAll(async () => {
+    [90m   |[39m [31m^[39m
+    [90m 29|[39m   py = await loadPyodide();
+    [90m 30|[39m   py.FS.mkdirTree('/demo/ledgerly');
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m8 passed[39m[22m[90m (12)[39m
+[2m      Tests [22m [1m[32m110 passed[39m[22m[2m | [22m[33m21 skipped[39m[90m (131)[39m
+[2m   Start at [22m 18:38:43
+[2m   Duration [22m 72.81s[2m (tests 89%, import 6%, transform 5%)[22m
+
+[2m    Isolate [22m [33m12 workers spawned[39m[2m · ~1.94s startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~9.71s faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+

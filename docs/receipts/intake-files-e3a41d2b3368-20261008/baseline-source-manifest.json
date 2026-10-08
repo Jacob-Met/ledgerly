@@ -1,0 +1,309 @@
+{
+  "schema": "ledgerly.intake-baseline-source/1",
+  "repository": "Jacob-Met/ledgerly",
+  "commit": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "tree": "ddb2360a65b646a281969fea1abbb3238c154340",
+  "files": [
+    {
+      "path": "fixtures/01_simple_usd_hourly.txt",
+      "mode": "100644",
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+      "bytes": 282,
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902"
+    },
+    {
+      "path": "fixtures/02_gbp_proofreading.txt",
+      "mode": "100644",
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "bytes": 293,
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e"
+    },
+    {
+      "path": "fixtures/03_eur_fixed_project.txt",
+      "mode": "100644",
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+      "bytes": 265,
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540"
+    },
+    {
+      "path": "fixtures/04_multi_currency.txt",
+      "mode": "100644",
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+      "bytes": 288,
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3"
+    },
+    {
+      "path": "fixtures/05_missing_email.txt",
+      "mode": "100644",
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+      "bytes": 238,
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9"
+    },
+    {
+      "path": "fixtures/06_ambiguous_qty.txt",
+      "mode": "100644",
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+      "bytes": 246,
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0"
+    },
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "mode": "100644",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "bytes": 319,
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42"
+    },
+    {
+      "path": "fixtures/08_jpy_zero_decimal.txt",
+      "mode": "100644",
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+      "bytes": 271,
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28"
+    },
+    {
+      "path": "fixtures/09_table_cad.txt",
+      "mode": "100644",
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+      "bytes": 380,
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97"
+    },
+    {
+      "path": "fixtures/10_billing_address_net45.txt",
+      "mode": "100644",
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb",
+      "bytes": 330,
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d"
+    },
+    {
+      "path": "fixtures/11_range_qty_approx.txt",
+      "mode": "100644",
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082",
+      "bytes": 239,
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee"
+    },
+    {
+      "path": "fixtures/12_prompt_injection.txt",
+      "mode": "100644",
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b",
+      "bytes": 315,
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e"
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "mode": "100644",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "mode": "100644",
+      "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+      "bytes": 39041,
+      "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "mode": "100644",
+      "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+      "bytes": 3169,
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "mode": "100644",
+      "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511",
+      "bytes": 35313,
+      "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "mode": "100644",
+      "git_blob": "66f067204d357499b3f7010a946563a431d50aea",
+      "bytes": 26243,
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3"
+    },
+    {
+      "path": "web-demo/index.html",
+      "mode": "100644",
+      "git_blob": "a15b9b744276bc31570dcc14eedb3539fabbc9e8",
+      "bytes": 5935,
+      "sha256": "052d3f2b7885531e54418c456f1e6630bc3b988e37d768394ba48060d59116ef"
+    },
+    {
+      "path": "web-demo/package-lock.json",
+      "mode": "100644",
+      "git_blob": "555bceb19a4e55ad488ec2c8420b02e3756954d4",
+      "bytes": 36820,
+      "sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e"
+    },
+    {
+      "path": "web-demo/package.json",
+      "mode": "100644",
+      "git_blob": "c54e9f9d06988f14b3e03ca2f22629313fef5da8",
+      "bytes": 403,
+      "sha256": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0"
+    },
+    {
+      "path": "web-demo/public/favicon.svg",
+      "mode": "100644",
+      "git_blob": "de1096fdf1b4568cf04715c0c90cd512a9c5d1ce",
+      "bytes": 240,
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "mode": "100644",
+      "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+      "bytes": 6627,
+      "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0"
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "mode": "100644",
+      "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015",
+      "bytes": 1196,
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6"
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "mode": "100644",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "bytes": 4379,
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "mode": "100644",
+      "git_blob": "5c1be224027f6bc5c691a0bbb62ca55098482e81",
+      "bytes": 995,
+      "sha256": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82"
+    },
+    {
+      "path": "web-demo/src/approval-preview.css",
+      "mode": "100644",
+      "git_blob": "fdffade7bd101087a59f508a7b23620a0f2c7128",
+      "bytes": 1815,
+      "sha256": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7"
+    },
+    {
+      "path": "web-demo/src/approval-preview.ts",
+      "mode": "100644",
+      "git_blob": "d57fdd6eaeea2e3c41f0b3f3841dca08a3fe8d3d",
+      "bytes": 5514,
+      "sha256": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff"
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "mode": "100644",
+      "git_blob": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96",
+      "bytes": 1736,
+      "sha256": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b"
+    },
+    {
+      "path": "web-demo/src/invoice-details.css",
+      "mode": "100644",
+      "git_blob": "1cb25514753f3c8104f13afb575633e7fce5811b",
+      "bytes": 2214,
+      "sha256": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce"
+    },
+    {
+      "path": "web-demo/src/invoice-details.test.ts",
+      "mode": "100644",
+      "git_blob": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69",
+      "bytes": 5840,
+      "sha256": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da"
+    },
+    {
+      "path": "web-demo/src/invoice-details.ts",
+      "mode": "100644",
+      "git_blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd",
+      "bytes": 9311,
+      "sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff"
+    },
+    {
+      "path": "web-demo/src/invoice-record.ts",
+      "mode": "100644",
+      "git_blob": "fa2e13908997e007bc67657a418c45bbae72214e",
+      "bytes": 10907,
+      "sha256": "dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0"
+    },
+    {
+      "path": "web-demo/src/ledger-export.css",
+      "mode": "100644",
+      "git_blob": "63933b271fd025a5d21888f3373faefa7f8f593d",
+      "bytes": 256,
+      "sha256": "7b07d96c413f8595c93d1da0d9c85fcea6b9e10b7e1d2ce2e51abceae4cc28fa"
+    },
+    {
+      "path": "web-demo/src/ledger-export.test.ts",
+      "mode": "100644",
+      "git_blob": "3727493f7366db1771dcda96e4dd19ac4deb44f0",
+      "bytes": 4353,
+      "sha256": "b44fa1861678468ca9b79162c7356ee7ef31d8027ec91152ec6f161bbd8da60b"
+    },
+    {
+      "path": "web-demo/src/ledger-export.ts",
+      "mode": "100644",
+      "git_blob": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+      "bytes": 4944,
+      "sha256": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "mode": "100644",
+      "git_blob": "ed7cb86a2ff4e5ac4b7d5a140b5db208633ec3a7",
+      "bytes": 18663,
+      "sha256": "4be360ecec9513a185b5f987e49f50061787ee0a8fcb585f33d688e1fb59adad"
+    },
+    {
+      "path": "web-demo/src/retryable-loader.ts",
+      "mode": "100644",
+      "git_blob": "d6e49a01fccbbeffb892c0c814eaf4064c00045b",
+      "bytes": 404,
+      "sha256": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a"
+    },
+    {
+      "path": "web-demo/src/review.css",
+      "mode": "100644",
+      "git_blob": "8d3da08a25b21b8156c198f99930e53de315e451",
+      "bytes": 1829,
+      "sha256": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895"
+    },
+    {
+      "path": "web-demo/src/review.ts",
+      "mode": "100644",
+      "git_blob": "53463561542dfe0a5b1c3e6b0581e050c98fcc91",
+      "bytes": 6591,
+      "sha256": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103"
+    },
+    {
+      "path": "web-demo/src/style.css",
+      "mode": "100644",
+      "git_blob": "da0a2c54b85c2058e1a654f4a029e3e6b9c94db7",
+      "bytes": 7353,
+      "sha256": "94146460348e640e58e24c73ac99d9088a201dec8ef9c85d84c42e5e23ce77db"
+    },
+    {
+      "path": "web-demo/src/worker-client.ts",
+      "mode": "100644",
+      "git_blob": "0d56a2b3732e101f5b27fba22bd39790912caafd",
+      "bytes": 3972,
+      "sha256": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1"
+    },
+    {
+      "path": "web-demo/tsconfig.json",
+      "mode": "100644",
+      "git_blob": "408840754fae30406085341098dd2ec7d084d528",
+      "bytes": 211,
+      "sha256": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432"
+    },
+    {
+      "path": "web-demo/vite.config.ts",
+      "mode": "100644",
+      "git_blob": "031e19417070e2b63cc48b2ae105e0f40eea6ef0",
+      "bytes": 173,
+      "sha256": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c"
+    }
+  ]
+}

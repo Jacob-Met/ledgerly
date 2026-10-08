@@ -1,0 +1,23 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run --maxWorkers=1 tests/engine-recovery.test.ts
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-a4/web-demo[39m
+
+ [32m✓[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 4520[2mms[22m[39m
+   [33m[2m✓[22m[39m actual startup hook settles a worker error, retains intake and enables an explicit empty restart[33m 1856[2mms[22m[39m
+   [33m[2m✓[22m[39m actual action hook disables the lost ledger and settles a pending draft without replay[33m 1274[2mms[22m[39m
+   [33m[2m✓[22m[39m actual startup hook refuses a completed transport whose initialization result is not ok[33m 372[2mms[22m[39m
+   [33m[2m✓[22m[39m retains typed corrections across failure and reopens analysis only on explicit revalidation[33m 849[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m   Start at [22m 18:55:44
+[2m   Duration [22m 26.33s[2m (import 45%, transform 31%, tests 22%, worker 2%)[22m
+
+[2m  Transform [22m [33mtransforming modules took 6.44s[39m[2m · 31% of tracked time, re-done on every run[22m
+[2m            [22m [2mpersist transforms across runs with [22m[33mfsModuleCache: true[39m
+[2m            [22m [2mlearn more: https://vitest.dev/guide/improving-performance#caching-between-reruns[22m
+
