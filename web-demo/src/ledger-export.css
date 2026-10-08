@@ -1,0 +1,15 @@
+.ledger-export-row {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  margin: 18px 0 0;
+}
+.ledger-export-row .button {
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
+}
+.ledger-export-row .fine-print {
+  margin: 0;
+  max-width: 44ch;
+}

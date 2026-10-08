@@ -1,0 +1,228 @@
+{
+  "schema": "ledgerly.invoice-record.original-boundary.v1",
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/34",
+  "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/35",
+  "scope": "Actual original native application has retained invoice details but no Save sandbox invoice record action. This is an entrypoint absence result, not receiving of a new implementation.",
+  "base": {
+    "commit": "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+    "tree": "bf2f5bab390bef22da1d07c1eb3164b7147f3e0a",
+    "preserved_leaves": 467
+  },
+  "baseline": {
+    "commit": "a2a308c744c29d3199bec919c6be8896f066c249",
+    "tree": "ec71abeb56a44b41312d42e83d7d77e9ed87f08c",
+    "added_only": [
+      "web-demo/tools/check_invoice_record_browser.mjs",
+      ".github/workflows/invoice-record-browser.yml"
+    ]
+  },
+  "actual_checkout": {
+    "commit": "d7bc7f4ffba6be77f4ca6bf4ee97d4cfaf469640",
+    "tree": "ec71abeb56a44b41312d42e83d7d77e9ed87f08c",
+    "parents": [
+      "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+      "a2a308c744c29d3199bec919c6be8896f066c249"
+    ]
+  },
+  "browser": {
+    "run": 37789392867,
+    "job": 113352412276,
+    "conclusion": "failure",
+    "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37789392867/job/113352412276",
+    "node": "v22.23.3",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/154.0.8037.97",
+      "revision": "@b510e9d7cd3a2fbd78d0ddc42234103206c5f78d",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "jsVersion": "15.4.80.20"
+    },
+    "passed_groups": [
+      "actual local Python Worker starts empty with no external calls",
+      "actual two-currency draft retains full original invoice records and explicit pending approvals"
+    ],
+    "expected_failure": "Missing Save sandbox invoice record action for the retained native invoice; actual 0, expected 1.",
+    "original_boundary": {
+      "retainedInvoiceId": "INV2-MOCK-0002-9F37",
+      "retainedRecord": {
+        "id": "INV2-MOCK-0002-9F37",
+        "status": "DRAFT",
+        "detail": {
+          "invoice_number": "LDG-0002",
+          "invoice_date": "2026-10-08",
+          "currency_code": "USD",
+          "note": "Thank you for your business.",
+          "payment_term": {
+            "term_type": "NET_30",
+            "due_date": "2026-11-07"
+          },
+          "metadata": {
+            "create_time": "2026-10-08T00:00:00Z",
+            "recipient_view_url": null,
+            "invoicer_view_url": null
+          }
+        },
+        "invoicer": {
+          "name": {
+            "given_name": "Ledgerly",
+            "surname": "Demo"
+          },
+          "email_address": "freelancer@example.test"
+        },
+        "primary_recipients": [
+          {
+            "billing_info": {
+              "name": {
+                "given_name": "Priya",
+                "surname": "Nair"
+              },
+              "email_address": "priya@orbitlabs.example"
+            }
+          }
+        ],
+        "items": [
+          {
+            "name": "React development",
+            "quantity": "20",
+            "unit_amount": {
+              "currency_code": "USD",
+              "value": "95.00"
+            },
+            "unit_of_measure": "HOURS"
+          }
+        ],
+        "amount": {
+          "currency_code": "USD",
+          "value": "1900.00",
+          "breakdown": {
+            "item_total": {
+              "currency_code": "USD",
+              "value": "1900.00"
+            }
+          }
+        },
+        "due_amount": {
+          "currency_code": "USD",
+          "value": "1900.00"
+        },
+        "payments": {
+          "transactions": [],
+          "paid_amount": {
+            "currency_code": "USD",
+            "value": "0.00"
+          }
+        }
+      },
+      "observedActions": [],
+      "mechanism": "Actual RulesExtractor/Agent/SandboxMock draft followed by the current ledger DOM."
+    },
+    "source_sha256": {
+      "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+      "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "web-demo/python/bridge.py": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+      "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "web-demo/src/main.ts": "18885cfaa66121311c2c68417c081d1b32f010d2869a27d6d6110b95c5d46b81",
+      "web-demo/src/invoice-details.ts": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+      "web-demo/src/invoice-details.css": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+      "web-demo/src/invoice-record.ts": null,
+      "web-demo/src/review.ts": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+      "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+      "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+      "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+      "web-demo/scripts/stage-python.mjs": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+      "web-demo/package.json": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+      "web-demo/package-lock.json": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+      "web-demo/index.html": "5219a5f5ca1d3872a3ac08af8647860cf7304880ee2a02dddfd741fec21c6805",
+      "web-demo/tsconfig.json": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+      "web-demo/vite.config.ts": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c",
+      "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "web-demo/tools/check_invoice_record_browser.mjs": "159f91e7f370cf35126a5e781c29fc2cbc1b38acd74180da03689563fd618f0f",
+      ".github/workflows/invoice-record-browser.yml": "cc30e2ff2c3b83fa1448229d104e929d9c995750ccf1d2a83409aa56d61e685e"
+    },
+    "build_sha256": {
+      "assets/__vite-browser-external-DKcLY8Mr.js": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+      "assets/engine.worker-B5Sd8fS4.js": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+      "assets/index-BEygz_CU.js": "dd932f393ac2531863eedf1ede03644d7d92111d197fe8277214647d8db1dd4e",
+      "assets/index-B_o7e1xd.css": "592cb4d1190920d2ff7160ff3e7d84128081506b7e183f6821789d1584685a9d",
+      "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df",
+      "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5",
+      "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+      "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "index.html": "b65d13ce2ccb18ee32cd4823e504b744e136239a86060c79445323acbfbac890",
+      "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+      "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+      "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+      "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+      "python/bridge.py": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+      "python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "python/ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+      "python/ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "python/ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    },
+    "source_unchanged": true,
+    "log": {
+      "bytes": 41657,
+      "sha256": "89928fd4f677574ff8cd1c2bd98bbb469e157ce136e396adc0812545795077cd"
+    },
+    "artifact": {
+      "id": 11555158929,
+      "name": "invoice-record-receiving-37789392867",
+      "zip_bytes": 85815,
+      "zip_sha256": "755e19915f8bc9fdda06cc53160b0a7f0e3c0086ef70b3e689de0e193d5f750a",
+      "files": [
+        {
+          "name": "original-drafted-snapshot.json",
+          "bytes": 8887,
+          "sha256": "046ed0587c434de8635b290ac3b871ccb509a88eebc77e62e3ac88aee928488d",
+          "kind": "actual Python Worker snapshot"
+        },
+        {
+          "name": "failed-state.png",
+          "bytes": 84138,
+          "sha256": "b3bdc4b8725d8919f54271f94c3f618e599f22b48d577864636b69905c4a8235",
+          "kind": "actual Chrome screenshot"
+        }
+      ]
+    },
+    "inspection_boundary": "Raw job log and report directly read. PNG generated and hashed by the runner; no artifact pixels inspected."
+  },
+  "maintained": {
+    "run": 37789392731,
+    "actual_checkout": "d7bc7f4ffba6be77f4ca6bf4ee97d4cfaf469640",
+    "python": {
+      "job": 113352414011,
+      "conclusion": "success",
+      "passed": 193,
+      "subtests": 63,
+      "log_bytes": 15800,
+      "log_sha256": "8853f4a3d4496f6e77730f6372a672e3548f46ef0ae79c4d52f123b82f6fcd56"
+    },
+    "browser_engine": {
+      "job": 113352414147,
+      "conclusion": "success",
+      "test_files": 8,
+      "tests": 46,
+      "audit": "passed",
+      "strict_production_build": "passed",
+      "log_bytes": 20927,
+      "log_sha256": "dfb1ac5f442142248eb8c5e0704edcf3d94d364f0c4befc2d5ea091b513c1757"
+    }
+  }
+}

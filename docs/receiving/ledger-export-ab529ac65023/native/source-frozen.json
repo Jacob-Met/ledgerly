@@ -1,0 +1,37 @@
+{
+  "head": "268155f6e1af8b41f47732c734d153f78f8a2ddd",
+  "base": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "source": {
+    "web-demo/src/ledger-export.ts": {
+      "git_blob": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+      "sha256": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc"
+    },
+    "web-demo/src/ledger-export.css": {
+      "git_blob": "63933b271fd025a5d21888f3373faefa7f8f593d",
+      "sha256": "7b07d96c413f8595c93d1da0d9c85fcea6b9e10b7e1d2ce2e51abceae4cc28fa"
+    },
+    "web-demo/src/ledger-export.test.ts": {
+      "git_blob": "3727493f7366db1771dcda96e4dd19ac4deb44f0",
+      "sha256": "b44fa1861678468ca9b79162c7356ee7ef31d8027ec91152ec6f161bbd8da60b"
+    },
+    "web-demo/src/main.ts": {
+      "git_blob": "d5c69ad0cb0211f7921c9ce1947f09d38106f5e4",
+      "sha256": "795173a0fe1e42826442c4e0f8e9ccdd55ba3ec313ebc9e3d00257dd3b52cbde"
+    },
+    "web-demo/index.html": {
+      "git_blob": "a15b9b744276bc31570dcc14eedb3539fabbc9e8",
+      "sha256": "052d3f2b7885531e54418c456f1e6630bc3b988e37d768394ba48060d59116ef"
+    },
+    "web-demo/README.md": {
+      "git_blob": "5868e54ea1251895caf2c20cd6f9fb38df0ecc56",
+      "sha256": "4f4f00df7d488c35f339b6c0b85fb482f2cd8bed1c8d4ab864e8290339097cf6"
+    },
+    "web-demo/tests/engine-recovery.test.ts": {
+      "git_blob": "54fa6c1ff563ded8d74269f2bcfda7741c2a291d",
+      "sha256": "359be8267a29c345c82199b5aa30c2bea550cb18f94655334b150ece5d0af402"
+    }
+  },
+  "status": "",
+  "free_bytes": 818417664,
+  "qualification": "TypeScript and new 30 tests pass; initial full-suite 4 missing VM binding errors retained; updated VM binding awaiting rerun after capacity guard."
+}
