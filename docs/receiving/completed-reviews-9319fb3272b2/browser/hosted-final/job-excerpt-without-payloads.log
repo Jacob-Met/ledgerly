@@ -1,0 +1,45 @@
+2026-10-08T16:26:45.1676771Z ##[group]Run chrome_bin="$(command -v google-chrome)"
+2026-10-08T16:26:45.1677204Z [36;1mchrome_bin="$(command -v google-chrome)"[0m
+2026-10-08T16:26:45.1677879Z [36;1mnode tools/check_review_history_browser.mjs --source .. --dist dist --chrome "$chrome_bin" --output "$RUNNER_TEMP/completed-reviews-receiving"[0m
+2026-10-08T16:26:45.1746879Z shell: /usr/bin/bash -e {0}
+2026-10-08T16:26:45.1747143Z env:
+2026-10-08T16:26:45.1747432Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T16:26:45.1747875Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-08T16:26:45.1748306Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T16:26:45.1748689Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T16:26:45.1749068Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T16:26:45.1749649Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-08T16:26:45.1750029Z   LEDGERLY_HISTORY_EMIT_BUNDLE: 1
+2026-10-08T16:26:45.1750473Z ##[endgroup]
+2026-10-08T16:26:48.8492979Z PASS healthy actual empty Python session
+2026-10-08T16:26:49.1850059Z PASS healthy pending stays out of history
+2026-10-08T16:26:49.2933809Z PASS retained original approved
+2026-10-08T16:26:49.3141628Z PASS keyboard disclosure and result selection are read only
+2026-10-08T16:26:49.5177967Z PASS outer disclosure and focus survive immediate snapshot
+2026-10-08T16:26:49.6277408Z PASS nested disclosure and focus survive immediate snapshot
+2026-10-08T16:26:49.6421873Z PASS existing invoice details remain independently usable
+2026-10-08T16:26:50.3952310Z PASS retained original rejected
+2026-10-08T16:26:50.4121348Z PASS reviewed literal fields and rejection reason stay exact
+2026-10-08T16:26:50.6498721Z PASS retained original rejected
+2026-10-08T16:26:50.6633577Z PASS automatic rejection retains its original message and actual reason
+2026-10-08T16:26:50.8864805Z PASS retained original approved
+2026-10-08T16:26:50.8987586Z PASS explicit reminder approval retains its separate identity
+2026-10-08T16:26:51.1742365Z PASS phone history has no horizontal overflow or Worker effect
+2026-10-08T16:26:51.1925851Z PASS authored unavailable event labels retained history without replay
+2026-10-08T16:26:53.2419807Z PASS explicit restart opens empty history and retains source email
+2026-10-08T16:26:53.5745484Z PASS fresh session retains its own completed review
+2026-10-08T16:26:53.5889923Z PASS explicit confirmed Reset clears history
+2026-10-08T16:26:56.6674838Z PASS lost-response actual empty Python session
+2026-10-08T16:26:56.9970058Z PASS lost-response pending stays out of history
+2026-10-08T16:26:57.1088980Z PASS real send then lost response reaches FAILED UNKNOWN
+2026-10-08T16:26:57.1131477Z PASS UNKNOWN label is visibly rendered while collapsed
+2026-10-08T16:26:57.1158417Z PASS retained original failed
+2026-10-08T16:26:57.2093935Z PASS reading FAILED history does not retry or change provider state
+2026-10-08T16:26:57.3220952Z PASS both browser contexts requested the exact staged Python modules
+2026-10-08T16:26:57.3225618Z PASS page and Worker requests remained on loopback
+2026-10-08T16:26:57.3232089Z PASS no uncaught page or Worker exceptions
+2026-10-08T16:26:57.3237925Z PASS exactly one labeled fault bridge served
+2026-10-08T16:26:57.3245167Z PASS both owned browsers exited and profiles were removed
+2026-10-08T16:26:57.3637096Z LEDGERLY_HISTORY_BUNDLE_BEGIN {"format":"ledgerly-history-log-bundle/1","rawBytes":649011,"files":[{"name":"browser.json","bytes":33000,"sha256":"34902f66bb2f368636601abd2dc1b65af1267e579638114e5cdb302c23c958fe","git_blob":"2e2b725e3f24dde3f1ac4b972f22df411023ed14","chunks":11},{"name":"desktop-completed-reviews.png","bytes":182064,"sha256":"bae863d7da17f1912ca321dff2600b919c4862ad616e6dc38f1bd7afaa2fa1bd","git_blob":"60da8510dc6f486783c955ea55df0f9103115eef","chunks":60},{"name":"healthy-chromium.log","bytes":4650,"sha256":"3f2d1fc0db4f5548d6b77c1a101f7b1e61bea373b85997f20f203120604abc8c","git_blob":"a54c8157e8e27590e1095cb38e080c7ff395c563","chunks":2},{"name":"healthy-worker-observation.json","bytes":245122,"sha256":"594f624dd321de66383033b13f9351d3f32b41e1839b813e8ec99e579fee9a8c","git_blob":"8b03134483bb16d5c68608c57b1951198dc28d6c","chunks":80},{"name":"lost-response-chromium.log","bytes":4800,"sha256":"e25e10ddacc58a6e40ccaf4db98c07991d2c71572ae63330e4ddf156339eeb56","git_blob":"2f65915669fbcee406a8faf1c0437e00f005bf10","chunks":2},{"name":"lost-response-suffix.py","bytes":817,"sha256":"65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c","git_blob":"4c8eb59cb941f6fec85b9c692970fa2cff644544","chunks":1},{"name":"lost-response-worker-observation.json","bytes":20495,"sha256":"7424b439524a61ba0a2e244387f3f2ca14bc0ced764b3f74bb86288fcd9299a8","git_blob":"dfcd69c3b1627131e9ff9c5882ebe475d409cea0","chunks":7},{"name":"phone-completed-reminder.png","bytes":39713,"sha256":"05ea24c8ebba153ebb86dbe4c5b7806f40d93d084a7787bca268b6a18b35d241","git_blob":"b6cb1c39c133ec83ec50be17475cd09c1932535a","chunks":13},{"name":"phone-literal-invoice.png","bytes":51126,"sha256":"a25f8d44a088cc7e92b44907c2477fbdec2d8b90a5e0b35df79104a1a7a84f51","git_blob":"d12fe7238802e5365546060f028886c0bd249429","chunks":17},{"name":"phone-outcome-unknown.png","bytes":59553,"sha256":"66446cdaccbb9840d6bc811832d9943b1bf1fe8a15b0ddf67ca8e3e7d7734405","git_blob":"5ad5d5d26aa6272e24d00ebc31aff450ee6aba13","chunks":20},{"name":"source-binding.json","bytes":7671,"sha256":"b029cad70b513d9438f2fbcab432e31f0bfd8ef0ea28b376f6118602c71da153","git_blob":"d05684a59fae5f33970f5fd4690a4be681d15f0e","chunks":3}]}
+2026-10-08T16:27:00.8285560Z LEDGERLY_HISTORY_BUNDLE_END be72ae6c71fa5ce90f86283016321c647f763f8b9bde99e8990bd3ca3dd77941
+2026-10-08T16:27:00.8286480Z {"ok":true,"checks":29,"sourceUnchanged":true,"distUnchanged":true,"output":"/home/runner/work/_temp/completed-reviews-receiving"}

@@ -1,0 +1,116 @@
+{
+  "schema": "ledgerly.history.visual-review.v1",
+  "reviewer": "hamon-ultra-9319fb3272b2-20261008/integration",
+  "qualified_head": "ae1e859aa26bffdee7e8b8cb673acd6c74420263",
+  "source_checkout": "b1aeba460fe9b6b321248ef534d7cd3b0dc444b7",
+  "method": "Direct inspection of each reconstructed exact PNG, plus independent byte-level PNG IHDR readback and receipt-clip comparison.",
+  "captures": [
+    {
+      "name": "desktop-completed-reviews.png",
+      "png": {
+        "width": 546,
+        "height": 2471
+      },
+      "clip": {
+        "x": 851.5,
+        "y": 1269.84375,
+        "width": 546.5,
+        "height": 2471.3125,
+        "scale": 1
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 1000,
+        "clientWidth": 1440,
+        "scrollX": 0,
+        "scrollY": 1270
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "sha256": "bae863d7da17f1912ca321dff2600b919c4862ad616e6dc38f1bd7afaa2fa1bd",
+      "git_blob": "60da8510dc6f486783c955ea55df0f9103115eef",
+      "visual": "passed: complete target heading, original content and recorded outcome are included; text remains legible"
+    },
+    {
+      "name": "phone-completed-reminder.png",
+      "png": {
+        "width": 336,
+        "height": 595
+      },
+      "clip": {
+        "x": 27,
+        "y": 3661.6875,
+        "width": 336,
+        "height": 595.1875,
+        "scale": 1
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "clientWidth": 390,
+        "scrollX": 0,
+        "scrollY": 3662
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "sha256": "05ea24c8ebba153ebb86dbe4c5b7806f40d93d084a7787bca268b6a18b35d241",
+      "git_blob": "b6cb1c39c133ec83ec50be17475cd09c1932535a",
+      "visual": "passed: complete target heading, original content and recorded outcome are included; text remains legible",
+      "prior_capture_defect": "Resolved; heading is included and no neighboring card intrudes"
+    },
+    {
+      "name": "phone-literal-invoice.png",
+      "png": {
+        "width": 336,
+        "height": 790
+      },
+      "clip": {
+        "x": 27,
+        "y": 4904.0625,
+        "width": 336,
+        "height": 790.53125,
+        "scale": 1
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "clientWidth": 390,
+        "scrollX": 0,
+        "scrollY": 4904
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "sha256": "a25f8d44a088cc7e92b44907c2477fbdec2d8b90a5e0b35df79104a1a7a84f51",
+      "git_blob": "d12fe7238802e5365546060f028886c0bd249429",
+      "visual": "passed: complete target heading, original content and recorded outcome are included; text remains legible"
+    },
+    {
+      "name": "phone-outcome-unknown.png",
+      "png": {
+        "width": 336,
+        "height": 944
+      },
+      "clip": {
+        "x": 27,
+        "y": 1859.296875,
+        "width": 336,
+        "height": 944.859375,
+        "scale": 1
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "clientWidth": 390,
+        "scrollX": 0,
+        "scrollY": 1859
+      },
+      "stableGeometry": true,
+      "dimensionsMatch": true,
+      "sha256": "66446cdaccbb9840d6bc811832d9943b1bf1fe8a15b0ddf67ca8e3e7d7734405",
+      "git_blob": "5ad5d5d26aa6272e24d00ebc31aff450ee6aba13",
+      "visual": "passed: complete target heading, original content and recorded outcome are included; text remains legible"
+    }
+  ],
+  "application_css_changed": false,
+  "browser_receiving_condition": "Page scrollbars hidden by Emulation before navigation; actual width390 mobile /1440 desktop; complete element captures may exceed viewport height."
+}

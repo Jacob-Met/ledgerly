@@ -1,0 +1,496 @@
+{
+  "schema": "hamon.ledgerly.independent-final-hosted-review.v1",
+  "reviewer": "hamon-ultra-9319fb3272b2-20261008/native_capability",
+  "kind": "Independent source review and immutable hosted-receipt readback; no additional browser or RDC execution",
+  "accepted_source": {
+    "head": "ae1e859aa26bffdee7e8b8cb673acd6c74420263",
+    "tree": "de61c0086dd1591413820c05de33a3f2a7d49491",
+    "actual_checkout": "b1aeba460fe9b6b321248ef534d7cd3b0dc444b7",
+    "checkout_parents": [
+      "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+      "ae1e859aa26bffdee7e8b8cb673acd6c74420263"
+    ],
+    "receiver_git_blob": "13223a3bc4c56c7a19bd4e02fe9bffe739bb4be9",
+    "receiver_sha256": "0be2ca0049b81e89292227c26d37530e1885dc07c5182babb2ed9be08a6bb811",
+    "incoming_agent_git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+    "incoming_agent_sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+  },
+  "raw_receipts": {
+    "browser": {
+      "git_blob": "2e2b725e3f24dde3f1ac4b972f22df411023ed14",
+      "bytes": 33000,
+      "sha256": "34902f66bb2f368636601abd2dc1b65af1267e579638114e5cdb302c23c958fe",
+      "hashes_independently_recomputed": true
+    },
+    "healthy_worker": {
+      "git_blob": "8b03134483bb16d5c68608c57b1951198dc28d6c"
+    },
+    "fault_worker": {
+      "git_blob": "dfcd69c3b1627131e9ff9c5882ebe475d409cea0"
+    }
+  },
+  "hosted": {
+    "verify_run": 37808603895,
+    "core_job": 113419309339,
+    "browser_job": 113419309666,
+    "invoice_record_run": 37808603940,
+    "core_log_readback": {
+      "python": "3.12.15",
+      "tests_passed": 347,
+      "subtests_passed": 118
+    },
+    "browser_receipt": {
+      "node": "v22.23.3",
+      "checks": 29,
+      "checks_passed": 29,
+      "ok": true,
+      "source_inputs": 45,
+      "dist_files": 32,
+      "source_unchanged": true,
+      "dist_unchanged": true
+    },
+    "workflow_conclusions": "Both Verify jobs and the separate invoice-record run completed successfully"
+  },
+  "preservation": {
+    "base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+    "base_tree": "ddb2360a65b646a281969fea1abbb3238c154340",
+    "head": "ae1e859aa26bffdee7e8b8cb673acd6c74420263",
+    "head_tree": "de61c0086dd1591413820c05de33a3f2a7d49491",
+    "base_leaves": 693,
+    "head_leaves": 799,
+    "unchanged": 679,
+    "modified": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "base_blob": "58bcc64e8d6c119e91812bd6c4c0aa581911cb5e",
+        "head_blob": "4be0a88d67b4b4513197696eff9f8aaa679ed322"
+      },
+      {
+        "path": "web-demo/README.md",
+        "base_blob": "0e1a9dee5f428dac69f3252f13fdecf7d82ad7af",
+        "head_blob": "e525b9471cf78151f3c6edc63f6f8329da447ad1"
+      },
+      {
+        "path": "web-demo/index.html",
+        "base_blob": "a15b9b744276bc31570dcc14eedb3539fabbc9e8",
+        "head_blob": "803938c053158329d423a3dae57221d50e622504"
+      },
+      {
+        "path": "web-demo/python/bridge.py",
+        "base_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+        "head_blob": "d9299104861a8533372068a210827649ba56b02c"
+      },
+      {
+        "path": "web-demo/scripts/stage-python.mjs",
+        "base_blob": "5c1be224027f6bc5c691a0bbb62ca55098482e81",
+        "head_blob": "d23c02325afe166cf1f1fb40eea0a18bfd58ceb9"
+      },
+      {
+        "path": "web-demo/src/approval-preview.ts",
+        "base_blob": "d57fdd6eaeea2e3c41f0b3f3841dca08a3fe8d3d",
+        "head_blob": "82bf8cead8651557171c4460670cb6f86cefcad0"
+      },
+      {
+        "path": "web-demo/src/engine.worker.ts",
+        "base_blob": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96",
+        "head_blob": "e541a5bb78877d74f94f37e8d76d22b9450041a6"
+      },
+      {
+        "path": "web-demo/src/main.ts",
+        "base_blob": "ed7cb86a2ff4e5ac4b7d5a140b5db208633ec3a7",
+        "head_blob": "879f622757307bccb37c492dd26b73d4582aa227"
+      },
+      {
+        "path": "web-demo/tests/approval-preview.test.ts",
+        "base_blob": "c02c82f16413dc8d5c88858dc8c8dec5c0ff1bc0",
+        "head_blob": "6b8c048a097ccb19f55ae4459727cc9fa086fe93"
+      },
+      {
+        "path": "web-demo/tests/engine-recovery.test.ts",
+        "base_blob": "8668d44fcf691f5a2cfac267474a477f8ff95e28",
+        "head_blob": "15391e4ec32aae74270f4bfcebf7a28e5c0816aa"
+      },
+      {
+        "path": "web-demo/tests/engine.test.ts",
+        "base_blob": "ccdc50843946b4b562e183f38d45948ec20cd614",
+        "head_blob": "7d32f24d0dc7abf87cd064cb3bb13415c354da88"
+      },
+      {
+        "path": "web-demo/tests/invoice-details.test.ts",
+        "base_blob": "707fe2202c00def01451258606176cd2af182304",
+        "head_blob": "87204d207459973558cd4906c18ceddbbe7a100a"
+      },
+      {
+        "path": "web-demo/tests/overdue-scan.test.ts",
+        "base_blob": "772a4595d6444221a5b9fb46d5d7833bf09f67da",
+        "head_blob": "8403d2e1d7d17ab2a22bf2cdb3c053f2f1942273"
+      },
+      {
+        "path": "web-demo/tests/review.test.ts",
+        "base_blob": "784b30a2ceb21b5ec651f80ef9fffa37054d73b9",
+        "head_blob": "3394414da2594bb38d3734db49305db7ceb83a59"
+      }
+    ],
+    "removed": [],
+    "added": [
+      "docs/receiving/completed-reviews-9319fb3272b2/README.md",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/environment-boundary/browser.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/environment-boundary/check_review_history_browser-v1.py",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/environment-boundary/process.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-1/boundary.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-1/receiver-step.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/browser.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/bundle-manifest.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/healthy-chromium.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/healthy-failure.png",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/healthy-worker-observation.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/job-excerpt-without-payloads.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/lost-response-suffix.py",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/receiving-note.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-2/source-binding.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/browser.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/bundle-manifest.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/desktop-completed-reviews.png",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/healthy-chromium.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/healthy-worker-observation.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/job-excerpt-without-payloads.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/lost-response-chromium.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/lost-response-suffix.py",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/lost-response-worker-observation.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/phone-completed-reminder.png",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/phone-literal-invoice.png",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/phone-outcome-unknown.png",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/qualification.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/source-binding.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/source-preservation.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/browser.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/bundle-manifest.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/capture-boundary.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/desktop-completed-reviews.png",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/healthy-chromium.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/healthy-failure.png",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/healthy-worker-observation.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/job-excerpt-without-payloads.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/lost-response-suffix.py",
+      "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-4/source-binding.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/REVIEW.md",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/check-disclosures.mjs",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/corrected-home-browser.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/corrected-home-receiving.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/handoff-manifest.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/original-receiving.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/prelaunch-browser.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/process-observations.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/review-summary.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/independent/source-preservation.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-browser-tests.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-browser-tests.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-production-build.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-production-build.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-python.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-python.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-receiver-syntax.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/b9-receiver-syntax.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/candidate-source-v1.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/challenge-history-projection.py",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/composition-b9-2d5e275.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/composition-current-1eb-6cd.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/control-drop-failed.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/control-drop-failed.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/control-shallow-alias.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/control-shallow-alias.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-b9-gates.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-browser-tests.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-browser-tests.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-composition-2ab.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-native-gates.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-python.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-python.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-test-parser-correction.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-v2-browser-gates.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-v2-browser-tests.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-v2-browser-tests.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-v2-production-build.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/current-v2-production-build.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-baseline.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-native-v1.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-native-v1.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-native-v1.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-native-v2.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-native-v2.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-native-v2.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/history-negative-controls.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/local-capacity-boundary.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/npm-ci-native-v1.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/npm-ci-native-v1.stderr.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/npm-ci-native-v1.stdout.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/probe-history-baseline.py",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/review-history.test-v1.ts",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/send-freshness-composition/corrections.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/send-freshness-composition/python-core.log",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/send-freshness-composition/source-preservation.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/source-manifest.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/test-correction-v2.json",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/test_review_history-v1.py",
+      "docs/receiving/completed-reviews-9319fb3272b2/native/vitest-v1.txt",
+      "tests/test_review_history.py",
+      "web-demo/python/review_history.py",
+      "web-demo/src/review-history.css",
+      "web-demo/src/review-history.ts",
+      "web-demo/tests/review-history.test.ts",
+      "web-demo/tools/check_review_history_browser.mjs"
+    ]
+  },
+  "semantic_readback": {
+    "bridgeByWorker": [
+      {
+        "phase": "healthy",
+        "sessionId": "9AFBE2446C957634590E389941768A43",
+        "bridgeRequest": true
+      },
+      {
+        "phase": "healthy",
+        "sessionId": "13076F1868637508545AAF1C4353AA8A",
+        "bridgeRequest": true
+      },
+      {
+        "phase": "lost-response",
+        "sessionId": "E316FB69980F28BFCD1656D4C1C1B6A6",
+        "bridgeRequest": true
+      }
+    ],
+    "pendingPreserved": true,
+    "healthyActions": [
+      "init",
+      "analyze",
+      "draft",
+      "approve",
+      "analyze",
+      "analyze",
+      "analyze",
+      "review",
+      "draft",
+      "reject",
+      "advance",
+      "chase",
+      "advance",
+      "chase",
+      "approve",
+      "init",
+      "analyze",
+      "draft",
+      "reject",
+      "reset"
+    ],
+    "healthyWorkerCount": 2,
+    "faultActions": [
+      "init",
+      "analyze",
+      "draft",
+      "approve"
+    ],
+    "faultWorkerCount": 1,
+    "faultReply": {
+      "worker_ok": true,
+      "application_ok": false,
+      "error": "TimeoutError",
+      "record_status": "FAILED",
+      "result": {
+        "outcome": "UNKNOWN",
+        "reason": "The outgoing action may have completed. Check the invoice before creating another approval.",
+        "error_type": "TimeoutError"
+      },
+      "provider_status": "SENT",
+      "ledger_status": "DRAFT",
+      "pending_count": 0,
+      "external_calls": 0,
+      "can_replay": false,
+      "mock_requests": 5
+    }
+  },
+  "network": {
+    "request_observations": 53,
+    "off_origin": [],
+    "page_errors": [],
+    "worker_bridge_correlation": [
+      {
+        "phase": "healthy",
+        "sessionId": "9AFBE2446C957634590E389941768A43",
+        "bridgeRequest": true
+      },
+      {
+        "phase": "healthy",
+        "sessionId": "13076F1868637508545AAF1C4353AA8A",
+        "bridgeRequest": true
+      },
+      {
+        "phase": "lost-response",
+        "sessionId": "E316FB69980F28BFCD1656D4C1C1B6A6",
+        "bridgeRequest": true
+      }
+    ],
+    "interpretation": "Page Fetch interception remains; Worker Network observation is correlated to attached Worker sessions. Served worker scripts carry connect-src self CSP."
+  },
+  "cleanup": [
+    {
+      "phase": "healthy",
+      "pid": 2879,
+      "requestedClose": true,
+      "fallbackSignals": [],
+      "profileRemoved": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "phase": "lost-response",
+      "pid": 3042,
+      "requestedClose": true,
+      "fallbackSignals": [],
+      "profileRemoved": true,
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "capture_readback": {
+    "checks": [
+      {
+        "path": "desktop-completed-reviews.png",
+        "sha256": "bae863d7da17f1912ca321dff2600b919c4862ad616e6dc38f1bd7afaa2fa1bd",
+        "png": {
+          "width": 546,
+          "height": 2471
+        },
+        "clip": {
+          "x": 851.5,
+          "y": 1269.84375,
+          "width": 546.5,
+          "height": 2471.3125,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "clientWidth": 1440,
+          "scrollX": 0,
+          "scrollY": 1270
+        },
+        "after": {
+          "x": 851.5,
+          "y": 1269.84375,
+          "width": 546.5,
+          "height": 2471.3125
+        },
+        "stableGeometry": true,
+        "dimensionsMatch": true
+      },
+      {
+        "path": "phone-completed-reminder.png",
+        "sha256": "05ea24c8ebba153ebb86dbe4c5b7806f40d93d084a7787bca268b6a18b35d241",
+        "png": {
+          "width": 336,
+          "height": 595
+        },
+        "clip": {
+          "x": 27,
+          "y": 3661.6875,
+          "width": 336,
+          "height": 595.1875,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "clientWidth": 390,
+          "scrollX": 0,
+          "scrollY": 3662
+        },
+        "after": {
+          "x": 27,
+          "y": 3661.6875,
+          "width": 336,
+          "height": 595.1875
+        },
+        "stableGeometry": true,
+        "dimensionsMatch": true
+      },
+      {
+        "path": "phone-literal-invoice.png",
+        "sha256": "a25f8d44a088cc7e92b44907c2477fbdec2d8b90a5e0b35df79104a1a7a84f51",
+        "png": {
+          "width": 336,
+          "height": 790
+        },
+        "clip": {
+          "x": 27,
+          "y": 4904.0625,
+          "width": 336,
+          "height": 790.53125,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "clientWidth": 390,
+          "scrollX": 0,
+          "scrollY": 4904
+        },
+        "after": {
+          "x": 27,
+          "y": 4904.0625,
+          "width": 336,
+          "height": 790.53125
+        },
+        "stableGeometry": true,
+        "dimensionsMatch": true
+      },
+      {
+        "path": "phone-outcome-unknown.png",
+        "sha256": "66446cdaccbb9840d6bc811832d9943b1bf1fe8a15b0ddf67ca8e3e7d7734405",
+        "png": {
+          "width": 336,
+          "height": 944
+        },
+        "clip": {
+          "x": 27,
+          "y": 1859.296875,
+          "width": 336,
+          "height": 944.859375,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "clientWidth": 390,
+          "scrollX": 0,
+          "scrollY": 1859
+        },
+        "after": {
+          "x": 27,
+          "y": 1859.296875,
+          "width": 336,
+          "height": 944.859375
+        },
+        "stableGeometry": true,
+        "dimensionsMatch": true
+      }
+    ],
+    "independent_pixel_review": false,
+    "producer_pixel_review": "Integration reports direct viewing of all four final images with complete target header/body/result.",
+    "boundary": "This reviewer independently read recorded geometry/dimensions and source gates. The receiver hides page scrollbars before navigation; application source/styles remain unchanged. Images may exceed viewport height."
+  },
+  "source_adapters": {
+    "refusal_test": "Only the actual outgoing mock wrapper cancels after a successful fresh GET/DRAFT; original_send produces the real PayPalError body. Exact GET then POST/send once, FAILED/body/payload/no-UNKNOWN assertions remain.",
+    "shared_invoice_test": "The sole delta from the incoming current-main invoice-details test is adding review_history.py to its loader.",
+    "prior_pending_oracle": "The unrelated pending USD invoice is preserved exactly when the distinct reminder is approved.",
+    "worker_session_gate": "The bridge.py request must belong to an attached Worker session in both phases."
+  },
+  "retained_boundaries": [
+    "The original independent report, original 7/8 disclosure failure, zero-check startup attempt, and corrected seven-application-check/capture failure remain unchanged at their original pins.",
+    "Hosted attempt 2 remains a failed run with 12 passing checks and a wrong empty-pending oracle.",
+    "Hosted attempt 3 passed 29 application groups but its phone reminder image clipped the target header.",
+    "Hosted attempt 4 remains overall false after 13 passing application checks because target geometry changed during capture.",
+    "The native final-archive command outcome remains unknown under the RDC outage; this addendum does not claim recovery.",
+    "This accepts the exact source and recorded current-main hosted receiving; the owner/root retains final branch publication and merge."
+  ],
+  "conclusion": "PASS for the exact source adaptations, semantic receiving, network/source preservation, cleanup and geometry gates; separate producer visual attribution and prior failures preserved."
+}
