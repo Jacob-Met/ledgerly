@@ -59,6 +59,23 @@ job email ──► extract.py ──────────► agent.py ──
   `parse_webhook_event()` handles `INVOICING.INVOICE.*` events, including `PAID`. The
   comments in the module list the doc URLs this was based on.
 
+## Invoice-send review freshness
+
+Approving a queued invoice first reads the current provider draft. Changed recipients,
+items, terms, amounts, settings, or send status refuse the old approval before a send
+permit opens. The original review is retained as rejected history. A failed or unusable
+read leaves the original approval pending for an explicit retry; failures during the
+outgoing phase still consume that approval under the existing outcome rules.
+
+The comparison supports the simple untaxed invoices built by Ledgerly. It permits
+known delivery metadata, generated item IDs, and equivalent decimal spellings; additional
+invoice content requires a fresh review. PayPal exposes separate
+[read](https://developer.paypal.com/api/invoicing/v2/invoices-get) and
+[send-by-ID](https://developer.paypal.com/api/invoicing/v2/invoices-send) operations, so
+this check detects changes visible at the read. A later provider edit can still race
+the send. Offline source pins, negative controls, and receiving evidence are retained in
+[`out/receiving/send-review-ac386303dce2`](out/receiving/send-review-ac386303dce2).
+
 ## Webhook receiving
 
 After verification and parsing, a notification for a known invoice triggers the existing

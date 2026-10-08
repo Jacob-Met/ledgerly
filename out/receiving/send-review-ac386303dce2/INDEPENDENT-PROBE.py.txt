@@ -1,0 +1,285 @@
+"""Independent public Agent/SandboxMock receiving; no live provider calls."""
+
+from copy import deepcopy
+from datetime import date, datetime, timezone
+from decimal import Decimal
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+import unittest
+
+SOURCE = Path(os.environ["LEDGERLY_REVIEW_SOURCE_ROOT"]).resolve()
+sys.path.insert(0, str(SOURCE))
+from ledgerly import agent as agent_module
+from ledgerly.agent import Agent, ApprovalRequired
+from ledgerly.extract import Extraction, LineItem
+from ledgerly.paypal import SandboxMock
+
+REPORTS = []
+
+
+class AuthoredExtractor:
+    def __init__(self, currency="USD"):
+        self.currency = currency
+
+    def extract(self, text):
+        unit = "80.40" if self.currency == "USD" else "80"
+        return Extraction(
+            client_name="Authored Customer", client_email="customer@receiving.example",
+            currency=self.currency, due_days=14, confidence=1.0,
+            source="independent-authored-native-input",
+            line_items=[
+                LineItem("Layout work", Decimal("1.25"), Decimal(unit), self.currency, "hours"),
+                LineItem("Illustration", Decimal("1"), Decimal("25"), self.currency, "items"),
+            ],
+        )
+
+
+class SendReceiving(unittest.TestCase):
+    def setUp(self):
+        self.instances = []
+        self.assertEqual(Path(agent_module.__file__).resolve(), SOURCE / "ledgerly/agent.py")
+
+    def tearDown(self):
+        for label, agent, mock, invoice_id, action_id in self.instances:
+            REPORTS.append({
+                "method": self.id(), "case": label,
+                "requests": deepcopy(mock.requests),
+                "action": agent.pending[action_id].to_dict(),
+                "ledger": deepcopy(vars(agent.ledger[invoice_id])),
+                "provider": deepcopy(mock.invoices[invoice_id]),
+                "audit": deepcopy(agent.audit),
+            })
+
+    def draft(self, label="default", currency="USD", agent=None, mock=None):
+        if agent is None:
+            mock = SandboxMock(now=lambda: datetime(2026, 10, 8, tzinfo=timezone.utc))
+            agent = Agent(
+                mock, {"name": "Authored Seller", "email_address": "seller@receiving.example"},
+                extractor=AuthoredExtractor(currency), today=lambda: date(2026, 10, 8),
+            )
+        result = agent.tool_create_invoice("Authored structured extraction through the public tool")
+        self.assertIs(result["ok"], True)
+        row = result["invoices"][0]
+        invoice_id, action_id = row["invoice_id"], row["approval_id"]
+        self.instances.append((label, agent, mock, invoice_id, action_id))
+        return agent, mock, invoice_id, action_id
+
+    def assert_gate_closed(self, agent, mock, invoice_id):
+        before = deepcopy(mock.requests)
+        with self.assertRaises(ApprovalRequired):
+            agent.client.send_invoice(invoice_id)
+        self.assertEqual(mock.requests, before)
+
+    def test_seller_line_order_and_partial_payment_setting_are_reviewed(self):
+        for field in ("seller_email", "line_order", "partial_payment"):
+            with self.subTest(field=field):
+                agent, mock, invoice_id, action_id = self.draft(field)
+                reviewed = deepcopy(agent.pending[action_id].payload)
+                ledger = deepcopy(vars(agent.ledger[invoice_id]))
+                invoice = mock.invoices[invoice_id]
+                if field == "seller_email":
+                    invoice["invoicer"]["email_address"] = "another-seller@receiving.example"
+                elif field == "line_order":
+                    invoice["items"].reverse()
+                else:
+                    invoice["configuration"]["partial_payment"]["allow_partial_payment"] = True
+                offset = len(mock.requests)
+                with self.assertRaises(ValueError):
+                    agent.approve(action_id, approver="independent receiver")
+                self.assertEqual(agent.pending[action_id].status, "REJECTED")
+                self.assertEqual(agent.pending[action_id].payload, reviewed)
+                self.assertEqual(vars(agent.ledger[invoice_id]), ledger)
+                self.assertEqual([x[0] for x in mock.requests[offset:]], ["GET"])
+                self.assertEqual(agent.audit[-1]["event"], "invoice_send_invalidated")
+                self.assertEqual(mock.invoices[invoice_id]["status"], "DRAFT")
+                self.assert_gate_closed(agent, mock, invoice_id)
+
+    def test_decode_failure_then_changed_retry_preserves_the_other_invoice(self):
+        agent, mock, invoice_id, action_id = self.draft("read-then-changed")
+        _, _, peer_invoice, peer_action = self.draft("healthy-peer", agent=agent, mock=mock)
+        reviewed = agent.pending[action_id].to_dict()
+        peer_review = agent.pending[peer_action].to_dict()
+        ledger = deepcopy(vars(agent.ledger[invoice_id]))
+        audit = deepcopy(agent.audit)
+        get_invoice = mock.get_invoice
+        error = json.JSONDecodeError("authored read decode failure", "?", 0)
+
+        def unreadable(invoice_id):
+            get_invoice(invoice_id)
+            raise error
+
+        mock.get_invoice = unreadable
+        offset = len(mock.requests)
+        with self.assertRaises(json.JSONDecodeError) as caught:
+            agent.approve(action_id)
+        self.assertIs(caught.exception, error)
+        self.assertEqual(agent.pending[action_id].to_dict(), reviewed)
+        self.assertEqual(vars(agent.ledger[invoice_id]), ledger)
+        self.assertEqual(agent.audit, audit)
+        self.assertEqual([x[0] for x in mock.requests[offset:]], ["GET"])
+        self.assert_gate_closed(agent, mock, invoice_id)
+
+        mock.get_invoice = get_invoice
+        mock.invoices[invoice_id]["invoicer"]["name"]["surname"] = "Changed"
+        with self.assertRaises(ValueError):
+            agent.approve(action_id)
+        self.assertEqual(agent.pending[action_id].status, "REJECTED")
+        self.assertEqual(agent.pending[action_id].payload, reviewed["payload"])
+        self.assertEqual(agent.pending[peer_action].to_dict(), peer_review)
+        peer_offset = len(mock.requests)
+        agent.approve(peer_action)
+        self.assertEqual([x[:2] for x in mock.requests[peer_offset:]], [
+            ("GET", f"/v2/invoicing/invoices/{peer_invoice}"),
+            ("POST", f"/v2/invoicing/invoices/{peer_invoice}/send"),
+        ])
+        self.assertEqual(agent.pending[peer_action].status, "APPROVED")
+        self.assertEqual(mock.invoices[invoice_id]["status"], "DRAFT")
+
+    def test_numeric_notation_and_zero_currency_representation_keep_ordinary_sends(self):
+        for currency in ("USD", "JPY"):
+            with self.subTest(currency=currency):
+                agent, mock, invoice_id, action_id = self.draft(currency, currency)
+                reviewed = deepcopy(agent.pending[action_id].payload)
+                get_invoice = mock.get_invoice
+
+                def representation(invoice_id):
+                    response = get_invoice(invoice_id)
+                    invoice = response.body
+                    for item in invoice["items"]:
+                        item["id"] = "provider-only-line-id"
+                        item["quantity"] = format(Decimal(item["quantity"]), ".6f")
+                        item["unit_amount"]["value"] = format(Decimal(item["unit_amount"]["value"]), "+.6E")
+                    for money in (invoice["amount"], invoice["due_amount"],
+                                  invoice["amount"]["breakdown"]["item_total"]):
+                        money["value"] = format(Decimal(money["value"]), "+.8E")
+                    invoice["refunds"] = {"refund_amount": {"currency_code": currency, "value": "0E-8"},
+                                          "transactions": []}
+                    invoice["gratuity"] = {"currency_code": currency, "value": "-0.000"}
+                    invoice["detail"]["metadata"]["last_update_time"] = "2026-10-08T00:00:01Z"
+                    return response
+
+                mock.get_invoice = representation
+                offset = len(mock.requests)
+                agent.approve(action_id)
+                self.assertEqual(agent.pending[action_id].status, "APPROVED")
+                self.assertEqual(agent.pending[action_id].payload, reviewed)
+                self.assertEqual(len([x for x in mock.requests[offset:] if x[0] == "POST"]), 1)
+                self.assertEqual(mock.invoices[invoice_id]["status"], "SENT")
+                self.assert_gate_closed(agent, mock, invoice_id)
+
+    def test_nonzero_aggregate_facts_are_not_erased_as_metadata(self):
+        for field in ("payments", "refunds", "gratuity"):
+            with self.subTest(field=field):
+                agent, mock, invoice_id, action_id = self.draft(field)
+                original = agent.pending[action_id].to_dict()
+                ledger = deepcopy(vars(agent.ledger[invoice_id]))
+                audit = deepcopy(agent.audit)
+                get_invoice = mock.get_invoice
+
+                def unreviewed_balance(invoice_id):
+                    response = get_invoice(invoice_id)
+                    amount = {"currency_code": "USD", "value": "0.01"}
+                    if field == "payments":
+                        response.body[field]["paid_amount"] = amount
+                    elif field == "refunds":
+                        response.body[field] = {"refund_amount": amount, "transactions": []}
+                    else:
+                        response.body[field] = amount
+                    return response
+
+                mock.get_invoice = unreviewed_balance
+                offset = len(mock.requests)
+                with self.assertRaises(ValueError):
+                    agent.approve(action_id)
+                self.assertEqual(agent.pending[action_id].to_dict(), original)
+                self.assertEqual(vars(agent.ledger[invoice_id]), ledger)
+                self.assertEqual(agent.audit, audit)
+                self.assertEqual([x[0] for x in mock.requests[offset:]], ["GET"])
+                self.assert_gate_closed(agent, mock, invoice_id)
+
+    def test_same_decode_exception_after_send_consumes_the_review_and_records_uncertainty(self):
+        agent, mock, invoice_id, action_id = self.draft("lost-send-decode")
+        reviewed = deepcopy(agent.pending[action_id].payload)
+        send_invoice = mock.send_invoice
+        error = json.JSONDecodeError("authored send decode failure", "?", 0)
+
+        def missing_ack(invoice_id, body=None):
+            send_invoice(invoice_id, body)
+            raise error
+
+        mock.send_invoice = missing_ack
+        offset = len(mock.requests)
+        with self.assertRaises(json.JSONDecodeError) as caught:
+            agent.approve(action_id, approver="independent receiver")
+        self.assertIs(caught.exception, error)
+        action = agent.pending[action_id]
+        self.assertEqual(action.status, "FAILED")
+        self.assertEqual(action.result["outcome"], "UNKNOWN")
+        self.assertEqual(action.result["error_type"], "JSONDecodeError")
+        self.assertEqual(action.payload, reviewed)
+        self.assertEqual(mock.invoices[invoice_id]["status"], "SENT")
+        self.assertEqual(len([x for x in mock.requests[offset:] if x[0] == "POST"]), 1)
+        self.assertEqual(agent.audit[-1]["event"], "approve_failed")
+        self.assertEqual(agent.audit[-1]["outcome"], "UNKNOWN")
+        self.assertEqual(agent.audit[-1]["action"], action_id)
+        self.assertEqual(agent.audit[-1]["reason"], action.result["reason"])
+        before_retry = deepcopy(mock.requests)
+        with self.assertRaises(ValueError):
+            agent.approve(action_id)
+        self.assertEqual(mock.requests, before_retry)
+        self.assert_gate_closed(agent, mock, invoice_id)
+
+    def test_unrecognized_status_is_a_retryable_read_not_proof_of_a_changed_invoice(self):
+        for status in ("", "draft", "\t", "FUTURE_PROVIDER_STATE"):
+            with self.subTest(status=status):
+                agent, mock, invoice_id, action_id = self.draft(repr(status))
+                original = agent.pending[action_id].to_dict()
+                ledger = deepcopy(vars(agent.ledger[invoice_id]))
+                audit = deepcopy(agent.audit)
+                get_invoice = mock.get_invoice
+
+                def unknown(invoice_id):
+                    response = get_invoice(invoice_id)
+                    response.body["status"] = status
+                    return response
+
+                mock.get_invoice = unknown
+                offset = len(mock.requests)
+                with self.assertRaises(ValueError):
+                    agent.approve(action_id)
+                self.assertEqual(agent.pending[action_id].to_dict(), original)
+                self.assertEqual(vars(agent.ledger[invoice_id]), ledger)
+                self.assertEqual(agent.audit, audit)
+                self.assertEqual([x[0] for x in mock.requests[offset:]], ["GET"])
+                self.assert_gate_closed(agent, mock, invoice_id)
+                mock.get_invoice = get_invoice
+                agent.approve(action_id)
+                self.assertEqual(agent.pending[action_id].status, "APPROVED")
+
+    def test_native_known_refunded_status_still_rejects_before_post(self):
+        agent, mock, invoice_id, action_id = self.draft("known-refunded")
+        reviewed = deepcopy(agent.pending[action_id].payload)
+        mock.invoices[invoice_id]["status"] = "REFUNDED"
+        offset = len(mock.requests)
+        with self.assertRaises(ValueError):
+            agent.approve(action_id)
+        self.assertEqual(agent.pending[action_id].status, "REJECTED")
+        self.assertEqual(agent.pending[action_id].payload, reviewed)
+        self.assertEqual([x[0] for x in mock.requests[offset:]], ["GET"])
+        self.assert_gate_closed(agent, mock, invoice_id)
+
+
+if __name__ == "__main__":
+    try:
+        unittest.main(verbosity=2)
+    finally:
+        target = os.environ.get("LEDGERLY_REVIEW_REPORT")
+        if target:
+            source_bytes = (SOURCE / "ledgerly/agent.py").read_bytes()
+            Path(target).write_text(json.dumps({
+                "source_sha256": hashlib.sha256(source_bytes).hexdigest(),
+                "optimized": bool(sys.flags.optimize), "cases": REPORTS,
+            }, indent=2, default=str) + "\n")

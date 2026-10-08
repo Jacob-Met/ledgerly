@@ -1,4 +1,4 @@
-"""Receipt terms across actual bridge, provider refresh, and approved mock sends."""
+"""Receipt terms across bridge, provider refresh, and approved/external mock sends."""
 from copy import deepcopy
 from dataclasses import asdict, fields
 from datetime import date, timedelta
@@ -40,6 +40,27 @@ class ReceiptTermReceiving(unittest.TestCase):
     def sent(mock, operation):
         return [body for method, path, body in mock.requests
                 if method == "POST" and path.endswith("/" + operation)]
+
+    def reject_stale_then_observe_external_send(self, demo, action):
+        """Keep provider-date receiving without approving changed invoice words.
+
+        The external send is an authored provider-side event, using SandboxMock
+        directly. Unchanged workflow cases still test Agent-approved sends.
+        """
+        invoice_id = action["invoice_id"]
+        payload = deepcopy(demo.agent.pending[action["id"]].payload)
+        cached = asdict(demo.agent.ledger[invoice_id])
+        sends = self.sent(demo.mock, "send")
+        with self.assertRaisesRegex(ValueError, "already REJECTED.*review"):
+            demo.dispatch({"action": "approve", "action_id": action["id"]})
+        self.assertEqual(demo.agent.pending[action["id"]].status, "REJECTED")
+        self.assertEqual(demo.agent.pending[action["id"]].payload, payload)
+        self.assertEqual(asdict(demo.agent.ledger[invoice_id]), cached)
+        self.assertEqual(self.sent(demo.mock, "send"), sends)
+        self.assertEqual(demo.agent.client._permits, set())
+        demo.mock.send_invoice(invoice_id)
+        self.assertEqual(len(self.sent(demo.mock, "send")), len(sends) + 1)
+        demo.agent.tool_get_status(invoice_id)
 
     def test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries(self):
         for reviewed in (False, True):
@@ -102,7 +123,7 @@ class ReceiptTermReceiving(unittest.TestCase):
         self.assertEqual(entry.invoice_due_on, date(2026, 10, 13))
         self.assertTrue(getattr(entry, "provider_receipt_pending", False))
         demo.dispatch({"action": "advance", "day": "2026-10-08"})
-        demo.dispatch({"action": "approve", "action_id": action["id"]})
+        self.reject_stale_then_observe_external_send(demo, action)
         self.assertEqual(entry.due_on, date(2026, 10, 8))
         self.assertEqual(demo.dispatch({"action": "chase"})["state"]["pending"], [])
         demo.agent.tool_get_status(action["invoice_id"])
@@ -121,7 +142,7 @@ class ReceiptTermReceiving(unittest.TestCase):
                 self.assertTrue(entry.provider_due_known)
                 self.assertEqual(entry.due_on, expected)
                 demo.dispatch({"action": "advance", "day": "2026-10-08"})
-                demo.dispatch({"action": "approve", "action_id": action["id"]})
+                self.reject_stale_then_observe_external_send(demo, action)
                 self.assertEqual(entry.due_on, expected)
                 self.assertEqual(demo.mock.invoices[action["invoice_id"]]["detail"]["payment_term"], term)
                 demo.agent.tool_get_status(action["invoice_id"])
@@ -220,7 +241,7 @@ class ReceiptTermReceiving(unittest.TestCase):
                 self.assertEqual(getattr(entry, "provider_receipt_pending", False), pending)
                 self.assertEqual(entry.provider_due_known, not pending)
         demo.dispatch({"action": "advance", "day": "2026-10-08"})
-        demo.dispatch({"action": "approve", "action_id": action["id"]})
+        self.reject_stale_then_observe_external_send(demo, action)
         self.assertEqual(entry.due_on, date(2026, 11, 3))
         self.assertEqual(self.sent(demo.mock, "remind"), [])
 
