@@ -1,0 +1,205 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run --maxWorkers=1 tests/overdue-scan.test.ts
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/baseline/web-demo[39m
+
+[90mstdout[2m | tests/overdue-scan.test.ts[2m > [22m[2mexecutes the native overdue-batch contracts in the actual Pyodide runtime
+[22m[39m{"native_tests_run":6,"successful":false,"python":"3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489"}
+
+ [31m❯[39m tests/overdue-scan.test.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 2210[2mms[22m[39m
+[31m   [31m×[31m executes the native overdue-batch contracts in the actual Pyodide runtime[39m[33m 2210[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/overdue-scan.test.ts[2m > [22mexecutes the native overdue-batch contracts in the actual Pyodide runtime
+[31m[1mAssertionError[22m: test_cooldown_prefix_reaches_tail_and_approval_stays_per_action (test_browser_overdue_scan.BrowserOverdueScan.test_cooldown_prefix_reaches_tail_and_approval_stays_per_action) ... FAIL
+test_empty_and_small_ledgers_keep_normal_scan_behavior (test_browser_overdue_scan.BrowserOverdueScan.test_empty_and_small_ledgers_keep_normal_scan_behavior) ... ok
+test_larger_fresh_batch_reaches_every_invoice_without_sending (test_browser_overdue_scan.BrowserOverdueScan.test_larger_fresh_batch_reaches_every_invoice_without_sending) ... FAIL
+test_pending_prefix_does_not_hide_tail_invoices (test_browser_overdue_scan.BrowserOverdueScan.test_pending_prefix_does_not_hide_tail_invoices) ... FAIL
+test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions (test_browser_overdue_scan.BrowserOverdueScan.test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions) ... FAIL
+test_unrelated_planner_retains_general_step_guard (test_browser_overdue_scan.BrowserOverdueScan.test_unrelated_planner_retains_general_step_guard) ... ok
+
+======================================================================
+FAIL: test_cooldown_prefix_reaches_tail_and_approval_stays_per_action (test_browser_overdue_scan.BrowserOverdueScan.test_cooldown_prefix_reaches_tail_and_approval_stays_per_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/project/tests/test_browser_overdue_scan.py", line 94, in test_cooldown_prefix_reaches_tail_and_approval_stays_per_action
+    self.assertEqual([a["invoice_id"] for a in tail], ids[11:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['INV2-MOCK-0012-0377', 'INV2-MOCK-0013-D7F8']
+
+Second list contains 2 additional elements.
+First extra element 0:
+'INV2-MOCK-0012-0377'
+
+- []
++ ['INV2-MOCK-0012-0377', 'INV2-MOCK-0013-D7F8']
+
+======================================================================
+FAIL: test_larger_fresh_batch_reaches_every_invoice_without_sending (test_browser_overdue_scan.BrowserOverdueScan.test_larger_fresh_batch_reaches_every_invoice_without_sending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/project/tests/test_browser_overdue_scan.py", line 69, in test_larger_fresh_batch_reaches_every_invoice_without_sending
+    self.assertEqual([a["invoice_id"] for a in pending], ids)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['INV[231 chars]-MOCK-0011-4CA1'] != ['INV[231 chars]-MOCK-0011-4CA1', 'INV2-MOCK-0012-2755', 'INV2-MOCK-0013-A371']
+
+Second list contains 2 additional elements.
+First extra element 11:
+'INV2-MOCK-0012-2755'
+
+  ['INV2-MOCK-0001-0840',
+   'INV2-MOCK-0002-62E8',
+   'INV2-MOCK-0003-1D3A',
+   'INV2-MOCK-0004-BAB8',
+   'INV2-MOCK-0005-9CFC',
+   'INV2-MOCK-0006-C4B9',
+   'INV2-MOCK-0007-8196',
+   'INV2-MOCK-0008-0CAB',
+   'INV2-MOCK-0009-59D0',
+   'INV2-MOCK-0010-883F',
+-  'INV2-MOCK-0011-4CA1']
+?                       ^
+
++  'INV2-MOCK-0011-4CA1',
+?                       ^
+
++  'INV2-MOCK-0012-2755',
++  'INV2-MOCK-0013-A371']
+
+======================================================================
+FAIL: test_pending_prefix_does_not_hide_tail_invoices (test_browser_overdue_scan.BrowserOverdueScan.test_pending_prefix_does_not_hide_tail_invoices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/project/tests/test_browser_overdue_scan.py", line 83, in test_pending_prefix_does_not_hide_tail_invoices
+    self.assertEqual([a["invoice_id"] for a in pending[11:]], ids[11:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['INV2-MOCK-0012-653B', 'INV2-MOCK-0013-387A']
+
+Second list contains 2 additional elements.
+First extra element 0:
+'INV2-MOCK-0012-653B'
+
+- []
++ ['INV2-MOCK-0012-653B', 'INV2-MOCK-0013-387A']
+
+======================================================================
+FAIL: test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions (test_browser_overdue_scan.BrowserOverdueScan.test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/project/tests/test_browser_overdue_scan.py", line 122, in test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions
+    self.assertEqual(demo.agent.ledger[ids[-2]].status, "PAID")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SENT' != 'PAID'
+- SENT
++ PAID
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.072s
+
+FAILED (failures=4)
+: expected [ { …(2) }, { …(2) }, { …(2) }, …(1) ] to deeply equal [][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   {[39m
+[31m+     "detail": "Traceback (most recent call last):[39m
+[31m+   File \"/project/tests/test_browser_overdue_scan.py\", line 94, in test_cooldown_prefix_reaches_tail_and_approval_stays_per_action[39m
+[31m+     self.assertEqual([a[\"invoice_id\"] for a in tail], ids[11:])[39m
+[31m+     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+[31m+ AssertionError: Lists differ: [] != ['INV2-MOCK-0012-0377', 'INV2-MOCK-0013-D7F8'][39m
+[31m+[39m
+[31m+ Second list contains 2 additional elements.[39m
+[31m+ First extra element 0:[39m
+[31m+ 'INV2-MOCK-0012-0377'[39m
+[31m+[39m
+[31m+ - [][39m
+[31m+ + ['INV2-MOCK-0012-0377', 'INV2-MOCK-0013-D7F8'][39m
+[31m+ ",[39m
+[31m+     "test": "test_browser_overdue_scan.BrowserOverdueScan.test_cooldown_prefix_reaches_tail_and_approval_stays_per_action",[39m
+[31m+   },[39m
+[31m+   {[39m
+[31m+     "detail": "Traceback (most recent call last):[39m
+[31m+   File \"/project/tests/test_browser_overdue_scan.py\", line 69, in test_larger_fresh_batch_reaches_every_invoice_without_sending[39m
+[31m+     self.assertEqual([a[\"invoice_id\"] for a in pending], ids)[39m
+[31m+     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+[31m+ AssertionError: Lists differ: ['INV[231 chars]-MOCK-0011-4CA1'] != ['INV[231 chars]-MOCK-0011-4CA1', 'INV2-MOCK-0012-2755', 'INV2-MOCK-0013-A371'][39m
+[31m+[39m
+[31m+ Second list contains 2 additional elements.[39m
+[31m+ First extra element 11:[39m
+[31m+ 'INV2-MOCK-0012-2755'[39m
+[31m+[39m
+[31m+   ['INV2-MOCK-0001-0840',[39m
+[31m+    'INV2-MOCK-0002-62E8',[39m
+[31m+    'INV2-MOCK-0003-1D3A',[39m
+[31m+    'INV2-MOCK-0004-BAB8',[39m
+[31m+    'INV2-MOCK-0005-9CFC',[39m
+[31m+    'INV2-MOCK-0006-C4B9',[39m
+[31m+    'INV2-MOCK-0007-8196',[39m
+[31m+    'INV2-MOCK-0008-0CAB',[39m
+[31m+    'INV2-MOCK-0009-59D0',[39m
+[31m+    'INV2-MOCK-0010-883F',[39m
+[31m+ -  'INV2-MOCK-0011-4CA1'][39m
+[31m+ ?                       ^[39m
+[31m+[39m
+[31m+ +  'INV2-MOCK-0011-4CA1',[39m
+[31m+ ?                       ^[39m
+[31m+[39m
+[31m+ +  'INV2-MOCK-0012-2755',[39m
+[31m+ +  'INV2-MOCK-0013-A371'][39m
+[31m+ ",[39m
+[31m+     "test": "test_browser_overdue_scan.BrowserOverdueScan.test_larger_fresh_batch_reaches_every_invoice_without_sending",[39m
+[31m+   },[39m
+[31m+   {[39m
+[31m+     "detail": "Traceback (most recent call last):[39m
+[31m+   File \"/project/tests/test_browser_overdue_scan.py\", line 83, in test_pending_prefix_does_not_hide_tail_invoices[39m
+[31m+     self.assertEqual([a[\"invoice_id\"] for a in pending[11:]], ids[11:])[39m
+[31m+     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+[31m+ AssertionError: Lists differ: [] != ['INV2-MOCK-0012-653B', 'INV2-MOCK-0013-387A'][39m
+[31m+[39m
+[31m+ Second list contains 2 additional elements.[39m
+[31m+ First extra element 0:[39m
+[31m+ 'INV2-MOCK-0012-653B'[39m
+[31m+[39m
+[31m+ - [][39m
+[31m+ + ['INV2-MOCK-0012-653B', 'INV2-MOCK-0013-387A'][39m
+[31m+ ",[39m
+[31m+     "test": "test_browser_overdue_scan.BrowserOverdueScan.test_pending_prefix_does_not_hide_tail_invoices",[39m
+[31m+   },[39m
+[31m+   {[39m
+[31m+     "detail": "Traceback (most recent call last):[39m
+[31m+   File \"/project/tests/test_browser_overdue_scan.py\", line 122, in test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions[39m
+[31m+     self.assertEqual(demo.agent.ledger[ids[-2]].status, \"PAID\")[39m
+[31m+     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[39m
+[31m+ AssertionError: 'SENT' != 'PAID'[39m
+[31m+ - SENT[39m
+[31m+ + PAID[39m
+[31m+[39m
+[31m+ ",[39m
+[31m+     "test": "test_browser_overdue_scan.BrowserOverdueScan.test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions",[39m
+[31m+   },[39m
+[31m+ ][39m
+
+[36m [2m❯[22m tests/overdue-scan.test.ts:[2m31:42[22m[39m
+    [90m 29|[39m   console.log(JSON.stringify({native_tests_run: report.tests_run, succ…
+    [90m 30|[39m   expect(report.errors, report.output).toEqual([]);
+    [90m 31|[39m   expect(report.failures, report.output).toEqual([]);
+    [90m   |[39m                                          [31m^[39m
+    [90m 32|[39m   expect(report.tests_run).toBe(6);
+    [90m 33|[39m   expect(report.successful).toBe(true);
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m   Start at [22m 05:32:52
+[2m   Duration [22m 2.92s[2m (tests 99%, transform 1%)[22m
+

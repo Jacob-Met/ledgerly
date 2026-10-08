@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/opt/homebrew/bin/npm",
+    "run",
+    "build"
+  ],
+  "started_utc": "2026-10-08T12:35:19.285733+00:00",
+  "completed_utc": "2026-10-08T12:35:20.752173+00:00",
+  "exit_code": 0
+}

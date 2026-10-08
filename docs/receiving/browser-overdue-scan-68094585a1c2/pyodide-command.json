@@ -1,0 +1,32 @@
+[
+  {
+    "label": "baseline",
+    "command": [
+      "/opt/homebrew/bin/npm",
+      "test",
+      "--",
+      "--maxWorkers=1",
+      "tests/overdue-scan.test.ts"
+    ],
+    "cwd": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/baseline/web-demo",
+    "started_utc": "2026-10-08T12:32:51.785572+00:00",
+    "completed_utc": "2026-10-08T12:32:55.908423+00:00",
+    "exit_code": 1,
+    "expected_exit_code": 1
+  },
+  {
+    "label": "source",
+    "command": [
+      "/opt/homebrew/bin/npm",
+      "test",
+      "--",
+      "--maxWorkers=1",
+      "tests/overdue-scan.test.ts"
+    ],
+    "cwd": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo",
+    "started_utc": "2026-10-08T12:32:55.971509+00:00",
+    "completed_utc": "2026-10-08T12:33:01.366411+00:00",
+    "exit_code": 0,
+    "expected_exit_code": 0
+  }
+]

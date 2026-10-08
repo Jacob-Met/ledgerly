@@ -1,0 +1,19 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run --maxWorkers=1 tests/overdue-scan.test.ts
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo[39m
+
+[90mstdout[2m | tests/overdue-scan.test.ts[2m > [22m[2mexecutes the native overdue-batch contracts in the actual Pyodide runtime
+[22m[39m{"native_tests_run":6,"successful":true,"python":"3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489"}
+
+ [32m✓[39m tests/overdue-scan.test.ts [2m([22m[2m1 test[22m[2m)[22m[33m 1814[2mms[22m[39m
+   [33m[2m✓[22m[39m executes the native overdue-batch contracts in the actual Pyodide runtime[33m 1812[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m   Start at [22m 05:32:59
+[2m   Duration [22m 2.15s[2m (tests 96%, transform 3%, import 1%)[22m
+

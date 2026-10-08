@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/opt/homebrew/bin/node",
+    "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/evidence/check_overdue_scan_browser.mjs",
+    "--url",
+    "http://127.0.0.1:50336/",
+    "--source",
+    "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source",
+    "--playwright",
+    "/Users/me/longwater-author-tests-566d51f04b31/node_modules/playwright/test.mjs",
+    "--chrome",
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "--output",
+    "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/evidence/browser-v1"
+  ],
+  "started_utc": "2026-10-08T12:36:00.054168+00:00",
+  "served_root": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/dist",
+  "exit_code": 0,
+  "completed_utc": "2026-10-08T12:36:06.870788+00:00"
+}

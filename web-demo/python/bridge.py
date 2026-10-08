@@ -87,7 +87,11 @@ class Demo:
             if new_day<self.clock.day: raise ValueError("Demo clock only moves forward.")
             self.clock.day=new_day;result={"today":self.clock.day.isoformat()}
         elif action=="chase":
-            out=self.agent.run("chase",RulePlanner());result={"final":out.get("final",""),"pending":out.get("pending",[])}
+            # This fixed planner lists once, visits at most each current ledger entry,
+            # then finishes. Keep the budget finite for this deterministic demo goal.
+            steps=max(12,len(self.agent.ledger)+2)
+            out=self.agent.run("chase",RulePlanner(),max_steps=steps)
+            result={"final":out.get("final",""),"pending":out.get("pending",[])}
         elif action=="reset": self.__init__();result={"reset":True}
         else: raise ValueError("Unknown demo action.")
         return {"result":result,"state":self.snapshot()}

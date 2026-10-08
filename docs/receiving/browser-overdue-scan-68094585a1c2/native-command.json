@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-10-08T12:27:18.571178+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "tests_sha256": "0b9540e45098b3ce435ddf948dfc669888010e8bd14119045d5430cfc64fba63",
+  "refinement": "Actual queue/payment assertions now precede the completion-message assertion. Original v1 source and logs retained. A draft indentation typo was caught by compilation and corrected before executing v2.",
+  "results": [
+    {
+      "label": "baseline",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_browser_overdue_scan.py",
+        "-v"
+      ],
+      "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-overdue-scan/baseline-check",
+      "exit_code": 1,
+      "log": "native-baseline-v2.log"
+    },
+    {
+      "label": "candidate",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_browser_overdue_scan.py",
+        "-v"
+      ],
+      "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-overdue-scan/source",
+      "exit_code": 0,
+      "log": "native-candidate-v2.log"
+    }
+  ]
+}

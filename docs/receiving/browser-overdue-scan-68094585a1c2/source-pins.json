@@ -1,0 +1,33 @@
+{
+  "base_commit": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "base_tree": "ba5ab49270c136d86bc492411f49a5bdebdb6049",
+  "issue": "https://github.com/Jacob-Met/ledgerly/issues/25",
+  "files": [
+    {
+      "path": "tests/test_browser_overdue_scan.py",
+      "mode": "100644",
+      "bytes": 7713,
+      "sha256": "0b9540e45098b3ce435ddf948dfc669888010e8bd14119045d5430cfc64fba63",
+      "git_blob": "8b2fb0c42d6ca6707149056175d749d6aecd9939"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "mode": "100644",
+      "bytes": 6475,
+      "sha256": "2a1a779a7cab981487fc37c0b87f81f6ecd8b2b587c1f787213aa12818d0bec7",
+      "git_blob": "5c60ddc5f4e6d0a3407e2a7eeab6f103dbe1c4ae"
+    },
+    {
+      "path": "web-demo/tests/overdue-scan.test.ts",
+      "mode": "100644",
+      "bytes": 2122,
+      "sha256": "33b665302ea8117f1d122914aaed6270b0afae78b59cfc7c1b7846e7208eaf8f",
+      "git_blob": "5f8050ab438458a0b3dee5580a71ae265337e7ac"
+    }
+  ],
+  "native_inputs": 49,
+  "unowned_original_inputs_unchanged": 48,
+  "product_before_blob": "5573f8b488ee4421e073fce057e6928aac6f6630",
+  "product_before_sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+  "local_capacity_note": "The unchanged favicon is taken from its separately pinned intact original after a local duplicate copy failed for ENOSPC. Product/test files are unchanged."
+}

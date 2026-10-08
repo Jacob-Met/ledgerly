@@ -1,0 +1,5 @@
+{"stage":"Loading actual browser Python"}
+{"name":"Actual UI creates thirteen invoices and scans every overdue invoice without sending a reminder","passed":true}
+{"name":"Repeated explicit scan preserves every queued action ID and exact payload","passed":true}
+{"name":"Cooldown prefix and explicit approval/rejection preserve the last two action identities","passed":true}
+{"passed":true,"groups":3}
