@@ -1,0 +1,41 @@
+{
+  "schema": "ledgerly.history.hosted-receiver-boundary.v1",
+  "run_id": 37800859512,
+  "run_url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37800859512",
+  "head": "6cd400e1a0c4c9fd79016d57d5cf24d0b49f4906",
+  "actual_checkout": "02423b25d4013abcbdfd6d9863026b09d4d8cc8c",
+  "tree": "4249cf3905d4ac26dc1124e599be835982f11eb2",
+  "actual_checkout_tree_equals_head_tree": true,
+  "main": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+  "browser_job": 113392372682,
+  "python_job": 113392373000,
+  "ordinary_gates": {
+    "python_tests": 307,
+    "python_subtests": 118,
+    "frontend_tests": 96,
+    "frontend_test_files": 11,
+    "npm_audit": "passed",
+    "build": "passed",
+    "existing_csv_receiver": "passed"
+  },
+  "history_receiver": {
+    "overall": "failed",
+    "checks": 0,
+    "error": "Error: 'Fetch.enable' wasn't found",
+    "sourceUnchanged": true,
+    "distUnchanged": true,
+    "classification": "Receiving harness compatibility failure before the application checks"
+  },
+  "repair": {
+    "application_source_changed": false,
+    "page": "Existing Fetch interception remains",
+    "worker": "Enable Runtime and Network before resuming the worker. Do not invoke the unsupported Fetch domain. Record actual Network requests under the served same-origin connect-src CSP.",
+    "evidence": "Emit only bounded regular files from the receiver's exclusive output directory through the existing job-log transport pattern."
+  },
+  "native_boundary": {
+    "process_id": 3369422,
+    "status": "completion unknown after service-wide RDC timeout; no duplicate native launch",
+    "wrapper_bound_seconds": 240
+  },
+  "local_syntax_boundary": "Local exec-server transport disconnected; V8 grammar parse passed, native Node execution is left to the normal hosted gate."
+}

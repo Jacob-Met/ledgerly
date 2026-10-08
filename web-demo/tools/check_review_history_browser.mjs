@@ -37,10 +37,11 @@ const observer="\nwindow.__historyObservation = {sent: [], received: [], workerC
 const faultSuffix="\n# Receiving-only injection: the real mock send succeeds before its response is lost.\n_history_original_handle_json = handle_json\n_history_lost_response_used = False\ndef handle_json(raw):\n    global _history_lost_response_used\n    request = json.loads(raw)\n    if request.get(\"action\") != \"approve\" or _history_lost_response_used:\n        return _history_original_handle_json(raw)\n    _history_lost_response_used = True\n    original_send = SESSION.mock.send_invoice\n    def send_then_lose_response(*args, **kwargs):\n        original_send(*args, **kwargs)\n        raise TimeoutError(\"Receiving-only lost response after the real mock send\")\n    SESSION.mock.send_invoice = send_then_lose_response\n    try:\n        return _history_original_handle_json(raw)\n    finally:\n        SESSION.mock.send_invoice = original_send\n";
 const report={format:'ledgerly-completed-review-receiving/1',startedAt:new Date().toISOString(),
  source,dist,sourcePin:binding.source_pin,bindingSha256:sha(bindingBytes),driverSha256:sha(await readFile(fileURLToPath(import.meta.url))),
- node:process.version,checks:[],pageErrors:[],offOrigin:[],sourceFiles:{},distFiles:{},servedPython:{},screenshots:[],phases:[],
+ node:process.version,checks:[],pageErrors:[],offOrigin:[],networkRequests:[],attachedTargets:[],sourceFiles:{},distFiles:{},servedPython:{},screenshots:[],phases:[],
  fault:{kind:'Real SandboxMock send followed by authored lost response',bridgeServed:0,suffixSha256:sha(Buffer.from(faultSuffix))},
  bounds:['Declared source inputs are Git-blob bound; this is not a full checkout.',
  'Actual Worker construction, requests, and Python replies remain in use.',
+ 'Page requests use Fetch interception. Worker requests use Network observation; served worker scripts enforce connect-src self through CSP.',
  'The failure context serves exact bridge bytes plus the recorded receiving-only suffix.',
  'Unavailability is an authored ErrorEvent on the actual Worker, not a spontaneous crash.'],ok:false};
 for(const row of binding.files){
@@ -64,6 +65,27 @@ for(const [asset,path] of Object.entries(pythonAssets))assert.equal(report.distF
 await writeFile(join(output,'source-binding.json'),bindingBytes,{flag:'wx'});
 await writeFile(join(output,'lost-response-suffix.py'),faultSuffix,{flag:'wx'});
 async function save(){await writeFile(join(output,'browser.json'),JSON.stringify(report,null,2)+'\n');}
+async function emitBundle(){
+ if(process.env.LEDGERLY_HISTORY_EMIT_BUNDLE!=='1')return;
+ // Only this exclusive output's top-level regular receipts and captures; never profiles or links.
+ const files=[];let total=0;
+ for(const entry of (await readdir(output,{withFileTypes:true})).sort((a,b)=>a.name.localeCompare(b.name))){
+  if(!entry.isFile())continue;
+  assert.match(entry.name,/^[A-Za-z0-9._-]+$/);
+  const bytes=await readFile(join(output,entry.name));total+=bytes.length;
+  assert.ok(total<=8*1024*1024,'receiving bundle exceeds bounded 8 MiB raw size');
+  const encoded=bytes.toString('base64'),chunks=[];
+  for(let at=0;at<encoded.length;at+=4096)chunks.push(encoded.slice(at,at+4096));
+  files.push({name:entry.name,bytes:bytes.length,sha256:sha(bytes),
+   git_blob:createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),chunks});
+ }
+ const manifest=JSON.stringify({format:'ledgerly-history-log-bundle/1',rawBytes:total,
+  files:files.map(({chunks,...item})=>({...item,chunks:chunks.length}))});
+ console.log('LEDGERLY_HISTORY_BUNDLE_BEGIN '+manifest);
+ for(const file of files)for(let i=0;i<file.chunks.length;i++)
+  console.log('LEDGERLY_HISTORY_DATA '+file.name+' '+i+'/'+file.chunks.length+' '+file.chunks[i]);
+ console.log('LEDGERLY_HISTORY_BUNDLE_END '+sha(Buffer.from(manifest)));
+}
 async function check(name,condition=true,detail){
  report.checks.push({name,passed:Boolean(condition),...(detail===undefined?{}:{detail})});
  await save();assert.ok(condition,name);console.log('PASS '+name);
@@ -159,11 +181,20 @@ class Browser{
    }else if(m.method==='Runtime.exceptionThrown'){
     report.pageErrors.push({phase:this.label,error:m.params.exceptionDetails.exception?.description||m.params.exceptionDetails.text});
    }else if(m.method==='Target.attachedToTarget'){
-    const session=m.params.sessionId;
-    (async()=>{await this.command('Runtime.enable',{},session);await this.command('Network.enable',{},session);
-     await this.command('Fetch.enable',{patterns:[{urlPattern:'*'}]},session);
-     await this.command('Runtime.runIfWaitingForDebugger',{},session);
-    })().catch(e=>this.asyncErrors.push(e.message));
+    const session=m.params.sessionId,type=m.params.targetInfo.type;
+    report.attachedTargets.push({phase:this.label,sessionId:session,type,url:m.params.targetInfo.url});
+    if(type==='worker'){
+     // Worker targets expose Network, but not the page Fetch interception domain.
+     // The served worker response has the same-origin connect-src CSP; observe every request before resuming it.
+     (async()=>{await this.command('Runtime.enable',{},session);await this.command('Network.enable',{},session);
+      await this.command('Runtime.runIfWaitingForDebugger',{},session);
+     })().catch(e=>this.asyncErrors.push(e.message));
+    }
+   }else if(m.method==='Network.requestWillBeSent'){
+    const url=m.params.request.url;
+    report.networkRequests.push({phase:this.label,sessionId:m.sessionId,url,type:m.params.type});
+    if(!url.startsWith(origin+'/')&&!url.startsWith('data:')&&!url.startsWith('blob:'))
+     report.offOrigin.push({phase:this.label,url,observedBy:'Network'});
    }else if(m.method==='Fetch.requestPaused'){
     const url=m.params.request.url,allowed=url.startsWith(origin+'/')||url.startsWith('data:')||url.startsWith('blob:');
     if(!allowed)report.offOrigin.push({phase:this.label,url});
@@ -345,7 +376,9 @@ try{
  }
  await check('both browser contexts requested the exact staged Python modules',
   ['healthy','lost-response'].every(label=>Object.entries(pythonAssets).every(([asset,path])=>report.servedPython[label+':'+asset]===report.sourceFiles[path])));
- await check('page and Worker requests remained on loopback',report.offOrigin.length===0);
+ await check('page and Worker requests remained on loopback',report.offOrigin.length===0
+  &&['healthy','lost-response'].every(label=>report.attachedTargets.some(x=>x.phase===label&&x.type==='worker')
+   &&report.networkRequests.some(x=>x.phase===label&&x.url===origin+'/python/bridge.py')));
  await check('no uncaught page or Worker exceptions',report.pageErrors.length===0);
  await check('exactly one labeled fault bridge served',report.fault.bridgeServed===1);
  await check('both owned browsers exited and profiles were removed',report.cleanup?.length===2&&report.cleanup.every(x=>x.exitCode===0&&x.signal===null&&x.profileRemoved));report.ok=true;
@@ -357,6 +390,7 @@ finally{
  for(const [path,digest] of Object.entries(report.distFiles))if(sha(await readFile(join(dist,path)))!==digest)report.distUnchanged=false;
  report.ok=report.ok&&report.sourceUnchanged&&report.distUnchanged&&!report.cleanupError;
  report.finishedAt=new Date().toISOString();await save();
+ try{await emitBundle();}catch(error){report.bundleError=String(error);report.ok=false;await save();}
  console.log(JSON.stringify({ok:report.ok,checks:report.checks.length,sourceUnchanged:report.sourceUnchanged,distUnchanged:report.distUnchanged,error:report.error,output}));
 }
 process.exitCode=report.ok?0:1;

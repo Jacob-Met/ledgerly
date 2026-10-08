@@ -1,0 +1,43 @@
+{
+  "head": "2d5e275a92203332641a54c1ae164c9963786ab0",
+  "tree": "08d796a136cd597fc6be1758f90c5cf902f98fdc",
+  "incoming_main": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+  "base_leaves": 604,
+  "candidate_leaves": 610,
+  "unchanged": 591,
+  "changed": [
+    "web-demo/README.md",
+    "web-demo/index.html",
+    "web-demo/python/bridge.py",
+    "web-demo/scripts/stage-python.mjs",
+    "web-demo/src/approval-preview.ts",
+    "web-demo/src/engine.worker.ts",
+    "web-demo/src/main.ts",
+    "web-demo/tests/approval-preview.test.ts",
+    "web-demo/tests/engine-recovery.test.ts",
+    "web-demo/tests/engine.test.ts",
+    "web-demo/tests/invoice-details.test.ts",
+    "web-demo/tests/overdue-scan.test.ts",
+    "web-demo/tests/review.test.ts"
+  ],
+  "added": [
+    "tests/test_review_history.py",
+    "web-demo/python/review_history.py",
+    "web-demo/src/review-history.css",
+    "web-demo/src/review-history.ts",
+    "web-demo/tests/review-history.test.ts",
+    "web-demo/tools/check_review_history_browser.mjs"
+  ],
+  "removed": [],
+  "unexpected": [],
+  "base_tree": "0f457eb8ded2b462bd1be4d335c3a257cd19c630",
+  "binding_files": 76,
+  "binding_vs_published_mismatches": [],
+  "reviewed_at": "2026-10-08T14:52:49.616Z",
+  "reviewed_shared_hunks": [
+    "web-demo/src/main.ts additive history import/render/note; all incoming CSV/payment behavior retained",
+    "web-demo/python/bridge.py additive completed_reviews import/snapshot field",
+    "web-demo/src/engine.worker.ts and scripts/stage-python.mjs additive helper copy/load",
+    "web-demo/src/review-history.ts stores explicit outer/nested open state and precise summary focus by retained action ID"
+  ]
+}

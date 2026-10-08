@@ -1,0 +1,13 @@
+{
+  "incoming": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+  "candidate": "6cd400e1a0c4c9fd79016d57d5cf24d0b49f4906",
+  "candidate_tree": "4249cf3905d4ac26dc1124e599be835982f11eb2",
+  "incoming_leaves": 675,
+  "candidate_leaves": 731,
+  "preserved_unrelated": 661,
+  "expected_modified": 14,
+  "expected_added": 56,
+  "missing_or_changed_unrelated": [],
+  "unexpected_added": [],
+  "truncated": false
+}

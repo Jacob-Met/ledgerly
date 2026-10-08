@@ -1,0 +1,5 @@
+[3297632:3297837:1008/145148.133140:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[3297632:3297837:1008/145148.135898:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[3297632:3297837:1008/145148.245865:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[3297632:3297837:1008/145148.492054:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[3297632:3297632:1008/145148.499672:ERROR:components/history/core/browser/history_service.cc:1518] HistoryService::Init() failed by way of VisitDelegate::Init failing

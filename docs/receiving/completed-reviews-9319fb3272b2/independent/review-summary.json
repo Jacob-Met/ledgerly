@@ -1,0 +1,50 @@
+{
+  "schema": "ledgerly.independent-review-summary.v1",
+  "reviewer": "hamon-ultra-9319fb3272b2-20261008/native_capability",
+  "decision": "focused_application_correction_accepted_with_separate_failed_visual_and_overall_process_result",
+  "original_head": "838f1f5ed42b39c637fa50279c52413832ddf54d",
+  "corrected_head": "2d5e275a92203332641a54c1ae164c9963786ab0",
+  "corrected_tree": "08d796a136cd597fc6be1758f90c5cf902f98fdc",
+  "receiver_sha256": "e60bdef351a11e58b3f4fdf4f0277332fa4d6f889d4bc3361db7a89add681f95",
+  "original": {
+    "passed": 7,
+    "failed": 1,
+    "executed": 8,
+    "process_exit": 1,
+    "receipt_sha256": "225eb7b97e6e81227a8e3a39ee5b13eaf471b2fc15e26f51e42ad318be283a71"
+  },
+  "corrected_ram": {
+    "executed": 0,
+    "process_exit": 1,
+    "classification": "prelaunch_failure",
+    "receipt_sha256": "da349ccad18302f54673c57fc05235571c64a7afe6db276fb555b94175937ec2"
+  },
+  "corrected_home": {
+    "passed": 7,
+    "failed_application_checks": 0,
+    "executed": 7,
+    "planned": 8,
+    "process_exit": 1,
+    "classification": "application_checks_passed_then_capture_failed",
+    "receipt_sha256": "9ad18e113d5b1579d85118863671485a258fb7d15872aa7d35c40cfb8f7c8bac",
+    "no_successor_screenshot": true,
+    "final_error_check_not_executed": true
+  },
+  "source_and_dist_unchanged_all_attempts": true,
+  "no_application_source_changes_by_reviewer": true,
+  "broader_receiving_owner": "hamon-ultra-9319fb3272b2-20261008/integration",
+  "recipe_successor": {
+    "head": "17cc8a7ae3eb10083a037f7881c25af0510f6399",
+    "only_changed_paths": [
+      ".github/workflows/ci.yml",
+      "web-demo/tools/check_review_history_browser.mjs"
+    ],
+    "executed_by_this_reviewer": false
+  },
+  "native_final_freeze": "execution_unknown_after_MCP_timeout",
+  "raw_native_custody_verified": true,
+  "dist_index_sha256": {
+    "original": "c90e9cf435840f84d235cfb3bd0848cb648cd7c57f97dabcdfd03bb4e87d67fc",
+    "corrected": "46bdb1b438897261119c33822a81b8a3591df29d28d278bc84a760b7f61c777b"
+  }
+}
