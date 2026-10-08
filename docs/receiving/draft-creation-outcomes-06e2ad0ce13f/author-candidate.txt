@@ -1,0 +1,17 @@
+test_complete_invoice_representation_remains_accepted (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_complete_invoice_representation_remains_accepted) ... ok
+test_invalid_values_still_refuse_before_any_provider_effect (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_invalid_values_still_refuse_before_any_provider_effect) ... ok
+test_local_body_failure_keeps_known_allocated_number (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_local_body_failure_keeps_known_allocated_number) ... ok
+test_lost_response_preserves_actual_mock_creation_as_unknown (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_lost_response_preserves_actual_mock_creation_as_unknown) ... ok
+test_number_failure_retains_known_drafts_and_never_attempts_failed_currency (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_number_failure_retains_known_drafts_and_never_attempts_failed_currency) ... ok
+test_provider_error_is_unknown_and_detaches_provider_error_body (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_provider_error_is_unknown_and_detaches_provider_error_body) ... ok
+test_retained_draft_still_uses_the_existing_explicit_approval (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_retained_draft_still_uses_the_existing_explicit_approval) ... ok
+test_returned_recovery_rows_are_detached_from_ledger_and_approval (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_returned_recovery_rows_are_detached_from_ledger_and_approval) ... ok
+test_success_contract_and_exact_known_drafts (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_success_contract_and_exact_known_drafts) ... ok
+test_unusable_number_receipt_does_not_attempt_create (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_unusable_number_receipt_does_not_attempt_create) ... ok
+test_unusable_or_conflicting_receipts_never_invent_confirmed_drafts (test_draft_creation_outcomes.TestDraftCreationOutcomes.test_unusable_or_conflicting_receipts_never_invent_confirmed_drafts) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.011s
+
+OK
+{"source_sha256": {"ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20", "ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3", "ledgerly/agent.py": "8510ba4b6d76229ea11484b0b166bc0d0ed8445d5a57c87743bbcd0bda1741ac"}, "test_sha256": "2cfd7b57ae0d233455be7cebbdf9a334710a8db8b0cce729438331cc728a1064", "tests_run": 11, "errors": 0, "failures": 0, "successful": true}

@@ -1,0 +1,20 @@
+{
+  "unavailable_native_regression": {
+    "chunk_id": "625ff6",
+    "wall_time_seconds": 0.000020691,
+    "exit_code": 1,
+    "original_token_count": 31,
+    "output": "Traceback (most recent call last):\n  File \"<string>\", line 17, in <module>\nModuleNotFoundError: No module named 'pytest'\n"
+  },
+  "unavailable_historical_venv": "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python was no longer present. No environment installation or replacement occurred.",
+  "first_candidate_loader": {
+    "exit_code": 1,
+    "candidate_executed": false,
+    "error": "SyntaxError: unterminated string literal (detected at line 4)",
+    "cause": "JavaScript String.replace expanded replacement-string dollar sequences embedded in unchanged Python source. Corrected loader used a function replacement; candidate source itself was unchanged.",
+    "output_tail": "n            item, reason = self._item_from_line(line, monies[0])\\\\n            if _TOTAL_RE.search(line) and (item is None or _is_summary_label(item.desc)):\\\\n                stated.append((ccy, amt))\\\\n                continue\\\\n            if item is None:\\\\n                issues.append(Issue(\\\\\\\"line_items\\\\\\\", \\\\\\\"warning\\\\\\\", f\\\\\\\"Could not parse priced line: {line!r}\\\\\\\"))\\\\n                continue\\\\n            item.currency = ccy or doc_ccy\\\\n            if tok == \\\\\\\"$\\\\\\\" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES and doc_ccy != \\\\\\\"USD\\\\\\\":\\\\n                item.currency = doc_ccy\\\\n                issues.append(Issue(f\\\\\\\"line_items[{len(items)}].currency\\\\\\\", \\\\\\\"warning\\\\\\\", f\\\\\\\"'\n                         ^\nSyntaxError: unterminated string literal (detected at line 4)\n"
+  },
+  "first_original_probe_request_history": "The original exploratory probe captured client.requests by reference, so its refusal row's request array also contains the later explicit retry. first_provider_drafts/ledger/pending snapshots were materialized before retry and remain valid. The frozen maintained unittest baseline and independent original receiver do not use that alias. The corrected candidate exploratory probe copies the request array before retry.",
+  "storage": "Shared scratch and tmpfs capacity prevented a current checkout. Exact base files were fetched with GitHub connector, hashed, and compiled as native Python modules from memory without bytecode. The production source change is published through the repository's Git tree interface.",
+  "no_local_pytest_pass_claim": true
+}
