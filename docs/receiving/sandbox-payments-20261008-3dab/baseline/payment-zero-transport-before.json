@@ -1,0 +1,115 @@
+{
+  "base": "5493205cd69a32be75ed2f7dfc669b122efe5563",
+  "cases": [
+    {
+      "amount": 0,
+      "ok": true,
+      "status": "PAID",
+      "transactions": [
+        {
+          "payment_id": "746C99B83B9C4B5E8",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "800.00"
+          }
+        }
+      ],
+      "paid": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "external_calls": 0
+    },
+    {
+      "amount": false,
+      "ok": true,
+      "status": "PAID",
+      "transactions": [
+        {
+          "payment_id": "F7BF7C5A864246169",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "800.00"
+          }
+        }
+      ],
+      "paid": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "external_calls": 0
+    },
+    {
+      "amount": "0",
+      "ok": true,
+      "status": "PARTIALLY_PAID",
+      "transactions": [
+        {
+          "payment_id": "C335FD59FBAC47418",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "0.00"
+          }
+        }
+      ],
+      "paid": {
+        "currency_code": "GBP",
+        "value": "0.00"
+      },
+      "external_calls": 0
+    },
+    {
+      "amount": "",
+      "ok": true,
+      "status": "PAID",
+      "transactions": [
+        {
+          "payment_id": "C10153758E5F4F3E9",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "800.00"
+          }
+        }
+      ],
+      "paid": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "external_calls": 0
+    },
+    {
+      "amount": null,
+      "ok": true,
+      "status": "PAID",
+      "transactions": [
+        {
+          "payment_id": "E873556FBBF945BDB",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "800.00"
+          }
+        }
+      ],
+      "paid": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "external_calls": 0
+    }
+  ]
+}

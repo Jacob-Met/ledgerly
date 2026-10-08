@@ -1,0 +1,61 @@
+{
+  "disposition": "REQUEST_CHANGE",
+  "payloads": {
+    "probe_fractional_invoice.py": {
+      "bytes": 2258,
+      "sha256": "a2968f6260a6e1414f2a67afac775fa3cfc1ebcc3d6b84d4c9a1b9b45f03f692"
+    },
+    "fractional-before.json": {
+      "bytes": 12732,
+      "sha256": "809d499f97e22075d13291490a84c0f9318e3730bdff0fd4d26929373e540603"
+    },
+    "fractional-candidate.json": {
+      "bytes": 7856,
+      "sha256": "6533ebf3c5ee8b612778acc48b2a5d7c5e591f401df0545e1a553bc987b919ff"
+    },
+    "test_payment_receiving_v1.py": {
+      "bytes": 9540,
+      "sha256": "606d3ae4818854aac0b7529f291942f684fb3e9d0073f97efeee1ffbd3b638e7"
+    },
+    "independent-before.json": {
+      "bytes": 2289,
+      "sha256": "2de9f575334c974a76a6a3942a16d5c572030da5349cffb9c69a2fd036360941"
+    },
+    "independent-before.stdout": {
+      "bytes": 48,
+      "sha256": "636e888f5e2f67b2477dffcb91f8ad0fc840276073504369af48df4f661b7c9e"
+    },
+    "independent-before.stderr": {
+      "bytes": 2319,
+      "sha256": "d9b2395e4526400fb861f872515145c8ba52e98d8d3402bbd43cfa2210121032"
+    },
+    "independent-candidate.json": {
+      "bytes": 4706,
+      "sha256": "393f5df9d546cff95d44a587caf69769361824bd50c763fc8a0b3eff5dbe28e2"
+    },
+    "independent-candidate.stdout": {
+      "bytes": 48,
+      "sha256": "1746e33f9164bc16a0d351adb4b3610b3b0a20b1dbdbe9c5dc74481f4e0203e2"
+    },
+    "independent-candidate.stderr": {
+      "bytes": 4095,
+      "sha256": "284afc0747186ae9ed1b73d5c264e3551eefb0a1ae3fcf1523fc76cdeb7bf9bd"
+    },
+    "owner-source-freeze-v1.json": {
+      "bytes": 22818,
+      "sha256": "35e9f10586d0ed3637b3c048de500f0e4fa4d335cec24d623a6ea306dd4a4109"
+    },
+    "before-source-guards.json": {
+      "bytes": 7061,
+      "sha256": "1d0c5ee733b3da45ae262c4cb794ab067bc9c2d14fd0c431a083dabdd105b610"
+    },
+    "v1-after-source-guards.json": {
+      "bytes": 15503,
+      "sha256": "3493ffc9f15aa39f50414a25c33881df1bfcef5aa284ba883c6347ed962c6170"
+    },
+    "V1_FINDING.md": {
+      "bytes": 2976,
+      "sha256": "e71bbfd8dc6adbd24430869024c96ff50de03919160674d2d63014a3fde3067f"
+    }
+  }
+}

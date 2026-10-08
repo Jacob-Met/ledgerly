@@ -1,0 +1,405 @@
+{
+  "base": "f044ee3c5f77ab062d51684d8718f888e48540b2",
+  "runtime": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source_unchanged": true,
+  "scenarios": [
+    {
+      "amount": "50.00",
+      "ok": true,
+      "error": null,
+      "message": null,
+      "initial_status": "SENT",
+      "initial_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "mock_changed": true,
+      "after_status": "PARTIALLY_PAID",
+      "after_paid": {
+        "transactions": [
+          {
+            "payment_id": "E1C1A6AC78F44A60A",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "50.00"
+            }
+          }
+        ],
+        "paid_amount": {
+          "currency_code": "GBP",
+          "value": "50.00"
+        }
+      },
+      "after_due": {
+        "currency_code": "GBP",
+        "value": "750.00"
+      },
+      "displayed_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-A119",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "800",
+          "paid_amount": "50.00",
+          "balance": "750.00",
+          "status": "PARTIALLY_PAID",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "request_delta": 0,
+      "external_calls": 0,
+      "valid_retry_after_bad_payment": null
+    },
+    {
+      "amount": "-50",
+      "ok": true,
+      "error": null,
+      "message": null,
+      "initial_status": "SENT",
+      "initial_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "mock_changed": true,
+      "after_status": "PARTIALLY_PAID",
+      "after_paid": {
+        "transactions": [
+          {
+            "payment_id": "7156E6678B48410FB",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "-50.00"
+            }
+          }
+        ],
+        "paid_amount": {
+          "currency_code": "GBP",
+          "value": "-50.00"
+        }
+      },
+      "after_due": {
+        "currency_code": "GBP",
+        "value": "850.00"
+      },
+      "displayed_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-6476",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "800",
+          "paid_amount": "-50.00",
+          "balance": "850.00",
+          "status": "PARTIALLY_PAID",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "request_delta": 0,
+      "external_calls": 0,
+      "valid_retry_after_bad_payment": null
+    },
+    {
+      "amount": "0",
+      "ok": true,
+      "error": null,
+      "message": null,
+      "initial_status": "SENT",
+      "initial_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "mock_changed": true,
+      "after_status": "PARTIALLY_PAID",
+      "after_paid": {
+        "transactions": [
+          {
+            "payment_id": "D6578CB783C34A16A",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "0.00"
+            }
+          }
+        ],
+        "paid_amount": {
+          "currency_code": "GBP",
+          "value": "0.00"
+        }
+      },
+      "after_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "displayed_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-2441",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "800",
+          "paid_amount": "0.00",
+          "balance": "800.00",
+          "status": "PARTIALLY_PAID",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "request_delta": 0,
+      "external_calls": 0,
+      "valid_retry_after_bad_payment": null
+    },
+    {
+      "amount": "0.015",
+      "ok": true,
+      "error": null,
+      "message": null,
+      "initial_status": "SENT",
+      "initial_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "mock_changed": true,
+      "after_status": "PARTIALLY_PAID",
+      "after_paid": {
+        "transactions": [
+          {
+            "payment_id": "7DEE88911A6C4E0E8",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "0.02"
+            }
+          }
+        ],
+        "paid_amount": {
+          "currency_code": "GBP",
+          "value": "0.02"
+        }
+      },
+      "after_due": {
+        "currency_code": "GBP",
+        "value": "799.98"
+      },
+      "displayed_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-9F29",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "800",
+          "paid_amount": "0.02",
+          "balance": "799.98",
+          "status": "PARTIALLY_PAID",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "request_delta": 0,
+      "external_calls": 0,
+      "valid_retry_after_bad_payment": null
+    },
+    {
+      "amount": "NaN",
+      "ok": false,
+      "error": "InvalidOperation",
+      "message": "[<class 'decimal.InvalidOperation'>]",
+      "initial_status": "SENT",
+      "initial_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "mock_changed": true,
+      "after_status": "SENT",
+      "after_paid": {
+        "transactions": [
+          {
+            "payment_id": "ED0D5E5D4A884CE99",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "NaN"
+            }
+          }
+        ],
+        "paid_amount": {
+          "currency_code": "GBP",
+          "value": "NaN"
+        }
+      },
+      "after_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "displayed_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-9F9D",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "800",
+          "paid_amount": "0",
+          "balance": "800",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "request_delta": 0,
+      "external_calls": 0,
+      "valid_retry_after_bad_payment": {
+        "ok": false,
+        "error": "InvalidOperation",
+        "message": "[<class 'decimal.InvalidOperation'>]",
+        "transactions": [
+          {
+            "payment_id": "ED0D5E5D4A884CE99",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "NaN"
+            }
+          },
+          {
+            "payment_id": "30389DEA61BE43E0B",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "20.00"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "amount": "Infinity",
+      "ok": false,
+      "error": "InvalidOperation",
+      "message": "[<class 'decimal.InvalidOperation'>]",
+      "initial_status": "SENT",
+      "initial_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "mock_changed": false,
+      "after_status": "SENT",
+      "after_paid": {
+        "transactions": [],
+        "paid_amount": {
+          "currency_code": "GBP",
+          "value": "0.00"
+        }
+      },
+      "after_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "displayed_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-EB88",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "800",
+          "paid_amount": "0",
+          "balance": "800",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "request_delta": 0,
+      "external_calls": 0,
+      "valid_retry_after_bad_payment": {
+        "ok": true,
+        "error": null,
+        "message": null,
+        "transactions": [
+          {
+            "payment_id": "A80F8D168BB44BF99",
+            "type": "PAYPAL",
+            "method": "PAYPAL",
+            "payment_date": "2026-10-08",
+            "amount": {
+              "currency_code": "GBP",
+              "value": "20.00"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "amount": "1e999999",
+      "ok": false,
+      "error": "InvalidOperation",
+      "message": "[<class 'decimal.InvalidOperation'>]",
+      "initial_status": "SENT",
+      "initial_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "mock_changed": false,
+      "after_status": "SENT",
+      "after_paid": {
+        "transactions": [],
+        "paid_amount": {
+          "currency_code": "GBP",
+          "value": "0.00"
+        }
+      },
+      "after_due": {
+        "currency_code": "GBP",
+        "value": "800.00"
+      },
+      "displayed_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-16CF",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "800",
+          "paid_amount": "0",
+          "balance": "800",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "request_delta": 0,
+      "external_calls": 0,
+      "valid_retry_after_bad_payment": null
+    }
+  ]
+}

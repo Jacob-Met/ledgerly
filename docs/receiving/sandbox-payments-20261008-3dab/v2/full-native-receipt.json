@@ -1,0 +1,47 @@
+[
+  {
+    "mode": "normal",
+    "argv": [
+      "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=/dev/shm/memory-delivery-ledgerly-3dab/pytest-v2-tmp-normal"
+    ],
+    "cwd": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-v2",
+    "started_utc": "2026-10-08T13:39:15.844171+00:00",
+    "exit_code": 0,
+    "source_unchanged": true,
+    "source_manifest_sha256": "0c0576bacea4c05d662157d1fd8e3dcf5594a03b56cec792bac2ceefc85ee816",
+    "stdout": "full-native-normal.stdout",
+    "stderr": "full-native-normal.stderr",
+    "stdout_sha256": "0c55191f2ca129b4f040b2284c1a16d7dddfcf106dcb41179e1d0c9e1bc9f237",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "mode": "optimized",
+    "argv": [
+      "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "-B",
+      "-O",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=/dev/shm/memory-delivery-ledgerly-3dab/pytest-v2-tmp-optimized"
+    ],
+    "cwd": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-v2",
+    "started_utc": "2026-10-08T13:39:17.266599+00:00",
+    "exit_code": 0,
+    "source_unchanged": true,
+    "source_manifest_sha256": "0c0576bacea4c05d662157d1fd8e3dcf5594a03b56cec792bac2ceefc85ee816",
+    "stdout": "full-native-optimized.stdout",
+    "stderr": "full-native-optimized.stderr",
+    "stdout_sha256": "7b1241b9393e38aa9bbc55ccb86a965a79a897a49a1bd45a0908d937ee7ddbdd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
