@@ -1,0 +1,10 @@
+{
+  "source_root": "/dev/shm/ledgerly-integration-a219f250962c",
+  "agent_sha256": "b70cc42cc5563c7037b8fc15093defffcabc76fe007349c90059286570c8ede2",
+  "agent_git_blob": "892cf5c59cdc0ad9eafa2926164f45b5b0b36441",
+  "tests_run": 4,
+  "failures": [],
+  "errors": [],
+  "success": true,
+  "effects": "SandboxMock only; zero external calls; reminders never approved"
+}

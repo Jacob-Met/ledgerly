@@ -1,0 +1,15 @@
+{
+  "source_root": "/dev/shm/ledgerly-review-a219f250962c/base",
+  "agent_sha256": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+  "agent_git_blob": "19f261b1430769952057697d68472722a11cf643",
+  "tests_run": 4,
+  "failures": [
+    {
+      "test": "__main__.CompositionReview.test_create_only_planner_preserves_serialized_date_and_enters_reminder_gate",
+      "detail": "Traceback (most recent call last):\n  File \"/dev/shm/ledgerly-review-a219f250962c/review-composition.py\", line 56, in test_create_only_planner_preserves_serialized_date_and_enters_reminder_gate\n    self.assertEqual(entry.due_on,date(2026,10,13),'actual serialized draft deadline must survive omitted status read')\nAssertionError: datetime.date(2026, 10, 20) != datetime.date(2026, 10, 13) : actual serialized draft deadline must survive omitted status read\n"
+    }
+  ],
+  "errors": [],
+  "success": false,
+  "effects": "SandboxMock only; zero external calls; reminders never approved"
+}

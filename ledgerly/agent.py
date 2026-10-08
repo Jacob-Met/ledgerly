@@ -109,6 +109,7 @@ class LedgerEntry:
     prepaid: Decimal = Decimal(0)
     provider_due_on: Optional[date] = None
     provider_due_known: bool = False
+    invoice_due_on: Optional[date] = None
 
     @property
     def due_on(self) -> Optional[date]:
@@ -116,6 +117,9 @@ class LedgerEntry:
             return self.provider_due_on
         if self.sent_on is None or self.due_days is None:
             return None
+        # Positive terms retain the draft deadline; approval does not restart them.
+        if self.due_days > 0 and self.invoice_due_on is not None:
+            return self.invoice_due_on
         return date.fromordinal(self.sent_on.toordinal() + self.due_days)
 
     @property
@@ -279,11 +283,14 @@ class Agent:
                 note += f" Deposit of {part.currency} {ex.amount_paid} received with thanks."
             body = build_invoice(part, self.invoicer, number, self.today(), note,
                                  allow_partial=ex.amount_paid > 0)
+            invoice_due_on = (date.fromisoformat(body["detail"]["payment_term"]["due_date"])
+                              if part.due_days is not None and part.due_days > 0 else None)
             resp = self.client.create_draft_invoice(body)
             inv_id = resp.body["href"].rsplit("/", 1)[-1] if "href" in resp.body else resp.body["id"]
             entry = LedgerEntry(inv_id, number, part.client_name, part.client_email, part.currency,
                                 part.total(), part.due_days,
-                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0))
+                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0),
+                                invoice_due_on=invoice_due_on)
             self.ledger[inv_id] = entry
             summary = f"Send invoice {number} for {part.currency} {part.total():,} to {part.client_email}"
             if entry.prepaid:
