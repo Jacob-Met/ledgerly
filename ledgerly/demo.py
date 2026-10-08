@@ -61,10 +61,13 @@ def main() -> None:
         agent.approve(a["id"]) if decide(a) else agent.reject(a["id"], "declined in demo")
 
     sent = [e for e in agent.ledger.values() if e.status == "SENT"]
-    print(f"\n=== Payer pays {sent[0].invoice_number} (mock webhook INVOICING.INVOICE.PAID)")
-    ev = mock.simulate_payer_payment(sent[0].invoice_id)
-    raw = json.dumps(ev).encode()
-    print("  ", agent.handle_webhook(raw, mock.sign(raw)))
+    if sent:
+        print(f"\n=== Payer pays {sent[0].invoice_number} (mock webhook INVOICING.INVOICE.PAID)")
+        ev = mock.simulate_payer_payment(sent[0].invoice_id)
+        raw = json.dumps(ev).encode()
+        print("  ", agent.handle_webhook(raw, mock.sign(raw)))
+    else:
+        print("\n=== No sent invoices; skipping the mock payment")
 
     clock.d = date(2026, 11, 20)
     print(f"\n=== {clock.d}: chase overdue")

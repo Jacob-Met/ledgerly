@@ -1,0 +1,22 @@
+test_every_overdue_reminder_still_requires_a_separate_yes (__main__.DeclinedDemoReview.test_every_overdue_reminder_still_requires_a_separate_yes) ... ok
+test_non_y_answers_preserve_every_decline_and_finish_report (__main__.DeclinedDemoReview.test_non_y_answers_preserve_every_decline_and_finish_report) ... ERROR
+test_only_last_explicit_approval_is_paid_after_that_decision (__main__.DeclinedDemoReview.test_only_last_explicit_approval_is_paid_after_that_decision) ... ok
+
+======================================================================
+ERROR: test_non_y_answers_preserve_every_decline_and_finish_report (__main__.DeclinedDemoReview.test_non_y_answers_preserve_every_decline_and_finish_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3dab0b9d2ce9/optimizer-recovery/ledgerly-review/test_declined_demo_review.py", line 46, in test_non_y_answers_preserve_every_decline_and_finish_report
+    mock, output, prompts, payments = self.execute(lambda client, n: answers[(n-1) % len(answers)])
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/3dab0b9d2ce9/optimizer-recovery/ledgerly-review/test_declined_demo_review.py", line 32, in execute
+    demo.main()
+  File "/workspace/scratch/3dab0b9d2ce9/estate-runtime/ledgerly-receiving/baseline/ledgerly/demo.py", line 64, in main
+    print(f"\n=== Payer pays {sent[0].invoice_number} (mock webhook INVOICING.INVOICE.PAID)")
+                              ~~~~^^^
+IndexError: list index out of range
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.010s
+
+FAILED (errors=1)
