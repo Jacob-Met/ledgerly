@@ -1,0 +1,131 @@
+{
+  "schema": "ledgerly.receivables-integration/1",
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/39",
+  "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/42",
+  "head": "ad9c6b60ff25bf5c4c138f523c86e1346a78608c",
+  "tested_merge": "bfdebfa8326d0a883efb3a8b72c7483cb4a8b0c0",
+  "merge": "295153cc0c354415c39bcee7d2384412b4fa629f",
+  "tree": "599514b1ea0dc06edd0f8ed4acf7b1fdbbc49470",
+  "parents": [
+    "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+    "ad9c6b60ff25bf5c4c138f523c86e1346a78608c"
+  ],
+  "merged_at": "2026-10-08T16:46:50Z",
+  "issue_state": "closed",
+  "required_pr_runs": [
+    37810300249,
+    37810300350,
+    37810300536
+  ],
+  "postmerge_runs": [
+    {
+      "id": 37811465257,
+      "name": "receivables-browser",
+      "head": "295153cc0c354415c39bcee7d2384412b4fa629f",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37811465348,
+      "name": "Publish Ledgerly browser demo",
+      "head": "295153cc0c354415c39bcee7d2384412b4fa629f",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37811465573,
+      "name": "invoice-record-browser",
+      "head": "295153cc0c354415c39bcee7d2384412b4fa629f",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37811465325,
+      "name": "Verify Ledgerly",
+      "head": "295153cc0c354415c39bcee7d2384412b4fa629f",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "publication": {
+    "final_leaves": 715,
+    "original_main_leaves": 693,
+    "preserved_unrelated_original_main_leaves": 689,
+    "changed_original_main_paths": 4,
+    "added_paths": 22,
+    "three_visual_child_paths_only": true
+  },
+  "source": {
+    "projection": {
+      "git_blob": "c2d4f6bd9206d7199fe053bd45e2e8df2ad96ad9",
+      "sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68"
+    },
+    "css": {
+      "git_blob": "84dc9078229aaaad0a13f382a6466e343a7489ae",
+      "sha256": "1d7eb6f8f7653bd7507af057f905de3213f20b5c0c093b4cfc2f2e35871dd606"
+    },
+    "index": {
+      "git_blob": "42235a54fb754a5530d2700b4480878adb860aa4"
+    },
+    "browser_driver": {
+      "git_blob": "aa362ab13b28854f6323b5b4d6c53f3f8439a0ca"
+    }
+  },
+  "qualification": {
+    "python_tests": 337,
+    "python_subtests": 118,
+    "frontend_tests": 100,
+    "frontend_test_files": 11,
+    "independent_native_cases": 5,
+    "invoice_record_browser_controls": 8,
+    "receivables_browser_controls": 6,
+    "actual_worker_calls": 30,
+    "source_unchanged": true,
+    "external_requests": 0,
+    "page_errors": 0
+  },
+  "visual": {
+    "status": "accepted",
+    "reviewers": [
+      "author coordination_discovery",
+      "independent root"
+    ],
+    "desktop_sha256": "a59182a304dae5e319baf9ce19627e6987b4544f4217f8909f33a4684e76d62d",
+    "narrow_sha256": "8f3fb69dbaf88fc0d3edebab687348d95c6d51591a773ae44c9566dd041cc67d",
+    "note_size_px": 12,
+    "note_contrast": 6.19964279125566,
+    "narrow_viewport_px": 390,
+    "horizontal_overflow": false,
+    "findings": "Full heading, card boundaries and keyboard focus outline are visible. Snapshot/exclusion context, exact per-currency balances and literal client labels are readable. Desktop and narrow wrapping are accepted."
+  },
+  "browser_log_bundle": {
+    "sha256": "198555c5dd8f50a6d9df34eecf956974f6e57f0efa7617fdd6dff5a215b167d3",
+    "bytes": 322016,
+    "chunks": 105,
+    "files": 5,
+    "readback_verified": true
+  },
+  "delivery": {
+    "url": "https://jacobmetoyer.com/ledgerly/",
+    "pages_run": 37811465348,
+    "pages_job": 113429102272,
+    "checkout": "295153cc0c354415c39bcee7d2384412b4fa629f",
+    "reported_success_at": "2026-10-08T16:47:26.0116656Z",
+    "app_asset_names_match_accepted_browser_build": true,
+    "public_host_browser_executed": false,
+    "public_search_fetch": "tool reported URL unavailable"
+  },
+  "aggregate_artifact": {
+    "id": 11564432711,
+    "sha256": "2eac32ff931cc8b5dccf7c17cb9bc73f92ac23e2a634d5393f883d93073c0920",
+    "download": "connector returned a reusable reference; one normal HTTPS read returned403 before expiry; no repeated probe or bypass. Browser files were already independently retrieved with verified log-bundle hashes; native peer TAP is retained in the exact job log."
+  },
+  "scope": "Read-only accepted local snapshot projection and UI. No provider, invoice creation, extraction, payment, Worker protocol, reconciliation or account policy changes.",
+  "final_boundary": "Actual Chrome acceptance is for the exact local built source in hosted CI. Pages independently reports deploying the same merge and matching content-hashed app asset names; no public production-host browser session is claimed.",
+  "raw_archive": {
+    "path": "raw-evidence.zip",
+    "bytes": 1293552,
+    "members": 15,
+    "sha256": "61a18e9c3b0006eb2ec4a0fac33c6e1f05a4b3c17fe472c266ad1c4565bd3a29"
+  }
+}
