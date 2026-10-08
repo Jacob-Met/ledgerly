@@ -1,0 +1,9 @@
+{
+  "previous_source": "/home/jacob/hamon-ultra-9319fb3272b2-integration-qa/ledgerly-history-5493205/candidate-current-2ab",
+  "source": "/home/jacob/hamon-ultra-9319fb3272b2-integration-qa/ledgerly-history-5493205/candidate-current-2ab-v2",
+  "changed_path": "web-demo/tests/review-history.test.ts",
+  "before_sha256": "3f5600bb49c6dcaab9f0fcf5b588bd4ff90acb0e1a60ea253a6f0a44d9b421cc",
+  "after_sha256": "776286b08f1e2e1c1affe1d39850a4949f9feaee5d4990ec41028f16be31b3e6",
+  "reason": "Remove incorrectly overescaped regex from a test-only HTML result readback; split at fixed markup delimiters then decode entities and independently JSON.parse the retained result.",
+  "production_files_unchanged": true
+}

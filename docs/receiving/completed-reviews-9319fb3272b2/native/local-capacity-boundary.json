@@ -1,0 +1,7 @@
+{
+  "message": "Shared overlay and tmpfs exhausted after native/current-source read and first real Pyodide run; first local receipt write failed before corrected tests were installed. Subsequent attempted v2 runner could not persist its receipt. No v2 qualification result is claimed.",
+  "first_corrective_write": "ENOSPC",
+  "v2_receipt_write": "ENOSPC",
+  "local_directory": "/dev/shm/hamon-9319fb3272b2-ledgerly-history",
+  "owned_bytes_before_failure": "708 KiB"
+}

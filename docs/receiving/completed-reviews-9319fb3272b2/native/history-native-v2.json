@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "stdout": "..........                                                               [100%]\n10 passed in 0.09s\n",
+  "stderr": "",
+  "test_sha256": "2921d566add5ffc94ccb2ffcdb2b73aedc397ed47bd9e0fc086bfa63711746ee",
+  "correction": "review field due_days is required text; first fixture incorrectly supplied int; first source/logs preserved. Explicit row-count assertions added before indexing failed outcomes."
+}

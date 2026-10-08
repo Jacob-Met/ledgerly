@@ -1,0 +1,47 @@
+{
+  "accepted_helper_sha256": "e9e42d99681102cec8961761f5da2b337ea235b0c286067c054f708aa9d06a2f",
+  "accepted_test_sha256": "2921d566add5ffc94ccb2ffcdb2b73aedc397ed47bd9e0fc086bfa63711746ee",
+  "controls": [
+    {
+      "name": "drop-failed",
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_review_history.py::CompletedReviewTests::test_actual_send_then_lost_response_retains_unknown_without_replay"
+      ],
+      "exit_code": 1,
+      "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_ CompletedReviewTests.test_actual_send_then_lost_response_retains_unknown_without_replay _\n\nself = <test_review_history.CompletedReviewTests testMethod=test_actual_send_then_lost_response_retains_unknown_without_replay>\n\n    def test_actual_send_then_lost_response_retains_unknown_without_replay(self):\n        queued = self.draft()\n        original = self.demo.mock.send_invoice\n        def sent_then_lost(*args, **kwargs):\n            original(*args, **kwargs)\n            raise TimeoutError(\"Authored lost response after the real mock send\")\n        with patch.object(self.demo.mock, \"send_invoice\", side_effect=sent_then_lost):\n            reply = self.call(\"approve\", action_id=queued[\"id\"])\n        self.assertFalse(reply[\"ok\"])\n        self.assertEqual(reply[\"error\"], \"TimeoutError\")\n        self.assertEqual(self.demo.mock.invoices[queued[\"invoice_id\"]][\"status\"], \"SENT\")\n>       self.assertEqual(len(reply[\"state\"][\"completed_reviews\"]), 1)\nE       AssertionError: 0 != 1\n\ntests/test_review_history.py:108: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_review_history.py::CompletedReviewTests::test_actual_send_then_lost_response_retains_unknown_without_replay\n1 failed in 0.06s\n",
+      "stderr": "",
+      "helper_sha256": "61ca9c863777b1f48577112a4d2b26fb15aa6ecf8a2f504cb1d5a8b8934275f4",
+      "unchanged_test_sha256": "2921d566add5ffc94ccb2ffcdb2b73aedc397ed47bd9e0fc086bfa63711746ee",
+      "oracle_unchanged": true,
+      "semantic_failure": true
+    },
+    {
+      "name": "shallow-alias",
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_review_history.py::CompletedReviewTests::test_original_proposal_and_result_are_detached_from_later_records"
+      ],
+      "exit_code": 1,
+      "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_ CompletedReviewTests.test_original_proposal_and_result_are_detached_from_later_records _\n\nself = <test_review_history.CompletedReviewTests testMethod=test_original_proposal_and_result_are_detached_from_later_records>\n\n    def test_original_proposal_and_result_are_detached_from_later_records(self):\n        queued = self.draft()\n        self.assertTrue(self.call(\"approve\", action_id=queued[\"id\"])[\"ok\"])\n        original_result = copy.deepcopy(self.demo.agent.pending[queued[\"id\"]].result)\n        provider = self.demo.mock.invoices[queued[\"invoice_id\"]]\n        provider[\"items\"][0][\"unit_amount\"][\"value\"] = \"999.00\"\n        agent_before = self.demo.agent.export_state()\n        provider_before = copy.deepcopy(self.demo.mock.invoices)\n        requests = copy.deepcopy(self.demo.mock.requests)\n        displayed = self.history()[0]\n        self.assertEqual(displayed[\"payload\"], queued[\"payload\"])\n        displayed[\"payload\"][\"invoice\"][\"items\"][0][\"unit_amount\"][\"value\"] = \"123.00\"\n        displayed[\"result\"][\"payer_view\"] = \"authored display-only mutation\"\n>       self.assertEqual(self.history()[0][\"payload\"], queued[\"payload\"])\nE       AssertionError: {'inv[565 chars]e': '123.00'}, 'unit_of_measure': 'HOURS'}, {'[304 chars] '0'} != {'inv[565 chars]e': '85.00'}, 'unit_of_measure': 'HOURS'}, {'n[303 chars] '0'}\nE       Diff is 1862 characters long. Set self.maxDiff to None to see it.\n\ntests/test_review_history.py:91: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_review_history.py::CompletedReviewTests::test_original_proposal_and_result_are_detached_from_later_records\n1 failed in 0.07s\n",
+      "stderr": "",
+      "helper_sha256": "239191a7d621a603b4acbaaaf1675b0bab02187c8aa59dc7b75bb06cf886bc1f",
+      "unchanged_test_sha256": "2921d566add5ffc94ccb2ffcdb2b73aedc397ed47bd9e0fc086bfa63711746ee",
+      "oracle_unchanged": true,
+      "semantic_failure": true
+    }
+  ],
+  "accepted_source_unchanged": true
+}

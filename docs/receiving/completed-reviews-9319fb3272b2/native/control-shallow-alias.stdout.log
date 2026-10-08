@@ -1,0 +1,27 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ CompletedReviewTests.test_original_proposal_and_result_are_detached_from_later_records _
+
+self = <test_review_history.CompletedReviewTests testMethod=test_original_proposal_and_result_are_detached_from_later_records>
+
+    def test_original_proposal_and_result_are_detached_from_later_records(self):
+        queued = self.draft()
+        self.assertTrue(self.call("approve", action_id=queued["id"])["ok"])
+        original_result = copy.deepcopy(self.demo.agent.pending[queued["id"]].result)
+        provider = self.demo.mock.invoices[queued["invoice_id"]]
+        provider["items"][0]["unit_amount"]["value"] = "999.00"
+        agent_before = self.demo.agent.export_state()
+        provider_before = copy.deepcopy(self.demo.mock.invoices)
+        requests = copy.deepcopy(self.demo.mock.requests)
+        displayed = self.history()[0]
+        self.assertEqual(displayed["payload"], queued["payload"])
+        displayed["payload"]["invoice"]["items"][0]["unit_amount"]["value"] = "123.00"
+        displayed["result"]["payer_view"] = "authored display-only mutation"
+>       self.assertEqual(self.history()[0]["payload"], queued["payload"])
+E       AssertionError: {'inv[565 chars]e': '123.00'}, 'unit_of_measure': 'HOURS'}, {'[304 chars] '0'} != {'inv[565 chars]e': '85.00'}, 'unit_of_measure': 'HOURS'}, {'n[303 chars] '0'}
+E       Diff is 1862 characters long. Set self.maxDiff to None to see it.
+
+tests/test_review_history.py:91: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_review_history.py::CompletedReviewTests::test_original_proposal_and_result_are_detached_from_later_records
+1 failed in 0.07s

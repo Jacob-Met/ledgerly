@@ -1,0 +1,70 @@
+{
+  "base": "5493205cd69a32be75ed2f7dfc669b122efe5563",
+  "changed": [
+    {
+      "path": "web-demo/python/review_history.py",
+      "bytes": 466,
+      "sha256": "e9e42d99681102cec8961761f5da2b337ea235b0c286067c054f708aa9d06a2f"
+    },
+    {
+      "path": "web-demo/src/review-history.ts",
+      "bytes": 2765,
+      "sha256": "6c1f93943b17d9cdfabf320ae47e15f8d5054332bda3c8b4d81df659cea11424"
+    },
+    {
+      "path": "web-demo/src/review-history.css",
+      "bytes": 1637,
+      "sha256": "2c3cc6ce0dd2d0142058b8bfa31ccfdbd59c9e0667711104a21cda5c2e3f6799"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "bytes": 6335,
+      "sha256": "f49189d0cac2d797a3601b7416156b34b1d621fcb03d710ee3a657d3045d3c92"
+    },
+    {
+      "path": "web-demo/src/approval-preview.ts",
+      "bytes": 6000,
+      "sha256": "d8548ec0ed9e58ff98361ddf0f3e41da4fc87551cc80123edeaf43ed3c56e720"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "bytes": 18308,
+      "sha256": "d86d247343393fcd517a01b22abf291ea53868729651c86f8ea1588ca4f1a17e"
+    },
+    {
+      "path": "web-demo/index.html",
+      "bytes": 6144,
+      "sha256": "3090756dc59751ce3c0383f5ed6873ddb460ffb9e61ba5130996712d503d6993"
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "bytes": 994,
+      "sha256": "fa21da4a228257aed00c03f490ac943e9fc5047229e57fe418a72983901391df"
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "bytes": 1735,
+      "sha256": "c40047618f57de68ed263cf4009aeb46da19d10b3f5ac9313524ee4729ead1fa"
+    },
+    {
+      "path": "web-demo/tests/engine.test.ts",
+      "bytes": 3029,
+      "sha256": "581029ad4ee1b3dddc3d2d7681c7e1f0d3513f2a6d945a724a1d21ed51af63ed"
+    },
+    {
+      "path": "web-demo/tests/review.test.ts",
+      "bytes": 9414,
+      "sha256": "4cc37c2f2b9d0bec4440e27f95679b16fff1e4ac33e3f1ac042abbea68c8e456"
+    },
+    {
+      "path": "web-demo/tests/engine-recovery.test.ts",
+      "bytes": 15708,
+      "sha256": "6ceb3af2506d828cb262b77a867bfefea57a38471f1486b9279636ec6e31d69b"
+    },
+    {
+      "path": "web-demo/README.md",
+      "bytes": 5209,
+      "sha256": "318649948844cf7bfcdd79afe8340eb0bee59755260e04ee476afba038c33041"
+    }
+  ]
+}
