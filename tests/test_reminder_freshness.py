@@ -5,10 +5,12 @@ Run without optional test dependencies: python -m unittest discover -s tests
 """
 import json
 import runpy
+import sys
 import unittest
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
+from unittest.mock import patch
 
 from ledgerly.agent import Agent
 from ledgerly.paypal import PayPalError, SandboxMock
@@ -138,7 +140,9 @@ class ReminderFreshnessTests(unittest.TestCase):
         self.assertEqual(self.reminders_sent(), [])
 
     def test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder(self):
-        demo = runpy.run_path(str(ROOT / "web-demo/python/bridge.py"))["Demo"]()
+        bridge_dir = ROOT / "web-demo/python"
+        with patch.object(sys, "path", [str(bridge_dir), *sys.path]):
+            demo = runpy.run_path(str(bridge_dir / "bridge.py"))["Demo"]()
         demo.clock.day = date(2026, 10, 1)
         text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text()
         first = demo.dispatch({"action": "draft", "text": text})["state"]["pending"][0]

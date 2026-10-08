@@ -29,7 +29,10 @@ from ledgerly.paypal import PayPalError, SandboxMock
 
 spec = importlib.util.spec_from_file_location("ledgerly_review_bridge", SOURCE / "web-demo/python/bridge.py")
 bridge = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(bridge)
+# The deployed browser engine loads this directory as its Python module root.
+# Match that import context for bridge siblings without changing application code.
+with patch.object(sys, "path", [str(SOURCE / "web-demo/python"), *sys.path]):
+    spec.loader.exec_module(bridge)
 
 INVOICER = {"name": "Review Freelancer", "email_address": "freelancer@example.test"}
 JOB = """From: Alex Reader <alex@example.test>

@@ -42,6 +42,25 @@ through the real Agent, SandboxMock and unmodified browser bridge. The unchanged
 Raw original failures, the final log and independent receipt are retained here.
 These tests use fictional data and perform no provider network calls.
 
+### Composition with the current browser review flow
+
+While this PR was publishing, browser correction PR #9 reached main at
+`dc5e188c062bb7b45a8ddbbd23a3da75126e17a8`. Its bridge now imports the sibling
+`review.py`. The initial hosted run `37752507854`, on receiving checkout
+`ce2885001b79dfdc66dcf3428512d4083a4a16c3`, passed all 10 real Pyodide tests,
+the browser build and dependency audit. Python collection failed twice because
+the new tests loaded the bridge without its sibling module directory. The
+actual failure log is retained as `ci-initial-failure.log`.
+
+Only the two test loaders were corrected to expose that directory temporarily.
+The production Agent remained byte-identical, the current browser files remained
+byte-identical to PR #9, and every reminder assertion remained intact. The raw
+draft protocol still exists in the current bridge; no protocol adaptation or
+test skipping was required. All 37 focused tests then passed on this composition,
+including a separate independent replay of all 27 receiving tests. The new
+`current-bridge-*` logs, manifest and independent receipt pin this composition;
+the earlier logs and `source-manifest.json` still describe the original bridge.
+
 ```sh
 python3 -m unittest discover -s tests -p 'test_reminder*.py' -v
 python3 -m pytest -q

@@ -11,8 +11,11 @@ async function boot():Promise<PyodideInterface>{
    const r=await fetch(new URL(`../python/ledgerly/${name}`,scope.location.href));if(!r.ok)throw new Error(`Python source ${name}: HTTP ${r.status}`);
    py.FS.writeFile(`/demo/ledgerly/${name}`,await r.text());
   }
-  const bridge=await fetch(new URL('../python/bridge.py',scope.location.href));if(!bridge.ok)throw new Error(`Python bridge: HTTP ${bridge.status}`);
-  py.FS.writeFile('/demo/bridge.py',await bridge.text());await py.runPythonAsync("import sys; sys.path.insert(0, '/demo'); import bridge");
+  for(const name of ['bridge.py','review.py']){
+   const source=await fetch(new URL(`../python/${name}`,scope.location.href));if(!source.ok)throw new Error(`Python demo ${name}: HTTP ${source.status}`);
+   py.FS.writeFile(`/demo/${name}`,await source.text());
+  }
+  await py.runPythonAsync("import sys; sys.path.insert(0, '/demo'); import bridge");
   engine=py;scope.postMessage({type:'ready'});return py;
  })();return loading;
 }

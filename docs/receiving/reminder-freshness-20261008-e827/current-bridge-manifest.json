@@ -1,0 +1,168 @@
+{
+  "base_commit": "dc5e188c062bb7b45a8ddbbd23a3da75126e17a8",
+  "original_candidate_commit": "62db7077bad5b74f01f0dd65f65fca2139362f1a",
+  "production_agent_unchanged": true,
+  "source_and_inputs": [
+    {
+      "path": "ledgerly/__init__.py",
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "bytes": 29113,
+      "sha256": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+      "git_blob": "19f261b1430769952057697d68472722a11cf643"
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "bytes": 3063,
+      "sha256": "fc6bfeb8587dbe4e73da1fdd10257e51da7b1e8c91d1f5b2ac3aa1fcd0b6a199",
+      "git_blob": "c3d09bbf170efa492e5836ba25363946d910fa9f"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "bytes": 26624,
+      "sha256": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+      "git_blob": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "bytes": 24474,
+      "sha256": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+      "git_blob": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "bytes": 6223,
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "git_blob": "5573f8b488ee4421e073fce057e6928aac6f6630"
+    },
+    {
+      "path": "fixtures/01_simple_usd_hourly.txt",
+      "bytes": 282,
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866"
+    },
+    {
+      "path": "fixtures/02_gbp_proofreading.txt",
+      "bytes": 293,
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05"
+    },
+    {
+      "path": "fixtures/03_eur_fixed_project.txt",
+      "bytes": 265,
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786"
+    },
+    {
+      "path": "fixtures/04_multi_currency.txt",
+      "bytes": 288,
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e"
+    },
+    {
+      "path": "fixtures/05_missing_email.txt",
+      "bytes": 238,
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7"
+    },
+    {
+      "path": "fixtures/06_ambiguous_qty.txt",
+      "bytes": 246,
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9"
+    },
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "bytes": 319,
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b"
+    },
+    {
+      "path": "fixtures/08_jpy_zero_decimal.txt",
+      "bytes": 271,
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c"
+    },
+    {
+      "path": "fixtures/09_table_cad.txt",
+      "bytes": 380,
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1"
+    },
+    {
+      "path": "fixtures/10_billing_address_net45.txt",
+      "bytes": 330,
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb"
+    },
+    {
+      "path": "fixtures/11_range_qty_approx.txt",
+      "bytes": 239,
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082"
+    },
+    {
+      "path": "fixtures/12_prompt_injection.txt",
+      "bytes": 315,
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b"
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "bytes": 4379,
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8"
+    }
+  ],
+  "tests": [
+    {
+      "path": "tests/test_reminder_freshness.py",
+      "bytes": 7270,
+      "sha256": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+      "git_blob": "ddb97a786b0676a24b0b8d419b983071ba157bf1"
+    },
+    {
+      "path": "tests/test_reminder_provider_changes.py",
+      "bytes": 6165,
+      "sha256": "b584d4ee1869fb7889c3a84a89783a7f6893c219278438c5f5906f76052f1810",
+      "git_blob": "b967a8722940eb03d060eeb23e1893d098ece224"
+    },
+    {
+      "path": "tests/test_reminder_receiving.py",
+      "bytes": 13993,
+      "sha256": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+      "git_blob": "40746e8a4a441ec73cc345e1e5b5eef6c1b25570"
+    }
+  ],
+  "focused_result": {
+    "methods": 37,
+    "passed": 37,
+    "failed": 0,
+    "skipped": 0
+  },
+  "independent_result": {
+    "methods": 27,
+    "passed": 27,
+    "failed": 0,
+    "skipped": 0,
+    "assertions_unchanged": true
+  },
+  "initial_hosted_ci": {
+    "run_id": 37752507854,
+    "checkout": "ce2885001b79dfdc66dcf3428512d4083a4a16c3",
+    "conclusion": "failure",
+    "python_core": "two collection errors: new bridge sibling review.py absent from test import path",
+    "browser_engine": {
+      "passed": 10,
+      "build": "success",
+      "audit": "zero vulnerabilities"
+    }
+  },
+  "correction": "Temporarily include the browser Python directory during test bridge loading; production files and test assertions unchanged.",
+  "corrected_hosted_ci": "pending exact published-head run",
+  "live_provider_calls": 0
+}
