@@ -24,7 +24,7 @@ from datetime import date, datetime, timezone
 from decimal import Decimal
 from typing import Any, Callable, Optional, Protocol
 
-from .extract import Extraction, Extractor, RulesExtractor, split_by_currency, validate
+from .extract import Extraction, Extractor, RulesExtractor, split_by_currency
 from .paypal import (
     OPEN_STATUSES, PAID_STATUSES, InvoicingClient, PayPalError, Response, WebhookError,
     build_invoice, parse_webhook_event,
@@ -109,7 +109,6 @@ class LedgerEntry:
     prepaid: Decimal = Decimal(0)
     provider_due_on: Optional[date] = None
     provider_due_known: bool = False
-    invoice_due_on: Optional[date] = None
 
     @property
     def due_on(self) -> Optional[date]:
@@ -117,9 +116,6 @@ class LedgerEntry:
             return self.provider_due_on
         if self.sent_on is None or self.due_days is None:
             return None
-        # Positive terms retain the draft deadline; approval does not restart them.
-        if self.due_days > 0 and self.invoice_due_on is not None:
-            return self.invoice_due_on
         return date.fromordinal(self.sent_on.toordinal() + self.due_days)
 
     @property
@@ -271,15 +267,10 @@ class Agent:
     # -- tools (safe: never send, never move money)
     def tool_create_invoice(self, text: str) -> dict:
         ex = self.extractor.extract(text)
-        # Extractor adapters may return a reviewed value with stale/no issues.
-        # Admit the whole job before allocating even the first invoice number.
-        issues = [*ex.issues]
-        issues.extend(issue for issue in validate(ex) if issue not in issues)
-        errors = [issue for issue in issues if issue.severity == "error"]
-        if errors or ex.confidence < self.min_confidence:
+        if ex.errors or ex.confidence < self.min_confidence:
             return {"ok": False, "needs_review": True, "confidence": ex.confidence,
-                    "issues": [i.to_dict() for i in issues],
-                    "message": f"needs human review (confidence {ex.confidence}, {len(errors)} error(s))"}
+                    "issues": [i.to_dict() for i in ex.issues],
+                    "message": f"needs human review (confidence {ex.confidence}, {len(ex.errors)} error(s))"}
         created = []
         for part in split_by_currency(ex):
             number = self.client.generate_next_invoice_number().body["invoice_number"]
@@ -288,14 +279,11 @@ class Agent:
                 note += f" Deposit of {part.currency} {ex.amount_paid} received with thanks."
             body = build_invoice(part, self.invoicer, number, self.today(), note,
                                  allow_partial=ex.amount_paid > 0)
-            invoice_due_on = (date.fromisoformat(body["detail"]["payment_term"]["due_date"])
-                              if part.due_days is not None and part.due_days > 0 else None)
             resp = self.client.create_draft_invoice(body)
             inv_id = resp.body["href"].rsplit("/", 1)[-1] if "href" in resp.body else resp.body["id"]
             entry = LedgerEntry(inv_id, number, part.client_name, part.client_email, part.currency,
                                 part.total(), part.due_days,
-                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0),
-                                invoice_due_on=invoice_due_on)
+                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0))
             self.ledger[inv_id] = entry
             summary = f"Send invoice {number} for {part.currency} {part.total():,} to {part.client_email}"
             if entry.prepaid:
@@ -304,7 +292,7 @@ class Agent:
             created.append({"invoice_id": inv_id, "invoice_number": number, "currency": part.currency,
                             "total": str(part.total()), "approval_id": action.id})
         return {"ok": True, "invoices": created, "confidence": ex.confidence,
-                "issues": [i.to_dict() for i in issues],
+                "issues": [i.to_dict() for i in ex.issues],
                 "message": f"{len(created)} draft(s) created; awaiting approval to send"}
 
     def tool_get_status(self, invoice_id: str) -> dict:

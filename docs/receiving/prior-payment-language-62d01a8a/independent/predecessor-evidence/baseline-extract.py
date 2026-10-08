@@ -17,7 +17,7 @@ import json
 import re
 from collections import Counter
 from dataclasses import dataclass, field
-from decimal import ROUND_HALF_UP, Decimal, DecimalException, InvalidOperation, localcontext
+from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 from typing import Any, Callable, Optional, Protocol
 
 # Subset of PayPal-supported currency codes.
@@ -41,25 +41,20 @@ SEVERITY_PENALTY = {"error": 0.25, "warning": 0.10, "info": 0.0}
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 _SYM = "|".join(re.escape(s) for s in sorted(SYMBOLS, key=len, reverse=True))
 _CODE = "|".join(sorted(PAYPAL_CURRENCIES))
-# Consume a complete number-like token first. _dec checks comma grouping, so
-# malformed text cannot be silently shortened to its first valid numeric prefix.
-_NUM = r"[+-]?(?:\d(?:[\d,]*\d)?(?:\.\d+)?|\.\d+)(?:[eE][+-]?\d+)?"
-_NO_SUFFIX = r"(?!\d|[\d.,]*[kKmM]\b|[eE]|[.,]\d)"
+_NUM = r"\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d+(?:\.\d{1,2})?"
+_NO_SUFFIX = r"(?![\d.,]*[kKmM]\b)"  # don't read "$5k" as $5
 MONEY_RE = re.compile(
-    rf"(?:(?P<sign>[+-])?(?P<pre>{_SYM}|\b(?:{_CODE})\b)\s?(?P<num>{_NUM}){_NO_SUFFIX}"
-    rf"|(?<![\w.,])(?P<num2>{_NUM}){_NO_SUFFIX}\s?(?P<post>\b(?:{_CODE})\b|€|£))"
+    rf"(?:(?P<pre>{_SYM}|\b(?:{_CODE})\b)\s?(?P<num>{_NUM}){_NO_SUFFIX}"
+    rf"|(?P<num2>{_NUM}){_NO_SUFFIX}\s?(?P<post>\b(?:{_CODE})\b|€|£))"
 )
-_MONEY_CANDIDATE_RE = re.compile(rf"(?:{_SYM}|\b(?:{_CODE})\b)\s*(?:[+\-\d(]|\.\d)")
-_GROUPED_NUMBER_RE = re.compile(r"[+-]?\d{1,3}(?:,\d{3})+(?:\.\d+)?(?:[eE][+-]?\d+)?")
 
 _WORD_NUMS = {
     "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
     "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
 }
-_Q_NUMBER = r"[+-]?(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?|\.\d+)"
 _Q = (
     r"(?:(?:~\s*|approx\.?\s*|about\s+|around\s+|roughly\s+)?"
-    + _Q_NUMBER + r"(?:\s*(?:-|–|to)\s*" + _Q_NUMBER + r")?"
+    r"\d+(?:\.\d+)?(?:\s*(?:-|–|to)\s*\d+(?:\.\d+)?)?"
     r"|(?:a\s+few|a\s+couple(?:\s+of)?|several|some|"
     + "|".join(_WORD_NUMS) + r")\b)"
 )
@@ -82,20 +77,6 @@ _ITEM_PATTERNS = [
 _BULLET_RE = re.compile(r"^\s*(?:[-*•·]|\d+[.)])\s+")
 _PAID_RE = re.compile(
     r"\b(deposit|already paid|paid upfront|advance payment|prepaid|have paid|we paid|retainer paid)\b", re.I
-)
-_PAYMENT_KIND = r"(?:deposit|retainer|advance payment|payment)"
-_PAYMENT_AMOUNT = (
-    rf"(?:(?:(?:a|an|the) )?<M>(?: {_PAYMENT_KIND})?"
-    rf"|(?:(?:a|an|the) )?{_PAYMENT_KIND} of <M>)"
-)
-_PAID_CONFIRMED_RE = re.compile(
-    rf"(?:(?:(?:we|i) (?:have |had )?(?:already )?paid|already paid|paid upfront|prepaid)"
-    rf":? {_PAYMENT_AMOUNT}"
-    rf"|{_PAYMENT_AMOUNT} (?:(?:has|have|had) (?:already )?been (?:paid|received)"
-    rf"|(?:was|were) (?:already )?(?:paid|received)|(?:already )?paid)"
-    rf"|{_PAYMENT_KIND} (?:already )?paid: <M>)"
-    r"(?: (?:upfront|in advance|yesterday|today|last week|last month)"
-    r"| (?:by|via) (?:bank transfer|wire transfer|cash|check|cheque))*[.!]?", re.I
 )
 _TOTAL_RE = re.compile(r"\b(total|subtotal|budget|balance|altogether)\b", re.I)
 _BILLING_RE = re.compile(
@@ -222,21 +203,10 @@ class Extractor(Protocol):
 # ----------------------------------------------------------------- helpers
 
 def _dec(v: Any) -> Decimal:
-    literal = str(v).strip()
-    if "," in literal and not _GROUPED_NUMBER_RE.fullmatch(literal):
-        raise ValueError(f"ambiguous number grouping: {v!r}")
     try:
-        value = Decimal(literal.replace(",", ""))
+        return Decimal(str(v).replace(",", "").strip())
     except (InvalidOperation, AttributeError):
         raise ValueError(f"not a number: {v!r}")
-    if not value.is_finite():
-        raise ValueError(f"not a finite number: {v!r}")
-    # No accepted invoice can represent more than 28 integer digits in the
-    # existing Decimal context. Refuse before rules summaries or deposit sums
-    # perform arithmetic, including newly recognized exponent notation.
-    if value.adjusted() > 27:
-        raise ValueError(f"number exceeds supported invoice arithmetic range: {v!r}")
-    return value
 
 
 def quantize(value: Decimal, currency: Optional[str]) -> Decimal:
@@ -254,10 +224,7 @@ def parse_money(m: re.Match) -> tuple[Optional[str], Decimal, str]:
     tok = m.group("pre") or m.group("post") or ""
     num = m.group("num") or m.group("num2")
     code = SYMBOLS.get(tok, tok.upper() if tok.upper() in PAYPAL_CURRENCIES else None)
-    sign = m.group("sign")
-    if sign and num.startswith(("+", "-")):
-        raise ValueError("conflicting amount signs")
-    return code, _dec((sign or "") + num), tok
+    return code, _dec(num), tok
 
 
 def parse_qty(raw: str) -> tuple[Optional[Decimal], Optional[str]]:
@@ -270,15 +237,14 @@ def parse_qty(raw: str) -> tuple[Optional[Decimal], Optional[str]]:
     if s in _WORD_NUMS:
         return Decimal(_WORD_NUMS[s]), None
     approx = re.match(r"^(?:~\s*|approx\.?\s*|about\s+|around\s+|roughly\s+)", s)
-    numeric = s[approx.end():] if approx else s
-    rng = re.fullmatch(rf"({_Q_NUMBER})\s*(?:-|–|to)\s*({_Q_NUMBER})", numeric)
+    rng = re.search(r"(\d+(?:\.\d+)?)\s*(?:-|–|to)\s*(\d+(?:\.\d+)?)", s)
     if rng:
-        lo = _dec(rng.group(1))
+        lo = Decimal(rng.group(1))
         return lo, f"range '{raw.strip()}' - used lower bound {lo}; confirm with client"
-    n = re.fullmatch(_Q_NUMBER, numeric)
+    n = re.search(r"\d+(?:\.\d+)?", s)
     if not n:
         return None, f"unreadable quantity '{raw.strip()}'"
-    q = _dec(n.group(0))
+    q = Decimal(n.group(0))
     if approx:
         return q, f"approximate quantity '{raw.strip()}' - used {q}"
     return q, None
@@ -331,32 +297,6 @@ def _signature_name(body: str) -> Optional[str]:
 def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
     """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
     out: list[Issue] = []
-
-    def finite(value: Any) -> bool:
-        return (isinstance(value, (Decimal, int)) and not isinstance(value, bool)
-                and (not isinstance(value, Decimal) or value.is_finite()))
-
-    def money(value: Any, currency: Optional[str], field: str, *, positive: bool) -> bool:
-        if not finite(value):
-            out.append(Issue(field, "error", "Amount must be a finite number."))
-            return False
-        if value < 0 or (positive and value == 0):
-            out.append(Issue(field, "error", "Amount must be positive." if positive else "Prior payment cannot be negative."))
-            return False
-        if currency not in PAYPAL_CURRENCIES:
-            return False  # the currency issue is recorded separately
-        try:
-            rounded = quantize(Decimal(value), currency)
-        except DecimalException:
-            out.append(Issue(field, "error", "Amount is too large to represent at invoice precision."))
-            return False
-        if rounded != value:
-            message = (f"{currency} does not support decimals on PayPal." if currency in ZERO_DECIMAL_CURRENCIES
-                       else f"Amount has fractions smaller than a {currency} currency unit; review it before drafting.")
-            out.append(Issue(field, "error", message))
-            return False
-        return True
-
     if not ex.client_email:
         out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
     elif not EMAIL_RE.fullmatch(ex.client_email):
@@ -367,63 +307,28 @@ def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
         out.append(Issue("client_name", "warning", "No client name found."))
     if not ex.line_items:
         out.append(Issue("line_items", "error", "No priced line items found."))
-    valid_amounts = True
-    currency_amounts: dict[str, list[Decimal]] = {}
     for n, li in enumerate(ex.line_items):
-        qty_ok = finite(li.qty)
-        if not qty_ok:
-            out.append(Issue(f"line_items[{n}].qty", "error", "Quantity is required and must be a finite number."))
-        elif not 0 < li.qty <= 1000000:
-            out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive and no greater than 1000000."))
-            qty_ok = False
-        elif Decimal(li.qty).quantize(Decimal("0.00001")) != li.qty:
-            out.append(Issue(f"line_items[{n}].qty", "error", "Quantity supports at most five decimal places."))
-            qty_ok = False
+        if li.qty is not None and li.qty <= 0:
+            out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+        if li.unit_price <= 0:
+            out.append(Issue(f"line_items[{n}].unit_price", "error", "Unit price must be positive."))
+        if li.currency in ZERO_DECIMAL_CURRENCIES and li.unit_price != li.unit_price.to_integral_value():
+            out.append(Issue(f"line_items[{n}].unit_price", "error", f"{li.currency} does not support decimals on PayPal."))
         if not li.currency:
             out.append(Issue(f"line_items[{n}].currency", "error", "Currency unknown for this item."))
-        elif li.currency not in PAYPAL_CURRENCIES:
-            out.append(Issue(f"line_items[{n}].currency", "error", f"{li.currency} is not a supported invoice currency."))
-        price_ok = money(li.unit_price, li.currency, f"line_items[{n}].unit_price", positive=True)
-        if qty_ok and price_ok:
-            # Refuse implicit sub-unit rounding, including fractional quantities.
-            # This is Ledgerly's exact-value policy, not a claimed PayPal rejection.
-            with localcontext() as ctx:
-                ctx.prec = max(ctx.prec, len(Decimal(li.qty).as_tuple().digits)
-                               + len(Decimal(li.unit_price).as_tuple().digits) + 1)
-                amount = Decimal(li.qty) * Decimal(li.unit_price)
-            amount_ok = money(amount, li.currency, f"line_items[{n}].amount", positive=True)
-            valid_amounts = valid_amounts and amount_ok
-            if amount_ok:
-                currency_amounts.setdefault(li.currency, []).append(amount)
-        else:
-            valid_amounts = False
-    currency_totals: dict[str, Decimal] = {}
-    for currency, amounts in currency_amounts.items():
-        with localcontext() as ctx:
-            ctx.prec = max(ctx.prec, max(len(amount.as_tuple().digits) for amount in amounts)
-                           + len(str(len(amounts))) + 1)
-            total = sum(amounts, Decimal(0))
-        currency_totals[currency] = total
-        if not money(total, currency, f"currency_totals[{currency}]", positive=True):
-            valid_amounts = False
     ccys = ex.currencies()
     if len(ccys) > 1:
         out.append(Issue("currency", "warning",
                          f"Multiple currencies {ccys}; a PayPal invoice has one currency_code, so this will be split into {len(ccys)} invoices."))
-    if not ex.currency:
-        out.append(Issue("currency", "error", "Invoice currency is required."))
-    elif ex.currency not in PAYPAL_CURRENCIES:
+    if ex.currency and ex.currency not in PAYPAL_CURRENCIES:
         out.append(Issue("currency", "error", f"{ex.currency} is not a PayPal-supported currency."))
-    elif ccys and ex.currency not in ccys:
-        out.append(Issue("currency", "error", f"Invoice currency {ex.currency} does not match item currencies {ccys}; review rather than convert the amounts."))
     if ex.due_days is not None and not (0 <= ex.due_days <= 365):
         out.append(Issue("due_days", "error", f"Implausible payment term: {ex.due_days} days."))
-    paid_ok = money(ex.amount_paid, ex.currency, "amount_paid", positive=False)
-    if paid_ok and ex.amount_paid > 0:
+    if ex.amount_paid > 0:
         if len(ccys) > 1:
             out.append(Issue("amount_paid", "error", "Prior payment reported on a multi-currency job; assign it manually."))
-        elif valid_amounts and ex.currency in currency_totals and ex.amount_paid >= currency_totals[ex.currency]:
-            out.append(Issue("amount_paid", "error", f"Reported payment {ex.amount_paid} >= invoice total {currency_totals[ex.currency]}."))
+        elif ex.line_items and ex.amount_paid >= ex.total():
+            out.append(Issue("amount_paid", "error", f"Reported payment {ex.amount_paid} >= invoice total {ex.total()}."))
     return out
 
 
@@ -500,7 +405,6 @@ class RulesExtractor:
         issues: list[Issue] = []
         stated: list[tuple[Optional[str], Decimal]] = []
         paid = Decimal(0)
-        payments: list[tuple[Optional[str], Decimal]] = []
 
         t_items, consumed, t_issues, t_totals = self._table(lines, doc_ccy)
         items += t_items
@@ -515,34 +419,10 @@ class RulesExtractor:
                 continue
             monies = list(MONEY_RE.finditer(line))
             if not monies:
-                if _MONEY_CANDIDATE_RE.search(line):
-                    issues.append(Issue("line_items", "error", f"Ambiguous monetary amount; review the entire priced line: {line!r}"))
                 continue
-            try:
-                ccy, amt, tok = parse_money(monies[0])
-            except ValueError as error:
-                issues.append(Issue("line_items", "error", f"Unreadable monetary amount ({error}); review line: {line!r}"))
-                continue
-            if tok == "$" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES:
-                ccy = doc_ccy
+            ccy, amt, tok = parse_money(monies[0])
             if _PAID_RE.search(line):
-                # A payment label is not evidence that money was received. Keep
-                # uncertain language out of amount_paid and require the existing
-                # review flow before a draft can queue an external-payment record.
-                # Match the complete statement, not a paid phrase embedded in
-                # a condition, quotation, request or unsettled payment report.
-                statement = re.sub(r"\s+", " ", line[:monies[0].start()] + "<M>" + line[monies[0].end():])
-                if len(monies) == 1 and _PAID_CONFIRMED_RE.fullmatch(statement):
-                    payments.append((ccy, amt))
-                    try:
-                        valid_payment = amt >= 0 and quantize(amt, ccy) == amt
-                    except DecimalException:
-                        valid_payment = False
-                    if not valid_payment:
-                        issues.append(Issue("amount_paid", "error", f"Prior payment {ccy} {amt} must be nonnegative and exactly representable in its currency; review it before drafting."))
-                else:
-                    issues.append(Issue("amount_paid", "error",
-                                        f"Prior payment is not unambiguously confirmed; review the amount already received: {line!r}"))
+                paid += amt
                 continue
             if _TOTAL_RE.search(line):
                 stated.append((ccy, amt))
@@ -559,15 +439,6 @@ class RulesExtractor:
                 sev = "error" if item.qty is None else "warning"
                 issues.append(Issue(f"line_items[{len(items)}].qty", sev, reason))
             items.append(item)
-        if payments:
-            with localcontext() as ctx:
-                ctx.prec = max(ctx.prec, max(len(amount.as_tuple().digits) for _, amount in payments)
-                               + len(str(len(payments))) + 1)
-                paid = sum((amount for _, amount in payments), Decimal(0))
-            item_currencies = {item.currency for item in items}
-            payment_currencies = {currency for currency, _ in payments}
-            if len(item_currencies) != 1 or payment_currencies != item_currencies:
-                issues.append(Issue("amount_paid", "error", f"Prior payment currencies {sorted(payment_currencies)} do not match a single item currency {sorted(item_currencies, key=str)}; assign payments manually without currency conversion."))
         return items, paid, stated, issues
 
     @staticmethod
@@ -621,23 +492,15 @@ class RulesExtractor:
                 continue
             mm = MONEY_RE.search(raw_price)
             if mm:
-                try:
-                    ccy, price, tok = parse_money(mm)
-                except ValueError as error:
-                    issues.append(Issue("line_items", "error", f"Unreadable table amount ({error}): {raw_price!r}"))
-                    continue
+                ccy, price, tok = parse_money(mm)
                 if tok == "$" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES and doc_ccy != "USD":
                     ccy = doc_ccy
             else:
-                bare = re.fullmatch(_NUM, raw_price)
+                bare = re.search(_NUM, raw_price)
                 if not bare:
-                    issues.append(Issue("line_items", "error", f"No unambiguous price in table row: {lines[i].strip()!r}"))
+                    issues.append(Issue("line_items", "warning", f"No price in table row: {lines[i].strip()!r}"))
                     continue
-                try:
-                    ccy, price = None, _dec(bare.group(0))
-                except ValueError as error:
-                    issues.append(Issue("line_items", "error", f"Unreadable table amount ({error}): {raw_price!r}"))
-                    continue
+                ccy, price = None, _dec(bare.group(0))
             if _TOTAL_RE.search(desc):
                 totals.append((ccy or doc_ccy, price))
                 continue

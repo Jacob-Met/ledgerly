@@ -1,0 +1,353 @@
+{
+  "expectation": "baseline",
+  "browserVersion": "Chrome/154.0.8037.98",
+  "dist": "/Users/me/hamon-ledgerly-browser-review-c945953fdeb7/baseline/web-demo/dist",
+  "workerEntry": "engine.worker-Cg_u2_O0.js",
+  "workerSha256": "8a6932cd6fb60ae225f0f3c18bec43e7e63f8276686d7451561efa8d30b73907",
+  "scriptSha256": "3758f4f580987a5ba460a1e2824cd652deb6b21830d98cf0b64cb77ead85513b",
+  "cases": [
+    {
+      "name": "source-load-retry",
+      "passed": false,
+      "firstFailure": true,
+      "firstRetryable": true,
+      "recovered": false,
+      "sourceAttempts": 1,
+      "workerEntries": 1,
+      "state": {
+        "status": "Error: Error: Python source agent.py: HTTP 503",
+        "engine": "Python engine not loaded",
+        "restartEnabled": true,
+        "analyzeEnabled": false,
+        "email": "",
+        "invoices": 0,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 0,
+            "id": 2,
+            "action": "init"
+          }
+        ],
+        "generations": 1
+      },
+      "offOrigin": [],
+      "pageErrors": [],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "retry-source",
+          "path": "/"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/assets/index-gV31LUPJ.js"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/assets/index-B9BPQBIb.css"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/assets/engine.worker-Cg_u2_O0.js"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/favicon.svg"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/agent.py"
+        }
+      ]
+    },
+    {
+      "name": "fatal-startup-recovery",
+      "passed": false,
+      "failed": true,
+      "settled": false,
+      "recovered": false,
+      "sourceAttempts": 0,
+      "workerEntries": 1,
+      "state": {
+        "status": "Python worker failed: Uncaught Error: Injected actual worker startup exception",
+        "engine": "Python engine not loaded",
+        "restartEnabled": false,
+        "analyzeEnabled": false,
+        "email": "",
+        "invoices": 0,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          }
+        ],
+        "generations": 1
+      },
+      "offOrigin": [],
+      "pageErrors": [
+        "Injected actual worker startup exception"
+      ],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "fatal-init",
+          "path": "/"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/assets/index-gV31LUPJ.js"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/assets/index-B9BPQBIb.css"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/assets/engine.worker-Cg_u2_O0.js"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/favicon.svg"
+        }
+      ]
+    },
+    {
+      "name": "refused-initialization",
+      "passed": false,
+      "sourceAttempts": 0,
+      "workerEntries": 1,
+      "state": {
+        "status": "Local sandbox ready. No external service is connected.",
+        "engine": "PYTHON READY / OFFLINE",
+        "restartEnabled": false,
+        "analyzeEnabled": true,
+        "email": "",
+        "invoices": 0,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          }
+        ],
+        "generations": 1
+      },
+      "offOrigin": [],
+      "pageErrors": [],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "refused-init",
+          "path": "/"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/assets/index-gV31LUPJ.js"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/assets/index-B9BPQBIb.css"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/assets/engine.worker-Cg_u2_O0.js"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/favicon.svg"
+        }
+      ]
+    },
+    {
+      "name": "in-flight-session-recovery",
+      "passed": false,
+      "failed": true,
+      "settled": false,
+      "recovered": false,
+      "retainedBefore": true,
+      "retainedAfter": false,
+      "staleActionsDisabled": false,
+      "emptyAfter": false,
+      "noReplay": false,
+      "staleErrorIgnored": false,
+      "failedState": {
+        "status": "Python worker failed: Uncaught Error: Injected actual in-flight worker exception",
+        "engine": "PYTHON READY / OFFLINE",
+        "restartEnabled": false,
+        "analyzeEnabled": true,
+        "email": "Fictional retained source\nFrom: Review <billing@example.test>\n2 hours of analysis at $100/hr\nNet 15",
+        "invoices": 1,
+        "activeLedgerButtons": 1,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 0,
+            "id": 2,
+            "action": "analyze"
+          },
+          {
+            "generation": 0,
+            "id": 3,
+            "action": "draft"
+          },
+          {
+            "generation": 0,
+            "id": 4,
+            "action": "approve"
+          },
+          {
+            "generation": 0,
+            "id": 5,
+            "action": "analyze"
+          }
+        ],
+        "generations": 1
+      },
+      "sourceAttempts": 1,
+      "workerEntries": 1,
+      "state": {
+        "status": "Python worker failed: Uncaught Error: Injected actual in-flight worker exception",
+        "engine": "PYTHON READY / OFFLINE",
+        "restartEnabled": false,
+        "analyzeEnabled": true,
+        "email": "Fictional retained source\nFrom: Review <billing@example.test>\n2 hours of analysis at $100/hr\nNet 15",
+        "invoices": 1,
+        "activeLedgerButtons": 1,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 0,
+            "id": 2,
+            "action": "analyze"
+          },
+          {
+            "generation": 0,
+            "id": 3,
+            "action": "draft"
+          },
+          {
+            "generation": 0,
+            "id": 4,
+            "action": "approve"
+          },
+          {
+            "generation": 0,
+            "id": 5,
+            "action": "analyze"
+          }
+        ],
+        "generations": 1
+      },
+      "offOrigin": [],
+      "pageErrors": [
+        "Injected actual in-flight worker exception"
+      ],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "fatal-action",
+          "path": "/"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/assets/index-gV31LUPJ.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/assets/index-B9BPQBIb.css"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/assets/engine.worker-Cg_u2_O0.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/favicon.svg"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/extract.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/paypal.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/bridge.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/fixtures/01_simple_usd_hourly.txt"
+        }
+      ]
+    }
+  ],
+  "allPassed": false
+}

@@ -1,0 +1,497 @@
+{
+  "expectation": "candidate",
+  "selectedCase": "all",
+  "browserVersion": "Chrome/154.0.8037.98",
+  "dist": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/dist",
+  "appEntry": "index-CjlcxCVy.js",
+  "appSha256": "366d982ca9053e42f67162896f30d9cf0d36d8a22e25f66ae0cf4e801d811f18",
+  "appUnchanged": true,
+  "workerEntry": "engine.worker-x2BNq2jZ.js",
+  "workerSha256": "d72ef16b79626487e65308cba5df9c448604d00e070e6ca5ac880b807a38cfb3",
+  "scriptSha256": "88506aa2039dfee1165e6ee3bb49c425ba7da6ad3fb7655f8a7da60db3b9c13c",
+  "cases": [
+    {
+      "name": "source-load-retry",
+      "passed": true,
+      "firstFailure": true,
+      "firstRetryable": true,
+      "recovered": true,
+      "sourceAttempts": 2,
+      "workerEntries": 1,
+      "state": {
+        "status": "Local sandbox ready. No external service is connected.",
+        "engine": "PYTHON READY / OFFLINE",
+        "restartEnabled": false,
+        "analyzeEnabled": true,
+        "email": "",
+        "analysis": "Load the engine, then analyze a visitor-provided job email. Results are computed by Ledgerly's RulesExtractor.",
+        "invoices": 0,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 0,
+            "id": 2,
+            "action": "init"
+          }
+        ],
+        "generations": 1
+      },
+      "offOrigin": [],
+      "pageErrors": [],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "retry-source",
+          "path": "/"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/assets/index-CjlcxCVy.js"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/assets/index-xwhl2_jp.css"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/favicon.svg"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/extract.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/ledgerly/paypal.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/bridge.py"
+        },
+        {
+          "mode": "retry-source",
+          "path": "/python/review.py"
+        }
+      ]
+    },
+    {
+      "name": "fatal-startup-recovery",
+      "passed": true,
+      "failed": true,
+      "settled": true,
+      "recovered": true,
+      "sourceAttempts": 1,
+      "workerEntries": 2,
+      "state": {
+        "status": "New empty sandbox ready. Your source email and correction fields are preserved.",
+        "engine": "PYTHON READY / OFFLINE",
+        "restartEnabled": false,
+        "analyzeEnabled": true,
+        "email": "",
+        "analysis": "New empty sandbox ready. Analyze the retained source email again.",
+        "invoices": 0,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 1,
+            "id": 2,
+            "action": "init"
+          }
+        ],
+        "generations": 2
+      },
+      "offOrigin": [],
+      "pageErrors": [],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "fatal-init",
+          "path": "/"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/assets/index-CjlcxCVy.js"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/assets/index-xwhl2_jp.css"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/favicon.svg"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/python/ledgerly/extract.py"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/python/ledgerly/paypal.py"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/python/bridge.py"
+        },
+        {
+          "mode": "fatal-init",
+          "path": "/python/review.py"
+        }
+      ]
+    },
+    {
+      "name": "refused-initialization",
+      "passed": true,
+      "sourceAttempts": 0,
+      "workerEntries": 1,
+      "state": {
+        "status": "Injected sandbox initialization refusal",
+        "engine": "Python engine not loaded",
+        "restartEnabled": true,
+        "analyzeEnabled": false,
+        "email": "",
+        "analysis": "Load the engine, then analyze a visitor-provided job email. Results are computed by Ledgerly's RulesExtractor.",
+        "invoices": 0,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          }
+        ],
+        "generations": 1
+      },
+      "offOrigin": [],
+      "pageErrors": [],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "refused-init",
+          "path": "/"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/assets/index-CjlcxCVy.js"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/assets/index-xwhl2_jp.css"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/favicon.svg"
+        },
+        {
+          "mode": "refused-init",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        }
+      ]
+    },
+    {
+      "name": "in-flight-session-recovery",
+      "passed": true,
+      "failed": true,
+      "settled": true,
+      "recovered": true,
+      "retainedBefore": true,
+      "retainedAfter": true,
+      "staleActionsDisabled": true,
+      "emptyAfter": true,
+      "noReplay": true,
+      "staleErrorIgnored": true,
+      "analysisCurrent": true,
+      "failedState": {
+        "status": "The Python worker stopped: Uncaught Error: Injected actual in-flight worker exception The in-memory sandbox is unavailable. Restart opens an empty sandbox. Your source email and correction fields stay here; no action will be replayed.",
+        "engine": "PYTHON UNAVAILABLE",
+        "restartEnabled": true,
+        "analyzeEnabled": false,
+        "email": "Fictional retained source\nFrom: Review <billing@example.test>\n2 hours of analysis at $100/hr\nNet 15",
+        "analysis": "The Python session is unavailable. Your source email is still here. Restart, then analyze it again.",
+        "invoices": 1,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 0,
+            "id": 2,
+            "action": "analyze"
+          },
+          {
+            "generation": 0,
+            "id": 3,
+            "action": "draft"
+          },
+          {
+            "generation": 0,
+            "id": 4,
+            "action": "approve"
+          },
+          {
+            "generation": 0,
+            "id": 5,
+            "action": "analyze"
+          }
+        ],
+        "generations": 1
+      },
+      "sourceAttempts": 2,
+      "workerEntries": 2,
+      "state": {
+        "status": "New empty sandbox ready. Your source email and correction fields are preserved.",
+        "engine": "PYTHON READY / OFFLINE",
+        "restartEnabled": false,
+        "analyzeEnabled": true,
+        "email": "Fictional retained source\nFrom: Review <billing@example.test>\n2 hours of analysis at $100/hr\nNet 15",
+        "analysis": "New empty sandbox ready. Analyze the retained source email again.",
+        "invoices": 0,
+        "activeLedgerButtons": 0,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 0,
+            "id": 2,
+            "action": "analyze"
+          },
+          {
+            "generation": 0,
+            "id": 3,
+            "action": "draft"
+          },
+          {
+            "generation": 0,
+            "id": 4,
+            "action": "approve"
+          },
+          {
+            "generation": 0,
+            "id": 5,
+            "action": "analyze"
+          },
+          {
+            "generation": 1,
+            "id": 6,
+            "action": "init"
+          }
+        ],
+        "generations": 2
+      },
+      "offOrigin": [],
+      "pageErrors": [],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "fatal-action",
+          "path": "/"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/assets/index-CjlcxCVy.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/assets/index-xwhl2_jp.css"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/favicon.svg"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/extract.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/paypal.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/bridge.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/review.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/fixtures/01_simple_usd_hourly.txt"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/extract.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/ledgerly/paypal.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/bridge.py"
+        },
+        {
+          "mode": "fatal-action",
+          "path": "/python/review.py"
+        }
+      ]
+    }
+  ],
+  "allPassed": true
+}

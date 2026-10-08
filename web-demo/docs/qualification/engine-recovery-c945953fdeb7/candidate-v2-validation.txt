@@ -1,0 +1,41 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo[39m
+
+ [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m tests/engine-recovery.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 117[2mms[22m[39m
+ [32m✓[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 1347[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m      Tests [22m [1m[32m17 passed[39m[22m[90m (17)[39m
+[2m   Start at [22m 01:21:38
+[2m   Duration [22m 1.54s[2m (tests 72%, transform 15%, import 13%)[22m
+
+
+> ledgerly-offline-browser-demo@0.1.0 build
+> node scripts/stage-python.mjs && tsc --noEmit && vite build
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+vite v8.3.3 building client environment for production...
+transforming...
+[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+✓ 6 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/__vite-browser-external-BJo4V12q.js   0.11 kB
+dist/index.html                                   5.67 kB │ gzip: 2.36 kB
+dist/assets/engine.worker-Da9iqCup.js            20.17 kB
+dist/assets/index-B9BPQBIb.css                    7.32 kB │ gzip: 2.30 kB
+dist/assets/index-BrYsludV.js                    12.05 kB │ gzip: 4.57 kB
+
+✓ built in 132ms

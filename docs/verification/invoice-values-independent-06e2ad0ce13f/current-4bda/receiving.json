@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "decision": "accepted_current_main_extraction_tuple",
+  "recorded_utc": "2026-10-08T10:59:31.221572+00:00",
+  "reviewer": "/root/github_production",
+  "author": "/root/continuity_production",
+  "baseline_commit": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "accepted_author_commit": "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f",
+  "accepted_author_tree": "d99d61a6f1ae39e8c9a1fc572bbd0a037c47522e",
+  "source": {
+    "agent.py": {
+      "git_blob": "1af73175465d737beb88a2100f637a1437a5dd47",
+      "sha256": "d029d1be3f93f3c38ce5fdd54d7e7468e9ac6a964f7fe63c1bed50f5b139c4b6"
+    },
+    "extract.py": {
+      "git_blob": "100e581d3ef0d99555f49264859d01b535c6094f",
+      "sha256": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16"
+    },
+    "paypal.py": {
+      "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f",
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+    }
+  },
+  "owner_preservation": {
+    "ledger_entry_class_exact": true,
+    "deadline_assignment_and_entry_construction_exact": true,
+    "only_changed_agent_method": "tool_create_invoice",
+    "confirmation_assignments_exact": [
+      "_PAID_RE",
+      "_PAYMENT_KIND",
+      "_PAYMENT_AMOUNT",
+      "_PAID_CONFIRMED_RE"
+    ],
+    "confirmation_if_condition_exact": true,
+    "uncertain_statement_else_ast_exact": true
+  },
+  "focused_test_runs": {
+    "candidate": {
+      "passed": 56,
+      "failed": 0,
+      "subtests_passed": 32,
+      "log": "candidate-focused-owner-and-values.log"
+    },
+    "exact_main": {
+      "passed": 34,
+      "failed": 22,
+      "subtests_passed": 32,
+      "log": "main-focused-owner-and-values.log"
+    },
+    "unchanged_owner_test_files": [
+      "tests/test_due_date_receiving.py",
+      "tests/test_prior_payment_language.py"
+    ],
+    "unchanged_original_reviewer_cases": 31
+  },
+  "confirmation_probes": {
+    "candidate_passed": 11,
+    "candidate_failed": 0,
+    "main_passed": 10,
+    "main_failed": 1,
+    "main_failing_case": "confirmed-foreign",
+    "source": "confirmed-payment-probe.py",
+    "source_sha256": "b7331702dd790b36a5c052d4a2a20e34eea4b13134c1a45ba9d7e03f0577cc26",
+    "runtime": "Python 3.12.14"
+  },
+  "snapshot_inputs_unchanged": true,
+  "author_source_unchanged_after_receiving": true,
+  "new_source_commit_verified_without_source_difference": true,
+  "conflict_provenance": "One extractor conflict resolved by author before working-file freeze; receiver inspected preserved owner fullmatch gate with exact-value collection inside its confirmed branch. Source tuple later committed unchanged.",
+  "mutations_by_reviewer": "No production source, project tests, author tree, GitHub publication or merge mutations. Local receiving snapshots and probes only.",
+  "scope": "Exact main4bda extraction composition. Current webhook combination is a separate receipt. Offline SandboxMock only.",
+  "integration": "Copy this current-4bda directory unchanged into the existing docs/verification/invoice-values-independent-06e2ad0ce13f evidence venue. Artifact manifest is relative to repository root."
+}

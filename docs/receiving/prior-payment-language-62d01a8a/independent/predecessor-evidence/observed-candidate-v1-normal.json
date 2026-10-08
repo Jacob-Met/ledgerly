@@ -1,0 +1,24 @@
+{
+  "source_root": "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/observed-candidate-v1",
+  "mode": "normal",
+  "command": [
+    "python",
+    "independent-payment-review.py"
+  ],
+  "exit_code": 1,
+  "signal": null,
+  "source_sha256": {
+    "ledgerly/extract.py": "1a22a7e9b7ace7cd7b198958d56fe7c374a4399da8bdc54d58a88c990f55d11c",
+    "ledgerly/agent.py": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+    "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "source_unchanged": true,
+  "evaluator_sha256": "9ab16e70c968cc678bff03c80417415f0521d272be1cae092885567a987f566e",
+  "log": "observed-candidate-v1-normal.log",
+  "log_sha256": "ed0f720f2ee868fd6a638bcc94dbcac722951ba16c5e0611f35909735ea8e4e5",
+  "summary": [
+    "Ran 11 tests in 0.007s",
+    "FAILED (failures=12)"
+  ]
+}

@@ -1,0 +1,64 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo[39m
+
+ [31m❯[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m1 failed[39m[2m | [22m[33m4 skipped[39m[2m)[22m[32m 46[2mms[22m[39m
+   [2m[90m↓[39m[22m actual startup hook settles a worker error, retains intake and enables an explicit empty restart
+   [2m[90m↓[39m[22m actual action hook disables the lost ledger and settles a pending draft without replay
+   [2m[90m↓[39m[22m actual startup hook refuses a completed transport whose initialization result is not ok
+   [2m[90m↓[39m[22m actual worker startup retries a rejected runtime load on the next explicit init
+[31m   [31m×[31m retains typed corrections across failure and reopens analysis only on explicit revalidation[39m[32m 45[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mretains typed corrections across failure and reopens analysis only on explicit revalidation
+[31m[1mAssertionError[22m: expected { …(19) } to be null[39m
+
+[32m- Expected:[39m
+null
+
+[31m+ Received:[39m
+{
+  "addEventListener": [Function addEventListener],
+  "checked": false,
+  "classList": {
+    "add": [Function add],
+    "remove": [Function remove],
+  },
+  "closest": [Function closest],
+  "dataset": {},
+  "disabled": true,
+  "elements": {
+    "namedItem": [Function namedItem],
+  },
+  "getAttribute": [Function getAttribute],
+  "handlers": {},
+  "id": "engine-recovery-analysis",
+  "innerHTML": "",
+  "insertAdjacentHTML": [Function insertAdjacentHTML],
+  "querySelectorAll": [Function querySelectorAll],
+  "remove": [Function remove],
+  "removeAttribute": [Function removeAttribute],
+  "setAttribute": [Function setAttribute],
+  "tagName": "P",
+  "textContent": "New empty sandbox ready. Your corrections are retained; confirm and check them again.",
+  "value": "",
+}
+
+[36m [2m❯[22m tests/engine-recovery.test.ts:[2m253:71[22m[39m
+    [90m251|[39m   fixture.workers[1].reply(2, {ok: true, state: empty.state, result: {…
+    [90m252|[39m   await rechecked;
+    [90m253|[39m   expect(fixture.document.querySelector('#engine-recovery-analysis')).…
+    [90m   |[39m                                                                       [31m^[39m
+    [90m254|[39m   expect(fixture.element('#draft').disabled).toBe(false);
+    [90m255|[39m   const drafted = fixture.click('#draft');
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[33m4 skipped[39m[90m (5)[39m
+[2m   Start at [22m 02:50:24
+[2m   Duration [22m 342ms[2m (import 52%, transform 29%, tests 19%, worker 1%)[22m
+
+
+exit=1

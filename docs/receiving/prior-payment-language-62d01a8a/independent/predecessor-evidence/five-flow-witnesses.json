@@ -1,0 +1,26 @@
+{
+  "capture_type": "Structured summary of the completed native probe tool observation",
+  "probe_script": "probe-observed-candidate.py",
+  "observed_extract_blob": "ca861ba823aa534933b38fd587e910c39c30d06d",
+  "observed_extract_sha256": "1a22a7e9b7ace7cd7b198958d56fe7c374a4399da8bdc54d58a88c990f55d11c",
+  "agent_blob": "19f261b1430769952057697d68472722a11cf643",
+  "statements": [
+    "We'll have paid a $500 deposit by Friday.",
+    "We’ll have paid a $500 deposit by Friday.",
+    "Earlier you wrote 'we paid a $500 deposit' for another project.",
+    "Earlier you wrote ‘we paid a $500 deposit’ for another project.",
+    "Had we paid a $500 deposit, we'd have a receipt."
+  ],
+  "observed_for_each_statement": {
+    "amount_paid": "500",
+    "amount_paid_errors": [],
+    "needs_review": false,
+    "before_mock_approval": {
+      "drafts": 1,
+      "pending": 1,
+      "mock_provider_records": 2
+    },
+    "mock_external_payment_amounts_after_fixture_approval": ["500"]
+  },
+  "note": "These five initial flow witnesses are covered by the later independent evaluator and are not counted as additional independent methods. No real provider or network operation occurred."
+}

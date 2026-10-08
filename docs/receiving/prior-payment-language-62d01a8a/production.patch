@@ -1,0 +1,44 @@
+diff --git a/ledgerly/extract.py b/ledgerly/extract.py
+index a0130ab..c4ee64a 100644
+--- a/ledgerly/extract.py
++++ b/ledgerly/extract.py
+@@ -78,6 +78,20 @@ _BULLET_RE = re.compile(r"^\s*(?:[-*•·]|\d+[.)])\s+")
+ _PAID_RE = re.compile(
+     r"\b(deposit|already paid|paid upfront|advance payment|prepaid|have paid|we paid|retainer paid)\b", re.I
+ )
++_PAYMENT_KIND = r"(?:deposit|retainer|advance payment|payment)"
++_PAYMENT_AMOUNT = (
++    rf"(?:(?:(?:a|an|the) )?<M>(?: {_PAYMENT_KIND})?"
++    rf"|(?:(?:a|an|the) )?{_PAYMENT_KIND} of <M>)"
++)
++_PAID_CONFIRMED_RE = re.compile(
++    rf"(?:(?:(?:we|i) (?:have |had )?(?:already )?paid|already paid|paid upfront|prepaid)"
++    rf":? {_PAYMENT_AMOUNT}"
++    rf"|{_PAYMENT_AMOUNT} (?:(?:has|have|had) (?:already )?been (?:paid|received)"
++    rf"|(?:was|were) (?:already )?(?:paid|received)|(?:already )?paid)"
++    rf"|{_PAYMENT_KIND} (?:already )?paid: <M>)"
++    r"(?: (?:upfront|in advance|yesterday|today|last week|last month)"
++    r"| (?:by|via) (?:bank transfer|wire transfer|cash|check|cheque))*[.!]?", re.I
++)
+ _TOTAL_RE = re.compile(r"\b(total|subtotal|budget|balance|altogether)\b", re.I)
+ _BILLING_RE = re.compile(
+     r"\b(?:send|email|address|forward)\s+(?:the\s+|your\s+|all\s+)?invoices?\s+to\s+(" + EMAIL_RE.pattern + ")",
+@@ -422,7 +436,17 @@ class RulesExtractor:
+                 continue
+             ccy, amt, tok = parse_money(monies[0])
+             if _PAID_RE.search(line):
+-                paid += amt
++                # A payment label is not evidence that money was received. Keep
++                # uncertain language out of amount_paid and require the existing
++                # review flow before a draft can queue an external-payment record.
++                # Match the complete statement, not a paid phrase embedded in
++                # a condition, quotation, request or unsettled payment report.
++                statement = re.sub(r"\s+", " ", line[:monies[0].start()] + "<M>" + line[monies[0].end():])
++                if len(monies) == 1 and _PAID_CONFIRMED_RE.fullmatch(statement):
++                    paid += amt
++                else:
++                    issues.append(Issue("amount_paid", "error",
++                                        f"Prior payment is not unambiguously confirmed; review the amount already received: {line!r}"))
+                 continue
+             if _TOTAL_RE.search(line):
+                 stated.append((ccy, amt))

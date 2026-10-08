@@ -1,0 +1,24 @@
+[
+  {
+    "version": "candidate",
+    "started_utc": "2026-10-08T10:56:18.267658+00:00",
+    "exit_code": 0,
+    "passed": 11,
+    "failed": 0,
+    "failed_cases": [],
+    "log": "candidate-confirmation-probe.json",
+    "script_sha256": "b7331702dd790b36a5c052d4a2a20e34eea4b13134c1a45ba9d7e03f0577cc26"
+  },
+  {
+    "version": "main",
+    "started_utc": "2026-10-08T10:56:18.349539+00:00",
+    "exit_code": 1,
+    "passed": 10,
+    "failed": 1,
+    "failed_cases": [
+      "confirmed-foreign"
+    ],
+    "log": "main-confirmation-probe.json",
+    "script_sha256": "b7331702dd790b36a5c052d4a2a20e34eea4b13134c1a45ba9d7e03f0577cc26"
+  }
+]

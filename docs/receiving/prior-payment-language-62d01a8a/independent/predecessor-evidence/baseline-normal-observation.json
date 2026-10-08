@@ -1,0 +1,19 @@
+{
+  "capture_type": "Structured summary of the completed native tool observation; full raw output remains in the session transcript",
+  "command": ["python", "independent-payment-review.py"],
+  "source_root": "baseline",
+  "source_context": "baseline-pins.json",
+  "exit_code": 1,
+  "tests_run": 11,
+  "passing_methods": 4,
+  "nonpassing_methods": 7,
+  "failure_entries": 15,
+  "error_entries": 0,
+  "passing_method_names": [
+    "test_explicit_human_prior_payment_amount_is_used_only_after_approval",
+    "test_human_correction_is_bound_to_original_source",
+    "test_original_supported_receipt_still_requires_explicit_approval",
+    "test_quoted_email_thread_remains_excluded_without_fake_payment"
+  ],
+  "note": "This receipt records the already observed run; it does not imply an additional workload or reconstruct a raw execution log."
+}

@@ -1,0 +1,18 @@
+{
+  "repository": "Jacob-Met/ledgerly",
+  "commitShaQueried": "84ac59dbcd20b96c8baf846a03f574840ea174f8",
+  "workflow_runs": [
+    {
+      "id": 37756919054,
+      "name": "Verify Ledgerly",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 12,
+      "jobs_url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/runs/37756919054/jobs",
+      "logs_url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/runs/37756919054/logs",
+      "workflow_id": 377118106
+    }
+  ],
+  "workflowUrl": "https://github.com/Jacob-Met/ledgerly/actions/runs/37756919054",
+  "scope": "The source-only published head. Subsequent qualification-only publication is a separate commit."
+}

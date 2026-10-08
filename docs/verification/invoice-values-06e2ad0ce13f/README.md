@@ -93,7 +93,7 @@ approval of a valid fractional invoice with a matching deposit and balance.
 The inherited two-test
 Pyodide workflow also passed on the initial candidate. No live PayPal call occurred.
 
-## Current-main composition
+## Retained composition with main 1871942
 
 The accepted component was cleanly merged with current `main`
 `1871942ecb19aa9756bb36b380795bc6c7bf238d`, retaining the published invoice-correction
@@ -109,6 +109,40 @@ step and valid corrected values consuming their checked revision only once. The
 exact composed module, bridge and review-adapter hashes are recorded in
 `pyodide-receiving.json`. `current-main-composition.json` and
 `current-main-native-tests.txt` retain the source comparison and full native result.
+
+## Current-main composition with 4bdaaa9
+
+An authoritative GitHub branch read then returned main
+`4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e`, including the merged invoice-deadline,
+browser-recovery and prior-payment-language contributions. The previous Git remote
+head read was stale. The new exact main commit was fetched and composed at local
+source commit `22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f`.
+
+The only merge conflict was the rules payment-admission block. The current owner's
+complete-statement confirmation remains the gate: only a confirmed payment enters
+this contribution's per-payment currency and precision validation and exact sum.
+An uncertain statement still leaves that payment out of `amount_paid` and requires
+review. No confirmation-language pattern was relaxed. Serialized positive-term
+invoice deadlines and all current reminder and browser-recovery source are retained.
+
+On this composition, **197 native tests and 34 subtests pass**, including the
+unchanged deadline and prior-payment-language owner tests and all 31 independent
+invoice-value cases. The actual current Pyodide bridge/review receiving again
+passes **10 checks**. Exact source hashes and raw results are in
+`current-4bda-composition.json`, `current-4bda-native-tests.txt` and
+`current-4bda-pyodide.json`. The earlier component and main-1871942 receipts remain
+unchanged as evidence of the versions they actually exercised.
+
+Independent receiving accepted this exact composition: the unchanged owner
+payment-language and deadline tests plus the original 31 invoice-value cases pass
+**56 tests and 32 subtests**; the same set has 22 failures on untouched main 4bdaaa9.
+A further **11 confirmation/value/deadline probes pass**. They verify that confirmed
+foreign, malformed, subunit and negative payments still hold the job before requests,
+uncertain statements leave their payment out of `amount_paid`, and a confirmed
+USD 25 deposit preserves the original deadline through delayed approval. The
+unchanged source patterns, uncertainty branch and deadline construction were also
+checked directly. The complete focused receipt is in
+`../invoice-values-independent-06e2ad0ce13f/current-4bda/`.
 
 ## Integration boundary
 

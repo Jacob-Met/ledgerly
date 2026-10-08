@@ -1,0 +1,99 @@
+{
+  "observed_utc": "2026-10-08T10:54:14.384052+00:00",
+  "baseline_commit": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "author_head_during_merge": "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f",
+  "source": {
+    "agent.py": {
+      "git_blob": "1af73175465d737beb88a2100f637a1437a5dd47",
+      "sha256": "d029d1be3f93f3c38ce5fdd54d7e7468e9ac6a964f7fe63c1bed50f5b139c4b6"
+    },
+    "extract.py": {
+      "git_blob": "100e581d3ef0d99555f49264859d01b535c6094f",
+      "sha256": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16"
+    },
+    "paypal.py": {
+      "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f",
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+    }
+  },
+  "owner_proof": {
+    "ledger_entry_class_exact": true,
+    "deadline_assignment_and_entry_construction_exact": true,
+    "only_changed_agent_method": "tool_create_invoice",
+    "confirmation_assignments_exact": [
+      "_PAID_RE",
+      "_PAYMENT_KIND",
+      "_PAYMENT_AMOUNT",
+      "_PAID_CONFIRMED_RE"
+    ],
+    "confirmation_if_condition_exact": true,
+    "uncertain_statement_else_ast_exact": true
+  },
+  "snapshot_inputs": {
+    "main": {
+      "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "ledgerly/__pycache__/__init__.cpython-314.pyc": "f7c090390db8408e8b90c9a828f07eb8f1bc8418a21eed2f3e2bfe3c8aea689b",
+      "ledgerly/__pycache__/agent.cpython-314.pyc": "47b2b6b4768c4c78b4723356bfcce16dc743a4ea0248745886c2c6af8af3c387",
+      "ledgerly/__pycache__/extract.cpython-314.pyc": "19832d75eb377890d10837e6698f05e6416ae140e69afd4c44f2d4f7c07cbf11",
+      "ledgerly/__pycache__/paypal.cpython-314.pyc": "19776bf2c567efda898ab2756800313f68d8372f09f83e88e9741e5b463945e4",
+      "ledgerly/agent.py": "b70cc42cc5563c7037b8fc15093defffcabc76fe007349c90059286570c8ede2",
+      "ledgerly/demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+      "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+      "pyproject.toml": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+      "tests/conftest.py": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+      "tests/test_due_date_receiving.py": "716d05966eda100eb096d7fd0331eff97bc14ac7a275f0465e6cbdeca6ecf89b",
+      "tests/test_invoice_values_followup_receiving.py": "df86a30cda40672e954ea7e05b970dc07f0497e55ed8fc93f7705bf4260f1ee1",
+      "tests/test_invoice_values_receiving.py": "3ae1120ecbc50a7ba4029e880e901747788a5b4a294f39100cd58335a7fb4edd",
+      "tests/test_money_token_receiving.py": "8ba8e63f2b371845e9680ca2f6e9df28d7000c31ce3744f39e7179aade165814",
+      "tests/test_prior_payment_language.py": "da54e63f8d0d1c49159ec6f2e4992a478ac0b3af2439fd069bd812b278886f1e",
+      "web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    },
+    "candidate": {
+      "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "ledgerly/__pycache__/__init__.cpython-314.pyc": "f7c090390db8408e8b90c9a828f07eb8f1bc8418a21eed2f3e2bfe3c8aea689b",
+      "ledgerly/__pycache__/agent.cpython-314.pyc": "47b2b6b4768c4c78b4723356bfcce16dc743a4ea0248745886c2c6af8af3c387",
+      "ledgerly/__pycache__/extract.cpython-314.pyc": "19832d75eb377890d10837e6698f05e6416ae140e69afd4c44f2d4f7c07cbf11",
+      "ledgerly/__pycache__/paypal.cpython-314.pyc": "19776bf2c567efda898ab2756800313f68d8372f09f83e88e9741e5b463945e4",
+      "ledgerly/agent.py": "d029d1be3f93f3c38ce5fdd54d7e7468e9ac6a964f7fe63c1bed50f5b139c4b6",
+      "ledgerly/demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+      "ledgerly/extract.py": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16",
+      "ledgerly/paypal.py": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+      "pyproject.toml": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+      "tests/conftest.py": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+      "tests/test_due_date_receiving.py": "716d05966eda100eb096d7fd0331eff97bc14ac7a275f0465e6cbdeca6ecf89b",
+      "tests/test_invoice_values_followup_receiving.py": "df86a30cda40672e954ea7e05b970dc07f0497e55ed8fc93f7705bf4260f1ee1",
+      "tests/test_invoice_values_receiving.py": "3ae1120ecbc50a7ba4029e880e901747788a5b4a294f39100cd58335a7fb4edd",
+      "tests/test_money_token_receiving.py": "8ba8e63f2b371845e9680ca2f6e9df28d7000c31ce3744f39e7179aade165814",
+      "tests/test_prior_payment_language.py": "da54e63f8d0d1c49159ec6f2e4992a478ac0b3af2439fd069bd812b278886f1e",
+      "web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    }
+  },
+  "provenance": "Current author working-file tuple copied exactly while merge was pending; exact main materialized from commit. One author-resolved extractor conflict inspected; no clean-merge or new author-commit claim. Reviewer made no production changes."
+}

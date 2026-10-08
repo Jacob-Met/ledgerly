@@ -1,0 +1,19 @@
+{
+  "base_extract_blob": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d",
+  "candidate_extract_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+  "base_extract_sha256": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+  "candidate_extract_sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+  "owned_additions": [
+    "_PAYMENT_KIND",
+    "_PAYMENT_AMOUNT",
+    "_PAID_CONFIRMED_RE"
+  ],
+  "owned_modified_span": "RulesExtractor._line_items existing _PAID_RE branch",
+  "all_other_bytes_preserved": true,
+  "unchanged_existing_payment_cue_regex": true,
+  "numeric_currency_validator_unchanged": true,
+  "review_adapter_unchanged": true,
+  "agent_paypal_sources_unchanged": true,
+  "current_receiving_agent_blob": "19f261b1430769952057697d68472722a11cf643",
+  "evaluator_sha256": "9ab16e70c968cc678bff03c80417415f0521d272be1cae092885567a987f566e"
+}

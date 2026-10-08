@@ -1,0 +1,47 @@
+{
+  "identity": "hamon-62d01a8a-coordination",
+  "repository": "Jacob-Met/ledgerly",
+  "issue": 15,
+  "base_commit": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "base_tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+  "applicable_AGENTS": [],
+  "source_files": [
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "sha": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "sha": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "sha": "19f261b1430769952057697d68472722a11cf643",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "sha": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "sha": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "sha": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "mode": "100644",
+      "type": "blob"
+    }
+  ]
+}
+
