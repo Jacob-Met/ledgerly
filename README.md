@@ -19,6 +19,30 @@ pytest -q                     # fully offline
 python -m ledgerly.demo       # scripted end-to-end run (add --interactive to approve by hand)
 ```
 
+## Review saved job emails together
+
+Use the native rules extractor to inspect several local email text files before creating
+any invoice:
+
+```bash
+python -m ledgerly.intake_review --output ./intake-review \
+  ./job-email-a.txt ./job-email-b.txt
+```
+
+Open `intake-review/index.html` directly in a browser. Each input keeps its own
+recipient, work, prices, findings and expandable original text; currencies and clients
+are never summed together. The matching `review.json` retains the captured source
+identity and exact native decimal text. Both files include the selected email contents.
+
+Choose a new output directory under an existing parent. A completed report returns 0
+when all files were analyzed, or 2 when an input could not be read or analyzed; native
+warnings and correction findings remain visible either way. Existing destinations are
+preserved. This read-only command uses the standard library and creates no draft,
+approval, provider request or saved browser session.
+
+See [Batch intake review](docs/intake-review.md) for limits, status meanings, failure
+handling and the JSON inspection format.
+
 ## Architecture
 
 ```
