@@ -7,9 +7,9 @@ A static browser demo that runs the repository's **actual Python modules** in a 
 1. Load a fictional fixture or paste a non-sensitive job email; review extracted line items, confidence and validation issues.
 2. If details are missing or wrong, open **Review or correct invoice fields**. Edit the recipient, name, payment terms, prior payment and line items. Confirm that you checked the original warnings, then check the fields with Python. The original extraction remains visible; reviewed values are identified as human input, without an extraction-confidence claim. Totals stay separate for each currency.
 3. Create an in-memory draft from the checked values, or use the original valid extraction. Ledgerly probes and proves that an unapproved send is blocked. A checked revision is bound to its analyzed source and can be used once; changing fields or source text requires a fresh check. Checking values alone creates no invoice.
-4. Explicitly approve or reject the queued send. Only the mock changes state; no PayPal call or real message is sent.
+4. Review the queued invoice in its approval card: recipient, line items, exact unit prices, payment terms, note and reported prior payment. Then explicitly approve or reject its send. Only the mock changes state; no PayPal call or real message is sent.
 5. Simulate a partial payment and a signed mock webhook, replay the exact event to show idempotency, advance the local clock and draft an overdue reminder.
-6. Approve or reject the reminder. The invoice ledger and event trace update across the whole session.
+6. Read the queued reminder's subject and complete message, then approve or reject it. The preview comes from that pending action, even if you have analyzed another email since drafting it. Opening an invoice preview or selecting message text creates no request or approval. The invoice ledger and event trace update across the whole session.
 
 Review requires explicit quantities, positive prices, supported currencies, whole payment terms from 0 to 365 days and a nonnegative prior payment. Enter plain decimal numbers without commas or exponents. Python retains its zero-decimal currency and multi-currency deposit checks. A corrected recipient may be absent from the original email because the visitor supplied it explicitly; this is not a claim that the extractor found or verified that address. The bridge supplies the validated object through the core's existing `Extractor` protocol. It does not change `Agent`, `RulePlanner`, `GatedClient` or their approval permits.
 
@@ -19,7 +19,7 @@ No model, HTTP PayPal client, provider key, backend, analytics or localStorage i
 
 Use **Download sandbox ledger CSV** while the local engine is ready and the ledger contains invoices. Save this local snapshot before closing or resetting the tab. Each row is explicitly marked `SANDBOX` and includes the snapshot date, invoice identity, recipient, currency, original total/paid/balance strings, status, sent/due dates and reminder count. Currencies are never combined and JavaScript does not calculate money. Downloading calls no worker or provider and approves no action.
 
-The file uses UTF-8, a header and quoted CSV fields. Formula-like text gets a leading apostrophe; this is an explicit text-export convention, not a guarantee about every spreadsheet application's later save/reopen behavior. Import identifier and amount columns as text when preserving their exact formatting matters. The [CSV format](https://www.rfc-editor.org/rfc/rfc4180) and [spreadsheet text handling](https://owasp.org/www-community/attacks/CSV_Injection) references explain the underlying conventions. This is a snapshot for inspection, not a session reload or accounting import format.
+The file uses UTF-8 with BOM, CRLF record endings, a header and quoted CSV fields. Formula-like text gets a leading apostrophe; this is an explicit text-export convention, not a guarantee about every spreadsheet application's later save/reopen behavior. Import identifier and amount columns as text when preserving their exact formatting matters. The [CSV format](https://www.rfc-editor.org/rfc/rfc4180) and [spreadsheet text handling](https://owasp.org/www-community/attacks/CSV_Injection) references explain the underlying conventions. This is a snapshot for inspection, not a session reload or accounting import format.
 
 An empty/reset sandbox or an unavailable engine has no current download. If the browser cannot start a download, the displayed snapshot remains available for an explicit retry. Reset clears the working ledger; it does not remove CSV files already saved by the visitor.
 
@@ -45,5 +45,15 @@ python tools/check_review_browser.py http://127.0.0.1:8873/ \
 ```
 
 The browser check refuses non-loopback origins, blocks off-origin requests and uses only the repository's fictional fixtures. It exercises desktop and phone layouts, keyboard confirmation, invalid edits, literal text, line addition/removal, source invalidation, one-use drafting and the separate sandbox approval. It writes its receipt and screenshots to the requested output directory.
+
+To check actual CSV files against the Python state in the built page, use a new or empty evidence directory:
+
+```bash
+python -m pip install -r tools/requirements-browser.txt
+python tools/check_ledger_export_browser.py dist /path/to/ledger-evidence \
+  --chrome /path/to/chrome
+```
+
+This receiver starts its own loopback server and checks complete CSV bytes, mixed currencies, approvals/payment/reminders, retry, reset and unavailable sessions, plus Enter activation at a narrow viewport. The existing browser-engine CI job runs it with the runner's installed Chrome. CI adds --emit-bundle to retain a bounded, checksummed packet of the synthetic CSV, JSON and screenshots in its job log; an oversized packet fails explicitly. No browser binary is downloaded by this check.
 
 Pyodide 0.29.3 is MPL-2.0. Its unmodified assets and upstream license are linked from the page footer and `THIRD_PARTY_NOTICES.md`.

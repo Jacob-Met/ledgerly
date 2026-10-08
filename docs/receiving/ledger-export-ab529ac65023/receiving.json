@@ -1,5 +1,5 @@
 {
-  "status": "source_qualified_actual_browser_held_by_native_storage",
+  "status": "hosted_real_browser_qualification_pending",
   "identity": "hamon-ultra-ab529ac65023-20261008/coordination-integration",
   "issue": "https://github.com/Jacob-Met/ledgerly/issues/23",
   "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/27",
@@ -75,10 +75,38 @@
     "result": "No source blocker. Actual bridge.snapshot/to_dict Decimal-string and nullable-field provenance confirmed; serializer/controller/main/HTML/style/docs/harness accepted. Browser acceptance separate."
   },
   "browser": {
-    "status": "not_run",
+    "status": "queued_for_existing_hosted_browser_engine_job",
     "receiver": "web-demo/tools/check_ledger_export_browser.py",
-    "source_review": "assigned to /root/thinkpad_production; no execution or conclusion claimed",
+    "source_review": {
+      "reviewer": "/root/thinkpad_production",
+      "head": "99fc2917a2e1238fb370e76ca78d3efb3da37a85",
+      "receiver_blob": "0e965f70820af61641edefadccd20f7c2eb5eee7",
+      "result": "No blocking serial workflow/oracle defect. Whole-file csv.writer byte oracle added. Disabled-control event dispatch now receives the controller guard as well as UI; coverage labels retain focused Enter and synthetic failure limits."
+    },
     "required": "actual files compared to real Worker/Python snapshots, no-effect download, payment/reminder updates, correction/CSV text, busy/retry/reset/lost-session, phone keyboard and visual check"
   },
-  "runtime_effect": "none; draft source contribution only. No Pages or installed-service deployment, provider request, dependency install, cold build, worker-owner branch change or other-owner cleanup."
+  "runtime_effect": "none; draft source contribution only. No Pages or installed-service deployment, provider request, dependency install, cold build, worker-owner branch change or other-owner cleanup.",
+  "current_composition_plan": {
+    "main": "5493205cd69a32be75ed2f7dfc669b122efe5563",
+    "tree": "cc84de9a71fb23be5af6467a59f8e994c388114a",
+    "main_leaves": 340,
+    "preserved_unowned_main_leaves": 335,
+    "concurrent_work": "Complete approval-preview PR26 and webhook PR21 retained; both real VM renderer/controller bindings present; issue28/25 source scopes untouched",
+    "production_csv_blob": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+    "original_csv_tests_blob": "3727493f7366db1771dcda96e4dd19ac4deb44f0"
+  },
+  "browser_ci_plan": {
+    "workflow": ".github/workflows/ci.yml",
+    "existing_job": "browser-engine",
+    "new_job": false,
+    "source_scope_comment": "https://github.com/Jacob-Met/ledgerly/pull/27#issuecomment-6060583910",
+    "runner_manifest": "https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md",
+    "manifest_chrome": "154.0.8037.97",
+    "manifest_python": "3.12.3",
+    "playwright": "1.63.0",
+    "release": "https://github.com/microsoft/playwright-python/releases/tag/v1.63.0",
+    "driver": "Use actual installed google-chrome; no browser download",
+    "evidence": "Versioned SHA256/base64 packet in ordinary job log; all CSV/JSON/screenshots;2MiB unencoded file cap fails explicitly; no extra artifact action or service",
+    "baseline_limits": "Original native production build/source absence retained. Original baseline browser was not executed; current feature acceptance requires actual hosted candidate files."
+  }
 }

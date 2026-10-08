@@ -1,0 +1,36 @@
+{
+  "started_utc": "2026-10-08T10:21:59.420870+00:00",
+  "command": [
+    "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-p",
+    "no:cacheprovider",
+    "-q",
+    "tests",
+    "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission/tests"
+  ],
+  "cwd": "/workspace/scratch/06e2ad0ce13f/ledgerly-webhook-admission",
+  "exit_code": 0,
+  "summary": "132 passed, 2 subtests passed in 0.43s",
+  "log": "candidate-native-composition.log",
+  "log_sha256": "6b2d58c2867494d99bd3fa919b23e4f0c345e34b5290d2bc75c4794cc00480e0",
+  "native_inputs_unchanged_before_after": true,
+  "native_input_count": 28,
+  "reviewer_tests_unchanged": true,
+  "python": "Python 3.12.14",
+  "pytest": "pytest 9.1.1",
+  "test_contract_changes": {
+    "tests/test_reminder_freshness.py": {
+      "before_sha256": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+      "received_sha256": "d2c697c0e515413f2fbdc60a0d7b248965e414396e004a1008818936d177bca1",
+      "git_blob": "164175c727e90a5f7b8b0e22fe9e996498c4fb4c"
+    },
+    "tests/test_reminder_receiving.py": {
+      "before_sha256": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+      "received_sha256": "8609348105ebb1ba07dd12dab5db30f9cdfbec40cac6f4d9c750452e78b789c7",
+      "git_blob": "6f1446194b9d20d4ab42b5f3652332b37f72766a"
+    }
+  }
+}

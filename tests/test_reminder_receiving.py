@@ -211,16 +211,27 @@ class AgentReceiving(unittest.TestCase):
         self.assertEqual(self.agent.list_pending(), [], result)
         self.assertEqual(reminders(self.mock), [])
 
-    def test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft(self):
+    def test_delayed_old_payment_event_preserves_the_current_balance_review(self):
         old_event = self.pay(100, deliver=False)
         self.pay(200)
         aid = self.queue()
-        self.assertIn("GBP 500", self.agent.pending[aid].payload["note"])
+        payload = copy.deepcopy(self.agent.pending[aid].payload)
+        self.assertIn("GBP 500", payload["note"])
         self.deliver(old_event)
-        self.assert_no_send_and_permit_closed(aid)
-        fresh_id = self.queue()
-        self.assertIn("GBP 500", self.agent.pending[fresh_id].payload["note"])
-        self.assertNotIn("GBP 700", self.agent.pending[fresh_id].payload["note"])
+        self.assertEqual(self.agent.ledger[self.iid].balance, Decimal("500"))
+        self.assertEqual(self.agent.pending[aid].status, "PENDING")
+        self.assertEqual(self.agent.pending[aid].payload, payload)
+        self.assertNotIn("GBP 700", payload["note"])
+        self.assertEqual(reminders(self.mock), [])
+        with self.assertRaises(ApprovalRequired):
+            self.agent.client.remind_invoice(self.iid)
+        self.assertTrue(self.agent.approve(aid)["reminded"])
+        self.assertEqual(len(reminders(self.mock)), 1)
+        self.assertEqual(reminders(self.mock)[0][2]["subject"], payload["subject"])
+        self.assertEqual(reminders(self.mock)[0][2]["note"], payload["note"])
+        with self.assertRaises(ValueError):
+            self.agent.approve(aid)
+        self.assertEqual(len(reminders(self.mock)), 1)
 
     def test_invoice_send_approval_unchanged_when_status_refreshed(self):
         other = self.agent.tool_create_invoice(JOB)["invoices"][0]

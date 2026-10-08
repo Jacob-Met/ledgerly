@@ -13,3 +13,7 @@ The export controller and 30 CSV tests are frozen from native commit 268155f6e1a
 - [Independent production source review](https://github.com/Jacob-Met/ledgerly/pull/27#issuecomment-6060220272) accepts the actual snapshot/Decimal-string provenance and narrow controller boundary; actual browser acceptance remains separate.
 
 See receiving.json for source pins, command/CI receipts, limitations, and the next acceptance gate. No native browser result, Pages deployment, provider effect, or runtime adoption is claimed here.
+
+## Hosted browser continuation
+
+The next checkpoint composes actual main5493205cd69a32be75ed2f7dfc669b122efe5563, retaining PR26 preview and PR21 webhook source. It runs the maintained receiver in the existing Ubuntu browser-engine job after its normal build. The prior native storage stop and prior qualified composition above remain historical evidence. See browser_ci_plan in receiving.json; no browser pass is claimed until the actual resulting CSV/JSON/screenshots and job status are received.

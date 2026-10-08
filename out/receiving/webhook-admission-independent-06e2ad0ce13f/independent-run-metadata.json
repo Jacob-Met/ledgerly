@@ -1,0 +1,49 @@
+{
+  "runs": [
+    {
+      "source": "candidate-r1",
+      "started_utc": "2026-10-08T10:16:45.639128+00:00",
+      "command": [
+        "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission/tests"
+      ],
+      "pythonpath": "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission/candidate-r1",
+      "cwd": "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission",
+      "exit_code": 0,
+      "summary": "26 passed in 0.10s",
+      "log": "candidate-r1-independent.log",
+      "log_sha256": "0215d2a7f6e2f8f894297307e4e83ac6e840a34a8af2e8dbdbceae2ff09d5baf",
+      "test_sha256": "c76348a1b6abd856c0149fba5bd67155c081bf8142c2ad2d016ca9280e15ac7d"
+    },
+    {
+      "source": "baseline",
+      "started_utc": "2026-10-08T10:16:45.983177+00:00",
+      "command": [
+        "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission/tests"
+      ],
+      "pythonpath": "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission/baseline",
+      "cwd": "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission",
+      "exit_code": 1,
+      "summary": "23 failed, 3 passed in 0.28s",
+      "log": "baseline-independent.log",
+      "log_sha256": "e840d403a13e46dcddbd67d78c3ef5e3a71192770fbe7c017eb6aa902cfdd59a",
+      "test_sha256": "c76348a1b6abd856c0149fba5bd67155c081bf8142c2ad2d016ca9280e15ac7d"
+    }
+  ],
+  "source_and_tests_unchanged": true,
+  "python": "Python 3.12.14",
+  "pytest": "pytest 9.1.1"
+}

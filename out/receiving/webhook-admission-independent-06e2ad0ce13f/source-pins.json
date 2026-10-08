@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-08T10:14:48.906188+00:00",
+  "baseline_commit": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "baseline_agent_blob": "19f261b1430769952057697d68472722a11cf643",
+  "candidate_agent_blob": "2dbf14c2eeeada3b1f26befa1039064500394c65",
+  "candidate_agent_sha256": "e8a60aa83a9647663da1c0cf52824e26a9af6c8ede0b25134db1f156e5164091",
+  "candidate_source": {
+    "__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "agent.py": "e8a60aa83a9647663da1c0cf52824e26a9af6c8ede0b25134db1f156e5164091",
+    "demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+    "extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+    "paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4"
+  },
+  "baseline_source": {
+    "__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "agent.py": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+    "demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+    "extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+    "paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4"
+  },
+  "provenance": "Candidate copied from exact frozen observed author files before independent test design. Baseline materialized from exact current-main commit; no reconstructed source."
+}

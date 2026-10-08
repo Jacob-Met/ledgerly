@@ -1,0 +1,10 @@
+
+ RUN  v5.0.3 /Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo
+
+ ✓ tests/engine-recovery.test.ts (5 tests) 77ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  04:50:33
+   Duration  376ms (import 46%, tests 28%, transform 25%, worker 1%)
+

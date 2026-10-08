@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-10-08T11:55:06.108113+00:00",
+  "source": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef",
+  "dist": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo/dist",
+  "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "baseline": false,
+  "url": "http://127.0.0.1:58520/",
+  "checks": [
+    {
+      "viewport": "desktop",
+      "name": "actual_queued_invoice_fields_are_literal_and_exact",
+      "passed": true,
+      "action_id": "apv_acf723ac72",
+      "note": "Thank you for your business. Deposit of USD 20.00 received with thanks."
+    },
+    {
+      "viewport": "desktop",
+      "name": "keyboard_disclosure_has_no_worker_or_approval_effect",
+      "passed": true,
+      "mock_requests": 3
+    }
+  ],
+  "page_errors": [],
+  "off_origin": [],
+  "chrome": "Google Chrome 154.0.8037.98",
+  "source_files": {
+    "web-demo/src/main.ts": "260cfd880de0e54a9f4c4ea56f064308c7336a73f7f7c2e74aa60d5047b18a33",
+    "web-demo/src/approval-preview.ts": "f1e41a0e34baa38bef2979fcbf96bd34f71412298b6226678f895f2d1da6dd40",
+    "web-demo/src/approval-preview.css": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+    "web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "ledgerly/agent.py": "cc72f7d3ee10ac42298180f2da6736687e915e1fcbc342c4855aa2bc8aff5949",
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f"
+  },
+  "dist_files": {
+    "index.html": "35fc8aa27b5b4aff03f9faaed6aae63f2d35d709451794b6cc4ff87af5bebe02",
+    "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5",
+    "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df",
+    "python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+    "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+    "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+    "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+    "assets/index-DjI7-dh6.css": "9fcf867aecd4ab668236a071226c733feb15cbb98ad827725f9366683c0ca02f",
+    "assets/index-BIeZV4Fb.js": "8fa1f12e008b653c5eb422caf8cefcbfde7f06f13dd282029cd21f8ceddb5533",
+    "assets/engine.worker-x2BNq2jZ.js": "d72ef16b79626487e65308cba5df9c448604d00e070e6ca5ac880b807a38cfb3",
+    "assets/__vite-browser-external-CyMxSyHA.js": "677185d833bde4df12bf7dd50da9a70188b6c2f3f1e32fbca1c2d5166e86278c",
+    "python/ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "python/ledgerly/agent.py": "cc72f7d3ee10ac42298180f2da6736687e915e1fcbc342c4855aa2bc8aff5949",
+    "python/ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653"
+  },
+  "ok": false,
+  "error": "TimeoutError('Locator.select_option: Timeout 30000ms exceeded.\\nCall log:\\n  - waiting for locator(\"#fixture-select\")\\n    - locator resolved to <select id=\"fixture-select\">\u2026</select>\\n  - attempting select option action\\n    2 \u00d7 waiting for element to be visible and enabled\\n      - did not find some options\\n    - retrying select option action\\n    - waiting 20ms\\n    2 \u00d7 waiting for element to be visible and enabled\\n      - did not find some options\\n    - retrying select option action\\n      - waiting 100ms\\n    60 \u00d7 waiting for element to be visible and enabled\\n       - did not find some options\\n     - retrying select option action\\n       - waiting 500ms\\n')",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo/tools/check_approval_preview_browser.py\", line 182, in run\n    load_and_analyze(\"02_gbp_proofreading.txt\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo/tools/check_approval_preview_browser.py\", line 97, in load_and_analyze\n    page.locator(\"#fixture-select\").select_option(name)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/Users/me/hamon-work-ledgerly-566d51f04b31-venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py\", line 20226, in select_option\n    self._sync(\n    ~~~~~~~~~~^\n        self._impl_obj.select_option(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<7 lines>...\n        )\n        ^\n    )\n    ^\n  File \"/Users/me/hamon-work-ledgerly-566d51f04b31-venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ~~~~~~~~~~~^^\n  File \"/Users/me/hamon-work-ledgerly-566d51f04b31-venv/lib/python3.13/site-packages/playwright/_impl/_locator.py\", line 637, in select_option\n    return await self._frame.select_option(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/Users/me/hamon-work-ledgerly-566d51f04b31-venv/lib/python3.13/site-packages/playwright/_impl/_frame.py\", line 815, in select_option\n    return await self._channel.send(\"selectOption\", self._timeout, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/me/hamon-work-ledgerly-566d51f04b31-venv/lib/python3.13/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/Users/me/hamon-work-ledgerly-566d51f04b31-venv/lib/python3.13/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.select_option: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#fixture-select\")\n    - locator resolved to <select id=\"fixture-select\">\u2026</select>\n  - attempting select option action\n    2 \u00d7 waiting for element to be visible and enabled\n      - did not find some options\n    - retrying select option action\n    - waiting 20ms\n    2 \u00d7 waiting for element to be visible and enabled\n      - did not find some options\n    - retrying select option action\n      - waiting 100ms\n    60 \u00d7 waiting for element to be visible and enabled\n       - did not find some options\n     - retrying select option action\n       - waiting 500ms\n\n",
+  "finished_at": "2026-10-08T11:55:44.104677+00:00",
+  "source_unchanged": true
+}

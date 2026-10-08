@@ -1,0 +1,2274 @@
+{
+  "sent": [
+    {
+      "id": 1,
+      "action": "init",
+      "payload": {}
+    },
+    {
+      "id": 2,
+      "action": "analyze",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n"
+      }
+    },
+    {
+      "id": 3,
+      "action": "review",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "fields": {
+          "client_name": "Queued <review> & \"client\"",
+          "client_email": "queued-preview@example.test",
+          "due_days": "0",
+          "amount_paid": "20.00",
+          "line_items": [
+            {
+              "desc": "Authored <img src=x onerror=\"window.previewInjected=1\"> r\u00e9sum\u00e9 \u062e\u062f\u0645\u0629",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": ""
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 4,
+      "action": "draft",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "review_id": "ce712328abfb4cd3ac10e9923720a1f7"
+      }
+    },
+    {
+      "id": 5,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Oliver Hughes <oliver@thamesreads.example>\nTo: jacob@ledgerly.example\nSubject: Manuscript proofreading\n\nHello,\n\nPlease go ahead with the following:\n\nProofreading: 18 hours @ \u00a340/hr\nStyle sheet preparation: 2 hrs @ \u00a340/hr\n\nWe pay within 30 days of invoice.\n\nKind regards,\nOliver Hughes\n"
+      }
+    },
+    {
+      "id": 6,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_1c94a344a0"
+      }
+    },
+    {
+      "id": 7,
+      "action": "advance",
+      "payload": {
+        "day": "2026-10-10"
+      }
+    },
+    {
+      "id": 8,
+      "action": "chase",
+      "payload": {}
+    },
+    {
+      "id": 9,
+      "action": "advance",
+      "payload": {
+        "day": "2026-10-11"
+      }
+    },
+    {
+      "id": 10,
+      "action": "chase",
+      "payload": {}
+    },
+    {
+      "id": 11,
+      "action": "reject",
+      "payload": {
+        "action_id": "apv_6860ea80cb"
+      }
+    },
+    {
+      "id": 12,
+      "action": "chase",
+      "payload": {}
+    },
+    {
+      "id": 13,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_3aacfd991f"
+      }
+    },
+    {
+      "id": 14,
+      "action": "reset",
+      "payload": {}
+    },
+    {
+      "id": 15,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at \u20ac60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+      }
+    },
+    {
+      "id": 16,
+      "action": "draft",
+      "payload": {
+        "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at \u20ac60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+      }
+    },
+    {
+      "id": 17,
+      "action": "reject",
+      "payload": {
+        "action_id": "apv_404fc7c7b0"
+      }
+    },
+    {
+      "id": 18,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_7a5196f19e"
+      }
+    }
+  ],
+  "received": [
+    {
+      "type": "ready"
+    },
+    {
+      "id": 1,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "ready": true,
+          "engine": "RulesExtractor + RulePlanner + SandboxMock"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Darnell Brooks",
+          "client_email": null,
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 7,
+          "amount_paid": "0",
+          "total": "930",
+          "confidence": 0.75,
+          "issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "930"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Queued <review> & \"client\"",
+          "client_email": "queued-preview@example.test",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Authored <img src=x onerror=\"window.previewInjected=1\"> r\u00e9sum\u00e9 \u062e\u062f\u0645\u0629",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 0,
+          "amount_paid": "20.00",
+          "total": "930",
+          "confidence": 1,
+          "issues": [],
+          "source": "human_review",
+          "valid": true,
+          "review_id": "ce712328abfb4cd3ac10e9923720a1f7",
+          "original_issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "930"
+            }
+          ],
+          "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "final": "create_invoice -> 1 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-7EC2 is DRAFT",
+          "pending": [
+            {
+              "id": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send invoice LDG-0001 for USD 930 to queued-preview@example.test and record USD 20.00 deposit already received",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business. Deposit of USD 20.00 received with thanks.",
+                    "payment_term": {
+                      "term_type": "DUE_ON_RECEIPT"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Queued <review> &",
+                          "surname": "\"client\""
+                        },
+                        "email_address": "queued-preview@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Authored <img src=x onerror=\"window.previewInjected=1\"> r\u00e9sum\u00e9 \u062e\u062f\u0645\u0629",
+                      "quantity": "3",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "250.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    },
+                    {
+                      "name": "Brand colour guide",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "180.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": true
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "20.00"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:40.340999+00:00"
+            }
+          ],
+          "unauthorized_send_blocked": true,
+          "reviewed": true
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "0",
+              "balance": "930",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": null,
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send invoice LDG-0001 for USD 930 to queued-preview@example.test and record USD 20.00 deposit already received",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business. Deposit of USD 20.00 received with thanks.",
+                    "payment_term": {
+                      "term_type": "DUE_ON_RECEIPT"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Queued <review> &",
+                          "surname": "\"client\""
+                        },
+                        "email_address": "queued-preview@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Authored <img src=x onerror=\"window.previewInjected=1\"> r\u00e9sum\u00e9 \u062e\u062f\u0645\u0629",
+                      "quantity": "3",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "250.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    },
+                    {
+                      "name": "Brand colour guide",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "180.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": true
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "20.00"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:40.340999+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 3,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "line_items": [
+            {
+              "desc": "Proofreading",
+              "qty": "18",
+              "unit_price": "40",
+              "currency": "GBP",
+              "unit": "hours"
+            },
+            {
+              "desc": "Style sheet preparation",
+              "qty": "2",
+              "unit_price": "40",
+              "currency": "GBP",
+              "unit": "hrs"
+            }
+          ],
+          "due_days": 30,
+          "amount_paid": "0",
+          "total": "800",
+          "confidence": 1,
+          "issues": [],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "GBP",
+              "total": "800"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "0",
+              "balance": "930",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": null,
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send invoice LDG-0001 for USD 930 to queued-preview@example.test and record USD 20.00 deposit already received",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business. Deposit of USD 20.00 received with thanks.",
+                    "payment_term": {
+                      "term_type": "DUE_ON_RECEIPT"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Queued <review> &",
+                          "surname": "\"client\""
+                        },
+                        "email_address": "queued-preview@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Authored <img src=x onerror=\"window.previewInjected=1\"> r\u00e9sum\u00e9 \u062e\u062f\u0645\u0629",
+                      "quantity": "3",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "250.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    },
+                    {
+                      "name": "Brand colour guide",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "180.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": true
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "20.00"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:40.340999+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 3,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 6,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "approved": true,
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0001-7EC2"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 7,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "today": "2026-10-10"
+        },
+        "state": {
+          "today": "2026-10-10",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 8,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "final": "list_overdue -> 1 overdue; send_reminder -> reminder drafted (friendly); awaiting approval",
+          "pending": [
+            {
+              "id": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send friendly reminder for LDG-0001 (2d overdue, USD 910 due) to queued-preview@example.test",
+              "payload": {
+                "subject": "Friendly reminder: invoice LDG-0001",
+                "note": "Hi Queued,\n\nJust a quick nudge that invoice LDG-0001 for USD 910 was due on Oct 08, 2026. Thank you for the USD 20 received so far; the remaining balance is USD 910. You can pay securely via the PayPal link in the original invoice email.\n\nThanks so much,\nLedgerly Demo",
+                "reviewed_facts": {
+                  "reviewed_on": "2026-10-10",
+                  "invoice_id": "INV2-MOCK-0001-7EC2",
+                  "invoice_number": "LDG-0001",
+                  "client_name": "Queued <review> & \"client\"",
+                  "client_email": "queued-preview@example.test",
+                  "currency": "USD",
+                  "total": "930",
+                  "paid_amount": "20",
+                  "balance": "910",
+                  "status": "PARTIALLY_PAID",
+                  "due_on": "2026-10-08",
+                  "last_reminder_on": null,
+                  "reminders_sent": 0,
+                  "freelancer": "Ledgerly Demo"
+                },
+                "reviewed_invoice": "{\"amount\":{\"currency_code\":\"USD\",\"value\":\"930\"},\"currency_code\":\"USD\",\"due_amount\":{\"currency_code\":\"USD\",\"value\":\"910\"},\"id\":\"INV2-MOCK-0001-7EC2\",\"invoice_number\":\"LDG-0001\",\"paid_amount\":{\"currency_code\":\"USD\",\"value\":\"20\"},\"payment_term\":{\"due_date\":\"2026-10-08\",\"term_type\":\"DUE_ON_RECEIPT\"},\"primary_recipients\":[{\"billing_info\":{\"email_address\":\"queued-preview@example.test\",\"name\":{\"given_name\":\"Queued <review> &\",\"surname\":\"\\\"client\\\"\"}}}],\"status\":\"PARTIALLY_PAID\"}"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:40.772000+00:00"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-10",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send friendly reminder for LDG-0001 (2d overdue, USD 910 due) to queued-preview@example.test",
+              "payload": {
+                "subject": "Friendly reminder: invoice LDG-0001",
+                "note": "Hi Queued,\n\nJust a quick nudge that invoice LDG-0001 for USD 910 was due on Oct 08, 2026. Thank you for the USD 20 received so far; the remaining balance is USD 910. You can pay securely via the PayPal link in the original invoice email.\n\nThanks so much,\nLedgerly Demo",
+                "reviewed_facts": {
+                  "reviewed_on": "2026-10-10",
+                  "invoice_id": "INV2-MOCK-0001-7EC2",
+                  "invoice_number": "LDG-0001",
+                  "client_name": "Queued <review> & \"client\"",
+                  "client_email": "queued-preview@example.test",
+                  "currency": "USD",
+                  "total": "930",
+                  "paid_amount": "20",
+                  "balance": "910",
+                  "status": "PARTIALLY_PAID",
+                  "due_on": "2026-10-08",
+                  "last_reminder_on": null,
+                  "reminders_sent": 0,
+                  "freelancer": "Ledgerly Demo"
+                },
+                "reviewed_invoice": "{\"amount\":{\"currency_code\":\"USD\",\"value\":\"930\"},\"currency_code\":\"USD\",\"due_amount\":{\"currency_code\":\"USD\",\"value\":\"910\"},\"id\":\"INV2-MOCK-0001-7EC2\",\"invoice_number\":\"LDG-0001\",\"paid_amount\":{\"currency_code\":\"USD\",\"value\":\"20\"},\"payment_term\":{\"due_date\":\"2026-10-08\",\"term_type\":\"DUE_ON_RECEIPT\"},\"primary_recipients\":[{\"billing_info\":{\"email_address\":\"queued-preview@example.test\",\"name\":{\"given_name\":\"Queued <review> &\",\"surname\":\"\\\"client\\\"\"}}}],\"status\":\"PARTIALLY_PAID\"}"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:40.772000+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "queued",
+              "action": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 7,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 9,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "today": "2026-10-11"
+        },
+        "state": {
+          "today": "2026-10-11",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "queued",
+              "action": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 7,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 10,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "final": "list_overdue -> 1 overdue; send_reminder -> reminder drafted (friendly); awaiting approval",
+          "pending": [
+            {
+              "id": "apv_6860ea80cb",
+              "kind": "send_reminder",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send friendly reminder for LDG-0001 (3d overdue, USD 910 due) to queued-preview@example.test",
+              "payload": {
+                "subject": "Friendly reminder: invoice LDG-0001",
+                "note": "Hi Queued,\n\nJust a quick nudge that invoice LDG-0001 for USD 910 was due on Oct 08, 2026. Thank you for the USD 20 received so far; the remaining balance is USD 910. You can pay securely via the PayPal link in the original invoice email.\n\nThanks so much,\nLedgerly Demo",
+                "reviewed_facts": {
+                  "reviewed_on": "2026-10-11",
+                  "invoice_id": "INV2-MOCK-0001-7EC2",
+                  "invoice_number": "LDG-0001",
+                  "client_name": "Queued <review> & \"client\"",
+                  "client_email": "queued-preview@example.test",
+                  "currency": "USD",
+                  "total": "930",
+                  "paid_amount": "20",
+                  "balance": "910",
+                  "status": "PARTIALLY_PAID",
+                  "due_on": "2026-10-08",
+                  "last_reminder_on": null,
+                  "reminders_sent": 0,
+                  "freelancer": "Ledgerly Demo"
+                },
+                "reviewed_invoice": "{\"amount\":{\"currency_code\":\"USD\",\"value\":\"930\"},\"currency_code\":\"USD\",\"due_amount\":{\"currency_code\":\"USD\",\"value\":\"910\"},\"id\":\"INV2-MOCK-0001-7EC2\",\"invoice_number\":\"LDG-0001\",\"paid_amount\":{\"currency_code\":\"USD\",\"value\":\"20\"},\"payment_term\":{\"due_date\":\"2026-10-08\",\"term_type\":\"DUE_ON_RECEIPT\"},\"primary_recipients\":[{\"billing_info\":{\"email_address\":\"queued-preview@example.test\",\"name\":{\"given_name\":\"Queued <review> &\",\"surname\":\"\\\"client\\\"\"}}}],\"status\":\"PARTIALLY_PAID\"}"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.038000+00:00"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-11",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_6860ea80cb",
+              "kind": "send_reminder",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send friendly reminder for LDG-0001 (3d overdue, USD 910 due) to queued-preview@example.test",
+              "payload": {
+                "subject": "Friendly reminder: invoice LDG-0001",
+                "note": "Hi Queued,\n\nJust a quick nudge that invoice LDG-0001 for USD 910 was due on Oct 08, 2026. Thank you for the USD 20 received so far; the remaining balance is USD 910. You can pay securely via the PayPal link in the original invoice email.\n\nThanks so much,\nLedgerly Demo",
+                "reviewed_facts": {
+                  "reviewed_on": "2026-10-11",
+                  "invoice_id": "INV2-MOCK-0001-7EC2",
+                  "invoice_number": "LDG-0001",
+                  "client_name": "Queued <review> & \"client\"",
+                  "client_email": "queued-preview@example.test",
+                  "currency": "USD",
+                  "total": "930",
+                  "paid_amount": "20",
+                  "balance": "910",
+                  "status": "PARTIALLY_PAID",
+                  "due_on": "2026-10-08",
+                  "last_reminder_on": null,
+                  "reminders_sent": 0,
+                  "freelancer": "Ledgerly Demo"
+                },
+                "reviewed_invoice": "{\"amount\":{\"currency_code\":\"USD\",\"value\":\"930\"},\"currency_code\":\"USD\",\"due_amount\":{\"currency_code\":\"USD\",\"value\":\"910\"},\"id\":\"INV2-MOCK-0001-7EC2\",\"invoice_number\":\"LDG-0001\",\"paid_amount\":{\"currency_code\":\"USD\",\"value\":\"20\"},\"payment_term\":{\"due_date\":\"2026-10-08\",\"term_type\":\"DUE_ON_RECEIPT\"},\"primary_recipients\":[{\"billing_info\":{\"email_address\":\"queued-preview@example.test\",\"name\":{\"given_name\":\"Queued <review> &\",\"surname\":\"\\\"client\\\"\"}}}],\"status\":\"PARTIALLY_PAID\"}"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.038000+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "queued",
+              "action": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.972000+00:00",
+              "event": "reminder_invalidated",
+              "action": "apv_3f72bd4bb8",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "queued",
+              "action": "apv_6860ea80cb",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 8,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 11,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "rejected": true
+        },
+        "state": {
+          "today": "2026-10-11",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "queued",
+              "action": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.972000+00:00",
+              "event": "reminder_invalidated",
+              "action": "apv_3f72bd4bb8",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "queued",
+              "action": "apv_6860ea80cb",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.088000+00:00",
+              "event": "rejected",
+              "action": "apv_6860ea80cb"
+            }
+          ],
+          "mock_requests": 8,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 12,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "final": "list_overdue -> 1 overdue; send_reminder -> reminder drafted (friendly); awaiting approval",
+          "pending": [
+            {
+              "id": "apv_3aacfd991f",
+              "kind": "send_reminder",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send friendly reminder for LDG-0001 (3d overdue, USD 910 due) to queued-preview@example.test",
+              "payload": {
+                "subject": "Friendly reminder: invoice LDG-0001",
+                "note": "Hi Queued,\n\nJust a quick nudge that invoice LDG-0001 for USD 910 was due on Oct 08, 2026. Thank you for the USD 20 received so far; the remaining balance is USD 910. You can pay securely via the PayPal link in the original invoice email.\n\nThanks so much,\nLedgerly Demo",
+                "reviewed_facts": {
+                  "reviewed_on": "2026-10-11",
+                  "invoice_id": "INV2-MOCK-0001-7EC2",
+                  "invoice_number": "LDG-0001",
+                  "client_name": "Queued <review> & \"client\"",
+                  "client_email": "queued-preview@example.test",
+                  "currency": "USD",
+                  "total": "930",
+                  "paid_amount": "20",
+                  "balance": "910",
+                  "status": "PARTIALLY_PAID",
+                  "due_on": "2026-10-08",
+                  "last_reminder_on": null,
+                  "reminders_sent": 0,
+                  "freelancer": "Ledgerly Demo"
+                },
+                "reviewed_invoice": "{\"amount\":{\"currency_code\":\"USD\",\"value\":\"930\"},\"currency_code\":\"USD\",\"due_amount\":{\"currency_code\":\"USD\",\"value\":\"910\"},\"id\":\"INV2-MOCK-0001-7EC2\",\"invoice_number\":\"LDG-0001\",\"paid_amount\":{\"currency_code\":\"USD\",\"value\":\"20\"},\"payment_term\":{\"due_date\":\"2026-10-08\",\"term_type\":\"DUE_ON_RECEIPT\"},\"primary_recipients\":[{\"billing_info\":{\"email_address\":\"queued-preview@example.test\",\"name\":{\"given_name\":\"Queued <review> &\",\"surname\":\"\\\"client\\\"\"}}}],\"status\":\"PARTIALLY_PAID\"}"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.176000+00:00"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-11",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_3aacfd991f",
+              "kind": "send_reminder",
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "summary": "Send friendly reminder for LDG-0001 (3d overdue, USD 910 due) to queued-preview@example.test",
+              "payload": {
+                "subject": "Friendly reminder: invoice LDG-0001",
+                "note": "Hi Queued,\n\nJust a quick nudge that invoice LDG-0001 for USD 910 was due on Oct 08, 2026. Thank you for the USD 20 received so far; the remaining balance is USD 910. You can pay securely via the PayPal link in the original invoice email.\n\nThanks so much,\nLedgerly Demo",
+                "reviewed_facts": {
+                  "reviewed_on": "2026-10-11",
+                  "invoice_id": "INV2-MOCK-0001-7EC2",
+                  "invoice_number": "LDG-0001",
+                  "client_name": "Queued <review> & \"client\"",
+                  "client_email": "queued-preview@example.test",
+                  "currency": "USD",
+                  "total": "930",
+                  "paid_amount": "20",
+                  "balance": "910",
+                  "status": "PARTIALLY_PAID",
+                  "due_on": "2026-10-08",
+                  "last_reminder_on": null,
+                  "reminders_sent": 0,
+                  "freelancer": "Ledgerly Demo"
+                },
+                "reviewed_invoice": "{\"amount\":{\"currency_code\":\"USD\",\"value\":\"930\"},\"currency_code\":\"USD\",\"due_amount\":{\"currency_code\":\"USD\",\"value\":\"910\"},\"id\":\"INV2-MOCK-0001-7EC2\",\"invoice_number\":\"LDG-0001\",\"paid_amount\":{\"currency_code\":\"USD\",\"value\":\"20\"},\"payment_term\":{\"due_date\":\"2026-10-08\",\"term_type\":\"DUE_ON_RECEIPT\"},\"primary_recipients\":[{\"billing_info\":{\"email_address\":\"queued-preview@example.test\",\"name\":{\"given_name\":\"Queued <review> &\",\"surname\":\"\\\"client\\\"\"}}}],\"status\":\"PARTIALLY_PAID\"}"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.176000+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "queued",
+              "action": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.972000+00:00",
+              "event": "reminder_invalidated",
+              "action": "apv_3f72bd4bb8",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "queued",
+              "action": "apv_6860ea80cb",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.088000+00:00",
+              "event": "rejected",
+              "action": "apv_6860ea80cb"
+            },
+            {
+              "at": "2026-10-08T12:08:41.176000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.176000+00:00",
+              "event": "queued",
+              "action": "apv_3aacfd991f",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.176000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 9,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 13,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "approved": true,
+          "kind": "send_reminder",
+          "invoice_id": "INV2-MOCK-0001-7EC2"
+        },
+        "state": {
+          "today": "2026-10-11",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-7EC2",
+              "invoice_number": "LDG-0001",
+              "client_name": "Queued <review> & \"client\"",
+              "client_email": "queued-preview@example.test",
+              "currency": "USD",
+              "total": "930",
+              "paid_amount": "20",
+              "balance": "910",
+              "status": "PARTIALLY_PAID",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-08",
+              "reminders_sent": 1
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "queued",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.342000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.622000+00:00",
+              "event": "approved",
+              "action": "apv_1c94a344a0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "queued",
+              "action": "apv_3f72bd4bb8",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:40.772000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:40.972000+00:00",
+              "event": "reminder_invalidated",
+              "action": "apv_3f72bd4bb8",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "queued",
+              "action": "apv_6860ea80cb",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.038000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.088000+00:00",
+              "event": "rejected",
+              "action": "apv_6860ea80cb"
+            },
+            {
+              "at": "2026-10-08T12:08:41.176000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.176000+00:00",
+              "event": "queued",
+              "action": "apv_3aacfd991f",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            },
+            {
+              "at": "2026-10-08T12:08:41.176000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.356000+00:00",
+              "event": "approved",
+              "action": "apv_3aacfd991f",
+              "kind": "send_reminder",
+              "invoice": "INV2-MOCK-0001-7EC2"
+            }
+          ],
+          "mock_requests": 11,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 14,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "reset": true
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 15,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Priya Nair",
+          "client_email": "priya@orbitlabs.example",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "React development",
+              "qty": "20",
+              "unit_price": "95",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "Localisation QA",
+              "qty": "6",
+              "unit_price": "60",
+              "currency": "EUR",
+              "unit": "hours"
+            }
+          ],
+          "due_days": 30,
+          "amount_paid": "0",
+          "total": "2260",
+          "confidence": 0.9,
+          "issues": [
+            {
+              "field": "currency",
+              "severity": "warning",
+              "message": "Multiple currencies ['EUR', 'USD']; a PayPal invoice has one currency_code, so this will be split into 2 invoices."
+            }
+          ],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "EUR",
+              "total": "360"
+            },
+            {
+              "currency": "USD",
+              "total": "1900"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 16,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "final": "create_invoice -> 2 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-906A is DRAFT; get_status -> INV2-MOCK-0002-FC5F is DRAFT",
+          "pending": [
+            {
+              "id": "apv_404fc7c7b0",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-906A",
+              "summary": "Send invoice LDG-0001 for EUR 360 to priya@orbitlabs.example",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "EUR",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_30",
+                      "due_date": "2026-11-07"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Priya",
+                          "surname": "Nair"
+                        },
+                        "email_address": "priya@orbitlabs.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Localisation QA",
+                      "quantity": "6",
+                      "unit_amount": {
+                        "currency_code": "EUR",
+                        "value": "60.00"
+                      },
+                      "unit_of_measure": "HOURS"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.640000+00:00"
+            },
+            {
+              "id": "apv_7a5196f19e",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0002-FC5F",
+              "summary": "Send invoice LDG-0002 for USD 1,900 to priya@orbitlabs.example",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0002",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_30",
+                      "due_date": "2026-11-07"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Priya",
+                          "surname": "Nair"
+                        },
+                        "email_address": "priya@orbitlabs.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "React development",
+                      "quantity": "20",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "95.00"
+                      },
+                      "unit_of_measure": "HOURS"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.640000+00:00"
+            }
+          ],
+          "unauthorized_send_blocked": true
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-906A",
+              "invoice_number": "LDG-0001",
+              "client_name": "Priya Nair",
+              "client_email": "priya@orbitlabs.example",
+              "currency": "EUR",
+              "total": "360",
+              "paid_amount": "0",
+              "balance": "360",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-11-07",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-FC5F",
+              "invoice_number": "LDG-0002",
+              "client_name": "Priya Nair",
+              "client_email": "priya@orbitlabs.example",
+              "currency": "USD",
+              "total": "1900",
+              "paid_amount": "0",
+              "balance": "1900",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-11-07",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_404fc7c7b0",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-906A",
+              "summary": "Send invoice LDG-0001 for EUR 360 to priya@orbitlabs.example",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "EUR",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_30",
+                      "due_date": "2026-11-07"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Priya",
+                          "surname": "Nair"
+                        },
+                        "email_address": "priya@orbitlabs.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Localisation QA",
+                      "quantity": "6",
+                      "unit_amount": {
+                        "currency_code": "EUR",
+                        "value": "60.00"
+                      },
+                      "unit_of_measure": "HOURS"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.640000+00:00"
+            },
+            {
+              "id": "apv_7a5196f19e",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0002-FC5F",
+              "summary": "Send invoice LDG-0002 for USD 1,900 to priya@orbitlabs.example",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0002",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_30",
+                      "due_date": "2026-11-07"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Priya",
+                          "surname": "Nair"
+                        },
+                        "email_address": "priya@orbitlabs.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "React development",
+                      "quantity": "20",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "95.00"
+                      },
+                      "unit_of_measure": "HOURS"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.640000+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "queued",
+              "action": "apv_404fc7c7b0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-906A"
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "queued",
+              "action": "apv_7a5196f19e",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0002-FC5F"
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 17,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "rejected": true
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-906A",
+              "invoice_number": "LDG-0001",
+              "client_name": "Priya Nair",
+              "client_email": "priya@orbitlabs.example",
+              "currency": "EUR",
+              "total": "360",
+              "paid_amount": "0",
+              "balance": "360",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-11-07",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-FC5F",
+              "invoice_number": "LDG-0002",
+              "client_name": "Priya Nair",
+              "client_email": "priya@orbitlabs.example",
+              "currency": "USD",
+              "total": "1900",
+              "paid_amount": "0",
+              "balance": "1900",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-11-07",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_7a5196f19e",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0002-FC5F",
+              "summary": "Send invoice LDG-0002 for USD 1,900 to priya@orbitlabs.example",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0002",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_30",
+                      "due_date": "2026-11-07"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Priya",
+                          "surname": "Nair"
+                        },
+                        "email_address": "priya@orbitlabs.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "React development",
+                      "quantity": "20",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "95.00"
+                      },
+                      "unit_of_measure": "HOURS"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T12:08:41.640000+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "queued",
+              "action": "apv_404fc7c7b0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-906A"
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "queued",
+              "action": "apv_7a5196f19e",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0002-FC5F"
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.704999+00:00",
+              "event": "rejected",
+              "action": "apv_404fc7c7b0"
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 18,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "approved": true,
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0002-FC5F"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-906A",
+              "invoice_number": "LDG-0001",
+              "client_name": "Priya Nair",
+              "client_email": "priya@orbitlabs.example",
+              "currency": "EUR",
+              "total": "360",
+              "paid_amount": "0",
+              "balance": "360",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-11-07",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-FC5F",
+              "invoice_number": "LDG-0002",
+              "client_name": "Priya Nair",
+              "client_email": "priya@orbitlabs.example",
+              "currency": "USD",
+              "total": "1900",
+              "paid_amount": "0",
+              "balance": "1900",
+              "status": "SENT",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-11-07",
+              "reminders_sent": 0
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "queued",
+              "action": "apv_404fc7c7b0",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-906A"
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "queued",
+              "action": "apv_7a5196f19e",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0002-FC5F"
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.640000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T12:08:41.704999+00:00",
+              "event": "rejected",
+              "action": "apv_404fc7c7b0"
+            },
+            {
+              "at": "2026-10-08T12:08:41.772000+00:00",
+              "event": "approved",
+              "action": "apv_7a5196f19e",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0002-FC5F"
+            }
+          ],
+          "mock_requests": 7,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "started_at": "2026-10-08T12:08:30.547844+00:00",
+  "steps": [
+    {
+      "name": "final-preview-tests",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/approval-preview.test.ts",
+        "--maxWorkers=2"
+      ],
+      "cwd": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo",
+      "exit_code": 0,
+      "log_sha256": "1a1902e77f0d1ab65fa56cc73db19ecd1583d25ecc682f9b04cf483b0e005242"
+    },
+    {
+      "name": "final-build",
+      "command": [
+        "/opt/homebrew/bin/npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo",
+      "exit_code": 0,
+      "log_sha256": "637dc03ef6fd600736738634b09a71272001abdc1b59dc41d70a8e039cbe0f20"
+    },
+    {
+      "name": "browser-candidate-final",
+      "command": [
+        "/Users/me/hamon-work-ledgerly-566d51f04b31-venv/bin/python",
+        "-I",
+        "-B",
+        "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo/tools/check_approval_preview_browser.py",
+        "--source",
+        "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef",
+        "--dist",
+        "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo/dist",
+        "--chrome",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "--output",
+        "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef-evidence/browser-candidate-final"
+      ],
+      "cwd": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef",
+      "exit_code": 0,
+      "log_sha256": "5faad1360114b3bd3cb68692629e1961a6df07d6fd1f1ba2a43188c05ed53b00"
+    }
+  ],
+  "finished_at": "2026-10-08T12:08:42.054267+00:00"
+}

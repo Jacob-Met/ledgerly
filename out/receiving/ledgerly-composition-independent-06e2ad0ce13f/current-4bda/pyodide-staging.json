@@ -1,0 +1,143 @@
+{
+  "recorded_utc": "2026-10-08T11:06:29.266524+00:00",
+  "original_npm_staging_executed": true,
+  "staged_file_count": 22,
+  "all_staged_files_equal_inputs": true,
+  "all_five_original_runtime_inputs_unchanged": true,
+  "all_44_source_test_config_inputs_unchanged": true,
+  "tracked_git_status_clean": true,
+  "files": [
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/ledgerly/__init__.py",
+      "staged": "web-demo/public/python/ledgerly/__init__.py",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/ledgerly/agent.py",
+      "staged": "web-demo/public/python/ledgerly/agent.py",
+      "sha256": "1f260b563ed657522bed777d438029b035bd43baa0b30b2f024950875d8f5a15",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/ledgerly/extract.py",
+      "staged": "web-demo/public/python/ledgerly/extract.py",
+      "sha256": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/ledgerly/paypal.py",
+      "staged": "web-demo/public/python/ledgerly/paypal.py",
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/web-demo/python/bridge.py",
+      "staged": "web-demo/public/python/bridge.py",
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/web-demo/python/review.py",
+      "staged": "web-demo/public/python/review.py",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/01_simple_usd_hourly.txt",
+      "staged": "web-demo/public/fixtures/01_simple_usd_hourly.txt",
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/02_gbp_proofreading.txt",
+      "staged": "web-demo/public/fixtures/02_gbp_proofreading.txt",
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/03_eur_fixed_project.txt",
+      "staged": "web-demo/public/fixtures/03_eur_fixed_project.txt",
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/04_multi_currency.txt",
+      "staged": "web-demo/public/fixtures/04_multi_currency.txt",
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/05_missing_email.txt",
+      "staged": "web-demo/public/fixtures/05_missing_email.txt",
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/06_ambiguous_qty.txt",
+      "staged": "web-demo/public/fixtures/06_ambiguous_qty.txt",
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/07_partial_payment_deposit.txt",
+      "staged": "web-demo/public/fixtures/07_partial_payment_deposit.txt",
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/08_jpy_zero_decimal.txt",
+      "staged": "web-demo/public/fixtures/08_jpy_zero_decimal.txt",
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/09_table_cad.txt",
+      "staged": "web-demo/public/fixtures/09_table_cad.txt",
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/10_billing_address_net45.txt",
+      "staged": "web-demo/public/fixtures/10_billing_address_net45.txt",
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/11_range_qty_approx.txt",
+      "staged": "web-demo/public/fixtures/11_range_qty_approx.txt",
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "byte_equal": true
+    },
+    {
+      "source": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/fixtures/12_prompt_injection.txt",
+      "staged": "web-demo/public/fixtures/12_prompt_injection.txt",
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "byte_equal": true
+    },
+    {
+      "source": "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.asm.js",
+      "staged": "web-demo/public/pyodide/pyodide.asm.js",
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+      "byte_equal": true
+    },
+    {
+      "source": "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.asm.wasm",
+      "staged": "web-demo/public/pyodide/pyodide.asm.wasm",
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+      "byte_equal": true
+    },
+    {
+      "source": "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/python_stdlib.zip",
+      "staged": "web-demo/public/pyodide/python_stdlib.zip",
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+      "byte_equal": true
+    },
+    {
+      "source": "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide-lock.json",
+      "staged": "web-demo/public/pyodide/pyodide-lock.json",
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+      "byte_equal": true
+    }
+  ]
+}

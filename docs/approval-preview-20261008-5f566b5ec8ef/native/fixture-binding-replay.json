@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-08T11:50:33.384254+00:00",
+  "correction": "Bind the new real renderer in the existing source-evaluating VM fixture. No recovery assertion or implementation changed.",
+  "before_test_sha256": "d7b2603dff05d0802685d8ba353a0323c6128543d078a684786527b2dac3550d",
+  "after_test_sha256": "d94dfc532beba2fffe36a6206513493c10f626e79e180ca80d724848d03c0997",
+  "steps": [
+    {
+      "name": "recovery-binding",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/engine-recovery.test.ts",
+        "--maxWorkers=1"
+      ],
+      "exit_code": 0,
+      "log": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef-evidence/recovery-binding.log",
+      "sha256": "79340d397c0093273ef1a84c807361464da6e73cd8efddba089a26633d4a5bd3"
+    },
+    {
+      "name": "build",
+      "command": [
+        "/opt/homebrew/bin/npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "log": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef-evidence/build.log",
+      "sha256": "295755ddb81bf9e367c55a6978f03df94ad803964b23e2bf427da76920826b32"
+    }
+  ]
+}

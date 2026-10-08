@@ -1,0 +1,48 @@
+.................................................................F.... [ 53%]
+........F.....................................................           [100%]
+=================================== FAILURES ===================================
+_ ReminderFreshnessTests.test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder _
+
+self = <test_reminder_freshness.ReminderFreshnessTests testMethod=test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder>
+
+    def test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder(self):
+        bridge_dir = ROOT / "web-demo/python"
+        with patch.object(sys, "path", [str(bridge_dir), *sys.path]):
+            demo = runpy.run_path(str(bridge_dir / "bridge.py"))["Demo"]()
+        demo.clock.day = date(2026, 10, 1)
+        text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text()
+        first = demo.dispatch({"action": "draft", "text": text})["state"]["pending"][0]
+        demo.dispatch({"action": "approve", "action_id": first["id"]})
+        demo.dispatch({"action": "advance", "day": "2026-11-10"})
+        old = demo.dispatch({"action": "chase"})["state"]["pending"][0]
+        after = demo.dispatch({"action": "payment", "invoice_id": first["invoice_id"],
+                               "amount": "300"})
+        self.assertEqual(after["state"]["pending"], [])
+        self.assertEqual(demo.agent.pending[old["id"]].status, "REJECTED")
+>       self.assertEqual(after["state"]["ledger"][0]["balance"], "500.00")
+E       AssertionError: '500' != '500.00'
+E       - 500
+E       + 500.00
+
+tests/test_reminder_freshness.py:156: AssertionError
+_ AgentReceiving.test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft _
+
+self = <test_reminder_receiving.AgentReceiving testMethod=test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft>
+
+    def test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft(self):
+        old_event = self.pay(100, deliver=False)
+        self.pay(200)
+        aid = self.queue()
+        self.assertIn("GBP 500", self.agent.pending[aid].payload["note"])
+        self.deliver(old_event)
+>       self.assert_no_send_and_permit_closed(aid)
+
+tests/test_reminder_receiving.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_reminder_receiving.py:93: in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+E   AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+=========================== short test summary info ============================
+FAILED tests/test_reminder_freshness.py::ReminderFreshnessTests::test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder
+FAILED tests/test_reminder_receiving.py::AgentReceiving::test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft
+2 failed, 130 passed, 2 subtests passed in 0.48s

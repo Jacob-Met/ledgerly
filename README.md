@@ -15,7 +15,7 @@ You need Python 3.12+. The core uses only the standard library, and the tests ne
 ```bash
 python3.12 -m venv .venv && source .venv/bin/activate
 pip install pytest
-pytest -q                     # 52 tests, fully offline
+pytest -q                     # fully offline
 python -m ledgerly.demo       # scripted end-to-end run (add --interactive to approve by hand)
 ```
 
@@ -59,6 +59,25 @@ job email ──► extract.py ──────────► agent.py ──
   `parse_webhook_event()` handles `INVOICING.INVOICE.*` events, including `PAID`. The
   comments in the module list the doc URLs this was based on.
 
+## Webhook receiving
+
+After verification and parsing, a notification for a known invoice triggers the existing
+current-invoice read. The ledger and pending reminders use those fresh invoice facts,
+so a delayed payment snapshot cannot restore an older balance or status. A notification
+whose read fails can be retried; an unknown invoice does not consume the event ID.
+
+Accepted event IDs are bound to the complete canonical JSON content for the lifetime of
+the `Agent`. A repeat with the same JSON values is acknowledged without another read;
+reusing the ID with changed content is rejected. This index is in memory. Signature
+verification still runs before duplicate detection when a verifier is configured.
+An unchanged current invoice preserves the exact existing reminder review, and sending
+still requires human approval. The tests use `SandboxMock`; real provider delivery and
+durable event storage remain unverified.
+
+Source pins, negative controls and independent receiving are recorded in
+[`out/receiving/webhook-admission-06e2ad0ce13f`](out/receiving/webhook-admission-06e2ad0ce13f)
+and the adjacent independent receiving packet.
+
 ## What's mocked
 
 | Real thing | In this repo |
@@ -71,9 +90,9 @@ job email ──► extract.py ──────────► agent.py ──
 
 Places where the mock guesses at PayPal behaviour are marked `ASSUMPTION` in `paypal.py`. The
 two main ones are which issue code comes back when you re-send a non-draft invoice, and
-whether partial payments fire `INVOICING.INVOICE.PAID`. Ledgerly keys off
-`resource.invoice.status`, so it works either way. Check both against the sandbox before
-relying on them.
+whether partial payments fire `INVOICING.INVOICE.PAID`. The parser accepts the supported
+snapshot status; webhook handling then reads the current invoice before updating local
+facts. Check these assumptions against the sandbox before relying on them.
 
 ## Fixtures
 

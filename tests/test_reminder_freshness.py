@@ -153,7 +153,7 @@ class ReminderFreshnessTests(unittest.TestCase):
                                "amount": "300"})
         self.assertEqual(after["state"]["pending"], [])
         self.assertEqual(demo.agent.pending[old["id"]].status, "REJECTED")
-        self.assertEqual(after["state"]["ledger"][0]["balance"], "500.00")
+        self.assertEqual(Decimal(after["state"]["ledger"][0]["balance"]), Decimal("500"))
         fresh = demo.dispatch({"action": "chase"})["state"]["pending"][0]
         self.assertIn("GBP 500", fresh["payload"]["note"])
         self.assertFalse(any(r[1].endswith("/remind") for r in demo.mock.requests))

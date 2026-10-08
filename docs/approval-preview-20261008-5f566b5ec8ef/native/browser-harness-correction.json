@@ -1,0 +1,5 @@
+{
+  "reason": "The real fixture menu does not offer fixture02. Paste the repository's same fictional email through the existing intake field instead; no app change or assertion relaxation.",
+  "prior_harness_sha256": "e57d0002fbe3536d18739d354bc5aeb622cbf39817820a7adad50b4b68bf280e",
+  "current_harness_sha256": "7af63b9a36a517cba8d35ab0fbaa22f5c6d04dfd0347bc44350cf7461ef7e513"
+}

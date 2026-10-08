@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import contextlib
 import copy
+import hashlib
 import json
 import uuid
 from dataclasses import dataclass, field
@@ -248,7 +249,7 @@ class Agent:
         self.ledger: dict[str, LedgerEntry] = {}
         self.pending: dict[str, PendingAction] = {}
         self.audit: list[dict] = []
-        self._seen_events: set[str] = set()
+        self._seen_events: dict[str, str] = {}
 
     # -- tool loop
     def run(self, goal: str, planner: Planner, max_steps: int = 12) -> dict:
@@ -423,19 +424,32 @@ class Agent:
                 self._log("webhook_rejected", reason="bad signature")
                 raise WebhookError("signature verification failed")
         ev = parse_webhook_event(raw_body)
-        if ev.event_id in self._seen_events:
+        if not isinstance(ev.event_id, str) or not ev.event_id or ev.event_id.strip() != ev.event_id:
+            raise WebhookError("event ID must be a nonempty string without surrounding whitespace")
+        if not isinstance(ev.invoice_id, str) or not ev.invoice_id or ev.invoice_id.strip() != ev.invoice_id:
+            raise WebhookError("invoice ID must be a nonempty string without surrounding whitespace")
+        try:
+            canonical = json.dumps(json.loads(raw_body), sort_keys=True, separators=(",", ":"), allow_nan=False)
+        except (TypeError, ValueError) as err:
+            raise WebhookError("event content must be finite JSON") from err
+        digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+        prior = self._seen_events.get(ev.event_id)
+        if prior is not None:
+            if prior != digest:
+                self._log("webhook_rejected", reason="event identity conflict", event_id=ev.event_id)
+                raise WebhookError("Webhook event identity conflict")
             return {"ok": True, "duplicate": True, "invoice_id": ev.invoice_id}
-        self._seen_events.add(ev.event_id)
         e = self.ledger.get(ev.invoice_id)
         if e is None:
             self._log("webhook_unknown_invoice", invoice=ev.invoice_id)
             return {"ok": False, "message": "unknown invoice"}
         prev = e.status
-        e.status = ev.status
-        if ev.paid_amount is not None:
-            e.paid_amount = ev.paid_amount
-        self._invalidate_reminders(e, self.today())
-        self._log("webhook", event_type=ev.event_type, invoice=ev.invoice_id, transition=f"{prev}->{e.status}")
+        # A signed notification can arrive late. Reuse the current-invoice read
+        # and reminder invalidation before consuming its identity for replay.
+        self._refresh_invoice(ev.invoice_id)
+        self._seen_events[ev.event_id] = digest
+        self._log("webhook", event_type=ev.event_type, invoice=ev.invoice_id,
+                  transition=f"{prev}->{e.status}", reported_status=ev.status, source="current_invoice")
         return {"ok": True, "invoice_id": ev.invoice_id, "from": prev, "to": e.status}
 
     # -- internals

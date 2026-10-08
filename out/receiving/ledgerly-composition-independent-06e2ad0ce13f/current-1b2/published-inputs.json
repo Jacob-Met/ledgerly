@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-08T11:23:24.911542+00:00",
+  "commits": {
+    "owner-current": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+    "extraction-published": "f67e2c4034804f657eccad38887f377f28011e98",
+    "webhook-published": "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755"
+  },
+  "trees": {
+    "owner-current": "ba5ab49270c136d86bc492411f49a5bdebdb6049",
+    "extraction-published": "ae425d9afb682b55138143780b461d1c61e9e820",
+    "webhook-published": "cd1bfada6fc4070250a73f0b6390efc755de568c"
+  },
+  "webhook_tree_exact_native_e9c4827": true,
+  "published_executable_test_web_trees_exact_previous_qualified_commits": true,
+  "prior_webhook_source_object_fetched_from_author_clone_after_initial_missing_object_check": true
+}

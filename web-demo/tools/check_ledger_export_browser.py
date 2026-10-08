@@ -4,6 +4,10 @@ Run against a loopback-only temporary server; no provider requests are allowed.
 Requires Playwright and an installed Chrome/Chromium. All inputs are fictional.
 """
 import argparse
+import base64
+import platform
+import subprocess
+from importlib.metadata import version
 import csv
 import functools
 import hashlib
@@ -26,7 +30,9 @@ CORRECTED_NAME = '=SUM(1,2) — 佐藤 "Studio"'
 OBSERVER = """
 (() => {
   const NativeWorker = window.Worker;
-  const r = window.__ledgerReceiving = {workers: [], requests: [], states: [], replies: [], holdNext: false, held: null};
+  const r = window.__ledgerReceiving = {workers: [], requests: [], states: [], replies: [], holdNext: false, held: null, objectUrls: 0};
+  const nativeObjectURL = URL.createObjectURL;
+  URL.createObjectURL = function(...args) { r.objectUrls++; return nativeObjectURL.apply(this, args); };
   window.Worker = class extends NativeWorker {
     constructor(...args) {
       super(...args);
@@ -103,17 +109,54 @@ def expected_rows(state):
     return rows
 
 
-def run(dist, output, chrome, baseline=False):
+def print_bundle(output):
+    records = []
+    for path in sorted(output.rglob("*")):
+        if path.is_file():
+            data = path.read_bytes()
+            records.append({"path": str(path.relative_to(output)), "bytes": len(data),
+                            "sha256": hashlib.sha256(data).hexdigest(),
+                            "base64": base64.b64encode(data).decode("ascii")})
+    total = sum(record["bytes"] for record in records)
+    if total > 2 * 1024 * 1024:
+        raise ValueError("Receiving packet exceeds 2 MiB; refusing to truncate its evidence.")
+    payload = json.dumps({"version": 1, "files": records}, separators=(",", ":")).encode("utf-8")
+    encoded = base64.b64encode(payload).decode("ascii")
+    chunks = [encoded[i:i + 4096] for i in range(0, len(encoded), 4096)]
+    print("LEDGERLY_CSV_BUNDLE_BEGIN " + json.dumps({
+        "bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest(), "chunks": len(chunks)}))
+    for index, chunk in enumerate(chunks):
+        print("LEDGERLY_CSV_BUNDLE_CHUNK " + str(index) + " " + chunk)
+    print("LEDGERLY_CSV_BUNDLE_END", flush=True)
+
+
+def run(dist, output, chrome, baseline=False, emit_bundle=False):
     dist, output = dist.resolve(), output.resolve()
     if not (dist / "index.html").is_file():
         raise ValueError("Supply an existing production build directory.")
+    if output.exists() and any(output.iterdir()):
+        raise ValueError("Use a new or empty evidence directory.")
     output.mkdir(parents=True, exist_ok=True)
     server = ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(QuietHandler, directory=str(dist)))
     Thread(target=server.serve_forever, daemon=True).start()
     origin = "http://127.0.0.1:" + str(server.server_port)
     errors, off_origin, downloads, checks = [], [], [], []
+    source_root = Path(__file__).resolve().parents[1]
+    try:
+        checkout = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=source_root, text=True).strip()
+    except (OSError, subprocess.CalledProcessError):
+        checkout = None
+    source_paths = ["src/main.ts", "src/engine.worker.ts", "src/worker-client.ts",
+                    "src/ledger-export.ts", "python/bridge.py", "index.html",
+                    "tools/check_ledger_export_browser.py", "package-lock.json", "vite.config.ts"]
     result = {"ok": False, "baseline": baseline, "checks": checks, "downloads": downloads,
-              "page_errors": errors, "off_origin_requests": off_origin}
+              "page_errors": errors, "off_origin_requests": off_origin, "checkout": checkout,
+              "python": platform.python_version(), "platform": platform.platform(),
+              "playwright": version("playwright"),
+              "source_sha256": {name: hashlib.sha256((source_root / name).read_bytes()).hexdigest()
+                                for name in source_paths if (source_root / name).is_file()},
+              "dist_sha256": {str(path.relative_to(dist)): hashlib.sha256(path.read_bytes()).hexdigest()
+                              for path in sorted(dist.rglob("*")) if path.is_file()}}
     try:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(
@@ -180,13 +223,18 @@ def run(dist, output, chrome, baseline=False):
                     data = target.read_bytes()
                     assert data.startswith(b"\xef\xbb\xbf") and data.endswith(b"\r\n")
                     parsed = list(csv.reader(io.StringIO(data.decode("utf-8-sig"), newline="")))
-                    assert parsed == expected_rows(before["state"]), (label, parsed, expected_rows(before["state"]))
+                    expected = expected_rows(before["state"])
+                    assert parsed == expected, (label, parsed, expected)
+                    canonical = io.StringIO(newline="")
+                    csv.writer(canonical, quoting=csv.QUOTE_ALL, lineterminator="\r\n").writerows(expected)
+                    assert data == b"\xef\xbb\xbf" + canonical.getvalue().encode("utf-8"), "Noncanonical CSV bytes"
                     after = view(page)
                     assert before == after, "Download changed the snapshot or made a Worker request"
                     (output / (label + "-snapshot.json")).write_text(json.dumps(before, indent=2) + "\n")
                     downloads.append({"case": label, "filename": item.suggested_filename,
                                       "rows": len(parsed) - 1, "sha256": hashlib.sha256(data).hexdigest(),
-                                      "exact_snapshot_fields": True, "state_and_requests_unchanged": True})
+                                      "exact_snapshot_fields": True, "canonical_file_bytes": True,
+                                      "state_and_requests_unchanged": True})
                     return data
 
                 download("01-drafts")
@@ -207,11 +255,13 @@ def run(dist, output, chrome, baseline=False):
                 page.wait_for_function("window.__ledgerReceiving.held !== null")
                 expect(button).to_be_disabled()
                 count = len(seen_downloads)
-                button.evaluate("button => button.click()")
+                object_urls = page.evaluate("window.__ledgerReceiving.objectUrls")
+                button.evaluate("button => { button.click(); button.dispatchEvent(new MouseEvent(\'click\', {bubbles: true})); }")
+                assert page.evaluate("window.__ledgerReceiving.objectUrls") == object_urls
                 assert len(seen_downloads) == count
                 page.evaluate("window.__ledgerReceiving.held()")
                 settle(page)
-                checks.append("disabled during an actual pending Worker action")
+                checks.append("disabled UI and controller guard during an actual pending Worker action")
                 action(page, "#run-chase")
                 while page.locator("[data-approve]").count():
                     action(page, "[data-approve]:first-of-type")
@@ -249,7 +299,7 @@ def run(dist, output, chrome, baseline=False):
                 assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
                 assert download("08-phone-keyboard", keyboard=True) == corrected
                 page.locator(".ledger-panel").screenshot(path=str(output / "phone-ledger.png"))
-                checks.append("390px layout without overflow and keyboard download")
+                checks.append("390px layout without overflow and focused Enter activation")
 
                 action(page, "#reset-sandbox")
                 expect(button).to_be_disabled()
@@ -266,16 +316,25 @@ def run(dist, output, chrome, baseline=False):
                 expect(button).to_be_disabled()
                 assert view(page) == preserved
                 count = len(seen_downloads)
-                button.evaluate("button => button.click()")
+                object_urls = page.evaluate("window.__ledgerReceiving.objectUrls")
+                button.evaluate("button => { button.click(); button.dispatchEvent(new MouseEvent(\'click\', {bubbles: true})); }")
+                assert page.evaluate("window.__ledgerReceiving.objectUrls") == object_urls
                 assert len(seen_downloads) == count
                 page.locator("#engine-start").click()
                 expect(page.locator("#engine-status")).to_have_text("PYTHON READY / OFFLINE", timeout=60000)
                 expect(button).to_be_disabled()
                 assert not view(page)["state"]["ledger"]
-                checks.append("lost session blocks the stale displayed ledger; explicit restart starts empty")
+                checks.append("synthetic terminal Worker error blocks stale ledger through UI and controller guard; explicit restart starts empty")
                 assert not errors and not off_origin
                 result["ok"] = True
                 return result
+            except Exception:
+                if "page" in locals() and not page.is_closed():
+                    try:
+                        page.screenshot(path=str(output / "failure.png"))
+                    except Exception as screenshot_error:
+                        result["screenshot_error"] = str(screenshot_error)
+                raise
             finally:
                 browser.close()
     except Exception as error:
@@ -286,6 +345,8 @@ def run(dist, output, chrome, baseline=False):
         server.server_close()
         (output / "browser-receiving.json").write_text(json.dumps(result, indent=2) + "\n")
         print(json.dumps(result))
+        if emit_bundle:
+            print_bundle(output)
 
 
 if __name__ == "__main__":
@@ -294,5 +355,6 @@ if __name__ == "__main__":
     parser.add_argument("output", type=Path)
     parser.add_argument("--chrome", required=True)
     parser.add_argument("--baseline", action="store_true")
+    parser.add_argument("--emit-bundle", action="store_true")
     args = parser.parse_args()
-    run(args.dist, args.output, args.chrome, args.baseline)
+    run(args.dist, args.output, args.chrome, args.baseline, args.emit_bundle)

@@ -1,0 +1,22 @@
+{
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/REVIEW.md": "3d5a265969e68014e7134b30a9ad49b502b508e863096f3f9ae51233ed3e30a7",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/composite-executable.diff": "07b7514a7c96ff79e6b9c3bb0773cf5d0305bd1823edbd74cfc1ba2d6a8bc127",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/composite-input-sha256.json": "f18c4fbef556efa970f6f63edabe8c90de47b8541f4050348ce452649830a109",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/composite-source/agent.py": "c187df78892ecee3993b12bb447e4df1caccbf51fad848c3251669be40b9ac65",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/composite-source/extract.py": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/composite-source/paypal.py": "e04fa6abc90747f9b723660aa8d76a174e4bff89e1e41067aefb4c75bc971965",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/composition-source.json": "b4ce5388229cb2b7c46bd2711e31ffa73e7991a774b140c871fc1b1fe0a6ccc2",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/git-operations.json": "e5ecda797255af38f9b439214838de06a1cdf94447ef9b182551346034fe5770",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/native-composition.log": "9c8f15da55276dbf7737b7784a1d2c86b15bfa91cc77504e4fb1337881576432",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/native-run.json": "2cad7d4659e7db2c68279e749ac262559578b9741f364a608b48ce986a450479",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/native-runtime.txt": "e59e5d864cc85242787edf954ed7f8396a126142c2751b884737b0bf63f46728",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/owner-receipt-terms.diff": "231614fe7bca861885350661b8dd0228fc714af841c3b50276e36d754ddf2da3",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/post-test-status.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/published-inputs.json": "ff1ef4df269218c4c77f6d021ea5e6327803c1368ce2770100b54b0703404e3a",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/pyodide-composition.log": "2ff42698b4a0e452c3bce9e2b22998a0c58e963b321a1cea814ef2de85ee334c",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/pyodide-run.json": "44bb14fc32064fa498e19d3176366e7926cd1b4f28258efcbce9619b8d94e307",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/pyodide-staging.json": "afbc7d1cfd9776e0470fcc9cf2b791b8a8dc5e81e83194d9f72d4bc501659872",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/receiving-setup-notes.json": "fc28547d11c2ca5af07ead3ee91feaacfffd3e49c09b20ce02160d2c4c0c5a61",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/receiving.json": "8b4540726a55b85be3c09e92db23727fa9f222b9af2c2e9489631148ab1afcd0",
+  "out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-1b2/runtime-inputs.json": "8f604e8bc251d942912538d99355d55189b6c0ea51b7561780832f41118e5377"
+}

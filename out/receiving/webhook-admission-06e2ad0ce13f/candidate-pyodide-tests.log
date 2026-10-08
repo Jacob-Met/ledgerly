@@ -1,0 +1,15 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+ RUN  v5.0.3 /workspace/scratch/06e2ad0ce13f/ledgerly-webhook-admission/web-demo
+
+
+ Test Files  2 passed (2)
+      Tests  10 passed (10)
+   Start at  19:30:25
+   Duration  2.36s (tests 97%, transform 2%, import 1%)
+

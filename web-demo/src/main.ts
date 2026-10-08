@@ -2,6 +2,8 @@ import './style.css';
 import './review.css';
 import './ledger-export.css';
 import {createLedgerExport} from './ledger-export';
+import './approval-preview.css';
+import {approvalListMarkup} from './approval-preview';
 import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
 import {WorkerClient, WorkerUnavailableError} from './worker-client';
 const $=<T extends HTMLElement>(selector:string)=>document.querySelector(selector) as T;
@@ -71,7 +73,7 @@ function renderAnalysis(ex:any){
  canReplay=Boolean(state.can_replay);
  $<HTMLElement>('#mock-requests').textContent=String(state.mock_requests??0);$<HTMLElement>('#external-calls').textContent=String(state.external_calls??0);
  const dateInput=$<HTMLInputElement>('#demo-date');if(document.activeElement!==dateInput)dateInput.value=state.today||'';$<HTMLButtonElement>('#replay-webhook').disabled=!ready||!state.can_replay||busy;
- const queue=state.pending||[];$<HTMLElement>('#approval-list').innerHTML=queue.length?queue.map((a:any)=>`<article class="approval-card"><div class="approval-head"><span class="source-chip">${esc(a.kind==='send_invoice'?'SEND INVOICE':'SEND REMINDER')}</span><span class="mono">${esc(a.invoice_id)}</span></div><p>${esc(a.summary)}</p><div class="button-row"><button class="button button-approve" data-approve="${esc(a.id)}">Approve in sandbox</button><button class="button button-reject" data-reject="${esc(a.id)}">Reject</button></div></article>`).join(''):'<p class="empty">No approvals waiting. Sends and reminders stay queued until you choose.</p>';
+ const queue=state.pending||[];$<HTMLElement>('#approval-list').innerHTML=approvalListMarkup(queue);
  const ledger=state.ledger||[];$<HTMLElement>('#ledger-list').innerHTML=ledger.length?ledger.map((e:any)=>{const open=['SENT','PARTIALLY_PAID','UNPAID'].includes(e.status)&&Number(e.balance)>0;return `<article class="invoice-card" data-due="${esc(e.due_on||'')}"><div class="invoice-head"><div><span class="eyebrow">${esc(e.invoice_number)}</span><h3>${esc(e.client_name||e.client_email||'Client')}</h3></div><span class="status-chip ${esc(String(e.status).toLowerCase())}">${esc(e.status)}</span></div><div class="invoice-meta"><span>${esc(e.currency)} ${esc(e.total)}</span><span>PAID ${esc(e.paid_amount)}</span><span>BALANCE ${esc(e.balance)}</span></div><div class="invoice-meta"><span>DUE ${esc(e.due_on||'Terms missing')}</span><span>REMINDERS ${esc(e.reminders_sent)}</span></div>${open?`<button class="button button-payment" data-pay="${esc(e.invoice_id)}">Simulate sandbox payment</button>`:''}</article>`;}).join(''):'<p class="empty">No invoices in this sandbox ledger yet.</p>';
  const audit=state.audit||[];$<HTMLOListElement>('#audit-list').innerHTML=audit.length?audit.map((e:any)=>`<li><span>${esc(e.event||'event')}</span><code>${esc(e.kind||e.tool||e.invoice||e.action||'')}</code><time>${esc((e.at||'').slice(11,19))}</time></li>`).join(''):'<li class="empty">Agent events will appear here as work runs.</li>';
 }
