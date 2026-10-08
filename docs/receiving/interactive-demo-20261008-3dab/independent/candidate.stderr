@@ -1,0 +1,8 @@
+test_every_overdue_reminder_still_requires_a_separate_yes (__main__.DeclinedDemoReview.test_every_overdue_reminder_still_requires_a_separate_yes) ... ok
+test_non_y_answers_preserve_every_decline_and_finish_report (__main__.DeclinedDemoReview.test_non_y_answers_preserve_every_decline_and_finish_report) ... ok
+test_only_last_explicit_approval_is_paid_after_that_decision (__main__.DeclinedDemoReview.test_only_last_explicit_approval_is_paid_after_that_decision) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.011s
+
+OK
