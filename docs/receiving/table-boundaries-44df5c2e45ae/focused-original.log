@@ -1,0 +1,226 @@
+FFFFFFFFFFFF.F...                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_each_later_table_uses_its_own_header[columns0] ______________
+
+columns = ('Description', 'Qty', 'Unit price')
+
+    @pytest.mark.parametrize("columns", list(itertools.permutations(
+        ["Description", "Qty", "Unit price"])))
+    def test_each_later_table_uses_its_own_header(columns):
+        second = table(columns, {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n\nAdditional work:\n\n" + second)
+        assert values(result) == [("Editing", Decimal(2), Decimal(100), "USD"),
+                                  ("Photos", Decimal(3), Decimal(75), "USD")]
+        assert result.total() == Decimal(425)
+>       assert result.issues == []
+E       assert [Issue(field=...it price |'")] == []
+E         
+E         Left contains one more item: Issue(field='line_items', severity='error', message="No unambiguous price in table row: '| Description | Qty | Unit price |'")
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:37: AssertionError
+_____________ test_each_later_table_uses_its_own_header[columns1] ______________
+
+columns = ('Description', 'Unit price', 'Qty')
+
+    @pytest.mark.parametrize("columns", list(itertools.permutations(
+        ["Description", "Qty", "Unit price"])))
+    def test_each_later_table_uses_its_own_header(columns):
+        second = table(columns, {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n\nAdditional work:\n\n" + second)
+>       assert values(result) == [("Editing", Decimal(2), Decimal(100), "USD"),
+                                  ("Photos", Decimal(3), Decimal(75), "USD")]
+E       AssertionError: assert [('Editing', ...('3'), 'USD')] == [('Editing', ...'75'), 'USD')]
+E         
+E         At index 1 diff: ('Photos', None, Decimal('3'), 'USD') != ('Photos', Decimal('3'), Decimal('75'), 'USD')
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:34: AssertionError
+_____________ test_each_later_table_uses_its_own_header[columns2] ______________
+
+columns = ('Qty', 'Description', 'Unit price')
+
+    @pytest.mark.parametrize("columns", list(itertools.permutations(
+        ["Description", "Qty", "Unit price"])))
+    def test_each_later_table_uses_its_own_header(columns):
+        second = table(columns, {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n\nAdditional work:\n\n" + second)
+>       assert values(result) == [("Editing", Decimal(2), Decimal(100), "USD"),
+                                  ("Photos", Decimal(3), Decimal(75), "USD")]
+E       AssertionError: assert [('Editing', ...'75'), 'USD')] == [('Editing', ...'75'), 'USD')]
+E         
+E         At index 1 diff: ('3', None, Decimal('75'), 'USD') != ('Photos', Decimal('3'), Decimal('75'), 'USD')
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:34: AssertionError
+_____________ test_each_later_table_uses_its_own_header[columns3] ______________
+
+columns = ('Qty', 'Unit price', 'Description')
+
+    @pytest.mark.parametrize("columns", list(itertools.permutations(
+        ["Description", "Qty", "Unit price"])))
+    def test_each_later_table_uses_its_own_header(columns):
+        second = table(columns, {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n\nAdditional work:\n\n" + second)
+>       assert values(result) == [("Editing", Decimal(2), Decimal(100), "USD"),
+                                  ("Photos", Decimal(3), Decimal(75), "USD")]
+E       AssertionError: assert [('Editing', ...100'), 'USD')] == [('Editing', ...'75'), 'USD')]
+E         
+E         Right contains one more item: ('Photos', Decimal('3'), Decimal('75'), 'USD')
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:34: AssertionError
+_____________ test_each_later_table_uses_its_own_header[columns4] ______________
+
+columns = ('Unit price', 'Description', 'Qty')
+
+    @pytest.mark.parametrize("columns", list(itertools.permutations(
+        ["Description", "Qty", "Unit price"])))
+    def test_each_later_table_uses_its_own_header(columns):
+        second = table(columns, {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n\nAdditional work:\n\n" + second)
+>       assert values(result) == [("Editing", Decimal(2), Decimal(100), "USD"),
+                                  ("Photos", Decimal(3), Decimal(75), "USD")]
+E       AssertionError: assert [('Editing', ...('3'), 'USD')] == [('Editing', ...'75'), 'USD')]
+E         
+E         At index 1 diff: ('$75', None, Decimal('3'), 'USD') != ('Photos', Decimal('3'), Decimal('75'), 'USD')
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:34: AssertionError
+_____________ test_each_later_table_uses_its_own_header[columns5] ______________
+
+columns = ('Unit price', 'Qty', 'Description')
+
+    @pytest.mark.parametrize("columns", list(itertools.permutations(
+        ["Description", "Qty", "Unit price"])))
+    def test_each_later_table_uses_its_own_header(columns):
+        second = table(columns, {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n\nAdditional work:\n\n" + second)
+>       assert values(result) == [("Editing", Decimal(2), Decimal(100), "USD"),
+                                  ("Photos", Decimal(3), Decimal(75), "USD")]
+E       AssertionError: assert [('Editing', ...100'), 'USD')] == [('Editing', ...'75'), 'USD')]
+E         
+E         Right contains one more item: ('Photos', Decimal('3'), Decimal('75'), 'USD')
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:34: AssertionError
+________________ test_repeated_header_is_not_a_billable_row[\n] ________________
+
+separator = '\n'
+
+    @pytest.mark.parametrize("separator", ["\n", "\n\n", "\nMilestone two:\n"])
+    def test_repeated_header_is_not_a_billable_row(separator):
+        result = extract(FIRST + separator + FIRST.replace("Editing", "Review"))
+        assert [item.desc for item in result.line_items] == ["Editing", "Review"]
+        assert result.total() == Decimal(400)
+>       assert result.issues == []
+E       assert [Issue(field=...it price |'")] == []
+E         
+E         Left contains one more item: Issue(field='line_items', severity='error', message="No unambiguous price in table row: '| Item | Qty | Unit price |'")
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:45: AssertionError
+_______________ test_repeated_header_is_not_a_billable_row[\n\n] _______________
+
+separator = '\n\n'
+
+    @pytest.mark.parametrize("separator", ["\n", "\n\n", "\nMilestone two:\n"])
+    def test_repeated_header_is_not_a_billable_row(separator):
+        result = extract(FIRST + separator + FIRST.replace("Editing", "Review"))
+        assert [item.desc for item in result.line_items] == ["Editing", "Review"]
+        assert result.total() == Decimal(400)
+>       assert result.issues == []
+E       assert [Issue(field=...it price |'")] == []
+E         
+E         Left contains one more item: Issue(field='line_items', severity='error', message="No unambiguous price in table row: '| Item | Qty | Unit price |'")
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:45: AssertionError
+________ test_repeated_header_is_not_a_billable_row[\nMilestone two:\n] ________
+
+separator = '\nMilestone two:\n'
+
+    @pytest.mark.parametrize("separator", ["\n", "\n\n", "\nMilestone two:\n"])
+    def test_repeated_header_is_not_a_billable_row(separator):
+        result = extract(FIRST + separator + FIRST.replace("Editing", "Review"))
+        assert [item.desc for item in result.line_items] == ["Editing", "Review"]
+        assert result.total() == Decimal(400)
+>       assert result.issues == []
+E       assert [Issue(field=...it price |'")] == []
+E         
+E         Left contains one more item: Issue(field='line_items', severity='error', message="No unambiguous price in table row: '| Item | Qty | Unit price |'")
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:45: AssertionError
+____ test_unrelated_tables_before_and_after_do_not_inherit_invoice_columns _____
+
+    def test_unrelated_tables_before_and_after_do_not_inherit_invoice_columns():
+        context = "| Milestone | Contact | Status |\n| --- | --- | --- |\n| Launch | Alex | Ready |"
+        result = extract(context + "\n\n" + FIRST + "\n\n" + context)
+        assert values(result) == [("Editing", Decimal(2), Decimal(100), "USD")]
+>       assert result.issues == []
+E       assert [Issue(field=... | Ready |'")] == []
+E         
+E         Left contains 2 more items, first extra item: Issue(field='line_items', severity='error', message="No unambiguous price in table row: '| Milestone | Contact | Status |'")
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:52: AssertionError
+____________ test_reordered_header_can_follow_without_a_blank_line _____________
+
+    def test_reordered_header_can_follow_without_a_blank_line():
+        second = table(["Unit price", "Description", "Qty"],
+                       {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n" + second)
+>       assert [item.desc for item in result.line_items] == ["Editing", "Photos"]
+E       AssertionError: assert ['Editing', '$75'] == ['Editing', 'Photos']
+E         
+E         At index 1 diff: '$75' != 'Photos'
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:59: AssertionError
+___________ test_plain_priced_line_between_tables_is_still_extracted ___________
+
+    def test_plain_priced_line_between_tables_is_still_extracted():
+        second = table(["Unit price", "Description", "Qty"],
+                       {"Description": "Photos", "Qty": "3", "Unit price": "$75"})
+        result = extract(FIRST + "\n\n- Proofreading: 1 hr @ $50/hr\n\n" + second)
+>       assert {item.desc: item.amount() for item in result.line_items} == {
+            "Editing": Decimal(200), "Photos": Decimal(225), "Proofreading": Decimal(50)}
+E       AssertionError: assert {'$75': Decim...Decimal('50')} == {'Editing': D...Decimal('50')}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'$75': Decimal('0')}
+E         Right contains 1 more item:
+E         {'Photos': Decimal('225')}
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:68: AssertionError
+_________ test_invalid_quantity_in_second_table_still_blocks_drafting __________
+
+    def test_invalid_quantity_in_second_table_still_blocks_drafting():
+        second = table(["Unit price", "Description", "Qty"],
+                       {"Description": "Photos", "Qty": "several", "Unit price": "$75"})
+        result = extract(FIRST + "\n\n" + second)
+>       assert [item.desc for item in result.line_items] == ["Editing", "Photos"]
+E       AssertionError: assert ['Editing'] == ['Editing', 'Photos']
+E         
+E         Right contains one more item: 'Photos'
+E         Use -v to get more diff
+
+tests/test_table_boundaries.py:85: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_table_boundaries.py::test_each_later_table_uses_its_own_header[columns0]
+FAILED tests/test_table_boundaries.py::test_each_later_table_uses_its_own_header[columns1]
+FAILED tests/test_table_boundaries.py::test_each_later_table_uses_its_own_header[columns2]
+FAILED tests/test_table_boundaries.py::test_each_later_table_uses_its_own_header[columns3]
+FAILED tests/test_table_boundaries.py::test_each_later_table_uses_its_own_header[columns4]
+FAILED tests/test_table_boundaries.py::test_each_later_table_uses_its_own_header[columns5]
+FAILED tests/test_table_boundaries.py::test_repeated_header_is_not_a_billable_row[\n]
+FAILED tests/test_table_boundaries.py::test_repeated_header_is_not_a_billable_row[\n\n]
+FAILED tests/test_table_boundaries.py::test_repeated_header_is_not_a_billable_row[\nMilestone two:\n]
+FAILED tests/test_table_boundaries.py::test_unrelated_tables_before_and_after_do_not_inherit_invoice_columns
+FAILED tests/test_table_boundaries.py::test_reordered_header_can_follow_without_a_blank_line
+FAILED tests/test_table_boundaries.py::test_plain_priced_line_between_tables_is_still_extracted
+FAILED tests/test_table_boundaries.py::test_invalid_quantity_in_second_table_still_blocks_drafting
+13 failed, 4 passed in 1.21s
