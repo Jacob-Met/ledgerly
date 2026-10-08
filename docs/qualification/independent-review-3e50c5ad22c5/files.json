@@ -1,0 +1,47 @@
+[
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/README.md",
+    "bytes": 6230,
+    "sha256": "c32c5bf6bca623fd4df6aa15996ee93314a499e01f4f6377bae25f72e5d3bddf"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/author-inputs.json",
+    "bytes": 2030,
+    "sha256": "a268a37825c9367d8c590358ac18559159346df7968cd46fde4ebd1bdeaa53e7"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/composed-candidate.log",
+    "bytes": 1496,
+    "sha256": "e12440008e2b2de4fda350274c228f7e58dab717f76b30e0525ad1e2c833c620"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/composed-candidate.patch",
+    "bytes": 22315,
+    "sha256": "f0ce10bc6a553644a7fd214a39224eb6918c9d03edeef41129ead99b81ea3e9f"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/core-candidate-inputs.json",
+    "bytes": 884,
+    "sha256": "2cdf50511f896cc40fc43b48f8b347f1d8f41ed0b7118f2162b47479c200196c"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/original-core.log",
+    "bytes": 8297,
+    "sha256": "f44771abe542ea31651bb51c307bc3ab711df495050929100f7ca6f46e1887eb"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/review-adapter-only.patch",
+    "bytes": 10551,
+    "sha256": "76934ac314ddf84d2aeb1d4dad9bde825a772b3e061317c4ef780d0daca73f8c"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/source-custody.json",
+    "bytes": 2593,
+    "sha256": "94f7464bbb2f25ea244ef6de950e0810ecb362d70b021ce77b0428b482555c77"
+  },
+  {
+    "path": "docs/qualification/independent-review-3e50c5ad22c5/test_review_receiving.py.source",
+    "bytes": 10571,
+    "sha256": "ee6c86bcbeed27fbb90c0bf2db98905eee55cab22f39ff985f0f8519e0dcde68"
+  }
+]

@@ -1,0 +1,202 @@
+"""Independent native receiving of the browser's real JSON correction adapter.
+
+No generated UI fixtures or alternative invoice implementation are involved.
+The public bridge calls the actual Agent, RulePlanner and SandboxMock. These
+tests also support receiving the separately authored core-validation change.
+"""
+from copy import deepcopy
+from datetime import date
+from decimal import Decimal
+import json
+from pathlib import Path
+import sys
+import unittest
+from unittest.mock import patch
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "web-demo" / "python"))
+import bridge
+from ledgerly.extract import PAYPAL_CURRENCIES, ZERO_DECIMAL_CURRENCIES
+from ledgerly.paypal import SandboxMock
+
+
+SOURCE = "From: Original Client <original@example.test>\n\n- 2 x Design @ $10\nNet 30\n"
+
+
+def fields(currency="USD"):
+    return {
+        "client_name": 'Reviewed <client> & "name"',
+        "client_email": "reviewed@example.test",
+        "due_days": "0",
+        "amount_paid": "0",
+        "line_items": [{"desc": "Reviewed service", "qty": "2.5", "unit_price": "12.40",
+                        "currency": currency, "unit": "hours"}],
+    }
+
+
+def call(action, **payload):
+    return json.loads(bridge.handle_json(json.dumps({"action": action, **payload})))
+
+
+class ReviewedDraftReceiving(unittest.TestCase):
+    def setUp(self):
+        bridge.SESSION = bridge.Demo()
+        bridge.SESSION.clock.day = date(2026, 10, 8)
+
+    def analyze(self, source=SOURCE):
+        result = call("analyze", text=source)
+        self.assertTrue(result["ok"], result)
+        return result["result"]
+
+    def checked(self, values=None, source=SOURCE):
+        self.analyze(source)
+        result = call("review", text=source, fields=values or fields(), confirmed=True)
+        self.assertTrue(result["ok"], result)
+        self.assertTrue(result["result"]["valid"], result)
+        self.assertEqual(result["state"]["mock_requests"], 0)
+        self.assertEqual(result["state"]["pending"], [])
+        return result["result"]
+
+    def assert_no_invoice_effect(self):
+        self.assertEqual(bridge.SESSION.mock.invoices, {})
+        self.assertEqual(bridge.SESSION.agent.ledger, {})
+        self.assertEqual(bridge.SESSION.agent.list_pending(), [])
+        self.assertEqual(bridge.SESSION.mock.requests, [])
+
+    def assert_draft_matches_review(self, reviewed, drafted):
+        self.assertTrue(drafted["ok"], drafted)
+        self.assertTrue(drafted["result"]["reviewed"])
+        self.assertTrue(drafted["result"]["unauthorized_send_blocked"])
+        expected = {item["currency"]: Decimal(item["total"]) for item in reviewed["totals_by_currency"]}
+        observed = {}
+        for entry in drafted["state"]["ledger"]:
+            native = bridge.SESSION.mock.invoices[entry["invoice_id"]]
+            currency = native["detail"]["currency_code"]
+            self.assertNotIn(currency, observed, "one actual draft per currency")
+            observed[currency] = Decimal(native["amount"]["value"])
+            self.assertEqual(Decimal(entry["total"]), observed[currency], "ledger equals serialized provider amount")
+            self.assertEqual(entry["status"], "DRAFT")
+            self.assertEqual(native["status"], "DRAFT")
+            self.assertEqual(native["primary_recipients"][0]["billing_info"]["email_address"], reviewed["client_email"])
+            self.assertEqual(native["detail"]["payment_term"]["due_date"], "2026-10-08")
+            lines = [line for line in reviewed["line_items"] if line["currency"] == currency]
+            self.assertEqual(len(native["items"]), len(lines))
+            for actual, checked in zip(native["items"], lines):
+                self.assertEqual(actual["name"], checked["desc"])
+                self.assertEqual(Decimal(actual["quantity"]), Decimal(checked["qty"]))
+                self.assertEqual(Decimal(actual["unit_amount"]["value"]), Decimal(checked["unit_price"]))
+        self.assertEqual(observed, expected, "checked totals survive every real receiving layer")
+        self.assertEqual(len(drafted["state"]["pending"]), len(expected))
+        for _, path, _ in bridge.SESSION.mock.requests:
+            self.assertFalse(path.endswith(("/send", "/remind", "/payments")), path)
+
+    def test_every_declared_currency_preserves_the_checked_amount_and_recipient(self):
+        for currency in sorted(PAYPAL_CURRENCIES):
+            with self.subTest(currency=currency):
+                self.setUp()
+                values = fields(currency)
+                if currency in ZERO_DECIMAL_CURRENCIES:
+                    values["line_items"][0].update(qty="0.5", unit_price="100")
+                reviewed = self.checked(values)
+                drafted = call("draft", text=SOURCE, review_id=reviewed["review_id"])
+                self.assert_draft_matches_review(reviewed, drafted)
+
+    def test_two_currencies_keep_separate_checked_totals_and_separate_send_decisions(self):
+        values = fields()
+        values["line_items"].append({"desc": "European service", "qty": "3", "unit_price": "9.60", "currency": "EUR", "unit": "items"})
+        reviewed = self.checked(values)
+        self.assertEqual({x["currency"] for x in reviewed["totals_by_currency"]}, {"USD", "EUR"})
+        drafted = call("draft", text=SOURCE, review_id=reviewed["review_id"])
+        self.assert_draft_matches_review(reviewed, drafted)
+        first, second = drafted["state"]["pending"]
+        self.assertTrue(call("reject", action_id=first["id"])["ok"])
+        accepted = call("approve", action_id=second["id"])
+        self.assertTrue(accepted["ok"], accepted)
+        self.assertEqual(bridge.SESSION.mock.invoices[first["invoice_id"]]["status"], "DRAFT")
+        self.assertEqual(bridge.SESSION.mock.invoices[second["invoice_id"]]["status"], "SENT")
+        sends = [row for row in bridge.SESSION.mock.requests if row[1].endswith("/send")]
+        self.assertEqual(len(sends), 1)
+
+    def test_deposit_is_inert_until_explicit_send_approval_and_then_matches_actual_balance(self):
+        values = fields()
+        values["amount_paid"] = "7.50"
+        reviewed = self.checked(values)
+        drafted = call("draft", text=SOURCE, review_id=reviewed["review_id"])
+        self.assert_draft_matches_review(reviewed, drafted)
+        pending = drafted["state"]["pending"][0]
+        invoice = bridge.SESSION.mock.invoices[pending["invoice_id"]]
+        self.assertEqual(invoice["payments"]["transactions"], [])
+        self.assertIn("7.50", pending["summary"])
+        approved = call("approve", action_id=pending["id"])
+        self.assertTrue(approved["ok"], approved)
+        self.assertEqual(invoice["status"], "PARTIALLY_PAID")
+        self.assertEqual(Decimal(invoice["payments"]["paid_amount"]["value"]), Decimal("7.50"))
+        self.assertEqual(Decimal(invoice["due_amount"]["value"]), Decimal("23.50"))
+        before = deepcopy(bridge.SESSION.mock.requests)
+        self.assertFalse(call("approve", action_id=pending["id"])["ok"])
+        self.assertEqual(bridge.SESSION.mock.requests, before)
+
+    def test_json_client_mutation_cannot_rewrite_the_captured_revision(self):
+        values = fields()
+        reviewed = self.checked(values)
+        revision = reviewed["review_id"]
+        values["client_email"] = "later@example.test"
+        values["line_items"][0]["unit_price"] = "9999"
+        reviewed["client_email"] = "forged@example.test"
+        reviewed["line_items"][0]["qty"] = "1000"
+        reviewed["total"] = "999999"
+        drafted = call("draft", text=SOURCE, review_id=revision)
+        self.assertTrue(drafted["ok"], drafted)
+        entry = drafted["state"]["ledger"][0]
+        self.assertEqual(entry["client_email"], "reviewed@example.test")
+        self.assertEqual(Decimal(entry["total"]), Decimal("31.00"))
+        original_again = self.analyze()
+        self.assertEqual(original_again["client_email"], "original@example.test")
+        self.assertEqual(Decimal(original_again["total"]), Decimal("20"))
+
+    def test_failed_draft_consumes_revision_and_releases_the_human_extractor(self):
+        source = (ROOT / "fixtures" / "05_missing_email.txt").read_text()
+        reviewed = self.checked(source=source)
+        with patch.object(SandboxMock, "create_draft_invoice", side_effect=ValueError("independent draft refusal")):
+            failed = call("draft", text=source, review_id=reviewed["review_id"])
+        self.assertEqual(bridge.SESSION.mock.invoices, {})
+        self.assertEqual(bridge.SESSION.agent.ledger, {})
+        before = deepcopy(bridge.SESSION.mock.requests)
+        replay = call("draft", text=source, review_id=reviewed["review_id"])
+        self.assertFalse(replay["ok"])
+        self.assertEqual(bridge.SESSION.mock.requests, before)
+        ordinary = call("draft", text=source)
+        self.assertEqual(ordinary["state"]["ledger"], [], "failed reviewed extraction never leaks to the ordinary route")
+        self.assertEqual(bridge.SESSION.mock.requests, before)
+        self.assertIsNone(bridge.SESSION.extractor._active)
+        self.assertIn("independent draft refusal", json.dumps(failed))
+
+    def test_review_refuses_any_value_that_would_reprice_the_serialized_invoice(self):
+        cases = [
+            ("subcent unit price", {"qty": "2", "unit_price": "0.015"}, "0"),
+            ("subcent line total", {"qty": "0.5", "unit_price": "0.01"}, "0"),
+            ("subcent deposit", {"qty": "2", "unit_price": "10"}, "0.001"),
+        ]
+        for label, line, paid in cases:
+            with self.subTest(case=label):
+                self.setUp()
+                self.analyze()
+                values = fields()
+                values["line_items"][0].update(line)
+                values["amount_paid"] = paid
+                checked = call("review", text=SOURCE, fields=values, confirmed=True)
+                self.assertFalse(checked.get("result", {}).get("valid", False), json.dumps(checked))
+                self.assertIsNone(checked.get("result", {}).get("review_id"))
+                self.assert_no_invoice_effect()
+
+    def test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted(self):
+        self.analyze()
+        values = fields()
+        values["line_items"].append({"desc": "Bad precision", "qty": "2", "unit_price": "0.015", "currency": "EUR", "unit": "items"})
+        checked = call("review", text=SOURCE, fields=values, confirmed=True)
+        self.assertFalse(checked.get("result", {}).get("valid", False), json.dumps(checked))
+        self.assert_no_invoice_effect()
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

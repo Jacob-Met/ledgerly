@@ -1,0 +1,57 @@
+{
+  "base_commit": "d4d3802b7f5ccd78795d91159d907b08cb3e978f",
+  "base_tree": "6905f7a9be35fd5287f4855485d99cc9ed50954e",
+  "author": "chatgpt-566d51f04b31-production",
+  "author_root": "/workspace/scratch/566d51f04b31/ledgerly-work/web-demo",
+  "receiver_root": "/workspace/scratch/3e50c5ad22c5/production/ledgerly-review/web-demo",
+  "files": [
+    {
+      "path": "web-demo/README.md",
+      "sha256": "71d6f7a8483898532d23744ba1368e5a3796533a7d151ab4ec6a7031b3786dce"
+    },
+    {
+      "path": "web-demo/index.html",
+      "sha256": "5219a5f5ca1d3872a3ac08af8647860cf7304880ee2a02dddfd741fec21c6805"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda"
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "sha256": "5f75440d4623b5f80da711aa66641ae34fe2ab4a2821cc5c244f9c42f7bc166d"
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "sha256": "46e3ea1495579b9061e3a1fffdaef0806644fadbd9ff400aef7f6d76ee193e97"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "sha256": "c73c3bc88767d4cfeef4d36cc27ca6716ceae1409ada1b73f493d00da4216084"
+    },
+    {
+      "path": "web-demo/src/review.css",
+      "sha256": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895"
+    },
+    {
+      "path": "web-demo/src/review.ts",
+      "sha256": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103"
+    },
+    {
+      "path": "web-demo/tests/engine.test.ts",
+      "sha256": "f9b3c8bd1f9babbe9e01f112421679dd086629b493cc944944b9d68000356f74"
+    },
+    {
+      "path": "web-demo/tests/review.test.ts",
+      "sha256": "83c05806ef215e9bd00f5f6f36e8db599965e93e88456218b0cae5fde758ebce"
+    },
+    {
+      "path": "web-demo/tools/check_review_browser.py",
+      "sha256": "a753d089fde3e96f009979d6f1e13f397d4a91514ff306d1899706970c5dc50a"
+    }
+  ]
+}

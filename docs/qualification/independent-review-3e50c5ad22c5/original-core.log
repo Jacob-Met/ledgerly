@@ -1,0 +1,47 @@
+test_deposit_is_inert_until_explicit_send_approval_and_then_matches_actual_balance (test_review_receiving.ReviewedDraftReceiving.test_deposit_is_inert_until_explicit_send_approval_and_then_matches_actual_balance) ... ok
+test_every_declared_currency_preserves_the_checked_amount_and_recipient (test_review_receiving.ReviewedDraftReceiving.test_every_declared_currency_preserves_the_checked_amount_and_recipient) ... ok
+test_failed_draft_consumes_revision_and_releases_the_human_extractor (test_review_receiving.ReviewedDraftReceiving.test_failed_draft_consumes_revision_and_releases_the_human_extractor) ... ok
+test_json_client_mutation_cannot_rewrite_the_captured_revision (test_review_receiving.ReviewedDraftReceiving.test_json_client_mutation_cannot_rewrite_the_captured_revision) ... ok
+test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted (test_review_receiving.ReviewedDraftReceiving.test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted) ... FAIL
+test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) ... 
+  test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) (case='subcent unit price') ... FAIL
+  test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) (case='subcent line total') ... FAIL
+  test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) (case='subcent deposit') ... FAIL
+test_two_currencies_keep_separate_checked_totals_and_separate_send_decisions (test_review_receiving.ReviewedDraftReceiving.test_two_currencies_keep_separate_checked_totals_and_separate_send_decisions) ... ok
+
+======================================================================
+FAIL: test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted (test_review_receiving.ReviewedDraftReceiving.test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3e50c5ad22c5/production/ledgerly-review/tests/test_review_receiving.py", line 197, in test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted
+    self.assertFalse(checked.get("result", {}).get("valid", False), json.dumps(checked))
+AssertionError: True is not false : {"ok": true, "result": {"client_name": "Reviewed <client> & \"name\"", "client_email": "reviewed@example.test", "currency": "USD", "line_items": [{"desc": "Reviewed service", "qty": "2.5", "unit_price": "12.40", "currency": "USD", "unit": "hours"}, {"desc": "Bad precision", "qty": "2", "unit_price": "0.015", "currency": "EUR", "unit": "items"}], "due_days": 0, "amount_paid": "0", "total": "31.030", "confidence": 0.9, "issues": [{"field": "currency", "severity": "warning", "message": "Multiple currencies ['EUR', 'USD']; a PayPal invoice has one currency_code, so this will be split into 2 invoices."}], "source": "human_review", "valid": true, "review_id": "361eaeeb9daf49b594d181f6e4c1eba1", "original_issues": [], "totals_by_currency": [{"currency": "EUR", "total": "0.030"}, {"currency": "USD", "total": "31.000"}], "message": "Fields checked. Create the reviewed draft, then approve its send separately."}, "state": {"today": "2026-10-08", "ledger": [], "pending": [], "audit": [], "mock_requests": 0, "external_calls": 0, "can_replay": false}}
+
+======================================================================
+FAIL: test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) (case='subcent unit price')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3e50c5ad22c5/production/ledgerly-review/tests/test_review_receiving.py", line 188, in test_review_refuses_any_value_that_would_reprice_the_serialized_invoice
+    self.assertFalse(checked.get("result", {}).get("valid", False), json.dumps(checked))
+AssertionError: True is not false : {"ok": true, "result": {"client_name": "Reviewed <client> & \"name\"", "client_email": "reviewed@example.test", "currency": "USD", "line_items": [{"desc": "Reviewed service", "qty": "2", "unit_price": "0.015", "currency": "USD", "unit": "hours"}], "due_days": 0, "amount_paid": "0", "total": "0.030", "confidence": 1.0, "issues": [], "source": "human_review", "valid": true, "review_id": "a410121e92c944af998062f965f08c96", "original_issues": [], "totals_by_currency": [{"currency": "USD", "total": "0.030"}], "message": "Fields checked. Create the reviewed draft, then approve its send separately."}, "state": {"today": "2026-10-08", "ledger": [], "pending": [], "audit": [], "mock_requests": 0, "external_calls": 0, "can_replay": false}}
+
+======================================================================
+FAIL: test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) (case='subcent line total')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3e50c5ad22c5/production/ledgerly-review/tests/test_review_receiving.py", line 188, in test_review_refuses_any_value_that_would_reprice_the_serialized_invoice
+    self.assertFalse(checked.get("result", {}).get("valid", False), json.dumps(checked))
+AssertionError: True is not false : {"ok": true, "result": {"client_name": "Reviewed <client> & \"name\"", "client_email": "reviewed@example.test", "currency": "USD", "line_items": [{"desc": "Reviewed service", "qty": "0.5", "unit_price": "0.01", "currency": "USD", "unit": "hours"}], "due_days": 0, "amount_paid": "0", "total": "0.005", "confidence": 1.0, "issues": [], "source": "human_review", "valid": true, "review_id": "f2f4aa6f272047b2be54df1887ee8a5e", "original_issues": [], "totals_by_currency": [{"currency": "USD", "total": "0.005"}], "message": "Fields checked. Create the reviewed draft, then approve its send separately."}, "state": {"today": "2026-10-08", "ledger": [], "pending": [], "audit": [], "mock_requests": 0, "external_calls": 0, "can_replay": false}}
+
+======================================================================
+FAIL: test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) (case='subcent deposit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3e50c5ad22c5/production/ledgerly-review/tests/test_review_receiving.py", line 188, in test_review_refuses_any_value_that_would_reprice_the_serialized_invoice
+    self.assertFalse(checked.get("result", {}).get("valid", False), json.dumps(checked))
+AssertionError: True is not false : {"ok": true, "result": {"client_name": "Reviewed <client> & \"name\"", "client_email": "reviewed@example.test", "currency": "USD", "line_items": [{"desc": "Reviewed service", "qty": "2", "unit_price": "10", "currency": "USD", "unit": "hours"}], "due_days": 0, "amount_paid": "0.001", "total": "20", "confidence": 1.0, "issues": [], "source": "human_review", "valid": true, "review_id": "f9d1d78fe1d746e28e04dcfd40aa021b", "original_issues": [], "totals_by_currency": [{"currency": "USD", "total": "20"}], "message": "Fields checked. Create the reviewed draft, then approve its send separately."}, "state": {"today": "2026-10-08", "ledger": [], "pending": [], "audit": [], "mock_requests": 0, "external_calls": 0, "can_replay": false}}
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.019s
+
+FAILED (failures=4)

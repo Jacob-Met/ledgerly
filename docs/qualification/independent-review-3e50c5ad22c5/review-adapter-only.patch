@@ -1,0 +1,206 @@
+diff --git a/web-demo/python/bridge.py b/web-demo/python/bridge.py
+index ebd5ded..5573f8b 100644
+--- a/web-demo/python/bridge.py
++++ b/web-demo/python/bridge.py
+@@ -3,6 +3,9 @@ from datetime import date,datetime,time,timezone
+ from decimal import Decimal
+ from ledgerly.agent import Agent,RulePlanner,ApprovalRequired
+ from ledgerly.paypal import SandboxMock
++from ledgerly.extract import PAYPAL_CURRENCIES, split_by_currency
++from review import ReviewableExtractor, prepare_review
++from uuid import uuid4
+ 
+ class Clock:
+     def __init__(self): self.day=date.today()
+@@ -12,8 +15,24 @@ class Demo:
+     def __init__(self):
+         self.clock=Clock()
+         self.mock=SandboxMock(now=lambda:datetime.combine(self.clock.day,time.min,tzinfo=timezone.utc))
+-        self.agent=Agent(self.mock,{"name":"Ledgerly Demo","email_address":"freelancer@example.test"},today=self.clock,webhook_verifier=self.mock.verify_webhook_signature)
++        self.extractor=ReviewableExtractor()
++        self.agent=Agent(self.mock,{"name":"Ledgerly Demo","email_address":"freelancer@example.test"},extractor=self.extractor,today=self.clock,webhook_verifier=self.mock.verify_webhook_signature)
+         self.last_event=None
++        self.analysis_text=None
++        self.analysis=None
++        self.review=None
++
++    def draft(self, text):
++        out=self.agent.run("invoice:"+text,RulePlanner());pending=out.get("pending",[]);blocked=[]
++        for action in pending:
++            if action.get("kind")=="send_invoice":
++                try:self.agent.client.send_invoice(action["invoice_id"]);blocked.append(False)
++                except ApprovalRequired:blocked.append(True)
++        return {"final":out.get("final",""),"pending":pending,"unauthorized_send_blocked":bool(blocked) and all(blocked)}
++
++    @staticmethod
++    def totals(ex):
++        return [{"currency":part.currency or "Unknown currency","total":str(part.total())} for part in split_by_currency(ex)]
+ 
+     def snapshot(self):
+         audit=[]
+@@ -23,14 +42,40 @@ class Demo:
+     def dispatch(self,req):
+         action=req.get("action")
+         if action=="init": result={"ready":True,"engine":"RulesExtractor + RulePlanner + SandboxMock"}
+-        elif action=="analyze": result=self.agent.extractor.extract(req.get("text","")).to_dict()
++        elif action=="analyze":
++            self.review=None
++            self.analysis=None
++            if not isinstance(req.get("text",""),str):raise ValueError("Source email must be text.")
++            self.analysis_text=req.get("text","")
++            ex=self.agent.extractor.extract(self.analysis_text)
++            self.analysis=ex.to_dict()
++            result={**self.analysis,"review_currencies":sorted(PAYPAL_CURRENCIES),"totals_by_currency":self.totals(ex)}
++        elif action=="review":
++            self.review=None
++            if self.analysis is None or req.get("text")!=self.analysis_text:
++                raise ValueError("The source changed after analysis; analyze it again before reviewing.")
++            if req.get("confirmed") is not True:
++                raise ValueError("Review every invoice field and confirm the source warnings first.")
++            ex=prepare_review(req.get("fields"))
++            valid=not ex.errors and ex.confidence>=self.agent.min_confidence
++            review_id=uuid4().hex if valid else None
++            # Materialize every displayed value before admitting a draft revision.
++            result={**ex.to_dict(),"valid":valid,"review_id":review_id,
++                    "original_issues":self.analysis["issues"],
++                    "totals_by_currency":self.totals(ex),
++                    "message":"Fields checked. Create the reviewed draft, then approve its send separately." if valid else "Correct the remaining issues, then check the fields again."}
++            if valid:self.review=(review_id,self.analysis_text,ex)
+         elif action=="draft":
+-            out=self.agent.run("invoice:"+req.get("text",""),RulePlanner());pending=out.get("pending",[]);blocked=[]
+-            for action in pending:
+-                if action.get("kind")=="send_invoice":
+-                    try:self.agent.client.send_invoice(action["invoice_id"]);blocked.append(False)
+-                    except ApprovalRequired:blocked.append(True)
+-            result={"final":out.get("final",""),"pending":pending,"unauthorized_send_blocked":bool(blocked) and all(blocked)}
++            text=req.get("text","")
++            if "review_id" in req:
++                checked=self.review
++                self.review=None  # Consume before draft effects; never replay on retry.
++                if checked is None or req["review_id"]!=checked[0] or text!=checked[1]:
++                    raise ValueError("This checked revision is stale or already used; review and check it again.")
++                _,source,ex=checked
++                with self.extractor.using(source,ex):result=self.draft(text)
++                result["reviewed"]=True
++            else:result=self.draft(text)
+         elif action=="approve":
+             pending=next(a for a in self.agent.list_pending() if a["id"]==req["action_id"]);self.agent.approve(req["action_id"],approver="browser visitor");result={"approved":True,"kind":pending["kind"],"invoice_id":pending["invoice_id"]}
+         elif action=="reject": self.agent.reject(req["action_id"],"Rejected by the browser visitor");result={"rejected":True}
+@@ -52,4 +97,4 @@ def handle_json(raw):
+     try:
+         response=SESSION.dispatch(json.loads(raw));return json.dumps({"ok":True,**response},default=str)
+     except Exception as exc:
+-        return json.dumps({"ok":False,"error":type(exc).__name__,"message":str(exc),"state":SESSION.snapshot()},default=str)
+\ No newline at end of file
++        return json.dumps({"ok":False,"error":type(exc).__name__,"message":str(exc),"state":SESSION.snapshot()},default=str)
+diff --git a/web-demo/python/review.py b/web-demo/python/review.py
+new file mode 100644
+index 0000000..35abc10
+--- /dev/null
++++ b/web-demo/python/review.py
+@@ -0,0 +1,105 @@
++"""Explicit visitor corrections for the offline browser demo.
++
++This adapter supplies a checked extraction through the core's existing Extractor
++protocol. It grants no send or payment permit and never changes the rules extractor.
++"""
++from contextlib import contextmanager
++from copy import deepcopy
++from decimal import Decimal, DecimalException
++import re
++
++from ledgerly.extract import (
++    Extraction, Issue, LineItem, PAYPAL_CURRENCIES, RulesExtractor,
++    compute_confidence, validate,
++)
++
++
++def _text(value, field):
++    if not isinstance(value, str):
++        raise ValueError(f"{field} must be text.")
++    return value.strip()
++
++
++def _decimal(value, field):
++    raw = _text(value, field)
++    if not re.fullmatch(r"-?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)", raw):
++        raise ValueError(f"{field} needs a plain decimal number, such as 2 or 12.50.")
++    number = Decimal(raw)
++    if not number.is_finite():
++        raise ValueError(f"{field} must be finite.")
++    return number
++
++
++def prepare_review(fields):
++    """Rebuild editable fields and validate them, without trusting derived metadata."""
++    allowed = {"client_name", "client_email", "due_days", "amount_paid", "line_items"}
++    if not isinstance(fields, dict) or set(fields) != allowed:
++        raise ValueError("Provide exactly the editable invoice fields.")
++    raw_items = fields["line_items"]
++    if not isinstance(raw_items, list):
++        raise ValueError("Line items must be a list.")
++    items = []
++    extra = []
++    for index, row in enumerate(raw_items):
++        prefix = f"line_items[{index}]"
++        if not isinstance(row, dict) or set(row) != {"desc", "qty", "unit_price", "currency", "unit"}:
++            raise ValueError(f"Line item {index + 1} has incomplete or unexpected fields.")
++        desc = _text(row["desc"], f"Line item {index + 1} description")
++        currency = _text(row["currency"], f"Line item {index + 1} currency").upper()
++        if not desc:
++            extra.append(Issue(prefix + ".desc", "error", "Describe the work on this line."))
++        if currency not in PAYPAL_CURRENCIES:
++            extra.append(Issue(prefix + ".currency", "error", "Choose a supported currency for this line."))
++        items.append(LineItem(
++            desc,
++            _decimal(row["qty"], f"Line item {index + 1} quantity"),
++            _decimal(row["unit_price"], f"Line item {index + 1} unit price"),
++            currency or None,
++            _text(row["unit"], f"Line item {index + 1} unit") or None,
++        ))
++    days = _text(fields["due_days"], "Payment terms")
++    if not re.fullmatch(r"[0-9]{1,3}", days):
++        raise ValueError("Payment terms need a whole number of days from 0 to 365.")
++    paid = _decimal(fields["amount_paid"], "Prior payment")
++    if paid < 0:
++        extra.append(Issue("amount_paid", "error", "Prior payment cannot be negative."))
++    ex = Extraction(
++        _text(fields["client_name"], "Client name") or None,
++        _text(fields["client_email"], "Recipient email") or None,
++        items[0].currency if items else None,
++        items, int(days), paid, source="human_review",
++    )
++    try:
++        # A visitor may supply a recipient absent from the source; this is an
++        # explicit human correction, never an extractor grounding claim.
++        ex.issues = extra + validate(ex)
++        ex.total()  # Refuse unsupported decimal arithmetic before any draft effect.
++    except DecimalException as exc:
++        raise ValueError("These invoice values exceed the supported decimal precision.") from exc
++    ex.confidence = compute_confidence(ex.issues)
++    return ex
++
++
++class ReviewableExtractor:
++    """Use one reviewed value only inside a source-bound draft operation."""
++    def __init__(self):
++        self.rules = RulesExtractor()
++        self._active = None
++
++    def extract(self, text):
++        if self._active is None:
++            return self.rules.extract(text)
++        source, extraction = self._active
++        if text != source:
++            raise ValueError("The source changed after review; analyze and check it again.")
++        return deepcopy(extraction)
++
++    @contextmanager
++    def using(self, text, extraction):
++        if self._active is not None:
++            raise RuntimeError("A reviewed draft is already running.")
++        self._active = (text, deepcopy(extraction))
++        try:
++            yield
++        finally:
++            self._active = None

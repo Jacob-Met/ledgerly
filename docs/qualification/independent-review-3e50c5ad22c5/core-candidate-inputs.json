@@ -1,0 +1,23 @@
+{
+  "author": "estate-06e2ad0ce13f/continuity_production",
+  "source_root": "/workspace/scratch/06e2ad0ce13f/ledgerly-core",
+  "base_commit": "d4d3802b7f5ccd78795d91159d907b08cb3e978f",
+  "state": "uncommitted author candidate at capture; no original checkout writes",
+  "files": [
+    {
+      "path": "ledgerly/extract.py",
+      "sha256": "b064f16bbe7dbb2ce8d7362f7174c5fe712eba57664b056bb93ecf45dd4fc93c",
+      "original_blob": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+      "original_blob": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "sha256": "be59a4e305ff0dc3874a7070f7b446b06fd11a5d199caa9cdc11039eb0e1c773",
+      "original_blob": "5fb6c302d6c6bd343842578f39aea3b2c93866e3"
+    }
+  ]
+}

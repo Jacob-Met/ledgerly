@@ -1,0 +1,12 @@
+test_deposit_is_inert_until_explicit_send_approval_and_then_matches_actual_balance (test_review_receiving.ReviewedDraftReceiving.test_deposit_is_inert_until_explicit_send_approval_and_then_matches_actual_balance) ... ok
+test_every_declared_currency_preserves_the_checked_amount_and_recipient (test_review_receiving.ReviewedDraftReceiving.test_every_declared_currency_preserves_the_checked_amount_and_recipient) ... ok
+test_failed_draft_consumes_revision_and_releases_the_human_extractor (test_review_receiving.ReviewedDraftReceiving.test_failed_draft_consumes_revision_and_releases_the_human_extractor) ... ok
+test_json_client_mutation_cannot_rewrite_the_captured_revision (test_review_receiving.ReviewedDraftReceiving.test_json_client_mutation_cannot_rewrite_the_captured_revision) ... ok
+test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted (test_review_receiving.ReviewedDraftReceiving.test_one_bad_currency_part_prevents_a_valid_first_part_from_being_drafted) ... ok
+test_review_refuses_any_value_that_would_reprice_the_serialized_invoice (test_review_receiving.ReviewedDraftReceiving.test_review_refuses_any_value_that_would_reprice_the_serialized_invoice) ... ok
+test_two_currencies_keep_separate_checked_totals_and_separate_send_decisions (test_review_receiving.ReviewedDraftReceiving.test_two_currencies_keep_separate_checked_totals_and_separate_send_decisions) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.026s
+
+OK
