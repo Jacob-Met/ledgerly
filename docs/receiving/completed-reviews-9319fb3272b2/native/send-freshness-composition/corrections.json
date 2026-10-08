@@ -1,0 +1,19 @@
+{
+  "schema": "ledgerly.history.current-main-receiving-correction.v1",
+  "incoming_main": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "incoming_tree": "ddb2360a65b646a281969fea1abbb3238c154340",
+  "source_parent": "7c5b96af1a43e8408a150c733fc00042d98ec490",
+  "source_integration": "Receive all merged send-preflight code, tests and evidence unchanged; the shared invoice-details Pyodide loader retains only the history-module addition.",
+  "history_test_fixture": {
+    "basis": "Read-only source comparison with merged tests/test_approval_outcomes.py and Agent._check_send_review; no claim that the obsolete fixture was executed against the new policy.",
+    "old": "CANCELLED before approve now correctly auto-rejects at fresh preflight; it no longer reaches provider send refusal.",
+    "new": "Fresh GET must observe the original DRAFT. Then the receiving-only send wrapper changes this fixture to CANCELLED and delegates to the real SandboxMock send; assert exactly GET followed by one POST/send and retain all original FAILED/body/no-UNKNOWN assertions.",
+    "production_policy_changed": false
+  },
+  "capture": {
+    "observed_file": "docs/receiving/completed-reviews-9319fb3272b2/browser/hosted-attempt-3/phone-completed-reminder.png",
+    "change": "Await fonts, instant scroll and two rendering frames; record geometry before and after capture and refuse moved targets. Preserve all original screenshots.",
+    "application_layout_changed": false
+  },
+  "qualification_status": "new current-main composition and capture correction awaiting normal hosted gate"
+}

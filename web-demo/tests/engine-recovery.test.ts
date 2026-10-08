@@ -7,6 +7,7 @@ import {WorkerClient, WorkerUnavailableError} from '../src/worker-client';
 import {retryableLoader} from '../src/retryable-loader';
 import {createLedgerExport} from '../src/ledger-export';
 import {approvalListMarkup} from '../src/approval-preview';
+import {renderCompletedReviews} from '../src/review-history';
 import {createInvoiceDetailsView} from '../src/invoice-details';
 import {createInvoiceRecordDownloads} from '../src/invoice-record';
 import {createReceivablesView} from '../src/receivables';
@@ -99,7 +100,7 @@ function app() {
     }),
   };
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView});
+    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, renderCompletedReviews, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;

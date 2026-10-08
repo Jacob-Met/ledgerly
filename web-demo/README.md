@@ -63,6 +63,12 @@ explicit explanation. A balance string over 1,100 characters, with over 1,000
 coefficient digits or an exponent outside ±1,000 is also refused for display.
 The view cannot send, pay, refresh, export or modify an invoice.
 
+## Completed reviews
+
+Open **Completed reviews** to inspect the original queued invoice or reminder after its action leaves the approval queue. Each record shows the retained status and result, including an explicit **OUTCOME UNKNOWN** when the agent recorded one. Rejected records retain their actual reason, including automatic reminder invalidation. The timestamp is when the proposal was queued. Opening a record is read-only and does not retry an action or refresh provider facts. A lost engine leaves the last received history labeled unavailable; an explicit empty restart, reset or tab close clears the session history. Open disclosures and summary focus remain with the same retained action across ordinary snapshots.
+
+
+
 ## Verify and run
 
 ```bash

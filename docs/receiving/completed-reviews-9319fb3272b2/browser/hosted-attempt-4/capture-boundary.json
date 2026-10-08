@@ -1,0 +1,155 @@
+{
+  "schema": "ledgerly.history.capture-boundary.v1",
+  "run_id": 37807153166,
+  "job_id": 113414305956,
+  "head": "93d852fdaeae0e53923831b88ceaf626305afd65",
+  "checkout": "b0d845824e97f3d711087e3eb4cc5d70bf231ddc",
+  "tree": "be5dd5ca3ce36d4c641da3be55d60b9fb4023fce",
+  "checkout_tree_matches_head": true,
+  "main": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "normal_gates": {
+    "python_tests": 347,
+    "python_subtests": 118,
+    "frontend_tests": 96,
+    "frontend_files": 11,
+    "build": "passed",
+    "audit": "passed",
+    "csv_receiver": "passed",
+    "invoice_record_receiver": "passed"
+  },
+  "history": {
+    "checks_passed": 13,
+    "overall": "failed",
+    "error": "AssertionError [ERR_ASSERTION]: capture target geometry remained stable: desktop-completed-reviews.png",
+    "sourceUnchanged": true,
+    "distUnchanged": true,
+    "cleanup": [
+      {
+        "phase": "healthy",
+        "pid": 2809,
+        "requestedClose": true,
+        "fallbackSignals": [],
+        "profileRemoved": true,
+        "exitCode": 0,
+        "signal": null
+      }
+    ]
+  },
+  "capture_observation": [
+    {
+      "path": "desktop-completed-reviews.png",
+      "bytes": 180968,
+      "sha256": "54568c069faf61ca6e6ed90099c02f860914c7e08c5d0fd0ad4f3a002581022e",
+      "geometry": {
+        "clip": {
+          "x": 842.875,
+          "y": 1269.84375,
+          "width": 540.125,
+          "height": 2487.3125,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "scrollX": 0,
+          "scrollY": 1270
+        },
+        "firstText": "APPROVED SEND REMINDER INV2-MOCK-0001-0260Send friendly reminder for LDG-0001 (2d overdue, USD 1,320 due) to maya.chen@brightfern.exampleAction IDapv_860682cb5c"
+      },
+      "after": {
+        "x": 851.5,
+        "y": 1269.84375,
+        "width": 546.5,
+        "height": 2471.3125
+      },
+      "stableGeometry": false
+    },
+    {
+      "path": "healthy-failure.png",
+      "bytes": 181286,
+      "sha256": "eca64f839b8967d600a46b894b56cfa97701cc65adbf4102c6f4ea251f626f99",
+      "geometry": {
+        "clip": {
+          "x": 851.5,
+          "y": 1269.84375,
+          "width": 546.5,
+          "height": 2471.3125,
+          "scale": 1
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "scrollX": 0,
+          "scrollY": 1270
+        },
+        "firstText": "APPROVED SEND REMINDER INV2-MOCK-0001-0260Send friendly reminder for LDG-0001 (2d overdue, USD 1,320 due) to maya.chen@brightfern.exampleAction IDapv_860682cb5c"
+      },
+      "after": {
+        "x": 851.5,
+        "y": 1269.84375,
+        "width": 546.5,
+        "height": 2471.3125
+      },
+      "stableGeometry": true
+    }
+  ],
+  "inference": "The changed horizontal dimensions are consistent with a scrollbar-gutter change during the initial Chrome screenshot; no application-layout defect is established by this observation.",
+  "bounded_correction": "Use the supported page Emulation.setScrollbarsHidden before navigation, retain the settled-layout and before/after geometry guard, and compare the actual PNG dimensions to the requested document-space clip. Product source/styles remain unchanged.",
+  "protocol_reference": "https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setScrollbarsHidden",
+  "next_receiving": "pending normal hosted gate",
+  "transport": {
+    "files": [
+      {
+        "name": "browser.json",
+        "bytes": 19837,
+        "sha256": "452e3b04359bf4a8cd5520cd5ba9d993028ab9a31b7ee0c9780dd6d2500ee035",
+        "git_blob": "24da7722b36fb115abea2b56689a944a059bd625",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "desktop-completed-reviews.png",
+        "bytes": 180968,
+        "sha256": "54568c069faf61ca6e6ed90099c02f860914c7e08c5d0fd0ad4f3a002581022e",
+        "git_blob": "156a271b20f027b2fdb92cf83e52a872cfb507ee",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-chromium.log",
+        "bytes": 4222,
+        "sha256": "954f6ddc368978655d12c2e287c18dcb382f4f6d912056ea6cd1b366be46d05f",
+        "git_blob": "0d06a2e8b8562363c099e5dc5f38283acc97ca1d",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-failure.png",
+        "bytes": 181286,
+        "sha256": "eca64f839b8967d600a46b894b56cfa97701cc65adbf4102c6f4ea251f626f99",
+        "git_blob": "65e833b8b5b0b3c0376da8ca379070fbeef72f1c",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-worker-observation.json",
+        "bytes": 224550,
+        "sha256": "f9fc0f51509351cc60e378bf7e4c30c1283636c5f9e3b4c31f01877cb3ec49fb",
+        "git_blob": "2eb7a8766fdcb330cd79322c26fbbf4f2c567325",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "lost-response-suffix.py",
+        "bytes": 817,
+        "sha256": "65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c",
+        "git_blob": "4c8eb59cb941f6fec85b9c692970fa2cff644544",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "source-binding.json",
+        "bytes": 7671,
+        "sha256": "12341719cba44995ff3bba8c97817a556e58be7321857722bf27230a72b94b05",
+        "git_blob": "34830d7619ef47085589ef68ce8acb2c1be04ac4",
+        "verifiedReturnedGitBlob": true
+      }
+    ],
+    "raw_bytes": 619351,
+    "validation": "Ordered chunk/decoded lengths and returned Git blob identities match the producer manifest; producer SHA256 fields retained."
+  }
+}

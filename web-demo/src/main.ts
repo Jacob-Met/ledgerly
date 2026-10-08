@@ -1,5 +1,7 @@
 import './style.css';
 import './review.css';
+import './review-history.css';
+import {renderCompletedReviews} from './review-history';
 import './ledger-export.css';
 import {createLedgerExport} from './ledger-export';
 import './approval-preview.css';
@@ -48,6 +50,7 @@ function engineUnavailable(error:WorkerUnavailableError){
 function analysisBlocked(ex:any){return !ex||ex.issues?.some((x:any)=>x.severity==='error')||(ex.confidence||0)<0.5||!ex.line_items?.length;}
 function syncControls(){
  const enabled=ready&&!busy;
+ $<HTMLElement>('#completed-reviews-note').textContent=needsFreshSandbox?'The previous sandbox is unavailable. These are its last received reviews. Restart opens an empty history; no action is replayed.':!ready?'Load the local engine to view completed reviews in this tab.':busy?'Showing the last received reviews while the sandbox updates.':'Read only · Original queued proposals and recorded results, most recently queued first. Reset or close this tab to discard them.';
  ledgerExport.setAvailable(enabled);
  invoiceDetails.setAvailability(ready,busy);
  receivables.setAvailability(ready,busy);
@@ -90,6 +93,7 @@ function renderAnalysis(ex:any){
  const ledger=state.ledger||[];invoiceDetails.beforeRender(ledger.map((entry:any)=>entry.invoice_id));$<HTMLElement>('#ledger-list').innerHTML=ledger.length?ledger.map((e:any)=>{const open=['SENT','PARTIALLY_PAID','UNPAID'].includes(e.status)&&Number(e.balance)>0;return `<article class="invoice-card invoice-card-with-details" data-due="${esc(e.due_on||'')}"><div class="invoice-head"><div><span class="eyebrow">${esc(e.invoice_number)}</span><h3>${esc(e.client_name||e.client_email||'Client')}</h3></div><span class="status-chip ${esc(String(e.status).toLowerCase())}">${esc(e.status)}</span></div><div class="invoice-meta"><span>${esc(e.currency)} ${esc(e.total)}</span><span>PAID ${esc(e.paid_amount)}</span><span>BALANCE ${esc(e.balance)}</span></div><div class="invoice-meta"><span>DUE ${esc(e.due_on||'Terms missing')}</span><span>REMINDERS ${esc(e.reminders_sent)}</span></div>${open?`<button class="button button-payment" data-pay="${esc(e.invoice_id)}">Simulate sandbox payment</button>`:''}${invoiceDetails.markup(e.invoice_id,state)}${invoiceRecords.markup(e.invoice_id)}</article>`;}).join(''):'<p class="empty">No invoices in this sandbox ledger yet.</p>';
  invoiceDetails.afterRender();invoiceDetails.setAvailability(ready,busy);
  invoiceRecords.setAvailability(ready,busy);
+ renderCompletedReviews($<HTMLElement>('#completed-reviews-list'),state.completed_reviews);
  const audit=state.audit||[];$<HTMLOListElement>('#audit-list').innerHTML=audit.length?audit.map((e:any)=>`<li><span>${esc(e.event||'event')}</span><code>${esc(e.kind||e.tool||e.invoice||e.action||'')}</code><time>${esc((e.at||'').slice(11,19))}</time></li>`).join(''):'<li class="empty">Agent events will appear here as work runs.</li>';
 }
 async function runAction(name:string,payload:Record<string,unknown>={}){

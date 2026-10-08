@@ -1,0 +1,201 @@
+{
+  "schema": "ledgerly.history.receivables-current-qualification.v1",
+  "head": "de285f67d3edf2de571557fdef0ba870ab82e159",
+  "tree": "7bfe5e60a7aa2109d2bad7a95019fb3e13ee57e1",
+  "incoming_main": "295153cc0c354415c39bcee7d2384412b4fa629f",
+  "incoming_main_tree": "599514b1ea0dc06edd0f8ed4acf7b1fdbbc49470",
+  "previous_qualified_application_head": "ae1e859aa26bffdee7e8b8cb673acd6c74420263",
+  "previous_evidence_head": "84fc3c66d2efe823deeb7326b1bc68633464d35f",
+  "actual_checkout": "620b2058315fdcaf3cc97f7d7738cbdef74a20f4",
+  "checkout_parents": [
+    "295153cc0c354415c39bcee7d2384412b4fa629f",
+    "de285f67d3edf2de571557fdef0ba870ab82e159"
+  ],
+  "checkout_tree_matches_head": true,
+  "finished_at": "2026-10-08T17:07:54.790Z",
+  "history_implementation_and_receiver_unchanged": true,
+  "driver_git_blob": "13223a3bc4c56c7a19bd4e02fe9bffe739bb4be9",
+  "driver_sha256": "0be2ca0049b81e89292227c26d37530e1885dc07c5182babb2ed9be08a6bb811",
+  "source_binding_sha256": "60542002e7bcac2f67ffe48fa8f207e4187ea6e7e7882497cbdbac173c8ff175",
+  "all_47_declared_application_blobs_and_modes_match": true,
+  "source_unchanged": true,
+  "dist_unchanged": true,
+  "source_files": 47,
+  "dist_files": 32,
+  "history_checks": {
+    "passed": 29,
+    "total": 29,
+    "ok": true
+  },
+  "node": "v22.23.3",
+  "browsers": [
+    {
+      "name": "healthy",
+      "pid": 2841,
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/154.0.8037.97",
+        "revision": "@b510e9d7cd3a2fbd78d0ddc42234103206c5f78d",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "jsVersion": "15.4.80.20"
+      }
+    },
+    {
+      "name": "lost-response",
+      "pid": 3005,
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/154.0.8037.97",
+        "revision": "@b510e9d7cd3a2fbd78d0ddc42234103206c5f78d",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+        "jsVersion": "15.4.80.20"
+      }
+    }
+  ],
+  "cleanup": [
+    {
+      "phase": "healthy",
+      "pid": 2841,
+      "requestedClose": true,
+      "fallbackSignals": [],
+      "profileRemoved": true,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "phase": "lost-response",
+      "pid": 3005,
+      "requestedClose": true,
+      "fallbackSignals": [],
+      "profileRemoved": true,
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "network": {
+    "off_origin": [],
+    "page_errors": [],
+    "worker_bridge_correlations": [
+      {
+        "phase": "healthy",
+        "worker_session": "D6B9049FAEFB8A8C2EC76547A4243D3B",
+        "bridge_requests": 1
+      },
+      {
+        "phase": "healthy",
+        "worker_session": "B8473443E0E5D7CFC09B7A4801947E56",
+        "bridge_requests": 1
+      },
+      {
+        "phase": "lost-response",
+        "worker_session": "7AB4E54155D7BDBA2B695C83084BD708",
+        "bridge_requests": 1
+      }
+    ]
+  },
+  "actual_fault": {
+    "worker_actions": [
+      "init",
+      "analyze",
+      "draft",
+      "approve"
+    ],
+    "data_ok": false,
+    "error": "TimeoutError",
+    "completed_status": "FAILED",
+    "result": {
+      "outcome": "UNKNOWN",
+      "reason": "The outgoing action may have completed. Check the invoice before creating another approval.",
+      "error_type": "TimeoutError"
+    },
+    "provider_status": "SENT",
+    "ledger_status": "DRAFT",
+    "pending_count": 0,
+    "external_calls": 0
+  },
+  "visuals": {
+    "count": 4,
+    "all_complete_and_visually_inspected": true,
+    "all_stable_geometry_and_dimensions_match": true,
+    "details": "visual-review.json"
+  },
+  "normal_gates": "normal-gates.json",
+  "source_preservation": "source-preservation.json",
+  "binding_readback": "binding-readback.json",
+  "worker_readback": "worker-readback.json",
+  "bundle": {
+    "files": 11,
+    "bytes": 644523,
+    "all_ordered_chunks_and_lengths_verified": true,
+    "all_created_git_blobs_match_producer": true,
+    "manifest": "bundle-manifest.json"
+  },
+  "receiving_bounds": [
+    "Declared source inputs are Git-blob bound; this is not a full checkout.",
+    "Actual Worker construction, requests, and Python replies remain in use.",
+    "Page requests use Fetch interception. Worker requests use Network observation; served worker scripts enforce connect-src self through CSP.",
+    "The failure context serves exact bridge bytes plus the recorded receiving-only suffix.",
+    "The receiver hides page scrollbars through Emulation before navigation; product styles and source remain unchanged.",
+    "Unavailability is an authored ErrorEvent on the actual Worker, not a spontaneous crash."
+  ],
+  "native_transport": {
+    "process": 3369422,
+    "result": "unknown",
+    "scope": "Earlier bounded native run remains unreadable through service-wide RDC outage; no new native run or successful archive transfer is claimed."
+  },
+  "deployment": "Not asserted by this source/CI receipt; normal merge, Pages and live receiving belong to subsequent integration.",
+  "previous_accepted_runtime_binding_comparison": {
+    "previous_actual_checkout": "b1aeba460fe9b6b321248ef534d7cd3b0dc444b7",
+    "current_actual_checkout": "620b2058315fdcaf3cc97f7d7738cbdef74a20f4",
+    "previous_declared_inputs": 45,
+    "current_declared_inputs": 47,
+    "existing_exact": 43,
+    "changed": [
+      {
+        "path": "web-demo/index.html",
+        "before": "803938c053158329d423a3dae57221d50e622504",
+        "after": "6019c0f572570186ea29c8c0423b3e1d35a46281"
+      },
+      {
+        "path": "web-demo/src/main.ts",
+        "before": "879f622757307bccb37c492dd26b73d4582aa227",
+        "after": "826165ab6144560d86c18b8b15eaa8ac278eb0dd"
+      }
+    ],
+    "added": [
+      {
+        "path": "web-demo/src/receivables.css",
+        "mode": "100644",
+        "type": "blob",
+        "git_blob": "84dc9078229aaaad0a13f382a6466e343a7489ae"
+      },
+      {
+        "path": "web-demo/src/receivables.ts",
+        "mode": "100644",
+        "type": "blob",
+        "git_blob": "c2d4f6bd9206d7199fe053bd45e2e8df2ad96ad9"
+      }
+    ]
+  },
+  "independent_current_composition_review": {
+    "verdict": "PASS",
+    "reviewer": "native_capability",
+    "files": [
+      {
+        "name": "RECEIVABLES-COMPOSITION-REVIEW.md",
+        "git_blob": "ee51de3ce15f6b5649e12763c2990cb52e63840d",
+        "bytes": 5168,
+        "sha256": "68d81b14309bb092a907374ab6f7a66297a512a494cdb423287b6a20c10b629b",
+        "path": "../../independent/RECEIVABLES-COMPOSITION-REVIEW.md"
+      },
+      {
+        "name": "receivables-composition-review.json",
+        "git_blob": "0c822d1cec3343685daab2a71022ae3faa194df0",
+        "bytes": 16109,
+        "sha256": "376a09c614cdb2fa40dc9fcfe05181b7cef3d76686e602673c2e3f57ca3d8746",
+        "path": "../../independent/receivables-composition-review.json"
+      }
+    ],
+    "bounds": "Independent source and retained log/receipt readback; no new product or browser execution. Direct PNG inspection is attributed to integration."
+  }
+}

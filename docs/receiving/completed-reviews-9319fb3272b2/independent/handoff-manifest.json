@@ -1,0 +1,78 @@
+{
+  "schema": "ledgerly.independent-available-handoff.v1",
+  "repository": "Jacob-Met/ledgerly",
+  "reviewer": "hamon-ultra-9319fb3272b2-20261008/native_capability",
+  "branch_or_ref_changed": false,
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "bytes": 9570,
+      "sha256": "59c0e7ad94fce77f31417adb36accc289c271718420e57cefc9a127e8ec375be",
+      "git_blob": "79b0810cd0a028ead1d008ffd5f048239f330b57"
+    },
+    {
+      "path": "check-disclosures.mjs",
+      "bytes": 16224,
+      "sha256": "e60bdef351a11e58b3f4fdf4f0277332fa4d6f889d4bc3361db7a89add681f95",
+      "git_blob": "3aa142b8b4d104d2c7f040c3d8f62306de3fd45f"
+    },
+    {
+      "path": "corrected-home-browser.stderr.log",
+      "bytes": 4956,
+      "sha256": "6ca8a427735a2b08569cf42cc1ffe2672d5457de7db6782e71e031395a5fb700",
+      "git_blob": "1c172aa965706ffeed21965d4cbc4a9ac656da50"
+    },
+    {
+      "path": "corrected-home-receiving.json",
+      "bytes": 19888,
+      "sha256": "9ad18e113d5b1579d85118863671485a258fb7d15872aa7d35c40cfb8f7c8bac",
+      "git_blob": "fee5f4416cb9777008cbd1b53074182b207460c9"
+    },
+    {
+      "path": "original-receiving.json",
+      "bytes": 59629,
+      "sha256": "225eb7b97e6e81227a8e3a39ee5b13eaf471b2fc15e26f51e42ad318be283a71",
+      "git_blob": "a1d1a9542268c5985e36a1a688ce4f6d6e2d32b7"
+    },
+    {
+      "path": "prelaunch-browser.stderr.log",
+      "bytes": 955,
+      "sha256": "8abfc37046dbbd7a004275f299a4acafa3e9fcfd667d1cafa5fe5beef0aea348",
+      "git_blob": "aefa96b1da947bac14668285b32ab659045c41ea"
+    },
+    {
+      "path": "process-observations.json",
+      "bytes": 5982,
+      "sha256": "3e26934090619a8cfbff60a8477ec889c7bf1442bc2e66895a0ddf0c58a4dbb0",
+      "git_blob": "65d0933316df144094129ef09263ded8f898ce44"
+    },
+    {
+      "path": "review-summary.json",
+      "bytes": 2016,
+      "sha256": "5f099611b0ecfff986d7524359acef01230dc9e78824378e1d38c09ccfcd1d0c",
+      "git_blob": "99b3cb840928a34ad386bfe956a9f51855b156a5"
+    },
+    {
+      "path": "source-preservation.json",
+      "bytes": 1667,
+      "sha256": "74660afbb0f9b0011448876773010d7a7b8e7aa9726fa7e856003c44cd0a6f58",
+      "git_blob": "34f52c0f8a17fd36bef072d71ad11f32a5e97a57"
+    }
+  ],
+  "native_freeze_execution": "unknown_after_service_wide_MCP_timeouts",
+  "native_archive_path": "/home/jacob/ledgerly-independent-9319-30x6d5nt/independent-review.tar.gz",
+  "verified_native_ram_custody_sha256": "8f95de59005ee1451170ad8075bd97b8bdfc83dfd8475ac058f79fb4d0fd40da",
+  "raw_receipt_hashes_verified_locally_against_observed_native": [
+    "original-receiving.json",
+    "corrected-home-receiving.json"
+  ],
+  "raw_native_only_prelaunch_receipt": {
+    "path": "/home/jacob/ledgerly-independent-9319-30x6d5nt/ram-witness/corrected/receiving.json",
+    "sha256": "da349ccad18302f54673c57fc05235571c64a7afe6db276fb555b94175937ec2"
+  },
+  "original_image_native": {
+    "path": "/home/jacob/ledgerly-independent-9319-30x6d5nt/ram-witness/original/disclosure-after-snapshots.png",
+    "sha256": "88e4901f783cb65b0fa5073618720ee98ad8bd9f7cef9cd33ce623e95f296814"
+  },
+  "transport_log_note": "Browser logs are the received native log text with final newline retained; native file hash readback beyond the recorded receipts awaits service recovery."
+}

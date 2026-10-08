@@ -1,0 +1,14 @@
+2026-10-08T15:28:24.2752861Z ##[group]Run chrome_bin="$(command -v google-chrome)"
+2026-10-08T15:28:24.2753290Z [36;1mchrome_bin="$(command -v google-chrome)"[0m
+2026-10-08T15:28:24.2753985Z [36;1mnode tools/check_review_history_browser.mjs --source .. --dist dist --chrome "$chrome_bin" --output "$RUNNER_TEMP/completed-reviews-receiving"[0m
+2026-10-08T15:28:24.2817002Z shell: /usr/bin/bash -e {0}
+2026-10-08T15:28:24.2817296Z env:
+2026-10-08T15:28:24.2817611Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T15:28:24.2818149Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-08T15:28:24.2818729Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T15:28:24.2819235Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T15:28:24.2819793Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-08T15:28:24.2820833Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-08T15:28:24.2821315Z ##[endgroup]
+2026-10-08T15:28:25.8335208Z {"ok":false,"checks":0,"sourceUnchanged":true,"distUnchanged":true,"error":"Error: 'Fetch.enable' wasn't found","output":"/home/runner/work/_temp/completed-reviews-receiving"}
+2026-10-08T15:28:25.8416711Z ##[error]Process completed with exit code 1.

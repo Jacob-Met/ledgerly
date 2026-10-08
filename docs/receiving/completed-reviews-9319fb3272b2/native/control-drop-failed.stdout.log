@@ -1,0 +1,24 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ CompletedReviewTests.test_actual_send_then_lost_response_retains_unknown_without_replay _
+
+self = <test_review_history.CompletedReviewTests testMethod=test_actual_send_then_lost_response_retains_unknown_without_replay>
+
+    def test_actual_send_then_lost_response_retains_unknown_without_replay(self):
+        queued = self.draft()
+        original = self.demo.mock.send_invoice
+        def sent_then_lost(*args, **kwargs):
+            original(*args, **kwargs)
+            raise TimeoutError("Authored lost response after the real mock send")
+        with patch.object(self.demo.mock, "send_invoice", side_effect=sent_then_lost):
+            reply = self.call("approve", action_id=queued["id"])
+        self.assertFalse(reply["ok"])
+        self.assertEqual(reply["error"], "TimeoutError")
+        self.assertEqual(self.demo.mock.invoices[queued["invoice_id"]]["status"], "SENT")
+>       self.assertEqual(len(reply["state"]["completed_reviews"]), 1)
+E       AssertionError: 0 != 1
+
+tests/test_review_history.py:108: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_review_history.py::CompletedReviewTests::test_actual_send_then_lost_response_retains_unknown_without_replay
+1 failed in 0.06s

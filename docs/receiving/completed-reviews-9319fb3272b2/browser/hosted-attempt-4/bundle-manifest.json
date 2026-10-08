@@ -1,0 +1,55 @@
+{
+  "format": "ledgerly-history-log-bundle/1",
+  "rawBytes": 619351,
+  "files": [
+    {
+      "name": "browser.json",
+      "bytes": 19837,
+      "sha256": "452e3b04359bf4a8cd5520cd5ba9d993028ab9a31b7ee0c9780dd6d2500ee035",
+      "git_blob": "24da7722b36fb115abea2b56689a944a059bd625",
+      "chunks": 7
+    },
+    {
+      "name": "desktop-completed-reviews.png",
+      "bytes": 180968,
+      "sha256": "54568c069faf61ca6e6ed90099c02f860914c7e08c5d0fd0ad4f3a002581022e",
+      "git_blob": "156a271b20f027b2fdb92cf83e52a872cfb507ee",
+      "chunks": 59
+    },
+    {
+      "name": "healthy-chromium.log",
+      "bytes": 4222,
+      "sha256": "954f6ddc368978655d12c2e287c18dcb382f4f6d912056ea6cd1b366be46d05f",
+      "git_blob": "0d06a2e8b8562363c099e5dc5f38283acc97ca1d",
+      "chunks": 2
+    },
+    {
+      "name": "healthy-failure.png",
+      "bytes": 181286,
+      "sha256": "eca64f839b8967d600a46b894b56cfa97701cc65adbf4102c6f4ea251f626f99",
+      "git_blob": "65e833b8b5b0b3c0376da8ca379070fbeef72f1c",
+      "chunks": 60
+    },
+    {
+      "name": "healthy-worker-observation.json",
+      "bytes": 224550,
+      "sha256": "f9fc0f51509351cc60e378bf7e4c30c1283636c5f9e3b4c31f01877cb3ec49fb",
+      "git_blob": "2eb7a8766fdcb330cd79322c26fbbf4f2c567325",
+      "chunks": 74
+    },
+    {
+      "name": "lost-response-suffix.py",
+      "bytes": 817,
+      "sha256": "65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c",
+      "git_blob": "4c8eb59cb941f6fec85b9c692970fa2cff644544",
+      "chunks": 1
+    },
+    {
+      "name": "source-binding.json",
+      "bytes": 7671,
+      "sha256": "12341719cba44995ff3bba8c97817a556e58be7321857722bf27230a72b94b05",
+      "git_blob": "34830d7619ef47085589ef68ce8acb2c1be04ac4",
+      "chunks": 3
+    }
+  ]
+}

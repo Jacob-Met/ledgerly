@@ -1,0 +1,467 @@
+{
+  "source_pin": "2d5e275a92203332641a54c1ae164c9963786ab0",
+  "base_pin": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+  "source": "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/source-b9-2d5e275",
+  "declared_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "git_blob": "58bcc64e8d6c119e91812bd6c4c0aa581911cb5e",
+      "bytes": 1504,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/01_simple_usd_hourly.txt",
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+      "bytes": 282,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/02_gbp_proofreading.txt",
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "bytes": 293,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/03_eur_fixed_project.txt",
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+      "bytes": 265,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/04_multi_currency.txt",
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+      "bytes": 288,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/05_missing_email.txt",
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+      "bytes": 238,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/06_ambiguous_qty.txt",
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+      "bytes": 246,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "bytes": 319,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/08_jpy_zero_decimal.txt",
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+      "bytes": 271,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/09_table_cad.txt",
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+      "bytes": 380,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/10_billing_address_net45.txt",
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb",
+      "bytes": 330,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/11_range_qty_approx.txt",
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082",
+      "bytes": 239,
+      "mode": "100644"
+    },
+    {
+      "path": "fixtures/12_prompt_injection.txt",
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b",
+      "bytes": 315,
+      "mode": "100644"
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "bytes": 119,
+      "mode": "100644"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "git_blob": "3ae7fcae5b1b243f608ab1bea6e25313a2fea091",
+      "bytes": 32210,
+      "mode": "100644"
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+      "bytes": 3169,
+      "mode": "100644"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "git_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+      "bytes": 28143,
+      "mode": "100644"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "git_blob": "a1da2ebff1ec2963ab94ca094300c8f5b42aa704",
+      "bytes": 25901,
+      "mode": "100644"
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "46b2ea48656b953bb27026e0247efb219b03670e",
+      "bytes": 380,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/conftest.py",
+      "git_blob": "ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+      "bytes": 788,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_agent_paypal.py",
+      "git_blob": "7aa2e496f57ee49b090d5b8607301c81222fad94",
+      "bytes": 11582,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_approval_outcomes.py",
+      "git_blob": "f4c7abe598388131fd207b935e87a8bf3ca68024",
+      "bytes": 8203,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_browser_invoice_details.py",
+      "git_blob": "4fc4c0b5e110a3a3eebee4791846195c539088c2",
+      "bytes": 7922,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_browser_overdue_scan.py",
+      "git_blob": "8b2fb0c42d6ca6707149056175d749d6aecd9939",
+      "bytes": 7713,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_demo_interactive.py",
+      "git_blob": "72eb3137be9a2f42875cdeb8b54dc40286365b7a",
+      "bytes": 4906,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_due_date_receiving.py",
+      "git_blob": "0407aa32403435d7529854da025d862533f8851e",
+      "bytes": 6493,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_extract.py",
+      "git_blob": "b4205a0ac12421f6cc7ca9dd9015d15ca644d5a6",
+      "bytes": 6091,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_prior_payment_language.py",
+      "git_blob": "22113f0b65a9ebeb3d403c578bbe722d69f13e03",
+      "bytes": 8750,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_receipt_term_receiving.py",
+      "git_blob": "fb5d293f3944480b86524eb98c8ee19a7ce53174",
+      "bytes": 14380,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_reminder_freshness.py",
+      "git_blob": "164175c727e90a5f7b8b0e22fe9e996498c4fb4c",
+      "bytes": 7285,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_reminder_provider_changes.py",
+      "git_blob": "b967a8722940eb03d060eeb23e1893d098ece224",
+      "bytes": 6165,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_reminder_receiving.py",
+      "git_blob": "6f1446194b9d20d4ab42b5f3652332b37f72766a",
+      "bytes": 14624,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_review_history.py",
+      "git_blob": "f1094791e5fc5941ff6fb01d66424c5f0c185aa9",
+      "bytes": 11467,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_sandbox_payment_admission.py",
+      "git_blob": "214cbf0b692e088c0cc34684024bfaef9865e18d",
+      "bytes": 15321,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_webhook_admission.py",
+      "git_blob": "f7176dd96d479f75aca597595358534c1c17cba3",
+      "bytes": 5567,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/test_webhook_current_read_receiving.py",
+      "git_blob": "c661cfa2bfff3acb56307cdb3353a110236b39e1",
+      "bytes": 13308,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/README.md",
+      "git_blob": "e6f53600f476d30af415fbff9886e7473a10d840",
+      "bytes": 9433,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/index.html",
+      "git_blob": "803938c053158329d423a3dae57221d50e622504",
+      "bytes": 6473,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/package-lock.json",
+      "git_blob": "555bceb19a4e55ad488ec2c8420b02e3756954d4",
+      "bytes": 36820,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/package.json",
+      "git_blob": "c54e9f9d06988f14b3e03ca2f22629313fef5da8",
+      "bytes": 403,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/public/favicon.svg",
+      "git_blob": "de1096fdf1b4568cf04715c0c90cd512a9c5d1ce",
+      "bytes": 240,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "git_blob": "d9299104861a8533372068a210827649ba56b02c",
+      "bytes": 6739,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015",
+      "bytes": 1196,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "bytes": 4379,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/python/review_history.py",
+      "git_blob": "01f66b8d884910ece53442c1c556d81fdcefdf86",
+      "bytes": 466,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "git_blob": "d23c02325afe166cf1f1fb40eea0a18bfd58ceb9",
+      "bytes": 1015,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/approval-preview.css",
+      "git_blob": "fdffade7bd101087a59f508a7b23620a0f2c7128",
+      "bytes": 1815,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/approval-preview.ts",
+      "git_blob": "82bf8cead8651557171c4460670cb6f86cefcad0",
+      "bytes": 6000,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "git_blob": "e541a5bb78877d74f94f37e8d76d22b9450041a6",
+      "bytes": 1756,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/invoice-details.css",
+      "git_blob": "1cb25514753f3c8104f13afb575633e7fce5811b",
+      "bytes": 2214,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/invoice-details.test.ts",
+      "git_blob": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69",
+      "bytes": 5840,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/invoice-details.ts",
+      "git_blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd",
+      "bytes": 9311,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/ledger-export.css",
+      "git_blob": "63933b271fd025a5d21888f3373faefa7f8f593d",
+      "bytes": 256,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/ledger-export.test.ts",
+      "git_blob": "3727493f7366db1771dcda96e4dd19ac4deb44f0",
+      "bytes": 4353,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/ledger-export.ts",
+      "git_blob": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+      "bytes": 4944,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "git_blob": "42bf40afc1f59b2b8b00b1ebaabb358dc1d36e13",
+      "bytes": 19006,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/retryable-loader.ts",
+      "git_blob": "d6e49a01fccbbeffb892c0c814eaf4064c00045b",
+      "bytes": 404,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/review-history.css",
+      "git_blob": "b7a63121c4415b6a6ec1619f1b3a7f9d5214a425",
+      "bytes": 1637,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/review-history.ts",
+      "git_blob": "dffc9d3b0f6badc0a7ffdabeb9a8f05ff5b7d55a",
+      "bytes": 4206,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/review.css",
+      "git_blob": "8d3da08a25b21b8156c198f99930e53de315e451",
+      "bytes": 1829,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/review.ts",
+      "git_blob": "53463561542dfe0a5b1c3e6b0581e050c98fcc91",
+      "bytes": 6591,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/style.css",
+      "git_blob": "da0a2c54b85c2058e1a654f4a029e3e6b9c94db7",
+      "bytes": 7353,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/src/worker-client.ts",
+      "git_blob": "0d56a2b3732e101f5b27fba22bd39790912caafd",
+      "bytes": 3972,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/approval-preview.test.ts",
+      "git_blob": "6b8c048a097ccb19f55ae4459727cc9fa086fe93",
+      "bytes": 9167,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/engine-recovery.test.ts",
+      "git_blob": "0da218483ef0b896c5afb8f9dcf09ca9b5e42734",
+      "bytes": 15876,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/engine.test.ts",
+      "git_blob": "7d32f24d0dc7abf87cd064cb3bb13415c354da88",
+      "bytes": 3050,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/invoice-details.test.ts",
+      "git_blob": "f9a9a6c2f783eccb2a417343d1e8300b3e14f4a7",
+      "bytes": 4181,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/overdue-scan.test.ts",
+      "git_blob": "8403d2e1d7d17ab2a22bf2cdb3c053f2f1942273",
+      "bytes": 2165,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/review-history.test.ts",
+      "git_blob": "7537c3e752ecc794bb3224762fdfa5e11161426c",
+      "bytes": 8030,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/review.test.ts",
+      "git_blob": "3394414da2594bb38d3734db49305db7ceb83a59",
+      "bytes": 9436,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tests/worker-client.test.ts",
+      "git_blob": "077aa60dd05916ca3c64144f3ea4c2bf6ac08364",
+      "bytes": 8569,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tools/check_ledger_export_browser.py",
+      "git_blob": "da830c6452b395a63d3879fbc06ca0b0374b1479",
+      "bytes": 18433,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tools/check_review_history_browser.mjs",
+      "git_blob": "3ffeae0a4b071988cc1a9c6038ab940c07f289e7",
+      "bytes": 27674,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tools/requirements-browser.txt",
+      "git_blob": "984b515839dbf761d7d0158d710856998238c21a",
+      "bytes": 19,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/tsconfig.json",
+      "git_blob": "408840754fae30406085341098dd2ec7d084d528",
+      "bytes": 211,
+      "mode": "100644"
+    },
+    {
+      "path": "web-demo/vite.config.ts",
+      "git_blob": "031e19417070e2b63cc48b2ae105e0f40eea6ef0",
+      "bytes": 173,
+      "mode": "100644"
+    }
+  ],
+  "all_blob_checks_passed": true,
+  "old_source_untouched": "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/source",
+  "free_before": 155779072,
+  "free_after": 154935296
+}

@@ -1,0 +1,464 @@
+{
+  "schema": "ledgerly-independent-receivables-composition-review-v1",
+  "reviewer": "native_capability / hamon-ultra-9319fb3272b2-20261008",
+  "reviewed_at": "2026-10-08T17:47:55Z",
+  "verdict": "PASS — bounded source composition and existing hosted receiving readback",
+  "repository": "Jacob-Met/ledgerly",
+  "pull_request": 36,
+  "pins": {
+    "incoming_main": "295153cc0c354415c39bcee7d2384412b4fa629f",
+    "incoming_tree": "599514b1ea0dc06edd0f8ed4acf7b1fdbbc49470",
+    "prior_accepted_evidence_head": "84fc3c66d2efe823deeb7326b1bc68633464d35f",
+    "head": "de285f67d3edf2de571557fdef0ba870ab82e159",
+    "tree": "7bfe5e60a7aa2109d2bad7a95019fb3e13ee57e1",
+    "head_parents": [
+      "84fc3c66d2efe823deeb7326b1bc68633464d35f",
+      "295153cc0c354415c39bcee7d2384412b4fa629f"
+    ],
+    "hosted_checkout": "620b2058315fdcaf3cc97f7d7738cbdef74a20f4",
+    "hosted_checkout_parents": [
+      "295153cc0c354415c39bcee7d2384412b4fa629f",
+      "de285f67d3edf2de571557fdef0ba870ab82e159"
+    ],
+    "hosted_tree_equals_head": true
+  },
+  "preservation": {
+    "base_leaves": 715,
+    "head_leaves": 842,
+    "unchanged": 701,
+    "modified_existing_paths": [
+      ".github/workflows/ci.yml",
+      "web-demo/README.md",
+      "web-demo/index.html",
+      "web-demo/python/bridge.py",
+      "web-demo/scripts/stage-python.mjs",
+      "web-demo/src/approval-preview.ts",
+      "web-demo/src/engine.worker.ts",
+      "web-demo/src/main.ts",
+      "web-demo/tests/approval-preview.test.ts",
+      "web-demo/tests/engine-recovery.test.ts",
+      "web-demo/tests/engine.test.ts",
+      "web-demo/tests/invoice-details.test.ts",
+      "web-demo/tests/overdue-scan.test.ts",
+      "web-demo/tests/review.test.ts"
+    ],
+    "owned_additions": 127,
+    "removed": [],
+    "incoming_pr42_paths": 26,
+    "incoming_exact": 22,
+    "shared_files": [
+      {
+        "path": "web-demo/README.md",
+        "incoming_blob": "04752c3ceb514b750b60f9beb6ef4aa217ecf1fb",
+        "current_blob": "d7bcdff916b923ddf7901b0fb2fcdeb491fd5ff8",
+        "inverse_git_blob": "04752c3ceb514b750b60f9beb6ef4aa217ecf1fb",
+        "inverse_matches_incoming": true
+      },
+      {
+        "path": "web-demo/index.html",
+        "incoming_blob": "42235a54fb754a5530d2700b4480878adb860aa4",
+        "current_blob": "6019c0f572570186ea29c8c0423b3e1d35a46281",
+        "inverse_git_blob": "42235a54fb754a5530d2700b4480878adb860aa4",
+        "inverse_matches_incoming": true
+      },
+      {
+        "path": "web-demo/src/main.ts",
+        "incoming_blob": "ecbca0b2e3f7646bda9fd389595484a2a8f422be",
+        "current_blob": "826165ab6144560d86c18b8b15eaa8ac278eb0dd",
+        "inverse_git_blob": "ecbca0b2e3f7646bda9fd389595484a2a8f422be",
+        "inverse_matches_incoming": true
+      },
+      {
+        "path": "web-demo/tests/engine-recovery.test.ts",
+        "incoming_blob": "2eddbae754beddc71bae85775101cf2125d2df37",
+        "current_blob": "5eb623f90f098f241742a7f2f90cccf855592431",
+        "inverse_git_blob": "2eddbae754beddc71bae85775101cf2125d2df37",
+        "inverse_matches_incoming": true
+      }
+    ],
+    "protected": [
+      {
+        "path": "ledgerly/agent.py",
+        "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+        "same_as_prior": true
+      },
+      {
+        "path": "ledgerly/paypal.py",
+        "git_blob": "66f067204d357499b3f7010a946563a431d50aea",
+        "same_as_prior": true
+      },
+      {
+        "path": "web-demo/python/review_history.py",
+        "git_blob": "01f66b8d884910ece53442c1c556d81fdcefdf86",
+        "same_as_prior": true
+      },
+      {
+        "path": "web-demo/src/review-history.ts",
+        "git_blob": "dffc9d3b0f6badc0a7ffdabeb9a8f05ff5b7d55a",
+        "same_as_prior": true
+      },
+      {
+        "path": "web-demo/src/review-history.css",
+        "git_blob": "b7a63121c4415b6a6ec1619f1b3a7f9d5214a425",
+        "same_as_prior": true
+      },
+      {
+        "path": "web-demo/tools/check_review_history_browser.mjs",
+        "git_blob": "13223a3bc4c56c7a19bd4e02fe9bffe739bb4be9",
+        "same_as_prior": true
+      }
+    ]
+  },
+  "source_review": [
+    "Read all four complete shared files and both-parent diffs.",
+    "Reversed only the explicit history hunks in memory; all four resulting Git blobs exactly reconstruct incoming main.",
+    "main.ts retains actual receivables initialization, seven mounts, availability and snapshot updates; history retains its existing independent renderer and status note. Worker dispatch and action handlers remain incoming exact outside those additions.",
+    "index.html adds one sibling history section; the complete incoming receivables panel remains exact.",
+    "README preserves receivables semantics and adds the established Completed reviews section.",
+    "engine-recovery.test.ts adds the actual history renderer import/context while retaining the actual receivables view and every existing test body."
+  ],
+  "runtime_binding": {
+    "git_blob": "7c667189cbefdda3fe17dde43574b993d18e9ddb",
+    "sha256": "60542002e7bcac2f67ffe48fa8f207e4187ea6e7e7882497cbdbac173c8ff175",
+    "rows": 47,
+    "rows_exact_against_head": 47,
+    "delta_from_prior": {
+      "prior": 45,
+      "current": 47,
+      "unchanged": 43,
+      "changed": [
+        {
+          "path": "web-demo/index.html",
+          "prior_sha256": "8114733dfd670bcd7fe8757b5fb0eb4650e317d5008cac3a6c4bbcdaff3b4b18",
+          "current_sha256": "2f1f8a31ff322bcf8e4d3dd1f3a67b21fe2bb37e08fe4f0836f2745d93831b5e"
+        },
+        {
+          "path": "web-demo/src/main.ts",
+          "prior_sha256": "6c7b9b84efda9ea9e3986d590316efebdb9d3d9110465f7f1c290c5b127e4e12",
+          "current_sha256": "6bfe4778c6e25bbbe22aff93f57a80e733488c03ffc5ac2b81c2d9a3b832bc74"
+        }
+      ],
+      "added": [
+        {
+          "path": "web-demo/src/receivables.css",
+          "sha256": "1d7eb6f8f7653bd7507af057f905de3213f20b5c0c093b4cfc2f2e35871dd606"
+        },
+        {
+          "path": "web-demo/src/receivables.ts",
+          "sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68"
+        }
+      ],
+      "removed": []
+    },
+    "dist_files": 32,
+    "source_unchanged": true,
+    "dist_unchanged": true,
+    "driver_git_blob": "13223a3bc4c56c7a19bd4e02fe9bffe739bb4be9",
+    "driver_sha256": "0be2ca0049b81e89292227c26d37530e1885dc07c5182babb2ed9be08a6bb811"
+  },
+  "gates": [
+    {
+      "workflow": "Verify",
+      "run": 37814056621,
+      "head": "de285f67d3edf2de571557fdef0ba870ab82e159",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 113437994855,
+          "name": "python-core",
+          "conclusion": "success",
+          "tests": 347,
+          "subtests": 118,
+          "observed_log_line": "347 passed, 118 subtests passed in 2.06s"
+        },
+        {
+          "id": 113437995605,
+          "name": "browser-engine",
+          "conclusion": "success",
+          "frontend_tests": 108,
+          "frontend_files": 12,
+          "history_checks": 29
+        }
+      ],
+      "counts_from": "Exact job logs, plus immutable history receipt"
+    },
+    {
+      "workflow": "invoice-record-browser",
+      "run": 37814056801,
+      "head": "de285f67d3edf2de571557fdef0ba870ab82e159",
+      "conclusion": "success",
+      "readback": "Workflow metadata"
+    },
+    {
+      "workflow": "receivables-browser",
+      "run": 37814056606,
+      "head": "de285f67d3edf2de571557fdef0ba870ab82e159",
+      "conclusion": "success",
+      "readback": "Workflow metadata"
+    }
+  ],
+  "raw_records": [
+    {
+      "name": "browser.json",
+      "bytes": 33207,
+      "sha256": "5a975618f0eef5fa001bfbf761dfcc92bdf5bbaff3233a8f2f0f4e3e4a00d568",
+      "git_blob": "27971a2362e3a4670f59880910bcfece405548f7",
+      "hashes_independently_recomputed": true
+    },
+    {
+      "name": "source-binding.json",
+      "bytes": 8002,
+      "sha256": "60542002e7bcac2f67ffe48fa8f207e4187ea6e7e7882497cbdbac173c8ff175",
+      "git_blob": "7c667189cbefdda3fe17dde43574b993d18e9ddb",
+      "hashes_independently_recomputed": true
+    },
+    {
+      "name": "lost-response-worker.json",
+      "bytes": 20495,
+      "sha256": "53042ef3873e2e587305e832114ff10ce38a2523fb19cc726cb15df2266feb62",
+      "git_blob": "d991e19a6ba3c03bab569c51aa76d2b98fb81878",
+      "hashes_independently_recomputed": true
+    },
+    {
+      "name": "healthy-worker.json",
+      "git_blob": "3abab4a1385b6c79baba23a56df0c83b446a9a46",
+      "readback": "Complete immutable blob fetched and semantic replies inspected; no extra digest claimed"
+    }
+  ],
+  "semantic_readback": {
+    "unrelatedPendingPreserved": true,
+    "retainedPending": [
+      {
+        "id": "apv_a438c0b2ac",
+        "kind": "send_invoice",
+        "currency": "USD"
+      }
+    ],
+    "reminder": {
+      "id": "apv_8506913b60",
+      "status": "APPROVED",
+      "result": {
+        "reminded": true
+      }
+    },
+    "autoRejected": {
+      "id": "apv_aacc5e7e5c",
+      "status": "REJECTED",
+      "result": {
+        "reason": "auto: reminder facts or review date changed; draft a new reminder for review"
+      }
+    },
+    "resetCleared": true,
+    "lostResponse": {
+      "transportOk": true,
+      "actionOk": false,
+      "actionError": "TimeoutError",
+      "status": "FAILED",
+      "result": {
+        "outcome": "UNKNOWN",
+        "reason": "The outgoing action may have completed. Check the invoice before creating another approval.",
+        "error_type": "TimeoutError"
+      },
+      "invoiceStatus": "SENT",
+      "ledgerStatus": "DRAFT",
+      "pending": 0,
+      "mockRequests": 5,
+      "externalCalls": 0,
+      "canReplay": false,
+      "sentActions": [
+        "init",
+        "analyze",
+        "draft",
+        "approve"
+      ]
+    },
+    "workerCorrelation": [
+      {
+        "phase": "healthy",
+        "sessionId": "D6B9049FAEFB8A8C2EC76547A4243D3B",
+        "bridgeRequest": true
+      },
+      {
+        "phase": "healthy",
+        "sessionId": "B8473443E0E5D7CFC09B7A4801947E56",
+        "bridgeRequest": true
+      },
+      {
+        "phase": "lost-response",
+        "sessionId": "7AB4E54155D7BDBA2B695C83084BD708",
+        "bridgeRequest": true
+      }
+    ]
+  },
+  "receipt_checks": {
+    "passed": 29,
+    "total": 29,
+    "names": [
+      "healthy actual empty Python session",
+      "healthy pending stays out of history",
+      "retained original approved",
+      "keyboard disclosure and result selection are read only",
+      "outer disclosure and focus survive immediate snapshot",
+      "nested disclosure and focus survive immediate snapshot",
+      "existing invoice details remain independently usable",
+      "retained original rejected",
+      "reviewed literal fields and rejection reason stay exact",
+      "retained original rejected",
+      "automatic rejection retains its original message and actual reason",
+      "retained original approved",
+      "explicit reminder approval retains its separate identity",
+      "phone history has no horizontal overflow or Worker effect",
+      "authored unavailable event labels retained history without replay",
+      "explicit restart opens empty history and retains source email",
+      "fresh session retains its own completed review",
+      "explicit confirmed Reset clears history",
+      "lost-response actual empty Python session",
+      "lost-response pending stays out of history",
+      "real send then lost response reaches FAILED UNKNOWN",
+      "UNKNOWN label is visibly rendered while collapsed",
+      "retained original failed",
+      "reading FAILED history does not retry or change provider state",
+      "both browser contexts requested the exact staged Python modules",
+      "page and Worker requests remained on loopback",
+      "no uncaught page or Worker exceptions",
+      "exactly one labeled fault bridge served",
+      "both owned browsers exited and profiles were removed"
+    ],
+    "page_errors": [],
+    "off_origin": [],
+    "cleanup": [
+      {
+        "phase": "healthy",
+        "pid": 2841,
+        "requestedClose": true,
+        "fallbackSignals": [],
+        "profileRemoved": true,
+        "exitCode": 0,
+        "signal": null
+      },
+      {
+        "phase": "lost-response",
+        "pid": 3005,
+        "requestedClose": true,
+        "fallbackSignals": [],
+        "profileRemoved": true,
+        "exitCode": 0,
+        "signal": null
+      }
+    ],
+    "fault": {
+      "kind": "Real SandboxMock send followed by authored lost response",
+      "bridgeServed": 1,
+      "suffixSha256": "65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c",
+      "originalBridgeSha256": "9542f71915912be8499afb1af388d6e1f4defe2de6d1401086577c1c69b111df",
+      "servedBridgeSha256": "77df02af7ec410a7edd73649982e8976d68a02c9fb8e756708c2a4b4c26e49dd"
+    }
+  },
+  "captures": [
+    {
+      "path": "desktop-completed-reviews.png",
+      "bytes": 180657,
+      "sha256": "60318bc9eaf6de49795c68cb4af71848cc073c69d30dd0a6dc62ebfa86b96e52",
+      "png": {
+        "width": 546,
+        "height": 2471
+      },
+      "clip": {
+        "x": 851.5,
+        "y": 1269.84375,
+        "width": 546.5,
+        "height": 2471.3125,
+        "scale": 1
+      },
+      "after": {
+        "x": 851.5,
+        "y": 1269.84375,
+        "width": 546.5,
+        "height": 2471.3125
+      },
+      "stable_geometry": true,
+      "dimensions_match": true
+    },
+    {
+      "path": "phone-completed-reminder.png",
+      "bytes": 39385,
+      "sha256": "022fea14eda30830da47b1e33244f9a922d4cd765744396861f95521a8e418af",
+      "png": {
+        "width": 336,
+        "height": 595
+      },
+      "clip": {
+        "x": 27,
+        "y": 3661.6875,
+        "width": 336,
+        "height": 595.1875,
+        "scale": 1
+      },
+      "after": {
+        "x": 27,
+        "y": 3661.6875,
+        "width": 336,
+        "height": 595.1875
+      },
+      "stable_geometry": true,
+      "dimensions_match": true
+    },
+    {
+      "path": "phone-literal-invoice.png",
+      "bytes": 49605,
+      "sha256": "8a1615b4e3c993731e289188cd386c145d1770233ca2f2829bf5f900865541cf",
+      "png": {
+        "width": 336,
+        "height": 790
+      },
+      "clip": {
+        "x": 27,
+        "y": 4904.0625,
+        "width": 336,
+        "height": 790.53125,
+        "scale": 1
+      },
+      "after": {
+        "x": 27,
+        "y": 4904.0625,
+        "width": 336,
+        "height": 790.53125
+      },
+      "stable_geometry": true,
+      "dimensions_match": true
+    },
+    {
+      "path": "phone-outcome-unknown.png",
+      "bytes": 58789,
+      "sha256": "328615123a994708434f43619b59d548ccc938ad61019daa952454d1b4b0ab35",
+      "png": {
+        "width": 336,
+        "height": 944
+      },
+      "clip": {
+        "x": 27,
+        "y": 1859.296875,
+        "width": 336,
+        "height": 944.859375,
+        "scale": 1
+      },
+      "after": {
+        "x": 27,
+        "y": 1859.296875,
+        "width": 336,
+        "height": 944.859375
+      },
+      "stable_geometry": true,
+      "dimensions_match": true
+    }
+  ],
+  "bounds": [
+    "No new product, browser or RDC execution; read-only Git source, existing logs and receipt inspection. Only in-memory review hashing/inverse comparison was executed locally.",
+    "Current acceptance is pinned to de285f67 and its exact-tree hosted checkout. Root owns merge and any subsequent live receiving.",
+    "Driver binds 47 declared runtime inputs and records 32 dist files; this is not a claim that every checkout file was hashed during the browser run.",
+    "Fault phase intentionally serves the unchanged bridge plus a recorded receiving-only suffix after the real SandboxMock send; zero external provider calls.",
+    "Unavailable-engine event is authored; page scrollbars are hidden by receiving-only Emulation. Product source and CSS remain unchanged.",
+    "Current screenshot geometry and recorded dimensions were independently inspected. Direct current PNG visual inspection is attributed to integration, not this reviewer.",
+    "Original semantic, prelaunch, GPU/capture, protocol and oracle failures remain separately preserved; this addendum does not relabel them as passing."
+  ]
+}

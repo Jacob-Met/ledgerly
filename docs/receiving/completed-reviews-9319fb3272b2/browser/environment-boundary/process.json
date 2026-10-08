@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "python3",
+    "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/tools/check_review_history_browser-v1.py",
+    "--source",
+    "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/source",
+    "--dist",
+    "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/source/web-demo/dist",
+    "--chrome",
+    "/snap/chromium/3537/usr/lib/chromium-browser/chrome",
+    "--output",
+    "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/receipts/browser-v1",
+    "--source-manifest",
+    "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/tools/source-binding-838f1f5.json"
+  ],
+  "started_at": 1791469484.3060315,
+  "timeout_seconds": 240,
+  "exit_code": 1,
+  "elapsed_seconds": 0.866,
+  "stdout": "{\"ok\": false, \"checks\": 0, \"source_unchanged\": true, \"dist_unchanged\": true, \"error\": \"AttributeError(\\\"'PlaywrightContextManager' object has no attribute '_playwright'\\\")\", \"output\": \"/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/receipts/browser-v1\"}\n",
+  "stderr": "node:internal/modules/cjs/loader:1386\n  throw err;\n  ^\n\nError: Cannot find module '/usr/share/nodejs/playwright/cli.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n    at Module._load (node:internal/modules/cjs/loader:1192:37)\n    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v22.22.1\nTask exception was never retrieved\nfuture: <Task finished name='Task-3' coro=<Connection.run.<locals>.init() done, defined at /usr/lib/python3/dist-packages/playwright/_impl/_connection.py:307> exception=Exception('Connection.init: Connection closed while reading from the driver')>\nTraceback (most recent call last):\n  File \"/usr/lib/python3/dist-packages/playwright/_impl/_connection.py\", line 308, in init\n    self.playwright_future.set_result(await self._root_object.initialize())\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/playwright/_impl/_connection.py\", line 249, in initialize\n    await self._channel.send(\n    ...<5 lines>...\n    )\n  File \"/usr/lib/python3/dist-packages/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/usr/lib/python3/dist-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nException: Connection.init: Connection closed while reading from the driver\n",
+  "browser_report_exists": true
+}

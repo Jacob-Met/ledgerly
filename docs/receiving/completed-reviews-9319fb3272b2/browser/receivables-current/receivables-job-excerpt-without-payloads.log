@@ -1,0 +1,315 @@
+﻿2026-10-08T17:07:03.6095879Z Current runner version: '2.337.0'
+2026-10-08T17:07:03.6120044Z ##[group]Runner Image Provisioner
+2026-10-08T17:07:03.6120944Z Hosted Compute Agent
+2026-10-08T17:07:03.6121478Z Version: 20261002.596
+2026-10-08T17:07:03.6122057Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T17:07:03.6122724Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T17:07:03.6123357Z Worker ID: {bfe46f3f-c2e8-421b-be01-8707ed64056e}
+2026-10-08T17:07:03.6124159Z Region: westus3
+2026-10-08T17:07:03.6124655Z Cloud: Azure
+2026-10-08T17:07:03.6125180Z ##[endgroup]
+2026-10-08T17:07:03.6126515Z ##[group]Operating System
+2026-10-08T17:07:03.6127097Z Ubuntu
+2026-10-08T17:07:03.6127659Z 24.04.5
+2026-10-08T17:07:03.6128137Z LTS
+2026-10-08T17:07:03.6128597Z ##[endgroup]
+2026-10-08T17:07:03.6129143Z ##[group]Runner Image
+2026-10-08T17:07:03.6129714Z Image: ubuntu-24.04
+2026-10-08T17:07:03.6130252Z Version: 20261004.327.1
+2026-10-08T17:07:03.6131419Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T17:07:03.6132807Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T17:07:03.6133808Z ##[endgroup]
+2026-10-08T17:07:03.6134914Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T17:07:03.6136814Z Contents: read
+2026-10-08T17:07:03.6137433Z Metadata: read
+2026-10-08T17:07:03.6137959Z ##[endgroup]
+2026-10-08T17:07:03.6140408Z Secret source: Actions
+2026-10-08T17:07:03.6141315Z Cache mode: write
+2026-10-08T17:07:03.6141938Z Prepare workflow directory
+2026-10-08T17:07:03.6469448Z Prepare all required actions
+2026-10-08T17:07:03.6518901Z Getting action download info
+2026-10-08T17:07:03.9901608Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T17:07:04.0682512Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-08T17:07:04.1438936Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-08T17:07:04.3260642Z Complete job name: receive-client-balances
+2026-10-08T17:07:04.4075583Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-08T17:07:04.4076488Z with:
+2026-10-08T17:07:04.4076894Z   repository: Jacob-Met/ledgerly
+2026-10-08T17:07:04.4080748Z   token: ***
+2026-10-08T17:07:04.4081125Z   ssh-strict: true
+2026-10-08T17:07:04.4081515Z   ssh-user: git
+2026-10-08T17:07:04.4081905Z   persist-credentials: true
+2026-10-08T17:07:04.4082338Z   clean: true
+2026-10-08T17:07:04.4082741Z   sparse-checkout-cone-mode: true
+2026-10-08T17:07:04.4083200Z   fetch-depth: 1
+2026-10-08T17:07:04.4083762Z   fetch-tags: false
+2026-10-08T17:07:04.4084168Z   show-progress: true
+2026-10-08T17:07:04.4084563Z   lfs: false
+2026-10-08T17:07:04.4084932Z   submodules: false
+2026-10-08T17:07:04.4085336Z   set-safe-directory: true
+2026-10-08T17:07:04.4085783Z   allow-unsafe-pr-checkout: false
+2026-10-08T17:07:04.4086506Z ##[endgroup]
+2026-10-08T17:07:04.5127495Z Syncing repository: Jacob-Met/ledgerly
+2026-10-08T17:07:04.5129248Z ##[group]Getting Git version info
+2026-10-08T17:07:04.5129964Z Working directory is '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T17:07:04.5130937Z [command]/usr/bin/git version
+2026-10-08T17:07:04.5191343Z git version 2.55.0
+2026-10-08T17:07:04.5218093Z ##[endgroup]
+2026-10-08T17:07:04.5241603Z Temporarily overriding HOME='/home/runner/work/_temp/cb520749-e9be-4c00-82ea-fbb0a485e8e3' before making global git config changes
+2026-10-08T17:07:04.5244421Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T17:07:04.5250667Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T17:07:04.5309797Z Deleting the contents of '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T17:07:04.5317670Z ##[group]Initializing the repository
+2026-10-08T17:07:04.5324623Z [command]/usr/bin/git init /home/runner/work/ledgerly/ledgerly
+2026-10-08T17:07:04.5405315Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T17:07:04.5407060Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T17:07:04.5408618Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T17:07:04.5409887Z hint: call:
+2026-10-08T17:07:04.5410565Z hint:
+2026-10-08T17:07:04.5411429Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T17:07:04.5412454Z hint:
+2026-10-08T17:07:04.5413450Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T17:07:04.5415198Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T17:07:04.5416485Z hint:
+2026-10-08T17:07:04.5417192Z hint: 	git branch -m <name>
+2026-10-08T17:07:04.5417994Z hint:
+2026-10-08T17:07:04.5419040Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T17:07:04.5420780Z Initialized empty Git repository in /home/runner/work/ledgerly/ledgerly/.git/
+2026-10-08T17:07:04.5424168Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/ledgerly
+2026-10-08T17:07:04.5463155Z ##[endgroup]
+2026-10-08T17:07:04.5464636Z ##[group]Disabling automatic garbage collection
+2026-10-08T17:07:04.5466506Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T17:07:04.5496904Z ##[endgroup]
+2026-10-08T17:07:04.5498205Z ##[group]Setting up auth
+2026-10-08T17:07:04.5503335Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T17:07:04.5533890Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T17:07:04.5922575Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T17:07:04.5957689Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T17:07:04.6161338Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T17:07:04.6192486Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T17:07:04.6396752Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T17:07:04.6432159Z ##[endgroup]
+2026-10-08T17:07:04.6432930Z ##[group]Fetching the repository
+2026-10-08T17:07:04.6442694Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +620b2058315fdcaf3cc97f7d7738cbdef74a20f4:refs/remotes/pull/36/merge
+2026-10-08T17:07:05.9411447Z From https://github.com/Jacob-Met/ledgerly
+2026-10-08T17:07:05.9414911Z  * [new ref]         620b2058315fdcaf3cc97f7d7738cbdef74a20f4 -> pull/36/merge
+2026-10-08T17:07:05.9422024Z ##[endgroup]
+2026-10-08T17:07:05.9426257Z ##[group]Determining the checkout info
+2026-10-08T17:07:05.9428446Z ##[endgroup]
+2026-10-08T17:07:05.9429485Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T17:07:05.9478710Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T17:07:05.9536194Z ##[group]Checking out the ref
+2026-10-08T17:07:05.9539990Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/36/merge
+2026-10-08T17:07:06.0123497Z Note: switching to 'refs/remotes/pull/36/merge'.
+2026-10-08T17:07:06.0125198Z 
+2026-10-08T17:07:06.0125990Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T17:07:06.0128180Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T17:07:06.0131157Z state without impacting any branches by switching back to a branch.
+2026-10-08T17:07:06.0132941Z 
+2026-10-08T17:07:06.0134403Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T17:07:06.0137623Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T17:07:06.0139221Z 
+2026-10-08T17:07:06.0140066Z   git switch -c <new-branch-name>
+2026-10-08T17:07:06.0141169Z 
+2026-10-08T17:07:06.0141888Z Or undo this operation with:
+2026-10-08T17:07:06.0143050Z 
+2026-10-08T17:07:06.0143961Z   git switch -
+2026-10-08T17:07:06.0144973Z 
+2026-10-08T17:07:06.0146476Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T17:07:06.0148450Z 
+2026-10-08T17:07:06.0150018Z HEAD is now at 620b205 Merge de285f67d3edf2de571557fdef0ba870ab82e159 into 295153cc0c354415c39bcee7d2384412b4fa629f
+2026-10-08T17:07:06.0155976Z ##[endgroup]
+2026-10-08T17:07:06.0178054Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T17:07:06.0201054Z 620b2058315fdcaf3cc97f7d7738cbdef74a20f4
+2026-10-08T17:07:06.0576348Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-08T17:07:06.0578074Z with:
+2026-10-08T17:07:06.0578981Z   node-version: 22
+2026-10-08T17:07:06.0579942Z   cache: npm
+2026-10-08T17:07:06.0581069Z   cache-dependency-path: web-demo/package-lock.json
+2026-10-08T17:07:06.0582424Z   always-auth: false
+2026-10-08T17:07:06.0583380Z   check-latest: false
+2026-10-08T17:07:06.0593377Z   token: ***
+2026-10-08T17:07:06.0594374Z ##[endgroup]
+2026-10-08T17:07:06.2008444Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-08T17:07:06.2015598Z (node:2315) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T17:07:06.2020148Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T17:07:06.2023986Z ##[group]Environment details
+2026-10-08T17:07:06.5764506Z node: v22.23.3
+2026-10-08T17:07:06.5765225Z npm: 10.9.9
+2026-10-08T17:07:06.5765619Z yarn: 1.22.22
+2026-10-08T17:07:06.5766705Z ##[endgroup]
+2026-10-08T17:07:06.5784958Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-08T17:07:06.6876737Z /home/runner/.npm
+2026-10-08T17:07:06.9080405Z Cache hit for: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T17:07:06.9168877Z (node:2315) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T17:07:08.1162142Z Received 23374542 of 35957454 (65.0%), 22.3 MBs/sec
+2026-10-08T17:07:08.4962793Z Received 35957454 of 35957454 (100.0%), 24.8 MBs/sec
+2026-10-08T17:07:08.4964625Z Cache Size: ~34 MB (35957454 B)
+2026-10-08T17:07:08.4992215Z [command]/usr/bin/tar -xf /home/runner/work/_temp/a0b1445d-dbd7-475c-b28c-11d76c9b0793/cache.tzst -P -C /home/runner/work/ledgerly/ledgerly --use-compress-program unzstd
+2026-10-08T17:07:08.5426734Z Cache restored successfully
+2026-10-08T17:07:08.5444524Z Cache restored from key: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T17:07:08.5618348Z ##[group]Run set -euo pipefail
+2026-10-08T17:07:08.5618779Z [36;1mset -euo pipefail[0m
+2026-10-08T17:07:08.5619103Z [36;1mmkdir -p "${RUNNER_TEMP}/receivables-peer"[0m
+2026-10-08T17:07:08.5619442Z [36;1mpython3 --version[0m
+2026-10-08T17:07:08.5619884Z [36;1mnode --experimental-strip-types --test web-demo/tests/receivables-peer.mjs 2>&1 \[0m
+2026-10-08T17:07:08.5620412Z [36;1m  | tee "${RUNNER_TEMP}/receivables-peer/node-test.log"[0m
+2026-10-08T17:07:08.5814637Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T17:07:08.5815093Z env:
+2026-10-08T17:07:08.5815337Z   PYTHON: python3
+2026-10-08T17:07:08.5815709Z   LEDGERLY_RECEIVABLES_PEER_OUTPUT: /home/runner/work/_temp/receivables-peer/cases
+2026-10-08T17:07:08.5816133Z ##[endgroup]
+2026-10-08T17:07:08.5938873Z Python 3.12.3
+2026-10-08T17:07:08.6349782Z TAP version 13
+2026-10-08T17:07:08.8576114Z # Subtest: native bridge produces seven invoices and leap-day evidence without external calls
+2026-10-08T17:07:08.8590386Z ok 1 - native bridge produces seven invoices and leap-day evidence without external calls
+2026-10-08T17:07:08.8591635Z   ---
+2026-10-08T17:07:08.8592364Z   duration_ms: 1.425496
+2026-10-08T17:07:08.8593024Z   type: 'test'
+2026-10-08T17:07:08.8593758Z   ...
+2026-10-08T17:07:08.8594945Z # Subtest: actual pipeline projection separates clients, currency totals and calendar triage
+2026-10-08T17:07:08.8596581Z ok 2 - actual pipeline projection separates clients, currency totals and calendar triage
+2026-10-08T17:07:08.8597625Z   ---
+2026-10-08T17:07:08.8598221Z   duration_ms: 51.723808
+2026-10-08T17:07:08.8598842Z   type: 'test'
+2026-10-08T17:07:08.8599383Z   ...
+2026-10-08T17:07:08.8600598Z # Subtest: exact decimal sums include all native open statuses and preserve fractional scale
+2026-10-08T17:07:08.8602204Z ok 3 - exact decimal sums include all native open statuses and preserve fractional scale
+2026-10-08T17:07:08.8603205Z   ---
+2026-10-08T17:07:08.8603912Z   duration_ms: 1.050391
+2026-10-08T17:07:08.8604545Z   type: 'test'
+2026-10-08T17:07:08.8605101Z   ...
+2026-10-08T17:07:08.8606228Z # Subtest: literal identity, copied row values and exact client/date filtering remain stable
+2026-10-08T17:07:08.8607890Z ok 4 - literal identity, copied row values and exact client/date filtering remain stable
+2026-10-08T17:07:08.8608988Z   ---
+2026-10-08T17:07:08.8609601Z   duration_ms: 0.625108
+2026-10-08T17:07:08.8610185Z   type: 'test'
+2026-10-08T17:07:08.8610716Z   ...
+2026-10-08T17:07:08.8611945Z # Subtest: empty input is explicit and malformed late or excluded rows refuse complete totals
+2026-10-08T17:07:08.8613519Z ok 5 - empty input is explicit and malformed late or excluded rows refuse complete totals
+2026-10-08T17:07:08.8615277Z   ---
+2026-10-08T17:07:08.8615629Z   duration_ms: 1.031789
+2026-10-08T17:07:08.8615945Z   type: 'test'
+2026-10-08T17:07:08.8616272Z   ...
+2026-10-08T17:07:08.8695522Z 1..5
+2026-10-08T17:07:08.8699019Z # tests 5
+2026-10-08T17:07:08.8699709Z # suites 0
+2026-10-08T17:07:08.8700394Z # pass 5
+2026-10-08T17:07:08.8700744Z # fail 0
+2026-10-08T17:07:08.8701088Z # cancelled 0
+2026-10-08T17:07:08.8701461Z # skipped 0
+2026-10-08T17:07:08.8701808Z # todo 0
+2026-10-08T17:07:08.8702215Z # duration_ms 245.876852
+2026-10-08T17:07:08.8808448Z ##[group]Run npm ci
+2026-10-08T17:07:08.8808726Z [36;1mnpm ci[0m
+2026-10-08T17:07:08.8849010Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:08.8849326Z ##[endgroup]
+2026-10-08T17:07:10.1721388Z 
+2026-10-08T17:07:10.1722264Z added 41 packages, and audited 42 packages in 1s
+2026-10-08T17:07:10.1722929Z 
+2026-10-08T17:07:10.1723106Z 13 packages are looking for funding
+2026-10-08T17:07:10.1723419Z   run `npm fund` for details
+2026-10-08T17:07:10.1731889Z 
+2026-10-08T17:07:10.1732266Z found 0 vulnerabilities
+2026-10-08T17:07:10.2002753Z ##[group]Run npm run build
+2026-10-08T17:07:10.2003060Z [36;1mnpm run build[0m
+2026-10-08T17:07:10.2043975Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:10.2044266Z ##[endgroup]
+2026-10-08T17:07:10.2965721Z 
+2026-10-08T17:07:10.2966569Z > ledgerly-offline-browser-demo@0.1.0 build
+2026-10-08T17:07:10.2967439Z > node scripts/stage-python.mjs && tsc --noEmit && vite build
+2026-10-08T17:07:10.2967873Z 
+2026-10-08T17:07:10.3348054Z Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+2026-10-08T17:07:11.8111439Z [36mvite v8.3.3 [32mbuilding client environment for production...[36m[39m
+2026-10-08T17:07:11.8225736Z transforming...
+2026-10-08T17:07:11.8706771Z [33m[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:11.8711257Z [33m[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:11.8716901Z [33m[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:11.8722444Z [33m[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:11.8728232Z [33m[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:11.8734151Z [33m[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:11.8738578Z [33m[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T17:07:11.8902256Z ✓ 20 modules transformed.
+2026-10-08T17:07:11.9107239Z rendering chunks...
+2026-10-08T17:07:11.9189283Z computing gzip size...
+2026-10-08T17:07:11.9202323Z dist/assets/__vite-browser-external-BJKaNrHK.js   0.11 kB
+2026-10-08T17:07:11.9203760Z dist/index.html                                   7.79 kB │ gzip:  2.88 kB
+2026-10-08T17:07:11.9204583Z dist/assets/engine.worker-DDtPc8DO.js            20.24 kB
+2026-10-08T17:07:11.9205551Z dist/assets/index-Cen1TXeQ.css                   16.99 kB │ gzip:  4.14 kB
+2026-10-08T17:07:11.9206543Z dist/assets/index-CPxINDuk.js                    51.13 kB │ gzip: 16.94 kB
+2026-10-08T17:07:11.9207001Z 
+2026-10-08T17:07:11.9213902Z [32m✓ built in 108ms[39m
+2026-10-08T17:07:11.9389419Z ##[group]Run set -euo pipefail
+2026-10-08T17:07:11.9389753Z [36;1mset -euo pipefail[0m
+2026-10-08T17:07:11.9390074Z [36;1mRECEIVABLES_BROWSER="$(command -v google-chrome)"[0m
+2026-10-08T17:07:11.9390435Z [36;1m[[ -x "${RECEIVABLES_BROWSER}" ]][0m
+2026-10-08T17:07:11.9390745Z [36;1m"${RECEIVABLES_BROWSER}" --version[0m
+2026-10-08T17:07:11.9391043Z [36;1mnode --version[0m
+2026-10-08T17:07:11.9391471Z [36;1mnode -e 'if (typeof WebSocket !== "function") throw new Error("Built-in WebSocket is required")'[0m
+2026-10-08T17:07:11.9392066Z [36;1mprintf 'executable=%s\n' "${RECEIVABLES_BROWSER}" >> "${GITHUB_OUTPUT}"[0m
+2026-10-08T17:07:11.9431096Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T17:07:11.9431464Z ##[endgroup]
+2026-10-08T17:07:13.4848230Z Google Chrome 154.0.8037.97 
+2026-10-08T17:07:13.5143345Z v22.23.3
+2026-10-08T17:07:13.5709971Z ##[group]Run node web-demo/tools/check_receivables_browser.mjs --browser "/usr/bin/google-chrome" --output "${RUNNER_TEMP}/receivables-browser" --emit-bundle
+2026-10-08T17:07:13.5710990Z [36;1mnode web-demo/tools/check_receivables_browser.mjs --browser "/usr/bin/google-chrome" --output "${RUNNER_TEMP}/receivables-browser" --emit-bundle[0m
+2026-10-08T17:07:13.5756398Z shell: /usr/bin/bash -e {0}
+2026-10-08T17:07:13.5756690Z ##[endgroup]
+2026-10-08T17:07:21.6859828Z PASS actual Python startup exposes an empty board only after the accepted snapshot
+2026-10-08T17:07:24.0880602Z PASS actual draft, approval, partial/full payment and clock changes produce exact per-client currency totals and literal names
+2026-10-08T17:07:24.1369339Z PASS native keyboard client/due filters and reset change only the board, with no Worker call, request or ledger mutation
+2026-10-08T17:07:24.2527712Z PASS 390px board wraps actual amounts and literal names, with sequential keyboard focus and no horizontal overflow
+2026-10-08T17:07:24.5036299Z PASS a held real action hides old balances; an authored malformed transport snapshot refuses complete totals and the next valid reply restores them
+2026-10-08T17:07:26.9035613Z PASS terminal session loss clears accepted balances; explicit restart and populated sandbox reset cannot revive old clients
+2026-10-08T17:07:27.1327884Z LEDGERLY_RECEIVABLES_BUNDLE_BEGIN {"bytes":334960,"sha256":"03e55a17fe14e437a99aa7cda6f8df0ec0add608e76b1040aa8d29382cd7eacd","chunks":110}
+2026-10-08T17:07:30.3774413Z LEDGERLY_RECEIVABLES_BUNDLE_CHUNK 109 SWpvZ01Dd0tJQ0FnSUNKbGVIUmxjbTVoYkY5allXeHNjeUk2SURBc0NpQWdJQ0FpWTJGdVgzSmxjR3hoZVNJNklHWmhiSE5sQ2lBZ2ZTd0tJQ0FpY0dGblpVVnljbTl5Y3lJNklGdGRDbjBLIn1dfQ==
+2026-10-08T17:07:30.3775391Z LEDGERLY_RECEIVABLES_BUNDLE_END
+2026-10-08T17:07:30.3776106Z {"status":"passed","checks":6,"sourceUnchanged":true,"receipt":"/home/runner/work/_temp/receivables-browser/receiving-report.json"}
+2026-10-08T17:07:30.3838023Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-08T17:07:30.3838431Z with:
+2026-10-08T17:07:30.3838666Z   name: receivables-receiving-37814056606
+2026-10-08T17:07:30.3839150Z   path: /home/runner/work/_temp/receivables-browser
+/home/runner/work/_temp/receivables-peer
+
+2026-10-08T17:07:30.3839605Z   if-no-files-found: warn
+2026-10-08T17:07:30.3839855Z   retention-days: 14
+2026-10-08T17:07:30.3840093Z   compression-level: 6
+2026-10-08T17:07:30.3840335Z   overwrite: false
+2026-10-08T17:07:30.3840571Z   include-hidden-files: false
+2026-10-08T17:07:30.3840826Z ##[endgroup]
+2026-10-08T17:07:30.5629663Z (node:2654) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T17:07:30.5631343Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T17:07:30.5732678Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-08T17:07:30.5735254Z The least common ancestor is /home/runner/work/_temp. This will be the root directory of the artifact
+2026-10-08T17:07:30.5736674Z With the provided path, there will be 12 files uploaded
+2026-10-08T17:07:30.5741891Z Artifact name is valid!
+2026-10-08T17:07:30.5742799Z Root directory input is valid!
+2026-10-08T17:07:30.9370274Z Beginning upload of artifact content to blob storage
+2026-10-08T17:07:30.9821494Z (node:2654) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T17:07:31.4171119Z Uploaded bytes 220683
+2026-10-08T17:07:31.5093252Z Finished uploading artifact content to blob storage!
+2026-10-08T17:07:31.5094598Z SHA256 digest of uploaded artifact zip is d9cbca8b452ecd664b2ec4d568aec01e3a739e4047af77ce81a6b4d7707858b2
+2026-10-08T17:07:31.5096066Z Finalizing artifact upload
+2026-10-08T17:07:31.7741575Z Artifact receivables-receiving-37814056606.zip successfully finalized. Artifact ID 11565688929
+2026-10-08T17:07:31.7742677Z Artifact receivables-receiving-37814056606 has been successfully uploaded! Final size is 220683 bytes. Artifact ID is 11565688929
+2026-10-08T17:07:31.7748305Z Artifact download URL: https://github.com/Jacob-Met/ledgerly/actions/runs/37814056606/artifacts/11565688929
+2026-10-08T17:07:31.7908102Z Post job cleanup.
+2026-10-08T17:07:31.9118395Z (node:2667) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T17:07:31.9120352Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d, not saving cache.
+2026-10-08T17:07:31.9121916Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T17:07:31.9229854Z Post job cleanup.
+2026-10-08T17:07:32.0154094Z [command]/usr/bin/git version
+2026-10-08T17:07:32.0207512Z git version 2.55.0
+2026-10-08T17:07:32.0260099Z Temporarily overriding HOME='/home/runner/work/_temp/28861441-29c8-43d1-9409-746fa76771a1' before making global git config changes
+2026-10-08T17:07:32.0261946Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T17:07:32.0269856Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T17:07:32.0322809Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T17:07:32.0374733Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T17:07:32.0676499Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T17:07:32.0714465Z http.https://github.com/.extraheader
+2026-10-08T17:07:32.0733863Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T17:07:32.0776531Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T17:07:32.1095491Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T17:07:32.1142920Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T17:07:32.1516769Z Cleaning up orphan processes
+2026-10-08T17:07:32.1777946Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,48 @@
+{
+  "format": "ledgerly-history-log-bundle/1",
+  "rawBytes": 437136,
+  "files": [
+    {
+      "name": "browser.json",
+      "bytes": 18135,
+      "sha256": "ceb86e164665dca0e102197fd69a7a2cda97ca311f4e2c5e4b1fc208907d735d",
+      "git_blob": "7e06af3ceed0f3f8aa6e972ec0d8c82721e021eb",
+      "chunks": 6
+    },
+    {
+      "name": "healthy-chromium.log",
+      "bytes": 4527,
+      "sha256": "3cc774086a2648a0e0271a18430b1de5ec01a5acac437b6a8c53d784f80cc126",
+      "git_blob": "5891ad274a042925c2ca7549f9d663d6e5a9de59",
+      "chunks": 2
+    },
+    {
+      "name": "healthy-failure.png",
+      "bytes": 181436,
+      "sha256": "5d1f19c2b5506f890d28de20ab02f38d769fefc922907165a8563f77c0e167ae",
+      "git_blob": "f6f752452c15084ddfbb9b2a69238b92dc94bb46",
+      "chunks": 60
+    },
+    {
+      "name": "healthy-worker-observation.json",
+      "bytes": 224550,
+      "sha256": "c07366750a5dcb9bb81db65cb4da0dd174a31cae9daf11ad5d6490c944addcd5",
+      "git_blob": "bd1455cf64e6fbf6e18f648207ca53702c546c2d",
+      "chunks": 74
+    },
+    {
+      "name": "lost-response-suffix.py",
+      "bytes": 817,
+      "sha256": "65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c",
+      "git_blob": "4c8eb59cb941f6fec85b9c692970fa2cff644544",
+      "chunks": 1
+    },
+    {
+      "name": "source-binding.json",
+      "bytes": 7671,
+      "sha256": "7082182e59066a0456ef75f39b78e285cef97dca4bc9b46435124f0b38e70748",
+      "git_blob": "8de2fc159dae8c1cab9586846114537dfcb5da89",
+      "chunks": 3
+    }
+  ]
+}

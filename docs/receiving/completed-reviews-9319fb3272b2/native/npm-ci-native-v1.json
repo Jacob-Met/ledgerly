@@ -1,0 +1,25 @@
+{
+  "command": [
+    "npm",
+    "ci",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund",
+    "--cache",
+    "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/npm-cache"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 6.328,
+  "source": "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/source",
+  "native_ram_free_before": 1205362688,
+  "native_ram_free_after": 1079246848,
+  "lock_sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+  "stdout": "\nadded 41 packages in 6s\n",
+  "stderr": "",
+  "versions": {
+    "pyodide": "0.29.3",
+    "typescript": "5.9.3",
+    "vite": "8.3.3",
+    "vitest": "5.0.3"
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "schema": "ledgerly.history-disclosure-independent.v1",
+  "reviewer": "hamon-ultra-9319fb3272b2-20261008/native_capability",
+  "started_at": "2026-10-08T14:57:50.354Z",
+  "source": "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/source-b9-2d5e275",
+  "dist": "/dev/shm/hamon-9319fb3272b2-ledgerly-history-browser/source-b9-2d5e275/web-demo/dist",
+  "source_pin": "2d5e275a92203332641a54c1ae164c9963786ab0",
+  "source_tree": "08d796a136cd597fc6be1758f90c5cf902f98fdc",
+  "binding_sha256": "c1c7cebc4365c3825b8f5017fe3b0cbfdd75dc38000dbb73b11d71cc8f17bc49",
+  "driver_sha256": "e60bdef351a11e58b3f4fdf4f0277332fa4d6f889d4bc3361db7a89add681f95",
+  "node": "v22.22.1",
+  "status": "failed",
+  "checks": [
+    {
+      "name": "actual_empty_python_session",
+      "passed": true
+    },
+    {
+      "name": "actual_approved_original_proposal_retained",
+      "passed": true
+    },
+    {
+      "name": "keyboard_open_is_read_only",
+      "passed": true,
+      "details": {
+        "open": true,
+        "focused": true,
+        "buttons": 0
+      }
+    },
+    {
+      "name": "outer_disclosure_and_focus_survive_snapshot",
+      "passed": true,
+      "details": {
+        "before": {
+          "outer_open": true,
+          "target_open": true,
+          "focused": true
+        },
+        "after": {
+          "outer_open": true,
+          "target_open": true,
+          "focused": true,
+          "summary_visible": true,
+          "focused_tag": "SUMMARY",
+          "focused_id": ""
+        },
+        "worker_messages_before": 4,
+        "worker_messages_after": 5
+      }
+    },
+    {
+      "name": "outer_snapshot_has_only_requested_analysis",
+      "passed": true,
+      "details": {
+        "mock_requests_before": 4,
+        "mock_requests_after": 4
+      }
+    },
+    {
+      "name": "nested_disclosure_and_focus_survive_snapshot",
+      "passed": true,
+      "details": {
+        "before": {
+          "outer_open": true,
+          "target_open": false,
+          "focused": true
+        },
+        "after": {
+          "outer_open": true,
+          "target_open": false,
+          "focused": true,
+          "summary_visible": true,
+          "focused_tag": "SUMMARY",
+          "focused_id": ""
+        },
+        "worker_messages_before": 5,
+        "worker_messages_after": 6
+      }
+    },
+    {
+      "name": "nested_snapshot_has_only_requested_analysis",
+      "passed": true,
+      "details": {
+        "mock_requests_before": 4,
+        "mock_requests_after": 4
+      }
+    }
+  ],
+  "page_errors": [],
+  "page_requests": [
+    {
+      "url": "http://127.0.0.1:35355/",
+      "session": "20FF47F31509BEF70CADBDB51490C2AC"
+    },
+    {
+      "url": "http://127.0.0.1:35355/assets/index-Blmem-Si.js",
+      "session": "20FF47F31509BEF70CADBDB51490C2AC"
+    },
+    {
+      "url": "http://127.0.0.1:35355/assets/index-B6YHomle.css",
+      "session": "20FF47F31509BEF70CADBDB51490C2AC"
+    },
+    {
+      "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+      "session": "20FF47F31509BEF70CADBDB51490C2AC"
+    },
+    {
+      "url": "http://127.0.0.1:35355/favicon.svg",
+      "session": "20FF47F31509BEF70CADBDB51490C2AC"
+    },
+    {
+      "url": "http://127.0.0.1:35355/assets/engine.worker-DDtPc8DO.js",
+      "session": "20FF47F31509BEF70CADBDB51490C2AC"
+    },
+    {
+      "url": "http://127.0.0.1:35355/fixtures/01_simple_usd_hourly.txt",
+      "session": "20FF47F31509BEF70CADBDB51490C2AC"
+    }
+  ],
+  "served_requests": [
+    {
+      "path": "/",
+      "bytes": 6575,
+      "sha256": "a409cd666a1c7705d2b135d0ee47f7a70e6b455d4494e5d28b0f42d8d17cd4e7"
+    },
+    {
+      "path": "/assets/index-B6YHomle.css",
+      "bytes": 14312,
+      "sha256": "7950b361268c2187b2c8c01fc6364d3d540c7c4980ffadf8b3854c5a43779394"
+    },
+    {
+      "path": "/assets/index-Blmem-Si.js",
+      "bytes": 34663,
+      "sha256": "7d8f82d17d1cfbe5624b0ec60ee9cf358814b6a43baaccfa70f1ecce4fbd816f"
+    },
+    {
+      "path": "/favicon.svg",
+      "bytes": 240,
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "/assets/engine.worker-DDtPc8DO.js",
+      "bytes": 20249,
+      "sha256": "88582aa1bba5277ce0b6352d99204583b298ac8f77608673b5922d142a70adc6"
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "bytes": 120010,
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "bytes": 2423989,
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.js",
+      "bytes": 1074322,
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "bytes": 8647684,
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+    },
+    {
+      "path": "/python/ledgerly/__init__.py",
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    {
+      "path": "/python/ledgerly/agent.py",
+      "bytes": 32210,
+      "sha256": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05"
+    },
+    {
+      "path": "/python/ledgerly/extract.py",
+      "bytes": 28143,
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653"
+    },
+    {
+      "path": "/python/ledgerly/paypal.py",
+      "bytes": 25901,
+      "sha256": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace"
+    },
+    {
+      "path": "/python/bridge.py",
+      "bytes": 6739,
+      "sha256": "9542f71915912be8499afb1af388d6e1f4defe2de6d1401086577c1c69b111df"
+    },
+    {
+      "path": "/python/review.py",
+      "bytes": 4379,
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    },
+    {
+      "path": "/python/invoice_details.py",
+      "bytes": 1196,
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6"
+    },
+    {
+      "path": "/python/review_history.py",
+      "bytes": 466,
+      "sha256": "e9e42d99681102cec8961761f5da2b337ea235b0c286067c054f708aa9d06a2f"
+    },
+    {
+      "path": "/fixtures/01_simple_usd_hourly.txt",
+      "bytes": 282,
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902"
+    }
+  ],
+  "source_files": {
+    ".github/workflows/ci.yml": "1cd7a639cff8461ee2967aaec2a895c4d189c0777f257cb153a707dc5e246622",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+    "ledgerly/demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "ledgerly/paypal.py": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace",
+    "pyproject.toml": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+    "tests/conftest.py": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+    "tests/test_agent_paypal.py": "4e02c80b725c9532e3f80db8328770ce03731741bc8978991877ca25bc2f25c5",
+    "tests/test_approval_outcomes.py": "a7fbdfb6f73657a8a3f7c5f7b4c9444e9381783567aea83e89d30032f6f935c2",
+    "tests/test_browser_invoice_details.py": "90a0b33ea5bb74cf76f2874387d5fa0c69bf9bbbdd9d7ba2c7ef58df551b60dc",
+    "tests/test_browser_overdue_scan.py": "0b9540e45098b3ce435ddf948dfc669888010e8bd14119045d5430cfc64fba63",
+    "tests/test_demo_interactive.py": "dd0b507e0f542ea158ec5a6cb13907880ff774723deb5d41dae9fcbab37c1205",
+    "tests/test_due_date_receiving.py": "716d05966eda100eb096d7fd0331eff97bc14ac7a275f0465e6cbdeca6ecf89b",
+    "tests/test_extract.py": "7fff678b923a7a65344390621f8e429f213179f01898b1185f8764cedf89b92e",
+    "tests/test_prior_payment_language.py": "da54e63f8d0d1c49159ec6f2e4992a478ac0b3af2439fd069bd812b278886f1e",
+    "tests/test_receipt_term_receiving.py": "a1b0c4e396b20972a413fe1093063460f66682493e0e95407303f343aa65348e",
+    "tests/test_reminder_freshness.py": "d2c697c0e515413f2fbdc60a0d7b248965e414396e004a1008818936d177bca1",
+    "tests/test_reminder_provider_changes.py": "b584d4ee1869fb7889c3a84a89783a7f6893c219278438c5f5906f76052f1810",
+    "tests/test_reminder_receiving.py": "8609348105ebb1ba07dd12dab5db30f9cdfbec40cac6f4d9c750452e78b789c7",
+    "tests/test_review_history.py": "2921d566add5ffc94ccb2ffcdb2b73aedc397ed47bd9e0fc086bfa63711746ee",
+    "tests/test_sandbox_payment_admission.py": "7f971cc281485417f83eed9f48db55b420b06287aee4966092252f61b489cedf",
+    "tests/test_webhook_admission.py": "054c14fb3ba421ada6c15149528b8a12d7538ed70177fa575f21c429ac74a878",
+    "tests/test_webhook_current_read_receiving.py": "c76348a1b6abd856c0149fba5bd67155c081bf8142c2ad2d016ca9280e15ac7d",
+    "web-demo/README.md": "d12873504bbe194040187ec0cda3aa3b314a079a5fae26f9ca9750e16d9c57d2",
+    "web-demo/index.html": "8114733dfd670bcd7fe8757b5fb0eb4650e317d5008cac3a6c4bbcdaff3b4b18",
+    "web-demo/package-lock.json": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+    "web-demo/package.json": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+    "web-demo/public/favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "web-demo/python/bridge.py": "9542f71915912be8499afb1af388d6e1f4defe2de6d1401086577c1c69b111df",
+    "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+    "web-demo/python/review_history.py": "e9e42d99681102cec8961761f5da2b337ea235b0c286067c054f708aa9d06a2f",
+    "web-demo/scripts/stage-python.mjs": "b8e10213c1b28f0d6d57ed2fa94920d6979a4e8615008c036780bbf57c87805c",
+    "web-demo/src/approval-preview.css": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+    "web-demo/src/approval-preview.ts": "d8548ec0ed9e58ff98361ddf0f3e41da4fc87551cc80123edeaf43ed3c56e720",
+    "web-demo/src/engine.worker.ts": "f621780b493a4c504da9613d38f2802b5ee231f41707ce4c915bbec59a12aa8d",
+    "web-demo/src/invoice-details.css": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+    "web-demo/src/invoice-details.test.ts": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da",
+    "web-demo/src/invoice-details.ts": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+    "web-demo/src/ledger-export.css": "7b07d96c413f8595c93d1da0d9c85fcea6b9e10b7e1d2ce2e51abceae4cc28fa",
+    "web-demo/src/ledger-export.test.ts": "b44fa1861678468ca9b79162c7356ee7ef31d8027ec91152ec6f161bbd8da60b",
+    "web-demo/src/ledger-export.ts": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc",
+    "web-demo/src/main.ts": "137c90541c8e0563f583ebcbc7690ef4aa6b13584ec27ea9fbe16cedac7981a1",
+    "web-demo/src/retryable-loader.ts": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a",
+    "web-demo/src/review-history.css": "2c3cc6ce0dd2d0142058b8bfa31ccfdbd59c9e0667711104a21cda5c2e3f6799",
+    "web-demo/src/review-history.ts": "657ed1ebdcccad9eb20abecbb5f2dc755e18a3ad993e3710894bb8cd8ea17b86",
+    "web-demo/src/review.css": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895",
+    "web-demo/src/review.ts": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+    "web-demo/src/style.css": "94146460348e640e58e24c73ac99d9088a201dec8ef9c85d84c42e5e23ce77db",
+    "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+    "web-demo/tests/approval-preview.test.ts": "3991d436d8e95357e2e07ed114bc16aae6eec73bbc6e3ecd950011a6159e435c",
+    "web-demo/tests/engine-recovery.test.ts": "085dd09b6b0547cfb8f24d2fad6450e897c296861ab46dd47212c80b5ef7709c",
+    "web-demo/tests/engine.test.ts": "c04d1014ea2354a374347e9325a893095746a0e07a344c4a3284d70993d8614a",
+    "web-demo/tests/invoice-details.test.ts": "7ebd8c08f2dc6285304616363fe4e70922796ce7ab38664b57f851a76b2da587",
+    "web-demo/tests/overdue-scan.test.ts": "414ab1abab0295ddcc75c4d6bcaf88f227b62f6f0613c458f042120ccec4f93c",
+    "web-demo/tests/review-history.test.ts": "776286b08f1e2e1c1affe1d39850a4949f9feaee5d4990ec41028f16be31b3e6",
+    "web-demo/tests/review.test.ts": "725c32f29dafb4a6de668d91f4416c3161c31fd5ab0cad327909dc740028b0a3",
+    "web-demo/tests/worker-client.test.ts": "33cfa5b305b41921b53ba8ca923f9a7ae6b243bbc7be603c4df7d20091eb1e67",
+    "web-demo/tools/check_ledger_export_browser.py": "d37c01ac93a8996684dc89caf9bd7fe05535d0df9a3d0421a4948dcc7f20d747",
+    "web-demo/tools/check_review_history_browser.mjs": "c4b742ac53230d3c565e7d6c28a94c123250068f93cad7f36da079e039138b5e",
+    "web-demo/tools/requirements-browser.txt": "852008c6c134845926625892a248563fe02a96a91e769e6735af1bad49ab2cef",
+    "web-demo/tsconfig.json": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+    "web-demo/vite.config.ts": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c"
+  },
+  "dist_files": {
+    "assets/__vite-browser-external-BJKaNrHK.js": "22c0fc26ada2ebfc4aa61eb6aa5f45520992bf9a1858eae16305d882e81343cf",
+    "assets/engine.worker-DDtPc8DO.js": "88582aa1bba5277ce0b6352d99204583b298ac8f77608673b5922d142a70adc6",
+    "assets/index-B6YHomle.css": "7950b361268c2187b2c8c01fc6364d3d540c7c4980ffadf8b3854c5a43779394",
+    "assets/index-Blmem-Si.js": "7d8f82d17d1cfbe5624b0ec60ee9cf358814b6a43baaccfa70f1ecce4fbd816f",
+    "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "index.html": "a409cd666a1c7705d2b135d0ee47f7a70e6b455d4494e5d28b0f42d8d17cd4e7",
+    "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+    "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+    "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+    "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+    "python/bridge.py": "9542f71915912be8499afb1af388d6e1f4defe2de6d1401086577c1c69b111df",
+    "python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "python/ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+    "python/ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "python/ledgerly/paypal.py": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace",
+    "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+    "python/review_history.py": "e9e42d99681102cec8961761f5da2b337ea235b0c286067c054f708aa9d06a2f"
+  },
+  "bounds": [
+    "Existing built application, an isolated loopback server and a fresh owned native Chromium profile.",
+    "Real Worker construction, outgoing messages and actual replies are observed and delegated; no reply is fabricated.",
+    "History focus is kept while a DOM-initiated Analyze action produces an ordinary real Worker snapshot.",
+    "Only approved-history disclosure/focus is exercised here; no lost-response path, broad suite or live provider is run.",
+    "Page-domain network observations are recorded; this receiver does not claim complete independent Worker network interception."
+  ],
+  "url": "http://127.0.0.1:35355/",
+  "profile_path": "/home/jacob/ledgerly-independent-9319-30x6d5nt/corrected-home/profile-VX1U4C",
+  "browser_pid": 3335289,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.47",
+    "revision": "@73934a44f61e6b3878d1943064c141a5a820f5f7",
+    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.12"
+  },
+  "error": "Error: Unable to capture screenshot\n    at WebSocket.<anonymous> (file:///dev/shm/ledgerly-independent-9319-khfeh2xe/check-disclosures.mjs:134:159)\n    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:843:20)\n    at WebSocket.dispatchEvent (node:internal/event_target:776:26)\n    at fireEvent (node:internal/deps/undici/undici:13189:14)\n    at #onMessage (node:internal/deps/undici/undici:14418:9)\n    at Object.onMessage (node:internal/deps/undici/undici:14131:76)\n    at websocketMessageReceived (node:internal/deps/undici/undici:13193:15)\n    at node:internal/deps/undici/undici:13850:19\n    at node:internal/deps/undici/undici:13670:11\n    at afterWrite (node:internal/streams/writable:710:5)",
+  "source_unchanged": true,
+  "dist_unchanged": true,
+  "graceful_close_requested": true,
+  "browser_exit": {
+    "code": 0,
+    "signal": null
+  },
+  "profile_removed": true,
+  "finished_at": "2026-10-08T14:58:03.748Z"
+}

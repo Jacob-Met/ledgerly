@@ -1,0 +1,105 @@
+{
+  "schema": "ledgerly.independent-process-observations.v1",
+  "original": {
+    "start": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Process started with PID 3219780 (shell: /bin/bash)\nInitial output:\n\n⏳ Process is running. Use read_process_output to get more output."
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    },
+    "completion": {
+      "content": [
+        {
+          "type": "text",
+          "text": "[Reading 2 new lines (total: 2 lines)]\n\n{\"status\":\"failed\",\"checks\":8,\"failed\":[{\"name\":\"nested_disclosure_and_focus_survive_snapshot\",\"passed\":false,\"details\":{\"before\":{\"outer_open\":true,\"target_open\":false,\"focused\":true},\"after\":{\"outer_open\":true,\"target_open\":true,\"focused\":false,\"summary_visible\":true,\"focused_tag\":\"BODY\",\"focused_id\":\"\"},\"worker_messages_before\":5,\"worker_messages_after\":6}}],\"source_unchanged\":true,\"dist_unchanged\":true,\"browser_exit\":{\"code\":0,\"signal\":null},\"profile_removed\":true,\"receipt\":\"/dev/shm/ledgerly-independent-9319-khfeh2xe/original/receiving.json\",\"sha256\":\"225eb7b97e6e81227a8e3a39ee5b13eaf471b2fc15e26f51e42ad318be283a71\"}\n\n✅ Process completed with exit code 1 (runtime: 14.54s)"
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    }
+  },
+  "successor_ram": {
+    "start": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Process started with PID 3297434 (shell: /bin/bash)\nInitial output:\n\n⏳ Process is running. Use read_process_output to get more output."
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    },
+    "completion": {
+      "content": [
+        {
+          "type": "text",
+          "text": "[Reading 2 new lines (total: 2 lines)]\n\n{\"status\":\"failed\",\"checks\":0,\"failed\":[],\"error\":\"Error: Timed out: browser startup (Browser exited 0)\\n    at waitFor (file:///dev/shm/ledgerly-independent-9319-khfeh2xe/check-disclosures.mjs:76:8)\\n    at async file:///dev/shm/ledgerly-independent-9319-khfeh2xe/check-disclosures.mjs:130:2\",\"source_unchanged\":true,\"dist_unchanged\":true,\"browser_exit\":{\"code\":0,\"signal\":null},\"profile_removed\":true,\"receipt\":\"/dev/shm/ledgerly-independent-9319-khfeh2xe/corrected/receiving.json\",\"sha256\":\"da349ccad18302f54673c57fc05235571c64a7afe6db276fb555b94175937ec2\"}\n\n✅ Process completed with exit code 1 (runtime: 41.44s)"
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    }
+  },
+  "capacity": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Process started with PID 3330868 (shell: /bin/bash)\nInitial output:\n{\n  \"schema\": \"ledgerly.native-browser-capacity.v1\",\n  \"uid\": 1000,\n  \"home_free_before\": 42102407168,\n  \"exclusive_root\": \"/home/jacob/ledgerly-independent-9319-30x6d5nt\",\n  \"exclusive_write_bytes\": 3328,\n  \"sqlite_commit_readback\": \"local synthetic capacity control\",\n  \"sqlite_bytes\": 8192,\n  \"bounds\": \"Native exclusive file and SQLite write/read control in this new owned home profile root; does not assert the earlier Chromium startup cause.\"\n}\n"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+      }
+    ],
+    "isError": false
+  },
+  "successor_home": {
+    "start": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Process started with PID 3335177 (shell: /bin/bash)\nInitial output:\n\n⏳ Process is running. Use read_process_output to get more output."
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    },
+    "completion": {
+      "content": [
+        {
+          "type": "text",
+          "text": "[Reading 2 new lines (total: 2 lines)]\n\n{\"status\":\"failed\",\"checks\":7,\"failed\":[],\"error\":\"Error: Unable to capture screenshot\\n    at WebSocket.<anonymous> (file:///dev/shm/ledgerly-independent-9319-khfeh2xe/check-disclosures.mjs:134:159)\\n    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:843:20)\\n    at WebSocket.dispatchEvent (node:internal/event_target:776:26)\\n    at fireEvent (node:internal/deps/undici/undici:13189:14)\\n    at #onMessage (node:internal/deps/undici/undici:14418:9)\\n    at Object.onMessage (node:internal/deps/undici/undici:14131:76)\\n    at websocketMessageReceived (node:internal/deps/undici/undici:13193:15)\\n    at node:internal/deps/undici/undici:13850:19\\n    at node:internal/deps/undici/undici:13670:11\\n    at afterWrite (node:internal/streams/writable:710:5)\",\"source_unchanged\":true,\"dist_unchanged\":true,\"browser_exit\":{\"code\":0,\"signal\":null},\"profile_removed\":true,\"receipt\":\"/home/jacob/ledgerly-independent-9319-30x6d5nt/corrected-home/receiving.json\",\"sha256\":\"9ad18e113d5b1579d85118863671485a258fb7d15872aa7d35c40cfb8f7c8bac\"}\n\n✅ Process completed with exit code 1 (runtime: 17.28s)"
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    }
+  },
+  "failed_rdc_evidence_write": {
+    "path": "/dev/shm/ledgerly-independent-9319-khfeh2xe/successor-publication-preservation.json",
+    "error": "Unknown system error -122",
+    "observed_bytes": 0
+  }
+}
