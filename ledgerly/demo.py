@@ -44,7 +44,7 @@ def main() -> None:
 
     for f in ("01_simple_usd_hourly.txt", "04_multi_currency.txt", "05_missing_email.txt", "12_prompt_injection.txt"):
         print(f"\n=== {f}")
-        out = agent.run("invoice:" + (FIX / f).read_text(), RulePlanner())
+        out = agent.run("invoice:" + (FIX / f).read_text(encoding="utf-8"), RulePlanner())
         print("  agent:", out["final"])
         first = out["history"][1]["result"]
         for i in first.get("issues", []):

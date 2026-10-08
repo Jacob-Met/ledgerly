@@ -37,7 +37,7 @@ class SandboxPaymentAdmissionTests(unittest.TestCase):
         demo = bridge.Demo()
         demo.clock.day = date(2026, 10, 8)
         drafted = demo.dispatch({
-            "action": "draft", "text": (ROOT / "fixtures" / fixture).read_text() if text is None else text})
+            "action": "draft", "text": (ROOT / "fixtures" / fixture).read_text(encoding="utf-8") if text is None else text})
         self.assertTrue(drafted["result"]["unauthorized_send_blocked"])
         action = drafted["state"]["pending"][0]
         demo.dispatch({"action": "approve", "action_id": action["id"]})
@@ -121,7 +121,7 @@ class SandboxPaymentAdmissionTests(unittest.TestCase):
                 self.assertEqual(len(invoice["payments"]["transactions"]), 2)
 
     def test_subunit_line_total_reaches_review_before_draft_allocation(self):
-        text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text()
+        text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text(encoding="utf-8")
         text = text.replace("18 hours @ £40/hr", "1.5 hours @ £0.01/hr")
         text = text.replace("Style sheet preparation: 2 hrs @ £40/hr\n", "")
         demo = bridge.Demo()
@@ -245,7 +245,7 @@ class SandboxPaymentAdmissionTests(unittest.TestCase):
     def test_approved_prior_deposit_still_uses_the_existing_gate(self):
         demo = bridge.Demo()
         draft = demo.dispatch({"action": "draft", "text": (
-            ROOT / "fixtures/07_partial_payment_deposit.txt").read_text()})
+            ROOT / "fixtures/07_partial_payment_deposit.txt").read_text(encoding="utf-8")})
         action = draft["state"]["pending"][0]
         invoice_id = action["invoice_id"]
         self.assertEqual(demo.mock.invoices[invoice_id]["payments"]["transactions"], [])

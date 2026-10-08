@@ -25,7 +25,7 @@ class ReminderFreshnessTests(unittest.TestCase):
         self.mock = SandboxMock()
         self.agent = Agent(self.mock, {"name": "Example Freelancer", "email_address":
                            "freelancer@example.test"}, today=lambda: self.day)
-        text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text()
+        text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text(encoding="utf-8")
         invoice = self.agent.tool_create_invoice(text)["invoices"][0]
         self.iid = invoice["invoice_id"]
         self.agent.approve(invoice["approval_id"])
@@ -144,7 +144,7 @@ class ReminderFreshnessTests(unittest.TestCase):
         with patch.object(sys, "path", [str(bridge_dir), *sys.path]):
             demo = runpy.run_path(str(bridge_dir / "bridge.py"))["Demo"]()
         demo.clock.day = date(2026, 10, 1)
-        text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text()
+        text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text(encoding="utf-8")
         first = demo.dispatch({"action": "draft", "text": text})["state"]["pending"][0]
         demo.dispatch({"action": "approve", "action_id": first["id"]})
         demo.dispatch({"action": "advance", "day": "2026-11-10"})

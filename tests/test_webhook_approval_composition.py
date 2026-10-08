@@ -62,7 +62,7 @@ def case(fixture='02_gbp_proofreading.txt'):
     mock = InterruptedMock(clock)
     agent = Agent(mock, {'name': 'Receiving', 'email_address': 'receiving@example.invalid'},
                   today=clock, webhook_verifier=mock.verify_webhook_signature)
-    result = agent.tool_create_invoice((SOURCE / 'fixtures' / fixture).read_text())
+    result = agent.tool_create_invoice((SOURCE / 'fixtures' / fixture).read_text(encoding="utf-8"))
     assert result['ok'], result
     return agent, mock, clock, result['invoices'][0]
 

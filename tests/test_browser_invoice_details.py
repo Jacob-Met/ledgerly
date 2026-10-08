@@ -21,7 +21,7 @@ class InvoiceDetailsTests(unittest.TestCase):
         self.demo.clock.day = date(2026, 10, 8)
 
     def draft(self, fixture="01_simple_usd_hourly.txt"):
-        text = (ROOT / "fixtures" / fixture).read_text()
+        text = (ROOT / "fixtures" / fixture).read_text(encoding="utf-8")
         result = self.demo.dispatch({"action": "draft", "text": text})
         self.assertTrue(result["result"]["unauthorized_send_blocked"])
         return result["state"]
@@ -71,7 +71,7 @@ class InvoiceDetailsTests(unittest.TestCase):
     def test_new_analysis_and_rejected_action_preserve_the_original_record(self):
         initial = self.draft()
         original = deepcopy(self.record(initial))
-        other = (ROOT / "fixtures" / "02_gbp_proofreading.txt").read_text()
+        other = (ROOT / "fixtures" / "02_gbp_proofreading.txt").read_text(encoding="utf-8")
         self.demo.dispatch({"action": "analyze", "text": other})
         rejected = self.demo.dispatch({"action": "reject", "action_id": initial["pending"][0]["id"]})["state"]
         self.assertEqual(rejected["pending"], [])
