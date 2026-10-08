@@ -35,7 +35,7 @@ import os
 import uuid
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
-from decimal import Decimal, DecimalException
+from decimal import Decimal
 from typing import Any, Callable, Optional, Protocol
 
 from .extract import Extraction, quantize, validate
@@ -111,9 +111,6 @@ def _split_name(full: Optional[str]) -> dict:
 def payment_term(due_days: Optional[int], invoice_date: date) -> dict:
     if due_days is None:
         return {"term_type": "NO_DUE_DATE"}
-    if due_days == 0:
-        # Receipt is a future event while the invoice is still a draft.
-        return {"term_type": "DUE_ON_RECEIPT"}
     if due_days in TERM_TYPES:
         term = {"term_type": TERM_TYPES[due_days]}
     else:
@@ -262,14 +259,9 @@ class SandboxMock:
         if body.get("send_to_recipient", True) and not inv["_has_recipient_email"]:
             raise PayPalError(422, "UNPROCESSABLE_ENTITY", "The requested action could not be performed.",
                               "MISSING_RECIPIENT_EMAIL", "Recipient email is required to send.")
-        sent_time = self._ts()
         inv["status"] = "SENT"
         meta = inv["detail"]["metadata"]
-        meta["last_sent_time"] = sent_time
-        term = inv["detail"].get("payment_term")
-        if isinstance(term, dict) and term.get("term_type") == "DUE_ON_RECEIPT":
-            # Mock convention: a successful send is receipt. Preserve explicit dates.
-            term.setdefault("due_date", sent_time[:10])
+        meta["last_sent_time"] = self._ts()
         meta["recipient_view_url"] = f"https://www.sandbox.paypal.com/invoice/p/#{invoice_id}"
         meta["invoicer_view_url"] = f"https://www.sandbox.paypal.com/invoice/details/{invoice_id}"
         return Response(200, {"href": meta["recipient_view_url"], "rel": "payer-view", "method": "GET"})
@@ -301,32 +293,16 @@ class SandboxMock:
 
     def _apply_payment(self, inv: dict, pid: str, amount: Decimal, method: str, pdate: str, external: bool) -> None:
         ccy = inv["detail"]["currency_code"]
-        if not amount.is_finite() or amount <= 0:
-            raise ValueError("Sandbox payment amount must be a finite number greater than zero.")
-        try:
-            money = _money(amount, ccy)
-        except DecimalException as exc:
-            raise ValueError(f"Sandbox payment amount cannot be represented in {ccy}.") from exc
-        if Decimal(money["value"]) != amount:
-            raise ValueError(f"Sandbox payment amount must be exact in {ccy}; it cannot be rounded.")
-
-        # Recalculation can still fail after admission. Prepare every changed
-        # invoice field before committing the payment to this retained record.
-        staged = copy.deepcopy(inv)
-        staged["payments"]["transactions"].append({
+        inv["payments"]["transactions"].append({
             "payment_id": pid, "type": "EXTERNAL" if external else "PAYPAL", "method": method,
-            "payment_date": pdate, "amount": money,
+            "payment_date": pdate, "amount": _money(amount, ccy),
         })
-        try:
-            self._recalc(staged)
-            due = Decimal(staged["due_amount"]["value"])
-            if due <= 0:
-                staged["status"] = "MARKED_AS_PAID" if external else "PAID"
-            else:
-                staged["status"] = "PARTIALLY_PAID"
-        except DecimalException as exc:
-            raise ValueError("Sandbox payment could not be calculated; the invoice was not changed.") from exc
-        inv.update({key: staged[key] for key in ("payments", "amount", "due_amount", "status")})
+        self._recalc(inv)
+        due = Decimal(inv["due_amount"]["value"])
+        if due <= 0:
+            inv["status"] = "MARKED_AS_PAID" if external else "PAID"
+        else:
+            inv["status"] = "PARTIALLY_PAID"
 
     def _public(self, inv: dict) -> dict:
         out = copy.deepcopy(inv)

@@ -16,8 +16,6 @@ Safety model
 from __future__ import annotations
 
 import contextlib
-import copy
-import hashlib
 import json
 import uuid
 from dataclasses import dataclass, field
@@ -25,9 +23,9 @@ from datetime import date, datetime, timezone
 from decimal import Decimal
 from typing import Any, Callable, Optional, Protocol
 
-from .extract import Extraction, Extractor, RulesExtractor, quantize, split_by_currency, validate
+from .extract import Extraction, Extractor, RulesExtractor, split_by_currency, validate
 from .paypal import (
-    OPEN_STATUSES, PAID_STATUSES, STATUSES, InvoicingClient, PayPalError, Response, WebhookError,
+    OPEN_STATUSES, PAID_STATUSES, InvoicingClient, PayPalError, Response, WebhookError,
     build_invoice, parse_webhook_event,
 )
 
@@ -88,9 +86,7 @@ class PendingAction:
     created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     def to_dict(self) -> dict:
-        # A displayed review must not be an alias into the queued action.
-        return copy.deepcopy({k: getattr(self, k) for k in
-                              ("id", "kind", "invoice_id", "summary", "payload", "status", "result", "created_at")})
+        return {k: getattr(self, k) for k in ("id", "kind", "invoice_id", "summary", "payload", "status", "result", "created_at")}
 
 
 @dataclass
@@ -108,23 +104,11 @@ class LedgerEntry:
     reminders_sent: int = 0
     last_reminder_on: Optional[date] = None
     prepaid: Decimal = Decimal(0)
-    provider_due_on: Optional[date] = None
-    provider_due_known: bool = False
-    invoice_due_on: Optional[date] = None
-    provider_receipt_pending: bool = False
 
     @property
     def due_on(self) -> Optional[date]:
-        if self.provider_due_known:
-            return self.provider_due_on
-        if self.provider_receipt_pending:
-            # An observed draft receipt term supersedes earlier positive terms.
-            return None if self.status == "DRAFT" else self.sent_on
         if self.sent_on is None or self.due_days is None:
             return None
-        # Positive terms retain the draft deadline; approval does not restart them.
-        if self.due_days > 0 and self.invoice_due_on is not None:
-            return self.invoice_due_on
         return date.fromordinal(self.sent_on.toordinal() + self.due_days)
 
     @property
@@ -249,7 +233,7 @@ class Agent:
         self.ledger: dict[str, LedgerEntry] = {}
         self.pending: dict[str, PendingAction] = {}
         self.audit: list[dict] = []
-        self._seen_events: dict[str, str] = {}
+        self._seen_events: set[str] = set()
 
     # -- tool loop
     def run(self, goal: str, planner: Planner, max_steps: int = 12) -> dict:
@@ -293,14 +277,11 @@ class Agent:
                 note += f" Deposit of {part.currency} {ex.amount_paid} received with thanks."
             body = build_invoice(part, self.invoicer, number, self.today(), note,
                                  allow_partial=ex.amount_paid > 0)
-            invoice_due_on = (date.fromisoformat(body["detail"]["payment_term"]["due_date"])
-                              if part.due_days is not None and part.due_days > 0 else None)
             resp = self.client.create_draft_invoice(body)
             inv_id = resp.body["href"].rsplit("/", 1)[-1] if "href" in resp.body else resp.body["id"]
             entry = LedgerEntry(inv_id, number, part.client_name, part.client_email, part.currency,
                                 part.total(), part.due_days,
-                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0),
-                                invoice_due_on=invoice_due_on)
+                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0))
             self.ledger[inv_id] = entry
             summary = f"Send invoice {number} for {part.currency} {part.total():,} to {part.client_email}"
             if entry.prepaid:
@@ -313,7 +294,11 @@ class Agent:
                 "message": f"{len(created)} draft(s) created; awaiting approval to send"}
 
     def tool_get_status(self, invoice_id: str) -> dict:
-        inv = self._refresh_invoice(invoice_id)
+        inv = self.client.get_invoice(invoice_id).body
+        e = self.ledger.get(invoice_id)
+        if e:
+            e.status = inv["status"]
+            e.paid_amount = Decimal(inv["payments"]["paid_amount"]["value"])
         return {"ok": True, "invoice_id": invoice_id, "status": inv["status"],
                 "due_amount": inv["due_amount"]["value"], "currency": inv["detail"]["currency_code"],
                 "message": f"{invoice_id} is {inv['status']}"}
@@ -322,17 +307,15 @@ class Agent:
         today = self.today()
         rows = [e.to_dict() | {"days_overdue": e.days_overdue(today)}
                 for e in self.ledger.values()
-                if e.status in OPEN_STATUSES and e.balance > 0 and e.days_overdue(today) > 0]
+                if e.status in OPEN_STATUSES and e.days_overdue(today) > 0]
         return {"ok": True, "overdue": rows, "message": f"{len(rows)} overdue"}
 
     def tool_send_reminder(self, invoice_id: str) -> dict:
         e = self.ledger.get(invoice_id)
         if e is None:
             return {"ok": False, "message": f"unknown invoice {invoice_id}"}
-        # Webhooks can be delayed or absent. Draft from the latest observed balance.
-        inv = self._refresh_invoice(invoice_id)
         today = self.today()
-        if e.status not in OPEN_STATUSES or e.balance <= 0:
+        if e.status not in OPEN_STATUSES:
             return {"ok": False, "message": f"{invoice_id} is {e.status}; no reminder needed"}
         if e.days_overdue(today) <= 0:
             return {"ok": False, "message": f"{invoice_id} not overdue (due {e.due_on})"}
@@ -345,35 +328,16 @@ class Agent:
         action = self._queue("send_reminder", invoice_id,
                              f"Send {draft['tone']} reminder for {e.invoice_number} ({draft['days_overdue']}d overdue, "
                              f"{e.currency} {e.balance:,} due) to {e.client_email}",
-                             {"subject": draft["subject"], "note": draft["note"],
-                              "reviewed_facts": self._reminder_facts(e, today),
-                              "reviewed_invoice": self._invoice_facts(inv)})
+                             {"subject": draft["subject"], "note": draft["note"]})
         return {"ok": True, "approval_id": action.id, "draft": draft,
                 "message": f"reminder drafted ({draft['tone']}); awaiting approval"}
 
     # -- human surface (NOT exposed to the planner)
     def list_pending(self) -> list[dict]:
-        today = self.today()
-        for entry in self.ledger.values():
-            self._invalidate_reminders(entry, today)
         return [a.to_dict() for a in self.pending.values() if a.status == "PENDING"]
 
     def approve(self, action_id: str, approver: str = "human") -> dict:
-        """Execute an approval, consuming its ID if the outgoing phase fails.
-
-        Read-only preflight may be retried. Other ordinary errors leave
-        a FAILED action with an UNKNOWN outcome: check the invoice before making
-        a new approval. The original exception still reaches the caller.
-        """
         a = self._pending_or_raise(action_id)
-        if a.kind == "send_invoice":
-            self._check_send_review(a)
-            a = self._pending_or_raise(action_id)
-        elif a.kind == "send_reminder":
-            # Read-only preflight sits outside the effect-failure handler. A failed
-            # read has sent nothing and may be retried explicitly with the same ID.
-            self._refresh_invoice(a.invoice_id)
-            a = self._pending_or_raise(action_id)
         try:
             if a.kind == "send_invoice":
                 with self.client.permit("send_invoice", a.invoice_id):
@@ -403,18 +367,6 @@ class Agent:
             a.status, a.result = "FAILED", err.body
             self._log("approve_failed", action=a.id, approver=approver, error=str(err))
             raise
-        except Exception as err:
-            # A lost response does not establish whether an outgoing effect happened.
-            # Consume this ID so an explicit retry cannot repeat that effect.
-            a.status = "FAILED"
-            a.result = {
-                "outcome": "UNKNOWN",
-                "reason": "The outgoing action may have completed. Check the invoice before creating another approval.",
-                "error_type": type(err).__name__,
-            }
-            self._log("approve_failed", action=a.id, approver=approver,
-                      outcome="UNKNOWN", error=str(err), reason=a.result["reason"])
-            raise
         a.status, a.result = "APPROVED", result
         self._log("approved", action=a.id, kind=a.kind, invoice=a.invoice_id, approver=approver)
         return result
@@ -432,278 +384,25 @@ class Agent:
                 self._log("webhook_rejected", reason="bad signature")
                 raise WebhookError("signature verification failed")
         ev = parse_webhook_event(raw_body)
-        if not isinstance(ev.event_id, str) or not ev.event_id or ev.event_id.strip() != ev.event_id:
-            raise WebhookError("event ID must be a nonempty string without surrounding whitespace")
-        if not isinstance(ev.invoice_id, str) or not ev.invoice_id or ev.invoice_id.strip() != ev.invoice_id:
-            raise WebhookError("invoice ID must be a nonempty string without surrounding whitespace")
-        try:
-            canonical = json.dumps(json.loads(raw_body), sort_keys=True, separators=(",", ":"), allow_nan=False)
-        except (TypeError, ValueError) as err:
-            raise WebhookError("event content must be finite JSON") from err
-        digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
-        prior = self._seen_events.get(ev.event_id)
-        if prior is not None:
-            if prior != digest:
-                self._log("webhook_rejected", reason="event identity conflict", event_id=ev.event_id)
-                raise WebhookError("Webhook event identity conflict")
+        if ev.event_id in self._seen_events:
             return {"ok": True, "duplicate": True, "invoice_id": ev.invoice_id}
+        self._seen_events.add(ev.event_id)
         e = self.ledger.get(ev.invoice_id)
         if e is None:
             self._log("webhook_unknown_invoice", invoice=ev.invoice_id)
             return {"ok": False, "message": "unknown invoice"}
         prev = e.status
-        # A signed notification can arrive late. Reuse the current-invoice read
-        # and reminder invalidation before consuming its identity for replay.
-        self._refresh_invoice(ev.invoice_id)
-        self._seen_events[ev.event_id] = digest
-        self._log("webhook", event_type=ev.event_type, invoice=ev.invoice_id,
-                  transition=f"{prev}->{e.status}", reported_status=ev.status, source="current_invoice")
+        e.status = ev.status
+        if ev.paid_amount is not None:
+            e.paid_amount = ev.paid_amount
+        if ev.is_fully_paid:  # cancel stale reminders
+            for a in self.pending.values():
+                if a.invoice_id == e.invoice_id and a.kind == "send_reminder" and a.status == "PENDING":
+                    a.status, a.result = "REJECTED", {"reason": "auto: invoice paid"}
+        self._log("webhook", event_type=ev.event_type, invoice=ev.invoice_id, transition=f"{prev}->{e.status}")
         return {"ok": True, "invoice_id": ev.invoice_id, "from": prev, "to": e.status}
 
     # -- internals
-    def _send_review_content(self, invoice: dict, *, provider: bool = False) -> str:
-        """Compare reviewed writable content, allowing only known response facts.
-
-        Unfamiliar invoice fields remain in the comparison: a new recipient, fee,
-        term, or display setting is not silently accepted as provider metadata.
-        This represents the simple untaxed invoices emitted by build_invoice.
-        """
-        try:
-            if (not isinstance(invoice, dict)
-                    or any(not isinstance(invoice.get(key), dict)
-                           for key in ("detail", "invoicer", "configuration"))
-                    or not isinstance(invoice.get("primary_recipients"), list)):
-                raise ValueError("invoice send review fields are incomplete or malformed")
-            content = copy.deepcopy(invoice)
-            detail = content["detail"]
-            currency = detail["currency_code"]
-            detail.pop("metadata", None)
-
-            def decimal_text(value: Any) -> str:
-                if not isinstance(value, str):
-                    raise ValueError("invoice decimal fields must be strings")
-                return self._amount_fact(value)
-
-            items = content["items"]
-            if not isinstance(items, list) or not items:
-                raise ValueError("invoice review requires line items")
-            total = Decimal(0)
-            for item in items:
-                item.pop("id", None)  # PayPal's read-only line-item identity.
-                item["quantity"] = decimal_text(item["quantity"])
-                unit = item["unit_amount"]
-                if unit["currency_code"] != currency:
-                    raise ValueError("invoice item currencies disagree")
-                unit["value"] = decimal_text(unit["value"])
-                total += Decimal(item["quantity"]) * Decimal(unit["value"])
-            total = quantize(total, currency)
-
-            def matches_amount(value: dict, expected: Decimal) -> bool:
-                return (isinstance(value, dict) and set(value) == {"currency_code", "value"}
-                        and value["currency_code"] == currency
-                        and Decimal(decimal_text(value["value"])) == expected)
-
-            if provider:
-                for key in ("id", "parent_id", "status", "links"):
-                    content.pop(key, None)
-                amount = content["amount"]
-                summary = {key: amount[key] for key in ("currency_code", "value")}
-                if not matches_amount(summary, total) or not matches_amount(content["due_amount"], total):
-                    raise ValueError("provider draft totals do not match its reviewed line items")
-                del content["due_amount"]
-                # Keep every adjustment or unfamiliar summary field visible to
-                # comparison. Only the generated total/subtotal may disappear.
-                del amount["currency_code"], amount["value"]
-                if "breakdown" in amount:
-                    breakdown = amount["breakdown"]
-                    if not isinstance(breakdown, dict):
-                        raise ValueError("provider draft amount breakdown is malformed")
-                    if "item_total" in breakdown:
-                        if not matches_amount(breakdown["item_total"], total):
-                            raise ValueError("provider draft subtotal is inconsistent")
-                        del breakdown["item_total"]
-                    if not breakdown:
-                        del amount["breakdown"]
-                if not amount:
-                    del content["amount"]
-                for key, aggregate in (("payments", "paid_amount"), ("refunds", "refund_amount")):
-                    if key not in content:
-                        continue
-                    state = content[key]
-                    if (set(state) - {aggregate, "transactions"}
-                            or state.get("transactions", []) != []
-                            or (aggregate in state and not matches_amount(state[aggregate], Decimal(0)))):
-                        raise ValueError("provider draft already has payment or refund facts")
-                    del content[key]
-                if "gratuity" in content:
-                    if not matches_amount(content["gratuity"], Decimal(0)):
-                        raise ValueError("provider draft already has a gratuity")
-                    del content["gratuity"]
-            if content.get("additional_recipients") == []:
-                del content["additional_recipients"]
-            return json.dumps(content, sort_keys=True, separators=(",", ":"), allow_nan=False)
-        except (KeyError, TypeError, AttributeError, ArithmeticError) as err:
-            raise ValueError("invoice send review is incomplete or malformed; no send attempted") from err
-
-    def _check_send_review(self, action: PendingAction) -> None:
-        # Read before any permit; a transport/malformed read leaves the original
-        # review pending and unchanged. This GET/POST boundary is not atomic.
-        invoice = self.client.get_invoice(action.invoice_id).body
-        if (not isinstance(invoice, dict) or invoice.get("id") != action.invoice_id
-                or not isinstance(invoice.get("status"), str) or invoice["status"] not in STATUSES):
-            raise ValueError("provider invoice identity/status is unavailable; no send attempted")
-        reason = None
-        if invoice["status"] != "DRAFT":
-            reason = "auto: invoice is no longer a draft; check the invoice before a new review"
-        else:
-            reviewed = self._send_review_content(action.payload["invoice"])
-            current = self._send_review_content(invoice, provider=True)
-            entry = self.ledger[action.invoice_id]
-            if (current != reviewed
-                    or self._amount_fact(entry.prepaid) != self._amount_fact(action.payload["prepaid"])
-                    or entry.currency != action.payload["invoice"]["detail"]["currency_code"]):
-                reason = "auto: invoice changed since review; check the invoice and create a fresh review before sending"
-        if reason:
-            action.status, action.result = "REJECTED", {"reason": reason}
-            self._log("invoice_send_invalidated", action=action.id, invoice=action.invoice_id, reason=reason)
-
-    @staticmethod
-    def _amount_fact(value: Any) -> str:
-        amount = Decimal(str(value))
-        if not amount.is_finite():
-            raise ValueError("invoice amount must be finite before reminder review")
-        text = format(amount, "f")
-        if "." in text:
-            text = text.rstrip("0").rstrip(".")
-        return "0" if amount == 0 else text
-
-    def _invoice_facts(self, inv: dict) -> str:
-        """Stable presentation facts; delivery metadata is not reminder content."""
-        detail = inv.get("detail", {})
-
-        def money(value: Any) -> Any:
-            if value is None:
-                return None
-            return {"currency_code": value.get("currency_code"),
-                    "value": self._amount_fact(value["value"])}
-
-        facts = {"id": inv.get("id"), "status": inv["status"],
-                 "invoice_number": detail.get("invoice_number"),
-                 "currency_code": detail.get("currency_code"),
-                 "payment_term": detail.get("payment_term"),
-                 "primary_recipients": inv.get("primary_recipients"),
-                 "amount": money(inv.get("amount")),
-                 "due_amount": money(inv.get("due_amount")),
-                 "paid_amount": money(inv["payments"]["paid_amount"])}
-        return json.dumps(facts, sort_keys=True, separators=(",", ":"), allow_nan=False)
-
-    def _reminder_facts(self, e: LedgerEntry, today: date) -> dict:
-        return {"reviewed_on": today.isoformat(), "invoice_id": e.invoice_id,
-                "invoice_number": e.invoice_number, "client_name": e.client_name,
-                "client_email": e.client_email, "currency": e.currency,
-                "total": self._amount_fact(e.total),
-                "paid_amount": self._amount_fact(e.paid_amount),
-                "balance": self._amount_fact(e.balance), "status": e.status,
-                "due_on": e.due_on.isoformat() if e.due_on else None,
-                "last_reminder_on": e.last_reminder_on.isoformat() if e.last_reminder_on else None,
-                "reminders_sent": e.reminders_sent,
-                "freelancer": self.invoicer.get("name", "")}
-
-    def _invalidate_reminders(self, e: LedgerEntry, today: date,
-                              invoice_facts: Optional[str] = None) -> None:
-        for action in self.pending.values():
-            if (action.kind != "send_reminder" or action.invoice_id != e.invoice_id
-                    or action.status != "PENDING"):
-                continue
-            reason = None
-            if e.status not in OPEN_STATUSES or e.balance <= 0:
-                reason = "auto: invoice no longer needs a reminder"
-            elif action.payload.get("reviewed_facts") != self._reminder_facts(e, today):
-                reason = "auto: reminder facts or review date changed; draft a new reminder for review"
-            elif (invoice_facts is not None
-                  and action.payload.get("reviewed_invoice") != invoice_facts):
-                reason = "auto: provider invoice changed; draft a new reminder for review"
-            if reason:
-                # Retain the reviewed subject/note and action ID as rejected history.
-                action.status, action.result = "REJECTED", {"reason": reason}
-                self._log("reminder_invalidated", action=action.id, invoice=e.invoice_id, reason=reason)
-
-    def _refresh_invoice(self, invoice_id: str) -> dict:
-        inv = self.client.get_invoice(invoice_id).body
-        # Parse all facts before mutating cached state; an unavailable/malformed
-        # read must not open the approval permit or manufacture a successful send.
-        presentation = self._invoice_presentation(invoice_id, inv)
-        facts = self._invoice_facts(inv)
-        e = self.ledger.get(invoice_id)
-        if e:
-            for name, value in presentation.items():
-                setattr(e, name, value)
-            self._invalidate_reminders(e, self.today(), facts)
-        return inv
-
-    def _invoice_presentation(self, invoice_id: str, inv: dict) -> dict:
-        """Validate a complete fresh presentation before replacing cached facts.
-
-        An unsupported/ambiguous invoice is held, never rebound to old local words.
-        The current product supports exactly one billing recipient and an explicit
-        provider due date, NO_DUE_DATE, or an unresolved receipt term on a draft.
-        """
-        try:
-            if inv["id"] != invoice_id:
-                raise ValueError("provider returned a different invoice")
-            detail = inv["detail"]
-            currency = detail["currency_code"]
-            number = detail["invoice_number"]
-            status = inv["status"]
-            if not all(isinstance(v, str) and v.strip() for v in (currency, number, status)):
-                raise ValueError("provider invoice identity/status is incomplete")
-
-            def amount(field: dict) -> Decimal:
-                if field["currency_code"] != currency:
-                    raise ValueError("provider invoice currencies disagree")
-                value = Decimal(self._amount_fact(field["value"]))
-                if value < 0:
-                    raise ValueError("provider invoice amounts must not be negative")
-                return value
-
-            total = amount(inv["amount"])
-            paid = amount(inv["payments"]["paid_amount"])
-            due = amount(inv["due_amount"])
-            if due != max(total - paid, Decimal(0)):
-                raise ValueError("provider balance cannot be represented by this invoice ledger")
-
-            term = detail["payment_term"]
-            receipt_pending = (status == "DRAFT" and term.get("term_type") == "DUE_ON_RECEIPT"
-                               and "due_date" not in term)
-            if term.get("term_type") == "NO_DUE_DATE":
-                if term.get("due_date"):
-                    raise ValueError("provider due-date fields disagree")
-                due_on = None
-            elif receipt_pending:
-                due_on = None
-            else:
-                due_on = date.fromisoformat(term["due_date"])
-
-            recipients = inv["primary_recipients"]
-            if not isinstance(recipients, list) or len(recipients) != 1:
-                raise ValueError("reminder review requires exactly one billing recipient")
-            billing = recipients[0]["billing_info"]
-            email = billing["email_address"]
-            if not isinstance(email, str) or not email.strip():
-                raise ValueError("provider billing email is missing")
-            name = billing.get("name") or {}
-            parts = [name.get("given_name"), name.get("surname")]
-            if any(part is not None and not isinstance(part, str) for part in parts):
-                raise ValueError("provider billing name is malformed")
-            client_name = " ".join(part.strip() for part in parts if part and part.strip()) or None
-            return {"status": status, "total": total, "paid_amount": paid,
-                    "currency": currency, "invoice_number": number,
-                    "client_email": email, "client_name": client_name,
-                    "provider_due_on": due_on, "provider_due_known": not receipt_pending,
-                    "provider_receipt_pending": receipt_pending}
-        except (KeyError, TypeError, AttributeError, ArithmeticError) as err:
-            raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
-
     def _queue(self, kind: str, invoice_id: str, summary: str, payload: dict) -> PendingAction:
         a = PendingAction("apv_" + uuid.uuid4().hex[:10], kind, invoice_id, summary, payload)
         self.pending[a.id] = a
@@ -715,9 +414,7 @@ class Agent:
         if a is None:
             raise KeyError(f"no such action {action_id}")
         if a.status != "PENDING":
-            reason = a.result.get("reason") if isinstance(a.result, dict) else None
-            suffix = f": {reason}" if reason else ""
-            raise ValueError(f"action {action_id} already {a.status}{suffix}")
+            raise ValueError(f"action {action_id} already {a.status}")
         return a
 
     def _log(self, event: str, **kw: Any) -> None:
