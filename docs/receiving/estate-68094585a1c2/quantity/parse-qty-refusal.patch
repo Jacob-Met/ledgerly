@@ -1,0 +1,23 @@
+--- a/ledgerly/extract.py
++++ b/ledgerly/extract.py
+@@ -273,12 +273,18 @@
+     numeric = s[approx.end():] if approx else s
+     rng = re.fullmatch(rf"({_Q_NUMBER})\s*(?:-|–|to)\s*({_Q_NUMBER})", numeric)
+     if rng:
+-        lo = _dec(rng.group(1))
++        try:
++            lo = _dec(rng.group(1))
++        except ValueError as error:
++            return None, f"unreadable quantity '{raw.strip()}' ({error})"
+         return lo, f"range '{raw.strip()}' - used lower bound {lo}; confirm with client"
+     n = re.fullmatch(_Q_NUMBER, numeric)
+     if not n:
+         return None, f"unreadable quantity '{raw.strip()}'"
+-    q = _dec(n.group(0))
++    try:
++        q = _dec(n.group(0))
++    except ValueError as error:
++        return None, f"unreadable quantity '{raw.strip()}' ({error})"
+     if approx:
+         return q, f"approximate quantity '{raw.strip()}' - used {q}"
+     return q, None

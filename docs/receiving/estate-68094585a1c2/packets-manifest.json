@@ -1,0 +1,62 @@
+{
+  "schema": "ledgerly-independent-receiving-packets/v1",
+  "repository": "Jacob-Met/ledgerly",
+  "parent": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "parent_tree": "cb1877320fc40166cc7f10c035d5e7866be53713",
+  "files": [
+    {
+      "path": "docs/receiving/estate-68094585a1c2/webhook/qualified-native.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 320788,
+      "sha256": "8f66ff0d348d0f2ccb0bb5430f4c97d2dd8aef3f54282e880812206101c496e5",
+      "git_blob": "e71cf5ef4616e31d5e0c22b602d1c33d5a88638d"
+    },
+    {
+      "path": "docs/receiving/estate-68094585a1c2/preview/independent.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 92879,
+      "sha256": "cbe4f66327528c8ac56997f276e9290d49f47f5f88140d7d3549ca3ee8ac3e73",
+      "git_blob": "197d4f6fd5be13ba2980b510ff7b3358c6083334"
+    },
+    {
+      "path": "docs/receiving/estate-68094585a1c2/quantity/receiver.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 61907,
+      "sha256": "ea4b60889b58119683537dcca65e2e8058d799cabb0ad292ea0301f3f5f5057b",
+      "git_blob": "81be375382d2ad66e15cff2dbba248df78457d48"
+    },
+    {
+      "path": "docs/receiving/estate-68094585a1c2/webhook/postmerge.tar.gz",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 42557,
+      "sha256": "078fd3303dad2799c7d66a6fc2145bfdf672509e791c40241d9237b7d4bbf8b7",
+      "git_blob": "a156b43e202b6063b75771a9a23d027117e46203"
+    },
+    {
+      "path": "docs/receiving/estate-68094585a1c2/quantity/parse-qty-refusal.patch",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 899,
+      "sha256": "8e7c7ec8c8f9c8a4c3af85f1b6273288fecf56f09dff56cdf4aa04355739e84d",
+      "git_blob": "ec66c643a427984638108f6e9a344eff693ccb5f"
+    },
+    {
+      "path": "docs/receiving/estate-68094585a1c2/overdue/pr-ci.tar.gz",
+      "bytes": 12181,
+      "sha256": "1986946167b36dc989362599c65cefdf1c0287e162a58808ea8227af89419d60",
+      "blob_sha": "fccc06a8398318b6616d3d00f6d46c15bc41928c",
+      "git_blob": "fccc06a8398318b6616d3d00f6d46c15bc41928c"
+    },
+    {
+      "path": "docs/receiving/estate-68094585a1c2/overdue/postmerge.tar.gz",
+      "bytes": 48136,
+      "sha256": "157d98018e1574a99802fa1db4112b3b4aea5e1b851e759a8732ba3de0c2012d",
+      "blob_sha": "1bbeabf90f2a253fb09a72345455e6364872e386",
+      "git_blob": "1bbeabf90f2a253fb09a72345455e6364872e386"
+    }
+  ]
+}
