@@ -23,7 +23,9 @@ const report = {schema:'ledgerly.receivables-browser/1', status:'running',
   checks:[], artifacts:[], requests:[], externalRequests:[], serverRequests:[],
   sourceSha256:{}, buildSha256:{}, sourceUnchanged:false,
   observer:'Copies real Worker calls and snapshots. Availability controls hold one real reply, corrupt one copied transport balance, and dispatch one authored terminal Worker error. Python execution is never replaced.',
-  imageBoundary:'PNG files are actual Chrome captures. Generation alone does not establish direct visual inspection.'};
+  imageBoundary:'PNG files are actual Chrome captures. Generation alone does not establish direct visual inspection.',
+  capturePresentation:'Chrome hides its native scrollbars throughout receiving so screenshot capture cannot remove a reserved scrollbar gutter and reflow the page. DOM overflow checks remain active; product styles are never replaced.',
+  captureLayouts:[]};
 let browser, socket, server, profile, sessionId, sequence = 0, browserError, browserLog = '';
 const pending = new Map(), pageErrors = [];
 let tracked = [], sourceBefore = null;
@@ -99,11 +101,39 @@ async function save(name, bytes, kind) {
   report.artifacts.push({name, bytes:data.length, sha256:hash(data), kind});
 }
 async function screenshot(name) {
-  const box = await evaluate('(() => {const n=document.querySelector("#receivables-view");' +
-    'n.scrollIntoView({block:"start"});const r=n.getBoundingClientRect();' +
-    'return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height,scale:1};})()');
-  const {data} = await command('Page.captureScreenshot', {format:'png', clip:box, captureBeyondViewport:true});
-  await save(name, Buffer.from(data, 'base64'), 'actual Chrome capture');
+  await evaluate('window.scrollTo({left:0,top:0,behavior:"instant"})');
+  await evaluate('new Promise(done=>requestAnimationFrame(()=>requestAnimationFrame(done)))');
+  const geometry = '(() => {const r=document.querySelector("#receivables-view").getBoundingClientRect();' +
+    'return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height,viewportWidth:innerWidth};})()';
+  const before = await evaluate(geometry);
+  const x = Math.max(0, Math.floor(before.x) - 8), y = Math.max(0, Math.floor(before.y) - 8);
+  const clip = {x, y, width:Math.min(before.viewportWidth, Math.ceil(before.x + before.width) + 8) - x,
+    height:Math.ceil(before.y + before.height) + 8 - y, scale:1};
+  const {data} = await command('Page.captureScreenshot', {format:'png', clip, fromSurface:true, captureBeyondViewport:true});
+  const after = await evaluate(geometry);
+  assert.deepEqual(after, before, 'Screenshot preserves the measured page layout');
+  const png = Buffer.from(data, 'base64');
+  assert.equal(png.readUInt32BE(16), clip.width, 'Capture includes the complete horizontal frame');
+  assert.equal(png.readUInt32BE(20), clip.height, 'Capture includes the complete vertical frame');
+  report.captureLayouts.push({name, before, clip, after});
+  await save(name, png, 'actual Chrome capture');
+}
+async function readableNote() {
+  const presentation = await evaluate('(() => {const n=document.querySelector("#receivables-note");' +
+    'const s=getComputedStyle(n),b=getComputedStyle(document.querySelector("#receivables-view"));' +
+    'return {color:s.color,background:b.backgroundColor,fontSize:parseFloat(s.fontSize),text:n.textContent};})()');
+  const luminance = color => {
+    const components = color.match(/^rgb\((\d+), (\d+), (\d+)\)$/);
+    assert.ok(components, 'Opaque computed note and panel colors');
+    const channels = components.slice(1).map(value => Number(value) / 255)
+      .map(value => value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4);
+    return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+  };
+  const foreground = luminance(presentation.color), background = luminance(presentation.background);
+  presentation.contrast = (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
+  assert.ok(presentation.fontSize >= 12, 'Snapshot and exclusion note is at least 12px');
+  assert.ok(presentation.contrast >= 4.5, 'Snapshot and exclusion note has readable contrast');
+  report.notePresentation = presentation;
 }
 const passed = name => { report.checks.push(name); console.log('PASS ' + name); };
 const OBSERVER = '(() => {' +
@@ -226,7 +256,7 @@ try {
   });
   await new Promise(done => server.listen(0, '127.0.0.1', done));
   const base = 'http://127.0.0.1:' + server.address().port;
-  browser = spawn(executable, ['--headless=new', '--disable-gpu', '--no-sandbox', '--no-first-run',
+  browser = spawn(executable, ['--headless=new', '--hide-scrollbars', '--disable-gpu', '--no-sandbox', '--no-first-run',
     '--disable-background-networking', '--disable-component-update', '--disable-sync', '--disable-default-apps',
     '--disable-features=Translate,MediaRouter,OptimizationHints', '--metrics-recording-only',
     '--remote-debugging-port=0', '--user-data-dir=' + profile, 'about:blank'], {stdio:['ignore','ignore','pipe']});
@@ -315,6 +345,7 @@ try {
   report.nativeInvoiceIds = {first, second, euro, partial, paid, draftOnly};
   await save('accepted-native-snapshot.json', JSON.stringify(accepted, null, 2) + '\n', 'real Python Worker snapshot');
   await save('all-balances.json', JSON.stringify(all, null, 2) + '\n', 'actual board DOM projection');
+  await readableNote();
   await screenshot('desktop-client-balances.png');
   passed('actual draft, approval, partial/full payment and clock changes produce exact per-client currency totals and literal names');
 

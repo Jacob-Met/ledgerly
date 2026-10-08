@@ -1,0 +1,89 @@
+{
+  "schema": "ledgerly.receivables-visual-correction/2",
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/39",
+  "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/42",
+  "first_head": "655609ad4b462d053cd74dd74eb964ff8a7fa22d",
+  "first_tested_checkout": "6ee23401ee270fbc1aa0b02893cb730c5c47cf97",
+  "first_tested_tree": "783f205b8d300156d490d984d98c81cea98f747a",
+  "first_native_acceptance": {
+    "status": "passed",
+    "verify_run": 37806685920,
+    "python_tests": 337,
+    "python_subtests": 118,
+    "frontend_tests": 100,
+    "frontend_test_files": 11,
+    "invoice_record_browser_run": 37806685915,
+    "invoice_record_controls": 8,
+    "receivables_browser_run": 37806686317,
+    "independent_cases": 5,
+    "receivables_controls": 6,
+    "actual_worker_calls": 30,
+    "external_requests": 0,
+    "source_unchanged": true
+  },
+  "first_visual_review": {
+    "status": "correction-required",
+    "reviewers": [
+      "estate/e827 coordination author",
+      "root independent receiver"
+    ],
+    "findings": [
+      "Exact client and per-currency totals, literal client labels, invoice hierarchy and wrapping are clear.",
+      "Snapshot date and excluded-count sentence inherits a pale 9px fine-print rule; this important context needs its own readable style.",
+      "Original clipped screenshots omit the top heading and right edge although live DOM overflow checks pass. Native scrollbar-gutter removal during capture is the inferred framing cause."
+    ],
+    "images": [
+      {
+        "path": "browser/desktop-client-balances.png",
+        "sha256": "d6c8b0321abbe5863c62accbcf82bde1c686648463700bc6345e9fb57cb95655"
+      },
+      {
+        "path": "browser/narrow-client-balances.png",
+        "sha256": "a9f353da77bfddeece5ef212decdb677923b67b1489ff582c9b93d1ae472ac27"
+      }
+    ]
+  },
+  "correction": {
+    "source": [
+      {
+        "path": "web-demo/index.html",
+        "bytes": 7159,
+        "sha256": "a4b71e78f245eb1bbb3a5b946e42a66c918832c2442ac294d4980e52f013e9ac",
+        "git_blob": "42235a54fb754a5530d2700b4480878adb860aa4",
+        "previous_blob": "4618973e9f26d5604cb21f4fd2dec18b0e33d5d0"
+      },
+      {
+        "path": "web-demo/src/receivables.css",
+        "bytes": 2718,
+        "sha256": "1d7eb6f8f7653bd7507af057f905de3213f20b5c0c093b4cfc2f2e35871dd606",
+        "git_blob": "84dc9078229aaaad0a13f382a6466e343a7489ae",
+        "previous_blob": "86a30959e4559b04ad6e3c0207c7a4cabdf959d7"
+      },
+      {
+        "path": "web-demo/tools/check_receivables_browser.mjs",
+        "bytes": 30869,
+        "sha256": "9d0f57effd6a33a52df1e7864bf868cbdde3e30046f539f4f1864c0366bebab6",
+        "git_blob": "aa362ab13b28854f6323b5b4d6c53f3f8439a0ca",
+        "previous_blob": "c719bec67086afe3b676dae96cc2366abb378d24"
+      }
+    ],
+    "scope": [
+      "Give only the new board note an independent 12px dark style.",
+      "Hide Chrome native scrollbar chrome throughout receiving, settle layout, include capture padding and retain exact before/after geometry and PNG dimensions.",
+      "Assert actual computed note size and color contrast in the real browser."
+    ],
+    "unchanged": "Projection module, controller logic, five additive main hooks, Python source, all author and peer semantic assertions, and other 21 original packet files remain byte-identical.",
+    "gate_boundary": "Successor hosted CI and direct successor image inspection are required before final visual acceptance."
+  },
+  "primary_capture_contract": [
+    "https://github.com/ChromeDevTools/devtools-protocol/blob/master/pdl/domains/Emulation.pdl",
+    "https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/core/sdk/ScreenCaptureModel.ts"
+  ],
+  "original_evidence_archive": {
+    "path": "docs/receiving/client-receivables-e82707f2bc62/first-native-v1.zip",
+    "bytes": 1269886,
+    "members": 16,
+    "sha256": "9ad1af00f0fa03836ff9e13c47cd89baf0bfb3ffae861565d3ca65e10d0f11dd",
+    "git_blob": "64358bcb9d42706a48d7a01012f7c5f368d882a8"
+  }
+}
