@@ -1,0 +1,25 @@
+{
+  "sourceDigests": {
+    "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "ledgerly/agent.py": "d029d1be3f93f3c38ce5fdd54d7e7468e9ac6a964f7fe63c1bed50f5b139c4b6",
+    "ledgerly/extract.py": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16",
+    "ledgerly/paypal.py": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+    "web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "python": "3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489",
+  "checks": [
+    "fractional_price",
+    "foreign_deposit",
+    "signed_price",
+    "malformed_grouping",
+    "numeric_tail",
+    "outside_arithmetic_range",
+    "explicit_approval_preserves_exact_deposit_and_balance",
+    "structured_nonfinite_quantity",
+    "current_review_adapter_refuses_implicit_rounding",
+    "current_review_adapter_keeps_checked_revision_one_use"
+  ],
+  "passed": 10,
+  "external_calls": 0
+}

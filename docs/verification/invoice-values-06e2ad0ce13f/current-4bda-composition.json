@@ -1,0 +1,27 @@
+{
+  "base_main": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "base_tree": "00b89f15758d8c8cebcb48f6397b18d466ec355a",
+  "composed_source_commit": "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f",
+  "accepted_component": "9187546f3eb22ad92a8b61f375973a0d160a366f",
+  "agent_admission_diff_identical_to_accepted_component": true,
+  "current_payment_confirmation_patterns_unchanged": true,
+  "unowned_changed_paths": [],
+  "source_pins": {
+    "ledgerly/agent.py": {
+      "git_blob": "1af73175465d737beb88a2100f637a1437a5dd47",
+      "sha256": "d029d1be3f93f3c38ce5fdd54d7e7468e9ac6a964f7fe63c1bed50f5b139c4b6"
+    },
+    "ledgerly/extract.py": {
+      "git_blob": "100e581d3ef0d99555f49264859d01b535c6094f",
+      "sha256": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16"
+    },
+    "ledgerly/paypal.py": {
+      "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f",
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+    }
+  },
+  "native_result": "197 passed, 34 subtests passed",
+  "pyodide_result": "10 checks passed, zero external calls",
+  "composition": "Preserve current confirmed-payment language and deadline handling; validate exact per-payment values only after complete confirmation.",
+  "integration": "isolated composed source; not deployed"
+}

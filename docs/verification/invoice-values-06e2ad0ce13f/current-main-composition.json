@@ -1,0 +1,16 @@
+{
+  "base_main": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "composed_source_commit": "90585cf6676863ff823fb3bb647ab637798e06fd",
+  "component_commit": "ca9cb6b1c9f7b9dc1e352b57ca093b9a78660025",
+  "agent_method_matches_accepted_component": true,
+  "remaining_agent_ast_matches_current_main": true,
+  "unowned_changed_paths": [],
+  "component_source_sha256": {
+    "ledgerly/agent.py": "44af69dfaf7e330992a66c2c0f2a00ab41d800d47065d0b5a20d76f0948d7372",
+    "ledgerly/extract.py": "2afaf50c17b49ea9197367d77ded4b44421c6d8d46eb589d985693d61a65fa6d",
+    "ledgerly/paypal.py": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+  },
+  "native_result": "172 passed, 2 subtests passed",
+  "pyodide_result": "10 checks passed, zero external calls",
+  "integration": "isolated current-main composition; not deployed"
+}

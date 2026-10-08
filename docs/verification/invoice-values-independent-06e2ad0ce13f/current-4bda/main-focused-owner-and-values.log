@@ -1,0 +1,760 @@
+..............F.FFFFFFFFFFFF......F.FFFFFF.FF...........                                                         [100%]
+=================================== FAILURES ===================================
+____ test_currency_mismatch_still_returns_review_when_a_deposit_is_present _____
+
+    def test_currency_mismatch_still_returns_review_when_a_deposit_is_present():
+        ex = extraction(paid="25.00")
+        ex.line_items[0].currency = "EUR"
+        agent, mock = make_agent(SuppliedExtraction(ex))
+        result = agent.tool_create_invoice("Known currency mismatch with a prior payment")
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_followup_receiving.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998e9efc0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998e9e2d0>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-519D', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '100.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-519D', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '100.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic[- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n] _
+
+lines = '- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n'
+
+    @pytest.mark.parametrize("lines", [
+        "- 1 x Service @ USD 100.00\nDeposit already paid: USD 1e999999999\n",
+        "- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n",
+    ])
+    def test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic(lines):
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(SOURCE_PREFIX + lines + "Net 30\n")
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_followup_receiving.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998ec1fd0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998ec1df0>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-C304', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'tota...d': 'line_items', 'severity': 'warning', 'message': 'Stated total/budget 100.00 differs from computed total 1.'}], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-C304', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'tota...d': 'line_items', 'severity': 'warning', 'message': 'Stated total/budget 100.00 differs from computed total 1.'}], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[missing-quantity] _
+
+invalid = 'missing-quantity'
+
+    @pytest.mark.parametrize("invalid", ["missing-quantity", "nonfinite-price", "currency-mismatch", "negative-deposit"])
+    def test_public_admission_rechecks_stale_issue_free_extraction_without_mutation(invalid):
+        ex = extraction()
+        if invalid == "missing-quantity":
+            ex.line_items[0].qty = None
+        elif invalid == "nonfinite-price":
+            ex.line_items[0].unit_price = Decimal("NaN")
+        elif invalid == "currency-mismatch":
+            ex.line_items[0].currency = "EUR"
+        elif invalid == "negative-deposit":
+            ex.amount_paid = Decimal("-25")
+        before = repr(ex)
+        assert ex.issues == [] and ex.confidence == 1.0
+>       assert any(issue.severity == "error" for issue in validate(ex))
+E       assert False
+E        +  where False = any(<generator object test_public_admission_rechecks_stale_issue_free_extraction_without_mutation.<locals>.<genexpr> at 0x7f7998f2fac0>)
+
+tests/test_invoice_values_receiving.py:86: AssertionError
+_ test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[nonfinite-price] _
+
+invalid = 'nonfinite-price'
+
+    @pytest.mark.parametrize("invalid", ["missing-quantity", "nonfinite-price", "currency-mismatch", "negative-deposit"])
+    def test_public_admission_rechecks_stale_issue_free_extraction_without_mutation(invalid):
+        ex = extraction()
+        if invalid == "missing-quantity":
+            ex.line_items[0].qty = None
+        elif invalid == "nonfinite-price":
+            ex.line_items[0].unit_price = Decimal("NaN")
+        elif invalid == "currency-mismatch":
+            ex.line_items[0].currency = "EUR"
+        elif invalid == "negative-deposit":
+            ex.amount_paid = Decimal("-25")
+        before = repr(ex)
+        assert ex.issues == [] and ex.confidence == 1.0
+>       assert any(issue.severity == "error" for issue in validate(ex))
+                                                          ^^^^^^^^^^^^
+
+tests/test_invoice_values_receiving.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Fixture Payer', client_email='payer@example.invalid', currency='USD', line_items=[LineItem(des...('NaN'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=1.0, source='rules')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+>           if li.unit_price <= 0:
+               ^^^^^^^^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:327: InvalidOperation
+_ test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[currency-mismatch] _
+
+invalid = 'currency-mismatch'
+
+    @pytest.mark.parametrize("invalid", ["missing-quantity", "nonfinite-price", "currency-mismatch", "negative-deposit"])
+    def test_public_admission_rechecks_stale_issue_free_extraction_without_mutation(invalid):
+        ex = extraction()
+        if invalid == "missing-quantity":
+            ex.line_items[0].qty = None
+        elif invalid == "nonfinite-price":
+            ex.line_items[0].unit_price = Decimal("NaN")
+        elif invalid == "currency-mismatch":
+            ex.line_items[0].currency = "EUR"
+        elif invalid == "negative-deposit":
+            ex.amount_paid = Decimal("-25")
+        before = repr(ex)
+        assert ex.issues == [] and ex.confidence == 1.0
+>       assert any(issue.severity == "error" for issue in validate(ex))
+E       assert False
+E        +  where False = any(<generator object test_public_admission_rechecks_stale_issue_free_extraction_without_mutation.<locals>.<genexpr> at 0x7f7998f5d220>)
+
+tests/test_invoice_values_receiving.py:86: AssertionError
+_ test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[negative-deposit] _
+
+invalid = 'negative-deposit'
+
+    @pytest.mark.parametrize("invalid", ["missing-quantity", "nonfinite-price", "currency-mismatch", "negative-deposit"])
+    def test_public_admission_rechecks_stale_issue_free_extraction_without_mutation(invalid):
+        ex = extraction()
+        if invalid == "missing-quantity":
+            ex.line_items[0].qty = None
+        elif invalid == "nonfinite-price":
+            ex.line_items[0].unit_price = Decimal("NaN")
+        elif invalid == "currency-mismatch":
+            ex.line_items[0].currency = "EUR"
+        elif invalid == "negative-deposit":
+            ex.amount_paid = Decimal("-25")
+        before = repr(ex)
+        assert ex.issues == [] and ex.confidence == 1.0
+>       assert any(issue.severity == "error" for issue in validate(ex))
+E       assert False
+E        +  where False = any(<generator object test_public_admission_rechecks_stale_issue_free_extraction_without_mutation.<locals>.<genexpr> at 0x7f7998f5e400>)
+
+tests/test_invoice_values_receiving.py:86: AssertionError
+________ test_invalid_later_currency_part_cannot_leave_an_earlier_draft ________
+
+    def test_invalid_later_currency_part_cannot_leave_an_earlier_draft():
+        ex = extraction()
+        ex.line_items = [
+            LineItem("Earlier EUR part", Decimal(1), Decimal("100.00"), "EUR"),
+            LineItem("Later sub-cent USD part", Decimal(2), Decimal("0.015"), "USD"),
+        ]
+        agent, mock = make_agent(SuppliedExtraction(ex))
+        result = agent.tool_create_invoice("Explicitly supplied mixed-currency fixture")
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998ec7ef0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998ec7b60>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-9665', 'invoice_number': 'LDG-0001', 'currency': 'EUR', 'tota...-AF32', 'invoice_number': 'LDG-0002', 'currency': 'USD', 'total': '0.030', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-9665', 'invoice_number': 'LDG-0001', 'currency': 'EUR', 'tota...-AF32', 'invoice_number': 'LDG-0002', 'currency': 'USD', 'total': '0.030', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft[USD-99999999999999999999999999.99] _
+
+currency = 'USD', maximum = '99999999999999999999999999.99'
+
+    @pytest.mark.parametrize("currency,maximum", [
+        ("USD", "99999999999999999999999999.99"),
+        ("JPY", "9999999999999999999999999999"),
+    ])
+    def test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft(currency, maximum):
+        ex = extraction(currency=currency)
+        ex.line_items = [
+            LineItem("Earlier EUR part", Decimal(1), Decimal("100.00"), "EUR"),
+            LineItem("Individually exact one", Decimal(1), Decimal(maximum), currency),
+            LineItem("Individually exact two", Decimal(1), Decimal(maximum), currency),
+        ]
+        agent, mock = make_agent(SuppliedExtraction(ex))
+        try:
+>           result = agent.tool_create_invoice("Whole-job sum receiving fixture")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_receiving.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+ledgerly/agent.py:288: in tool_create_invoice
+    resp = self.client.create_draft_invoice(body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/paypal.py:239: in create_draft_invoice
+    self._recalc(inv)
+ledgerly/paypal.py:210: in _recalc
+    inv["amount"] = {"currency_code": ccy, "value": str(quantize(total, ccy)),
+                                                        ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = Decimal('200000000000000000000000000.0'), currency = 'USD'
+
+    def quantize(value: Decimal, currency: Optional[str]) -> Decimal:
+        exp = Decimal("1") if currency in ZERO_DECIMAL_CURRENCIES else Decimal("0.01")
+>       return value.quantize(exp, rounding=ROUND_HALF_UP)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:228: InvalidOperation
+
+During handling of the above exception, another exception occurred:
+
+currency = 'USD', maximum = '99999999999999999999999999.99'
+
+    @pytest.mark.parametrize("currency,maximum", [
+        ("USD", "99999999999999999999999999.99"),
+        ("JPY", "9999999999999999999999999999"),
+    ])
+    def test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft(currency, maximum):
+        ex = extraction(currency=currency)
+        ex.line_items = [
+            LineItem("Earlier EUR part", Decimal(1), Decimal("100.00"), "EUR"),
+            LineItem("Individually exact one", Decimal(1), Decimal(maximum), currency),
+            LineItem("Individually exact two", Decimal(1), Decimal(maximum), currency),
+        ]
+        agent, mock = make_agent(SuppliedExtraction(ex))
+        try:
+            result = agent.tool_create_invoice("Whole-job sum receiving fixture")
+        except Exception as error:
+>           pytest.fail(
+                f"Expected whole-job review before requests, got {type(error).__name__}: {error}; "
+                f"calls={[(r[0], r[1]) for r in mock.requests]}, "
+                f"retained_drafts={len(mock.invoices)}, retained_pending={len(agent.list_pending())}"
+            )
+E           Failed: Expected whole-job review before requests, got InvalidOperation: [<class 'decimal.InvalidOperation'>]; calls=[('POST', '/v2/invoicing/generate-next-invoice-number'), ('POST', '/v2/invoicing/invoices'), ('POST', '/v2/invoicing/generate-next-invoice-number'), ('POST', '/v2/invoicing/invoices')], retained_drafts=1, retained_pending=1
+
+tests/test_invoice_values_receiving.py:121: Failed
+_ test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft[JPY-9999999999999999999999999999] _
+
+currency = 'JPY', maximum = '9999999999999999999999999999'
+
+    @pytest.mark.parametrize("currency,maximum", [
+        ("USD", "99999999999999999999999999.99"),
+        ("JPY", "9999999999999999999999999999"),
+    ])
+    def test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft(currency, maximum):
+        ex = extraction(currency=currency)
+        ex.line_items = [
+            LineItem("Earlier EUR part", Decimal(1), Decimal("100.00"), "EUR"),
+            LineItem("Individually exact one", Decimal(1), Decimal(maximum), currency),
+            LineItem("Individually exact two", Decimal(1), Decimal(maximum), currency),
+        ]
+        agent, mock = make_agent(SuppliedExtraction(ex))
+        try:
+>           result = agent.tool_create_invoice("Whole-job sum receiving fixture")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_receiving.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+ledgerly/agent.py:288: in tool_create_invoice
+    resp = self.client.create_draft_invoice(body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/paypal.py:239: in create_draft_invoice
+    self._recalc(inv)
+ledgerly/paypal.py:210: in _recalc
+    inv["amount"] = {"currency_code": ccy, "value": str(quantize(total, ccy)),
+                                                        ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = Decimal('2.000000000000000000000000000E+28'), currency = 'JPY'
+
+    def quantize(value: Decimal, currency: Optional[str]) -> Decimal:
+        exp = Decimal("1") if currency in ZERO_DECIMAL_CURRENCIES else Decimal("0.01")
+>       return value.quantize(exp, rounding=ROUND_HALF_UP)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:228: InvalidOperation
+
+During handling of the above exception, another exception occurred:
+
+currency = 'JPY', maximum = '9999999999999999999999999999'
+
+    @pytest.mark.parametrize("currency,maximum", [
+        ("USD", "99999999999999999999999999.99"),
+        ("JPY", "9999999999999999999999999999"),
+    ])
+    def test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft(currency, maximum):
+        ex = extraction(currency=currency)
+        ex.line_items = [
+            LineItem("Earlier EUR part", Decimal(1), Decimal("100.00"), "EUR"),
+            LineItem("Individually exact one", Decimal(1), Decimal(maximum), currency),
+            LineItem("Individually exact two", Decimal(1), Decimal(maximum), currency),
+        ]
+        agent, mock = make_agent(SuppliedExtraction(ex))
+        try:
+            result = agent.tool_create_invoice("Whole-job sum receiving fixture")
+        except Exception as error:
+>           pytest.fail(
+                f"Expected whole-job review before requests, got {type(error).__name__}: {error}; "
+                f"calls={[(r[0], r[1]) for r in mock.requests]}, "
+                f"retained_drafts={len(mock.invoices)}, retained_pending={len(agent.list_pending())}"
+            )
+E           Failed: Expected whole-job review before requests, got InvalidOperation: [<class 'decimal.InvalidOperation'>]; calls=[('POST', '/v2/invoicing/generate-next-invoice-number'), ('POST', '/v2/invoicing/invoices'), ('POST', '/v2/invoicing/generate-next-invoice-number'), ('POST', '/v2/invoicing/invoices')], retained_drafts=1, retained_pending=1
+
+tests/test_invoice_values_receiving.py:121: Failed
+_ test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[-USD 100.00-deposit_lines0] _
+
+context = '', item = 'USD 100.00'
+deposit_lines = ['Deposit already paid: EUR 25.00']
+
+    @pytest.mark.parametrize("context,item,deposit_lines", [
+        ("", "USD 100.00", ["Deposit already paid: EUR 25.00"]),
+        ("", "EUR 100.00", ["Deposit already paid: USD 25.00"]),
+        ("Prices are in CAD\n", "$100.00", ["Deposit already paid: US$25.00"]),
+        ("", "USD 100.00", ["Deposit already paid: USD 10.00", "Already paid: EUR 15.00"]),
+    ])
+    def test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency(context, item, deposit_lines):
+        text = SOURCE_PREFIX + context + f"- 1 x Project @ {item}\n" + "\n".join(deposit_lines) + "\nNet 30\n"
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998ec4680>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998ec5760>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-EC44', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-EC44', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[-EUR 100.00-deposit_lines1] _
+
+context = '', item = 'EUR 100.00'
+deposit_lines = ['Deposit already paid: USD 25.00']
+
+    @pytest.mark.parametrize("context,item,deposit_lines", [
+        ("", "USD 100.00", ["Deposit already paid: EUR 25.00"]),
+        ("", "EUR 100.00", ["Deposit already paid: USD 25.00"]),
+        ("Prices are in CAD\n", "$100.00", ["Deposit already paid: US$25.00"]),
+        ("", "USD 100.00", ["Deposit already paid: USD 10.00", "Already paid: EUR 15.00"]),
+    ])
+    def test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency(context, item, deposit_lines):
+        text = SOURCE_PREFIX + context + f"- 1 x Project @ {item}\n" + "\n".join(deposit_lines) + "\nNet 30\n"
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998ec5730>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998ec4860>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-E0C8', 'invoice_number': 'LDG-0001', 'currency': 'EUR', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-E0C8', 'invoice_number': 'LDG-0001', 'currency': 'EUR', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[Prices are in CAD\n-$100.00-deposit_lines2] _
+
+context = 'Prices are in CAD\n', item = '$100.00'
+deposit_lines = ['Deposit already paid: US$25.00']
+
+    @pytest.mark.parametrize("context,item,deposit_lines", [
+        ("", "USD 100.00", ["Deposit already paid: EUR 25.00"]),
+        ("", "EUR 100.00", ["Deposit already paid: USD 25.00"]),
+        ("Prices are in CAD\n", "$100.00", ["Deposit already paid: US$25.00"]),
+        ("", "USD 100.00", ["Deposit already paid: USD 10.00", "Already paid: EUR 15.00"]),
+    ])
+    def test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency(context, item, deposit_lines):
+        text = SOURCE_PREFIX + context + f"- 1 x Project @ {item}\n" + "\n".join(deposit_lines) + "\nNet 30\n"
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7999097b00>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7999097800>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-85AA', 'invoice_number': 'LDG-0001', 'currency': 'CAD', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-85AA', 'invoice_number': 'LDG-0001', 'currency': 'CAD', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[-USD 100.00-deposit_lines3] _
+
+context = '', item = 'USD 100.00'
+deposit_lines = ['Deposit already paid: USD 10.00', 'Already paid: EUR 15.00']
+
+    @pytest.mark.parametrize("context,item,deposit_lines", [
+        ("", "USD 100.00", ["Deposit already paid: EUR 25.00"]),
+        ("", "EUR 100.00", ["Deposit already paid: USD 25.00"]),
+        ("Prices are in CAD\n", "$100.00", ["Deposit already paid: US$25.00"]),
+        ("", "USD 100.00", ["Deposit already paid: USD 10.00", "Already paid: EUR 15.00"]),
+    ])
+    def test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency(context, item, deposit_lines):
+        text = SOURCE_PREFIX + context + f"- 1 x Project @ {item}\n" + "\n".join(deposit_lines) + "\nNet 30\n"
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998e9c290>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998e9d730>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-E2AE', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-E2AE', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'tota...': 'info', 'message': 'Client reports 25.00 already paid; will be recorded against the invoice after approval.'}], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_accepted_fractional_and_exponent_values_keep_draft_ledger_and_review_equal[USD-1E+6-0.01-10000.00-1000000] _
+
+currency = 'USD', qty = '1E+6', price = '0.01', total = '10000.00'
+serialized_qty = '1000000'
+
+    @pytest.mark.parametrize("currency,qty,price,total,serialized_qty", [
+        ("USD", "0.5", "85.00", "42.50", "0.5"),
+        ("USD", "0.00001", "1000.00", "0.01", "0.00001"),
+        ("USD", "1E+6", "0.01", "10000.00", "1000000"),
+        ("JPY", "0.5", "100", "50", "0.5"),
+    ])
+    def test_accepted_fractional_and_exponent_values_keep_draft_ledger_and_review_equal(currency, qty, price, total, serialized_qty):
+        ex = extraction(currency=currency, qty=qty, price=price)
+        assert not [issue for issue in validate(ex) if issue.severity == "error"]
+        built = build_invoice(ex, INVOICER, "RECEIVING-EXACT", TODAY)
+>       assert built["items"][0]["quantity"] == serialized_qty
+E       AssertionError: assert '1E+6' == '1000000'
+E         
+E         - 1000000
+E         + 1E+6
+
+tests/test_invoice_values_receiving.py:190: AssertionError
+_ test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line[-$10-None] _
+
+spelling = '-$10', exact_price = None
+
+    @pytest.mark.parametrize("spelling,exact_price", [
+        ("-$10", None),
+        ("$1e3", Decimal("1000")),
+        ("$1,23", None),
+    ])
+    def test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line(spelling, exact_price):
+        text = SOURCE_PREFIX + "- 1 x Valid anchor @ USD 5.00\n" + f"- 1 x Service @ {spelling}\nNet 30\n"
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+        if exact_price is None or not result["ok"]:
+>           assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:209: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998ec0d40>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998ec1ac0>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-A983', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '15.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-A983', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '15.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line[$1e3-exact_price1] _
+
+spelling = '$1e3', exact_price = Decimal('1000')
+
+    @pytest.mark.parametrize("spelling,exact_price", [
+        ("-$10", None),
+        ("$1e3", Decimal("1000")),
+        ("$1,23", None),
+    ])
+    def test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line(spelling, exact_price):
+        text = SOURCE_PREFIX + "- 1 x Valid anchor @ USD 5.00\n" + f"- 1 x Service @ {spelling}\nNet 30\n"
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+        if exact_price is None or not result["ok"]:
+            assert_refused_without_requests(agent, mock, result)
+        else:
+            # Exact support for exponent notation is permissible; interpreting only
+            # its prefix, or silently dropping that line, is not.
+>           row, current = assert_draft_amounts(agent, mock, result, "USD", Decimal("5.00") + exact_price)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_receiving.py:213: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998f091f0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998f0ab70>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-54E2', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '6.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+currency = 'USD', total = Decimal('1005.00')
+
+    def assert_draft_amounts(agent, mock, result, currency, total):
+        assert result["ok"] is True, result
+        assert len(result["invoices"]) == 1
+        row = result["invoices"][0]
+        iid = row["invoice_id"]
+        current = mock.get_invoice(iid).body
+        assert row["currency"] == currency
+>       assert Decimal(row["total"]) == total
+E       AssertionError: assert Decimal('6.00') == Decimal('1005.00')
+E        +  where Decimal('6.00') = Decimal('6.00')
+
+tests/test_invoice_values_receiving.py:63: AssertionError
+_ test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line[$1,23-None] _
+
+spelling = '$1,23', exact_price = None
+
+    @pytest.mark.parametrize("spelling,exact_price", [
+        ("-$10", None),
+        ("$1e3", Decimal("1000")),
+        ("$1,23", None),
+    ])
+    def test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line(spelling, exact_price):
+        text = SOURCE_PREFIX + "- 1 x Valid anchor @ USD 5.00\n" + f"- 1 x Service @ {spelling}\nNet 30\n"
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+        if exact_price is None or not result["ok"]:
+>           assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:209: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998f08cb0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998f08e60>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-E490', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '6.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-E490', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '6.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_table_quantity_is_read_completely_or_held_before_any_draft[.5-expected0] _
+
+quantity = '.5', expected = Decimal('0.5')
+
+    @pytest.mark.parametrize("quantity,expected", [(".5", Decimal("0.5")), ("-1", None)])
+    def test_table_quantity_is_read_completely_or_held_before_any_draft(quantity, expected):
+        text = (SOURCE_PREFIX + "Invoice in USD\n| Item | Qty | Unit price |\n"
+                "| Valid anchor | 1 | 5.00 |\n"
+                f"| Service | {quantity} | 100.00 |\nNet 30\n")
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+        if expected is None or not result["ok"]:
+            assert_refused_without_requests(agent, mock, result)
+        else:
+>           row, current = assert_draft_amounts(agent, mock, result, "USD", Decimal("5.00") + expected * 100)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_receiving.py:228: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998f09400>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998f09700>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-E998', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '505.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+currency = 'USD', total = Decimal('55.00')
+
+    def assert_draft_amounts(agent, mock, result, currency, total):
+        assert result["ok"] is True, result
+        assert len(result["invoices"]) == 1
+        row = result["invoices"][0]
+        iid = row["invoice_id"]
+        current = mock.get_invoice(iid).body
+        assert row["currency"] == currency
+>       assert Decimal(row["total"]) == total
+E       AssertionError: assert Decimal('505.00') == Decimal('55.00')
+E        +  where Decimal('505.00') = Decimal('505.00')
+
+tests/test_invoice_values_receiving.py:63: AssertionError
+___ test_table_quantity_is_read_completely_or_held_before_any_draft[-1-None] ___
+
+quantity = '-1', expected = None
+
+    @pytest.mark.parametrize("quantity,expected", [(".5", Decimal("0.5")), ("-1", None)])
+    def test_table_quantity_is_read_completely_or_held_before_any_draft(quantity, expected):
+        text = (SOURCE_PREFIX + "Invoice in USD\n| Item | Qty | Unit price |\n"
+                "| Valid anchor | 1 | 5.00 |\n"
+                f"| Service | {quantity} | 100.00 |\nNet 30\n")
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+        if expected is None or not result["ok"]:
+>           assert_refused_without_requests(agent, mock, result)
+
+tests/test_invoice_values_receiving.py:226: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998f0b680>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998f0b800>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-1BC5', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '105.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-1BC5', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '105.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_ test_nonfinite_fake_model_money_returns_review_without_exception_or_request[unit_price] _
+
+field = 'unit_price'
+
+    @pytest.mark.parametrize("field", ["unit_price", "amount_paid"])
+    def test_nonfinite_fake_model_money_returns_review_without_exception_or_request(field):
+        data = {
+            "client_name": "Fixture Payer", "client_email": "payer@example.invalid", "currency": "USD",
+            "line_items": [{"desc": "Project", "qty": 1, "unit_price": 100, "currency": "USD"}],
+            "due_days": 30, "amount_paid": 0, "confidence": 1.0,
+        }
+        if field == "unit_price":
+            data["line_items"][0]["unit_price"] = "NaN"
+        else:
+            data["amount_paid"] = "Infinity"
+        extractor = LLMExtractor(lambda prompt: json.dumps(data))
+        source = SOURCE_PREFIX + "- 1 x Project @ USD 100.00\nNet 30\n"
+        agent, mock = make_agent(extractor)
+>       result = agent.tool_create_invoice(source)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_receiving.py:246: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+ledgerly/agent.py:273: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/extract.py:596: in extract
+    v = validate(ex, text)
+        ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Fixture Payer', client_email='payer@example.invalid', currency='USD', line_items=[LineItem(des...al('NaN'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=0.0, source='llm')
+source_text = 'From: Fixture Payer <payer@example.invalid>\n\n- 1 x Project @ USD 100.00\nNet 30\n'
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+>           if li.unit_price <= 0:
+               ^^^^^^^^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:327: InvalidOperation
+___ test_malformed_numeric_tail_cannot_be_silently_discarded[USD 12.345.67] ____
+
+token = 'USD 12.345.67'
+
+    @pytest.mark.parametrize("token", ["USD 12.345.67", "USD 1e33e2"])
+    def test_malformed_numeric_tail_cannot_be_silently_discarded(token):
+        text = (SOURCE_PREFIX + "- 1 x Valid anchor @ USD 5.00\n"
+                f"- 1 x Service @ {token}\nNet 30\n")
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_money_token_receiving.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998f09d60>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998f0aea0>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-4AF6', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '17.34', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-4AF6', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '17.34', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_____ test_malformed_numeric_tail_cannot_be_silently_discarded[USD 1e33e2] _____
+
+token = 'USD 1e33e2'
+
+    @pytest.mark.parametrize("token", ["USD 12.345.67", "USD 1e33e2"])
+    def test_malformed_numeric_tail_cannot_be_silently_discarded(token):
+        text = (SOURCE_PREFIX + "- 1 x Valid anchor @ USD 5.00\n"
+                f"- 1 x Service @ {token}\nNet 30\n")
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_money_token_receiving.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f7998ec1f10>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f7998ec22a0>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-F8DA', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '6.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-F8DA', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '6.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_invoice_values_followup_receiving.py::test_currency_mismatch_still_returns_review_when_a_deposit_is_present
+FAILED tests/test_invoice_values_followup_receiving.py::test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic[- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n]
+FAILED tests/test_invoice_values_receiving.py::test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[missing-quantity]
+FAILED tests/test_invoice_values_receiving.py::test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[nonfinite-price]
+FAILED tests/test_invoice_values_receiving.py::test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[currency-mismatch]
+FAILED tests/test_invoice_values_receiving.py::test_public_admission_rechecks_stale_issue_free_extraction_without_mutation[negative-deposit]
+FAILED tests/test_invoice_values_receiving.py::test_invalid_later_currency_part_cannot_leave_an_earlier_draft
+FAILED tests/test_invoice_values_receiving.py::test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft[USD-99999999999999999999999999.99]
+FAILED tests/test_invoice_values_receiving.py::test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft[JPY-9999999999999999999999999999]
+FAILED tests/test_invoice_values_receiving.py::test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[-USD 100.00-deposit_lines0]
+FAILED tests/test_invoice_values_receiving.py::test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[-EUR 100.00-deposit_lines1]
+FAILED tests/test_invoice_values_receiving.py::test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[Prices are in CAD\n-$100.00-deposit_lines2]
+FAILED tests/test_invoice_values_receiving.py::test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency[-USD 100.00-deposit_lines3]
+FAILED tests/test_invoice_values_receiving.py::test_accepted_fractional_and_exponent_values_keep_draft_ledger_and_review_equal[USD-1E+6-0.01-10000.00-1000000]
+FAILED tests/test_invoice_values_receiving.py::test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line[-$10-None]
+FAILED tests/test_invoice_values_receiving.py::test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line[$1e3-exact_price1]
+FAILED tests/test_invoice_values_receiving.py::test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line[$1,23-None]
+FAILED tests/test_invoice_values_receiving.py::test_table_quantity_is_read_completely_or_held_before_any_draft[.5-expected0]
+FAILED tests/test_invoice_values_receiving.py::test_table_quantity_is_read_completely_or_held_before_any_draft[-1-None]
+FAILED tests/test_invoice_values_receiving.py::test_nonfinite_fake_model_money_returns_review_without_exception_or_request[unit_price]
+FAILED tests/test_money_token_receiving.py::test_malformed_numeric_tail_cannot_be_silently_discarded[USD 12.345.67]
+FAILED tests/test_money_token_receiving.py::test_malformed_numeric_tail_cannot_be_silently_discarded[USD 1e33e2]
+22 failed, 34 passed, 32 subtests passed in 0.42s

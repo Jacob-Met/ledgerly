@@ -120,33 +120,14 @@ class SandboxPaymentAdmissionTests(unittest.TestCase):
                 self.assertEqual(Decimal(invoice["due_amount"]["value"]), Decimal(0))
                 self.assertEqual(len(invoice["payments"]["transactions"]), 2)
 
-    def test_subunit_line_total_reaches_review_before_draft_allocation(self):
+    def test_rounded_invoice_total_remains_payable_after_repeated_input_refusals(self):
+        # Independent receiving found that trapping every Inexact signal also
+        # rejected the invoice's existing, legitimate total-rounding rule.
         text = (ROOT / "fixtures/02_gbp_proofreading.txt").read_text()
         text = text.replace("18 hours @ £40/hr", "1.5 hours @ £0.01/hr")
         text = text.replace("Style sheet preparation: 2 hrs @ £40/hr\n", "")
-        demo = bridge.Demo()
-        refused = demo.agent.tool_create_invoice(text)
-        self.assertFalse(refused["ok"], refused)
-        self.assertTrue(refused["needs_review"], refused)
-        self.assertTrue(any(issue["field"] == "line_items[0].amount"
-                            for issue in refused["issues"]), refused)
-        self.assertEqual(demo.mock.requests, [])
-        self.assertEqual(demo.mock.invoices, {})
-        self.assertEqual(demo.mock._seq, 0)
-        self.assertEqual(demo.agent.ledger, {})
-        self.assertEqual(demo.agent.pending, {})
-
-    def test_rounded_invoice_total_remains_payable_after_repeated_input_refusals(self):
-        # Receive an existing provider record with historical line-total rounding.
-        # New Ledgerly drafts now require exact line amounts; that separate gate
-        # must not weaken this payment regression's fractional-total fixture.
-        demo, invoice_id = self.approved_demo()
+        demo, invoice_id = self.approved_demo(text=text)
         invoice = demo.mock.invoices[invoice_id]
-        invoice["items"] = invoice["items"][:1]
-        invoice["items"][0]["quantity"] = "1.5"
-        invoice["items"][0]["unit_amount"]["value"] = "0.01"
-        demo.mock._recalc(invoice)
-        demo.agent._refresh_invoice(invoice_id)
         self.assertEqual(invoice["items"][0]["quantity"], "1.5")
         self.assertEqual(invoice["items"][0]["unit_amount"]["value"], "0.01")
         self.assertEqual(invoice["amount"]["value"], "0.02")

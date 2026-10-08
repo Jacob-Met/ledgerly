@@ -1,0 +1,6 @@
+Runtime: Python 3.12.14
+Command: /workspace/scratch/6267db2cfc6e/test-env/bin/python -B -m pytest -q tests/test_invoice_value_boundaries.py tests/test_extract.py tests/test_agent_paypal.py
+Exit code: 0
+........................................................................ [ 72%]
+...........................                                              [100%]
+99 passed in 0.08s

@@ -1,0 +1,111 @@
+{
+  "schema": "ledgerly.invoice-record.print-visibility-probe.v1",
+  "phase": "First candidate browser run; production and unit-test source unchanged by correction.",
+  "head": "1380c1bc00b4f0a481e35fe7467362c0bd7dfb4e",
+  "tree": "e361c60318668c7dfb746d79542dedc1b8f090ea",
+  "actual_checkout": {
+    "commit": "0b7ae08a5ff7838ea20471c595d93e71cc50a40d",
+    "tree": "e361c60318668c7dfb746d79542dedc1b8f090ea",
+    "parents": [
+      "f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac",
+      "1380c1bc00b4f0a481e35fe7467362c0bd7dfb4e"
+    ]
+  },
+  "run": 37790856048,
+  "job": 113357542648,
+  "conclusion": "failure",
+  "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37790856048/job/113357542648",
+  "runtime": {
+    "node": "v22.23.3",
+    "browser": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/154.0.8037.97",
+      "revision": "@b510e9d7cd3a2fbd78d0ddc42234103206c5f78d",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "jsVersion": "15.4.80.20"
+    }
+  },
+  "checks": [
+    "actual local Python Worker starts empty with no external calls",
+    "actual two-currency draft retains full original invoice records and explicit pending approvals",
+    "explicit keyboard download pins the exact native invoice without a Worker call or state change"
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'inline-block'\n- 'none'\n\n    at inspectOffline (file:///home/runner/work/ledgerly/ledgerly/web-demo/tools/check_invoice_record_browser.mjs:276:12)\n    at async file:///home/runner/work/ledgerly/ledgerly/web-demo/tools/check_invoice_record_browser.mjs:372:3",
+  "cause": "The receiver asserted the button's own computed display was none. The product print CSS hides its record-toolbar ancestor; the button has no rendered box although its own computed display remains inline-block.",
+  "correction": {
+    "original_runner_blob": "880ec8148f8112cb372752c87940d20a6810a1e9",
+    "only_substitutions": [
+      [
+        "button:getComputedStyle(document.querySelector('#print-invoice-record')).display,",
+        "buttonRects:document.querySelector('#print-invoice-record').getClientRects().length,"
+      ],
+      [
+        "assert.equal(paper.button,\"none\");",
+        "assert.equal(paper.buttonRects,0,\"Print control has no rendered box, including a hidden ancestor\");"
+      ]
+    ],
+    "unchanged_expectation": "Print action is not rendered on paper; all exact invoice fields, native input flows, real download/print and lifecycle controls remain.",
+    "production_blob": "fa2e13908997e007bc67657a418c45bbae72214e",
+    "unit_test_blob": "76f425ee7ce96d00dc2ed16d86b70a01ed166dc2"
+  },
+  "log": {
+    "bytes": 40545,
+    "sha256": "e372e3f48843f811742c7a05347a70916cebee139db52696a427c289f24aff69"
+  },
+  "artifacts": {
+    "id": 11556123139,
+    "zip_bytes": 104219,
+    "zip_sha256": "976e30651cdc22561f0f41de91ff679900b1f2f7c0c09519d4c2ac41d80ea65e",
+    "files": [
+      {
+        "name": "original-drafted-snapshot.json",
+        "bytes": 8887,
+        "sha256": "36dc86ceb71c2b076c3155dcd5e4fdfd9dcf15ecb6e82e42908a54873ac3ebdb",
+        "kind": "actual Python Worker snapshot"
+      },
+      {
+        "name": "original-usd-record.html",
+        "bytes": 8956,
+        "sha256": "85f6210b27312f517a23cdd5457110839d194729857a5c599a3232aab0ff8ecf",
+        "kind": "actual browser download",
+        "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0002-D8E9.html"
+      },
+      {
+        "name": "paid-native-snapshot.json",
+        "bytes": 6615,
+        "sha256": "94a1e7f8bff71b68bdf3b2ab37a01ac7540aeb716bcb1232d4ed246055ff93bb",
+        "kind": "actual Python Worker snapshot"
+      },
+      {
+        "name": "paid-usd-record.html",
+        "bytes": 9365,
+        "sha256": "f58fec7f3e380c7878db5ea6a870cb0ef9603b19f88af56ca1eca400bf11118c",
+        "kind": "actual browser download",
+        "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0002-D8E9.html"
+      },
+      {
+        "name": "eur-record.html",
+        "bytes": 8945,
+        "sha256": "a53573d2cd2320f906ac2382c0b7b96a287bdf9c49535014c20b76e8a6256911",
+        "kind": "actual browser download",
+        "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0001-2814.html"
+      },
+      {
+        "name": "failed-state.png",
+        "bytes": 92090,
+        "sha256": "c0401c4adef2a2b2c8a06b36d454683023e541e9fc51671fd4521956b4422a02",
+        "kind": "actual Chrome screenshot"
+      }
+    ]
+  },
+  "observed_boundaries": {
+    "downloaded_html": 3,
+    "full_paid_record_offline_comparison": "passed before the print probe",
+    "actual_print_action": "called window.print and opened the complete detail disclosure",
+    "pdf_generation": "not reached",
+    "source_unchanged": true,
+    "page_errors": [],
+    "external_requests": [],
+    "artifact_pixels": "not directly inspected"
+  }
+}

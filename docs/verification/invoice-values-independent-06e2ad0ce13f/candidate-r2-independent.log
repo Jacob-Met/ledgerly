@@ -1,0 +1,253 @@
+FFF..........................                                            [100%]
+=================================== FAILURES ===================================
+____ test_currency_mismatch_still_returns_review_when_a_deposit_is_present _____
+
+    def test_currency_mismatch_still_returns_review_when_a_deposit_is_present():
+        ex = extraction(paid="25.00")
+        ex.line_items[0].currency = "EUR"
+        agent, mock = make_agent(SuppliedExtraction(ex))
+>       result = agent.tool_create_invoice("Known currency mismatch with a prior payment")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_followup_receiving.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+candidate-r2/ledgerly/agent.py:266: in tool_create_invoice
+    issues.extend(issue for issue in validate(ex) if issue not in issues)
+                                     ^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Fixture Payer', client_email='payer@example.invalid', currency='USD', line_items=[LineItem(des...0'), currency='EUR', unit=None)], due_days=30, amount_paid=Decimal('25.00'), issues=[], confidence=1.0, source='rules')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+    
+        def finite(value: Any) -> bool:
+            return (isinstance(value, (Decimal, int)) and not isinstance(value, bool)
+                    and (not isinstance(value, Decimal) or value.is_finite()))
+    
+        def money(value: Any, currency: Optional[str], field: str, *, positive: bool) -> bool:
+            if not finite(value):
+                out.append(Issue(field, "error", "Amount must be a finite number."))
+                return False
+            if value < 0 or (positive and value == 0):
+                out.append(Issue(field, "error", "Amount must be positive." if positive else "Prior payment cannot be negative."))
+                return False
+            if currency not in PAYPAL_CURRENCIES:
+                return False  # the currency issue is recorded separately
+            try:
+                rounded = quantize(Decimal(value), currency)
+            except DecimalException:
+                out.append(Issue(field, "error", "Amount is too large to represent at invoice precision."))
+                return False
+            if rounded != value:
+                message = (f"{currency} does not support decimals on PayPal." if currency in ZERO_DECIMAL_CURRENCIES
+                           else f"Amount has fractions smaller than a {currency} currency unit; review it before drafting.")
+                out.append(Issue(field, "error", message))
+                return False
+            return True
+    
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        valid_amounts = True
+        currency_amounts: dict[str, list[Decimal]] = {}
+        for n, li in enumerate(ex.line_items):
+            qty_ok = finite(li.qty)
+            if not qty_ok:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity is required and must be a finite number."))
+            elif not 0 < li.qty <= 1000000:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive and no greater than 1000000."))
+                qty_ok = False
+            elif Decimal(li.qty).quantize(Decimal("0.00001")) != li.qty:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity supports at most five decimal places."))
+                qty_ok = False
+            if not li.currency:
+                out.append(Issue(f"line_items[{n}].currency", "error", "Currency unknown for this item."))
+            elif li.currency not in PAYPAL_CURRENCIES:
+                out.append(Issue(f"line_items[{n}].currency", "error", f"{li.currency} is not a supported invoice currency."))
+            price_ok = money(li.unit_price, li.currency, f"line_items[{n}].unit_price", positive=True)
+            if qty_ok and price_ok:
+                # Refuse implicit sub-unit rounding, including fractional quantities.
+                # This is Ledgerly's exact-value policy, not a claimed PayPal rejection.
+                with localcontext() as ctx:
+                    ctx.prec = max(ctx.prec, len(Decimal(li.qty).as_tuple().digits)
+                                   + len(Decimal(li.unit_price).as_tuple().digits) + 1)
+                    amount = Decimal(li.qty) * Decimal(li.unit_price)
+                amount_ok = money(amount, li.currency, f"line_items[{n}].amount", positive=True)
+                valid_amounts = valid_amounts and amount_ok
+                if amount_ok:
+                    currency_amounts.setdefault(li.currency, []).append(amount)
+            else:
+                valid_amounts = False
+        currency_totals: dict[str, Decimal] = {}
+        for currency, amounts in currency_amounts.items():
+            with localcontext() as ctx:
+                ctx.prec = max(ctx.prec, max(len(amount.as_tuple().digits) for amount in amounts)
+                               + len(str(len(amounts))) + 1)
+                total = sum(amounts, Decimal(0))
+            currency_totals[currency] = total
+            if not money(total, currency, f"currency_totals[{currency}]", positive=True):
+                valid_amounts = False
+        ccys = ex.currencies()
+        if len(ccys) > 1:
+            out.append(Issue("currency", "warning",
+                             f"Multiple currencies {ccys}; a PayPal invoice has one currency_code, so this will be split into {len(ccys)} invoices."))
+        if not ex.currency:
+            out.append(Issue("currency", "error", "Invoice currency is required."))
+        elif ex.currency not in PAYPAL_CURRENCIES:
+            out.append(Issue("currency", "error", f"{ex.currency} is not a PayPal-supported currency."))
+        elif ccys and ex.currency not in ccys:
+            out.append(Issue("currency", "error", f"Invoice currency {ex.currency} does not match item currencies {ccys}; review rather than convert the amounts."))
+        if ex.due_days is not None and not (0 <= ex.due_days <= 365):
+            out.append(Issue("due_days", "error", f"Implausible payment term: {ex.due_days} days."))
+        paid_ok = money(ex.amount_paid, ex.currency, "amount_paid", positive=False)
+        if paid_ok and ex.amount_paid > 0:
+            if len(ccys) > 1:
+                out.append(Issue("amount_paid", "error", "Prior payment reported on a multi-currency job; assign it manually."))
+>           elif valid_amounts and ex.line_items and ex.amount_paid >= currency_totals[ex.currency]:
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'USD'
+
+candidate-r2/ledgerly/extract.py:406: KeyError
+_ test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic[- 1 x Service @ USD 100.00\nDeposit already paid: USD 1e999999999\n] _
+
+lines = '- 1 x Service @ USD 100.00\nDeposit already paid: USD 1e999999999\n'
+
+    @pytest.mark.parametrize("lines", [
+        "- 1 x Service @ USD 100.00\nDeposit already paid: USD 1e999999999\n",
+        "- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n",
+    ])
+    def test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic(lines):
+        agent, mock = make_agent()
+>       result = agent.tool_create_invoice(SOURCE_PREFIX + lines + "Net 30\n")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_followup_receiving.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+candidate-r2/ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+candidate-r2/ledgerly/extract.py:445: in extract
+    items, paid, stated_totals, item_issues = self._line_items(live, doc_ccy)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ledgerly.extract.RulesExtractor object at 0x7f458afc9b20>
+body = '\n- 1 x Service @ USD 100.00\nDeposit already paid: USD 1e999999999\nNet 30\n'
+doc_ccy = None
+
+    def _line_items(self, body: str, doc_ccy: Optional[str]):
+        lines = body.split("\n")
+        items: list[LineItem] = []
+        issues: list[Issue] = []
+        stated: list[tuple[Optional[str], Decimal]] = []
+        paid = Decimal(0)
+        payments: list[tuple[Optional[str], Decimal]] = []
+    
+        t_items, consumed, t_issues, t_totals = self._table(lines, doc_ccy)
+        items += t_items
+        issues += t_issues
+        stated += t_totals
+    
+        for idx, raw in enumerate(lines):
+            if idx in consumed:
+                continue
+            line = _BULLET_RE.sub("", raw).strip()
+            if not line:
+                continue
+            monies = list(MONEY_RE.finditer(line))
+            if not monies:
+                if _MONEY_CANDIDATE_RE.search(line):
+                    issues.append(Issue("line_items", "error", f"Ambiguous monetary amount; review the entire priced line: {line!r}"))
+                continue
+            try:
+                ccy, amt, tok = parse_money(monies[0])
+            except ValueError as error:
+                issues.append(Issue("line_items", "error", f"Unreadable monetary amount ({error}); review line: {line!r}"))
+                continue
+            if tok == "$" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES:
+                ccy = doc_ccy
+            if _PAID_RE.search(line):
+                payments.append((ccy, amt))
+                try:
+                    valid_payment = amt >= 0 and quantize(amt, ccy) == amt
+                except DecimalException:
+                    valid_payment = False
+                if not valid_payment:
+                    issues.append(Issue("amount_paid", "error", f"Prior payment {ccy} {amt} must be nonnegative and exactly representable in its currency; review it before drafting."))
+                continue
+            if _TOTAL_RE.search(line):
+                stated.append((ccy, amt))
+                continue
+            item, reason = self._item_from_line(line, monies[0])
+            if item is None:
+                issues.append(Issue("line_items", "warning", f"Could not parse priced line: {line!r}"))
+                continue
+            item.currency = ccy or doc_ccy
+            if tok == "$" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES and doc_ccy != "USD":
+                item.currency = doc_ccy
+                issues.append(Issue(f"line_items[{len(items)}].currency", "warning", f"'$' interpreted as {doc_ccy} per the email."))
+            if reason:
+                sev = "error" if item.qty is None else "warning"
+                issues.append(Issue(f"line_items[{len(items)}].qty", sev, reason))
+            items.append(item)
+        if payments:
+            with localcontext() as ctx:
+                ctx.prec = max(ctx.prec, max(len(amount.as_tuple().digits) for _, amount in payments)
+                               + len(str(len(payments))) + 1)
+>               paid = sum((amount for _, amount in payments), Decimal(0))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               decimal.Overflow: [<class 'decimal.Overflow'>]
+
+candidate-r2/ledgerly/extract.py:537: Overflow
+_ test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic[- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n] _
+
+lines = '- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n'
+
+    @pytest.mark.parametrize("lines", [
+        "- 1 x Service @ USD 100.00\nDeposit already paid: USD 1e999999999\n",
+        "- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n",
+    ])
+    def test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic(lines):
+        agent, mock = make_agent()
+>       result = agent.tool_create_invoice(SOURCE_PREFIX + lines + "Net 30\n")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_invoice_values_followup_receiving.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+candidate-r2/ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+candidate-r2/ledgerly/extract.py:461: in extract
+    if amt not in (ex.total(), ex.total() - paid):
+                   ^^^^^^^^^^
+candidate-r2/ledgerly/extract.py:160: in total
+    return sum((li.amount() for li in self.line_items), Decimal(0))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+candidate-r2/ledgerly/extract.py:160: in <genexpr>
+    return sum((li.amount() for li in self.line_items), Decimal(0))
+                ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = LineItem(desc='Service', qty=Decimal('1'), unit_price=Decimal('1E+999999999'), currency='USD', unit=None)
+
+    def amount(self) -> Decimal:
+>       return (self.qty or Decimal(0)) * self.unit_price
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       decimal.Overflow: [<class 'decimal.Overflow'>]
+
+candidate-r2/ledgerly/extract.py:128: Overflow
+=========================== short test summary info ============================
+FAILED tests/test_invoice_values_followup_receiving.py::test_currency_mismatch_still_returns_review_when_a_deposit_is_present
+FAILED tests/test_invoice_values_followup_receiving.py::test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic[- 1 x Service @ USD 100.00\nDeposit already paid: USD 1e999999999\n]
+FAILED tests/test_invoice_values_followup_receiving.py::test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic[- 1 x Service @ USD 1e999999999\nTotal: USD 100.00\n]
+3 failed, 26 passed in 0.22s

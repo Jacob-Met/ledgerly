@@ -44,7 +44,7 @@ _CODE = "|".join(sorted(PAYPAL_CURRENCIES))
 # Consume a complete number-like token first. _dec checks comma grouping, so
 # malformed text cannot be silently shortened to its first valid numeric prefix.
 _NUM = r"[+-]?(?:\d(?:[\d,]*\d)?(?:\.\d+)?|\.\d+)(?:[eE][+-]?\d+)?"
-_NO_SUFFIX = r"(?!\d|[\d.,]*[kKmM]\b|[eE]|[.,]\d)"
+_NO_SUFFIX = r"(?![\d.,]*[kKmM]\b|[eE]|[.,]\d)"
 MONEY_RE = re.compile(
     rf"(?:(?P<sign>[+-])?(?P<pre>{_SYM}|\b(?:{_CODE})\b)\s?(?P<num>{_NUM}){_NO_SUFFIX}"
     rf"|(?<![\w.,])(?P<num2>{_NUM}){_NO_SUFFIX}\s?(?P<post>\b(?:{_CODE})\b|€|£))"
@@ -82,20 +82,6 @@ _ITEM_PATTERNS = [
 _BULLET_RE = re.compile(r"^\s*(?:[-*•·]|\d+[.)])\s+")
 _PAID_RE = re.compile(
     r"\b(deposit|already paid|paid upfront|advance payment|prepaid|have paid|we paid|retainer paid)\b", re.I
-)
-_PAYMENT_KIND = r"(?:deposit|retainer|advance payment|payment)"
-_PAYMENT_AMOUNT = (
-    rf"(?:(?:(?:a|an|the) )?<M>(?: {_PAYMENT_KIND})?"
-    rf"|(?:(?:a|an|the) )?{_PAYMENT_KIND} of <M>)"
-)
-_PAID_CONFIRMED_RE = re.compile(
-    rf"(?:(?:(?:we|i) (?:have |had )?(?:already )?paid|already paid|paid upfront|prepaid)"
-    rf":? {_PAYMENT_AMOUNT}"
-    rf"|{_PAYMENT_AMOUNT} (?:(?:has|have|had) (?:already )?been (?:paid|received)"
-    rf"|(?:was|were) (?:already )?(?:paid|received)|(?:already )?paid)"
-    rf"|{_PAYMENT_KIND} (?:already )?paid: <M>)"
-    r"(?: (?:upfront|in advance|yesterday|today|last week|last month)"
-    r"| (?:by|via) (?:bank transfer|wire transfer|cash|check|cheque))*[.!]?", re.I
 )
 _TOTAL_RE = re.compile(r"\b(total|subtotal|budget|balance|altogether)\b", re.I)
 _BILLING_RE = re.compile(
@@ -231,11 +217,6 @@ def _dec(v: Any) -> Decimal:
         raise ValueError(f"not a number: {v!r}")
     if not value.is_finite():
         raise ValueError(f"not a finite number: {v!r}")
-    # No accepted invoice can represent more than 28 integer digits in the
-    # existing Decimal context. Refuse before rules summaries or deposit sums
-    # perform arithmetic, including newly recognized exponent notation.
-    if value.adjusted() > 27:
-        raise ValueError(f"number exceeds supported invoice arithmetic range: {v!r}")
     return value
 
 
@@ -273,18 +254,12 @@ def parse_qty(raw: str) -> tuple[Optional[Decimal], Optional[str]]:
     numeric = s[approx.end():] if approx else s
     rng = re.fullmatch(rf"({_Q_NUMBER})\s*(?:-|–|to)\s*({_Q_NUMBER})", numeric)
     if rng:
-        try:
-            lo = _dec(rng.group(1))
-        except ValueError as error:
-            return None, f"unreadable quantity '{raw.strip()}' ({error})"
+        lo = _dec(rng.group(1))
         return lo, f"range '{raw.strip()}' - used lower bound {lo}; confirm with client"
     n = re.fullmatch(_Q_NUMBER, numeric)
     if not n:
         return None, f"unreadable quantity '{raw.strip()}'"
-    try:
-        q = _dec(n.group(0))
-    except ValueError as error:
-        return None, f"unreadable quantity '{raw.strip()}' ({error})"
+    q = _dec(n.group(0))
     if approx:
         return q, f"approximate quantity '{raw.strip()}' - used {q}"
     return q, None
@@ -428,7 +403,7 @@ def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
     if paid_ok and ex.amount_paid > 0:
         if len(ccys) > 1:
             out.append(Issue("amount_paid", "error", "Prior payment reported on a multi-currency job; assign it manually."))
-        elif valid_amounts and ex.currency in currency_totals and ex.amount_paid >= currency_totals[ex.currency]:
+        elif valid_amounts and ex.line_items and ex.amount_paid >= currency_totals[ex.currency]:
             out.append(Issue("amount_paid", "error", f"Reported payment {ex.amount_paid} >= invoice total {currency_totals[ex.currency]}."))
     return out
 
@@ -532,23 +507,13 @@ class RulesExtractor:
             if tok == "$" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES:
                 ccy = doc_ccy
             if _PAID_RE.search(line):
-                # A payment label is not evidence that money was received. Keep
-                # uncertain language out of amount_paid and require the existing
-                # review flow before a draft can queue an external-payment record.
-                # Match the complete statement, not a paid phrase embedded in
-                # a condition, quotation, request or unsettled payment report.
-                statement = re.sub(r"\s+", " ", line[:monies[0].start()] + "<M>" + line[monies[0].end():])
-                if len(monies) == 1 and _PAID_CONFIRMED_RE.fullmatch(statement):
-                    payments.append((ccy, amt))
-                    try:
-                        valid_payment = amt >= 0 and quantize(amt, ccy) == amt
-                    except DecimalException:
-                        valid_payment = False
-                    if not valid_payment:
-                        issues.append(Issue("amount_paid", "error", f"Prior payment {ccy} {amt} must be nonnegative and exactly representable in its currency; review it before drafting."))
-                else:
-                    issues.append(Issue("amount_paid", "error",
-                                        f"Prior payment is not unambiguously confirmed; review the amount already received: {line!r}"))
+                payments.append((ccy, amt))
+                try:
+                    valid_payment = amt >= 0 and quantize(amt, ccy) == amt
+                except DecimalException:
+                    valid_payment = False
+                if not valid_payment:
+                    issues.append(Issue("amount_paid", "error", f"Prior payment {ccy} {amt} must be nonnegative and exactly representable in its currency; review it before drafting."))
                 continue
             if _TOTAL_RE.search(line):
                 stated.append((ccy, amt))

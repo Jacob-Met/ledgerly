@@ -1,0 +1,64 @@
+{
+  "checked_utc": "2026-10-08T09:50:22.959085+00:00",
+  "source_pins": {
+    "extract.py": {
+      "sha256": "2afaf50c17b49ea9197367d77ded4b44421c6d8d46eb589d985693d61a65fa6d",
+      "git_blob": "18b01b5c9b448b99bbead856d3a0e038a004e3e5"
+    },
+    "agent.py": {
+      "sha256": "be59a4e305ff0dc3874a7070f7b446b06fd11a5d199caa9cdc11039eb0e1c773",
+      "git_blob": "41082ddcb64985a838220e602d6ad99e631fcc4b"
+    },
+    "paypal.py": {
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+      "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f"
+    }
+  },
+  "independent": {
+    "command": [
+      "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "-q",
+      "/workspace/scratch/06e2ad0ce13f/independent-ledgerly-values/tests"
+    ],
+    "cwd": "/workspace/scratch/06e2ad0ce13f/independent-ledgerly-values",
+    "environment": {
+      "PYTHONPATH": "/dev/shm/ledgerly-values-receiving-06e2ad0ce13f/candidate-r4",
+      "TMPDIR": "/dev/shm/ledgerly-values-receiving-06e2ad0ce13f/tmp",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "started_utc": "2026-10-08T09:50:22.071137+00:00",
+    "exit_code": 0,
+    "log": "candidate-r4-final-suite.log"
+  },
+  "native_composition": {
+    "command": [
+      "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "-q",
+      "tests",
+      "/workspace/scratch/06e2ad0ce13f/independent-ledgerly-values/tests"
+    ],
+    "cwd": "/workspace/scratch/06e2ad0ce13f/ledgerly-core",
+    "environment": {
+      "TMPDIR": "/dev/shm/ledgerly-values-receiving-06e2ad0ce13f/tmp",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "started_utc": "2026-10-08T09:50:22.459079+00:00",
+    "exit_code": 0,
+    "log": "candidate-r4-native-composition.log"
+  },
+  "source_and_native_inputs_unchanged_after": true,
+  "native_input_count": 22,
+  "interpreter": "Python 3.12.14",
+  "pytest": "pytest 9.1.1",
+  "runtime_change": "Earlier native runtime path was removed before final receiving. Final runtime is an existing Python 3.12 / pytest 9.1.1 environment; no installation or source alteration."
+}

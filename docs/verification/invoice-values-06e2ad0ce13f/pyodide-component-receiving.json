@@ -1,0 +1,22 @@
+{
+  "sourceDigests": {
+    "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "ledgerly/agent.py": "be59a4e305ff0dc3874a7070f7b446b06fd11a5d199caa9cdc11039eb0e1c773",
+    "ledgerly/extract.py": "2afaf50c17b49ea9197367d77ded4b44421c6d8d46eb589d985693d61a65fa6d",
+    "ledgerly/paypal.py": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+    "web-demo/python/bridge.py": "1e2f9892b157778620d47d55c47fce502861c6d8099f0ecaf8c24edc551b4d5a"
+  },
+  "python": "3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489",
+  "checks": [
+    "fractional_price",
+    "foreign_deposit",
+    "signed_price",
+    "malformed_grouping",
+    "numeric_tail",
+    "outside_arithmetic_range",
+    "explicit_approval_preserves_exact_deposit_and_balance",
+    "structured_nonfinite_quantity"
+  ],
+  "passed": 8,
+  "external_calls": 0
+}
