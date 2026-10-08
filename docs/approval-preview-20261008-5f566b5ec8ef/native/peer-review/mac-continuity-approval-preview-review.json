@@ -1,0 +1,53 @@
+{
+  "reviewer": "chatgpt:5f566b5ec8ef:mac_continuity",
+  "scope": "Independent read-only review of Ledgerly pending approval preview source and existing action boundaries",
+  "source_root": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef",
+  "base": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "source_files": {
+    "web-demo/README.md": "7e26da29ce56f115505b91416f5f0c66c10396a280bb1ef44d2fc20afa477bfe",
+    "web-demo/src/main.ts": "260cfd880de0e54a9f4c4ea56f064308c7336a73f7f7c2e74aa60d5047b18a33",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/approval-preview.css": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+    "web-demo/tests/engine-recovery.test.ts": "d94dfc532beba2fffe36a6206513493c10f626e79e180ca80d724848d03c0997",
+    "web-demo/tests/approval-preview.test.ts": "b3681b208c511e656720e06991679eb42563ba3a4d54fb111395344748acd2f1",
+    "web-demo/tools/check_approval_preview_browser.py": "7af63b9a36a517cba8d35ab0fbaa22f5c6d04dfd0347bc44350cf7461ef7e513"
+  },
+  "all_seven_source_hashes_read_back_exact": true,
+  "result": "accepted in the reviewed source, final receipt, and phone invoice visual scope; no blocker found",
+  "findings": [
+    "Each preview reads its pending action payload, not the currently analyzed email or mutable editor fields.",
+    "Queued decimal strings and per-item currencies are displayed without numeric parsing or recomputation; all billing recipients are retained.",
+    "Every queued text or attribute insertion passes through the HTML text/attribute escape function.",
+    "Approve and reject retain the pending action ID in the existing data attributes; main.ts changes only two imports and the queue-render expression.",
+    "Existing busy, ready, recovery, approval, rejection and Worker dispatch behavior remains unchanged.",
+    "The engine-recovery test change only imports and binds the extracted renderer for its VM; no assertions were removed.",
+    "The browser harness forwards real Worker messages and separately observes them; it does not replace Python results or the approval runtime.",
+    "The harness checks read-only disclosure/selection, stale analyzed-email independence, invalidated reminder removal and independent multi-currency action IDs through actual UI operations."
+  ],
+  "validation_performed": [
+    "Read all three product source files and the new preview tests.",
+    "Read the exact main.ts and recovery-test diffs against the pinned base.",
+    "Read relevant Python queue and approval contract excerpts without editing Python.",
+    "Read the full browser qualification harness.",
+    "Rehashed all seven frozen paths directly on Mac.",
+    "Read the final build/test command receipt and the final real-Chrome desktop/phone browser report.",
+    "Visually inspected the actual final phone invoice screenshot: recipient, amounts, terms, literal hostile markup, note and action buttons are legible and remain within the card."
+  ],
+  "validation_not_claimed": [
+    "No second build or test-suite replay.",
+    "No new browser run by this reviewer.",
+    "No external invoice/payment/provider operation."
+  ],
+  "owner_qualification_reviewed": {
+    "targeted_renderer_and_pyodide_tests": "7/7 reported by owner; final command receipt exit 0",
+    "build": "exit 0",
+    "browser": "14/14 passed across desktop and phone; zero page errors or off-origin requests; source unchanged",
+    "run_ownership": "The production owner executed these checks; the reviewer read the receipts and image without repeating the suite or build."
+  },
+  "reviewed_artifact_hashes": {
+    "final-qualification.json": "4372d8d289cf107c0a405b7ac5dea5705fa562d736be4d470d68740d2e625b36",
+    "browser-candidate-final/browser.json": "1a18941e1c1c41a074f6cc61d0414438626aac47fcc908a85ba743f7436cee70",
+    "browser-candidate-final/phone-queued-invoice.png": "9d22dd2062166d3c2d9c8e85731d676982fc8c37ce8bbc33b4f72c4319922039"
+  },
+  "phone_visual": "All presented invoice fields and controls fit the actual phone card. The injected img tag is visible as literal text, no image is inserted. Long name/email/item text wraps; quantities, currencies and prices remain legible. Invoice note and approve/reject remain distinct."
+}

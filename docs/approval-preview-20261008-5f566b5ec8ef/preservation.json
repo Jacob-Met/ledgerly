@@ -1,0 +1,20 @@
+{
+  "base": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "base_tree": "ba5ab49270c136d86bc492411f49a5bdebdb6049",
+  "base_leaves": 206,
+  "changed_existing": [
+    "web-demo/README.md",
+    "web-demo/src/main.ts",
+    "web-demo/tests/engine-recovery.test.ts"
+  ],
+  "preserved_original_leaves": 203,
+  "source_files": {
+    "web-demo/README.md": "7e26da29ce56f115505b91416f5f0c66c10396a280bb1ef44d2fc20afa477bfe",
+    "web-demo/src/main.ts": "260cfd880de0e54a9f4c4ea56f064308c7336a73f7f7c2e74aa60d5047b18a33",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/approval-preview.css": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+    "web-demo/tests/engine-recovery.test.ts": "d94dfc532beba2fffe36a6206513493c10f626e79e180ca80d724848d03c0997",
+    "web-demo/tests/approval-preview.test.ts": "b3681b208c511e656720e06991679eb42563ba3a4d54fb111395344748acd2f1",
+    "web-demo/tools/check_approval_preview_browser.py": "7af63b9a36a517cba8d35ab0fbaa22f5c6d04dfd0347bc44350cf7461ef7e513"
+  }
+}
