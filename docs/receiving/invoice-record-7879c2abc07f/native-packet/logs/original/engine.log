@@ -1,0 +1,242 @@
+﻿2026-10-08T14:03:55.1299110Z Current runner version: '2.337.0'
+2026-10-08T14:03:55.1323049Z ##[group]Runner Image Provisioner
+2026-10-08T14:03:55.1324085Z Hosted Compute Agent
+2026-10-08T14:03:55.1324685Z Version: 20261002.596
+2026-10-08T14:03:55.1325366Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T14:03:55.1326171Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T14:03:55.1326976Z Worker ID: {6e5302b4-87b4-49ab-b45c-b1336290edf5}
+2026-10-08T14:03:55.1327792Z Region: eastus2
+2026-10-08T14:03:55.1328348Z Cloud: Azure
+2026-10-08T14:03:55.1328876Z ##[endgroup]
+2026-10-08T14:03:55.1330809Z ##[group]Operating System
+2026-10-08T14:03:55.1331459Z Ubuntu
+2026-10-08T14:03:55.1332118Z 24.04.5
+2026-10-08T14:03:55.1333056Z LTS
+2026-10-08T14:03:55.1333604Z ##[endgroup]
+2026-10-08T14:03:55.1334320Z ##[group]Runner Image
+2026-10-08T14:03:55.1334979Z Image: ubuntu-24.04
+2026-10-08T14:03:55.1335578Z Version: 20261004.327.1
+2026-10-08T14:03:55.1336882Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T14:03:55.1338585Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T14:03:55.1339589Z ##[endgroup]
+2026-10-08T14:03:55.1340762Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T14:03:55.1343217Z Contents: read
+2026-10-08T14:03:55.1343940Z Metadata: read
+2026-10-08T14:03:55.1344562Z ##[endgroup]
+2026-10-08T14:03:55.1346636Z Secret source: Actions
+2026-10-08T14:03:55.1347673Z Cache mode: write
+2026-10-08T14:03:55.1348749Z Prepare workflow directory
+2026-10-08T14:03:55.1691327Z Prepare all required actions
+2026-10-08T14:03:55.1739171Z Getting action download info
+2026-10-08T14:03:55.4087699Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T14:03:55.5039202Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-08T14:03:55.6948382Z Complete job name: browser-engine
+2026-10-08T14:03:55.7732455Z ##[group]Run actions/checkout@v4
+2026-10-08T14:03:55.7733700Z with:
+2026-10-08T14:03:55.7734210Z   repository: Jacob-Met/ledgerly
+2026-10-08T14:03:55.7737984Z   token: ***
+2026-10-08T14:03:55.7738431Z   ssh-strict: true
+2026-10-08T14:03:55.7738924Z   ssh-user: git
+2026-10-08T14:03:55.7739386Z   persist-credentials: true
+2026-10-08T14:03:55.7739895Z   clean: true
+2026-10-08T14:03:55.7740349Z   sparse-checkout-cone-mode: true
+2026-10-08T14:03:55.7740880Z   fetch-depth: 1
+2026-10-08T14:03:55.7741318Z   fetch-tags: false
+2026-10-08T14:03:55.7741771Z   show-progress: true
+2026-10-08T14:03:55.7742225Z   lfs: false
+2026-10-08T14:03:55.7742819Z   submodules: false
+2026-10-08T14:03:55.7743317Z   set-safe-directory: true
+2026-10-08T14:03:55.7743883Z   allow-unsafe-pr-checkout: false
+2026-10-08T14:03:55.7744900Z ##[endgroup]
+2026-10-08T14:03:55.8776136Z Syncing repository: Jacob-Met/ledgerly
+2026-10-08T14:03:55.8778770Z ##[group]Getting Git version info
+2026-10-08T14:03:55.8779981Z Working directory is '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T14:03:55.8781611Z [command]/usr/bin/git version
+2026-10-08T14:03:55.8866856Z git version 2.55.0
+2026-10-08T14:03:55.8888264Z ##[endgroup]
+2026-10-08T14:03:55.8904663Z Temporarily overriding HOME='/home/runner/work/_temp/96a6fb0c-c691-4e38-8207-09c1b4872293' before making global git config changes
+2026-10-08T14:03:55.8907296Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T14:03:55.8910075Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:03:55.8984165Z Deleting the contents of '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T14:03:55.8986451Z ##[group]Initializing the repository
+2026-10-08T14:03:55.9003859Z [command]/usr/bin/git init /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:03:55.9104254Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T14:03:55.9106134Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T14:03:55.9108230Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T14:03:55.9109681Z hint: call:
+2026-10-08T14:03:55.9120208Z hint:
+2026-10-08T14:03:55.9127435Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T14:03:55.9128624Z hint:
+2026-10-08T14:03:55.9129658Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T14:03:55.9131368Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T14:03:55.9132868Z hint:
+2026-10-08T14:03:55.9133590Z hint: 	git branch -m <name>
+2026-10-08T14:03:55.9136125Z hint:
+2026-10-08T14:03:55.9137203Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T14:03:55.9138937Z Initialized empty Git repository in /home/runner/work/ledgerly/ledgerly/.git/
+2026-10-08T14:03:55.9141970Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/ledgerly
+2026-10-08T14:03:55.9172961Z ##[endgroup]
+2026-10-08T14:03:55.9174322Z ##[group]Disabling automatic garbage collection
+2026-10-08T14:03:55.9176450Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T14:03:55.9208694Z ##[endgroup]
+2026-10-08T14:03:55.9209924Z ##[group]Setting up auth
+2026-10-08T14:03:55.9216433Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T14:03:55.9251511Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T14:03:55.9673135Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T14:03:55.9710642Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T14:03:55.9935130Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T14:03:55.9971319Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T14:03:56.0196601Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T14:03:56.0237182Z ##[endgroup]
+2026-10-08T14:03:56.0238653Z ##[group]Fetching the repository
+2026-10-08T14:03:56.0248902Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d7bc7f4ffba6be77f4ca6bf4ee97d4cfaf469640:refs/remotes/pull/35/merge
+2026-10-08T14:03:56.8089208Z From https://github.com/Jacob-Met/ledgerly
+2026-10-08T14:03:56.8091502Z  * [new ref]         d7bc7f4ffba6be77f4ca6bf4ee97d4cfaf469640 -> pull/35/merge
+2026-10-08T14:03:56.8097060Z ##[endgroup]
+2026-10-08T14:03:56.8099208Z ##[group]Determining the checkout info
+2026-10-08T14:03:56.8101715Z ##[endgroup]
+2026-10-08T14:03:56.8103669Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T14:03:56.8160731Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T14:03:56.8194728Z ##[group]Checking out the ref
+2026-10-08T14:03:56.8199718Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/35/merge
+2026-10-08T14:03:56.8610146Z Note: switching to 'refs/remotes/pull/35/merge'.
+2026-10-08T14:03:56.8611041Z 
+2026-10-08T14:03:56.8611752Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T14:03:56.8615007Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T14:03:56.8617810Z state without impacting any branches by switching back to a branch.
+2026-10-08T14:03:56.8619434Z 
+2026-10-08T14:03:56.8620529Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T14:03:56.8622206Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T14:03:56.8623840Z 
+2026-10-08T14:03:56.8624304Z   git switch -c <new-branch-name>
+2026-10-08T14:03:56.8624973Z 
+2026-10-08T14:03:56.8625668Z Or undo this operation with:
+2026-10-08T14:03:56.8626448Z 
+2026-10-08T14:03:56.8626929Z   git switch -
+2026-10-08T14:03:56.8627547Z 
+2026-10-08T14:03:56.8628660Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T14:03:56.8630079Z 
+2026-10-08T14:03:56.8631601Z HEAD is now at d7bc7f4 Merge a2a308c744c29d3199bec919c6be8896f066c249 into 2ab89fdd65d200355dda381ba7bae82a22e268fc
+2026-10-08T14:03:56.8636891Z ##[endgroup]
+2026-10-08T14:03:56.8673019Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T14:03:56.8700986Z d7bc7f4ffba6be77f4ca6bf4ee97d4cfaf469640
+2026-10-08T14:03:56.9160593Z ##[group]Run actions/setup-node@v4
+2026-10-08T14:03:56.9161846Z with:
+2026-10-08T14:03:56.9162921Z   node-version: 22
+2026-10-08T14:03:56.9163857Z   cache: npm
+2026-10-08T14:03:56.9164982Z   cache-dependency-path: web-demo/package-lock.json
+2026-10-08T14:03:56.9166392Z   always-auth: false
+2026-10-08T14:03:56.9167368Z   check-latest: false
+2026-10-08T14:03:56.9177193Z   token: ***
+2026-10-08T14:03:56.9178131Z ##[endgroup]
+2026-10-08T14:03:57.0614563Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-08T14:03:57.0620024Z (node:2295) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T14:03:57.0625245Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T14:03:57.0629436Z ##[group]Environment details
+2026-10-08T14:03:57.5280738Z node: v22.23.3
+2026-10-08T14:03:57.5281362Z npm: 10.9.9
+2026-10-08T14:03:57.5281848Z yarn: 1.22.22
+2026-10-08T14:03:57.5283478Z ##[endgroup]
+2026-10-08T14:03:57.5301001Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-08T14:04:02.1236274Z /home/runner/.npm
+2026-10-08T14:04:02.2215855Z Cache hit for: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T14:04:02.2354302Z (node:2295) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T14:04:02.5569818Z Received 35957454 of 35957454 (100.0%), 114.3 MBs/sec
+2026-10-08T14:04:02.5570781Z Cache Size: ~34 MB (35957454 B)
+2026-10-08T14:04:02.5606755Z [command]/usr/bin/tar -xf /home/runner/work/_temp/ff8db05f-5d4a-4076-850f-170d2c9457e5/cache.tzst -P -C /home/runner/work/ledgerly/ledgerly --use-compress-program unzstd
+2026-10-08T14:04:02.6201301Z Cache restored successfully
+2026-10-08T14:04:02.6221743Z Cache restored from key: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T14:04:02.6418148Z ##[group]Run npm ci
+2026-10-08T14:04:02.6418482Z [36;1mnpm ci[0m
+2026-10-08T14:04:02.6716432Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:04:02.6716792Z ##[endgroup]
+2026-10-08T14:04:04.9751227Z 
+2026-10-08T14:04:04.9760665Z added 41 packages, and audited 42 packages in 2s
+2026-10-08T14:04:04.9761223Z 
+2026-10-08T14:04:04.9761618Z 13 packages are looking for funding
+2026-10-08T14:04:04.9762235Z   run `npm fund` for details
+2026-10-08T14:04:04.9763812Z 
+2026-10-08T14:04:04.9764124Z found 0 vulnerabilities
+2026-10-08T14:04:05.0256171Z ##[group]Run npm audit --audit-level=moderate
+2026-10-08T14:04:05.0256607Z [36;1mnpm audit --audit-level=moderate[0m
+2026-10-08T14:04:05.0322153Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:04:05.0322433Z ##[endgroup]
+2026-10-08T14:04:05.5786450Z found 0 vulnerabilities
+2026-10-08T14:04:05.5896648Z ##[group]Run npm test
+2026-10-08T14:04:05.5896939Z [36;1mnpm test[0m
+2026-10-08T14:04:05.5961592Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:04:05.5961862Z ##[endgroup]
+2026-10-08T14:04:05.7028931Z 
+2026-10-08T14:04:05.7029689Z > ledgerly-offline-browser-demo@0.1.0 test
+2026-10-08T14:04:05.7030641Z > node scripts/stage-python.mjs && vitest run
+2026-10-08T14:04:05.7030954Z 
+2026-10-08T14:04:05.7549628Z Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+2026-10-08T14:04:06.2685342Z 
+2026-10-08T14:04:06.2690270Z [1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/home/runner/work/ledgerly/ledgerly/web-demo[39m
+2026-10-08T14:04:06.2691066Z 
+2026-10-08T14:04:08.1366395Z  [32m✓[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 556[2mms[22m[39m
+2026-10-08T14:04:08.3519682Z  [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+2026-10-08T14:04:08.5466817Z  [32m✓[39m src/invoice-details.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+2026-10-08T14:04:09.7844663Z  [32m✓[39m tests/approval-preview.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 3257[2mms[22m[39m
+2026-10-08T14:04:10.1155725Z  [32m✓[39m tests/review.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 3594[2mms[22m[39m
+2026-10-08T14:04:12.0361438Z  [32m✓[39m tests/invoice-details.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 3296[2mms[22m[39m
+2026-10-08T14:04:12.6895700Z  [32m✓[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 2730[2mms[22m[39m
+2026-10-08T14:04:13.5640308Z [90mstdout[2m | tests/overdue-scan.test.ts[2m > [22m[2mexecutes the native overdue-batch contracts in the actual Pyodide runtime
+2026-10-08T14:04:13.5642288Z [22m[39m{"native_tests_run":6,"successful":true,"python":"3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489"}
+2026-10-08T14:04:13.5643532Z 
+2026-10-08T14:04:13.5652155Z  [32m✓[39m tests/overdue-scan.test.ts [2m([22m[2m1 test[22m[2m)[22m[33m 3232[2mms[22m[39m
+2026-10-08T14:04:13.5653824Z    [33m[2m✓[22m[39m executes the native overdue-batch contracts in the actual Pyodide runtime[33m 3230[2mms[22m[39m
+2026-10-08T14:04:13.5686408Z 
+2026-10-08T14:04:13.5692239Z [2m Test Files [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+2026-10-08T14:04:13.5693610Z [2m      Tests [22m [1m[32m46 passed[39m[22m[90m (46)[39m
+2026-10-08T14:04:13.5694589Z [2m   Start at [22m 14:04:06
+2026-10-08T14:04:13.5698825Z [2m   Duration [22m 7.29s[2m (tests 92%, import 6%, transform 2%)[22m
+2026-10-08T14:04:13.5713034Z 
+2026-10-08T14:04:13.6035453Z ##[group]Run npm run build
+2026-10-08T14:04:13.6035749Z [36;1mnpm run build[0m
+2026-10-08T14:04:13.6098390Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:04:13.6098654Z ##[endgroup]
+2026-10-08T14:04:13.7109202Z 
+2026-10-08T14:04:13.7109779Z > ledgerly-offline-browser-demo@0.1.0 build
+2026-10-08T14:04:13.7110498Z > node scripts/stage-python.mjs && tsc --noEmit && vite build
+2026-10-08T14:04:13.7110852Z 
+2026-10-08T14:04:13.7552393Z Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+2026-10-08T14:04:15.1408814Z [36mvite v8.3.3 [32mbuilding client environment for production...[36m[39m
+2026-10-08T14:04:15.1524867Z transforming...
+2026-10-08T14:04:15.2085833Z [33m[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:04:15.2089424Z [33m[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:04:15.2092179Z [33m[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:04:15.2095723Z [33m[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:04:15.2101288Z [33m[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:04:15.2105805Z [33m[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:04:15.2110962Z [33m[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:04:15.2262913Z ✓ 12 modules transformed.
+2026-10-08T14:04:15.2455144Z rendering chunks...
+2026-10-08T14:04:15.2512074Z computing gzip size...
+2026-10-08T14:04:15.2519373Z dist/assets/__vite-browser-external-DKcLY8Mr.js   0.11 kB
+2026-10-08T14:04:15.2520696Z dist/index.html                                   5.70 kB │ gzip: 2.36 kB
+2026-10-08T14:04:15.2521576Z dist/assets/engine.worker-B5Sd8fS4.js            20.22 kB
+2026-10-08T14:04:15.2522819Z dist/assets/index-B_o7e1xd.css                   12.66 kB │ gzip: 3.32 kB
+2026-10-08T14:04:15.2523808Z dist/assets/index-BEygz_CU.js                    29.12 kB │ gzip: 9.74 kB
+2026-10-08T14:04:15.2524115Z 
+2026-10-08T14:04:15.2527571Z [32m✓ built in 111ms[39m
+2026-10-08T14:04:15.2834465Z Post job cleanup.
+2026-10-08T14:04:15.4088992Z (node:2539) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T14:04:15.4089896Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T14:04:15.4093814Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d, not saving cache.
+2026-10-08T14:04:15.4249946Z Post job cleanup.
+2026-10-08T14:04:15.5106947Z [command]/usr/bin/git version
+2026-10-08T14:04:15.5149340Z git version 2.55.0
+2026-10-08T14:04:15.5191904Z Temporarily overriding HOME='/home/runner/work/_temp/5003a45c-39c2-4439-8fac-096072053b96' before making global git config changes
+2026-10-08T14:04:15.5193951Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T14:04:15.5198175Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:04:15.5239090Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T14:04:15.5279859Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T14:04:15.5536856Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T14:04:15.5566824Z http.https://github.com/.extraheader
+2026-10-08T14:04:15.5580101Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T14:04:15.5614573Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T14:04:15.5866890Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T14:04:15.5914334Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T14:04:15.6302453Z Cleaning up orphan processes
+2026-10-08T14:04:15.6596929Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

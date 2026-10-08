@@ -1,0 +1,548 @@
+{
+  "schema": "ledgerly.invoice-record-browser/1",
+  "status": "passed",
+  "project": "/home/runner/work/ledgerly/ledgerly",
+  "build": "/home/runner/work/ledgerly/ledgerly/web-demo/dist",
+  "executable": "/usr/bin/google-chrome",
+  "node": "v22.23.3",
+  "checkout": "01fc8a6b9677160ec9417845c492af74d741640d",
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/34",
+  "checks": [
+    "actual local Python Worker starts empty with no external calls",
+    "actual two-currency draft retains full original invoice records and explicit pending approvals",
+    "explicit keyboard download pins the exact native invoice without a Worker call or state change",
+    "downloaded records reopen offline with complete original content, separate currencies and stable earlier snapshots after payment/replay",
+    "actual corrected Python invoice preserves literal Unicode/markup, line separators and zero-decimal amounts in the reopened printable file",
+    "download-allocation refusal preserves the accepted snapshot for a later explicit retry",
+    "busy and inactive sessions refuse stale download actions; explicit restart clears availability while existing files remain unchanged",
+    "source/browser flow has no provider requests, runtime exceptions or outbound actions from download/print"
+  ],
+  "artifacts": [
+    {
+      "name": "original-drafted-snapshot.json",
+      "bytes": 8887,
+      "sha256": "9b0592566b1748c08dfe397593c3bb91005f4da5d49163017199a5f8d614a181",
+      "kind": "actual Python Worker snapshot"
+    },
+    {
+      "name": "original-usd-record.html",
+      "bytes": 8956,
+      "sha256": "dbfa59e6f85255368a351d1172e95db10a1aa3432e27c133a3f84ec805fc064b",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0002-D0F4.html"
+    },
+    {
+      "name": "paid-native-snapshot.json",
+      "bytes": 6615,
+      "sha256": "6b3aa1cb63cd385973760c4c7c6ec6692316d658e385f1453055f2163c17ea50",
+      "kind": "actual Python Worker snapshot"
+    },
+    {
+      "name": "paid-usd-record.html",
+      "bytes": 9365,
+      "sha256": "55a11905b2ba86d0cb3e57a4455698a4b322912d172a55908490025d2a704da5",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0002-D0F4.html"
+    },
+    {
+      "name": "eur-record.html",
+      "bytes": 8945,
+      "sha256": "de7701978c150d9e7fa468ff694599236e4e2b40a64f8ee9558d8dfe1f0b6601",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0001-C90B.html"
+    },
+    {
+      "name": "paid-usd-record-1280.pdf",
+      "bytes": 58320,
+      "sha256": "4f314b7bc6b2a768c316f0c6eb0d79ea96fd934695bd7128356036a7b3136728",
+      "kind": "actual Chrome PDF",
+      "pages": 2,
+      "boundary": "Actual standalone HTML, print DOM and PDF generation; no physical printer or direct pixel/PDF-text inspection claim."
+    },
+    {
+      "name": "paid-usd-record-1280.png",
+      "bytes": 105369,
+      "sha256": "29594b6dd73ed8c104b54ba88c9240c3136f00f8ef58636b3976ab9c7f11882a",
+      "kind": "actual Chrome screenshot"
+    },
+    {
+      "name": "eur-record-390.png",
+      "bytes": 60284,
+      "sha256": "423636247eb57792c6090037abf1cb91e62ec93848938d4dfc9177681d0761db",
+      "kind": "actual Chrome screenshot"
+    },
+    {
+      "name": "original-usd-record-1280.png",
+      "bytes": 102667,
+      "sha256": "2de39c3539bb4f64f04546ae260c93629d515569b42bddaf6dd30d3b7b16f769",
+      "kind": "actual Chrome screenshot"
+    },
+    {
+      "name": "literal-jpy-record.html",
+      "bytes": 9190,
+      "sha256": "ae513c3d879da9b327626acdd7597c40787a38b3e790c63b83e822817bc4e18b",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0003-11B4.html"
+    },
+    {
+      "name": "literal-native-snapshot.json",
+      "bytes": 11752,
+      "sha256": "dc5b31005cbd78efd4288a53570f5031c6658b44e8281795bbf54a156d348bd6",
+      "kind": "actual Python Worker snapshot"
+    },
+    {
+      "name": "literal-jpy-record-390.pdf",
+      "bytes": 57365,
+      "sha256": "c3313ead4ee015621c489516ae118005f90779cc97b530d3277b6226f3213d78",
+      "kind": "actual Chrome PDF",
+      "pages": 2,
+      "boundary": "Actual standalone HTML, print DOM and PDF generation; no physical printer or direct pixel/PDF-text inspection claim."
+    },
+    {
+      "name": "literal-jpy-record-390.png",
+      "bytes": 62684,
+      "sha256": "d913a6587bc8b1763aa14cc97792aae246a7689aabd44dfc18f2b3854cf95b72",
+      "kind": "actual Chrome screenshot"
+    },
+    {
+      "name": "retried-literal-record.html",
+      "bytes": 9190,
+      "sha256": "1281ac4085c06f28aeb930ad2384c2a53878776a78bd9250e0fa52639cfc420c",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-sandbox-invoice-INV2-MOCK-0003-11B4.html"
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:33475/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:33475/assets/index-N9bLIP9Y.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:33475/assets/index-Drbn2oMn.css",
+      "method": "GET"
+    },
+    {
+      "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:33475/favicon.svg",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:33475/assets/engine.worker-B5Sd8fS4.js",
+      "method": "GET"
+    },
+    {
+      "url": "file:///home/runner/work/_temp/invoice-record-receiving/paid-usd-record.html",
+      "method": "GET"
+    },
+    {
+      "url": "file:///home/runner/work/_temp/invoice-record-receiving/eur-record.html",
+      "method": "GET"
+    },
+    {
+      "url": "file:///home/runner/work/_temp/invoice-record-receiving/original-usd-record.html",
+      "method": "GET"
+    },
+    {
+      "url": "file:///home/runner/work/_temp/invoice-record-receiving/literal-jpy-record.html",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:33475/assets/engine.worker-B5Sd8fS4.js",
+      "method": "GET"
+    }
+  ],
+  "externalRequests": [],
+  "serverRequests": [
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-Drbn2oMn.css"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/index-N9bLIP9Y.js"
+    },
+    {
+      "method": "GET",
+      "path": "/favicon.svg"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/engine.worker-B5Sd8fS4.js"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/pyodide-lock.json"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/python_stdlib.zip"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/pyodide.asm.wasm"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/pyodide.asm.js"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/__init__.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/agent.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/extract.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/paypal.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/bridge.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/review.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/invoice_details.py"
+    },
+    {
+      "method": "GET",
+      "path": "/assets/engine.worker-B5Sd8fS4.js"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/pyodide-lock.json"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/python_stdlib.zip"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/pyodide.asm.wasm"
+    },
+    {
+      "method": "GET",
+      "path": "/pyodide/pyodide.asm.js"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/__init__.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/agent.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/extract.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/ledgerly/paypal.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/bridge.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/review.py"
+    },
+    {
+      "method": "GET",
+      "path": "/python/invoice_details.py"
+    }
+  ],
+  "sourceSha256": {
+    "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "ledgerly/paypal.py": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace",
+    "web-demo/python/bridge.py": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+    "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "web-demo/src/main.ts": "4be360ecec9513a185b5f987e49f50061787ee0a8fcb585f33d688e1fb59adad",
+    "web-demo/src/invoice-details.ts": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+    "web-demo/src/invoice-details.css": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+    "web-demo/src/invoice-record.ts": "dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0",
+    "web-demo/src/review.ts": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+    "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+    "web-demo/scripts/stage-python.mjs": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+    "web-demo/package.json": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+    "web-demo/package-lock.json": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+    "web-demo/index.html": "052d3f2b7885531e54418c456f1e6630bc3b988e37d768394ba48060d59116ef",
+    "web-demo/tsconfig.json": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+    "web-demo/vite.config.ts": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "web-demo/tools/check_invoice_record_browser.mjs": "b29bdd1a577d2932867d7681de38f967ba0735ea7e2d85bbb8155091986030e7",
+    ".github/workflows/invoice-record-browser.yml": "cc30e2ff2c3b83fa1448229d104e929d9c995750ccf1d2a83409aa56d61e685e"
+  },
+  "buildSha256": {
+    "assets/__vite-browser-external-DKcLY8Mr.js": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+    "assets/engine.worker-B5Sd8fS4.js": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+    "assets/index-Drbn2oMn.css": "49f5c98558da15f1628e0d543342564dfb2143425a3ec80806a877f4fb463ba7",
+    "assets/index-N9bLIP9Y.js": "a64fcdcac37500dc9bc5d6000a50de9b71a46523ac8c800a20c70ec545cc836e",
+    "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df",
+    "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5",
+    "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "index.html": "2d29e2989bdecfee122e3957d82820bd91e68d207d400c44a27a422e2e2e6f24",
+    "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+    "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+    "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+    "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+    "python/bridge.py": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+    "python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "python/ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+    "python/ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "python/ledgerly/paypal.py": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace",
+    "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "sourceUnchanged": true,
+  "observer": "Native Worker replies are copied without replacing the Python engine. One explicit busy control delays delivery of a real reply; the terminal-error control dispatches an authored Worker error.",
+  "printBoundary": "Actual standalone HTML, print DOM and PDF generation; no physical printer or direct pixel/PDF-text inspection claim.",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.97",
+    "revision": "@b510e9d7cd3a2fbd78d0ddc42234103206c5f78d",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  },
+  "originalBoundary": {
+    "retainedInvoiceId": "INV2-MOCK-0002-D0F4",
+    "retainedRecord": {
+      "id": "INV2-MOCK-0002-D0F4",
+      "status": "DRAFT",
+      "detail": {
+        "invoice_number": "LDG-0002",
+        "invoice_date": "2026-10-08",
+        "currency_code": "USD",
+        "note": "Thank you for your business.",
+        "payment_term": {
+          "term_type": "NET_30",
+          "due_date": "2026-11-07"
+        },
+        "metadata": {
+          "create_time": "2026-10-08T00:00:00Z",
+          "recipient_view_url": null,
+          "invoicer_view_url": null
+        }
+      },
+      "invoicer": {
+        "name": {
+          "given_name": "Ledgerly",
+          "surname": "Demo"
+        },
+        "email_address": "freelancer@example.test"
+      },
+      "primary_recipients": [
+        {
+          "billing_info": {
+            "name": {
+              "given_name": "Priya",
+              "surname": "Nair"
+            },
+            "email_address": "priya@orbitlabs.example"
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "React development",
+          "quantity": "20",
+          "unit_amount": {
+            "currency_code": "USD",
+            "value": "95.00"
+          },
+          "unit_of_measure": "HOURS"
+        }
+      ],
+      "amount": {
+        "currency_code": "USD",
+        "value": "1900.00",
+        "breakdown": {
+          "item_total": {
+            "currency_code": "USD",
+            "value": "1900.00"
+          }
+        }
+      },
+      "due_amount": {
+        "currency_code": "USD",
+        "value": "1900.00"
+      },
+      "payments": {
+        "transactions": [],
+        "paid_amount": {
+          "currency_code": "USD",
+          "value": "0.00"
+        }
+      }
+    },
+    "observedActions": [
+      {
+        "id": "INV2-MOCK-0001-C90B",
+        "disabled": false,
+        "text": "Save sandbox invoice record"
+      },
+      {
+        "id": "INV2-MOCK-0002-D0F4",
+        "disabled": false,
+        "text": "Save sandbox invoice record"
+      }
+    ],
+    "mechanism": "Actual RulesExtractor/Agent/SandboxMock draft followed by the current ledger DOM."
+  },
+  "workerCalls": [
+    {
+      "id": 1,
+      "action": "init",
+      "payload": {}
+    },
+    {
+      "id": 2,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+      }
+    },
+    {
+      "id": 3,
+      "action": "draft",
+      "payload": {
+        "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+      }
+    },
+    {
+      "id": 4,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_b95a48f141"
+      }
+    },
+    {
+      "id": 5,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_641a580ff1"
+      }
+    },
+    {
+      "id": 6,
+      "action": "payment",
+      "payload": {
+        "invoice_id": "INV2-MOCK-0002-D0F4",
+        "amount": "100.25"
+      }
+    },
+    {
+      "id": 7,
+      "action": "replay",
+      "payload": {}
+    },
+    {
+      "id": 8,
+      "action": "analyze",
+      "payload": {
+        "text": "From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n"
+      }
+    },
+    {
+      "id": 9,
+      "action": "review",
+      "payload": {
+        "text": "From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n",
+        "fields": {
+          "client_name": "日本語 <b>Client</b> 😀",
+          "client_email": "record-receiver@example.test",
+          "due_days": "30",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Exact \"</script><img src=x onerror=window.recordExecuted=1> & 海 😀  next line",
+              "qty": "25",
+              "unit_price": "6000",
+              "currency": "JPY",
+              "unit": "hours"
+            },
+            {
+              "desc": "Glossary build",
+              "qty": "1",
+              "unit_price": "30000",
+              "currency": "JPY",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 10,
+      "action": "draft",
+      "payload": {
+        "text": "From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n",
+        "review_id": "546fffca98664ae48c45c4543181fe33"
+      }
+    },
+    {
+      "id": 11,
+      "action": "analyze",
+      "payload": {
+        "text": "From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n"
+      }
+    },
+    {
+      "id": 12,
+      "action": "init",
+      "payload": {}
+    }
+  ],
+  "finalState": {
+    "today": "2026-10-08",
+    "ledger": [],
+    "invoice_details": [],
+    "pending": [],
+    "audit": [],
+    "mock_requests": 0,
+    "external_calls": 0,
+    "can_replay": false
+  },
+  "pageErrors": [],
+  "totalArtifactBytes": 519589
+}

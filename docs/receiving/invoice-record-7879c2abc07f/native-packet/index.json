@@ -1,0 +1,444 @@
+{
+  "schema": "ledgerly.invoice-record.native-packet.v1",
+  "status": "Font-limited current-payment composition retained before an explicit hosted CJK-font receiving correction.",
+  "repo": "Jacob-Met/ledgerly",
+  "issue": 34,
+  "pull_request": 35,
+  "source": {
+    "head": "43bc2a7d7614dd61d0197835d454487769e9cd1b",
+    "tree": "f1b25a10d4db0c651a798c79346f0705deae25dc",
+    "base": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+    "actual_checkout": "01fc8a6b9677160ec9417845c492af74d741640d",
+    "source_files": [
+      {
+        "path": "ledgerly/__init__.py",
+        "blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+        "bytes": 119,
+        "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "ledgerly/agent.py",
+        "blob": "3ae7fcae5b1b243f608ab1bea6e25313a2fea091",
+        "bytes": 32210,
+        "sha256": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "ledgerly/extract.py",
+        "blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+        "bytes": 28143,
+        "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "ledgerly/paypal.py",
+        "blob": "a1da2ebff1ec2963ab94ca094300c8f5b42aa704",
+        "bytes": 25901,
+        "sha256": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace",
+        "receiving": "fresh current published file"
+      },
+      {
+        "path": "web-demo/python/bridge.py",
+        "blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+        "bytes": 6627,
+        "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+        "receiving": "fresh current published file"
+      },
+      {
+        "path": "web-demo/python/review.py",
+        "blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+        "bytes": 4379,
+        "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/python/invoice_details.py",
+        "blob": "019c1b43c3785894ec8e181983497c46bf57e015",
+        "bytes": 1196,
+        "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/main.ts",
+        "blob": "ed7cb86a2ff4e5ac4b7d5a140b5db208633ec3a7",
+        "bytes": 18663,
+        "sha256": "4be360ecec9513a185b5f987e49f50061787ee0a8fcb585f33d688e1fb59adad",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/invoice-details.ts",
+        "blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd",
+        "bytes": 9311,
+        "sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/invoice-details.css",
+        "blob": "1cb25514753f3c8104f13afb575633e7fce5811b",
+        "bytes": 2214,
+        "sha256": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/invoice-record.ts",
+        "blob": "fa2e13908997e007bc67657a418c45bbae72214e",
+        "bytes": 10907,
+        "sha256": "dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/review.ts",
+        "blob": "53463561542dfe0a5b1c3e6b0581e050c98fcc91",
+        "bytes": 6591,
+        "sha256": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/approval-preview.ts",
+        "blob": "d57fdd6eaeea2e3c41f0b3f3841dca08a3fe8d3d",
+        "bytes": 5514,
+        "sha256": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/engine.worker.ts",
+        "blob": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96",
+        "bytes": 1736,
+        "sha256": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/src/worker-client.ts",
+        "blob": "0d56a2b3732e101f5b27fba22bd39790912caafd",
+        "bytes": 3972,
+        "sha256": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/scripts/stage-python.mjs",
+        "blob": "5c1be224027f6bc5c691a0bbb62ca55098482e81",
+        "bytes": 995,
+        "sha256": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/package.json",
+        "blob": "c54e9f9d06988f14b3e03ca2f22629313fef5da8",
+        "bytes": 403,
+        "sha256": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/package-lock.json",
+        "blob": "555bceb19a4e55ad488ec2c8420b02e3756954d4",
+        "bytes": 36820,
+        "sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/index.html",
+        "blob": "a15b9b744276bc31570dcc14eedb3539fabbc9e8",
+        "bytes": 5935,
+        "sha256": "052d3f2b7885531e54418c456f1e6630bc3b988e37d768394ba48060d59116ef",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/tsconfig.json",
+        "blob": "408840754fae30406085341098dd2ec7d084d528",
+        "bytes": 211,
+        "sha256": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/vite.config.ts",
+        "blob": "031e19417070e2b63cc48b2ae105e0f40eea6ef0",
+        "bytes": 173,
+        "sha256": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "fixtures/04_multi_currency.txt",
+        "blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+        "bytes": 288,
+        "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "fixtures/08_jpy_zero_decimal.txt",
+        "blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+        "bytes": 271,
+        "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      },
+      {
+        "path": "web-demo/tools/check_invoice_record_browser.mjs",
+        "blob": "f3febcc739bc986299ed7ac9782b74bf8263328f",
+        "bytes": 33923,
+        "sha256": "b29bdd1a577d2932867d7681de38f967ba0735ea7e2d85bbb8155091986030e7",
+        "receiving": "fresh current published file"
+      },
+      {
+        "path": ".github/workflows/invoice-record-browser.yml",
+        "blob": "3316f5e2c65232a0400555ff6302a4a14da2561d",
+        "bytes": 2586,
+        "sha256": "cc30e2ff2c3b83fa1448229d104e929d9c995750ccf1d2a83409aa56d61e685e",
+        "receiving": "prior directly fetched exact unchanged Git blob"
+      }
+    ]
+  },
+  "runs": {
+    "browser": 37792087248,
+    "browser_job": 113361851887,
+    "maintained": 37792087010,
+    "python_job": 113361849638,
+    "engine_job": 113361850205
+  },
+  "automated": {
+    "browser_groups": 8,
+    "frontend_tests": 88,
+    "new_record_tests": 12,
+    "python_tests": 205,
+    "python_subtests": 96,
+    "csv_downloads": 8,
+    "csv_groups": 7,
+    "page_errors": [],
+    "external_requests": [],
+    "source_unchanged": true
+  },
+  "bundle": {
+    "bytes": 686960,
+    "sha256": "7ec5891b9bca398371d115285daed1d62d655f49808426aa0d7877518336bdd7",
+    "chunks": 224,
+    "total_member_bytes": 513959,
+    "member_count": 12,
+    "all_member_sizes_sha256_and_git_blob_ids_independently_verified": true,
+    "report_identical_to_actual_log": true,
+    "format": "Existing estate native numbered fixture bundle, fixed rendering artifacts and report only."
+  },
+  "artifact": {
+    "id": 11556364484,
+    "name": "invoice-record-receiving-37792087248",
+    "size_in_bytes": 417864,
+    "url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/artifacts/11556364484",
+    "archive_download_url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/artifacts/11556364484/zip",
+    "expired": false,
+    "created_at": "2026-10-08T14:24:46Z",
+    "expires_at": "2026-10-22T14:24:46Z",
+    "updated_at": "2026-10-08T14:24:46Z",
+    "digest": "sha256:219cfb891d996a98a884ade34ae04346a42ad02cbb2779da470a8b6aec6ce035",
+    "workflow_run": {
+      "id": 37792087248,
+      "repository_id": 1404688459,
+      "head_repository_id": 1404688459,
+      "head_branch": "work/invoice-record-7879c2abc07f-20261008",
+      "head_sha": "43bc2a7d7614dd61d0197835d454487769e9cd1b"
+    }
+  },
+  "receiving": {
+    "author_viewports": {
+      "reviewer": "/root/github_execution/echo_opening_receiving",
+      "files": [
+        "paid-usd-record-1280.png",
+        "literal-jpy-record-390.png",
+        "eur-record-390.png",
+        "original-usd-record-1280.png"
+      ],
+      "finding": "Visible sandbox wording, timestamps, print action and summary layout have no clipping/overlap; installed Linux font displays tofu for Japanese. Viewport-only inspection; original invoice content remains exactly checked by HTML/DOM."
+    },
+    "independent_print": {
+      "reviewer": "/root/github_execution",
+      "receipt": "independent-print-receiving.json",
+      "status": "USD accepted; JPY native PDF font coverage failed.",
+      "finding": "PyMuPDF and pypdf both find missing CJK glyph mappings in actual JPY PDF. Source HTML/DOM retain exact Unicode. Native Linux PDF fonts are DejaVu Sans only. Parent visually received both USD A4 pages and all 79 expected text parts.",
+      "next_boundary": "Only the hosted receiver environment receives standard fonts-noto-cjk and a logged package/fc-match/hash preflight. Production, source strings and behavioral assertions stay unchanged."
+    }
+  },
+  "preserved_phases": [
+    {
+      "path": "logs/original",
+      "head": "a2a308c744c29d3199bec919c6be8896f066c249",
+      "actual_checkout": "d7bc7f4ffba6be77f4ca6bf4ee97d4cfaf469640",
+      "browser_run": 37789392867,
+      "maintained_run": 37789392731,
+      "outcome": "Two original native groups passed then expected absent Save action; 193 Python + 63 subtests / 46 frontend."
+    },
+    {
+      "path": "logs/first-candidate",
+      "head": "1380c1bc00b4f0a481e35fe7467362c0bd7dfb4e",
+      "actual_checkout": "0b7ae08a5ff7838ea20471c595d93e71cc50a40d",
+      "browser_run": 37790856048,
+      "maintained_run": 37790856046,
+      "outcome": "Three groups / three HTML downloads then incorrect child-only print display probe; 193 Python + 63 subtests / 88 frontend plus CSV receiving."
+    },
+    {
+      "path": "logs/corrected-prior-base",
+      "head": "5b54ae643c729172862ca356d6dba8c504cc73b0",
+      "actual_checkout": "bfd7969ebb0fb0e672ce04dd92ff8f9da2f47b2e",
+      "browser_run": 37791159753,
+      "maintained_run": 37791159848,
+      "outcome": "Eight groups / 14 artifacts passed after two visibility-probe-only substitutions; 193 Python + 63 subtests / 88 frontend plus CSV receiving."
+    },
+    {
+      "path": "logs/font-limited-current-base",
+      "head": "43bc2a7d7614dd61d0197835d454487769e9cd1b",
+      "actual_checkout": "01fc8a6b9677160ec9417845c492af74d741640d",
+      "browser_run": 37792087248,
+      "maintained_run": 37792087010,
+      "outcome": "Current payment owner preserved; all automated gates passed. Direct artifact/PDF receiving identified native missing CJK-font coverage, retained here."
+    }
+  ],
+  "files": [
+    {
+      "path": "fixtures/font-limited-current-base/eur-record-390.png",
+      "sha": "96873b65ae7c2f2b1dfe24b5705902a935f60d1c",
+      "bytes": 60284,
+      "sha256": "423636247eb57792c6090037abf1cb91e62ec93848938d4dfc9177681d0761db"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/eur-record.html",
+      "sha": "75222332e9943c2ff141f2d66519493de961e499",
+      "bytes": 8945,
+      "sha256": "de7701978c150d9e7fa468ff694599236e4e2b40a64f8ee9558d8dfe1f0b6601"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/literal-jpy-record-390.pdf",
+      "sha": "15837d184431f6e7a92f098e5774d91ab6bdbdf5",
+      "bytes": 57365,
+      "sha256": "c3313ead4ee015621c489516ae118005f90779cc97b530d3277b6226f3213d78"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/literal-jpy-record-390.png",
+      "sha": "c5cdf28392dcfcbcba6f459751b8c53e318a582b",
+      "bytes": 62684,
+      "sha256": "d913a6587bc8b1763aa14cc97792aae246a7689aabd44dfc18f2b3854cf95b72"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/literal-jpy-record.html",
+      "sha": "3730d076ab2be6358993738962dcc70f37f5128a",
+      "bytes": 9190,
+      "sha256": "ae513c3d879da9b327626acdd7597c40787a38b3e790c63b83e822817bc4e18b"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/original-usd-record-1280.png",
+      "sha": "14ec503a1c9ebfe304757489aa7c65e16aa9f4f7",
+      "bytes": 102667,
+      "sha256": "2de39c3539bb4f64f04546ae260c93629d515569b42bddaf6dd30d3b7b16f769"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/original-usd-record.html",
+      "sha": "63813e0c9e32f64e4c2b8722c91c9dcae210f218",
+      "bytes": 8956,
+      "sha256": "dbfa59e6f85255368a351d1172e95db10a1aa3432e27c133a3f84ec805fc064b"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/paid-usd-record-1280.pdf",
+      "sha": "dca87ac2281eae1f8c6b3edac54e9f6f8a094633",
+      "bytes": 58320,
+      "sha256": "4f314b7bc6b2a768c316f0c6eb0d79ea96fd934695bd7128356036a7b3136728"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/paid-usd-record-1280.png",
+      "sha": "c8e073b3cc8735fdbe88a0061656977c3db448d5",
+      "bytes": 105369,
+      "sha256": "29594b6dd73ed8c104b54ba88c9240c3136f00f8ef58636b3976ab9c7f11882a"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/paid-usd-record.html",
+      "sha": "9da6259abb876525179df9962294f6ff904a60ea",
+      "bytes": 9365,
+      "sha256": "55a11905b2ba86d0cb3e57a4455698a4b322912d172a55908490025d2a704da5"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/receiving-report.json",
+      "sha": "4ca1f4217481690d181cf0f3b20f9f1453c97715",
+      "bytes": 21624,
+      "sha256": "1a4991bbb08032326bc83a7336fa0649c72db2439585a7f7a957e5fdaba2d556"
+    },
+    {
+      "path": "fixtures/font-limited-current-base/retried-literal-record.html",
+      "sha": "56d058c44e4eb8abbecb956a77d1da84c2374fa8",
+      "bytes": 9190,
+      "sha256": "1281ac4085c06f28aeb930ad2384c2a53878776a78bd9250e0fa52639cfc420c"
+    },
+    {
+      "path": "logs/original/browser.log",
+      "sha": "49baf796fa74a1cb915573f601e8c2bfa4ae9e19",
+      "bytes": 41657,
+      "sha256": "89928fd4f677574ff8cd1c2bd98bbb469e157ce136e396adc0812545795077cd"
+    },
+    {
+      "path": "logs/original/engine.log",
+      "sha": "d7f6e5a71bfbd3ee8a57bea7a1f0457c499df57a",
+      "bytes": 20927,
+      "sha256": "dfb1ac5f442142248eb8c5e0704edcf3d94d364f0c4befc2d5ea091b513c1757"
+    },
+    {
+      "path": "logs/original/python.log",
+      "sha": "cdb2fd5551b481a1c181c7f148f786e96ad6e751",
+      "bytes": 15800,
+      "sha256": "8853f4a3d4496f6e77730f6372a672e3548f46ef0ae79c4d52f123b82f6fcd56"
+    },
+    {
+      "path": "logs/first-candidate/browser.log",
+      "sha": "0a9e38e2252ce079c842ed48f26fffcf1141b464",
+      "bytes": 40545,
+      "sha256": "e372e3f48843f811742c7a05347a70916cebee139db52696a427c289f24aff69"
+    },
+    {
+      "path": "logs/first-candidate/engine.log",
+      "sha": "f18025b3dfcf492fc25187d761d74b5eba7ac224",
+      "bytes": 462615,
+      "sha256": "353ea819bee21b2e135c51fc9b7b2ad5a887e57c66979f1f1e330b6ced89f0c9"
+    },
+    {
+      "path": "logs/first-candidate/python.log",
+      "sha": "1a20fbda4cdd61f976838659a9e7a49c36e4a621",
+      "bytes": 15762,
+      "sha256": "d21248244abd8ada1e76d9b53bd10ae5c7250287294e6593d0084c0d5d7f8383"
+    },
+    {
+      "path": "logs/corrected-prior-base/browser.log",
+      "sha": "fc0d709f6cb31fa1eb5a12fae1c5e9f5a909bd06",
+      "bytes": 41217,
+      "sha256": "a9a8167723f70457d59781a1469f5edfa5e270cf0e2f74258afe51ae6e3eb452"
+    },
+    {
+      "path": "logs/corrected-prior-base/engine.log",
+      "sha": "f8d8f4dc937089937f3f902f46623e9d50d37196",
+      "bytes": 462573,
+      "sha256": "aa278cd0dd3ea98db11eb4e5c9b3e83081066b12bbee9f7edd0b5ce3a1bb012a"
+    },
+    {
+      "path": "logs/corrected-prior-base/python.log",
+      "sha": "a3e203dd7a11dce8cd8f0133b881bc91e090bf2a",
+      "bytes": 15797,
+      "sha256": "10f08b8ae6bd296b645c12c682790a61f88e5366eb3587c4d58f32dff5c33adb"
+    },
+    {
+      "path": "logs/font-limited-current-base/browser.log",
+      "sha": "3391aed2fd6d158671159c484400dc90acbaaed9",
+      "bytes": 973191,
+      "sha256": "6f3d4db86358908658317edb8194080f7b407c321d4d488832f1151f905f5966"
+    },
+    {
+      "path": "logs/font-limited-current-base/engine.log",
+      "sha": "a874afa8edaea2200be5852de07a2ad20c255eba",
+      "bytes": 462693,
+      "sha256": "8be8e8c87ea7d26916490f4bf92b06567f337b5385bf091dbf3ec300e6940c27"
+    },
+    {
+      "path": "logs/font-limited-current-base/python.log",
+      "sha": "5f0eee52557ee479a969aed82ad0ce5fff0fea99",
+      "bytes": 15875,
+      "sha256": "bee8eb8eb9e3a1cbccb08a8d0b8c6f1b7f36650ae9b5d55457b08b623a67f151"
+    },
+    {
+      "path": "independent-print-receiving.json",
+      "sha": "8ca33681f5602ef9635c47a92989881ba64bafc7",
+      "bytes": 9169,
+      "sha256": "3bc1b56733ae24d91517d76cd94a5b780ba890d4d83e51b55a2162723932330b"
+    }
+  ],
+  "storage_boundary": "Evidence-only native Git branch. Every source leaf from the actual qualified head is preserved. Raw logs and rendered fixtures contain only the authorized fictional receiving data; no arbitrary environment, browser profile or user session files are included."
+}

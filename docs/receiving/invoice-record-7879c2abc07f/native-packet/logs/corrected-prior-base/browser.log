@@ -1,0 +1,263 @@
+﻿2026-10-08T14:16:56.2838272Z Current runner version: '2.337.0'
+2026-10-08T14:16:56.2856256Z ##[group]Runner Image Provisioner
+2026-10-08T14:16:56.2856795Z Hosted Compute Agent
+2026-10-08T14:16:56.2857180Z Version: 20261002.596
+2026-10-08T14:16:56.2857590Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T14:16:56.2858021Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T14:16:56.2858411Z Worker ID: {0512593f-ba81-4e35-81e1-b1816fef326c}
+2026-10-08T14:16:56.2858860Z Region: centralus
+2026-10-08T14:16:56.2859192Z Cloud: Azure
+2026-10-08T14:16:56.2859570Z ##[endgroup]
+2026-10-08T14:16:56.2860323Z ##[group]Operating System
+2026-10-08T14:16:56.2860695Z Ubuntu
+2026-10-08T14:16:56.2861056Z 24.04.5
+2026-10-08T14:16:56.2861391Z LTS
+2026-10-08T14:16:56.2861720Z ##[endgroup]
+2026-10-08T14:16:56.2862056Z ##[group]Runner Image
+2026-10-08T14:16:56.2862423Z Image: ubuntu-24.04
+2026-10-08T14:16:56.2862797Z Version: 20261004.327.1
+2026-10-08T14:16:56.2863737Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T14:16:56.2864647Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T14:16:56.2865205Z ##[endgroup]
+2026-10-08T14:16:56.2865921Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T14:16:56.2867092Z Contents: read
+2026-10-08T14:16:56.2867484Z Metadata: read
+2026-10-08T14:16:56.2867825Z ##[endgroup]
+2026-10-08T14:16:56.2869541Z Secret source: Actions
+2026-10-08T14:16:56.2870120Z Cache mode: write
+2026-10-08T14:16:56.2870537Z Prepare workflow directory
+2026-10-08T14:16:56.3147313Z Prepare all required actions
+2026-10-08T14:16:56.3179027Z Getting action download info
+2026-10-08T14:16:56.5613068Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T14:16:56.7568359Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-08T14:16:57.2230310Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-08T14:16:57.6281182Z Complete job name: receive-record
+2026-10-08T14:16:57.7268094Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-08T14:16:57.7268645Z with:
+2026-10-08T14:16:57.7268897Z   repository: Jacob-Met/ledgerly
+2026-10-08T14:16:57.7270928Z   token: ***
+2026-10-08T14:16:57.7271163Z   ssh-strict: true
+2026-10-08T14:16:57.7271412Z   ssh-user: git
+2026-10-08T14:16:57.7271662Z   persist-credentials: true
+2026-10-08T14:16:57.7271937Z   clean: true
+2026-10-08T14:16:57.7272183Z   sparse-checkout-cone-mode: true
+2026-10-08T14:16:57.7272467Z   fetch-depth: 1
+2026-10-08T14:16:57.7272703Z   fetch-tags: false
+2026-10-08T14:16:57.7272950Z   show-progress: true
+2026-10-08T14:16:57.7273211Z   lfs: false
+2026-10-08T14:16:57.7273450Z   submodules: false
+2026-10-08T14:16:57.7273831Z   set-safe-directory: true
+2026-10-08T14:16:57.7274113Z   allow-unsafe-pr-checkout: false
+2026-10-08T14:16:57.7274520Z ##[endgroup]
+2026-10-08T14:16:57.7969497Z Syncing repository: Jacob-Met/ledgerly
+2026-10-08T14:16:57.7970726Z ##[group]Getting Git version info
+2026-10-08T14:16:57.7971230Z Working directory is '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T14:16:57.7971948Z [command]/usr/bin/git version
+2026-10-08T14:16:57.8044466Z git version 2.55.0
+2026-10-08T14:16:57.8059279Z ##[endgroup]
+2026-10-08T14:16:57.8071553Z Temporarily overriding HOME='/home/runner/work/_temp/a0d12a54-2c20-48cc-b8b6-80d994542ad9' before making global git config changes
+2026-10-08T14:16:57.8072922Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T14:16:57.8075803Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:16:57.8406625Z Deleting the contents of '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T14:16:57.8410381Z ##[group]Initializing the repository
+2026-10-08T14:16:57.8414008Z [command]/usr/bin/git init /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:16:57.8592898Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T14:16:57.8593761Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T14:16:57.8594574Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T14:16:57.8595220Z hint: call:
+2026-10-08T14:16:57.8595566Z hint:
+2026-10-08T14:16:57.8596051Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T14:16:57.8596583Z hint:
+2026-10-08T14:16:57.8597081Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T14:16:57.8597805Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T14:16:57.8598469Z hint:
+2026-10-08T14:16:57.8598761Z hint: 	git branch -m <name>
+2026-10-08T14:16:57.8599033Z hint:
+2026-10-08T14:16:57.8599398Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T14:16:57.8599972Z Initialized empty Git repository in /home/runner/work/ledgerly/ledgerly/.git/
+2026-10-08T14:16:57.8604204Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/ledgerly
+2026-10-08T14:16:57.8790259Z ##[endgroup]
+2026-10-08T14:16:57.8791188Z ##[group]Disabling automatic garbage collection
+2026-10-08T14:16:57.8792727Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T14:16:57.9095986Z ##[endgroup]
+2026-10-08T14:16:57.9096857Z ##[group]Setting up auth
+2026-10-08T14:16:57.9099605Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T14:16:57.9134066Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T14:16:57.9469690Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T14:16:57.9501577Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T14:16:57.9683480Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T14:16:57.9714390Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T14:16:57.9894249Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T14:16:57.9971997Z ##[endgroup]
+2026-10-08T14:16:57.9972559Z ##[group]Fetching the repository
+2026-10-08T14:16:57.9980730Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bfd7969ebb0fb0e672ce04dd92ff8f9da2f47b2e:refs/remotes/pull/35/merge
+2026-10-08T14:16:59.0355237Z From https://github.com/Jacob-Met/ledgerly
+2026-10-08T14:16:59.0356638Z  * [new ref]         bfd7969ebb0fb0e672ce04dd92ff8f9da2f47b2e -> pull/35/merge
+2026-10-08T14:16:59.0360815Z ##[endgroup]
+2026-10-08T14:16:59.0362098Z ##[group]Determining the checkout info
+2026-10-08T14:16:59.0363667Z ##[endgroup]
+2026-10-08T14:16:59.0366187Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T14:16:59.0582654Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T14:16:59.0794692Z ##[group]Checking out the ref
+2026-10-08T14:16:59.0796707Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/35/merge
+2026-10-08T14:16:59.1273307Z Note: switching to 'refs/remotes/pull/35/merge'.
+2026-10-08T14:16:59.1274909Z 
+2026-10-08T14:16:59.1275723Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T14:16:59.1277449Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T14:16:59.1279114Z state without impacting any branches by switching back to a branch.
+2026-10-08T14:16:59.1280092Z 
+2026-10-08T14:16:59.1280806Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T14:16:59.1282814Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T14:16:59.1292174Z 
+2026-10-08T14:16:59.1292964Z   git switch -c <new-branch-name>
+2026-10-08T14:16:59.1293829Z 
+2026-10-08T14:16:59.1294271Z Or undo this operation with:
+2026-10-08T14:16:59.1294913Z 
+2026-10-08T14:16:59.1295308Z   git switch -
+2026-10-08T14:16:59.1295864Z 
+2026-10-08T14:16:59.1296555Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T14:16:59.1297475Z 
+2026-10-08T14:16:59.1298503Z HEAD is now at bfd7969 Merge 5b54ae643c729172862ca356d6dba8c504cc73b0 into f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac
+2026-10-08T14:16:59.1301942Z ##[endgroup]
+2026-10-08T14:16:59.1333068Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T14:16:59.1356081Z bfd7969ebb0fb0e672ce04dd92ff8f9da2f47b2e
+2026-10-08T14:16:59.1697757Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-10-08T14:16:59.1698748Z with:
+2026-10-08T14:16:59.1699260Z   node-version: 22
+2026-10-08T14:16:59.1699804Z   cache: npm
+2026-10-08T14:16:59.1700432Z   cache-dependency-path: web-demo/package-lock.json
+2026-10-08T14:16:59.1701244Z   always-auth: false
+2026-10-08T14:16:59.1701808Z   check-latest: false
+2026-10-08T14:16:59.1707575Z   token: ***
+2026-10-08T14:16:59.1708088Z ##[endgroup]
+2026-10-08T14:16:59.2712165Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+2026-10-08T14:16:59.2715114Z (node:2086) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T14:16:59.2717064Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T14:16:59.2718508Z ##[group]Environment details
+2026-10-08T14:16:59.6119080Z node: v22.23.3
+2026-10-08T14:16:59.6119478Z npm: 10.9.9
+2026-10-08T14:16:59.6119593Z yarn: 1.22.22
+2026-10-08T14:16:59.6120133Z ##[endgroup]
+2026-10-08T14:16:59.6130597Z [command]/opt/hostedtoolcache/node/22.23.3/x64/bin/npm config get cache
+2026-10-08T14:16:59.7034949Z /home/runner/.npm
+2026-10-08T14:16:59.8523917Z Cache hit for: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T14:16:59.8588642Z (node:2086) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T14:17:00.6490978Z Received 35957454 of 35957454 (100.0%), 52.2 MBs/sec
+2026-10-08T14:17:00.6491563Z Cache Size: ~34 MB (35957454 B)
+2026-10-08T14:17:00.6508764Z [command]/usr/bin/tar -xf /home/runner/work/_temp/edb4fe8a-3738-4cf4-aaab-2914b3bdda0d/cache.tzst -P -C /home/runner/work/ledgerly/ledgerly --use-compress-program unzstd
+2026-10-08T14:17:00.7007153Z Cache restored successfully
+2026-10-08T14:17:00.7029925Z Cache restored from key: node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d
+2026-10-08T14:17:00.7182300Z ##[group]Run npm ci
+2026-10-08T14:17:00.7182502Z [36;1mnpm ci[0m
+2026-10-08T14:17:00.7433345Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:17:00.7433740Z ##[endgroup]
+2026-10-08T14:17:01.7237787Z 
+2026-10-08T14:17:01.7244571Z added 41 packages, and audited 42 packages in 937ms
+2026-10-08T14:17:01.7244880Z 
+2026-10-08T14:17:01.7245058Z 13 packages are looking for funding
+2026-10-08T14:17:01.7245344Z   run `npm fund` for details
+2026-10-08T14:17:01.7245504Z 
+2026-10-08T14:17:01.7245616Z found 0 vulnerabilities
+2026-10-08T14:17:01.7657703Z ##[group]Run npm run build
+2026-10-08T14:17:01.7657902Z [36;1mnpm run build[0m
+2026-10-08T14:17:01.7711138Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:17:01.7711294Z ##[endgroup]
+2026-10-08T14:17:01.8379622Z 
+2026-10-08T14:17:01.8380429Z > ledgerly-offline-browser-demo@0.1.0 build
+2026-10-08T14:17:01.8380831Z > node scripts/stage-python.mjs && tsc --noEmit && vite build
+2026-10-08T14:17:01.8380988Z 
+2026-10-08T14:17:01.9178533Z Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+2026-10-08T14:17:02.8546275Z [36mvite v8.3.3 [32mbuilding client environment for production...[36m[39m
+2026-10-08T14:17:02.8628493Z transforming...
+2026-10-08T14:17:02.8968624Z [33m[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:17:02.8971389Z [33m[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:17:02.8973780Z [33m[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:17:02.8976119Z [33m[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:17:02.8978465Z [33m[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:17:02.8980872Z [33m[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:17:02.8983337Z [33m[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "/home/runner/work/ledgerly/ledgerly/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+2026-10-08T14:17:02.9092470Z ✓ 16 modules transformed.
+2026-10-08T14:17:02.9228198Z rendering chunks...
+2026-10-08T14:17:02.9272206Z computing gzip size...
+2026-10-08T14:17:02.9277122Z dist/assets/__vite-browser-external-DKcLY8Mr.js   0.11 kB
+2026-10-08T14:17:02.9277929Z dist/index.html                                   6.03 kB │ gzip:  2.44 kB
+2026-10-08T14:17:02.9278385Z dist/assets/engine.worker-B5Sd8fS4.js            20.22 kB
+2026-10-08T14:17:02.9278920Z dist/assets/index-Drbn2oMn.css                   12.87 kB │ gzip:  3.36 kB
+2026-10-08T14:17:02.9279535Z dist/assets/index-N9bLIP9Y.js                    40.96 kB │ gzip: 13.63 kB
+2026-10-08T14:17:02.9279774Z 
+2026-10-08T14:17:02.9282627Z [32m✓ built in 74ms[39m
+2026-10-08T14:17:03.0409050Z ##[group]Run set -euo pipefail
+2026-10-08T14:17:03.0409266Z [36;1mset -euo pipefail[0m
+2026-10-08T14:17:03.0409409Z [36;1mINVOICE_RECORD_BROWSER=[0m
+2026-10-08T14:17:03.0409686Z [36;1mfor INVOICE_RECORD_BROWSER_NAME in google-chrome google-chrome-stable chromium chromium-browser; do[0m
+2026-10-08T14:17:03.0410029Z [36;1m  if command -v "${INVOICE_RECORD_BROWSER_NAME}" >/dev/null 2>&1; then[0m
+2026-10-08T14:17:03.0410313Z [36;1m    INVOICE_RECORD_BROWSER="$(command -v "${INVOICE_RECORD_BROWSER_NAME}")"[0m
+2026-10-08T14:17:03.0410532Z [36;1m    break[0m
+2026-10-08T14:17:03.0410649Z [36;1m  fi[0m
+2026-10-08T14:17:03.0410762Z [36;1mdone[0m
+2026-10-08T14:17:03.0410980Z [36;1m[[ -n "${INVOICE_RECORD_BROWSER}" ]] || { echo "An installed Chrome/Chromium is required."; exit 1; }[0m
+2026-10-08T14:17:03.0411357Z [36;1mnode --version[0m
+2026-10-08T14:17:03.0411505Z [36;1m"${INVOICE_RECORD_BROWSER}" --version[0m
+2026-10-08T14:17:03.0411771Z [36;1mprintf 'executable=%s\n' "${INVOICE_RECORD_BROWSER}" >> "${GITHUB_OUTPUT}"[0m
+2026-10-08T14:17:03.0468716Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-08T14:17:03.0468918Z ##[endgroup]
+2026-10-08T14:17:03.0566989Z v22.23.3
+2026-10-08T14:17:03.3769074Z Google Chrome 154.0.8037.97 
+2026-10-08T14:17:03.3878378Z ##[group]Run node web-demo/tools/check_invoice_record_browser.mjs --browser "/usr/bin/google-chrome" --output "${RUNNER_TEMP}/invoice-record-receiving"
+2026-10-08T14:17:03.3878949Z [36;1mnode web-demo/tools/check_invoice_record_browser.mjs --browser "/usr/bin/google-chrome" --output "${RUNNER_TEMP}/invoice-record-receiving"[0m
+2026-10-08T14:17:03.3932210Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:17:03.3932365Z ##[endgroup]
+2026-10-08T14:17:06.0362452Z PASS actual local Python Worker starts empty with no external calls
+2026-10-08T14:17:06.3059264Z PASS actual two-currency draft retains full original invoice records and explicit pending approvals
+2026-10-08T14:17:06.4237932Z PASS explicit keyboard download pins the exact native invoice without a Worker call or state change
+2026-10-08T14:17:07.4897258Z PASS downloaded records reopen offline with complete original content, separate currencies and stable earlier snapshots after payment/replay
+2026-10-08T14:17:08.1244464Z PASS actual corrected Python invoice preserves literal Unicode/markup, line separators and zero-decimal amounts in the reopened printable file
+2026-10-08T14:17:08.2394245Z PASS download-allocation refusal preserves the accepted snapshot for a later explicit retry
+2026-10-08T14:17:09.8974207Z PASS busy and inactive sessions refuse stale download actions; explicit restart clears availability while existing files remain unchanged
+2026-10-08T14:17:09.8984922Z PASS source/browser flow has no provider requests, runtime exceptions or outbound actions from download/print
+2026-10-08T14:17:10.2107767Z INVOICE_RECORD_BROWSER_RESULT PASSED checks=8 artifacts=14 source_unchanged=true
+2026-10-08T14:17:10.2164598Z INVOICE_RECORD_BROWSER_RECEIPT {"schema":"ledgerly.invoice-record-browser/1","status":"passed","project":"/home/runner/work/ledgerly/ledgerly","build":"/home/runner/work/ledgerly/ledgerly/web-demo/dist","executable":"/usr/bin/google-chrome","node":"v22.23.3","checkout":"bfd7969ebb0fb0e672ce04dd92ff8f9da2f47b2e","claim":"https://github.com/Jacob-Met/ledgerly/issues/34","checks":["actual local Python Worker starts empty with no external calls","actual two-currency draft retains full original invoice records and explicit pending approvals","explicit keyboard download pins the exact native invoice without a Worker call or state change","downloaded records reopen offline with complete original content, separate currencies and stable earlier snapshots after payment/replay","actual corrected Python invoice preserves literal Unicode/markup, line separators and zero-decimal amounts in the reopened printable file","download-allocation refusal preserves the accepted snapshot for a later explicit retry","busy and inactive sessions refuse stale download actions; explicit restart clears availability while existing files remain unchanged","source/browser flow has no provider requests, runtime exceptions or outbound actions from download/print"],"artifacts":[{"name":"original-drafted-snapshot.json","bytes":8887,"sha256":"e0f73548b381f7d4ee25944289bbef207963ee630564c5a1341227891fc0b1ff","kind":"actual Python Worker snapshot"},{"name":"original-usd-record.html","bytes":8956,"sha256":"16fe7488ed37a97184a2feb4e50778986b5258e8ce6d74a297484f41ef56ad82","kind":"actual browser download","suggestedFilename":"ledgerly-sandbox-invoice-INV2-MOCK-0002-F187.html"},{"name":"paid-native-snapshot.json","bytes":6615,"sha256":"94b3dc072b73cea45358b512b9a3d937700755e81e77cf1d0e15fd2ab8d2d31d","kind":"actual Python Worker snapshot"},{"name":"paid-usd-record.html","bytes":9365,"sha256":"97d01238a39de01b51dea201b100323aa0180d2644d9de7eb09269c299a32486","kind":"actual browser download","suggestedFilename":"ledgerly-sandbox-invoice-INV2-MOCK-0002-F187.html"},{"name":"eur-record.html","bytes":8945,"sha256":"c1974bfcd56d41bf327b85b85fc75fd9e3edba0f4158293ef122b7bfcda9f8d6","kind":"actual browser download","suggestedFilename":"ledgerly-sandbox-invoice-INV2-MOCK-0001-0EC5.html"},{"name":"paid-usd-record-1280.pdf","bytes":58449,"sha256":"afb03a814e9ac086c806c1ec2dcea3b1842954ffd881ae322f4a0e9663f6e828","kind":"actual Chrome PDF","pages":2,"boundary":"Actual standalone HTML, print DOM and PDF generation; no physical printer or direct pixel/PDF-text inspection claim."},{"name":"paid-usd-record-1280.png","bytes":105496,"sha256":"a4da22142bf1d9ce4eb39c4bb59c7a7db752e9d14ea8cd2c40f548df21004522","kind":"actual Chrome screenshot"},{"name":"eur-record-390.png","bytes":60156,"sha256":"ed1895fd3131422e93730500705a211f58b8af232ddc35cb756563d80ebca756","kind":"actual Chrome screenshot"},{"name":"original-usd-record-1280.png","bytes":102928,"sha256":"1763e334ccf0bc7456ee0b4bef748571129153041563710610182bb30f58a32a","kind":"actual Chrome screenshot"},{"name":"literal-jpy-record.html","bytes":9190,"sha256":"759879ac5d449e573b83a79b62edf1c6912d877eb973989e4516376d1149382a","kind":"actual browser download","suggestedFilename":"ledgerly-sandbox-invoice-INV2-MOCK-0003-C917.html"},{"name":"literal-native-snapshot.json","bytes":11752,"sha256":"8802b1ad28f4cbd641408672722025d05559310d417cb4c4ad25795006cfd8c7","kind":"actual Python Worker snapshot"},{"name":"literal-jpy-record-390.pdf","bytes":57379,"sha256":"cf39efed83b19d511c1795e66b37fd1a02cf6093b1d2fe9df79eea96807216ca","kind":"actual Chrome PDF","pages":2,"boundary":"Actual standalone HTML, print DOM and PDF generation; no physical printer or direct pixel/PDF-text inspection claim."},{"name":"literal-jpy-record-390.png","bytes":63100,"sha256":"5c749e4c941099d0a744622b2bf6a9d9d635f6776ba7fbb2f67d56e04016075e","kind":"actual Chrome screenshot"},{"name":"retried-literal-record.html","bytes":9190,"sha256":"4f322d38fac0862e4fbe1f5f53ad03a0900fb10bf5fa342210019713c21ee7b3","kind":"actual browser download","suggestedFilename":"ledgerly-sandbox-invoice-INV2-MOCK-0003-C917.html"}],"requests":[{"url":"http://127.0.0.1:43097/","method":"GET"},{"url":"http://127.0.0.1:43097/assets/index-N9bLIP9Y.js","method":"GET"},{"url":"http://127.0.0.1:43097/assets/index-Drbn2oMn.css","method":"GET"},{"url":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=","method":"GET"},{"url":"http://127.0.0.1:43097/favicon.svg","method":"GET"},{"url":"http://127.0.0.1:43097/assets/engine.worker-B5Sd8fS4.js","method":"GET"},{"url":"file:///home/runner/work/_temp/invoice-record-receiving/paid-usd-record.html","method":"GET"},{"url":"file:///home/runner/work/_temp/invoice-record-receiving/eur-record.html","method":"GET"},{"url":"file:///home/runner/work/_temp/invoice-record-receiving/original-usd-record.html","method":"GET"},{"url":"file:///home/runner/work/_temp/invoice-record-receiving/literal-jpy-record.html","method":"GET"},{"url":"http://127.0.0.1:43097/assets/engine.worker-B5Sd8fS4.js","method":"GET"}],"externalRequests":[],"serverRequests":[{"method":"GET","path":"/"},{"method":"GET","path":"/assets/index-N9bLIP9Y.js"},{"method":"GET","path":"/assets/index-Drbn2oMn.css"},{"method":"GET","path":"/favicon.svg"},{"method":"GET","path":"/assets/engine.worker-B5Sd8fS4.js"},{"method":"GET","path":"/pyodide/pyodide-lock.json"},{"method":"GET","path":"/pyodide/python_stdlib.zip"},{"method":"GET","path":"/pyodide/pyodide.asm.wasm"},{"method":"GET","path":"/pyodide/pyodide.asm.js"},{"method":"GET","path":"/python/ledgerly/__init__.py"},{"method":"GET","path":"/python/ledgerly/agent.py"},{"method":"GET","path":"/python/ledgerly/extract.py"},{"method":"GET","path":"/python/ledgerly/paypal.py"},{"method":"GET","path":"/python/bridge.py"},{"method":"GET","path":"/python/review.py"},{"method":"GET","path":"/python/invoice_details.py"},{"method":"GET","path":"/assets/engine.worker-B5Sd8fS4.js"},{"method":"GET","path":"/pyodide/pyodide-lock.json"},{"method":"GET","path":"/pyodide/python_stdlib.zip"},{"method":"GET","path":"/pyodide/pyodide.asm.wasm"},{"method":"GET","path":"/pyodide/pyodide.asm.js"},{"method":"GET","path":"/python/ledgerly/__init__.py"},{"method":"GET","path":"/python/ledgerly/agent.py"},{"method":"GET","path":"/python/ledgerly/extract.py"},{"method":"GET","path":"/python/ledgerly/paypal.py"},{"method":"GET","path":"/python/bridge.py"},{"method":"GET","path":"/python/review.py"},{"method":"GET","path":"/python/invoice_details.py"}],"sourceSha256":{"ledgerly/__init__.py":"a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a","ledgerly/agent.py":"1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05","ledgerly/extract.py":"1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653","ledgerly/paypal.py":"6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f","web-demo/python/bridge.py":"89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1","web-demo/python/review.py":"08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447","web-demo/python/invoice_details.py":"6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6","web-demo/src/main.ts":"4be360ecec9513a185b5f987e49f50061787ee0a8fcb585f33d688e1fb59adad","web-demo/src/invoice-details.ts":"db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff","web-demo/src/invoice-details.css":"95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce","web-demo/src/invoice-record.ts":"dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0","web-demo/src/review.ts":"cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103","web-demo/src/approval-preview.ts":"b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff","web-demo/src/engine.worker.ts":"6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b","web-demo/src/worker-client.ts":"e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1","web-demo/scripts/stage-python.mjs":"7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82","web-demo/package.json":"8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0","web-demo/package-lock.json":"1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e","web-demo/index.html":"052d3f2b7885531e54418c456f1e6630bc3b988e37d768394ba48060d59116ef","web-demo/tsconfig.json":"c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432","web-demo/vite.config.ts":"7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c","fixtures/04_multi_currency.txt":"950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3","fixtures/08_jpy_zero_decimal.txt":"f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28","web-demo/tools/check_invoice_record_browser.mjs":"e9c77655ba513bcabcafc53bd592ad530ce3ba24341c2194d2a072a3effbdd91",".github/workflows/invoice-record-browser.yml":"cc30e2ff2c3b83fa1448229d104e929d9c995750ccf1d2a83409aa56d61e685e"},"buildSha256":{"assets/__vite-browser-external-DKcLY8Mr.js":"0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c","assets/engine.worker-B5Sd8fS4.js":"5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94","assets/index-Drbn2oMn.css":"49f5c98558da15f1628e0d543342564dfb2143425a3ec80806a877f4fb463ba7","assets/index-N9bLIP9Y.js":"a64fcdcac37500dc9bc5d6000a50de9b71a46523ac8c800a20c70ec545cc836e","captures/ledgerly-desktop.png":"8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df","captures/ledgerly-mobile.png":"294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5","favicon.svg":"187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337","fixtures/01_simple_usd_hourly.txt":"e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902","fixtures/02_gbp_proofreading.txt":"6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e","fixtures/03_eur_fixed_project.txt":"79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540","fixtures/04_multi_currency.txt":"950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3","fixtures/05_missing_email.txt":"0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9","fixtures/06_ambiguous_qty.txt":"2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0","fixtures/07_partial_payment_deposit.txt":"0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42","fixtures/08_jpy_zero_decimal.txt":"f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28","fixtures/09_table_cad.txt":"0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97","fixtures/10_billing_address_net45.txt":"086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d","fixtures/11_range_qty_approx.txt":"82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee","fixtures/12_prompt_injection.txt":"20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e","index.html":"2d29e2989bdecfee122e3957d82820bd91e68d207d400c44a27a422e2e2e6f24","pyodide/pyodide-lock.json":"3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac","pyodide/pyodide.asm.js":"1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91","pyodide/pyodide.asm.wasm":"e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480","pyodide/python_stdlib.zip":"4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b","python/bridge.py":"89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1","python/invoice_details.py":"6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6","python/ledgerly/__init__.py":"a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a","python/ledgerly/agent.py":"1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05","python/ledgerly/extract.py":"1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653","python/ledgerly/paypal.py":"6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f","python/review.py":"08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"},"sourceUnchanged":true,"observer":"Native Worker replies are copied without replacing the Python engine. One explicit busy control delays delivery of a real reply; the terminal-error control dispatches an authored Worker error.","printBoundary":"Actual standalone HTML, print DOM and PDF generation; no physical printer or direct pixel/PDF-text inspection claim.","browser":{"protocolVersion":"1.3","product":"Chrome/154.0.8037.97","revision":"@b510e9d7cd3a2fbd78d0ddc42234103206c5f78d","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36","jsVersion":"15.4.80.20"},"originalBoundary":{"retainedInvoiceId":"INV2-MOCK-0002-F187","retainedRecord":{"id":"INV2-MOCK-0002-F187","status":"DRAFT","detail":{"invoice_number":"LDG-0002","invoice_date":"2026-10-08","currency_code":"USD","note":"Thank you for your business.","payment_term":{"term_type":"NET_30","due_date":"2026-11-07"},"metadata":{"create_time":"2026-10-08T00:00:00Z","recipient_view_url":null,"invoicer_view_url":null}},"invoicer":{"name":{"given_name":"Ledgerly","surname":"Demo"},"email_address":"freelancer@example.test"},"primary_recipients":[{"billing_info":{"name":{"given_name":"Priya","surname":"Nair"},"email_address":"priya@orbitlabs.example"}}],"items":[{"name":"React development","quantity":"20","unit_amount":{"currency_code":"USD","value":"95.00"},"unit_of_measure":"HOURS"}],"amount":{"currency_code":"USD","value":"1900.00","breakdown":{"item_total":{"currency_code":"USD","value":"1900.00"}}},"due_amount":{"currency_code":"USD","value":"1900.00"},"payments":{"transactions":[],"paid_amount":{"currency_code":"USD","value":"0.00"}}},"observedActions":[{"id":"INV2-MOCK-0001-0EC5","disabled":false,"text":"Save sandbox invoice record"},{"id":"INV2-MOCK-0002-F187","disabled":false,"text":"Save sandbox invoice record"}],"mechanism":"Actual RulesExtractor/Agent/SandboxMock draft followed by the current ledger DOM."},"workerCalls":[{"id":1,"action":"init","payload":{}},{"id":2,"action":"analyze","payload":{"text":"From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"}},{"id":3,"action":"draft","payload":{"text":"From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"}},{"id":4,"action":"approve","payload":{"action_id":"apv_fd1d018c22"}},{"id":5,"action":"approve","payload":{"action_id":"apv_9302f351cc"}},{"id":6,"action":"payment","payload":{"invoice_id":"INV2-MOCK-0002-F187","amount":"100.25"}},{"id":7,"action":"replay","payload":{}},{"id":8,"action":"analyze","payload":{"text":"From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n"}},{"id":9,"action":"review","payload":{"text":"From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n","fields":{"client_name":"日本語 <b>Client</b> 😀","client_email":"record-receiver@example.test","due_days":"30","amount_paid":"0","line_items":[{"desc":"Exact \"</script><img src=x onerror=window.recordExecuted=1> & 海 😀  next line","qty":"25","unit_price":"6000","currency":"JPY","unit":"hours"},{"desc":"Glossary build","qty":"1","unit_price":"30000","currency":"JPY","unit":""}]},"confirmed":true}},{"id":10,"action":"draft","payload":{"text":"From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n","review_id":"b1ad25261e274968a19e4b8a329afe8b"}},{"id":11,"action":"analyze","payload":{"text":"From: 佐藤 健 (Ken Sato) <ken.sato@sakura-games.example>\nTo: jacob@ledgerly.example\nSubject: Localization review\n\nJacob-san,\n\nPlease invoice:\n\n- 25 hours of game script review at ¥6,000/hr\n- 1 x Glossary build @ ¥30,000\n\nPayment within 30 days.\n\nThank you,\nKen Sato\n\nPRIVATE PASTE BODY: receiver-only narrative must not be added to the invoice file.\n"}},{"id":12,"action":"init","payload":{}}],"finalState":{"today":"2026-10-08","ledger":[],"invoice_details":[],"pending":[],"audit":[],"mock_requests":0,"external_calls":0,"can_replay":false},"pageErrors":[],"totalArtifactBytes":520408}
+2026-10-08T14:17:10.2262256Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-08T14:17:10.2262494Z with:
+2026-10-08T14:17:10.2262631Z   name: invoice-record-receiving-37791159753
+2026-10-08T14:17:10.2262837Z   path: /home/runner/work/_temp/invoice-record-receiving
+2026-10-08T14:17:10.2263027Z   if-no-files-found: warn
+2026-10-08T14:17:10.2263162Z   retention-days: 14
+2026-10-08T14:17:10.2263289Z   compression-level: 6
+2026-10-08T14:17:10.2263413Z   overwrite: false
+2026-10-08T14:17:10.2263702Z   include-hidden-files: false
+2026-10-08T14:17:10.2264003Z ##[endgroup]
+2026-10-08T14:17:10.3330870Z (node:2413) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T14:17:10.3331602Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T14:17:10.3415690Z With the provided path, there will be 15 files uploaded
+2026-10-08T14:17:10.3419004Z Artifact name is valid!
+2026-10-08T14:17:10.3431320Z Root directory input is valid!
+2026-10-08T14:17:10.6232070Z Beginning upload of artifact content to blob storage
+2026-10-08T14:17:10.6547420Z (node:2413) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T14:17:10.9750243Z Uploaded bytes 418832
+2026-10-08T14:17:11.0202809Z Finished uploading artifact content to blob storage!
+2026-10-08T14:17:11.0203457Z SHA256 digest of uploaded artifact zip is a165e210b0a5ca34113b55f841027b6be3150b8d0ee09b67d46315c39c6e0a61
+2026-10-08T14:17:11.0204379Z Finalizing artifact upload
+2026-10-08T14:17:11.2999753Z Artifact invoice-record-receiving-37791159753.zip successfully finalized. Artifact ID 11555529916
+2026-10-08T14:17:11.3000355Z Artifact invoice-record-receiving-37791159753 has been successfully uploaded! Final size is 418832 bytes. Artifact ID is 11555529916
+2026-10-08T14:17:11.3005441Z Artifact download URL: https://github.com/Jacob-Met/ledgerly/actions/runs/37791159753/artifacts/11555529916
+2026-10-08T14:17:11.3144176Z Post job cleanup.
+2026-10-08T14:17:11.3934146Z (node:2425) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T14:17:11.3934903Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T14:17:11.3936171Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-bbf60ffed2d9a9f5b789d2322df80bd19cbe9f8f66636c66bbaf4e33db6c253d, not saving cache.
+2026-10-08T14:17:11.4032254Z Post job cleanup.
+2026-10-08T14:17:11.4575184Z [command]/usr/bin/git version
+2026-10-08T14:17:11.4607301Z git version 2.55.0
+2026-10-08T14:17:11.4630655Z Temporarily overriding HOME='/home/runner/work/_temp/5e2d2236-2273-4339-9381-1303ab45111f' before making global git config changes
+2026-10-08T14:17:11.4631516Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T14:17:11.4634131Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:17:11.4668286Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T14:17:11.4697258Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T14:17:11.4908947Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T14:17:11.4931839Z http.https://github.com/.extraheader
+2026-10-08T14:17:11.4940005Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T14:17:11.4970435Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T14:17:11.5205139Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T14:17:11.5255453Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T14:17:11.5642105Z Cleaning up orphan processes
+2026-10-08T14:17:11.5855664Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

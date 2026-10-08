@@ -1,0 +1,113 @@
+{
+  "schema": "ledgerly.invoice-record.independent-print-receiving.v1",
+  "reviewer": "7879c2abc07f/github_execution",
+  "repository": "Jacob-Met/ledgerly",
+  "pr": 35,
+  "head": "43bc2a7d7614dd61d0197835d454487769e9cd1b",
+  "tree": "f1b25a10d4db0c651a798c79346f0705deae25dc",
+  "checkout": "01fc8a6b9677160ec9417845c492af74d741640d",
+  "run": 37792087248,
+  "job": 113361851887,
+  "nativeBundle": {
+    "bytes": 686960,
+    "sha256": "7ec5891b9bca398371d115285daed1d62d655f49808426aa0d7877518336bdd7",
+    "chunks": 224
+  },
+  "nativeBundleEveryMemberVerified": true,
+  "readerVersions": {
+    "pymupdf": "1.26.6",
+    "pypdf": "6.10.0"
+  },
+  "processing": {
+    "storage": "In-memory decoding, PDF extraction and PDF rasterization; no native source, fixture or artifact writes.",
+    "textComparison": "HTMLParser-decoded nonempty text parts excluding style, script, title and hidden print toolbar; whitespace normalized substring inclusion in actual PDF extraction. This receives printed text completeness for the authored fixtures, not an identity claim for all PDF encodings.",
+    "visual": "Actual paid and literal-JPY viewport PNGs inspected. Both paid USD PDF pages rasterized from exact PDF bytes at one point per pixel and visually inspected."
+  },
+  "usd": {
+    "name": "paid-usd-record-1280.pdf",
+    "pdfBytes": 58320,
+    "pdfSha256": "4f314b7bc6b2a768c316f0c6eb0d79ea96fd934695bd7128356036a7b3136728",
+    "pageCount": 2,
+    "pageSizes": [
+      [
+        594.96,
+        841.92
+      ],
+      [
+        594.96,
+        841.92
+      ]
+    ],
+    "expectedTextParts": 79,
+    "missingTextParts": [],
+    "pages": [
+      "SANDBOX INVOICE RECORD\nInvoice LDG-0002\nA saved copy from Ledgerly’s in-memory simulation. This is not a payable invoice, a payment\nreceipt or a current provider statement. No real money moved.\nSandbox clock at source snapshot: 2026-10-08\nFile created at (UTC): 2026-10-08T14:24:35.687Z\nOriginal agent ledger summary\nInvoice reference\nINV2-MOCK-0002-D0F4\nInvoice number\nLDG-0002\nClient\nPriya Nair\nRecipient email\npriya@orbitlabs.example\nCurrency\nUSD\nInvoice total\n1900\nPaid amount\n100.25\nBalance\n1799.75\nAgent ledger status\nPARTIALLY_PAID\nSent on\n2026-10-08\nDue on\n2026-11-07\nReminders sent\n0\nInvoice details · sandbox record\nSandbox clock at snapshot: 2026-10-08\nInvoice reference\nINV2-MOCK-0002-D0F4\nInvoice number\nLDG-0002\nSandbox provider status\nPARTIALLY_PAID\nRecipient\nPriya Nair\npriya@orbitlabs.example\nFrom\nLedgerly Demo\nfreelancer@example.test\nInvoice date\n2026-10-08\nPayment terms\nNet 30 days\nDue date\n2026-11-07\n",
+      "Invoice items\nItem\nQuantity\nUnit\nUnit price\nReact development\n20\nHOURS\nUSD 95.00\nProvider invoice total\nUSD 1900.00\nProvider paid amount\nUSD 100.25\nProvider amount due\nUSD 1799.75\nAmounts and payment entries are copied from the sandbox provider record. The ledger summary\nabove is the agent’s view; these values are not recalculated or combined across currencies.\nInvoice note\nThank you for your business.\nRecorded sandbox payments\nDate\nAmount\nType / method\nReference\n2026-10-08\nUSD 100.25\nPAYPAL / PAYPAL\n81A8E4DCA41A48AD8\nOnly the selected displayed invoice is included. Amounts, dates, items and recorded payments are\ncopied without recalculation or a provider refresh. This HTML file cannot restore a sandbox or\nauthorize any action.\n"
+    ],
+    "fonts": [
+      [
+        "AAAAAA+DejaVuSans-Bold",
+        "BAAAAA+DejaVuSans-Bold",
+        "CAAAAA+DejaVuSans"
+      ],
+      [
+        "BAAAAA+DejaVuSans-Bold",
+        "CAAAAA+DejaVuSans"
+      ]
+    ]
+  },
+  "jpy": {
+    "name": "literal-jpy-record-390.pdf",
+    "pdfBytes": 57365,
+    "pdfSha256": "c3313ead4ee015621c489516ae118005f90779cc97b530d3277b6226f3213d78",
+    "pageCount": 2,
+    "pageSizes": [
+      [
+        594.96,
+        841.92
+      ],
+      [
+        594.96,
+        841.92
+      ]
+    ],
+    "expectedTextParts": 75,
+    "missingTextParts": [
+      "日本語 <b>Client</b> 😀",
+      "日本語 <b>Client</b> 😀\nrecord-receiver@example.test"
+    ],
+    "pages": [
+      "SANDBOX INVOICE RECORD\nInvoice LDG-0003\nA saved copy from Ledgerly’s in-memory simulation. This is not a payable invoice, a payment\nreceipt or a current provider statement. No real money moved.\nSandbox clock at source snapshot: 2026-10-08\nFile created at (UTC): 2026-10-08T14:24:37.086Z\nOriginal agent ledger summary\nInvoice reference\nINV2-MOCK-0003-11B4\nInvoice number\nLDG-0003\nClient\n\u0000本語 <b>Client</b> 😀\nRecipient email\nrecord-receiver@example.test\nCurrency\nJPY\nInvoice total\n180000\nPaid amount\n0\nBalance\n180000\nAgent ledger status\nDRAFT\nSent on\nNot recorded\nDue on\n2026-11-07\nReminders sent\n0\nInvoice details · sandbox record\nSandbox clock at snapshot: 2026-10-08\nInvoice reference\nINV2-MOCK-0003-11B4\nInvoice number\nLDG-0003\nSandbox provider status\nDRAFT\nRecipient\n\u0000本語 <b>Client</b> 😀\nrecord-receiver@example.test\nFrom\nLedgerly Demo\nfreelancer@example.test\nInvoice date\n2026-10-08\nPayment terms\nNet 30 days\nDue date\n2026-11-07\n",
+      "Invoice items\nItem\nQuantity\nUnit\nUnit price\nExact \"</script><img \nsrc=x \nonerror=window.recordE\nxecuted=1> & 海 😀  \nnext line\n25\nHOURS\nJPY 6000\nGlossary build\n1\nQUANTITY\nJPY 30000\nProvider invoice total\nJPY 180000\nProvider paid amount\nJPY 0\nProvider amount due\nJPY 180000\nAmounts and payment entries are copied from the sandbox provider record. The ledger summary\nabove is the agent’s view; these values are not recalculated or combined across currencies.\nInvoice note\nThank you for your business.\nNo recorded sandbox payments.\nOnly the selected displayed invoice is included. Amounts, dates, items and recorded payments are\ncopied without recalculation or a provider refresh. This HTML file cannot restore a sandbox or\nauthorize any action.\n"
+    ],
+    "fonts": [
+      [
+        "AAAAAA+DejaVuSans-Bold",
+        "BAAAAA+DejaVuSans-Bold",
+        "CAAAAA+DejaVuSans"
+      ],
+      [
+        "BAAAAA+DejaVuSans-Bold",
+        "CAAAAA+DejaVuSans"
+      ]
+    ]
+  },
+  "jpySecondReader": {
+    "reader": "pypdf",
+    "version": "6.10.0",
+    "pages": [
+      "SANDBOX INVOICE RECORD\nInvoice LDG-0003\nA saved copy from Ledgerly’s in-memory simulation. This is not a payable invoice, a payment\nreceipt or a current provider statement. No real money moved.\nSandbox clock at source snapshot: 2026-10-08\nFile created at (UTC): 2026-10-08T14:24:37.086Z\nOriginal agent ledger summary\nInvoice reference\nINV2-MOCK-0003-11B4\nInvoice number\nLDG-0003\nClient\n\u0000\u0000\u0000 <b>Client</b> 😀\nRecipient email\nrecord-receiver@example.test\nCurrency\nJPY\nInvoice total\n180000\nPaid amount\n0\nBalance\n180000\nAgent ledger status\nDRAFT\nSent on\nNot recorded\nDue on\n2026-11-07\nReminders sent\n0\nInvoice details · sandbox record\nSandbox clock at snapshot: 2026-10-08\nInvoice reference\nINV2-MOCK-0003-11B4\nInvoice number\nLDG-0003\nSandbox provider status\nDRAFT\nRecipient\n\u0000\u0000\u0000 <b>Client</b> 😀\nrecord-receiver@example.test\nFrom\nLedgerly Demo\nfreelancer@example.test\nInvoice date\n2026-10-08\nPayment terms\nNet 30 days\nDue date\n2026-11-07",
+      "Invoice items\nItem Quantity Unit Unit price\nExact \"</script><img \nsrc=x \nonerror=window.recordE\nxecuted=1> & \u0000 😀  \nnext line\n25 HOURS JPY 6000\nGlossary build 1 QUANTITY JPY 30000\nProvider invoice total\nJPY 180000\nProvider paid amount\nJPY 0\nProvider amount due\nJPY 180000\nAmounts and payment entries are copied from the sandbox provider record. The ledger summary\nabove is the agent’s view; these values are not recalculated or combined across currencies.\nInvoice note\nThank you for your business.\nNo recorded sandbox payments.\nOnly the selected displayed invoice is included. Amounts, dates, items and recorded payments are\ncopied without recalculation or a provider refresh. This HTML ﬁle cannot restore a sandbox or\nauthorize any action."
+    ],
+    "containsExactJapanese": false,
+    "nullCount": 7
+  },
+  "finding": {
+    "classification": "Native Ubuntu Chrome receiving environment lacks CJK font coverage. Exact HTML and DOM strings are retained, but the actual JPY print fixture contains missing glyphs.",
+    "effect": "Japanese client name renders as missing-glyph boxes. PyMuPDF does not receive the first Japanese character; pypdf reports seven null glyphs across the Japanese name and item text.",
+    "productionSourceChanged": false,
+    "automatedNativeResult": "All eight original behavioral groups passed. This independent print receiving finding remains distinct from that result.",
+    "usdAcceptance": "All 79 expected text parts present across two A4 pages, with legible unclipped summary, native provider fields, item table, payment entries, footer and separate amounts.",
+    "next": "Preserve this exact font-limited packet; qualify unchanged production/assertions with standard CJK fonts and explicit font identity in the owned native receiving workflow. Re-extract and inspect actual successor PDFs before full JPY print acceptance."
+  }
+}

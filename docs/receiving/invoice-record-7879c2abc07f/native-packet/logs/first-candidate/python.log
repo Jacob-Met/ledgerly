@@ -1,0 +1,200 @@
+﻿2026-10-08T14:14:41.1042408Z Current runner version: '2.337.0'
+2026-10-08T14:14:41.1067789Z ##[group]Runner Image Provisioner
+2026-10-08T14:14:41.1068647Z Hosted Compute Agent
+2026-10-08T14:14:41.1069174Z Version: 20260901.588
+2026-10-08T14:14:41.1069735Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-08T14:14:41.1070439Z Build Date: 2026-09-01T19:56:44Z
+2026-10-08T14:14:41.1071083Z Worker ID: {74633382-d9ac-4568-ad6e-b49aab100b7f}
+2026-10-08T14:14:41.1071841Z Azure Region: westus3
+2026-10-08T14:14:41.1072354Z ##[endgroup]
+2026-10-08T14:14:41.1073614Z ##[group]Operating System
+2026-10-08T14:14:41.1074396Z Ubuntu
+2026-10-08T14:14:41.1074891Z 24.04.5
+2026-10-08T14:14:41.1075382Z LTS
+2026-10-08T14:14:41.1075879Z ##[endgroup]
+2026-10-08T14:14:41.1076377Z ##[group]Runner Image
+2026-10-08T14:14:41.1076951Z Image: ubuntu-24.04
+2026-10-08T14:14:41.1077526Z Version: 20260927.320.1
+2026-10-08T14:14:41.1078666Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T14:14:41.1080055Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-08T14:14:41.1080928Z ##[endgroup]
+2026-10-08T14:14:41.1081985Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T14:14:41.1084043Z Contents: read
+2026-10-08T14:14:41.1084581Z Metadata: read
+2026-10-08T14:14:41.1085128Z ##[endgroup]
+2026-10-08T14:14:41.1087129Z Secret source: Actions
+2026-10-08T14:14:41.1087935Z Cache mode: write
+2026-10-08T14:14:41.1088674Z Prepare workflow directory
+2026-10-08T14:14:41.1403635Z Prepare all required actions
+2026-10-08T14:14:41.1450502Z Getting action download info
+2026-10-08T14:14:41.4833175Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T14:14:41.5947410Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-08T14:14:41.7446943Z Complete job name: python-core
+2026-10-08T14:14:41.8242901Z ##[group]Run actions/checkout@v4
+2026-10-08T14:14:41.8243834Z with:
+2026-10-08T14:14:41.8244250Z   repository: Jacob-Met/ledgerly
+2026-10-08T14:14:41.8248025Z   token: ***
+2026-10-08T14:14:41.8248416Z   ssh-strict: true
+2026-10-08T14:14:41.8248799Z   ssh-user: git
+2026-10-08T14:14:41.8249202Z   persist-credentials: true
+2026-10-08T14:14:41.8249644Z   clean: true
+2026-10-08T14:14:41.8250054Z   sparse-checkout-cone-mode: true
+2026-10-08T14:14:41.8250534Z   fetch-depth: 1
+2026-10-08T14:14:41.8250933Z   fetch-tags: false
+2026-10-08T14:14:41.8251331Z   show-progress: true
+2026-10-08T14:14:41.8251727Z   lfs: false
+2026-10-08T14:14:41.8252099Z   submodules: false
+2026-10-08T14:14:41.8252501Z   set-safe-directory: true
+2026-10-08T14:14:41.8252947Z   allow-unsafe-pr-checkout: false
+2026-10-08T14:14:41.8253624Z ##[endgroup]
+2026-10-08T14:14:41.9246724Z Syncing repository: Jacob-Met/ledgerly
+2026-10-08T14:14:41.9249672Z ##[group]Getting Git version info
+2026-10-08T14:14:41.9251001Z Working directory is '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T14:14:41.9253032Z [command]/usr/bin/git version
+2026-10-08T14:14:41.9293501Z git version 2.55.0
+2026-10-08T14:14:41.9312777Z ##[endgroup]
+2026-10-08T14:14:41.9326701Z Temporarily overriding HOME='/home/runner/work/_temp/7ebaeb63-1ae2-4578-84c2-d77a6dadc558' before making global git config changes
+2026-10-08T14:14:41.9329290Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T14:14:41.9331707Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:14:41.9383214Z Deleting the contents of '/home/runner/work/ledgerly/ledgerly'
+2026-10-08T14:14:41.9390744Z ##[group]Initializing the repository
+2026-10-08T14:14:41.9394908Z [command]/usr/bin/git init /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:14:41.9467175Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T14:14:41.9469117Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T14:14:41.9470785Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T14:14:41.9472519Z hint: call:
+2026-10-08T14:14:41.9473387Z hint:
+2026-10-08T14:14:41.9474563Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T14:14:41.9475781Z hint:
+2026-10-08T14:14:41.9476875Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T14:14:41.9479590Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T14:14:41.9481068Z hint:
+2026-10-08T14:14:41.9481840Z hint: 	git branch -m <name>
+2026-10-08T14:14:41.9482412Z hint:
+2026-10-08T14:14:41.9483808Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T14:14:41.9485845Z Initialized empty Git repository in /home/runner/work/ledgerly/ledgerly/.git/
+2026-10-08T14:14:41.9489063Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/ledgerly
+2026-10-08T14:14:41.9518004Z ##[endgroup]
+2026-10-08T14:14:41.9519329Z ##[group]Disabling automatic garbage collection
+2026-10-08T14:14:41.9523007Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T14:14:41.9550485Z ##[endgroup]
+2026-10-08T14:14:41.9551843Z ##[group]Setting up auth
+2026-10-08T14:14:41.9558245Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T14:14:41.9585496Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T14:14:41.9886383Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T14:14:41.9918241Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T14:14:42.0109939Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T14:14:42.0145090Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T14:14:42.0325646Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T14:14:42.0360014Z ##[endgroup]
+2026-10-08T14:14:42.0361358Z ##[group]Fetching the repository
+2026-10-08T14:14:42.0370955Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0b7ae08a5ff7838ea20471c595d93e71cc50a40d:refs/remotes/pull/35/merge
+2026-10-08T14:14:43.1664910Z From https://github.com/Jacob-Met/ledgerly
+2026-10-08T14:14:43.1666745Z  * [new ref]         0b7ae08a5ff7838ea20471c595d93e71cc50a40d -> pull/35/merge
+2026-10-08T14:14:43.1670894Z ##[endgroup]
+2026-10-08T14:14:43.1672433Z ##[group]Determining the checkout info
+2026-10-08T14:14:43.1674416Z ##[endgroup]
+2026-10-08T14:14:43.1679778Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T14:14:43.1727235Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T14:14:43.1758021Z ##[group]Checking out the ref
+2026-10-08T14:14:43.1762089Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/35/merge
+2026-10-08T14:14:43.2126180Z Note: switching to 'refs/remotes/pull/35/merge'.
+2026-10-08T14:14:43.2127927Z 
+2026-10-08T14:14:43.2129214Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T14:14:43.2131237Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T14:14:43.2133450Z state without impacting any branches by switching back to a branch.
+2026-10-08T14:14:43.2134861Z 
+2026-10-08T14:14:43.2135625Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T14:14:43.2137335Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T14:14:43.2138467Z 
+2026-10-08T14:14:43.2139101Z   git switch -c <new-branch-name>
+2026-10-08T14:14:43.2139783Z 
+2026-10-08T14:14:43.2140198Z Or undo this operation with:
+2026-10-08T14:14:43.2141079Z 
+2026-10-08T14:14:43.2141446Z   git switch -
+2026-10-08T14:14:43.2141962Z 
+2026-10-08T14:14:43.2142854Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T14:14:43.2144266Z 
+2026-10-08T14:14:43.2145872Z HEAD is now at 0b7ae08 Merge 1380c1bc00b4f0a481e35fe7467362c0bd7dfb4e into f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac
+2026-10-08T14:14:43.2150115Z ##[endgroup]
+2026-10-08T14:14:43.2175833Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T14:14:43.2197874Z 0b7ae08a5ff7838ea20471c595d93e71cc50a40d
+2026-10-08T14:14:43.2570926Z ##[group]Run actions/setup-python@v5
+2026-10-08T14:14:43.2572212Z with:
+2026-10-08T14:14:43.2573128Z   python-version: 3.12
+2026-10-08T14:14:43.2574503Z   check-latest: false
+2026-10-08T14:14:43.2584455Z   token: ***
+2026-10-08T14:14:43.2585415Z   update-environment: true
+2026-10-08T14:14:43.2586526Z   allow-prereleases: false
+2026-10-08T14:14:43.2587642Z   freethreaded: false
+2026-10-08T14:14:43.2588625Z ##[endgroup]
+2026-10-08T14:14:43.3913964Z ##[group]Installed versions
+2026-10-08T14:14:43.3987532Z (node:2223) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T14:14:43.3991129Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T14:14:43.3992832Z Successfully set up CPython (3.12.14)
+2026-10-08T14:14:43.3994896Z ##[endgroup]
+2026-10-08T14:14:43.4268939Z ##[group]Run python -m pip install pytest
+2026-10-08T14:14:43.4271346Z [36;1mpython -m pip install pytest[0m
+2026-10-08T14:14:43.4495381Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:14:43.4496522Z env:
+2026-10-08T14:14:43.4497600Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:43.4499394Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-08T14:14:43.4501183Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:43.4502807Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:43.4504642Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:43.4506318Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-08T14:14:43.4507726Z ##[endgroup]
+2026-10-08T14:14:44.3091084Z Collecting pytest
+2026-10-08T14:14:44.3673674Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-10-08T14:14:44.3854582Z Collecting iniconfig>=1.0.1 (from pytest)
+2026-10-08T14:14:44.3888507Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-10-08T14:14:44.4090554Z Collecting packaging>=22 (from pytest)
+2026-10-08T14:14:44.4124238Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-08T14:14:44.4299956Z Collecting pluggy<2,>=1.5 (from pytest)
+2026-10-08T14:14:44.4336548Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-10-08T14:14:44.4573915Z Collecting pygments>=2.7.2 (from pytest)
+2026-10-08T14:14:44.4605642Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-10-08T14:14:44.4678923Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-10-08T14:14:44.4887474Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-10-08T14:14:44.4966172Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-10-08T14:14:44.5013141Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-08T14:14:44.5099287Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-10-08T14:14:44.5306878Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 66.1 MB/s  0:00:00
+2026-10-08T14:14:44.5796787Z Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest
+2026-10-08T14:14:45.5390750Z 
+2026-10-08T14:14:45.5402733Z Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1
+2026-10-08T14:14:45.5958846Z ##[group]Run python -m pytest -q
+2026-10-08T14:14:45.5959183Z [36;1mpython -m pytest -q[0m
+2026-10-08T14:14:45.6001305Z shell: /usr/bin/bash -e {0}
+2026-10-08T14:14:45.6001580Z env:
+2026-10-08T14:14:45.6001859Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:45.6002479Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-10-08T14:14:45.6002897Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:45.6003289Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:45.6003670Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-10-08T14:14:45.6004254Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-10-08T14:14:45.6004608Z ##[endgroup]
+2026-10-08T14:14:46.5211968Z ................................................................... [ 34%]
+2026-10-08T14:14:46.5631461Z ........................................ [ 55%]
+2026-10-08T14:14:46.6640447Z .............................................. [ 79%]
+2026-10-08T14:14:46.7625878Z ........................................                                 [100%]
+2026-10-08T14:14:46.7626839Z 193 passed, 63 subtests passed in 0.88s
+2026-10-08T14:14:46.8048445Z Post job cleanup.
+2026-10-08T14:14:46.9239581Z (node:2264) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T14:14:46.9240256Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T14:14:46.9447181Z Post job cleanup.
+2026-10-08T14:14:47.0283577Z [command]/usr/bin/git version
+2026-10-08T14:14:47.0321738Z git version 2.55.0
+2026-10-08T14:14:47.0363380Z Temporarily overriding HOME='/home/runner/work/_temp/a30c3f57-89a5-438a-9edf-1f2020783508' before making global git config changes
+2026-10-08T14:14:47.0365155Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T14:14:47.0366359Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ledgerly/ledgerly
+2026-10-08T14:14:47.0398154Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T14:14:47.0430034Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T14:14:47.0633546Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T14:14:47.0659632Z http.https://github.com/.extraheader
+2026-10-08T14:14:47.0671134Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T14:14:47.0702821Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T14:14:47.0906867Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T14:14:47.0936781Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T14:14:47.1341474Z Cleaning up orphan processes
+2026-10-08T14:14:47.1640567Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
