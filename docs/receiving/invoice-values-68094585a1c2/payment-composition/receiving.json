@@ -1,0 +1,235 @@
+{
+  "recorded_at": "2026-10-08T14:55:43.420Z",
+  "repository": "Jacob-Met/ledgerly",
+  "source_head": "2fcac3e126ee929611f852a5308ed9f37a56125b",
+  "source_tree": "13cc504abceccac29eab0b490dbe494e9ba53816",
+  "current_parent": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+  "production_files_unchanged": true,
+  "candidate_test": {
+    "path": "tests/test_sandbox_payment_admission.py",
+    "git_blob": "2a07e56f5a2a4dca4584edfd60bc4b6b877491d0",
+    "sha256": "76c2565d016bcf195c809ea462c63dfff5fad12525793e779628efee68fbf225"
+  },
+  "failed_hosted_gate": {
+    "run": 37793236971,
+    "checkout": "9b1fdce2eb4b66a35ef342b02ccc5f5ce7238228",
+    "python_job": 113365865707,
+    "result": "295 passed, 114 subtests passed; one failure in the original rounded invoice test setup",
+    "log": "failed-hosted-native.log",
+    "sha256": "08f3eccd4d5725ab2b2d9cb8819edb5111a12a0566e9b6e56a28bf891f518473",
+    "browser_job": 113365866095,
+    "browser_result": "76 frontend tests, audit/build, seven Chrome control groups and eight real downloads passed on that original composition"
+  },
+  "original_test": {
+    "path": "original-test.py",
+    "git_blob": "214cbf0b692e088c0cc34684024bfaef9865e18d",
+    "sha256": "7f971cc281485417f83eed9f48db55b420b06287aee4966092252f61b489cedf"
+  },
+  "contract": "PR19 refuses new fractional currency-unit line totals before allocation. Existing provider invoices may retain historical rounded totals. The payment regression now seeds that retained provider record with the current native _recalc and _refresh_invoice paths; every original downstream refusal, partial payment, full settlement and 0.02 total assertion remains byte-exact. A separate test asserts amount-field review with no mock requests, invoices, sequence allocation, ledger or pending approvals.",
+  "source_receiving": {
+    "root_and_independent_source_acceptance": "Exact candidate2a07e56f accepted; every other original method and entire payment assertion tail unchanged",
+    "proof": {
+      "original_blob": "214cbf0b692e088c0cc34684024bfaef9865e18d",
+      "candidate_blob": "2a07e56f5a2a4dca4584edfd60bc4b6b877491d0",
+      "candidate_sha256": "76c2565d016bcf195c809ea462c63dfff5fad12525793e779628efee68fbf225",
+      "bytes": 16289,
+      "only_replaced_block": {
+        "original": "    def test_rounded_invoice_total_remains_payable_after_repeated_input_refusals(self):\n        # Independent receiving found that trapping every Inexact signal also\n        # rejected the invoice's existing, legitimate total-rounding rule.\n        text = (ROOT / \"fixtures/02_gbp_proofreading.txt\").read_text()\n        text = text.replace(\"18 hours @ £40/hr\", \"1.5 hours @ £0.01/hr\")\n        text = text.replace(\"Style sheet preparation: 2 hrs @ £40/hr\\n\", \"\")\n        demo, invoice_id = self.approved_demo(text=text)\n        invoice = demo.mock.invoices[invoice_id]\n",
+        "candidate": "    def test_subunit_line_total_reaches_review_before_draft_allocation(self):\n        text = (ROOT / \"fixtures/02_gbp_proofreading.txt\").read_text()\n        text = text.replace(\"18 hours @ £40/hr\", \"1.5 hours @ £0.01/hr\")\n        text = text.replace(\"Style sheet preparation: 2 hrs @ £40/hr\\n\", \"\")\n        demo = bridge.Demo()\n        refused = demo.agent.tool_create_invoice(text)\n        self.assertFalse(refused[\"ok\"], refused)\n        self.assertTrue(refused[\"needs_review\"], refused)\n        self.assertTrue(any(issue[\"field\"] == \"line_items[0].amount\"\n                            for issue in refused[\"issues\"]), refused)\n        self.assertEqual(demo.mock.requests, [])\n        self.assertEqual(demo.mock.invoices, {})\n        self.assertEqual(demo.mock._seq, 0)\n        self.assertEqual(demo.agent.ledger, {})\n        self.assertEqual(demo.agent.pending, {})\n\n    def test_rounded_invoice_total_remains_payable_after_repeated_input_refusals(self):\n        # Receive an existing provider record with historical line-total rounding.\n        # New Ledgerly drafts now require exact line amounts; that separate gate\n        # must not weaken this payment regression's fractional-total fixture.\n        demo, invoice_id = self.approved_demo()\n        invoice = demo.mock.invoices[invoice_id]\n        invoice[\"items\"] = invoice[\"items\"][:1]\n        invoice[\"items\"][0][\"quantity\"] = \"1.5\"\n        invoice[\"items\"][0][\"unit_amount\"][\"value\"] = \"0.01\"\n        demo.mock._recalc(invoice)\n        demo.agent._refresh_invoice(invoice_id)\n"
+      },
+      "all_other_original_test_bytes_exact": true,
+      "downstream_payment_assertions_exact": true
+    }
+  },
+  "local_initial_attempt": {
+    "started_at": "2026-10-08T14:50:44.312Z",
+    "finished_at": "2026-10-08T14:50:44.604Z",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "python_version": "Python 3.12.14",
+    "args": [
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/publishing/current-b9-composition/native-receiving",
+    "exit_code": 1,
+    "source_files_unchanged": 22,
+    "source_freeze_sha256": "75e3e2ddaa2e95858c6430d7b961d24b1531f63f97279edcf4c649fab879b20e",
+    "output_sha256": "e74c9d335952b180fc00817e8fc7052d7be9697ceed626da5f6f86611497367e",
+    "prior_runner_attempt": {
+      "command": "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python -B -m pytest -p no:cacheprovider -q tests/test_sandbox_payment_admission.py tests/test_invoice_quantity_receiving.py tests/test_webhook_approval_composition.py",
+      "exit_code": 127,
+      "outcome": "Previously borrowed isolated pytest runtime path no longer exists; no test executed. Primary CPython 3.12.14 remains present; its standard-library unittest runs the unchanged unittest controls without installing a replacement dependency."
+    }
+  },
+  "local_initial_output": "test_existing_next_integer_review (test_invoice_quantity_receiving.QuantityReceiving.test_existing_next_integer_review) ... ok\ntest_oversized_approximate_range_lower_requires_review (test_invoice_quantity_receiving.QuantityReceiving.test_oversized_approximate_range_lower_requires_review) ... ok\ntest_oversized_approximate_requires_review (test_invoice_quantity_receiving.QuantityReceiving.test_oversized_approximate_requires_review) ... ok\ntest_oversized_plain_requires_review (test_invoice_quantity_receiving.QuantityReceiving.test_oversized_plain_requires_review) ... ok\ntest_oversized_range_lower_requires_review (test_invoice_quantity_receiving.QuantityReceiving.test_oversized_range_lower_requires_review) ... ok\ntest_valid_existing_approximate_and_range_warnings (test_invoice_quantity_receiving.QuantityReceiving.test_valid_existing_approximate_and_range_warnings) ... ok\ntest_valid_first_item_does_not_allocate_before_oversized_second (test_invoice_quantity_receiving.QuantityReceiving.test_valid_first_item_does_not_allocate_before_oversized_second) ... ok\ntest_valid_fraction (test_invoice_quantity_receiving.QuantityReceiving.test_valid_fraction) ... ok\ntest_valid_grouped_fraction (test_invoice_quantity_receiving.QuantityReceiving.test_valid_grouped_fraction) ... ok\ntest_valid_maximum (test_invoice_quantity_receiving.QuantityReceiving.test_valid_maximum) ... ok\ntest_approved_prior_deposit_still_uses_the_existing_gate (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_approved_prior_deposit_still_uses_the_existing_gate) ... ok\ntest_blank_null_and_absent_amount_keep_explicit_full_balance_behavior (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_blank_null_and_absent_amount_keep_explicit_full_balance_behavior) ... ok\ntest_currency_exact_partial_and_full_payments_preserve_existing_values (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_currency_exact_partial_and_full_payments_preserve_existing_values) ... ok\ntest_decimal_recalculation_failure_preserves_record_for_normal_context_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_decimal_recalculation_failure_preserves_record_for_normal_context_retry) ... ok\ntest_external_payment_uses_the_same_refusal_before_record_mutation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_external_payment_uses_the_same_refusal_before_record_mutation) ... ok\ntest_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_invalid_native_amounts_leave_invoice_unchanged_and_allow_same_instance_retry) ... ok\ntest_postcommit_webhook_read_failure_keeps_existing_replay_semantics (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_postcommit_webhook_read_failure_keeps_existing_replay_semantics) ... ok\ntest_recalculation_exception_preserves_record_and_valid_retry (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_recalculation_exception_preserves_record_and_valid_retry) ... ok\ntest_refusal_keeps_existing_webhook_and_pending_reminder_review (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_refusal_keeps_existing_webhook_and_pending_reminder_review) ... ok\ntest_rounded_invoice_total_remains_payable_after_repeated_input_refusals (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_rounded_invoice_total_remains_payable_after_repeated_input_refusals) ... ok\ntest_subunit_line_total_reaches_review_before_draft_allocation (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_subunit_line_total_reaches_review_before_draft_allocation) ... ok\ntest_supplied_zero_and_malformed_json_do_not_become_full_payments (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_supplied_zero_and_malformed_json_do_not_become_full_payments) ... ok\ntest_zero_decimal_currency_refuses_fraction_without_changing_the_invoice (test_sandbox_payment_admission.SandboxPaymentAdmissionTests.test_zero_decimal_currency_refuses_fraction_without_changing_the_invoice) ... ok\ntest_webhook_approval_composition (unittest.loader._FailedTest.test_webhook_approval_composition) ... ERROR\n\n======================================================================\nERROR: test_webhook_approval_composition (unittest.loader._FailedTest.test_webhook_approval_composition)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_webhook_approval_composition\nTraceback (most recent call last):\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/publishing/current-b9-composition/native-receiving/tests/test_webhook_approval_composition.py\", line 16, in <module>\n    import pytest\nModuleNotFoundError: No module named 'pytest'\n\n\n----------------------------------------------------------------------\nRan 24 tests in 0.083s\n\nFAILED (errors=1)\n",
+  "final_affected_native": {
+    "started_at": "2026-10-08T14:51:48.897Z",
+    "finished_at": "2026-10-08T14:51:49.122Z",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "version": "CPython 3.12.14",
+    "args": [
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_sandbox_payment_admission.py",
+      "-v"
+    ],
+    "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/publishing/current-b9-composition/native-receiving",
+    "exit_code": 0,
+    "source_files_unchanged": 22,
+    "log_sha256": "755e112f69ea9f31220258f8bf242a5b8d0e539be261e25c1e579ea2cfefc7af",
+    "candidate_test_sha256": "76c2565d016bcf195c809ea462c63dfff5fad12525793e779628efee68fbf225",
+    "reason": "Use the standard-library runner for this actual unittest module. The earlier broader invocation executed all ten quantity and thirteen payment methods successfully but could not import the separate pytest-dependent webhook receiver; that original output remains unchanged. Required hosted pytest still collects the entire repository."
+  },
+  "final_native_log": "native-payment-controls.log",
+  "selected_source_inputs": {
+    "source_head": "2fcac3e126ee929611f852a5308ed9f37a56125b",
+    "source_tree": "13cc504abceccac29eab0b490dbe494e9ba53816",
+    "only_candidate_test_blob": "2a07e56f5a2a4dca4584edfd60bc4b6b877491d0",
+    "selected_files": [
+      {
+        "path": "ledgerly/__init__.py",
+        "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+        "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+        "bytes": 119
+      },
+      {
+        "path": "ledgerly/agent.py",
+        "git_blob": "b44658de8399c065c7d60e9b412f6251b294987e",
+        "sha256": "eb1879983209892cf1f1f6916c83629759d7f4f25a126a0627f903fc642b200b",
+        "bytes": 32548
+      },
+      {
+        "path": "ledgerly/extract.py",
+        "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511",
+        "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+        "bytes": 35313
+      },
+      {
+        "path": "ledgerly/paypal.py",
+        "git_blob": "66f067204d357499b3f7010a946563a431d50aea",
+        "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+        "bytes": 26243
+      },
+      {
+        "path": "web-demo/python/bridge.py",
+        "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+        "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+        "bytes": 6627
+      },
+      {
+        "path": "web-demo/python/review.py",
+        "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+        "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+        "bytes": 4379
+      },
+      {
+        "path": "web-demo/python/invoice_details.py",
+        "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015",
+        "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+        "bytes": 1196
+      },
+      {
+        "path": "tests/test_invoice_quantity_receiving.py",
+        "git_blob": "1763409d3641e661a55de690d5426234bcb944da",
+        "sha256": "71397e3469884b745aeec9afdb8220bf6fc4d51ab2bdc2460d50a605c967094e",
+        "bytes": 7028
+      },
+      {
+        "path": "tests/test_webhook_approval_composition.py",
+        "git_blob": "48af934ad4ab2d1847873456840b5e43e17125de",
+        "sha256": "bc4cff333c3e61ce6658b0a5d505cfa70ebd4cf16ecab6a4f88e9a118d745ade",
+        "bytes": 7073
+      },
+      {
+        "path": "tests/test_sandbox_payment_admission.py",
+        "git_blob": "2a07e56f5a2a4dca4584edfd60bc4b6b877491d0",
+        "sha256": "76c2565d016bcf195c809ea462c63dfff5fad12525793e779628efee68fbf225",
+        "bytes": 16289
+      },
+      {
+        "path": "fixtures/01_simple_usd_hourly.txt",
+        "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+        "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+        "bytes": 282
+      },
+      {
+        "path": "fixtures/02_gbp_proofreading.txt",
+        "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+        "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+        "bytes": 293
+      },
+      {
+        "path": "fixtures/03_eur_fixed_project.txt",
+        "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+        "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+        "bytes": 265
+      },
+      {
+        "path": "fixtures/04_multi_currency.txt",
+        "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+        "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+        "bytes": 288
+      },
+      {
+        "path": "fixtures/05_missing_email.txt",
+        "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+        "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+        "bytes": 238
+      },
+      {
+        "path": "fixtures/06_ambiguous_qty.txt",
+        "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+        "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+        "bytes": 246
+      },
+      {
+        "path": "fixtures/07_partial_payment_deposit.txt",
+        "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+        "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+        "bytes": 319
+      },
+      {
+        "path": "fixtures/08_jpy_zero_decimal.txt",
+        "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+        "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+        "bytes": 271
+      },
+      {
+        "path": "fixtures/09_table_cad.txt",
+        "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+        "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+        "bytes": 380
+      },
+      {
+        "path": "fixtures/10_billing_address_net45.txt",
+        "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb",
+        "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+        "bytes": 330
+      },
+      {
+        "path": "fixtures/11_range_qty_approx.txt",
+        "git_blob": "a57623c866fec4554707e5c3ac35f40311792082",
+        "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+        "bytes": 239
+      },
+      {
+        "path": "fixtures/12_prompt_injection.txt",
+        "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b",
+        "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+        "bytes": 315
+      }
+    ]
+  },
+  "full_current_hosted_gate_pending": true,
+  "local_staging_limit": "Shared scratch space became full while saving the raw hosted log. Final publication data was composed in memory from exact existing input bytes; no input or owner cache was removed."
+}
