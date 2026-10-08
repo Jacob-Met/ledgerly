@@ -335,11 +335,14 @@ try{
     (await row(b,reminder.id)).result.reason.startsWith('auto:')&&await b.text(q+' [data-preview-reminder-note]')===reminder.payload.note
     &&(await b.text(q)).includes(reminder.payload.subject)&&(await b.state()).mock_requests===priorRequests,
     {recordedResult:(await row(b,reminder.id)).result});
-   await b.action('#run-chase');const finalReminder=(await b.state()).pending.find(x=>x.kind==='send_reminder');
+   await b.action('#run-chase');const beforeReminderApproval=await b.state();
+   const finalReminder=beforeReminderApproval.pending.find(x=>x.kind==='send_reminder');
    await b.action('[data-approve="'+finalReminder.id+'"]');q=await proposal(b,finalReminder,'APPROVED');
    await check('explicit reminder approval retains its separate identity',
     finalReminder.id!==reminder.id&&JSON.stringify((await row(b,finalReminder.id)).result)===JSON.stringify({reminded:true})
-    &&(await b.state()).pending.length===0);
+    &&JSON.stringify((await b.state()).pending)===JSON.stringify(beforeReminderApproval.pending.filter(x=>x.id!==finalReminder.id)),
+    {approvedId:finalReminder.id,priorRejectedId:reminder.id,
+     retainedPendingIds:(await b.state()).pending.map(x=>x.id)});
    await b.capture('desktop-completed-reviews.png','#completed-reviews-list');before=await b.state();count=await b.messages();
    await b.command('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:false});
    await b.capture('phone-completed-reminder.png',q);await b.capture('phone-literal-invoice.png',history(rejected.id));
@@ -377,8 +380,9 @@ try{
  await check('both browser contexts requested the exact staged Python modules',
   ['healthy','lost-response'].every(label=>Object.entries(pythonAssets).every(([asset,path])=>report.servedPython[label+':'+asset]===report.sourceFiles[path])));
  await check('page and Worker requests remained on loopback',report.offOrigin.length===0
-  &&['healthy','lost-response'].every(label=>report.attachedTargets.some(x=>x.phase===label&&x.type==='worker')
-   &&report.networkRequests.some(x=>x.phase===label&&x.url===origin+'/python/bridge.py')));
+  &&['healthy','lost-response'].every(label=>report.attachedTargets.some(target=>target.phase===label&&target.type==='worker'
+   &&report.networkRequests.some(request=>request.phase===label&&request.sessionId===target.sessionId
+    &&request.url===origin+'/python/bridge.py'))));
  await check('no uncaught page or Worker exceptions',report.pageErrors.length===0);
  await check('exactly one labeled fault bridge served',report.fault.bridgeServed===1);
  await check('both owned browsers exited and profiles were removed',report.cleanup?.length===2&&report.cleanup.every(x=>x.exitCode===0&&x.signal===null&&x.profileRemoved));report.ok=true;

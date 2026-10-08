@@ -1,0 +1,126 @@
+{
+  "schema": "ledgerly.history.hosted-attempt.v1",
+  "run_id": 37802895230,
+  "job_id": 113399442885,
+  "head": "b64ce4354f315d350475bc27eaa05765620a5f91",
+  "checkout": "62794d80c74d4298807ab63bd8cdef7dfc6a77c5",
+  "tree": "ad3d70eb55dbc0f1d536bb02c8af28bf2ad5b516",
+  "checkout_tree_matches_head": true,
+  "passed_checks": 12,
+  "failed_checks": 1,
+  "overall": "failed",
+  "diagnosis": "The receiving fixture produces separate EUR and USD draft invoices. Rejecting the reviewed EUR invoice leaves the USD invoice awaiting its own approval. The receiver incorrectly required the entire pending queue to be empty after approving a distinct reminder.",
+  "observed_completed": [
+    {
+      "id": "apv_c6e0a27fbb",
+      "kind": "send_reminder",
+      "status": "APPROVED",
+      "result": {
+        "reminded": true
+      }
+    },
+    {
+      "id": "apv_a2183454f1",
+      "kind": "send_reminder",
+      "status": "REJECTED",
+      "result": {
+        "reason": "auto: reminder facts or review date changed; draft a new reminder for review"
+      }
+    },
+    {
+      "id": "apv_7d6923b722",
+      "kind": "send_invoice",
+      "status": "REJECTED",
+      "result": {
+        "reason": "Rejected by the browser visitor"
+      }
+    },
+    {
+      "id": "apv_426d0d7867",
+      "kind": "send_invoice",
+      "status": "APPROVED",
+      "result": {
+        "payer_view": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-4584"
+      }
+    }
+  ],
+  "observed_remaining_pending": [
+    {
+      "id": "apv_dbaead65e0",
+      "kind": "send_invoice",
+      "invoice_id": "INV2-MOCK-0003-212A",
+      "status": "PENDING",
+      "currency": "USD"
+    }
+  ],
+  "correction": "Require that the approved reminder has its distinct retained identity/result and is the only removed pending entry; preserve every unrelated pending action exactly.",
+  "application_inputs_changed": false,
+  "worker_network_review": "The actual bridge Network request session matches the attached Worker in this receipt. The successor gate explicitly correlates session IDs in both phases.",
+  "sourceUnchanged": true,
+  "distUnchanged": true,
+  "cleanup": [
+    {
+      "phase": "healthy",
+      "pid": 2811,
+      "requestedClose": true,
+      "fallbackSignals": [],
+      "profileRemoved": true,
+      "exitCode": 0,
+      "signal": null
+    }
+  ],
+  "visual_review": {
+    "file": "healthy-failure.png",
+    "sha256": "5d1f19c2b5506f890d28de20ab02f38d769fefc922907165a8563f77c0e167ae",
+    "result": "Read-only image inspection shows separate approved and auto-rejected reminders, original messages, visible recorded reasons and literal escaped invoice fields. This does not change the failed overall result."
+  },
+  "transport": {
+    "method": "Bounded normal GitHub job-log chunks",
+    "files": [
+      {
+        "name": "browser.json",
+        "bytes": 18135,
+        "sha256": "ceb86e164665dca0e102197fd69a7a2cda97ca311f4e2c5e4b1fc208907d735d",
+        "git_blob": "7e06af3ceed0f3f8aa6e972ec0d8c82721e021eb",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-chromium.log",
+        "bytes": 4527,
+        "sha256": "3cc774086a2648a0e0271a18430b1de5ec01a5acac437b6a8c53d784f80cc126",
+        "git_blob": "5891ad274a042925c2ca7549f9d663d6e5a9de59",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-failure.png",
+        "bytes": 181436,
+        "sha256": "5d1f19c2b5506f890d28de20ab02f38d769fefc922907165a8563f77c0e167ae",
+        "git_blob": "f6f752452c15084ddfbb9b2a69238b92dc94bb46",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-worker-observation.json",
+        "bytes": 224550,
+        "sha256": "c07366750a5dcb9bb81db65cb4da0dd174a31cae9daf11ad5d6490c944addcd5",
+        "git_blob": "bd1455cf64e6fbf6e18f648207ca53702c546c2d",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "lost-response-suffix.py",
+        "bytes": 817,
+        "sha256": "65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c",
+        "git_blob": "4c8eb59cb941f6fec85b9c692970fa2cff644544",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "source-binding.json",
+        "bytes": 7671,
+        "sha256": "7082182e59066a0456ef75f39b78e285cef97dca4bc9b46435124f0b38e70748",
+        "git_blob": "8de2fc159dae8c1cab9586846114537dfcb5da89",
+        "verifiedReturnedGitBlob": true
+      }
+    ],
+    "validation": "All ordered chunks and decoded byte lengths checked; GitHub returned each exact producer-declared Git blob ID. Producer-reported SHA256 fields are preserved.",
+    "raw_bytes": 437136
+  }
+}
