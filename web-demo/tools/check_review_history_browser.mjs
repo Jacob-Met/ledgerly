@@ -43,6 +43,7 @@ const report={format:'ledgerly-completed-review-receiving/1',startedAt:new Date(
  'Actual Worker construction, requests, and Python replies remain in use.',
  'Page requests use Fetch interception. Worker requests use Network observation; served worker scripts enforce connect-src self through CSP.',
  'The failure context serves exact bridge bytes plus the recorded receiving-only suffix.',
+ 'The receiver hides page scrollbars through Emulation before navigation; product styles and source remain unchanged.',
  'Unavailability is an authored ErrorEvent on the actual Worker, not a spontaneous crash.'],ok:false};
 for(const row of binding.files){
  const bytes=await readFile(join(source,row.path));
@@ -156,13 +157,15 @@ class Browser{
  async count(selector){return this.evaluate('document.querySelectorAll('+JSON.stringify(selector)+').length');}
  async visible(selector){return this.evaluate('(()=>{const e=document.querySelector('+JSON.stringify(selector)+');if(!e)return false;const r=e.getBoundingClientRect();return e.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight;})()');}
  async capture(name,selector){
-  const geometry=await this.evaluate('(async()=>{await document.fonts.ready;const e=document.querySelector('+JSON.stringify(selector)+');e.scrollIntoView({behavior:"instant",block:"start",inline:"nearest"});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const r=e.getBoundingClientRect();return {clip:{x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height,scale:1},viewport:{width:innerWidth,height:innerHeight,scrollX,scrollY},firstText:e.textContent.trim().slice(0,160)};})()');
+  const geometry=await this.evaluate('(async()=>{await document.fonts.ready;const e=document.querySelector('+JSON.stringify(selector)+');e.scrollIntoView({behavior:"instant",block:"start",inline:"nearest"});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const r=e.getBoundingClientRect();return {clip:{x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height,scale:1},viewport:{width:innerWidth,height:innerHeight,clientWidth:document.documentElement.clientWidth,scrollX,scrollY},viewportRect:{x:r.left,y:r.top,width:r.width,height:r.height},firstText:e.textContent.trim().slice(0,160)};})()');
   const {data}=await this.command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:geometry.clip});
   const after=await this.evaluate('(()=>{const r=document.querySelector('+JSON.stringify(selector)+').getBoundingClientRect();return {x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height};})()');
   const stableGeometry=['x','y','width','height'].every(key=>Math.abs(after[key]-geometry.clip[key])<1);
   const bytes=Buffer.from(data,'base64');await writeFile(join(output,name),bytes,{flag:'wx'});
-  report.screenshots.push({path:name,bytes:bytes.length,sha256:sha(bytes),geometry,after,stableGeometry});
-  assert.ok(stableGeometry,'capture target geometry remained stable: '+name);
+  const png={width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20)};
+  const dimensionsMatch=Math.abs(png.width-geometry.clip.width)<=1&&Math.abs(png.height-geometry.clip.height)<=1;
+  report.screenshots.push({path:name,bytes:bytes.length,sha256:sha(bytes),geometry,after,stableGeometry,png,dimensionsMatch});
+  assert.ok(stableGeometry&&dimensionsMatch,'capture target geometry and PNG dimensions remained stable: '+name);
  }
  async launch(){
   this.profile=await mkdtemp(join(output,'profile-'+this.label+'-'));
@@ -215,6 +218,8 @@ class Browser{
   this.session=(await this.command('Target.attachToTarget',{targetId,flatten:true},null)).sessionId;
   for(const method of ['Page.enable','Runtime.enable','Network.enable'])await this.command(method);
   await this.command('Fetch.enable',{patterns:[{urlPattern:'*'}]});
+  // Keep the captured document width stable before any navigation or screenshot.
+  await this.command('Emulation.setScrollbarsHidden',{hidden:true});
   await this.command('Target.setAutoAttach',{autoAttach:true,waitForDebuggerOnStart:true,flatten:true});
   await this.command('Page.addScriptToEvaluateOnNewDocument',{source:observer});
   await this.command('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
