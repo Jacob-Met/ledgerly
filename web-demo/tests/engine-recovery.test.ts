@@ -10,6 +10,7 @@ import {approvalListMarkup} from '../src/approval-preview';
 import {createInvoiceDetailsView} from '../src/invoice-details';
 import {createInvoiceRecordDownloads} from '../src/invoice-record';
 import {createReceivablesView} from '../src/receivables';
+import {createRejectionReasons} from '../src/rejection-reason';
 import {readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup} from '../src/review';
 
 const sourceRoot = process.env.LEDGERLY_RECOVERY_SOURCE_ROOT || path.resolve(process.cwd(), 'src');
@@ -99,7 +100,7 @@ function app() {
     }),
   };
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView});
+    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;

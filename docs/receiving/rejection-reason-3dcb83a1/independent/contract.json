@@ -1,0 +1,23 @@
+{
+  "created": "2026-10-08 16:32:02 UTC",
+  "objective": "Receive optional Ledgerly rejection reasons through the actual public bridge.handle_json boundary.",
+  "originalBase": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "originalBridge": {
+    "git": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+    "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0"
+  },
+  "candidateBridge": {
+    "git": "c0f4f95ec193b55c1ad10cc59d980e4dfb4d0858",
+    "sha256": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81"
+  },
+  "cases": [
+    "With at least two actual pending actions, a supplied stale/nonexistent identity cannot reject a different action or write the supplied literal reason to another action.",
+    "Reject the selected pending action with a nonblank reason containing literal whitespace, quotes, line breaks and Unicode. The returned reason and existing Agent event/audit must contain that same string; the other action remains pending and keeps its own identity.",
+    "Replaying that already-rejected identity with a different reason must refuse without replacing its original audit/reason or consuming another pending action.",
+    "Reject the remaining action through the backward-compatible omitted-reason request and retain its documented default without carrying the earlier action's reason."
+  ],
+  "defaultReason": "Rejected by the browser visitor",
+  "whitespaceContract": "Missing, empty or Python str.strip-empty reason uses default. Nonblank exact text retained. Non-string or more than500 Python Unicode code points rejected before Agent.reject.",
+  "execution": "Python3.14 public bridge.handle_json(JSON) with actual Demo/Agent/SandboxMock, separate fresh import/process per original/candidate. No core, provider, browser or source mutations; no broad suite.",
+  "declaredLimits": "Not a full UI receipt or hosted/release integration gate. Every source pin and actual effect observation is retained."
+}
