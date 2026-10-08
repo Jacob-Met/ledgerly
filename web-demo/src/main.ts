@@ -1,16 +1,37 @@
 import './style.css';
 import './review.css';
 import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
-type Reply={id?:number;type?:string;ok:boolean;data?:any;error?:string};
+import {WorkerClient, WorkerUnavailableError} from './worker-client';
 const $=<T extends HTMLElement>(selector:string)=>document.querySelector(selector) as T;
 const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
-const worker=new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'});
-let nextId=0,ready=false,busy=false,analysisResult:any=null;
+const worker=new WorkerClient(()=>new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'}),{
+ ready:()=>status('Python loaded locally. No external service is connected.','ready'),
+ unavailable:engineUnavailable,
+});
+let ready=false,busy=false,analysisResult:any=null,needsFreshSandbox=false,reviewNeedsAnalysis=false;
 let reviewId:string|null=null,reviewEngaged=false,canReplay=false,rawDraftUsed=false;
-const waiting=new Map<number,{resolve:(value:any)=>void;reject:(error:Error)=>void}>();
 function status(text:string,kind='info'){$<HTMLElement>('#status-message').textContent=text;$<HTMLElement>('#status-message').dataset.kind=kind;}
-function call(action:string,payload:Record<string,unknown>={}){return new Promise<any>((resolve,reject)=>{const id=++nextId;waiting.set(id,{resolve,reject});worker.postMessage({id,action,payload});});}
-worker.addEventListener('message',(event:MessageEvent<Reply>)=>{const m=event.data;if(m.type==='ready'){status('Python loaded locally. No external service is connected.','ready');return;}const task=waiting.get(m.id||0);if(!task)return;waiting.delete(m.id||0);m.ok?task.resolve(m.data):task.reject(new Error(m.error||'Worker failed'));});
+function call(action:string,payload:Record<string,unknown>={}){return worker.call(action,payload);}
+function recoveryMessage(error:WorkerUnavailableError){return `${error.message} The in-memory sandbox is unavailable. Restart opens an empty sandbox. Your source email and correction fields stay here; no action will be replayed.`;}
+function engineUnavailable(error:WorkerUnavailableError){
+ const form=$<HTMLFormElement>('#review-form');
+ needsFreshSandbox=true;reviewNeedsAnalysis=Boolean(form);reviewId=null;canReplay=false;rawDraftUsed=false;
+ if(form){
+  reviewEngaged=true;
+  $<HTMLInputElement>('#review-confirm').checked=false;
+  $<HTMLElement>('#review-result').textContent='The previous Python session ended. Your edits are retained; after restart, confirm and check them again.';
+ }else{analysisResult=null;reviewEngaged=false;}
+ setControls(false);
+ for(const id of ['approval-list','ledger-list'])$<HTMLElement>(`#${id}`).setAttribute('aria-disabled','true');
+ const start=$<HTMLButtonElement>('#engine-start');start.disabled=false;start.textContent='Restart empty sandbox';
+ $<HTMLElement>('#engine-status').textContent='PYTHON UNAVAILABLE';$<HTMLElement>('#engine-dot').classList.remove('ready');
+ $<HTMLElement>('#engine-note').textContent='The last displayed ledger is inactive. Restart creates an empty sandbox and keeps your source email and correction fields. No interrupted action is replayed.';
+ const panel=$<HTMLElement>('#analysis');
+ if(!form)panel.innerHTML='<p id="engine-recovery-analysis" class="empty"></p>';
+ else if(!$<HTMLElement>('#engine-recovery-analysis'))panel.insertAdjacentHTML('afterbegin','<p id="engine-recovery-analysis" class="empty"></p>');
+ $<HTMLElement>('#engine-recovery-analysis').textContent=form?'The Python session is unavailable. Your corrections are retained. Restart, then confirm and check them again.':'The Python session is unavailable. Your source email is still here. Restart, then analyze it again.';
+ status(recoveryMessage(error),'error');
+}
 function analysisBlocked(ex:any){return !ex||ex.issues?.some((x:any)=>x.severity==='error')||(ex.confidence||0)<0.5||!ex.line_items?.length;}
 function syncControls(){
  const enabled=ready&&!busy;
@@ -24,7 +45,7 @@ function syncControls(){
 }
 function setControls(enabled:boolean){ready=enabled;syncControls();}
 function invalidateAnalysis(message:string){
- analysisResult=null;reviewId=null;reviewEngaged=false;rawDraftUsed=false;
+ analysisResult=null;reviewId=null;reviewEngaged=false;rawDraftUsed=false;reviewNeedsAnalysis=false;
  $<HTMLElement>('#analysis').innerHTML=`<p class="empty">${esc(message)}</p>`;syncControls();
 }
 function markReviewDirty(message='Fields changed. Confirm your review and check them again.'){
@@ -59,10 +80,25 @@ async function runAction(name:string,payload:Record<string,unknown>={}){
   if(!reply.ok){status(reply.message||reply.error||'The sandbox action failed.','error');return reply;}
   if(reply.result?.message)status(reply.result.message,'ready');else if(reply.result?.final)status(reply.result.final,'ready');
   return reply;
- }catch(error){status(String(error),'error');return null;}
+ }catch(error){status(error instanceof WorkerUnavailableError?recoveryMessage(error):String(error),'error');return null;}
  finally{busy=false;syncControls();}
 }
-$('#engine-start').addEventListener('click',async()=>{const b=$<HTMLButtonElement>('#engine-start');b.disabled=true;status('Loading local Python and Ledgerly source...','loading');const reply=await runAction('init');if(reply?.ok){setControls(true);b.textContent='Python engine loaded';$<HTMLElement>('#engine-status').textContent='PYTHON READY / OFFLINE';$<HTMLElement>('#engine-dot').classList.add('ready');status('Local sandbox ready. No external service is connected.','ready');}else{b.disabled=false;}});
+$('#engine-start').addEventListener('click',async()=>{
+ const b=$<HTMLButtonElement>('#engine-start'),restarting=needsFreshSandbox;b.disabled=true;
+ status('Loading local Python and Ledgerly source...','loading');const reply=await runAction('init');
+ if(reply?.ok){
+  needsFreshSandbox=false;setControls(true);b.textContent='Python engine loaded';
+  $<HTMLElement>('#engine-status').textContent='PYTHON READY / OFFLINE';$<HTMLElement>('#engine-dot').classList.add('ready');
+  $<HTMLElement>('#engine-note').textContent='The sandbox stays in this tab. Close or reset it to discard its ledger.';
+  const recovery=$<HTMLElement>('#engine-recovery-analysis');
+  if(restarting&&recovery)recovery.textContent=reviewNeedsAnalysis?'New empty sandbox ready. Your corrections are retained; confirm and check them again.':'New empty sandbox ready. Analyze the retained source email again.';
+  for(const id of ['approval-list','ledger-list'])$<HTMLElement>(`#${id}`).removeAttribute('aria-disabled');
+  status(restarting?'New empty sandbox ready. Your source email and correction fields are preserved.':'Local sandbox ready. No external service is connected.','ready');
+ }else{
+  b.disabled=false;b.textContent=needsFreshSandbox?'Restart empty sandbox':'Retry loading engine';
+  if(!needsFreshSandbox)$<HTMLElement>('#engine-note').textContent='Loading did not finish. Retry loading the engine when the runtime files are available. Your source email is preserved.';
+ }
+});
 $('#load-fixture').addEventListener('click',async()=>{
  if(!ready||busy)return;busy=true;syncControls();
  try{const name=$<HTMLSelectElement>('#fixture-select').value;const r=await fetch(new URL(`fixtures/${name}`,new URL('./',window.location.href)));if(!r.ok)throw new Error(`Fixture HTTP ${r.status}`);$<HTMLTextAreaElement>('#job-email').value=await r.text();invalidateAnalysis('Fictional input loaded. Analyze it to review and correct its fields.');status('Fictional input loaded. Analyze it with the real Python rules.','ready');}
@@ -94,9 +130,15 @@ $('#analysis').addEventListener('submit',async(event)=>{
  const form=event.target as HTMLFormElement;if(form.id!=='review-form')return;event.preventDefault();
  if(busy||!$<HTMLInputElement>('#review-confirm').checked)return;
  reviewEngaged=true;reviewId=null;syncControls();
- const result=$<HTMLElement>('#review-result');result.textContent='Checking the corrected fields with Python...';
- const reply=await runAction('review',{text:$<HTMLTextAreaElement>('#job-email').value,fields:readReviewFields(form),confirmed:true});
- if(reply?.ok){reviewId=reply.result.valid?reply.result.review_id:null;result.innerHTML=reviewResultMarkup(reply.result);}
+ const result=$<HTMLElement>('#review-result'),text=$<HTMLTextAreaElement>('#job-email').value,fields=readReviewFields(form);
+ result.textContent='Checking the corrected fields with Python...';
+ if(reviewNeedsAnalysis){
+  const analyzed=await runAction('analyze',{text});
+  if(!analyzed?.ok){result.textContent='The source could not be checked in the new sandbox. Your edits remain here.';return;}
+  analysisResult=analyzed.result;reviewNeedsAnalysis=false;
+ }
+ const reply=await runAction('review',{text,fields,confirmed:true});
+ if(reply?.ok){reviewId=reply.result.valid?reply.result.review_id:null;result.innerHTML=reviewResultMarkup(reply.result);if(reply.result.valid)$<HTMLElement>('#engine-recovery-analysis')?.remove();}
  else result.textContent=reply?.message||'The fields could not be checked. Your edits are still here.';
  syncControls();
 });
@@ -118,4 +160,3 @@ $('#advance-clock').addEventListener('click',async()=>{const day=$<HTMLInputElem
 $('#run-chase').addEventListener('click',async()=>{status('Running the overdue scan and reminder rules...','loading');await runAction('chase');});
 $('#replay-webhook').addEventListener('click',async()=>{const reply=await runAction('replay');if(reply?.ok)status(reply.result.duplicate?'Duplicate webhook safely ignored by Ledgerly.':'Webhook processed.','ready');});
 $('#reset-sandbox').addEventListener('click',async()=>{if(busy||!confirm('Discard the in-memory ledger and clear the pasted email?'))return;const reply=await runAction('reset');if(reply?.ok){$<HTMLTextAreaElement>('#job-email').value='';invalidateAnalysis('Sandbox reset. Load a fixture or paste a new email.');$<HTMLInputElement>('#payment-amount').value='';status('Sandbox reset. No records were persisted.','ready');}});
-worker.addEventListener('error',(event)=>status(`Python worker failed: ${event.message}`,'error'));

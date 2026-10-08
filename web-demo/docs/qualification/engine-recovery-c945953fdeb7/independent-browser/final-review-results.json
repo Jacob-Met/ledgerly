@@ -1,0 +1,206 @@
+{
+  "expectation": "candidate",
+  "selectedCase": "retained-review-recovery",
+  "browserVersion": "Chrome/154.0.8037.98",
+  "dist": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/dist",
+  "appEntry": "index-CjlcxCVy.js",
+  "appSha256": "366d982ca9053e42f67162896f30d9cf0d36d8a22e25f66ae0cf4e801d811f18",
+  "appUnchanged": true,
+  "workerEntry": "engine.worker-x2BNq2jZ.js",
+  "workerSha256": "d72ef16b79626487e65308cba5df9c448604d00e070e6ca5ac880b807a38cfb3",
+  "scriptSha256": "88506aa2039dfee1165e6ee3bb49c425ba7da6ad3fb7655f8a7da60db3b9c13c",
+  "cases": [
+    {
+      "name": "retained-review-recovery",
+      "passed": true,
+      "failed": true,
+      "settled": true,
+      "recovered": true,
+      "preservedAtFailure": true,
+      "invalidatedAtFailure": true,
+      "preservedAfterRestart": true,
+      "noReplayBeforeCheck": true,
+      "stillNeedsReview": true,
+      "freshReview": true,
+      "preservedAfterCheck": true,
+      "recoveryNoticeCleared": true,
+      "draftCount": 1,
+      "separateApproval": true,
+      "sourceAttempts": 2,
+      "workerEntries": 2,
+      "state": {
+        "status": "Approved in the in-memory sandbox. No PayPal request was made.",
+        "engine": "PYTHON READY / OFFLINE",
+        "restartEnabled": false,
+        "analyzeEnabled": true,
+        "email": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "analysis": "RULE EXTRACTOR / REAL OUTPUT75% confidencerulesDarnell BrooksRecipient email not foundCURRENCYUSDTERMSNET 7 DAYSLINE ITEMQTYCCYUNITLogo concepts3 USD250Brand colour guide1 USD180EXTRACTED TOTALUSD 930INFO / client_nameClient name taken from signature.ERROR / client_emailNo client email found; PayPal needs a recipient email to send an invoice.Errors or low extraction confidence block drafting. Open the correction form to check the details yourself.Review or correct invoice fields\n    Supply the details you have confirmed. Your corrections are marked as human input; they do not change the original extraction above.\n    \n      \n        Client name\n        Recipient email\n        Payment due in days0 means due on receipt; maximum 365.\n        Prior payment already received0 if none. A payment across currencies needs separate allocation.\n      \n      Line 1\n      Work description\n      Quantity\n      Unit price\n      CurrencyChoose currencyAUDBRLCADCHFCNYCZKDKKEURGBPHKDHUFILSJPYMXNMYRNOKNZDPHPPLNSEKSGDTHBTWDUSD\n      Unit (optional)\n      Remove line\n    Line 2\n      Work description\n      Quantity\n      Unit price\n      CurrencyChoose currencyAUDBRLCADCHFCNYCZKDKKEURGBPHKDHUFILSJPYMXNMYRNOKNZDPHPPLNSEKSGDTHBTWDUSD\n      Unit (optional)\n      Remove line\n    \n      Add line item\n      I checked the recipient, terms, amounts and every original warning against the job details.\n      Check corrected fields with Python\n      This checked revision was used. Review its pending sandbox send in the human gate. To prepare a different draft, edit and check the fields again.\n    \n  ",
+        "invoices": 1,
+        "activeLedgerButtons": 1,
+        "externalCalls": "0",
+        "messages": [
+          {
+            "generation": 0,
+            "id": 1,
+            "action": "init"
+          },
+          {
+            "generation": 0,
+            "id": 2,
+            "action": "analyze"
+          },
+          {
+            "generation": 0,
+            "id": 3,
+            "action": "review"
+          },
+          {
+            "generation": 0,
+            "id": 4,
+            "action": "advance"
+          },
+          {
+            "generation": 1,
+            "id": 5,
+            "action": "init"
+          },
+          {
+            "generation": 1,
+            "id": 6,
+            "action": "analyze"
+          },
+          {
+            "generation": 1,
+            "id": 7,
+            "action": "review"
+          },
+          {
+            "generation": 1,
+            "id": 8,
+            "action": "draft"
+          },
+          {
+            "generation": 1,
+            "id": 9,
+            "action": "approve"
+          }
+        ],
+        "generations": 2
+      },
+      "offOrigin": [],
+      "pageErrors": [],
+      "consoleMessages": [],
+      "requests": [
+        {
+          "mode": "fatal-review",
+          "path": "/"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/assets/index-CjlcxCVy.js"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/assets/index-xwhl2_jp.css"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/favicon.svg"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/extract.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/paypal.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/bridge.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/review.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/fixtures/05_missing_email.txt"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/assets/engine.worker-x2BNq2jZ.js"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/pyodide-lock.json"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/python_stdlib.zip"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/pyodide.asm.wasm"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/pyodide/pyodide.asm.js"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/__init__.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/agent.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/extract.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/ledgerly/paypal.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/bridge.py"
+        },
+        {
+          "mode": "fatal-review",
+          "path": "/python/review.py"
+        }
+      ]
+    }
+  ],
+  "allPassed": true
+}

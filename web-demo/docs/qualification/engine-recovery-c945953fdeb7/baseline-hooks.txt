@@ -1,0 +1,92 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/me/hamon-work-ledgerly-recovery-c945953fdeb7/web-demo[39m
+
+ [31m❯[39m tests/engine-recovery.test.ts [2m([22m[2m4 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 65[2mms[22m[39m
+[31m   [31m×[31m actual startup hook settles a worker error, retains intake and enables an explicit empty restart[39m[32m 41[2mms[22m[39m
+[31m   [31m×[31m actual action hook disables the lost ledger and settles a pending draft without replay[39m[32m 12[2mms[22m[39m
+[31m   [31m×[31m actual startup hook refuses a completed transport whose initialization result is not ok[39m[32m 7[2mms[22m[39m
+[31m   [31m×[31m actual worker startup retries a rejected runtime load on the next explicit init[39m[32m 4[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook settles a worker error, retains intake and enables an explicit empty restart
+[31m[1mAssertionError[22m: expected false to be true // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+[36m [2m❯[22m tests/engine-recovery.test.ts:[2m75:27[22m[39m
+    [90m 73|[39m   fixture.workers[0].emit('error', {message: 'Injected worker script f…
+    [90m 74|[39m   await tick();
+    [90m 75|[39m   expect(start.settled()).toBe(true);
+    [90m   |[39m                           [31m^[39m
+    [90m 76|[39m   expect(fixture.element('#engine-start').disabled).toBe(false);
+    [90m 77|[39m   expect(fixture.element('#engine-start').textContent).toBe('Restart e…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual action hook disables the lost ledger and settles a pending draft without replay
+[31m[1mAssertionError[22m: expected false to be true // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+[36m [2m❯[22m tests/engine-recovery.test.ts:[2m107:29[22m[39m
+    [90m105|[39m   fixture.workers[0].emit('messageerror', {});
+    [90m106|[39m   await tick();
+    [90m107|[39m   expect(drafted.settled()).toBe(true);
+    [90m   |[39m                             [31m^[39m
+    [90m108|[39m   for (const selector of ['#draft', '#replay-webhook', '#approval-list…
+    [90m109|[39m     expect(fixture.element(selector).disabled).toBe(true);
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook refuses a completed transport whose initialization result is not ok
+[31m[1mAssertionError[22m: expected false to be true // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+[36m [2m❯[22m tests/engine-recovery.test.ts:[2m127:48[22m[39m
+    [90m125|[39m   fixture.workers[0].reply(0, {ok: false, message: 'Injected bridge in…
+    [90m126|[39m   await start.promise;
+    [90m127|[39m   expect(fixture.element('#analyze').disabled).toBe(true);
+    [90m   |[39m                                                [31m^[39m
+    [90m128|[39m   expect(fixture.element('#engine-start').disabled).toBe(false);
+    [90m129|[39m   expect(fixture.element('#engine-status').textContent).not.toContain(…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual worker startup retries a rejected runtime load on the next explicit init
+[31m[1mAssertionError[22m: expected 1 to be 2 // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 2[39m
+[31m+ 1[39m
+
+[36m [2m❯[22m tests/engine-recovery.test.ts:[2m160:20[22m[39m
+    [90m158|[39m   expect(attempts).toBe(1);
+    [90m159|[39m   receive({data: {id: 2, action: 'init'}}); await vm.runInContext('que…
+    [90m160|[39m   expect(attempts).toBe(2);
+    [90m   |[39m                    [31m^[39m
+    [90m161|[39m   expect(responses.find(message => message.id === 2)).toMatchObject({i…
+    [90m162|[39m });
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m4 failed[39m[22m[90m (4)[39m
+[2m   Start at [22m 01:02:43
+[2m   Duration [22m 372ms[2m (import 53%, tests 25%, transform 20%, worker 1%)[22m
