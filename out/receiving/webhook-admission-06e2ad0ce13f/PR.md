@@ -28,6 +28,11 @@ The pending extraction/value-validation component is separate.
   the same current main: **235 passed, 34 subtests passed**, plus actual npm staging
   and **10/10 Pyodide tests**. The composite source and exact preservation proofs
   are in `out/receiving/ledgerly-composition-independent-06e2ad0ce13f/current-4bda/`.
+- After receipt-term PR #20 advanced main to `1b2b902`, an independent clean
+  composition of the actual published PR #19 and #21 heads passed **246 tests and
+  60 subtests**, plus actual npm staging and **10/10 Pyodide tests**. The new owner's
+  receipt terms and methods remain exact. The complete packet is in the adjacent
+  `current-1b2/` receiving directory. No source correction was required.
 - The accepted predecessor passed **132 native tests and 2 subtests**, the actual
   Pyodide browser bridge/review suite (**10 tests**), and the production build.
 - Two old assertions were updated after independent review: monetary equality

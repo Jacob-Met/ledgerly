@@ -56,6 +56,7 @@ not a blind source review.
 | Predecessor in actual Pyodide and existing browser bridge/review tests | 10 passed; production build passed | `candidate-web-receipt.json` and raw logs |
 | Final component on current main `4bdaaa9` | 157 passed; 34 subtests passed | `current-main-native-tests.log` and current-main receipt |
 | Independent composition with accepted extraction on current main `4bdaaa9` | 235 passed; 34 subtests passed; actual npm staging and Pyodide 10/10 passed | `../ledgerly-composition-independent-06e2ad0ce13f/current-4bda/` |
+| Actual published PRs #19 and #21 composed with newer receipt-term main `1b2b902` | 246 passed; 60 subtests passed; actual npm staging and Pyodide 10/10 passed | `../ledgerly-composition-independent-06e2ad0ce13f/current-1b2/` |
 
 The old source and failing logs are retained. No executable repair was made after
 independent acceptance: the later source hash changes only because the accepted
@@ -109,3 +110,18 @@ methods and all seventeen remaining owner methods are preserved, and all forty-f
 native/test/config inputs, twenty-two staged files and five runtime inputs remain
 unchanged through execution. These combined source copies are receiving evidence;
 the executable source in this webhook branch remains the bounded webhook component.
+
+During publication, owner receipt-term PR #20 advanced main to
+`1b2b902d5dd412a8b61c9b9075b815c1d0029365`. A further independent receiving run
+combined the actual published extraction head
+`f67e2c4034804f657eccad38887f377f28011e98` and webhook head
+`d4ff41c66abe816a0c8b891bf75e0ad21ebaa755` with that exact new main. The merge was
+clean and required no source correction. The composite source is agent
+`8ba49c074571f74cbdab3e851861648322de8f17`, extract
+`100e581d3ef0d99555f49264859d01b535c6094f`, and PayPal
+`1d805837d9ed4fe29f42ae7093764c47b0060edd`. The new owner's `LedgerEntry`, all
+seventeen other Agent methods, payment terms and mock-send behavior are preserved.
+The packet retains all forty-five inputs, twenty-two staged files and five runtime
+pins, together with the 246-test/60-subtest and actual 10-test Pyodide results.
+These are composition receipts for the named immutable commits; later documentation
+commits in this branch do not modify executable source or tests.
