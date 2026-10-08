@@ -1,0 +1,26 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--offline",
+    "--with",
+    "pytest==9.1.1",
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-p",
+    "no:cacheprovider",
+    "-q"
+  ],
+  "exit_code": 0,
+  "output": "...................................................................... [ 58%]\n.............................................. [ 97%]\n...                                                                      [100%]\n119 passed, 28 subtests passed in 0.38s\n",
+  "sources": {
+    "ledgerly/agent.py": "cc72f7d3ee10ac42298180f2da6736687e915e1fcbc342c4855aa2bc8aff5949",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "tests/test_receipt_term_receiving.py": "a1b0c4e396b20972a413fe1093063460f66682493e0e95407303f343aa65348e",
+    "web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  }
+}

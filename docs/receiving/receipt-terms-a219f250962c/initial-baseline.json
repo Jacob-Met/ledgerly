@@ -1,0 +1,28 @@
+{
+  "source_commit": "b484417baf4e515a0a86cfa13a5983c99293e5f6",
+  "source_tree": "ac23b2fa46774f961a20ec105606c436f0f0d5c4",
+  "tests_run": 9,
+  "failures": 11,
+  "errors": 0,
+  "failure_ids": [
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_failed_or_unapproved_send_does_not_resolve_receipt_date",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_provider_replaces_positive_draft_with_unresolved_receipt_term",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2026, 10, 8))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2027, 1, 2))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2028, 2, 29))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2027, 3, 1))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2026, 10, 8))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2027, 1, 2))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2028, 2, 29))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2027, 3, 1))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_receipt_builder_does_not_choose_a_date_before_receipt"
+  ],
+  "error_ids": [],
+  "files": {
+    "ledgerly/agent.py": "b70cc42cc5563c7037b8fc15093defffcabc76fe007349c90059286570c8ede2",
+    "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+    "tests/test_receipt_term_receiving.py": "622d03bca767ef43fd5868a9aa9c5ee4a0199502aa81017aaaeda02c527f2de1",
+    "web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  }
+}

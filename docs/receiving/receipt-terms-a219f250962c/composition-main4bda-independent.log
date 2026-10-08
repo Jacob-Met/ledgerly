@@ -1,0 +1,10 @@
+test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) ... ok
+test_malformed_receipt_preflight_preserves_pending_then_exact_retry (__main__.IndependentReceiptReceiving.test_malformed_receipt_preflight_preserves_pending_then_exact_retry) ... ok
+test_mixed_ledger_chases_only_the_invoice_actually_overdue (__main__.IndependentReceiptReceiving.test_mixed_ledger_chases_only_the_invoice_actually_overdue) ... ok
+test_successful_send_has_no_new_dependency_on_a_post_send_read (__main__.IndependentReceiptReceiving.test_successful_send_has_no_new_dependency_on_a_post_send_read) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.060s
+
+OK
+{"passed": true, "tests_run": 4, "failures": 0, "errors": 0, "groups": {"refresh_histories": {"histories": 64, "provider_refreshes": 256, "explicit_mock_invoice_sends": 64}, "malformed_preflight_recovery": {"malformed_variants": 10, "cache_pending_payload_and_audit_unchanged_on_failure": true, "explicit_retry_sends_exactly_once": true}, "mixed_ledger": {"invoices": 3, "mock_sends": 3, "mock_reminders": 2, "no_same_day_receipt_reminder": true, "cooldown_preserved": true}, "send_without_followup_read": {"RulePlanner_and_direct_tool_entry": true, "cases": 2}}}

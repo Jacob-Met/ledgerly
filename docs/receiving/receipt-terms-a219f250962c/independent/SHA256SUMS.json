@@ -1,0 +1,18 @@
+{
+  "REVIEW.md": "ec8ec53948dec3c1ed22adc289c533b616ad4d7f63251574a679dbcec6c2fc36",
+  "baseline/fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+  "baseline/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+  "baseline/ledgerly/agent.py": "b70cc42cc5563c7037b8fc15093defffcabc76fe007349c90059286570c8ede2",
+  "baseline/ledgerly/demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+  "baseline/ledgerly/extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+  "baseline/ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+  "baseline/web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+  "baseline/web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+  "baseline-result.json": "3419f0d92b3e35a4f1d2f14facafd37a54ac58e29bcb2396f7224c861f48a8a4",
+  "baseline-source.json": "d55821adb43c2c91367a9bf8a156449843568bb8098b00539794de9d22f04780",
+  "baseline.log": "7bd0195a3d6168083bdfb8fa14dd37be59e7b725db0365d2da1522bb86b44640",
+  "candidate-result.json": "f337014377ada3747030ff2208032e4f99b22225c49e9cd60e110151896c7c59",
+  "candidate.log": "64afbe2d3c8474181567bc1a6bbd41fc1b378c317986ecfd6079227fc279f0f5",
+  "check_receipt_receiving.py": "fda10bc3276f2ef47263b7ddb0db3937eb92df2c9245e1df545b9665c317f020",
+  "source-scope-result.json": "ad8c6392d823c3b507b14491334942d4c39895b17336db0948d73acee0f78fc9"
+}
