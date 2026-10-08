@@ -18,6 +18,10 @@ Review requires explicit quantities, positive prices, supported currencies, whol
 
 No model, HTTP PayPal client, provider key, backend, analytics or localStorage is used. Pyodide and the staged Python modules load from this repo's Pages site. Email text and ledger state stay in tab memory and disappear on reset/close. The sandbox's HMAC is a test signature, not PayPal's production certificate verification; invoice actions are clearly labelled simulations. The confidence score is a heuristic, not a calibrated probability. Do not paste confidential client material.
 
+## Completed reviews
+
+Open **Completed reviews** to inspect the original queued invoice or reminder after its action leaves the approval queue. Each record shows the retained status and result, including an explicit **OUTCOME UNKNOWN** when the agent recorded one. Rejected records retain their actual reason, including automatic reminder invalidation. The timestamp is when the proposal was queued. Opening a record is read-only and does not retry an action or refresh provider facts. A lost engine leaves the last received history labeled unavailable; an explicit empty restart, reset or tab close clears the session history. Open disclosures and summary focus remain with the same retained action across ordinary snapshots.
+
 ## Verify and run
 
 ```bash

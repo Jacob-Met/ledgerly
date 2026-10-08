@@ -84,7 +84,7 @@ beforeAll(async () => {
   py.FS.mkdirTree('/demo/ledgerly');
   for (const name of ['__init__.py', 'agent.py', 'extract.py', 'paypal.py'])
     py.FS.writeFile('/demo/ledgerly/' + name, fs.readFileSync(path.join(web, 'public', 'python', 'ledgerly', name), 'utf8'));
-  for (const name of ['bridge.py', 'review.py', 'invoice_details.py'])
+  for (const name of ['bridge.py', 'review.py', 'invoice_details.py', 'review_history.py'])
     py.FS.writeFile('/demo/' + name, fs.readFileSync(path.join(web, 'public', 'python', name), 'utf8'));
   await py.runPythonAsync("import sys, json; sys.path.insert(0, '/demo'); import bridge");
 });

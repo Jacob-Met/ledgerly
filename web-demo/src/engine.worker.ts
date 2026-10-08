@@ -9,7 +9,7 @@ const boot=retryableLoader<PyodideInterface>(async()=>{
    const r=await fetch(new URL(`../python/ledgerly/${name}`,scope.location.href));if(!r.ok)throw new Error(`Python source ${name}: HTTP ${r.status}`);
    py.FS.writeFile(`/demo/ledgerly/${name}`,await r.text());
   }
-  for(const name of ['bridge.py','review.py','invoice_details.py']){
+  for(const name of ['bridge.py','review.py','invoice_details.py','review_history.py']){
    const source=await fetch(new URL(`../python/${name}`,scope.location.href));if(!source.ok)throw new Error(`Python demo ${name}: HTTP ${source.status}`);
    py.FS.writeFile(`/demo/${name}`,await source.text());
   }

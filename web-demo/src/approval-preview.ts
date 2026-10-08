@@ -45,7 +45,7 @@ function paymentTerms(value: unknown): string {
   return row('Payment terms', label) + (typeof term.due_date === 'string' ? row('Due date', term.due_date) : '');
 }
 
-function invoicePreview(payload: Fields): string {
+function invoicePreview(payload: Fields, completed: boolean): string {
   const invoice = fields(payload.invoice);
   const detail = fields(invoice.detail);
   const recipients = Array.isArray(invoice.primary_recipients) ? invoice.primary_recipients : [];
@@ -66,7 +66,7 @@ function invoicePreview(payload: Fields): string {
   const priorPayment = payload.prepaid !== undefined
     ? row('Prior payment reported', (currency ? currency + ' ' : '') + text(payload.prepaid))
     : '';
-  return '<details class="approval-preview" open><summary>Review queued invoice</summary>' +
+  return '<details class="approval-preview" open><summary>' + (completed ? 'Original queued invoice' : 'Review queued invoice') + '</summary>' +
     '<div class="approval-preview-content"><dl class="approval-fields">' +
     row('Invoice', detail.invoice_number) + row('Recipient', recipientText) +
     row('From', person(invoice.invoicer)) + row('Invoice date', detail.invoice_date) +
@@ -77,18 +77,24 @@ function invoicePreview(payload: Fields): string {
     '</tbody></table></div>' + note + '</div></details>';
 }
 
-function reminderPreview(payload: Fields): string {
+function reminderPreview(payload: Fields, completed: boolean): string {
   return '<section class="approval-preview approval-reminder" aria-label="Queued reminder">' +
-    '<h3>Review queued reminder</h3><dl class="approval-fields">' +
+    '<h3>' + (completed ? 'Original queued reminder' : 'Review queued reminder') + '</h3><dl class="approval-fields">' +
     row('Subject', payload.subject) + '</dl><div class="approval-message-label">Message</div>' +
     '<div class="approval-message" data-preview-reminder-note>' + escape(text(payload.note)) + '</div></section>';
 }
 
-export function approvalCardMarkup(action: PendingApproval): string {
+/** The original proposal alone, shared by pending and completed reviews. */
+export function approvalProposalMarkup(action: PendingApproval, context: 'pending' | 'completed' = 'pending'): string {
   const payload = fields(action.payload);
+  return action.kind === 'send_invoice' ? invoicePreview(payload, context === 'completed') :
+    action.kind === 'send_reminder' ? reminderPreview(payload, context === 'completed') : '';
+}
+
+export function approvalCardMarkup(action: PendingApproval): string {
   const invoice = action.kind === 'send_invoice';
   const reminder = action.kind === 'send_reminder';
-  const preview = invoice ? invoicePreview(payload) : reminder ? reminderPreview(payload) : '';
+  const preview = approvalProposalMarkup(action);
   return '<article class="approval-card" data-approval-id="' + escape(action.id) + '">' +
     '<div class="approval-head"><span class="source-chip">' +
     (invoice ? 'SEND INVOICE' : reminder ? 'SEND REMINDER' : 'PENDING ACTION') +
