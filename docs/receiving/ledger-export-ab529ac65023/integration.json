@@ -1,0 +1,213 @@
+{
+  "schema": "ledgerly.displayed-ledger-export.integration.v1",
+  "status": "source_integrated_current_browser_qualified_public_assets_verified",
+  "repository": "Jacob-Met/ledgerly",
+  "issue": "https://github.com/Jacob-Met/ledgerly/issues/23",
+  "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/27",
+  "merged_at": "2026-10-08T14:10:53Z",
+  "merge_method": "merge",
+  "expected_head": "794b3ceb70679066a0e5e3e6095cc56eaee644e8",
+  "actual_merge": "f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac",
+  "actual_merge_parents": [
+    "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+    "794b3ceb70679066a0e5e3e6095cc56eaee644e8"
+  ],
+  "source_tree": "0b064a0ae52c0e64e39f934e9dbbed1c530c8095",
+  "test_checkout": "dadbe12b4316e9f620789a6f9faf5f04c40f2e0f",
+  "test_and_merged_tree_identical": true,
+  "source_blobs": {
+    "web-demo/README.md": "01543eba18d48c54cfa9b459d2dca8041339658d",
+    "web-demo/index.html": "a15b9b744276bc31570dcc14eedb3539fabbc9e8",
+    "web-demo/src/ledger-export.css": "63933b271fd025a5d21888f3373faefa7f8f593d",
+    "web-demo/src/ledger-export.test.ts": "3727493f7366db1771dcda96e4dd19ac4deb44f0",
+    "web-demo/src/ledger-export.ts": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+    "web-demo/src/main.ts": "61399641753b48ba2d3dd744f0c8d886ab15b189",
+    "web-demo/tests/engine-recovery.test.ts": "a37c74c7f617a43b29eb5f7dfac707a2a17b2843",
+    "web-demo/tools/check_ledger_export_browser.py": "da830c6452b395a63d3879fbc06ca0b0374b1479",
+    "web-demo/tools/requirements-browser.txt": "984b515839dbf761d7d0158d710856998238c21a",
+    ".github/workflows/ci.yml": "58bcc64e8d6c119e91812bd6c4c0aa581911cb5e"
+  },
+  "current_main_preservation": {
+    "commit": "794b3ceb70679066a0e5e3e6095cc56eaee644e8",
+    "tree": "0b064a0ae52c0e64e39f934e9dbbed1c530c8095",
+    "main": "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+    "main_leaves": 467,
+    "preserved_unowned_main_leaves": 462,
+    "output_leaves": 526,
+    "owned_paths": 64,
+    "unchanged_qualified_source_blobs": 7,
+    "composed_source_blobs": {
+      "web-demo/src/main.ts": "61399641753b48ba2d3dd744f0c8d886ab15b189",
+      "web-demo/tests/engine-recovery.test.ts": "a37c74c7f617a43b29eb5f7dfac707a2a17b2843",
+      "web-demo/README.md": "01543eba18d48c54cfa9b459d2dca8041339658d"
+    },
+    "mismatches": [],
+    "truncated": false
+  },
+  "qualification": {
+    "run": 37788593743,
+    "browser_job": 113349667415,
+    "python_job": 113349668064,
+    "frontend_tests": 76,
+    "python_tests": 193,
+    "python_subtests": 63,
+    "audit": "passed",
+    "production_build": "passed",
+    "actual_chrome": "154.0.8037.97",
+    "actual_playwright": "1.63.0",
+    "actual_python": "3.12.15",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "downloads": [
+      {
+        "case": "01-drafts",
+        "filename": "ledgerly-sandbox-2026-10-08.csv",
+        "rows": 2,
+        "sha256": "41fa36257c6cf24571fb1a6056b3ea2784ac14795f9f1bb763f4432aef0ad85a",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      },
+      {
+        "case": "02-sent",
+        "filename": "ledgerly-sandbox-2026-10-08.csv",
+        "rows": 2,
+        "sha256": "6ce2e33449c3060353f9385c7f9b738e26a1d6052288df7b8064119804b9936e",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      },
+      {
+        "case": "03-partial-payment",
+        "filename": "ledgerly-sandbox-2026-10-08.csv",
+        "rows": 2,
+        "sha256": "26af81ca69f5c7ed800862750920df7445e075c533d2b3681a308c35e29ef109",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      },
+      {
+        "case": "04-reminders",
+        "filename": "ledgerly-sandbox-2026-11-08.csv",
+        "rows": 2,
+        "sha256": "191558f1686e48c263689ad7a67f511aae42b51dcc69f0438cbafa3dc134fd37",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      },
+      {
+        "case": "05-corrected-name",
+        "filename": "ledgerly-sandbox-2026-11-08.csv",
+        "rows": 3,
+        "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      },
+      {
+        "case": "06-repeat",
+        "filename": "ledgerly-sandbox-2026-11-08.csv",
+        "rows": 3,
+        "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      },
+      {
+        "case": "07-retry",
+        "filename": "ledgerly-sandbox-2026-11-08.csv",
+        "rows": 3,
+        "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      },
+      {
+        "case": "08-phone-keyboard",
+        "filename": "ledgerly-sandbox-2026-11-08.csv",
+        "rows": 3,
+        "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+        "exact_snapshot_fields": true,
+        "canonical_file_bytes": true,
+        "state_and_requests_unchanged": true
+      }
+    ],
+    "controls": [
+      "disabled before ready and for empty ledger",
+      "disabled UI and controller guard during an actual pending Worker action",
+      "actual human correction retains Unicode/commas/quotes with documented formula prefix",
+      "failed browser download has no effects and explicit retry retains exact bytes",
+      "390px layout without overflow and focused Enter activation",
+      "reset disables empty export without deleting an explicitly downloaded file",
+      "synthetic terminal Worker error blocks stale ledger through UI and controller guard; explicit restart starts empty"
+    ],
+    "page_errors": [],
+    "off_origin_requests": [],
+    "full_packet": {
+      "bytes": 287130,
+      "sha256": "07a22ad8371c59fa43f56559ff17b149f854deb46daef0f1fba66be4fde3c17e",
+      "chunks": 94
+    },
+    "packet_directory": "hosted-chrome-final",
+    "complete_raw_logs": [
+      "hosted-chrome-final-browser-engine.log",
+      "hosted-chrome-final-python-core.log"
+    ],
+    "visual_review": {
+      "desktop": "inspected; export above mixed-currency ledger and retained invoice details",
+      "phone": "inspected at390px; export focus visible, controls wrap and invoice details coexist without horizontal overflow",
+      "font_boundary": "No universal Japanese-glyph/font claim; actual Unicode Worker/CSV byte checks passed"
+    }
+  },
+  "reviews": {
+    "production_source": "https://github.com/Jacob-Met/ledgerly/pull/27#issuecomment-6060220272",
+    "receiver_and_final_composition": {
+      "reviewer": "hamon-ultra-ab529ac65023-20261008/thinkpad-production",
+      "commit": "794b3ceb70679066a0e5e3e6095cc56eaee644e8",
+      "result": "No blocking source concern. Existing inspector render/availability hooks preserved; export availability follows ready&&!busy; init/reset install fresh empty snapshots; lost/pending routes disable export. VM retains both real controllers; unchanged selectors retain identity. Worker equality includes the new invoice_details while the CSV oracle uses unchanged ledger fields.",
+      "execution_claimed_by_reviewer": false
+    }
+  },
+  "automatic_merged_main_gate": {
+    "run": 37790359946,
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 113355808967,
+        "name": "browser-engine",
+        "conclusion": "success"
+      },
+      {
+        "id": 113355809179,
+        "name": "python-core",
+        "conclusion": "success"
+      }
+    ],
+    "evidence": "merged-main-jobs.json",
+    "boundary": "Automatic merged-main jobs, including the same Chrome step, independently report success; the complete retained final packet above belongs to the exact-tree premerge checkout and is not relabeled as a merged-main execution."
+  },
+  "deployment": {
+    "run": 37790359756,
+    "job": 113355807968,
+    "head_sha": "f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac",
+    "conclusion": "success",
+    "site": "https://jacobmetoyer.com/ledgerly/",
+    "existing_workflow_unchanged": true,
+    "public_asset_receipt": "public-assets.json",
+    "public_https_files": 7,
+    "all_public_hashes_match_qualified_build": true,
+    "public_read_at": "2026-10-08T14:14:03.811979+00:00",
+    "boundary": "Read-only public HTTPS delivery verified; no interactive public-site browser session is claimed. Actual interactive acceptance used the built same-source application in hosted Linux Chrome."
+  },
+  "native": {
+    "source_head": "3cef644049254c1fa0fc1798ae6cac418e934141",
+    "source_path": "/Users/me/ledgerly-export-ab529ac65023",
+    "evidence_path": "/Users/me/ledgerly-export-evidence-ab529ac65023",
+    "later_api_source_not_claimed_as_native_head": true,
+    "original_baseline_build": "passed",
+    "initial_candidate_typescript": "passed",
+    "initial_csv_tests": 30,
+    "original_full_suite": "52 passed; four VM missing-import failures retained; real binding fixed then hosted full suites passed",
+    "candidate_native_build_browser": "held by established 1GiB storage guard before execution; no cold install, shared cleanup or lowered guard"
+  },
+  "custody_note": "This receipt-only descendant of the actual merged commit is preserved on the existing contribution branch. It changes no product source and does not push main or request another build."
+}

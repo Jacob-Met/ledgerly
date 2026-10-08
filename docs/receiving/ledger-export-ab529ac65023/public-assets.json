@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-10-08T14:14:03.811979+00:00",
+  "base_url": "https://jacobmetoyer.com/ledgerly/",
+  "method": "bounded read-only HTTPS GET; no browser session or native file write",
+  "qualified_checkout": "dadbe12b4316e9f620789a6f9faf5f04c40f2e0f",
+  "merged_commit": "f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac",
+  "all_match": true,
+  "files": [
+    {
+      "path": "assets/__vite-browser-external-DKcLY8Mr.js",
+      "url": "https://jacobmetoyer.com/ledgerly/assets/__vite-browser-external-DKcLY8Mr.js",
+      "status": 200,
+      "bytes": 116,
+      "sha256": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+      "expected_sha256": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+      "matches_qualified_dist": true
+    },
+    {
+      "path": "assets/engine.worker-B5Sd8fS4.js",
+      "url": "https://jacobmetoyer.com/ledgerly/assets/engine.worker-B5Sd8fS4.js",
+      "status": 200,
+      "bytes": 20229,
+      "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+      "expected_sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+      "matches_qualified_dist": true
+    },
+    {
+      "path": "assets/index-Drbn2oMn.css",
+      "url": "https://jacobmetoyer.com/ledgerly/assets/index-Drbn2oMn.css",
+      "status": 200,
+      "bytes": 12874,
+      "sha256": "49f5c98558da15f1628e0d543342564dfb2143425a3ec80806a877f4fb463ba7",
+      "expected_sha256": "49f5c98558da15f1628e0d543342564dfb2143425a3ec80806a877f4fb463ba7",
+      "matches_qualified_dist": true
+    },
+    {
+      "path": "assets/index-DwUkO3nl.js",
+      "url": "https://jacobmetoyer.com/ledgerly/assets/index-DwUkO3nl.js",
+      "status": 200,
+      "bytes": 31615,
+      "sha256": "c1c1f60329bcae36e7abf4584d5ed5da3dcbb40a290c068b85e39915adfa1ee4",
+      "expected_sha256": "c1c1f60329bcae36e7abf4584d5ed5da3dcbb40a290c068b85e39915adfa1ee4",
+      "matches_qualified_dist": true
+    },
+    {
+      "path": "index.html",
+      "url": "https://jacobmetoyer.com/ledgerly/index.html",
+      "status": 200,
+      "bytes": 6037,
+      "sha256": "c3f7d5f48fb2820d19f0cb7a870793f694250b9fe81d381df8454bb98806fc4e",
+      "expected_sha256": "c3f7d5f48fb2820d19f0cb7a870793f694250b9fe81d381df8454bb98806fc4e",
+      "matches_qualified_dist": true,
+      "csv_button_present": true
+    },
+    {
+      "path": "python/bridge.py",
+      "url": "https://jacobmetoyer.com/ledgerly/python/bridge.py",
+      "status": 200,
+      "bytes": 6609,
+      "sha256": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+      "expected_sha256": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+      "matches_qualified_dist": true
+    },
+    {
+      "path": "python/invoice_details.py",
+      "url": "https://jacobmetoyer.com/ledgerly/python/invoice_details.py",
+      "status": 200,
+      "bytes": 1196,
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "expected_sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "matches_qualified_dist": true
+    }
+  ]
+}

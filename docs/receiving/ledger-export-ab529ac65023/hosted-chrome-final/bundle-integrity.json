@@ -1,0 +1,135 @@
+{
+  "schema": "ledgerly.csv-browser-bundle-receiving.v1",
+  "run": 37788593743,
+  "browser_job": 113349667415,
+  "python_job": 113349668064,
+  "source_head": "794b3ceb70679066a0e5e3e6095cc56eaee644e8",
+  "actual_checkout": "dadbe12b4316e9f620789a6f9faf5f04c40f2e0f",
+  "source_tree": "0b064a0ae52c0e64e39f934e9dbbed1c530c8095",
+  "main_parent": "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+  "packet": {
+    "bytes": 287130,
+    "sha256": "07a22ad8371c59fa43f56559ff17b149f854deb46daef0f1fba66be4fde3c17e",
+    "chunks": 94
+  },
+  "all_chunks_ordered_and_complete": true,
+  "all_file_lengths_and_sha256_verified": true,
+  "independent_python_stdlib_sha256_and_git_blob_verification": true,
+  "files": [
+    {
+      "path": "01-drafts-snapshot.json",
+      "bytes": 9785,
+      "sha256": "14f78b0163f153fb932c4cf1e70dd3ef28f60190f44a81a6e79c93a03d87e74c",
+      "git_blob": "3db7d8f5ccdaf1a0ce3c754bd064f4a27d84832a"
+    },
+    {
+      "path": "01-drafts.csv",
+      "bytes": 472,
+      "sha256": "41fa36257c6cf24571fb1a6056b3ea2784ac14795f9f1bb763f4432aef0ad85a",
+      "git_blob": "a2b6b880cf4c1d7946a83de72fe806ef50a33b5e"
+    },
+    {
+      "path": "02-sent-snapshot.json",
+      "bytes": 6892,
+      "sha256": "730878ea6e90f4e355d5f70338ea10adb5b9623048b53d012f2e83cdacedc763",
+      "git_blob": "9b380e8d8b0eddb63b572078bc18a1332ce02c76"
+    },
+    {
+      "path": "02-sent.csv",
+      "bytes": 490,
+      "sha256": "6ce2e33449c3060353f9385c7f9b738e26a1d6052288df7b8064119804b9936e",
+      "git_blob": "fa60da444e1278adeab646dd7bb5649cb192fdba"
+    },
+    {
+      "path": "03-partial-payment-snapshot.json",
+      "bytes": 7483,
+      "sha256": "ada5df05976e5c8933c768f068bc3bbb891a6222f2776695a38e4f9594129404",
+      "git_blob": "62c7c34a3e10d2be383f96711f2fc9d6d4be53ed"
+    },
+    {
+      "path": "03-partial-payment.csv",
+      "bytes": 500,
+      "sha256": "26af81ca69f5c7ed800862750920df7445e075c533d2b3681a308c35e29ef109",
+      "git_blob": "cd21354d9445a93561bba8a83c48aa8e61e11d10"
+    },
+    {
+      "path": "04-reminders-snapshot.json",
+      "bytes": 8973,
+      "sha256": "4e774f2dd8eddbaf2bbf62c039ec1b58cc3d7a6dfd75f116a6460c9a80cc21fd",
+      "git_blob": "f71e9040dfb0e493e0bfe30c9a82f71ed555c5dd"
+    },
+    {
+      "path": "04-reminders.csv",
+      "bytes": 500,
+      "sha256": "191558f1686e48c263689ad7a67f511aae42b51dcc69f0438cbafa3dc134fd37",
+      "git_blob": "9ca0a23fe911874a187d9cd4fe7bc012101273cc"
+    },
+    {
+      "path": "05-corrected-name-snapshot.json",
+      "bytes": 14533,
+      "sha256": "09bb7746197ad5bf389fa93b406503c058ea281bed8518eeec9afca8479fe107",
+      "git_blob": "af0ad73987e195fd3835f7d137221335f606ba73"
+    },
+    {
+      "path": "05-corrected-name.csv",
+      "bytes": 675,
+      "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+      "git_blob": "f6c9f96adbcb5486bb1c1a35a515b8f24a9df87d"
+    },
+    {
+      "path": "06-repeat-snapshot.json",
+      "bytes": 14533,
+      "sha256": "09bb7746197ad5bf389fa93b406503c058ea281bed8518eeec9afca8479fe107",
+      "git_blob": "af0ad73987e195fd3835f7d137221335f606ba73"
+    },
+    {
+      "path": "06-repeat.csv",
+      "bytes": 675,
+      "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+      "git_blob": "f6c9f96adbcb5486bb1c1a35a515b8f24a9df87d"
+    },
+    {
+      "path": "07-retry-snapshot.json",
+      "bytes": 14533,
+      "sha256": "09bb7746197ad5bf389fa93b406503c058ea281bed8518eeec9afca8479fe107",
+      "git_blob": "af0ad73987e195fd3835f7d137221335f606ba73"
+    },
+    {
+      "path": "07-retry.csv",
+      "bytes": 675,
+      "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+      "git_blob": "f6c9f96adbcb5486bb1c1a35a515b8f24a9df87d"
+    },
+    {
+      "path": "08-phone-keyboard-snapshot.json",
+      "bytes": 14533,
+      "sha256": "09bb7746197ad5bf389fa93b406503c058ea281bed8518eeec9afca8479fe107",
+      "git_blob": "af0ad73987e195fd3835f7d137221335f606ba73"
+    },
+    {
+      "path": "08-phone-keyboard.csv",
+      "bytes": 675,
+      "sha256": "17a766d27f14baf794a10c90079886f839a27d24dffac5cd1f2b76d8702e1a93",
+      "git_blob": "f6c9f96adbcb5486bb1c1a35a515b8f24a9df87d"
+    },
+    {
+      "path": "browser-receiving.json",
+      "bytes": 7499,
+      "sha256": "c956d38821fbfccfbd75c60bb6ffb53daa6a65d43ef821102e76132d506747cf",
+      "git_blob": "b3e7bd9d255dd347f531aea49f416a983bc0933b"
+    },
+    {
+      "path": "desktop-ledger.png",
+      "bytes": 49835,
+      "sha256": "036ef04710a38c4efcc35eecc3731d0c89451c2cd6dbace3c28e3bd4fffd5e94",
+      "git_blob": "40a3b7fda6af1f7a0456a4ccb72fa70d58347d07"
+    },
+    {
+      "path": "phone-ledger.png",
+      "bytes": 60143,
+      "sha256": "4ab32c1468a07a6ec5cd98f4d59d007e432aef469fb790f5eecefc631e6af887",
+      "git_blob": "0adb933926bbc69ee9213319b3493147f0716c8b"
+    }
+  ],
+  "same_snapshot_contract": "Generated invoice IDs vary between sessions. Each complete downloaded CSV was checked against its own copied actual Worker/Python snapshot using an independent csv.writer byte oracle; no cross-run identity claim."
+}

@@ -1,3 +1,17 @@
+# Displayed sandbox ledger CSV — integrated
+
+[PR27](https://github.com/Jacob-Met/ledgerly/pull/27) merged at [`f5bcfec37`](https://github.com/Jacob-Met/ledgerly/commit/f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac) with expected head `794b3ceb`. The public [Ledgerly demo](https://jacobmetoyer.com/ledgerly/) now serves the qualified CSV export. [integration.json](integration.json) pins source, the actual test checkout, merge, independent reviews, automatic merged-main CI, Pages deployment and public delivery.
+
+The final hosted Linux Chrome run passed 76 frontend tests, 193 Python tests plus 63 subtests, audit/build, eight actual downloads and seven control groups. Its actual checkout `dadbe12b` and the merged commit have exactly tree `0b064a0a`. The complete 94-chunk packet is decoded under [hosted-chrome-final](hosted-chrome-final/); every file length, SHA256 and Git blob hash was independently checked. The actual displayed Python snapshot is the oracle, including exact monetary and identifier strings; no download changes Worker requests or state.
+
+The existing Pages workflow succeeded, and seven bounded public HTTPS reads at `2026-10-08T14:14:03.811979+00:00` matched the qualified HTML, JavaScript, CSS, Worker and Python adapter hashes. This is public asset delivery evidence, separate from the actual hosted Chrome interaction. Native candidate builds/browser execution remained held by the established storage floor; their original evidence and initial harness failures remain below.
+
+![Composed desktop ledger](hosted-chrome-final/desktop-ledger.png)
+
+![Composed phone ledger with focused export](hosted-chrome-final/phone-ledger.png)
+
+## Historical qualification and composition
+
 # Sandbox ledger CSV receiving
 
 The actual browser workflow is qualified. Final current-main integration remains a separate gate.

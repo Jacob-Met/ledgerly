@@ -1,5 +1,5 @@
 {
-  "status": "actual_browser_qualified_invoice_details_composition_gate_pending",
+  "status": "source_integrated_current_browser_qualified_public_assets_verified",
   "identity": "hamon-ultra-ab529ac65023-20261008/coordination-integration",
   "issue": "https://github.com/Jacob-Met/ledgerly/issues/23",
   "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/27",
@@ -184,5 +184,17 @@
     "required_hosted_gate": "pending; rerun justified by actual display/snapshot and lifecycle overlap",
     "product_module_unchanged": "6f65f1c5401408406b9706602cfd78ddf9277d11",
     "browser_receiver_unchanged": "da830c6452b395a63d3879fbc06ca0b0374b1479"
+  },
+  "integration": {
+    "receipt": "integration.json",
+    "actual_merge": "f5bcfec37eea567a6a503da9bdcf4b2d8fabb5ac",
+    "expected_head": "794b3ceb70679066a0e5e3e6095cc56eaee644e8",
+    "tree": "0b064a0ae52c0e64e39f934e9dbbed1c530c8095",
+    "final_gate": 37788593743,
+    "merged_main_gate": 37790359946,
+    "pages": 37790359756,
+    "public_assets": "public-assets.json",
+    "complete_final_packet": "hosted-chrome-final",
+    "same_test_and_merge_tree": true
   }
 }
