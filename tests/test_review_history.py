@@ -121,8 +121,21 @@ class CompletedReviewTests(unittest.TestCase):
 
     def test_provider_refusal_does_not_acquire_an_invented_unknown_outcome(self):
         queued = self.draft()
-        self.demo.mock.invoices[queued["invoice_id"]]["status"] = "CANCELLED"
-        reply = self.call("approve", action_id=queued["id"])
+        # Current send preflight must first see the reviewed DRAFT. Refuse the
+        # actual outgoing call afterward, preserving the provider-failure case.
+        original_send = self.demo.mock.send_invoice
+        request_offset = len(self.demo.mock.requests)
+        def refuse_after_fresh_read(invoice_id, body=None):
+            self.assertEqual(self.demo.mock.requests[-1][:2], ("GET", f"/v2/invoicing/invoices/{invoice_id}"))
+            self.assertEqual(self.demo.mock.invoices[invoice_id]["status"], "DRAFT")
+            self.demo.mock.invoices[invoice_id]["status"] = "CANCELLED"
+            return original_send(invoice_id, body)
+        with patch.object(self.demo.mock, "send_invoice", side_effect=refuse_after_fresh_read):
+            reply = self.call("approve", action_id=queued["id"])
+        self.assertEqual([request[:2] for request in self.demo.mock.requests[request_offset:]], [
+            ("GET", f"/v2/invoicing/invoices/{queued['invoice_id']}"),
+            ("POST", f"/v2/invoicing/invoices/{queued['invoice_id']}/send"),
+        ])
         self.assertFalse(reply["ok"])
         self.assertEqual(reply["error"], "PayPalError")
         self.assertEqual(len(reply["state"]["completed_reviews"]), 1)

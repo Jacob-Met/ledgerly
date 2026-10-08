@@ -41,7 +41,12 @@ class InvoiceDetailsTests(unittest.TestCase):
         original = self.record(before)
         after = self.approve(before)
         self.assertEqual(after["pending"], [])
-        self.assertEqual(after["mock_requests"], 4)
+        self.assertEqual(after["mock_requests"], before["mock_requests"] + 2)
+        invoice_id = before["ledger"][0]["invoice_id"]
+        self.assertEqual([request[:2] for request in self.demo.mock.requests[-2:]], [
+            ("GET", f"/v2/invoicing/invoices/{invoice_id}"),
+            ("POST", f"/v2/invoicing/invoices/{invoice_id}/send"),
+        ])
         self.assertEqual(self.record(after)["status"], "SENT")
         for key in ("items", "primary_recipients", "invoicer"):
             self.assertEqual(self.record(after)[key], original[key])

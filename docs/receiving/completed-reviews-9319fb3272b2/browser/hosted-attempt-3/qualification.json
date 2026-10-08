@@ -1,0 +1,175 @@
+{
+  "schema": "ledgerly.history.hosted-qualification.v1",
+  "run_id": 37804505265,
+  "run_url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37804505265",
+  "browser_job": 113405133292,
+  "python_job": 113405132931,
+  "invoice_record_run": 37804505269,
+  "head": "7c5b96af1a43e8408a150c733fc00042d98ec490",
+  "actual_checkout": "78abd0fa91b5dd76d880f2db4c9578df3b8d73e0",
+  "tree": "6377d26bad90efd212bcc3c0bd8c22a678e9c03f",
+  "actual_checkout_tree_matches_head": true,
+  "main": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+  "normal_gates": {
+    "python_tests": 307,
+    "python_subtests": 118,
+    "frontend_tests": 96,
+    "frontend_files": 11,
+    "npm_audit": "passed",
+    "production_build": "passed",
+    "existing_csv_receiver": "passed",
+    "existing_invoice_record_receiver": "passed"
+  },
+  "history": {
+    "checks": 29,
+    "passed": 29,
+    "process": "exit 0",
+    "real_Worker_and_Python": true,
+    "source_inputs": 45,
+    "dist_files": 32,
+    "sourceUnchanged": true,
+    "distUnchanged": true,
+    "cleanup": [
+      {
+        "phase": "healthy",
+        "pid": 2599,
+        "requestedClose": true,
+        "fallbackSignals": [],
+        "profileRemoved": true,
+        "exitCode": 0,
+        "signal": null
+      },
+      {
+        "phase": "lost-response",
+        "pid": 2765,
+        "requestedClose": true,
+        "fallbackSignals": [],
+        "profileRemoved": true,
+        "exitCode": 0,
+        "signal": null
+      }
+    ],
+    "off_origin_requests": [],
+    "page_errors": [],
+    "driver_sha256": "fb9df60e25b570fd42e016168da05a0e7a213331cd55d9c96ee17fa1849f451f"
+  },
+  "visual_review": {
+    "reviewer": "hamon-ultra-9319fb3272b2-20261008/integration",
+    "captures": [
+      {
+        "path": "desktop-completed-reviews.png",
+        "bytes": 180606,
+        "sha256": "b110fcd927d48266c58d81e5d14338a2bee5cf5b1abd5585a2aa3afec4d0e75d",
+        "result": "inspected: complete legible content and recorded outcome"
+      },
+      {
+        "path": "phone-completed-reminder.png",
+        "bytes": 42253,
+        "sha256": "8b2ec7ad69028ee25390bb1ecbd8835d2a4a67645e6cb6d976de948dde6ea6d4",
+        "result": "capture defect: its header is clipped and the next card intrudes; do not claim this image fully frames its target"
+      },
+      {
+        "path": "phone-literal-invoice.png",
+        "bytes": 50957,
+        "sha256": "426d91f8e9941ba340296c8af14b3804333e080ad6d58ad9d709a69c47366349",
+        "result": "inspected: complete legible content and recorded outcome"
+      },
+      {
+        "path": "phone-outcome-unknown.png",
+        "bytes": 58834,
+        "sha256": "563e6e86e71706819ffefa4de1e2e1b3b777d8b438957041cd3458ab7155685f",
+        "result": "inspected: complete legible content and recorded outcome"
+      }
+    ],
+    "next_action": "Stabilize responsive capture after instant scrolling and two animation frames; record before/after rectangle. No application layout changes."
+  },
+  "artifact_transport": {
+    "method": "bounded labeled normal CI log",
+    "files": [
+      {
+        "name": "browser.json",
+        "bytes": 29230,
+        "sha256": "b5d08a15cefae439a8932ed1371316e2be0f9cd3fae06b2d3b8a73ea3cc62c39",
+        "git_blob": "90177f49b0402cc96da42c3443f173cc21621655",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "desktop-completed-reviews.png",
+        "bytes": 180606,
+        "sha256": "b110fcd927d48266c58d81e5d14338a2bee5cf5b1abd5585a2aa3afec4d0e75d",
+        "git_blob": "5a6a4fcbf5fbae55d0ee279e218eba692dc20375",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-chromium.log",
+        "bytes": 4645,
+        "sha256": "f955b1b0dae7adcf1da912a0a588acb2d5c8953c88b5fdede8225c3b270ff6d8",
+        "git_blob": "d93c689e9d45f1ee1f298812dd3f8f695dffe935",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "healthy-worker-observation.json",
+        "bytes": 245122,
+        "sha256": "a79727fb0a1d579438bca91a2086d1e53ccfe9b37212dfcc9356e83b836f7f96",
+        "git_blob": "fbf628042d93738961141f00dcec2cccbc9c4625",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "lost-response-chromium.log",
+        "bytes": 4645,
+        "sha256": "d85d686978af66f4974bcd0ff84f5a2a459aee78445db697a93045270c993c07",
+        "git_blob": "a9e90818d998d720669763e80468f87a7593ca0a",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "lost-response-suffix.py",
+        "bytes": 817,
+        "sha256": "65b83c89f8d72530c1586e4dfc36e066cebe2df77c9832483e657174dc82781c",
+        "git_blob": "4c8eb59cb941f6fec85b9c692970fa2cff644544",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "lost-response-worker-observation.json",
+        "bytes": 20495,
+        "sha256": "178c8eef48ce759f8b6bde92b3540458b43ae325b8795308942987f3a9648ec2",
+        "git_blob": "32e4bfcbe06874b392d2731f7dd9821c264da17a",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "phone-completed-reminder.png",
+        "bytes": 42253,
+        "sha256": "8b2ec7ad69028ee25390bb1ecbd8835d2a4a67645e6cb6d976de948dde6ea6d4",
+        "git_blob": "51b707a83d8a55ccbfcf884613780f06b148a398",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "phone-literal-invoice.png",
+        "bytes": 50957,
+        "sha256": "426d91f8e9941ba340296c8af14b3804333e080ad6d58ad9d709a69c47366349",
+        "git_blob": "ade05b749aaea77435cda18733f9a09270517d6d",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "phone-outcome-unknown.png",
+        "bytes": 58834,
+        "sha256": "563e6e86e71706819ffefa4de1e2e1b3b777d8b438957041cd3458ab7155685f",
+        "git_blob": "285f2e2df87f9605fbbc6b82f6787dae39124bae",
+        "verifiedReturnedGitBlob": true
+      },
+      {
+        "name": "source-binding.json",
+        "bytes": 7671,
+        "sha256": "3dc1f5208e6e286db14c25f28140beb059f1c42c370c81db2419e32af75c4f2a",
+        "git_blob": "80e4f4cbe6936f73782b9982aec1265cd1fce90e",
+        "verifiedReturnedGitBlob": true
+      }
+    ],
+    "raw_bytes": 645275,
+    "validation": "All ordered chunks and decoded lengths checked; each created Git blob matched the producer-declared Git hash. Producer SHA256 values retained."
+  },
+  "native_boundary": {
+    "process": 3369422,
+    "completion": "unknown after service-wide RDC timeout",
+    "duplicate_native_launch": false
+  }
+}

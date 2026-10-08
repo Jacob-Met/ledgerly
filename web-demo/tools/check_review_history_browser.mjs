@@ -156,10 +156,13 @@ class Browser{
  async count(selector){return this.evaluate('document.querySelectorAll('+JSON.stringify(selector)+').length');}
  async visible(selector){return this.evaluate('(()=>{const e=document.querySelector('+JSON.stringify(selector)+');if(!e)return false;const r=e.getBoundingClientRect();return e.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight;})()');}
  async capture(name,selector){
-  const clip=await this.evaluate('(()=>{const e=document.querySelector('+JSON.stringify(selector)+');e.scrollIntoView({block:"start"});const r=e.getBoundingClientRect();return {x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height,scale:1};})()');
-  const {data}=await this.command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip});
+  const geometry=await this.evaluate('(async()=>{await document.fonts.ready;const e=document.querySelector('+JSON.stringify(selector)+');e.scrollIntoView({behavior:"instant",block:"start",inline:"nearest"});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const r=e.getBoundingClientRect();return {clip:{x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height,scale:1},viewport:{width:innerWidth,height:innerHeight,scrollX,scrollY},firstText:e.textContent.trim().slice(0,160)};})()');
+  const {data}=await this.command('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:geometry.clip});
+  const after=await this.evaluate('(()=>{const r=document.querySelector('+JSON.stringify(selector)+').getBoundingClientRect();return {x:r.left+scrollX,y:r.top+scrollY,width:r.width,height:r.height};})()');
+  const stableGeometry=['x','y','width','height'].every(key=>Math.abs(after[key]-geometry.clip[key])<1);
   const bytes=Buffer.from(data,'base64');await writeFile(join(output,name),bytes,{flag:'wx'});
-  report.screenshots.push({path:name,bytes:bytes.length,sha256:sha(bytes)});
+  report.screenshots.push({path:name,bytes:bytes.length,sha256:sha(bytes),geometry,after,stableGeometry});
+  assert.ok(stableGeometry,'capture target geometry remained stable: '+name);
  }
  async launch(){
   this.profile=await mkdtemp(join(output,'profile-'+this.label+'-'));

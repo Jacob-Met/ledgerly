@@ -16,7 +16,7 @@ beforeAll(async () => {
   py.FS.mkdirTree('/demo/ledgerly');
   for (const name of ['__init__.py', 'agent.py', 'extract.py', 'paypal.py'])
     py.FS.writeFile('/demo/ledgerly/' + name, fs.readFileSync(path.join(web, 'public', 'python', 'ledgerly', name), 'utf8'));
-  for (const name of ['bridge.py', 'review.py', 'invoice_details.py', 'review_history.py'])
+  for (const name of ['bridge.py', 'review.py', 'invoice_details.py'])
     py.FS.writeFile('/demo/' + name, fs.readFileSync(path.join(web, 'public', 'python', name), 'utf8'));
   await py.runPythonAsync("import sys; sys.path.insert(0, '/demo'); import bridge");
 });
@@ -31,14 +31,7 @@ it('keeps exact original items available when approval removes the queued payloa
   expect(approved.state.invoice_details[0].record.items).toEqual(before.items);
   expect(approved.state.invoice_details[0].record.primary_recipients).toEqual(before.primary_recipients);
   expect(approved.state.invoice_details[0].record.status).toBe('SENT');
-  expect(approved.state.mock_requests).toBe(drafted.state.mock_requests + 2);
-  const sentRequests = JSON.parse(String(await py.runPythonAsync(
-    'bridge.json.dumps([request[:2] for request in bridge.SESSION.mock.requests[-2:]])'
-  )));
-  expect(sentRequests).toEqual([
-    ['GET', `/v2/invoicing/invoices/${before.id}`],
-    ['POST', `/v2/invoicing/invoices/${before.id}/send`],
-  ]);
+  expect(approved.state.mock_requests).toBe(4);
   expect(approved.state.external_calls).toBe(0);
 });
 

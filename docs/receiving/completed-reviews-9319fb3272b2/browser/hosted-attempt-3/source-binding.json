@@ -1,0 +1,277 @@
+{
+  "schema": "hamon.ledgerly.history-source-binding.v1",
+  "source_pin": "78abd0fa91b5dd76d880f2db4c9578df3b8d73e0",
+  "scope": "Tracked application inputs from this exact checkout",
+  "files": [
+    {
+      "path": "fixtures/01_simple_usd_hourly.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866"
+    },
+    {
+      "path": "fixtures/02_gbp_proofreading.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05"
+    },
+    {
+      "path": "fixtures/03_eur_fixed_project.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786"
+    },
+    {
+      "path": "fixtures/04_multi_currency.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e"
+    },
+    {
+      "path": "fixtures/05_missing_email.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7"
+    },
+    {
+      "path": "fixtures/06_ambiguous_qty.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9"
+    },
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b"
+    },
+    {
+      "path": "fixtures/08_jpy_zero_decimal.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c"
+    },
+    {
+      "path": "fixtures/09_table_cad.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1"
+    },
+    {
+      "path": "fixtures/10_billing_address_net45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb"
+    },
+    {
+      "path": "fixtures/11_range_qty_approx.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082"
+    },
+    {
+      "path": "fixtures/12_prompt_injection.txt",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b"
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "b44658de8399c065c7d60e9b412f6251b294987e"
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "66f067204d357499b3f7010a946563a431d50aea"
+    },
+    {
+      "path": "web-demo/index.html",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "803938c053158329d423a3dae57221d50e622504"
+    },
+    {
+      "path": "web-demo/package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "555bceb19a4e55ad488ec2c8420b02e3756954d4"
+    },
+    {
+      "path": "web-demo/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "c54e9f9d06988f14b3e03ca2f22629313fef5da8"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "d9299104861a8533372068a210827649ba56b02c"
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015"
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8"
+    },
+    {
+      "path": "web-demo/python/review_history.py",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "01f66b8d884910ece53442c1c556d81fdcefdf86"
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "d23c02325afe166cf1f1fb40eea0a18bfd58ceb9"
+    },
+    {
+      "path": "web-demo/src/approval-preview.css",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "fdffade7bd101087a59f508a7b23620a0f2c7128"
+    },
+    {
+      "path": "web-demo/src/approval-preview.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "82bf8cead8651557171c4460670cb6f86cefcad0"
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "e541a5bb78877d74f94f37e8d76d22b9450041a6"
+    },
+    {
+      "path": "web-demo/src/invoice-details.css",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "1cb25514753f3c8104f13afb575633e7fce5811b"
+    },
+    {
+      "path": "web-demo/src/invoice-details.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69"
+    },
+    {
+      "path": "web-demo/src/invoice-details.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd"
+    },
+    {
+      "path": "web-demo/src/invoice-record.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "fa2e13908997e007bc67657a418c45bbae72214e"
+    },
+    {
+      "path": "web-demo/src/ledger-export.css",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "63933b271fd025a5d21888f3373faefa7f8f593d"
+    },
+    {
+      "path": "web-demo/src/ledger-export.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "3727493f7366db1771dcda96e4dd19ac4deb44f0"
+    },
+    {
+      "path": "web-demo/src/ledger-export.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "6f65f1c5401408406b9706602cfd78ddf9277d11"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "879f622757307bccb37c492dd26b73d4582aa227"
+    },
+    {
+      "path": "web-demo/src/retryable-loader.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "d6e49a01fccbbeffb892c0c814eaf4064c00045b"
+    },
+    {
+      "path": "web-demo/src/review-history.css",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "b7a63121c4415b6a6ec1619f1b3a7f9d5214a425"
+    },
+    {
+      "path": "web-demo/src/review-history.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "dffc9d3b0f6badc0a7ffdabeb9a8f05ff5b7d55a"
+    },
+    {
+      "path": "web-demo/src/review.css",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "8d3da08a25b21b8156c198f99930e53de315e451"
+    },
+    {
+      "path": "web-demo/src/review.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "53463561542dfe0a5b1c3e6b0581e050c98fcc91"
+    },
+    {
+      "path": "web-demo/src/style.css",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "da0a2c54b85c2058e1a654f4a029e3e6b9c94db7"
+    },
+    {
+      "path": "web-demo/src/worker-client.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "0d56a2b3732e101f5b27fba22bd39790912caafd"
+    },
+    {
+      "path": "web-demo/tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "408840754fae30406085341098dd2ec7d084d528"
+    },
+    {
+      "path": "web-demo/vite.config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "git_blob": "031e19417070e2b63cc48b2ae105e0f40eea6ef0"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "schema": "ledgerly-independent-send-receiving.v1",
+  "source_sha256": "969b6f62ed0958705b3041831cfc0624951cd49893419f3ac2b1d5232d56dd97",
+  "test_sha256": "cb4465f43a4a3ec9f9281208d83c459bd8a2a999847937a154f355bb1856dd85",
+  "members": [
+    {
+      "path": "adapters/adapted-test_approval_outcomes.py",
+      "bytes": 8665,
+      "sha256": "3d178a8200e771d4c3ceda056d78efdc0486813f7971ffb9eef0a5927bb6a3f3",
+      "git_blob": "f01f9fadb168543bab230a20175c9b90224ce25a"
+    },
+    {
+      "path": "adapters/adapted-test_browser_invoice_details.py",
+      "bytes": 8228,
+      "sha256": "1e899a9070b8ced77eb01f87633dda62531f857bff3d7b2fe40b49f6bcbbc6b3",
+      "git_blob": "c861ef775517ac7561e01596aa50ba3c74a24b6d"
+    },
+    {
+      "path": "adapters/adapted-test_receipt_term_receiving.py",
+      "bytes": 15565,
+      "sha256": "635b01a43b27594fca056abfce20d3d044d7356512b55eab691e5da2a8679b29",
+      "git_blob": "35f9c1fdf330fd32e374968d2bd7b9670036be9d"
+    },
+    {
+      "path": "adapters/original-test_approval_outcomes.py",
+      "bytes": 8203,
+      "sha256": "a7fbdfb6f73657a8a3f7c5f7b4c9444e9381783567aea83e89d30032f6f935c2",
+      "git_blob": "f4c7abe598388131fd207b935e87a8bf3ca68024"
+    },
+    {
+      "path": "adapters/original-test_browser_invoice_details.py",
+      "bytes": 7922,
+      "sha256": "90a0b33ea5bb74cf76f2874387d5fa0c69bf9bbbdd9d7ba2c7ef58df551b60dc",
+      "git_blob": "4fc4c0b5e110a3a3eebee4791846195c539088c2"
+    },
+    {
+      "path": "adapters/original-test_receipt_term_receiving.py",
+      "bytes": 14380,
+      "sha256": "a1b0c4e396b20972a413fe1093063460f66682493e0e95407303f343aa65348e",
+      "git_blob": "fb5d293f3944480b86524eb98c8ee19a7ce53174"
+    },
+    {
+      "path": "baseline/ledgerly/__init__.py",
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf"
+    },
+    {
+      "path": "baseline/ledgerly/agent.py",
+      "bytes": 32210,
+      "sha256": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+      "git_blob": "3ae7fcae5b1b243f608ab1bea6e25313a2fea091"
+    },
+    {
+      "path": "baseline/ledgerly/extract.py",
+      "bytes": 28143,
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "git_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6"
+    },
+    {
+      "path": "baseline/ledgerly/paypal.py",
+      "bytes": 24917,
+      "sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "git_blob": "04cc47d78c29154435fb429ffa931d2727addb96"
+    },
+    {
+      "path": "baseline-reports.json",
+      "bytes": 137779,
+      "sha256": "0e4686bbb6f165271056f4cc435d3e9b95cac7819338b3738e3dd3f01a3be613",
+      "git_blob": "410a7976cc7847d6396e2ca4f5b3f73b67332e76"
+    },
+    {
+      "path": "baseline-run.json",
+      "bytes": 292,
+      "sha256": "d7849aef76a9188cdbe26ae889c837cbc8ee1c68a4456c7de13e0899af3c4fdf",
+      "git_blob": "12d0d8047f44d3e39dbf94a7a857645da65658e0"
+    },
+    {
+      "path": "baseline.txt",
+      "bytes": 11728,
+      "sha256": "b23165b7b0804230eb5e3befd97d8c4ef85bb9403e91798e730d58e30e028cd7",
+      "git_blob": "fc623f3eb7dbb8592dbbd4b78cce420762fe2de4"
+    },
+    {
+      "path": "current-b9c/ledgerly/paypal.py",
+      "bytes": 25901,
+      "sha256": "c5e5df0a9286ae212b8e45111ea95db835e32b9eeb040338876d4ab620e7dace",
+      "git_blob": "a1da2ebff1ec2963ab94ca094300c8f5b42aa704"
+    },
+    {
+      "path": "f2bc/ledgerly/__init__.py",
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf"
+    },
+    {
+      "path": "f2bc/ledgerly/agent.py",
+      "bytes": 38681,
+      "sha256": "f2bc79188eb9b4933f969ba3c6a08397fec5b6b3f4678add22c396fb5d0584eb",
+      "git_blob": "45b8fc05cd18b3e8ca5a42bf97b0ade9a4fbbb98"
+    },
+    {
+      "path": "f2bc/ledgerly/extract.py",
+      "bytes": 28143,
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "git_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6"
+    },
+    {
+      "path": "f2bc/ledgerly/paypal.py",
+      "bytes": 24917,
+      "sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "git_blob": "04cc47d78c29154435fb429ffa931d2727addb96"
+    },
+    {
+      "path": "f2bc-reports.json",
+      "bytes": 136328,
+      "sha256": "86a97b74b65f1a1207779e387f27e078f69e3479b6ed726118699ccc1d6bb038",
+      "git_blob": "c586d01229f35ac85883e99ad03f30497a0a99ad"
+    },
+    {
+      "path": "f2bc-run.json",
+      "bytes": 292,
+      "sha256": "3c700b98ecffaada1dd4ecc1061b5b0906c9ceffa2469b9cc53928ccaa54677b",
+      "git_blob": "d797bcaae984421a9281ba4cec76b1113eb7b281"
+    },
+    {
+      "path": "f2bc.txt",
+      "bytes": 4536,
+      "sha256": "971e031cac6e7137bb735bcdeab153104da6bd405ddef81323139a33696dce81",
+      "git_blob": "8535522e7f5d8f6619c39d2f8efacf3c3e6363af"
+    },
+    {
+      "path": "QUALIFICATION.md",
+      "bytes": 7363,
+      "sha256": "a03f183df8dcae5af6c8337c489bd3d8b1b0bc28e8c6d0741ff08d9aa65d616e",
+      "git_blob": "afb8cfe89fcb49c5b0d6a64d56ac95b8d2905601"
+    },
+    {
+      "path": "replays/current-b9c-optimized-reports.json",
+      "bytes": 137635,
+      "sha256": "efc0b99d7fb2887ddc830b8eed55ef2cc0db94737823ddc2f3651bb374649433",
+      "git_blob": "c95c476e21fbf1b8969eafda0010a56bbb6c3b51"
+    },
+    {
+      "path": "replays/current-b9c-optimized-run.json",
+      "bytes": 1451,
+      "sha256": "0a16b9407d8dd2a77f9c3f44bdf32fde73ad247f081d06d7cdca25dc55184022",
+      "git_blob": "7f2bee7fde48a645058fdaadba0d95c5787a4214"
+    },
+    {
+      "path": "replays/current-b9c-optimized.txt",
+      "bytes": 1282,
+      "sha256": "690eec8958f790b12c656d2f14f99d5cacf74850b656e6ee0b53f247881de397",
+      "git_blob": "e6812075535dd7d88a134bf8144231fec8436bc7"
+    },
+    {
+      "path": "replays/current-b9c-reports.json",
+      "bytes": 137636,
+      "sha256": "f6b55e718d3c431a18ca6a16ab9c196497c9c7a80d7eca32a799a85bb2e41243",
+      "git_blob": "05ae2368dcf364ca10d319b31b4073acdd54f96b"
+    },
+    {
+      "path": "replays/current-b9c-run.json",
+      "bytes": 1431,
+      "sha256": "86d592631d7426aefbe266c63c7b6f56482096a0e14eb7893c6d0d1b34e06649",
+      "git_blob": "484780da9cbc9008d9d327810677557760ae91b5"
+    },
+    {
+      "path": "replays/current-b9c.txt",
+      "bytes": 1282,
+      "sha256": "15fc5c3bb1d899bca7676e04302ac308fcf0ae09420af29fc98b3a4399fab48d",
+      "git_blob": "08136fb8c8429083d525c39a7f3893756d9c7bba"
+    },
+    {
+      "path": "replays/matching-native-reports.json",
+      "bytes": 137636,
+      "sha256": "4910ad84a6adf71c9d2320c3c4feffa07b77c71ab223484924f58248752ae11d",
+      "git_blob": "a4ea0cd5a0e1d6477bac533541c5cccc93f19d30"
+    },
+    {
+      "path": "replays/matching-native-run.json",
+      "bytes": 1435,
+      "sha256": "debcd7f226c40c0421e8fe9066740f3d853196634a3c23eb68cab56e9396eb99",
+      "git_blob": "6bbb7de88f812cd8be26581e7083450dd81bb64a"
+    },
+    {
+      "path": "replays/matching-native.txt",
+      "bytes": 1282,
+      "sha256": "690eec8958f790b12c656d2f14f99d5cacf74850b656e6ee0b53f247881de397",
+      "git_blob": "e6812075535dd7d88a134bf8144231fec8436bc7"
+    },
+    {
+      "path": "source-inputs.json",
+      "bytes": 1842,
+      "sha256": "122fdf2741a75f4cdb911d40382b502c3af5792fa97ad5b1c5f24f3a22b88c87",
+      "git_blob": "01b0e32bb0f2768e39fda855b4b3ec931bb749d0"
+    },
+    {
+      "path": "successor/ledgerly/agent.py",
+      "bytes": 38703,
+      "sha256": "969b6f62ed0958705b3041831cfc0624951cd49893419f3ac2b1d5232d56dd97",
+      "git_blob": "5c4eb0ad5ae81a15ffd45f29f9d48e737f3499ea"
+    },
+    {
+      "path": "test_send_receiving.py",
+      "bytes": 14285,
+      "sha256": "cb4465f43a4a3ec9f9281208d83c459bd8a2a999847937a154f355bb1856dd85",
+      "git_blob": "43050f111f795dcafb7b18b401e52e5d3719d063"
+    },
+    {
+      "path": "tree-receiving.json",
+      "bytes": 2723,
+      "sha256": "a2d61bc3425c4cb37143b58c449755ea4f6280dcec7f6a3518614590521b33c2",
+      "git_blob": "c5ad72b00bb574e903c2d44006010062dd26f31a"
+    }
+  ]
+}
