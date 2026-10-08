@@ -629,30 +629,64 @@ class RulesExtractor:
         consumed: set[int] = set()
         issues: list[Issue] = []
         totals: list[tuple[Optional[str], Decimal]] = []
-        rows = [(i, [c.strip() for c in l.strip().strip("|").split("|")]) for i, l in enumerate(lines) if l.count("|") >= 2]
         header = None
-        for i, cells in rows:
+        for i, line in enumerate(lines):
+            # Prose and blank lines may separate invoice continuation rows.
+            # An explicit new Markdown table resets the previous column map,
+            # including when the new table describes unrelated planning data.
+            if line.count("|") < 2:
+                continue
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            # Dividers never replace a live schema, even when repeated or used
+            # between data rows. Skip them before considering the next line.
+            if all(re.fullmatch(r":?-{2,}:?", c) for c in cells if c):
+                consumed.add(i)
+                continue
+            if i + 1 < len(lines) and lines[i + 1].count("|") >= 2:
+                following = [c.strip() for c in lines[i + 1].strip().strip("|").split("|")]
+                has_values = any(
+                    MONEY_RE.search(c) or re.fullmatch(_NUM, c)
+                    or re.match(rf"(?:{_SYM}|(?:{_CODE})\b)", c)
+                    for c in cells
+                )
+                if (not has_values and following
+                        and all(re.fullmatch(r":?-{2,}:?", c) for c in following)):
+                    header = None
             low = [c.lower() for c in cells]
-            if header is None:
-                if any(c in ("qty", "quantity", "hours", "hrs") for c in low):
-                    def col(*names):
-                        return next((k for k, c in enumerate(low) if any(n in c for n in names)), None)
+            if any(c in ("qty", "quantity", "hours", "hrs") for c in low):
+                def col(*names):
+                    return next((k for k, c in enumerate(low) if any(n in c for n in names)), None)
+                desc_col = col("item", "description", "service", "task")
+                qty_col = col("qty", "quantity", "hours", "hrs")
+                price_col = col("unit price", "price", "rate", "unit")
+                # Repeated headers must name three distinct columns. Words in
+                # billable data ("Price audit | hours | $75") must retain their
+                # quantity error rather than disappearing as another header.
+                complete_header = (
+                    None not in (desc_col, qty_col, price_col)
+                    and len({desc_col, qty_col, price_col}) == 3
+                    and low[desc_col] in ("item", "description", "service", "task")
+                    and low[qty_col] in ("qty", "quantity", "hours", "hrs")
+                    and low[price_col] in ("unit price", "price", "rate", "unit")
+                )
+                # Retain the initial incomplete-header diagnostic unchanged.
+                if header is None or complete_header:
                     header = {
-                        "desc": col("item", "description", "service", "task") or 0,
-                        "qty": col("qty", "quantity", "hours", "hrs"),
-                        "price": col("unit price", "price", "rate", "unit"),
+                        "desc": desc_col or 0,
+                        "qty": qty_col,
+                        "price": price_col,
                     }
                     consumed.add(i)
+                    continue
+            if header is None:
                 continue
             consumed.add(i)
-            if all(re.fullmatch(r":?-{2,}:?", c) for c in cells if c):
-                continue
             try:
                 desc = cells[header["desc"]]
                 raw_price = cells[header["price"]] if header["price"] is not None else ""
                 raw_qty = cells[header["qty"]] if header["qty"] is not None else "1"
             except IndexError:
-                issues.append(Issue("line_items", "warning", f"Malformed table row: {lines[i].strip()!r}"))
+                issues.append(Issue("line_items", "error", f"Malformed table row: {lines[i].strip()!r}"))
                 continue
             mm = MONEY_RE.search(raw_price)
             if mm:
