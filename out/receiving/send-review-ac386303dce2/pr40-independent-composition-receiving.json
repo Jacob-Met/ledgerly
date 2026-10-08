@@ -1,0 +1,186 @@
+{
+  "schema": "independent-ledgerly-composed-receiving.v1",
+  "source_commit": "a606ca829bec3b1eb3f22a979bfe5435b11ad76e",
+  "source_sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+  "previous_source_sha256": "969b6f62ed0958705b3041831cfc0624951cd49893419f3ac2b1d5232d56dd97",
+  "probe_sha256": "cb4465f43a4a3ec9f9281208d83c459bd8a2a999847937a154f355bb1856dd85",
+  "source_composition": {
+    "accepted_source_preserved_except_current_main_create_and_import": true,
+    "tool_create_invoice_current_main_exact": true,
+    "source_import": "from .extract import Extraction, Extractor, RulesExtractor, quantize, split_by_currency, validate"
+  },
+  "native_files": [
+    {
+      "path": "ledgerly/__init__.py",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "bytes": 119
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+      "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+      "bytes": 39041
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511",
+      "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+      "bytes": 35313
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "git_blob": "66f067204d357499b3f7010a946563a431d50aea",
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "bytes": 26243
+    }
+  ],
+  "command": {
+    "executable": "/workspace/scratch/ac386303dce2/runtime-execution/canvaspilot-env/bin/python",
+    "args": [
+      "-B",
+      "/dev/shm/research-ledgerly-send-receiving-ac386303dce2/test_send_receiving.py"
+    ],
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "LEDGERLY_REVIEW_SOURCE_ROOT": "/dev/ac386303dce2-ledgerly-independent-composed/source",
+      "LEDGERLY_REVIEW_REPORT": "/dev/ac386303dce2-ledgerly-independent-composed/composed-reports.json"
+    }
+  },
+  "status": 0,
+  "signal": null,
+  "log": "test_decode_failure_then_changed_retry_preserves_the_other_invoice (__main__.SendReceiving.test_decode_failure_then_changed_retry_preserves_the_other_invoice) ... ok\ntest_native_known_refunded_status_still_rejects_before_post (__main__.SendReceiving.test_native_known_refunded_status_still_rejects_before_post) ... ok\ntest_nonzero_aggregate_facts_are_not_erased_as_metadata (__main__.SendReceiving.test_nonzero_aggregate_facts_are_not_erased_as_metadata) ... ok\ntest_numeric_notation_and_zero_currency_representation_keep_ordinary_sends (__main__.SendReceiving.test_numeric_notation_and_zero_currency_representation_keep_ordinary_sends) ... ok\ntest_same_decode_exception_after_send_consumes_the_review_and_records_uncertainty (__main__.SendReceiving.test_same_decode_exception_after_send_consumes_the_review_and_records_uncertainty) ... ok\ntest_seller_line_order_and_partial_payment_setting_are_reviewed (__main__.SendReceiving.test_seller_line_order_and_partial_payment_setting_are_reviewed) ... ok\ntest_unrecognized_status_is_a_retryable_read_not_proof_of_a_changed_invoice (__main__.SendReceiving.test_unrecognized_status_is_a_retryable_read_not_proof_of_a_changed_invoice) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.010s\n\nOK\n",
+  "log_sha256": "25092c967bb301f99488621457ae696c52d827a83acaca7d0bb42c29df145a55",
+  "report_bytes": 137636,
+  "report_sha256": "06eacc01a525cbc91b866f877ce1e43937aabe533402f4b74889595fb0ab060b",
+  "report_gzip_base64": "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",
+  "case_records": 16,
+  "disposition": "PASS: the real main import conflict is received; publish the composed successor, then bind actual PR merge checkout and CI before final merge.",
+  "reviewer": "/root/research_integration (independent contributor, same shared GitHub account)",
+  "scope": "Unchanged independent public Agent/SandboxMock probe and exact current-main constructor/import composition. No production edits by reviewer and no live provider account calls.",
+  "current_main": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+  "tree_receiving": {
+    "base": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+    "base_tree": "d1d6039a649aee46e459a3502cb2058013cbda4f",
+    "head": "a606ca829bec3b1eb3f22a979bfe5435b11ad76e",
+    "tree": "48bcbfc689b00bbe15f8f2caf0f3e9ae4874baf4",
+    "base_leaves": 675,
+    "leaves": 690,
+    "unchanged_existing": 670,
+    "changes": [
+      {
+        "path": "README.md",
+        "prior": "04677d0c220bf0ba80e760a05d7878a2f1ba5002",
+        "sha": "fff70beba18c9e043c1cccc0a4e88ecfcf998c0d",
+        "mode": "100644"
+      },
+      {
+        "path": "ledgerly/agent.py",
+        "prior": "b44658de8399c065c7d60e9b412f6251b294987e",
+        "sha": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/AUTHOR-QUALIFICATION.md",
+        "sha": "b43b48e22588dc3feee3def64576e509dbbdc3b5",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/INDEPENDENT-PROBE.py.txt",
+        "sha": "43050f111f795dcafb7b18b401e52e5d3719d063",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/INDEPENDENT-QUALIFICATION.md",
+        "sha": "afb8cfe89fcb49c5b0d6a64d56ac95b8d2905601",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/README.md",
+        "sha": "c23db474233b089cfd0cdf58be4855bf7f35be7a",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/STATUS-RECEIVING.md",
+        "sha": "751c759f5486c26fa3750b422b212d3da751446f",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/author-evidence.tar.gz",
+        "sha": "473df93f838e31090680058aeb880dc40beb3c4c",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/author-manifest.json",
+        "sha": "8f889c17346eae7f9b9c2022b9ad01f6e6d1016f",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/current-main-b9c-native-receiving.json",
+        "sha": "e5477e723d74e433c7f6a47d757d2fe7a531d262",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/current-main-receiving.json",
+        "sha": "121701ac32cae6d4ed4f1ef0d22322ef70d35746",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/independent-manifest.json",
+        "sha": "5467401af7277ab98a912dac8b134ddc36cca8ac",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/independent-receiving.tar.gz",
+        "sha": "c093e911f070ef34e84930021e356a6c69988d65",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/pr40-main-conflict-receiving.json",
+        "sha": "188f2beabaaed53d8e0e2a5cd712f1f5855257d5",
+        "mode": "100644"
+      },
+      {
+        "path": "out/receiving/send-review-ac386303dce2/status-receiving.tar.gz",
+        "sha": "71ec6d608f85231cd717fc469c870fbbc2a72f3c",
+        "mode": "100644"
+      },
+      {
+        "path": "tests/test_approval_outcomes.py",
+        "prior": "f4c7abe598388131fd207b935e87a8bf3ca68024",
+        "sha": "f01f9fadb168543bab230a20175c9b90224ce25a",
+        "mode": "100644"
+      },
+      {
+        "path": "tests/test_browser_invoice_details.py",
+        "prior": "4fc4c0b5e110a3a3eebee4791846195c539088c2",
+        "sha": "c861ef775517ac7561e01596aa50ba3c74a24b6d",
+        "mode": "100644"
+      },
+      {
+        "path": "tests/test_invoice_send_freshness.py",
+        "sha": "e1d7bd6dbbe607a331b4d4e029e6f16b4f2f3bd0",
+        "mode": "100644"
+      },
+      {
+        "path": "tests/test_receipt_term_receiving.py",
+        "prior": "fb5d293f3944480b86524eb98c8ee19a7ce53174",
+        "sha": "35f9c1fdf330fd32e374968d2bd7b9670036be9d",
+        "mode": "100644"
+      },
+      {
+        "path": "tests/test_send_review_boundary.py",
+        "sha": "cad0a3d1ff073d26c600520dfc6d9b0a9ee991f7",
+        "mode": "100644"
+      }
+    ],
+    "missing": []
+  },
+  "previous_qualification": {
+    "source_sha256": "969b6f62ed0958705b3041831cfc0624951cd49893419f3ac2b1d5232d56dd97",
+    "probe_git_blob": "43050f111f795dcafb7b18b401e52e5d3719d063",
+    "qualification_git_blob": "afb8cfe89fcb49c5b0d6a64d56ac95b8d2905601",
+    "archive_git_blob": "c093e911f070ef34e84930021e356a6c69988d65"
+  },
+  "limits": "The preflight observes GET before POST; it is not remote atomicity. Previous source, adapter, before/after report custody remains unchanged."
+}
