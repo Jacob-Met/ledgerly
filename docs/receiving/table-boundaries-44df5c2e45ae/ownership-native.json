@@ -1,0 +1,122 @@
+{
+  "utc": "2026-10-08T19:20:07.909284+00:00",
+  "readable_json": 297,
+  "unreadable": [
+    "chatgpt-b47cbcf18759-noteforge-save-recovery.json",
+    "estate-81ba1ed0179c-tastetable-offline.json",
+    "chatgpt-31366547c1f5-local_state-shadewindow-program-days.json",
+    "handoff-dd84679589d8-to-e137a7f86391-and-81ba1ed0179c-uma-training-scope.json",
+    "estate-a3425ebf9874-minimum-spanning-forest.json",
+    "hamon-ultra-9319fb3272b2-20261008-products-trim.json",
+    "hamon-ultra-99cea3e384ec.json",
+    "chatgpt-a2eaaec253d8-temporary-native-scratch.json",
+    "chatgpt-31366547c1f5-root.json",
+    "chatgpt-b47cbcf18759-ci-checkout-annotations.json",
+    "handoff-99cea3e384ec-to-0df473646168-t89-cli-source.json",
+    "estate-81ba1ed0179c-runtime-checkpoint-linux.json",
+    "estate-825f975ef462-gateway-independent-receiving.json",
+    "chatgpt-b47cbcf18759-mesh-normal-build-cleanup.json",
+    "estate-production-2983fe20-recall-components.json",
+    "chatgpt-a2eaaec253d8.json",
+    "chatgpt-a2eaaec253d8-temporary-native-scratch-closure.json"
+  ],
+  "ledgerly_scopes": [
+    {
+      "record": "chatgpt-58d79b68c9e4-runtime-integrity.json",
+      "worker": "chatgpt-58d79b68c9e4/runtime_integrity",
+      "scope": {
+        "owner": "chatgpt-58d79b68c9e4/runtime_integrity",
+        "area": "Independent native batch-intake review receiving",
+        "state": "active_independent_receiving",
+        "files": [
+          "/home/jacob/ledgerly-batch-intake-independent-review-58d79b68c9e4/"
+        ],
+        "source_issue": "https://github.com/Jacob-Met/ledgerly/issues/43"
+      }
+    },
+    {
+      "record": "hamon-ultra-9319fb3272b2-20261008-integration-ledgerly-history.json",
+      "worker": "hamon-ultra-9319fb3272b2-20261008/integration",
+      "scope": {
+        "owner": "hamon-ultra-9319fb3272b2-20261008/integration",
+        "area": "Read-only retained completed-review history in the actual browser Demo: original queued proposal and recorded APPROVED, REJECTED or FAILED status/result, including explicit UNKNOWN when present",
+        "state": "claimed_after_live_source_and_native_advisory_recovery",
+        "paths": [
+          "new web-demo/python/review_history.py",
+          "new web-demo/src/review-history.ts and scoped CSS",
+          "web-demo/python/bridge.py: additive import and snapshot field only",
+          "web-demo/src/main.ts: additive history import/render/availability hooks only",
+          "web-demo/index.html: dedicated completed-review section; preserve ledger header/card scopes",
+          "web-demo/src/approval-preview.ts: additive content-only proposal export with unchanged pending-card output",
+          "web-demo/scripts/stage-python.mjs and web-demo/src/engine.worker.ts: add Python filename to existing copy/load lists only",
+          "focused native/Pyodide/browser tests, narrow browser README text and unique receiving evidence"
+        ]
+      }
+    },
+    {
+      "record": "chatgpt-ac386303dce2.json",
+      "worker": "chatgpt-ac386303dce2",
+      "scope": {
+        "owner": "chatgpt-ac386303dce2/runtime_execution",
+        "area": "Ledgerly invoice-send approval freshness",
+        "state": "merged_deployed_public_sandbox_received",
+        "paths": [
+          "ledgerly/agent.py: additive send-review comparison/preflight helper",
+          "ledgerly/agent.py: send_invoice preflight arm before dispatch permit only",
+          "new focused native receiving tests",
+          "narrow operator usage and unique exact source/negative/independent receiving evidence"
+        ]
+      }
+    },
+    {
+      "record": "chatgpt-ac386303dce2.json",
+      "worker": "chatgpt-ac386303dce2",
+      "scope": {
+        "owner": "chatgpt-ac386303dce2/runtime_execution",
+        "area": "Ledgerly completed-review history supplemental current-source browser and visual receiving",
+        "state": "prior_successor_received_new_current_main_composition_receiving"
+      }
+    },
+    {
+      "record": "hamon-ultra-9319fb3272b2-20261008.json",
+      "worker": "hamon-ultra-9319fb3272b2-20261008",
+      "scope": {
+        "owner": "hamon-ultra-9319fb3272b2-20261008/integration",
+        "area": "Read-only retained completed-review history",
+        "state": "native_components_received_current_composition_full_gates_in_progress",
+        "issue": 31
+      }
+    },
+    {
+      "record": "chatgpt-a219f250962c.json",
+      "worker": "estate-a219f250962c",
+      "scope": {
+        "owner": "estate-a219f250962c/estate_artifacts",
+        "area": "Retain serialized positive-term invoice deadline across delayed approval",
+        "state": "merged_deployed_and_public_receiving_passed",
+        "paths": [
+          "ledgerly/agent.py:LedgerEntry.invoice_due_on and due_on fallback; tool_create_invoice draft-date capture only",
+          "tests/test_due_date_receiving.py",
+          "docs/due-date-verification-a219f250962c.md"
+        ],
+        "issue": "https://github.com/Jacob-Met/ledgerly/issues/12"
+      }
+    },
+    {
+      "record": "chatgpt-a219f250962c.json",
+      "worker": "estate-a219f250962c",
+      "scope": {
+        "owner": "estate-a219f250962c/workspace_access",
+        "area": "Due-on-receipt mock-backed draft/send semantics after provider refresh",
+        "state": "merged_deployed_and_public_receiving_passed",
+        "paths": [
+          "ledgerly/agent.py:pending receipt facts and builder term only",
+          "ledgerly/paypal.py:successful mock-send missing receipt date only",
+          "unique receipt-term tests and evidence"
+        ],
+        "issue": "https://github.com/Jacob-Met/ledgerly/issues/16",
+        "excluded": "No live provider effects; approval/refresh/invalidation implementation preserved; successful SandboxMock send defines simulated receipt"
+      }
+    }
+  ]
+}

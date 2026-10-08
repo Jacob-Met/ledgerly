@@ -600,20 +600,31 @@ class RulesExtractor:
         consumed: set[int] = set()
         issues: list[Issue] = []
         totals: list[tuple[Optional[str], Decimal]] = []
-        rows = [(i, [c.strip() for c in l.strip().strip("|").split("|")]) for i, l in enumerate(lines) if l.count("|") >= 2]
         header = None
-        for i, cells in rows:
+        for i, line in enumerate(lines):
+            # A blank line or prose ends the table. A later table owns its
+            # column order, even when its header is repeated without a gap.
+            if line.count("|") < 2:
+                header = None
+                continue
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
             low = [c.lower() for c in cells]
-            if header is None:
-                if any(c in ("qty", "quantity", "hours", "hrs") for c in low):
-                    def col(*names):
-                        return next((k for k, c in enumerate(low) if any(n in c for n in names)), None)
+            if any(c in ("qty", "quantity", "hours", "hrs") for c in low):
+                def col(*names):
+                    return next((k for k, c in enumerate(low) if any(n in c for n in names)), None)
+                price_col = col("unit price", "price", "rate", "unit")
+                # Within a table, a description such as "Hours" is still data
+                # unless this row also names a price column. Keep the existing
+                # missing-price diagnostic for an initial incomplete header.
+                if header is None or price_col is not None:
                     header = {
                         "desc": col("item", "description", "service", "task") or 0,
                         "qty": col("qty", "quantity", "hours", "hrs"),
-                        "price": col("unit price", "price", "rate", "unit"),
+                        "price": price_col,
                     }
                     consumed.add(i)
+                    continue
+            if header is None:
                 continue
             consumed.add(i)
             if all(re.fullmatch(r":?-{2,}:?", c) for c in cells if c):
