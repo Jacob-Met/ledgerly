@@ -1,0 +1,152 @@
+{
+  "schema": "ledgerly.receivables.independent-protocol.v1",
+  "receiver": "estate-e82707f2bc62/root",
+  "source_baseline": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+  "scope": "Independently receive the read-only client/currency receivables projection for issue39 through the native bridge/Agent/SandboxMock fixture and direct native TypeScript module execution.",
+  "prior_inputs": [
+    "Immutable13-file baseline, all13 SHA pins verified",
+    "Existing ledger CSV tests and native LedgerEntry/OPEN_STATUSES/bridge contracts",
+    "Author's proposed public export and shape contract only; candidate implementation and author candidate tests have not been opened"
+  ],
+  "native_fixture": {
+    "clock": "2032-02-28, explicitly supplied to the unchanged in-memory Demo Clock fixture before commands; advance through the actual bridge to2032-03-01",
+    "commands": "init; seven draft commands, six explicit approvals, partial and full simulated payments; advance; read again",
+    "jobs": [
+      {
+        "key": "juniper_seven",
+        "name": "Juniper Studio",
+        "email": "billing@juniper.example.test",
+        "currency": "USD",
+        "amount": "0.07",
+        "net_days": 1,
+        "approve": true
+      },
+      {
+        "key": "juniper_fourteen",
+        "name": "Juniper Books",
+        "email": "billing@juniper.example.test",
+        "currency": "USD",
+        "amount": "0.14",
+        "net_days": 2,
+        "approve": true
+      },
+      {
+        "key": "juniper_euro",
+        "name": "Juniper Studio",
+        "email": "billing@juniper.example.test",
+        "currency": "EUR",
+        "amount": "9.90",
+        "net_days": 3,
+        "approve": true
+      },
+      {
+        "key": "juniper_partial",
+        "name": "Juniper Studio",
+        "email": "billing@juniper.example.test",
+        "currency": "USD",
+        "amount": "50.05",
+        "net_days": 1,
+        "approve": true,
+        "payment": "0.04"
+      },
+      {
+        "key": "boreal_yen",
+        "name": "Boreal Team",
+        "email": "billing@boreal.example.test",
+        "currency": "JPY",
+        "amount": "701",
+        "net_days": 1,
+        "approve": true
+      },
+      {
+        "key": "boreal_paid",
+        "name": "Boreal Team",
+        "email": "billing@boreal.example.test",
+        "currency": "USD",
+        "amount": "4.00",
+        "net_days": 1,
+        "approve": true,
+        "payment": "full"
+      },
+      {
+        "key": "boreal_draft",
+        "name": "Boreal Team",
+        "email": "billing@boreal.example.test",
+        "currency": "GBP",
+        "amount": "8.00",
+        "net_days": 4,
+        "approve": false
+      }
+    ],
+    "expected": {
+      "native_commands": 18,
+      "ledger_rows": 7,
+      "open_rows": 5,
+      "states": {
+        "SENT": 4,
+        "PARTIALLY_PAID": 1,
+        "PAID": 1,
+        "DRAFT": 1
+      },
+      "client_counts": {
+        "billing@juniper.example.test": 4,
+        "billing@boreal.example.test": 1
+      },
+      "totals": {
+        "USD": "50.22",
+        "EUR": "9.90",
+        "JPY": "701"
+      },
+      "overdue_totals": {
+        "USD": "50.08",
+        "JPY": "701"
+      },
+      "today_totals": {
+        "USD": "0.14"
+      },
+      "later_totals": {
+        "EUR": "9.90"
+      },
+      "days_overdue_on_2032_02_29": 1,
+      "external_calls": 0
+    },
+    "boundaries": "Actual synthetic mock requests, no network/provider operation; preserve raw commands/snapshot and all source hashes. No direct ledger or payment-field mutation. Only the explicit fixture clock is assigned."
+  },
+  "authored_projection_controls": {
+    "exact_money": {
+      "USD": [
+        "9007199254740993.01",
+        "0.09",
+        "1E-8"
+      ],
+      "USD_total": "9007199254740993.10000001",
+      "EUR": [
+        "+2.5000",
+        "0.00010"
+      ],
+      "EUR_total": "2.50010",
+      "JPY": [
+        "1E+3",
+        "2"
+      ],
+      "JPY_total": "1002",
+      "zero": "0.00",
+      "rule": "Totals preserve required input fractional scale and each original balance string; no Number money, FX or quantization."
+    },
+    "statuses": "SENT, UNPAID, PARTIALLY_PAID and PAYMENT_PENDING are open. Non-open and zero balance rows are excluded with explicit status counts; malformed excluded rows still invalidate the complete snapshot.",
+    "identity": "Exact distinct recorded email strings, including case and surrounding whitespace, stay distinct. Literal multiline/HTML-looking names and leading-zero invoice numbers remain exact; multiple names for one exact email stay associated.",
+    "dates": "Use supplied canonical snapshot day; leap-day difference, due-today, later and null/undated classification. No wall-clock or local-zone inference.",
+    "refusals": [
+      "non-array ledger",
+      "nonstring and negative/nonfinite amount",
+      "invalid canonical calendar date",
+      "duplicate invoice identity",
+      "missing identity/currency field",
+      "malformed excluded paid record"
+    ],
+    "immutability": "Projection and filtering leave input values unchanged. A previously prepared projection retains copied row primitives after source-object mutation.",
+    "empty": "A valid empty native snapshot yields zero counts and no invented client/currency/row."
+  },
+  "test_method": "One baseline native pipeline control plus four independent node:test cases. All feature cases require the actual candidate export; missing baseline module fails explicitly. Node24.19.0 local type stripping, separate actual current-source Node22 hosted run required in the feature's new workflow.",
+  "limits": "No browser, worker-response lifecycle, installed app, external PayPal, real customer, financial-policy or demonstrated-user-benefit claim from this independent projection receipt."
+}

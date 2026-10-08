@@ -1,0 +1,40 @@
+{
+  "schema": "ledgerly.receivables-current-composition/1",
+  "created_at": "2026-10-08T15:48:13.226688+00:00",
+  "native_parent": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+  "tree": "d1d6039a649aee46e459a3502cb2058013cbda4f",
+  "native_files": [
+    {
+      "path": "ledgerly/agent.py",
+      "sha256": "eb1879983209892cf1f1f6916c83629759d7f4f25a126a0627f903fc642b200b",
+      "git_blob": "b44658de8399c065c7d60e9b412f6251b294987e",
+      "bytes": 32548
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+      "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511",
+      "bytes": 35313
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "git_blob": "66f067204d357499b3f7010a946563a431d50aea",
+      "bytes": 26243
+    }
+  ],
+  "peer": [
+    {
+      "path": "web-demo/tests/receivables-peer.mjs",
+      "git_blob": "da6a97dd4ca443d385bdd7e3f45d3d1335f42cdb",
+      "sha256": "8dbe0c43265cbb2a230cc496cbe8aa7e6fc00bdc8193b7228b86c3ec8872417d"
+    },
+    {
+      "path": "web-demo/tests/receivables-peer-fixture.py",
+      "git_blob": "ef8439cacf15488e13a9af233f7f054fdcd6747d",
+      "sha256": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757"
+    }
+  ],
+  "runtime_unchanged_from_source_freeze": true,
+  "original_candidate_preserved": true
+}

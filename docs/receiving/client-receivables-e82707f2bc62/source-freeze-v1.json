@@ -1,0 +1,46 @@
+{
+  "schema": "ledgerly.receivables-source-freeze/1",
+  "created_at": "2026-10-08T15:31:14.439974+00:00",
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/39",
+  "baseline": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+  "composition": "8a122cf637610880e23716823a5eb71d78187391",
+  "files": [
+    {
+      "path": "web-demo/src/receivables.ts",
+      "bytes": 13119,
+      "sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+      "git_blob": "c2d4f6bd9206d7199fe053bd45e2e8df2ad96ad9"
+    },
+    {
+      "path": "web-demo/src/receivables.css",
+      "bytes": 2675,
+      "sha256": "0507a4ac3030497850d9bb05d6594ba6c89f51fd6bb109672125ac283e05e409",
+      "git_blob": "86a30959e4559b04ad6e3c0207c7a4cabdf959d7"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "bytes": 19179,
+      "sha256": "dd881341f42ed68a5312aca2631d7f1ac75d0b99bd26e5d76e75668e4a3381fd",
+      "git_blob": "ecbca0b2e3f7646bda9fd389595484a2a8f422be"
+    },
+    {
+      "path": "web-demo/index.html",
+      "bytes": 7153,
+      "sha256": "22ba72e90a53d104bd2a5dca9f94384dd8905d64a94858fc8f51f163cee82e28",
+      "git_blob": "4618973e9f26d5604cb21f4fd2dec18b0e33d5d0"
+    },
+    {
+      "path": "web-demo/README.md",
+      "bytes": 14205,
+      "sha256": "14dfeb4f26444388dea52aff0c54edc610321f051ff55cee1f1d4e22adf82f5e",
+      "git_blob": "04752c3ceb514b750b60f9beb6ef4aa217ecf1fb"
+    },
+    {
+      "path": "web-demo/tests/engine-recovery.test.ts",
+      "bytes": 15969,
+      "sha256": "e04529f469b98dc25ae1aa7b9c3c041dc7edcfea678f935429e22471321e4460",
+      "git_blob": "2eddbae754beddc71bae85775101cf2125d2df37"
+    }
+  ],
+  "source_status": "Runtime frozen for independent receiving; browser test and evidence documentation remain in preparation."
+}
