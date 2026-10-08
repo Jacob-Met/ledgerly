@@ -1,0 +1,1180 @@
+F..FFFFF.FFFFFFFFFFF...FFFFFFFFFFFFFFFFFFF.F..F                          [100%]
+=================================== FAILURES ===================================
+______ test_invalid_invoice_is_reviewable_before_any_provider_call[data0] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': None, 'unit_price': '10', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:275: in tool_create_invoice
+    resp = self.client.create_draft_invoice(body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/paypal.py:239: in create_draft_invoice
+    self._recalc(inv)
+ledgerly/paypal.py:208: in _recalc
+    total = self._total(inv)
+            ^^^^^^^^^^^^^^^^
+ledgerly/paypal.py:204: in _total
+    return sum((Decimal(i["quantity"]) * Decimal(i["unit_amount"]["value"]) for i in inv["items"]), Decimal(0))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x7fa01d56c3d0>
+
+>   return sum((Decimal(i["quantity"]) * Decimal(i["unit_amount"]["value"]) for i in inv["items"]), Decimal(0))
+                ^^^^^^^^^^^^^^^^^^^^^^
+E   decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+
+ledgerly/paypal.py:204: InvalidOperation
+______ test_invalid_invoice_is_reviewable_before_any_provider_call[data3] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '1000001', 'unit_price': '10', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+______ test_invalid_invoice_is_reviewable_before_any_provider_call[data4] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '0.000001', 'unit_price': '10', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+______ test_invalid_invoice_is_reviewable_before_any_provider_call[data5] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '0.015', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+______ test_invalid_invoice_is_reviewable_before_any_provider_call[data6] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '10', 'currency': 'EUR'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+______ test_invalid_invoice_is_reviewable_before_any_provider_call[data7] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '10', 'currency': 'XYZ'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+______ test_invalid_invoice_is_reviewable_before_any_provider_call[data9] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '10', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+_____ test_invalid_invoice_is_reviewable_before_any_provider_call[data10] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '10', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+_____ test_invalid_invoice_is_reviewable_before_any_provider_call[data11] ______
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '0.5', 'unit_price': '0.01', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [
+        line_payload(qty=None),
+        line_payload(qty="0"),
+        line_payload(qty="-1"),
+        line_payload(qty="1000001"),
+        line_payload(qty="0.000001"),
+        line_payload(unit_price="0.015"),
+        line_payload(currency="EUR"),
+        line_payload(currency="XYZ"),
+        payload(currency="XYZ", line_items=[{"desc": "Work", "qty": 1,
+                                            "unit_price": "10", "currency": "XYZ"}]),
+        payload(amount_paid="-1"),
+        payload(amount_paid="0.001"),
+        line_payload(qty="0.5", unit_price="0.01"),
+    ])
+    def test_invalid_invoice_is_reviewable_before_any_provider_call(data):
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:54: AssertionError
+__ test_nonfinite_model_values_return_review_without_decimal_errors[NaN-qty] ___
+
+field = 'qty', value = 'NaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/extract.py:572: in extract
+    v = validate(ex, text)
+        ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...mal('10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=0.0, source='llm')
+source_text = 'From: Client <client@example.test>\n\n- 2 x Work @ $10\nNet 30\n'
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+>           if li.qty is not None and li.qty <= 0:
+                                      ^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:311: InvalidOperation
+_ test_nonfinite_model_values_return_review_without_decimal_errors[NaN-unit_price] _
+
+field = 'unit_price', value = 'NaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/extract.py:572: in extract
+    v = validate(ex, text)
+        ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...al('NaN'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=0.0, source='llm')
+source_text = 'From: Client <client@example.test>\n\n- 2 x Work @ $10\nNet 30\n'
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+>           if li.unit_price <= 0:
+               ^^^^^^^^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:313: InvalidOperation
+_ test_nonfinite_model_values_return_review_without_decimal_errors[NaN-amount_paid] _
+
+field = 'amount_paid', value = 'NaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/extract.py:572: in extract
+    v = validate(ex, text)
+        ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...l('10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('NaN'), issues=[], confidence=0.0, source='llm')
+source_text = 'From: Client <client@example.test>\n\n- 2 x Work @ $10\nNet 30\n'
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+            if li.unit_price <= 0:
+                out.append(Issue(f"line_items[{n}].unit_price", "error", "Unit price must be positive."))
+            if li.currency in ZERO_DECIMAL_CURRENCIES and li.unit_price != li.unit_price.to_integral_value():
+                out.append(Issue(f"line_items[{n}].unit_price", "error", f"{li.currency} does not support decimals on PayPal."))
+            if not li.currency:
+                out.append(Issue(f"line_items[{n}].currency", "error", "Currency unknown for this item."))
+        ccys = ex.currencies()
+        if len(ccys) > 1:
+            out.append(Issue("currency", "warning",
+                             f"Multiple currencies {ccys}; a PayPal invoice has one currency_code, so this will be split into {len(ccys)} invoices."))
+        if ex.currency and ex.currency not in PAYPAL_CURRENCIES:
+            out.append(Issue("currency", "error", f"{ex.currency} is not a PayPal-supported currency."))
+        if ex.due_days is not None and not (0 <= ex.due_days <= 365):
+            out.append(Issue("due_days", "error", f"Implausible payment term: {ex.due_days} days."))
+>       if ex.amount_paid > 0:
+           ^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:327: InvalidOperation
+__ test_nonfinite_model_values_return_review_without_decimal_errors[sNaN-qty] __
+
+field = 'qty', value = 'sNaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/extract.py:572: in extract
+    v = validate(ex, text)
+        ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...mal('10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=0.0, source='llm')
+source_text = 'From: Client <client@example.test>\n\n- 2 x Work @ $10\nNet 30\n'
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+>           if li.qty is not None and li.qty <= 0:
+                                      ^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:311: InvalidOperation
+_ test_nonfinite_model_values_return_review_without_decimal_errors[sNaN-unit_price] _
+
+field = 'unit_price', value = 'sNaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/extract.py:572: in extract
+    v = validate(ex, text)
+        ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...l('sNaN'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=0.0, source='llm')
+source_text = 'From: Client <client@example.test>\n\n- 2 x Work @ $10\nNet 30\n'
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+>           if li.unit_price <= 0:
+               ^^^^^^^^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:313: InvalidOperation
+_ test_nonfinite_model_values_return_review_without_decimal_errors[sNaN-amount_paid] _
+
+field = 'amount_paid', value = 'sNaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:262: in tool_create_invoice
+    ex = self.extractor.extract(text)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/extract.py:572: in extract
+    v = validate(ex, text)
+        ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...('10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('sNaN'), issues=[], confidence=0.0, source='llm')
+source_text = 'From: Client <client@example.test>\n\n- 2 x Work @ $10\nNet 30\n'
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+            if li.unit_price <= 0:
+                out.append(Issue(f"line_items[{n}].unit_price", "error", "Unit price must be positive."))
+            if li.currency in ZERO_DECIMAL_CURRENCIES and li.unit_price != li.unit_price.to_integral_value():
+                out.append(Issue(f"line_items[{n}].unit_price", "error", f"{li.currency} does not support decimals on PayPal."))
+            if not li.currency:
+                out.append(Issue(f"line_items[{n}].currency", "error", "Currency unknown for this item."))
+        ccys = ex.currencies()
+        if len(ccys) > 1:
+            out.append(Issue("currency", "warning",
+                             f"Multiple currencies {ccys}; a PayPal invoice has one currency_code, so this will be split into {len(ccys)} invoices."))
+        if ex.currency and ex.currency not in PAYPAL_CURRENCIES:
+            out.append(Issue("currency", "error", f"{ex.currency} is not a PayPal-supported currency."))
+        if ex.due_days is not None and not (0 <= ex.due_days <= 365):
+            out.append(Issue("due_days", "error", f"Implausible payment term: {ex.due_days} days."))
+>       if ex.amount_paid > 0:
+           ^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:327: InvalidOperation
+_ test_nonfinite_model_values_return_review_without_decimal_errors[Infinity-qty] _
+
+field = 'qty', value = 'Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:275: in tool_create_invoice
+    resp = self.client.create_draft_invoice(body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/paypal.py:239: in create_draft_invoice
+    self._recalc(inv)
+ledgerly/paypal.py:210: in _recalc
+    inv["amount"] = {"currency_code": ccy, "value": str(quantize(total, ccy)),
+                                                        ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = Decimal('Infinity'), currency = 'USD'
+
+    def quantize(value: Decimal, currency: Optional[str]) -> Decimal:
+        exp = Decimal("1") if currency in ZERO_DECIMAL_CURRENCIES else Decimal("0.01")
+>       return value.quantize(exp, rounding=ROUND_HALF_UP)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:214: InvalidOperation
+_ test_nonfinite_model_values_return_review_without_decimal_errors[Infinity-unit_price] _
+
+field = 'unit_price', value = 'Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+>       result, agent, mock = draft(data)
+                              ^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_invoice_value_boundaries.py:34: in draft
+    return agent.tool_create_invoice(SOURCE), agent, mock
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/agent.py:273: in tool_create_invoice
+    body = build_invoice(part, self.invoicer, number, self.today(), note,
+ledgerly/paypal.py:135: in build_invoice
+    "unit_amount": _money(li.unit_price, ccy),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/paypal.py:99: in _money
+    return {"currency_code": ccy, "value": str(quantize(Decimal(value), ccy))}
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = Decimal('Infinity'), currency = 'USD'
+
+    def quantize(value: Decimal, currency: Optional[str]) -> Decimal:
+        exp = Decimal("1") if currency in ZERO_DECIMAL_CURRENCIES else Decimal("0.01")
+>       return value.quantize(exp, rounding=ROUND_HALF_UP)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:214: InvalidOperation
+_ test_nonfinite_model_values_return_review_without_decimal_errors[-Infinity-amount_paid] _
+
+field = 'amount_paid', value = '-Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):
+        data = payload(amount_paid=value) if field == "amount_paid" else line_payload(**{field: value})
+        result, agent, mock = draft(data)
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:65: AssertionError
+___ test_direct_decimal_values_are_refused_by_validator_and_builder[NaN-qty] ___
+
+field = 'qty', value = 'NaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+                                                  ^^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...al('10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=1.0, source='dict')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+>           if li.qty is not None and li.qty <= 0:
+                                      ^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:311: InvalidOperation
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[NaN-unit_price] _
+
+field = 'unit_price', value = 'NaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+                                                  ^^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...l('NaN'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=1.0, source='dict')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+>           if li.unit_price <= 0:
+               ^^^^^^^^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:313: InvalidOperation
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[NaN-amount_paid] _
+
+field = 'amount_paid', value = 'NaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+                                                  ^^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...('10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('NaN'), issues=[], confidence=1.0, source='dict')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+            if li.unit_price <= 0:
+                out.append(Issue(f"line_items[{n}].unit_price", "error", "Unit price must be positive."))
+            if li.currency in ZERO_DECIMAL_CURRENCIES and li.unit_price != li.unit_price.to_integral_value():
+                out.append(Issue(f"line_items[{n}].unit_price", "error", f"{li.currency} does not support decimals on PayPal."))
+            if not li.currency:
+                out.append(Issue(f"line_items[{n}].currency", "error", "Currency unknown for this item."))
+        ccys = ex.currencies()
+        if len(ccys) > 1:
+            out.append(Issue("currency", "warning",
+                             f"Multiple currencies {ccys}; a PayPal invoice has one currency_code, so this will be split into {len(ccys)} invoices."))
+        if ex.currency and ex.currency not in PAYPAL_CURRENCIES:
+            out.append(Issue("currency", "error", f"{ex.currency} is not a PayPal-supported currency."))
+        if ex.due_days is not None and not (0 <= ex.due_days <= 365):
+            out.append(Issue("due_days", "error", f"Implausible payment term: {ex.due_days} days."))
+>       if ex.amount_paid > 0:
+           ^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:327: InvalidOperation
+__ test_direct_decimal_values_are_refused_by_validator_and_builder[sNaN-qty] ___
+
+field = 'qty', value = 'sNaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+                                                  ^^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...al('10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=1.0, source='dict')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+>           if li.qty is not None and li.qty <= 0:
+                                      ^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:311: InvalidOperation
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[sNaN-unit_price] _
+
+field = 'unit_price', value = 'sNaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+                                                  ^^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...('sNaN'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('0'), issues=[], confidence=1.0, source='dict')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+>           if li.unit_price <= 0:
+               ^^^^^^^^^^^^^^^^^^
+E           decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:313: InvalidOperation
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[sNaN-amount_paid] _
+
+field = 'amount_paid', value = 'sNaN'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+                                                  ^^^^^^^^^^^^
+
+tests/test_invoice_value_boundaries.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ex = Extraction(client_name='Client', client_email='client@example.test', currency='USD', line_items=[LineItem(desc='Work',...'10'), currency='USD', unit=None)], due_days=30, amount_paid=Decimal('sNaN'), issues=[], confidence=1.0, source='dict')
+source_text = None
+
+    def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
+        """Checks shared by every extractor. Returns NEW issues (does not mutate)."""
+        out: list[Issue] = []
+        if not ex.client_email:
+            out.append(Issue("client_email", "error", "No client email found; PayPal needs a recipient email to send an invoice."))
+        elif not EMAIL_RE.fullmatch(ex.client_email):
+            out.append(Issue("client_email", "error", f"Malformed email {ex.client_email!r}."))
+        elif source_text is not None and ex.client_email.lower() not in source_text.lower():
+            out.append(Issue("client_email", "error", f"{ex.client_email} does not appear in the source text (possible hallucination)."))
+        if not ex.client_name:
+            out.append(Issue("client_name", "warning", "No client name found."))
+        if not ex.line_items:
+            out.append(Issue("line_items", "error", "No priced line items found."))
+        for n, li in enumerate(ex.line_items):
+            if li.qty is not None and li.qty <= 0:
+                out.append(Issue(f"line_items[{n}].qty", "error", "Quantity must be positive."))
+            if li.unit_price <= 0:
+                out.append(Issue(f"line_items[{n}].unit_price", "error", "Unit price must be positive."))
+            if li.currency in ZERO_DECIMAL_CURRENCIES and li.unit_price != li.unit_price.to_integral_value():
+                out.append(Issue(f"line_items[{n}].unit_price", "error", f"{li.currency} does not support decimals on PayPal."))
+            if not li.currency:
+                out.append(Issue(f"line_items[{n}].currency", "error", "Currency unknown for this item."))
+        ccys = ex.currencies()
+        if len(ccys) > 1:
+            out.append(Issue("currency", "warning",
+                             f"Multiple currencies {ccys}; a PayPal invoice has one currency_code, so this will be split into {len(ccys)} invoices."))
+        if ex.currency and ex.currency not in PAYPAL_CURRENCIES:
+            out.append(Issue("currency", "error", f"{ex.currency} is not a PayPal-supported currency."))
+        if ex.due_days is not None and not (0 <= ex.due_days <= 365):
+            out.append(Issue("due_days", "error", f"Implausible payment term: {ex.due_days} days."))
+>       if ex.amount_paid > 0:
+           ^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:327: InvalidOperation
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[Infinity-qty] _
+
+field = 'qty', value = 'Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+E       assert False
+E        +  where False = any(<generator object test_direct_decimal_values_are_refused_by_validator_and_builder.<locals>.<genexpr> at 0x7fa01d432b50>)
+
+tests/test_invoice_value_boundaries.py:75: AssertionError
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[Infinity-unit_price] _
+
+field = 'unit_price', value = 'Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+E       assert False
+E        +  where False = any(<generator object test_direct_decimal_values_are_refused_by_validator_and_builder.<locals>.<genexpr> at 0x7fa01d432a80>)
+
+tests/test_invoice_value_boundaries.py:75: AssertionError
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[Infinity-amount_paid] _
+
+field = 'amount_paid', value = 'Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+        assert any(i.severity == "error" for i in validate(ex))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_invoice_value_boundaries.py:76: Failed
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[-Infinity-qty] _
+
+field = 'qty', value = '-Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+        assert any(i.severity == "error" for i in validate(ex))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_invoice_value_boundaries.py:76: Failed
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[-Infinity-unit_price] _
+
+field = 'unit_price', value = '-Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+        assert any(i.severity == "error" for i in validate(ex))
+        with pytest.raises(ValueError):
+>           build_invoice(ex, INVOICER, "N", date(2026, 10, 8))
+
+tests/test_invoice_value_boundaries.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+ledgerly/paypal.py:135: in build_invoice
+    "unit_amount": _money(li.unit_price, ccy),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ledgerly/paypal.py:99: in _money
+    return {"currency_code": ccy, "value": str(quantize(Decimal(value), ccy))}
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = Decimal('-Infinity'), currency = 'USD'
+
+    def quantize(value: Decimal, currency: Optional[str]) -> Decimal:
+        exp = Decimal("1") if currency in ZERO_DECIMAL_CURRENCIES else Decimal("0.01")
+>       return value.quantize(exp, rounding=ROUND_HALF_UP)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+
+ledgerly/extract.py:214: InvalidOperation
+_ test_direct_decimal_values_are_refused_by_validator_and_builder[-Infinity-amount_paid] _
+
+field = 'amount_paid', value = '-Infinity'
+
+    @pytest.mark.parametrize("field", ["qty", "unit_price", "amount_paid"])
+    @pytest.mark.parametrize("value", ["NaN", "sNaN", "Infinity", "-Infinity"])
+    def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):
+        ex = Extraction.from_dict(payload())
+        target = ex if field == "amount_paid" else ex.line_items[0]
+        setattr(target, field, Decimal(value))
+>       assert any(i.severity == "error" for i in validate(ex))
+E       assert False
+E        +  where False = any(<generator object test_direct_decimal_values_are_refused_by_validator_and_builder.<locals>.<genexpr> at 0x7fa01d433510>)
+
+tests/test_invoice_value_boundaries.py:75: AssertionError
+____ test_custom_extractor_cannot_skip_the_core_validation_before_drafting _____
+
+    def test_custom_extractor_cannot_skip_the_core_validation_before_drafting():
+        ex = Extraction.from_dict(line_payload(currency="EUR"))
+        ex.confidence = 1.0
+    
+        class AlreadyReviewed:
+            def extract(self, _):
+                return ex
+    
+        result, agent, mock = draft({}, extractor=AlreadyReviewed())
+>       assert result["ok"] is False and result["needs_review"] is True
+E       assert (True is False)
+
+tests/test_invoice_value_boundaries.py:89: AssertionError
+_____ test_direct_builder_revalidates_even_when_issue_list_is_empty[data0] _____
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '10', 'currency': 'EUR'}], ...}
+
+    @pytest.mark.parametrize("data", [line_payload(currency="EUR"), line_payload(qty=None),
+                                      line_payload(unit_price="0.015"), payload(amount_paid="-1")])
+    def test_direct_builder_revalidates_even_when_issue_list_is_empty(data):
+        ex = Extraction.from_dict(data)
+        assert ex.issues == []
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_invoice_value_boundaries.py:99: Failed
+_____ test_direct_builder_revalidates_even_when_issue_list_is_empty[data1] _____
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': None, 'unit_price': '10', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [line_payload(currency="EUR"), line_payload(qty=None),
+                                      line_payload(unit_price="0.015"), payload(amount_paid="-1")])
+    def test_direct_builder_revalidates_even_when_issue_list_is_empty(data):
+        ex = Extraction.from_dict(data)
+        assert ex.issues == []
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_invoice_value_boundaries.py:99: Failed
+_____ test_direct_builder_revalidates_even_when_issue_list_is_empty[data2] _____
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '0.015', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [line_payload(currency="EUR"), line_payload(qty=None),
+                                      line_payload(unit_price="0.015"), payload(amount_paid="-1")])
+    def test_direct_builder_revalidates_even_when_issue_list_is_empty(data):
+        ex = Extraction.from_dict(data)
+        assert ex.issues == []
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_invoice_value_boundaries.py:99: Failed
+_____ test_direct_builder_revalidates_even_when_issue_list_is_empty[data3] _____
+
+data = {'client_name': 'Client', 'client_email': 'client@example.test', 'currency': 'USD', 'line_items': [{'desc': 'Work', 'qty': '2', 'unit_price': '10', 'currency': 'USD'}], ...}
+
+    @pytest.mark.parametrize("data", [line_payload(currency="EUR"), line_payload(qty=None),
+                                      line_payload(unit_price="0.015"), payload(amount_paid="-1")])
+    def test_direct_builder_revalidates_even_when_issue_list_is_empty(data):
+        ex = Extraction.from_dict(data)
+        assert ex.issues == []
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_invoice_value_boundaries.py:99: Failed
+____ test_rules_keep_the_entire_price_instead_of_truncating_at_two_decimals ____
+
+    def test_rules_keep_the_entire_price_instead_of_truncating_at_two_decimals():
+        source = SOURCE.replace("$10", "$0.015")
+        ex = RulesExtractor().extract(source)
+>       assert ex.line_items[0].unit_price == Decimal("0.015")
+E       AssertionError: assert Decimal('0.01') == Decimal('0.015')
+E        +  where Decimal('0.01') = LineItem(desc='Work', qty=Decimal('2'), unit_price=Decimal('0.01'), currency='USD', unit=None).unit_price
+E        +  and   Decimal('0.015') = Decimal('0.015')
+
+tests/test_invoice_value_boundaries.py:106: AssertionError
+_ test_accepted_values_preserve_currency_and_amount_across_the_real_draft_path[1E+2-0.01-USD] _
+
+qty = '1E+2', price = '0.01', currency = 'USD'
+
+    @pytest.mark.parametrize("qty,price,currency", [
+        ("0.5", "85.00", "USD"), ("1E+2", "0.01", "USD"),
+        ("2.000000", "10.000", "USD"), ("0.5", "100", "JPY"),
+    ])
+    def test_accepted_values_preserve_currency_and_amount_across_the_real_draft_path(qty, price, currency):
+        data = payload(currency=currency, line_items=[{"desc": "Work", "qty": qty,
+                        "unit_price": price, "currency": currency}])
+        result, agent, mock = draft(data)
+        assert result["ok"] is True, result
+        summary = result["invoices"][0]
+        invoice = mock.invoices[summary["invoice_id"]]
+        assert invoice["detail"]["currency_code"] == currency
+        assert Decimal(invoice["items"][0]["unit_amount"]["value"]) == Decimal(price)
+        assert Decimal(invoice["items"][0]["quantity"]) == Decimal(qty)
+>       assert "E" not in invoice["items"][0]["quantity"]
+E       AssertionError: assert 'E' not in '1E+2'
+E         
+E         'E' is contained here:
+E           1E+2
+E         ?  +
+
+tests/test_invoice_value_boundaries.py:127: AssertionError
+______________ test_one_invalid_currency_part_prevents_all_drafts ______________
+
+    def test_one_invalid_currency_part_prevents_all_drafts():
+        data = payload(line_items=[
+            {"desc": "Good", "qty": "1", "unit_price": "10", "currency": "USD"},
+            {"desc": "Bad", "qty": "1", "unit_price": "0.015", "currency": "EUR"},
+        ])
+        result, _, mock = draft(data)
+>       assert result["needs_review"] is True and mock.requests == []
+               ^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'needs_review'
+
+tests/test_invoice_value_boundaries.py:140: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data0]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data3]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data4]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data5]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data6]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data7]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data9]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data10]
+FAILED tests/test_invoice_value_boundaries.py::test_invalid_invoice_is_reviewable_before_any_provider_call[data11]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[NaN-qty]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[NaN-unit_price]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[NaN-amount_paid]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[sNaN-qty]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[sNaN-unit_price]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[sNaN-amount_paid]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[Infinity-qty]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[Infinity-unit_price]
+FAILED tests/test_invoice_value_boundaries.py::test_nonfinite_model_values_return_review_without_decimal_errors[-Infinity-amount_paid]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[NaN-qty]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[NaN-unit_price]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[NaN-amount_paid]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[sNaN-qty]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[sNaN-unit_price]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[sNaN-amount_paid]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[Infinity-qty]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[Infinity-unit_price]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[Infinity-amount_paid]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[-Infinity-qty]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[-Infinity-unit_price]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_decimal_values_are_refused_by_validator_and_builder[-Infinity-amount_paid]
+FAILED tests/test_invoice_value_boundaries.py::test_custom_extractor_cannot_skip_the_core_validation_before_drafting
+FAILED tests/test_invoice_value_boundaries.py::test_direct_builder_revalidates_even_when_issue_list_is_empty[data0]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_builder_revalidates_even_when_issue_list_is_empty[data1]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_builder_revalidates_even_when_issue_list_is_empty[data2]
+FAILED tests/test_invoice_value_boundaries.py::test_direct_builder_revalidates_even_when_issue_list_is_empty[data3]
+FAILED tests/test_invoice_value_boundaries.py::test_rules_keep_the_entire_price_instead_of_truncating_at_two_decimals
+FAILED tests/test_invoice_value_boundaries.py::test_accepted_values_preserve_currency_and_amount_across_the_real_draft_path[1E+2-0.01-USD]
+FAILED tests/test_invoice_value_boundaries.py::test_one_invalid_currency_part_prevents_all_drafts
+38 failed, 9 passed in 0.55s

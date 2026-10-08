@@ -1,0 +1,16 @@
+{
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/REVIEW.md": "aa6d60a0f1cafd004894fe4de3dec533ed7122cc3cf2b250f52692750ad61344",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/candidate-confirmation-probe.json": "6336f9170506cf8e022f87754345a3a7cb743aa3dd5be74288286fe892a2d9ee",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/candidate-focused-owner-and-values.log": "cc6e6a8615db3e131f712130352c4d29a573cf87f873e0504e066cc9806d14bb",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/confirmation-runs.json": "87be0f9f02e684c89a6ed0779261b6d91593fcef2f94f97dcdbc3dbf8cd6103f",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/confirmed-payment-probe.py": "b7331702dd790b36a5c052d4a2a20e34eea4b13134c1a45ba9d7e03f0577cc26",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/focused-runs.json": "5b87de2eec414adbc07368a13f032b5b3ccfa1dcab28a3709029c5560ff274cc",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/main-confirmation-probe.json": "be03e6728fc9f2a1452e2b06282eca5f0863f08472fbaa9b1aea333ab4f3dd4d",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/main-focused-owner-and-values.log": "f76251e5f84cc849aae0024dad6f2b3c2d7dcd02e3da568203b07fb29ac785c2",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/receiving.json": "7c8b82d943aed33fcde76b80f6c7d11147e5690b7c4614dcf3a70e04ba86e645",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/resolved-extractor-conflict.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/source/agent.py": "d029d1be3f93f3c38ce5fdd54d7e7468e9ac6a964f7fe63c1bed50f5b139c4b6",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/source/extract.py": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/source/paypal.py": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+  "docs/verification/invoice-values-independent-06e2ad0ce13f/current-4bda/source-and-owner-proof.json": "27e8f003f52799dac87c0686e24a4947058e36589cd4d20ab53ef1bf155a1726"
+}

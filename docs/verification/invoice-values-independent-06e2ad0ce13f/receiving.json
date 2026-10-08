@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "decision": "accepted_bounded_component",
+  "reviewer": "/root/github_production",
+  "author": "/root/continuity_production",
+  "recorded_utc": "2026-10-08T09:54:21.676857+00:00",
+  "baseline_commit": "d4d3802b7f5ccd78795d91159d907b08cb3e978f",
+  "initial_author_commit": "5293f42a2365976afd76eee10f67944272b7dc70",
+  "accepted_source": {
+    "extract.py": {
+      "sha256": "2afaf50c17b49ea9197367d77ded4b44421c6d8d46eb589d985693d61a65fa6d",
+      "git_blob": "18b01b5c9b448b99bbead856d3a0e038a004e3e5"
+    },
+    "agent.py": {
+      "sha256": "be59a4e305ff0dc3874a7070f7b446b06fd11a5d199caa9cdc11039eb0e1c773",
+      "git_blob": "41082ddcb64985a838220e602d6ad99e631fcc4b"
+    },
+    "paypal.py": {
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe",
+      "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f"
+    }
+  },
+  "rejected_sources": "rejected-source-pins.json",
+  "source_provenance": "Rejected source files copied from exact observed author files before later correction; independently verified and executed, never reconstructed. Final r4 copied and hash-checked before execution. Reviewer made no production changes.",
+  "independence": "Reviewer read baseline code, original extraction tests and candidate source diff before authoring tests, but did not read author new value-boundary tests during test design. Independent authorship; not blind source review.",
+  "test_files": {
+    "tests/test_invoice_values_receiving.py": {
+      "sha256": "3ae1120ecbc50a7ba4029e880e901747788a5b4a294f39100cd58335a7fb4edd"
+    },
+    "tests/test_invoice_values_followup_receiving.py": {
+      "sha256": "df86a30cda40672e954ea7e05b970dc07f0497e55ed8fc93f7705bf4260f1ee1"
+    },
+    "tests/test_money_token_receiving.py": {
+      "sha256": "8ba8e63f2b371845e9680ca2f6e9df28d7000c31ce3744f39e7179aade165814"
+    }
+  },
+  "final_suite_comparison": [
+    {
+      "source": "baseline",
+      "passed": 7,
+      "failed": 24,
+      "log": "baseline-final-suite.log",
+      "log_sha256": "91531219ff81333e91f4bd8525f8bdb1c8412880747382d5cc89ae74bf0a19da"
+    },
+    {
+      "source": "r1",
+      "passed": 16,
+      "failed": 15,
+      "log": "candidate-r1-final-suite.log",
+      "log_sha256": "5c5642c1812dd7afc30b8e8155797f685a4da4a7429410a1d0adcb1def6fa1b2"
+    },
+    {
+      "source": "r2",
+      "passed": 26,
+      "failed": 5,
+      "log": "candidate-r2-final-suite.log",
+      "log_sha256": "cee12cca8c2a89c8435c9a9984482508228b6b28890a3e44f8979f4ea0bcbb30"
+    },
+    {
+      "source": "r3",
+      "passed": 29,
+      "failed": 2,
+      "log": "candidate-r3-final-suite.log",
+      "log_sha256": "ba6a5ba320714ad174e9e9f316c8f92d2b9d40954866b61e17a0a48c516a663c"
+    },
+    {
+      "source": "r4",
+      "passed": 31,
+      "failed": 0,
+      "log": "candidate-r4-final-suite.log",
+      "log_sha256": "159a8b4d5719d8e5fe807db4953227bfb7ea511931459e6d2d594f6e96fc5f3b"
+    }
+  ],
+  "native_composition": {
+    "passed": 130,
+    "failed": 0,
+    "original_tests": 52,
+    "author_tests": 47,
+    "reviewer_tests": 31,
+    "log": "candidate-r4-native-composition.log",
+    "input_hashes": "native-input-sha256.json",
+    "native_inputs_unchanged_before_after": true,
+    "native_input_count": 22
+  },
+  "execution_metadata": "accepted-run-metadata.json",
+  "effects": "All provider-facing cases use native offline SandboxMock; fake LLM callback is local. No external API, HTTP client activation, repository publication, merge or deployment by this review.",
+  "limits": [
+    "Acceptance is for the exact three-file tuple and native supported currencies/precision and parser scope.",
+    "Validation admission before draft effects does not implement rollback for later provider transport failures.",
+    "Current-invoice composition and browser/Pyodide receiving are separate owner work."
+  ],
+  "integration": "Copy packet tests and docs/verification/invoice-values-independent-06e2ad0ce13f into native repository unchanged; source tuple belongs in normal source paths. Artifact manifest is relative to repository root."
+}

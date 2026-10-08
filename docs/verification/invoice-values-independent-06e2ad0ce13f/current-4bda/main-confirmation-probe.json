@@ -1,0 +1,190 @@
+{
+  "cases": [
+    {
+      "case": "confirmed-malformed-group",
+      "lines": [
+        "Deposit paid: USD 1,23."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "confirmed-malformed-tail",
+      "lines": [
+        "Deposit paid: USD 12.345.67."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "confirmed-foreign",
+      "lines": [
+        "Deposit paid: EUR 25.00."
+      ],
+      "amount_paid": "25.00",
+      "error_fields": [],
+      "ok": true,
+      "needs_review": null,
+      "requests": 2,
+      "drafts": 1,
+      "ledger_rows": 1,
+      "pending": 1,
+      "problems": [
+        "invalid or uncertain statement had no extraction error",
+        "whole job was not held for review",
+        "refused job produced a request or partial state"
+      ]
+    },
+    {
+      "case": "confirmed-subunit",
+      "lines": [
+        "Deposit paid: USD 0.005."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "confirmed-subunits-cannot-cancel",
+      "lines": [
+        "Deposit paid: USD 0.005.",
+        "Already paid USD 0.005."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid",
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "confirmed-negative",
+      "lines": [
+        "Deposit paid: -USD 25.00."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "future-foreign",
+      "lines": [
+        "We will pay an EUR 25.00 deposit tomorrow."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "negated",
+      "lines": [
+        "We have not paid a USD 25.00 deposit."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "conditional",
+      "lines": [
+        "If we already paid USD 25.00, begin work."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "refunded",
+      "lines": [
+        "We already paid USD 25.00, but it was refunded."
+      ],
+      "amount_paid": "0",
+      "error_fields": [
+        "amount_paid"
+      ],
+      "ok": false,
+      "needs_review": true,
+      "requests": 0,
+      "drafts": 0,
+      "ledger_rows": 0,
+      "pending": 0,
+      "problems": []
+    },
+    {
+      "case": "accepted-confirmed-deposit-with-delayed-approval",
+      "due_on": "2026-10-13",
+      "sent_on": "2026-10-08",
+      "paid_amount": "25",
+      "balance": "75",
+      "sends": 1,
+      "payments": 1,
+      "problems": []
+    }
+  ],
+  "passed": 10,
+  "failed": 1
+}

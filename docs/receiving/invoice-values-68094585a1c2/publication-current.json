@@ -1,0 +1,1015 @@
+{
+  "recorded_at": "2026-10-08T14:05:34.602Z",
+  "repository": "Jacob-Met/Ledgerly",
+  "current_commit": "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+  "current_tree": "bf2f5bab390bef22da1d07c1eb3164b7147f3e0a",
+  "current_leaf_count": 467,
+  "original_pr19_head": "f67e2c4034804f657eccad38887f377f28011e98",
+  "proposed_parents": [
+    "2ab89fdd65d200355dda381ba7bae82a22e268fc",
+    "f67e2c4034804f657eccad38887f377f28011e98"
+  ],
+  "authorship": "Original PR19 contribution and all 54 original additions remain intact; the original branch is unchanged. The only receiver product correction is two ValueError guards in parse_qty.",
+  "preserved_current_leaves_outside_three_product_paths": 464,
+  "prior_qualified_parent": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "prior_qualified_publication_tree": "6f33b05b995eed1b7da72cde66ccc814ed0114b9",
+  "prior_publication_manifest_sha256": "dc4793232200141f92a345fc29af4db339b2e5b5f11b38157a60329b2229ac0f",
+  "prior_source_review": {
+    "sha256": "6ff6bfa65e30ffd64036a0b0e5f8b9120bfa13a965c01ebf811ed453cf5f3472",
+    "receipt": {
+      "schema": "ledgerly-quantity-source-receiving/v1",
+      "recorded_at": "2026-10-08T13:48:48.092435+00:00",
+      "status": "accepted",
+      "reviewer": "68094585a1c2/memory_delivery",
+      "independence": "Independent current-source integration review; reviewer previously authored the small quantity receiver patch and its ten tests, and does not claim independent authorship review of those same cases",
+      "publication_manifest": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/publication-manifest.json",
+      "manifest_sha256": "dc4793232200141f92a345fc29af4db339b2e5b5f11b38157a60329b2229ac0f",
+      "parent": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+      "original_author_head": "f67e2c4034804f657eccad38887f377f28011e98",
+      "proposed_merge_parents": [
+        "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+        "f67e2c4034804f657eccad38887f377f28011e98"
+      ],
+      "ancestry_status": "proposed receiving merge; no external creation or observed integration claimed",
+      "tree": "6f33b05b995eed1b7da72cde66ccc814ed0114b9",
+      "parent_leaves": 364,
+      "candidate_leaves": 423,
+      "original_author_additions_exact": 54,
+      "current_unowned_leaves_exact": 361,
+      "delta_entries": 62,
+      "materialized_entries_verified": [
+        {
+          "path": "ledgerly/agent.py",
+          "sha256": "eb1879983209892cf1f1f6916c83629759d7f4f25a126a0627f903fc642b200b",
+          "git_blob": "b44658de8399c065c7d60e9b412f6251b294987e"
+        },
+        {
+          "path": "ledgerly/extract.py",
+          "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+          "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511"
+        },
+        {
+          "path": "ledgerly/paypal.py",
+          "sha256": "e04fa6abc90747f9b723660aa8d76a174e4bff89e1e41067aefb4c75bc971965",
+          "git_blob": "1d805837d9ed4fe29f42ae7093764c47b0060edd"
+        },
+        {
+          "path": "tests/test_invoice_quantity_receiving.py",
+          "sha256": "71397e3469884b745aeec9afdb8220bf6fc4d51ab2bdc2460d50a605c967094e",
+          "git_blob": "1763409d3641e661a55de690d5426234bcb944da"
+        },
+        {
+          "path": "tests/test_webhook_approval_composition.py",
+          "sha256": "bc4cff333c3e61ce6658b0a5d505cfa70ebd4cf16ecab6a4f88e9a118d745ade",
+          "git_blob": "48af934ad4ab2d1847873456840b5e43e17125de"
+        },
+        {
+          "path": "docs/receiving/invoice-values-68094585a1c2/README.md",
+          "sha256": "762cbcbd52c8a96ef82d202c41ceccc4fb3ab611811994cafc777bfd2040cb38",
+          "git_blob": "8bc0f8681d81e25c1080041eeb6ff23e9518347d"
+        },
+        {
+          "path": "docs/receiving/invoice-values-68094585a1c2/qualification.json",
+          "sha256": "cdbea1458d017f943e3fb3920b69635ad9a46700ad2127bfaef2eb2d6e00d929",
+          "git_blob": "b1ec45a7d8e6109e4f0a1a77e39a32a539e745a6"
+        },
+        {
+          "path": "docs/receiving/invoice-values-68094585a1c2/source-pins.json",
+          "sha256": "9b8e180986c2c7e6f4539ecf12fd0d48a97152f72bdb61006ff55053613dc759",
+          "git_blob": "1f055bcc26a623f58e7595231f4bd2b7552b5ca0"
+        }
+      ],
+      "all72_frozen_native_source_files_verified": true,
+      "production": [
+        {
+          "path": "ledgerly/agent.py",
+          "git_merge_file": "clean, exact candidate bytes",
+          "author_function_exact": "tool_create_invoice",
+          "all_other_current_bytes_preserved": true,
+          "current_blob": "3ae7fcae5b1b243f608ab1bea6e25313a2fea091",
+          "candidate_blob": "b44658de8399c065c7d60e9b412f6251b294987e"
+        },
+        {
+          "path": "ledgerly/paypal.py",
+          "git_merge_file": "clean, exact candidate bytes",
+          "author_function_exact": "build_invoice",
+          "all_other_current_bytes_preserved": true,
+          "current_blob": "04cc47d78c29154435fb429ffa931d2727addb96",
+          "candidate_blob": "1d805837d9ed4fe29f42ae7093764c47b0060edd"
+        },
+        {
+          "path": "ledgerly/extract.py",
+          "same_as_previously_qualified_receiver": true,
+          "only_changed_author_function": "parse_qty",
+          "narrow_valueerror_guards": 2,
+          "all_other_author_bytes_preserved": true,
+          "candidate_blob": "5d22bb5a4292529f9de2df521c4623a783779511"
+        }
+      ],
+      "maintained_receiving": [
+        {
+          "path": "tests/test_invoice_quantity_receiving.py",
+          "original_sha256": "268a953754a0adf1f68e4f079e40e2d3b2bcaf3f7cc29476c4d5444bc284e928",
+          "final_sha256": "71397e3469884b745aeec9afdb8220bf6fc4d51ab2bdc2460d50a605c967094e",
+          "case_bodies_and_fixtures_byte_identical": true,
+          "only_original_bootstrap_and_module_context_adapted": true,
+          "executable_ast_exact_complete_suite": true,
+          "test_methods": [
+            "test_valid_maximum",
+            "test_valid_fraction",
+            "test_valid_grouped_fraction",
+            "test_valid_existing_approximate_and_range_warnings",
+            "test_existing_next_integer_review",
+            "test_oversized_plain_requires_review",
+            "test_oversized_approximate_requires_review",
+            "test_oversized_range_lower_requires_review",
+            "test_oversized_approximate_range_lower_requires_review",
+            "test_valid_first_item_does_not_allocate_before_oversized_second"
+          ]
+        },
+        {
+          "path": "tests/test_webhook_approval_composition.py",
+          "original_sha256": "4c268561ea41fac4b9e1bc07261205e51bdd6c84dc01f5aaaa187c156f1fb223",
+          "final_sha256": "bc4cff333c3e61ce6658b0a5d505cfa70ebd4cf16ecab6a4f88e9a118d745ade",
+          "case_bodies_and_fixtures_byte_identical": true,
+          "only_original_bootstrap_and_module_context_adapted": true,
+          "executable_ast_exact_complete_suite": true,
+          "test_methods": [
+            "test_delayed_snapshot_preserves_review_then_lost_send_response_consumes_same_id",
+            "test_unavailable_webhook_read_and_approval_preflight_are_separately_retryable",
+            "test_webhook_can_refresh_after_uncertain_deposit_without_reopening_send_approval"
+          ]
+        }
+      ],
+      "preserved_current_boundaries": [
+        "approval outcome/retry/decline and pending identity",
+        "webhook verification and authoritative provider refresh",
+        "RulePlanner general budget and browser-only full overdue scan",
+        "approval preview literal payload rendering",
+        "browser Worker recovery/client and review delivery",
+        "CI/Pages/package/lock inputs"
+      ],
+      "gate_logs_read_without_rerun": [
+        {
+          "path": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/evidence/native-current.log",
+          "sha256": "4f40bebdb2dc2004c6eb45b0647a7f5c4334f4918f7c48022bd6c931efe2331c",
+          "observed_summary": "276 passed, 85 subtests passed",
+          "reviewer_reran": false
+        },
+        {
+          "path": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/evidence/maintained-tests.log",
+          "sha256": "e2c1e533767b23d0e1746d23f85fe9df229841e47231a4bb398a2bd983100183",
+          "observed_summary": "13 passed, 22 subtests passed",
+          "reviewer_reran": false
+        },
+        {
+          "path": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/evidence/quantity-cli.log",
+          "sha256": "5af54e3b2dabcde0639041c48cb4298cb2e8e9257a76ac7fe74560f416eceeb7",
+          "observed_summary": "Ran 10 tests",
+          "reviewer_reran": false
+        },
+        {
+          "path": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/evidence/node-pyodide-current.log",
+          "sha256": "9093302fb8ad96d8273fcacc90e15e2f38236dc4fba09c9a868465de498bec86",
+          "observed_summary": "34 passed",
+          "reviewer_reran": false
+        }
+      ],
+      "scope_limits": [
+        "Source-only review, no product or test edits",
+        "No native/Node/browser suite repeated",
+        "Standard npm staging/build not claimed by producer; exact asset staging and direct pinned real Node Pyodide are recorded separately",
+        "Hosted exact receiving commit remains a pending gate",
+        "Original published author branch untouched"
+      ],
+      "findings": []
+    }
+  },
+  "immutable_receiving_packet": {
+    "path": "docs/receiving/invoice-values-68094585a1c2/receiving-packet.tar.gz",
+    "bytes": 379886,
+    "sha256": "3606a1c13e5ecad7c5af56dbca4482b390dc4496c921d602a0531b6ec3a67f25",
+    "git_blob": "407ee0dfd41ed1ace0e1d3fb7c6ea8683cff8122",
+    "member_count": 106,
+    "logical_member_bytes": 1676527
+  },
+  "latest_source_review": {
+    "method": "Source-only inspection; no repeated local suite",
+    "conclusion": "No concrete quantity interaction defect: invoice details copies detached retained records and renders escaped native quantity/currency/value strings without recalculation. New staging, Worker and Pyodide fixtures include the helper.",
+    "current_core_unchanged_from_qualified_parent": true
+  },
+  "changes_since_qualified_parent": [
+    {
+      "path": "web-demo/README.md",
+      "before": "0af96537e0053405002ab5cfcd8577ae25390133",
+      "after": "6184fce0ffc642038f93f32faaea6061bb802c3e",
+      "type": "blob",
+      "bytes": 6442
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "before": "5c60ddc5f4e6d0a3407e2a7eeab6f103dbe1c4ae",
+      "after": "6a3391bcba29ea65a2c6155914bda5a51d152db3",
+      "type": "blob",
+      "bytes": 6609
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "before": "f06d27ecc0a4ff4a09517ca6d3fef5887e8be7d6",
+      "after": "5c1be224027f6bc5c691a0bbb62ca55098482e81",
+      "type": "blob",
+      "bytes": 995
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "before": "efff0b9f8e88d7471f89b46cb20f1a28eaad62c1",
+      "after": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96",
+      "type": "blob",
+      "bytes": 1736
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "before": "866edc4498ebd933819076a42846c1ad7c85e13f",
+      "after": "1c81ecc1e97ee4e8ff07fa0428d1b811109297f5",
+      "type": "blob",
+      "bytes": 18074
+    },
+    {
+      "path": "web-demo/tests/approval-preview.test.ts",
+      "before": "e3497fba27c849ce3df2749264f1a813537ba302",
+      "after": "c02c82f16413dc8d5c88858dc8c8dec5c0ff1bc0",
+      "type": "blob",
+      "bytes": 9146
+    },
+    {
+      "path": "web-demo/tests/engine-recovery.test.ts",
+      "before": "f46cd5f3d6bf84d4b03457c8f72ea62cf65bbb27",
+      "after": "60001473a2553070892cd9c4c1fa0e9d6dcc8300",
+      "type": "blob",
+      "bytes": 15713
+    },
+    {
+      "path": "web-demo/tests/engine.test.ts",
+      "before": "7a071401e01eb1eb79c687d4702c5f3ff36fd261",
+      "after": "ccdc50843946b4b562e183f38d45948ec20cd614",
+      "type": "blob",
+      "bytes": 3030
+    },
+    {
+      "path": "web-demo/tests/overdue-scan.test.ts",
+      "before": "5f8050ab438458a0b3dee5580a71ae265337e7ac",
+      "after": "772a4595d6444221a5b9fb46d5d7833bf09f67da",
+      "type": "blob",
+      "bytes": 2144
+    },
+    {
+      "path": "web-demo/tests/review.test.ts",
+      "before": "cd6660b4c4cdf6c112e2fb98a5a1b413570a27ff",
+      "after": "784b30a2ceb21b5ec651f80ef9fffa37054d73b9",
+      "type": "blob",
+      "bytes": 9415
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/README.md",
+      "before": null,
+      "after": "313d5c9549f911d129ac2d4258097d0eddc9c638",
+      "type": "blob",
+      "bytes": 10733
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/coord-qualified-snapshot.json",
+      "before": null,
+      "after": "e0db0f880a961e5c9c7bd7a3fc2b0bde810c15ba",
+      "type": "blob",
+      "bytes": 5796
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/current-main-composition-v1.json",
+      "before": null,
+      "after": "984bb935b494e912bcfadf6c80e9de073edf52c3",
+      "type": "blob",
+      "bytes": 6745
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/evidence-manifest.json",
+      "before": null,
+      "after": "a845f8e63c232dc40bce0103f52963d7905c28f8",
+      "type": "blob",
+      "bytes": 30432
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/independent-selected-source-parity.json",
+      "before": null,
+      "after": "06844ba6eed06e36bea34ff38f9bdba4d470f871",
+      "type": "blob",
+      "bytes": 192
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/interaction-correction-freeze.json",
+      "before": null,
+      "after": "d9a3a05db46f059386dd7b26dee65909c601019c",
+      "type": "blob",
+      "bytes": 1127
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/native-source-fetch.json",
+      "before": null,
+      "after": "2b43b08a1e6bc51ac7a98118abf61603b1d65fbe",
+      "type": "blob",
+      "bytes": 1075
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/overdue-composition-results-v2.json",
+      "before": null,
+      "after": "d88a5089f9591be806d3ecb5bcf505ddb3b84a81",
+      "type": "blob",
+      "bytes": 1814
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/overdue-composition-results.json",
+      "before": null,
+      "after": "800736c27fc3aa08995766aa049e0b69f928b605",
+      "type": "blob",
+      "bytes": 1105
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/overdue-composition-source.json",
+      "before": null,
+      "after": "22a8a32f42f95bcbb18375ed3fc8ea1222f1158d",
+      "type": "blob",
+      "bytes": 930
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/baseline-native.log",
+      "before": null,
+      "after": "0f7950ac2811c35c4516c4abc44c27e3fe2456ae",
+      "type": "blob",
+      "bytes": 1810
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/baseline-native.xml",
+      "before": null,
+      "after": "2dba6395da4ea720bda3498bbbc0ebe353a045d7",
+      "type": "blob",
+      "bytes": 1811
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-accessibility-before.log",
+      "before": null,
+      "after": "12c8a84756cefac0269e63d2ff1c12653cbbb4c4",
+      "type": "blob",
+      "bytes": 2698
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-accessibility-before/browser-receipt.json",
+      "before": null,
+      "after": "1d11b3ed11ff74053fb803d44cd84f5d73aa0025",
+      "type": "blob",
+      "bytes": 10892
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-current-main.log",
+      "before": null,
+      "after": "b055382ec88abb7296950b666daa6ec93a86cee3",
+      "type": "blob",
+      "bytes": 1291
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-current-main/browser-receipt.json",
+      "before": null,
+      "after": "924f57a47bd5ea07dd9a95cf91cd50703754aed5",
+      "type": "blob",
+      "bytes": 12745
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-driver-v2.py.txt",
+      "before": null,
+      "after": "b514b08a04b7766c011885b2fb7b36d14dab4547",
+      "type": "blob",
+      "bytes": 18675
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-driver-v3.py.txt",
+      "before": null,
+      "after": "ec2605e20eafae999d18574cc8e7e9c3b22565cb",
+      "type": "blob",
+      "bytes": 18736
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-driver-v4.py.txt",
+      "before": null,
+      "after": "8f99d5081ae09b16e1c5bac577bc52595e16ce57",
+      "type": "blob",
+      "bytes": 19806
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-final.log",
+      "before": null,
+      "after": "b055382ec88abb7296950b666daa6ec93a86cee3",
+      "type": "blob",
+      "bytes": 1291
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-final/browser-receipt.json",
+      "before": null,
+      "after": "a2df61f43f67cdf0bb0e4becf0fd9b3a11849dbe",
+      "type": "blob",
+      "bytes": 15639
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-layout-probe.log",
+      "before": null,
+      "after": "b2cb9ca7b9cd0ec3edb3cf65f03cfa708cbfa452",
+      "type": "blob",
+      "bytes": 1581
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-layout-probe/browser-receipt.json",
+      "before": null,
+      "after": "a0bd47c69f953f106749940d8598ee1578087ad5",
+      "type": "blob",
+      "bytes": 4654
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-layout-probe/phone-overflow-before.png",
+      "before": null,
+      "after": "9a0bbfea0dae41d699027f66f59364cd85ebeaec",
+      "type": "blob",
+      "bytes": 54870
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-overdue-composed.log",
+      "before": null,
+      "after": "b055382ec88abb7296950b666daa6ec93a86cee3",
+      "type": "blob",
+      "bytes": 1291
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-overdue-composed/browser-receipt.json",
+      "before": null,
+      "after": "cbfe2d76498a1c34f3cbbdd3c838374e17421f2c",
+      "type": "blob",
+      "bytes": 15639
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-overdue-composed/desktop-original-details.png",
+      "before": null,
+      "after": "d08d3e24214efe995bfe78edf0430b8e13fc14b9",
+      "type": "blob",
+      "bytes": 94247
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-overdue-composed/desktop-recorded-payment.png",
+      "before": null,
+      "after": "f6e2fdcb5a7f9592feccdfe1975e165f3768182a",
+      "type": "blob",
+      "bytes": 84513
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-overdue-composed/phone-literal-details.png",
+      "before": null,
+      "after": "d33a7ce34c3ceffcc2abb2076cd4e4c739ac47d3",
+      "type": "blob",
+      "bytes": 54813
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-overdue-composed/phone-table-keyboard-scroll.png",
+      "before": null,
+      "after": "83f0da1e6b187c35f9441522699253c5b2e5fdb1",
+      "type": "blob",
+      "bytes": 50579
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-runtime-custody.json",
+      "before": null,
+      "after": "0c9d74ee7146841af97cf867605dd41ef8e260ea",
+      "type": "blob",
+      "bytes": 743
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-runtime-install.log",
+      "before": null,
+      "after": "f31c481fdd20b9ee3e4d90ac9b8ad699516ec90d",
+      "type": "blob",
+      "bytes": 38
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-tests.log",
+      "before": null,
+      "after": "39eaf2f862252d102c32ff808c6d2a9ec957a297",
+      "type": "blob",
+      "bytes": 2009
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v1.log",
+      "before": null,
+      "after": "b4f5ce46de98151f9f9311156d84981da3b9fb90",
+      "type": "blob",
+      "bytes": 3127
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v1/browser-receipt.json",
+      "before": null,
+      "after": "a4ff5225f68e32a25c276ca4ef39f38a6ff131b5",
+      "type": "blob",
+      "bytes": 2026
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v2.log",
+      "before": null,
+      "after": "b84a227d84491fc6710f50b8abfcedafb8676e47",
+      "type": "blob",
+      "bytes": 8783
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v2/browser-receipt.json",
+      "before": null,
+      "after": "c45b6aac43fc1b44a6701ee355be8902c60454fc",
+      "type": "blob",
+      "bytes": 5872
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v3.log",
+      "before": null,
+      "after": "662d1a77c2b29db14b32b9de6a5991e2895ab96a",
+      "type": "blob",
+      "bytes": 5948
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v3/browser-receipt.json",
+      "before": null,
+      "after": "cf3e43a76cf635c4398acbfa9c4c45b8b1ecca6e",
+      "type": "blob",
+      "bytes": 5716
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v4.log",
+      "before": null,
+      "after": "3602bedd7d9b48315434ae52af42e10e874aaa99",
+      "type": "blob",
+      "bytes": 6611
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v4/browser-receipt.json",
+      "before": null,
+      "after": "614076b5b431bbd71996d0a5ed04cde55d46bcc4",
+      "type": "blob",
+      "bytes": 6575
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v5.log",
+      "before": null,
+      "after": "3cc8ecee639c0d65aff0e4c7c2d115449920c854",
+      "type": "blob",
+      "bytes": 1813
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/browser-v5/browser-receipt.json",
+      "before": null,
+      "after": "559625ccfdf744d38738af6c08156db8d2d6691a",
+      "type": "blob",
+      "bytes": 4154
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/build-v2.log",
+      "before": null,
+      "after": "e2a90196ad728da4d684005c346e2c2017ed69cc",
+      "type": "blob",
+      "bytes": 3402
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/candidate-native.xml",
+      "before": null,
+      "after": "2a94bb866ec9743acfcfa4267eaa7c1c6c323ac2",
+      "type": "blob",
+      "bytes": 21321
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/candidate-v1-execution.json",
+      "before": null,
+      "after": "63e352f3425608708fd2a6ad2ecfc1a5d5aea88f",
+      "type": "blob",
+      "bytes": 6165
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/candidate-v2-execution.json",
+      "before": null,
+      "after": "dcb7573d9b4a93aa8977c1ea7a3ab0e8917f503d",
+      "type": "blob",
+      "bytes": 4541
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/candidate-vitest.xml",
+      "before": null,
+      "after": "5e71ca16c833d7c02fa53cd26abc75004b31024b",
+      "type": "blob",
+      "bytes": 9792
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/composed-build.log",
+      "before": null,
+      "after": "7e820e5fa33a39ae15e5abeeae120a1e1d8bd0c5",
+      "type": "blob",
+      "bytes": 3402
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/composed-native.log",
+      "before": null,
+      "after": "879c2b5236825b936b89dc6094ce9dc33c71e60b",
+      "type": "blob",
+      "bytes": 292
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/composed-native.xml",
+      "before": null,
+      "after": "4de8088ca48c2c6404115cbba8458e90ce065743",
+      "type": "blob",
+      "bytes": 27527
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/composed-web.log",
+      "before": null,
+      "after": "4e9d682a807c4da371bbe8e97036dedad871ec34",
+      "type": "blob",
+      "bytes": 1853
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/composed-web.xml",
+      "before": null,
+      "after": "f9610c64cb5e1fb1b8f5d6bff1855a7286c21c1c",
+      "type": "blob",
+      "bytes": 9788
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/disabled-disclosure-probe.json",
+      "before": null,
+      "after": "fcc48fa4cd61f8f7b116dafca81406af58bbf23a",
+      "type": "blob",
+      "bytes": 9145
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent-composition/REVIEW.md",
+      "before": null,
+      "after": "864c76d88a7ad4fed27a13939cc975d6255cd536",
+      "type": "blob",
+      "bytes": 796
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent-composition/actual-parent-composition.diff",
+      "before": null,
+      "after": "91a172085e5013cef24fa70d6d8359bf50550350",
+      "type": "blob",
+      "bytes": 2355
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent-composition/composition-review.json",
+      "before": null,
+      "after": "d870f7524880658eaa8ab177cf55ebadd78c212b",
+      "type": "blob",
+      "bytes": 2378
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent-composition/manifest.json",
+      "before": null,
+      "after": "e5b7e0104c1ace4e209a39717435da58f0aeb1bc",
+      "type": "blob",
+      "bytes": 543
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/REVIEW.md",
+      "before": null,
+      "after": "12371a7c0c68678e84dadaaede40279e5ee01531",
+      "type": "blob",
+      "bytes": 6212
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/actual-parent-main-pin.json",
+      "before": null,
+      "after": "26da45a07d77965344f3e6728ca62780d9c21916",
+      "type": "blob",
+      "bytes": 235
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/actual-parent-main.diff",
+      "before": null,
+      "after": "8146101edcd0162354c2759e58b99723f3b9a868",
+      "type": "blob",
+      "bytes": 4937
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/check_disclosure_refresh.mjs",
+      "before": null,
+      "after": "ec11c03d41387a9f5c57a78774a3e9630dfba26a",
+      "type": "blob",
+      "bytes": 5889
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/corrected-browser-command.json",
+      "before": null,
+      "after": "da98086b5edce5d12778527bec3eaaa3d38582c5",
+      "type": "blob",
+      "bytes": 555
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/corrected-browser-report.json",
+      "before": null,
+      "after": "3b8ceaae10dc85811397c4d3583ba7147433a14c",
+      "type": "blob",
+      "bytes": 1697
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/corrected-browser.stderr.log",
+      "before": null,
+      "after": "d17eb97e6dc9284763cd6c22f22aab681becde01",
+      "type": "blob",
+      "bytes": 179
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/corrected-browser.stdout.log",
+      "before": null,
+      "after": "b9eec077a8d0f03ceb448d8007decde3beed4ee9",
+      "type": "blob",
+      "bytes": 747
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/independent-review-receipt.json",
+      "before": null,
+      "after": "d7376fbddcd5fd5af655ddf32774103a9d126cdf",
+      "type": "blob",
+      "bytes": 3988
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/initial-browser-command.json",
+      "before": null,
+      "after": "cd84803a1ee059e64b907020e7e375c2016e2772",
+      "type": "blob",
+      "bytes": 552
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/initial-browser-report.json",
+      "before": null,
+      "after": "e628ce44151038407e569070728293698eccb5f7",
+      "type": "blob",
+      "bytes": 1699
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/initial-browser.stderr.log",
+      "before": null,
+      "after": "d17eb97e6dc9284763cd6c22f22aab681becde01",
+      "type": "blob",
+      "bytes": 179
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/initial-browser.stdout.log",
+      "before": null,
+      "after": "3d6a94c442e4a4b0b52988b5aed87b8b794c23dc",
+      "type": "blob",
+      "bytes": 747
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/initial-source-manifest.json",
+      "before": null,
+      "after": "aeb70f72ffdd94abad9c712f025323c24ed0389a",
+      "type": "blob",
+      "bytes": 2800
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/invoice-details-corrected.ts",
+      "before": null,
+      "after": "3de02706a97eab7c1310f520a26e40e3066f1bfd",
+      "type": "blob",
+      "bytes": 9311
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/invoice-details-reviewed.ts",
+      "before": null,
+      "after": "48c3c24a2768f1ee31d7ec7fedc7a770b034a09a",
+      "type": "blob",
+      "bytes": 8762
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/manifest.json",
+      "before": null,
+      "after": "3c85a185c9a631eb8c84b8f355e5800999c1127f",
+      "type": "blob",
+      "bytes": 3861
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/independent/renderer-correction.diff",
+      "before": null,
+      "after": "99b2a57b6293d946fe515b497fdee06d02eb7845",
+      "type": "blob",
+      "bytes": 2026
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/initial-browser-driver.py.txt",
+      "before": null,
+      "after": "6473e84ff9afd65786eee30fae89b4bd04a4c999",
+      "type": "blob",
+      "bytes": 18000
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/interaction-build.log",
+      "before": null,
+      "after": "9add9d2ae5dd0c2100fc6aaf402418e8891bb6a3",
+      "type": "blob",
+      "bytes": 3402
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/interaction-focused.log",
+      "before": null,
+      "after": "6d439cdf7dd75f033753f1944fa540e53f7a8e32",
+      "type": "blob",
+      "bytes": 1013
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/interaction-focused.xml",
+      "before": null,
+      "after": "c506816dacc237a3a6cd45d57b39537406e90715",
+      "type": "blob",
+      "bytes": 2975
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/native-python.log",
+      "before": null,
+      "after": "0bdfcaaaf51b317307b1109e2aac52fc806bb433",
+      "type": "blob",
+      "bytes": 212
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/npm-ci.log",
+      "before": null,
+      "after": "e637385653f9793c89136cce7e5824ea39c67cc7",
+      "type": "blob",
+      "bytes": 25
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/original-baseline-receipt.json",
+      "before": null,
+      "after": "0bbaf91c6cc26c2d333b61a81dbcc8f31b78cb0f",
+      "type": "blob",
+      "bytes": 9730
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/overdue-composed-build.log",
+      "before": null,
+      "after": "18ff0925efdc04405416c284d558400238460a19",
+      "type": "blob",
+      "bytes": 3402
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/overdue-composed-native.log",
+      "before": null,
+      "after": "2f0490c7e38d070f1ff196e306238ccd87ab9256",
+      "type": "blob",
+      "bytes": 115
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/overdue-composed-native.xml",
+      "before": null,
+      "after": "2baee1423ccef1d48287e0edaa373da5db7efcb4",
+      "type": "blob",
+      "bytes": 2508
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/overdue-composed-stage-v2.log",
+      "before": null,
+      "after": "59982bfdc217bab7ebbae88702fd72bd8bb45e89",
+      "type": "blob",
+      "bytes": 80
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/overdue-composed-stage.log",
+      "before": null,
+      "after": "04b3217cf3069c5c6cdb807710a6d8d0d0912296",
+      "type": "blob",
+      "bytes": 230
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/overdue-composed-web.log",
+      "before": null,
+      "after": "574957b31eb7ca46f0d6efa7a68f884f758d429e",
+      "type": "blob",
+      "bytes": 1177
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/overdue-composed-web.xml",
+      "before": null,
+      "after": "595500a18bb8bef683c618f8c0e37a182dcdd577",
+      "type": "blob",
+      "bytes": 1702
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/probe-disabled-disclosure.py.txt",
+      "before": null,
+      "after": "7cc34c2a2022d26f36961de5334b87f72f736528",
+      "type": "blob",
+      "bytes": 1167
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/production-build.log",
+      "before": null,
+      "after": "f9fffb6951d2c0747f2fb850e626b489c19f2e1a",
+      "type": "blob",
+      "bytes": 399
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/renderer-v2.log",
+      "before": null,
+      "after": "6496c097d23227543d8941edf20b01a993b84017",
+      "type": "blob",
+      "bytes": 505
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/qualification/runtime.json",
+      "before": null,
+      "after": "f52c6217f2102479e851bbe1bed5bc7653b599c3",
+      "type": "blob",
+      "bytes": 638
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/source-freeze-v1.json",
+      "before": null,
+      "after": "23d0891e5970af645a97dff39db4f8b76bcdea92",
+      "type": "blob",
+      "bytes": 3992
+    },
+    {
+      "path": "docs/receiving/invoice-details-a3425ebf9874/source-manifest.json",
+      "before": null,
+      "after": "d7cd0c728fc24bbb028289a2b1a06744207bf96e",
+      "type": "blob",
+      "bytes": 4372
+    },
+    {
+      "path": "tests/test_browser_invoice_details.py",
+      "before": null,
+      "after": "4fc4c0b5e110a3a3eebee4791846195c539088c2",
+      "type": "blob",
+      "bytes": 7922
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "before": null,
+      "after": "019c1b43c3785894ec8e181983497c46bf57e015",
+      "type": "blob",
+      "bytes": 1196
+    },
+    {
+      "path": "web-demo/src/invoice-details.css",
+      "before": null,
+      "after": "1cb25514753f3c8104f13afb575633e7fce5811b",
+      "type": "blob",
+      "bytes": 2214
+    },
+    {
+      "path": "web-demo/src/invoice-details.test.ts",
+      "before": null,
+      "after": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69",
+      "type": "blob",
+      "bytes": 5840
+    },
+    {
+      "path": "web-demo/src/invoice-details.ts",
+      "before": null,
+      "after": "3de02706a97eab7c1310f520a26e40e3066f1bfd",
+      "type": "blob",
+      "bytes": 9311
+    },
+    {
+      "path": "web-demo/tests/invoice-details.test.ts",
+      "before": null,
+      "after": "3ede1915f3527bd9548f100950bb3a74d9b6af18",
+      "type": "blob",
+      "bytes": 4160
+    },
+    {
+      "path": "web-demo/tools/check_invoice_details_browser.py",
+      "before": null,
+      "after": "9cb13dc4065d4a0beacd0f6a70141b7f49bff45e",
+      "type": "blob",
+      "bytes": 20616
+    }
+  ],
+  "local_qualification_scope": {
+    "parent": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+    "full_native": "276 passed; 85 subtests passed",
+    "direct_vitest_with_real_pyodide": "34 tests in six files passed",
+    "final_maintained_receivers": "13 tests and 22 subtests passed",
+    "standalone_quantity_receiver": "10 methods passed",
+    "limitation": "These local results apply to the exact 2d-based composition pinned in qualification.json/source-pins.json and the immutable archive. They are not claimed as executed on this newer current tree."
+  },
+  "current_hosted_gate_required": {
+    "workflow": ".github/workflows/ci.yml",
+    "blob": "d0147e5857ffdba9a7875566e7820c8d7c6f21a3",
+    "commands": [
+      "python -m pytest -q",
+      "npm ci",
+      "npm audit --audit-level=moderate",
+      "npm test",
+      "npm run build"
+    ],
+    "reason": "Current main adds the invoice-details bridge, staged Python module, Worker and native/Pyodide tests. The actual PR checkout and full resulting tree must pass the maintained hosted commands before receiving merge."
+  },
+  "deployment_scope": "Existing Pages workflow and SandboxMock application only; no live provider configuration or credential changes."
+}
