@@ -1,0 +1,62 @@
+{
+  "recorded_at": "2026-10-08T15:10:20.742Z",
+  "repository": "Jacob-Met/ledgerly",
+  "merge_commit": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+  "merge_tree": "d1d6039a649aee46e459a3502cb2058013cbda4f",
+  "entries": [
+    {
+      "path": "publication-receipt.json",
+      "bytes": 19058,
+      "sha256": "7aa5996e6336e3fcbdf79e0d1c6c40bf4b69cf50ac69ff9fdaa85bfa3d5774a4",
+      "git_blob": "b277e800bae9bc6f1c6164d5f009de99a8e62945"
+    },
+    {
+      "path": "merged-source-map.json",
+      "bytes": 123074,
+      "sha256": "2d5394c92a737eca94bc09f11acce839905992a9748e792c0b10a0e151c24e42",
+      "git_blob": "8bd3aba33897b50040e0b3c12713be4d3d4bf9a0"
+    },
+    {
+      "path": "publication-test-overlay.json",
+      "bytes": 1823,
+      "sha256": "4a60734f66b2cebd5a9f1688b4302090f61396ab39bfee9ccff8c71dcdb407f4",
+      "git_blob": "ee6b91f99f6a7ca02ac712e32026d4dcc28848b7"
+    },
+    {
+      "path": "postmerge-python-core.log",
+      "bytes": 14756,
+      "sha256": "00902b43a3f44c41b053c0bb4517cf1fe868db2a11b2d26a28b4c130a291ca83",
+      "git_blob": "e8ae38bd7469ae9952e6d41d03a5db80250eaec9"
+    },
+    {
+      "path": "postmerge-browser-engine.log",
+      "bytes": 461725,
+      "sha256": "e885fc3b9d39a8f0546788ac9d371ab1f73e8bc5fb8b756243a416381128fff4",
+      "git_blob": "973ead2b65ff47d735307f3fd8b38fc8de5ffb00"
+    },
+    {
+      "path": "postmerge-invoice-record.log",
+      "bytes": 995730,
+      "sha256": "0392c52e8ce67b4bf43b4e0c97831f1ea218e5bdda6ec3b6e70acdec688f4de0",
+      "git_blob": "c07abbc0d41efbc9418de720633b627bb0704f96"
+    },
+    {
+      "path": "postmerge-pages.log",
+      "bytes": 26576,
+      "sha256": "2cab8590e261c5946bb99756aea46fe76a099169f3c39605bb2d598eb0cacffc",
+      "git_blob": "7256cb9668ceec6a522707bd803e1bb14f5a31d1"
+    },
+    {
+      "path": "public-delivery.json",
+      "bytes": 13578,
+      "sha256": "d14910fe30a976134772badcdfc78ac8272eb43400ff8f05e63b27774f21bfa4",
+      "git_blob": "4df1a388faf16a5f0b4a03280b164241d198fb26"
+    },
+    {
+      "path": "verify-public.mjs",
+      "bytes": 4560,
+      "sha256": "feae81f7bc9da7a23d1c60d5f824ba14cbee5727552bb4b61ec3b429e0e36d5c",
+      "git_blob": "e947a7346c11568b805861bdc101dc604eecff60"
+    }
+  ]
+}
