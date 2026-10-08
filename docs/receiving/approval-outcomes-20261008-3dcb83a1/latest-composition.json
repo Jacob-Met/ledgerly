@@ -1,0 +1,234 @@
+{
+  "at": "2026-10-08T11:05:45.186855+00:00",
+  "current_base": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "current_tree": "00b89f15758d8c8cebcb48f6397b18d466ec355a",
+  "source": "/home/jacob/ledgerly-approval-3dcb83a1/latest-composed",
+  "current_agent_blob": "892cf5c59cdc0ad9eafa2926164f45b5b0b36441",
+  "composed_agent_sha256": "f4051a876d0ef1f6e5d1cb29eff4aaf6948994143ecea33e1df09f3c17976e7d",
+  "composed_agent_blob": "defa9fa5f96726713f9b1254716a15d2aeba2a14",
+  "approve_substitution_only": true,
+  "retained_other_current_agent_bytes": true,
+  "source_files": {
+    "README.md": {
+      "sha256": "2e084f4e3a1df30efc68772361f459755883dffd5d13f85082b01e95084bc25f",
+      "git_blob": "1f7a0df1ec6456cfe466df83072b103e43917acb",
+      "bytes": 5483
+    },
+    "pyproject.toml": {
+      "sha256": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+      "git_blob": "46b2ea48656b953bb27026e0247efb219b03670e",
+      "bytes": 380
+    },
+    "fixtures/01_simple_usd_hourly.txt": {
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+      "bytes": 282
+    },
+    "fixtures/06_ambiguous_qty.txt": {
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+      "bytes": 246
+    },
+    "fixtures/08_jpy_zero_decimal.txt": {
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+      "bytes": 271
+    },
+    "fixtures/12_prompt_injection.txt": {
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b",
+      "bytes": 315
+    },
+    "fixtures/03_eur_fixed_project.txt": {
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+      "bytes": 265
+    },
+    "fixtures/07_partial_payment_deposit.txt": {
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "bytes": 319
+    },
+    "fixtures/02_gbp_proofreading.txt": {
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "bytes": 293
+    },
+    "fixtures/05_missing_email.txt": {
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+      "bytes": 238
+    },
+    "fixtures/11_range_qty_approx.txt": {
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082",
+      "bytes": 239
+    },
+    "fixtures/04_multi_currency.txt": {
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+      "bytes": 288
+    },
+    "fixtures/10_billing_address_net45.txt": {
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb",
+      "bytes": 330
+    },
+    "fixtures/09_table_cad.txt": {
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+      "bytes": 380
+    },
+    "tests/test_reminder_freshness.py": {
+      "sha256": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+      "git_blob": "ddb97a786b0676a24b0b8d419b983071ba157bf1",
+      "bytes": 7270
+    },
+    "tests/test_agent_paypal.py": {
+      "sha256": "4e02c80b725c9532e3f80db8328770ce03731741bc8978991877ca25bc2f25c5",
+      "git_blob": "7aa2e496f57ee49b090d5b8607301c81222fad94",
+      "bytes": 11582
+    },
+    "tests/test_extract.py": {
+      "sha256": "7fff678b923a7a65344390621f8e429f213179f01898b1185f8764cedf89b92e",
+      "git_blob": "b4205a0ac12421f6cc7ca9dd9015d15ca644d5a6",
+      "bytes": 6091
+    },
+    "tests/test_demo_interactive.py": {
+      "sha256": "dd0b507e0f542ea158ec5a6cb13907880ff774723deb5d41dae9fcbab37c1205",
+      "git_blob": "72eb3137be9a2f42875cdeb8b54dc40286365b7a",
+      "bytes": 4906
+    },
+    "tests/conftest.py": {
+      "sha256": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+      "git_blob": "ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+      "bytes": 788
+    },
+    "tests/test_prior_payment_language.py": {
+      "sha256": "da54e63f8d0d1c49159ec6f2e4992a478ac0b3af2439fd069bd812b278886f1e",
+      "git_blob": "22113f0b65a9ebeb3d403c578bbe722d69f13e03",
+      "bytes": 8750
+    },
+    "tests/test_approval_outcomes.py": {
+      "sha256": "a7fbdfb6f73657a8a3f7c5f7b4c9444e9381783567aea83e89d30032f6f935c2",
+      "git_blob": "f4c7abe598388131fd207b935e87a8bf3ca68024",
+      "bytes": 8203
+    },
+    "tests/test_due_date_receiving.py": {
+      "sha256": "716d05966eda100eb096d7fd0331eff97bc14ac7a275f0465e6cbdeca6ecf89b",
+      "git_blob": "0407aa32403435d7529854da025d862533f8851e",
+      "bytes": 6493
+    },
+    "tests/test_reminder_provider_changes.py": {
+      "sha256": "b584d4ee1869fb7889c3a84a89783a7f6893c219278438c5f5906f76052f1810",
+      "git_blob": "b967a8722940eb03d060eeb23e1893d098ece224",
+      "bytes": 6165
+    },
+    "tests/test_reminder_receiving.py": {
+      "sha256": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+      "git_blob": "40746e8a4a441ec73cc345e1e5b5eef6c1b25570",
+      "bytes": 13993
+    },
+    "ledgerly/agent.py": {
+      "sha256": "f4051a876d0ef1f6e5d1cb29eff4aaf6948994143ecea33e1df09f3c17976e7d",
+      "git_blob": "defa9fa5f96726713f9b1254716a15d2aeba2a14",
+      "bytes": 30569
+    },
+    "ledgerly/__init__.py": {
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "bytes": 119
+    },
+    "ledgerly/extract.py": {
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "git_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+      "bytes": 28143
+    },
+    "ledgerly/paypal.py": {
+      "sha256": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+      "git_blob": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef",
+      "bytes": 24474
+    },
+    "ledgerly/demo.py": {
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+      "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+      "bytes": 3169
+    },
+    "web-demo/python/review.py": {
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "bytes": 4379
+    },
+    "web-demo/python/bridge.py": {
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "git_blob": "5573f8b488ee4421e073fce057e6928aac6f6630",
+      "bytes": 6223
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "34cd2b973737165359ad0be936ea8adf07927c768ec0f0a824a97bbc0f89db33",
+      "git_blob": "d0147e5857ffdba9a7875566e7820c8d7c6f21a3",
+      "bytes": 860
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_prior_payment_language.py",
+        "tests/test_due_date_receiving.py",
+        "tests/test_approval_outcomes.py"
+      ],
+      "cwd": "/home/jacob/ledgerly-approval-3dcb83a1/latest-composed",
+      "returncode": 0,
+      "stdout": "....................................     [100%]\n36 passed, 32 subtests passed in 0.39s\n",
+      "stderr": "",
+      "after": {
+        "free_bytes": 1058897920,
+        "own_bytes": 1351396
+      }
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/jacob/ledgerly-approval-3dcb83a1/independent/independent_review.py",
+        "/home/jacob/ledgerly-approval-3dcb83a1/latest-composed",
+        "/home/jacob/ledgerly-approval-3dcb83a1/latest-bridge-receiving.json"
+      ],
+      "cwd": "/home/jacob/ledgerly-approval-3dcb83a1/latest-composed",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_deposit_followup_read_failure_cannot_replay_effects (__main__.ApprovalReceiving.test_deposit_followup_read_failure_cannot_replay_effects) ... ok\ntest_known_provider_error_preserves_failure_body_and_gate (__main__.ApprovalReceiving.test_known_provider_error_preserves_failure_body_and_gate) ... ok\ntest_reminder_effect_then_timeout_is_terminal_in_bridge (__main__.ApprovalReceiving.test_reminder_effect_then_timeout_is_terminal_in_bridge) ... ok\ntest_reminder_preflight_read_keeps_explicit_retry (__main__.ApprovalReceiving.test_reminder_preflight_read_keeps_explicit_retry) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.044s\n\nOK\n",
+      "after": {
+        "free_bytes": 1049300992,
+        "own_bytes": 1360774
+      }
+    }
+  ],
+  "before": {
+    "free_bytes": 1047932928,
+    "own_bytes": 1169890
+  },
+  "after": {
+    "free_bytes": 1049300992,
+    "own_bytes": 1360774
+  },
+  "guards": {
+    "minimum_free_bytes": 536870912,
+    "maximum_own_bytes": 16777216,
+    "command_timeout_seconds": 45
+  },
+  "runner_sha256": "76cb7bcec5a43fe2bfdca8e68434fd67c629945997368b9792402aafa0ef5d67",
+  "execution_by": "production_scope; unchanged independently authored four-method bridge harness replayed for this new extraction composition",
+  "prior_receipts": [
+    "current-composition.json",
+    "independent/independent-results.json"
+  ],
+  "boundary": "Prior independent acceptance remains at original187 source. This additional author current-composition run proves interaction with received extraction bytes; no new peer acceptance, browser, external call or installed deployment is implied."
+}

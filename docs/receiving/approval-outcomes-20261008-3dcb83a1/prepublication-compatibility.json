@@ -1,0 +1,188 @@
+{
+  "repository": "Jacob-Met/ledgerly",
+  "base": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "base_tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+  "observed_main": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "ownership_issue": 17,
+  "read_open_issues": [
+    {
+      "number": 17,
+      "title": "Consume approvals when an outgoing request has an unknown outcome"
+    },
+    {
+      "number": 16,
+      "title": "Keep due-on-receipt invoices undated until the approved mock send"
+    },
+    {
+      "number": 7,
+      "title": "Refuse invalid or repriced invoice amounts before draft creation"
+    },
+    {
+      "number": 15,
+      "title": "Require actual prior-payment evidence before recording a deposit"
+    },
+    {
+      "number": 12,
+      "title": "Preserve the invoice deadline across delayed approval"
+    },
+    {
+      "number": 6,
+      "title": "Recover the local browser engine after startup and worker failures"
+    }
+  ],
+  "claim_comments": [],
+  "base_blob_count": 93,
+  "source_scope": [
+    "ledgerly/agent.py::Agent.approve",
+    "tests/test_approval_outcomes.py"
+  ],
+  "new_test_absent_on_base": true,
+  "composition": "Current main still exactly equals the tested base; prior reminder merge preserved. Other active owners have disjoint source regions.",
+  "expected_unmodified_base_blobs": 92,
+  "later_main": {
+    "commit": "327bd786dcca35a990152e7430eaf3d303975d27",
+    "tree": "04cb386caa190308946e367c2c6990e1d81ee66a",
+    "changed_paths": [
+      {
+        "path": "docs/due-date-verification-a219f250962c.md",
+        "before": null,
+        "after": "da726be3c920b9da9dd88de54d0e8fc70f72bfd9"
+      },
+      {
+        "path": "docs/receiving/due-date-a219f250962c/composition-b484417.json",
+        "before": null,
+        "after": "ac2e6ab0020c8da373560907e18ac2d7c47df87d"
+      },
+      {
+        "path": "docs/receiving/due-date-a219f250962c/composition-base1871942.json",
+        "before": null,
+        "after": "a3e6d546b2fdcb96fef51fa8a133cd6aca514994"
+      },
+      {
+        "path": "docs/receiving/due-date-a219f250962c/review-composition.py",
+        "before": null,
+        "after": "fe65c359c84814d0acf68eb07001ba5eb7a651c4"
+      },
+      {
+        "path": "ledgerly/agent.py",
+        "before": "19f261b1430769952057697d68472722a11cf643",
+        "after": "892cf5c59cdc0ad9eafa2926164f45b5b0b36441"
+      },
+      {
+        "path": "tests/test_due_date_receiving.py",
+        "before": null,
+        "after": "0407aa32403435d7529854da025d862533f8851e"
+      }
+    ],
+    "approval_method_unchanged": true,
+    "composition_receipt": "current-composition.json",
+    "composition_passed": 25,
+    "publishing_parent_remains": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+    "reason": "Intervening PR13 is preserved by normal three-way source integration; it is not overwritten in the original-base branch."
+  },
+  "latest_main": {
+    "commit": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+    "tree": "00b89f15758d8c8cebcb48f6397b18d466ec355a",
+    "current_agent_blob": "892cf5c59cdc0ad9eafa2926164f45b5b0b36441",
+    "composed_agent_sha256": "f4051a876d0ef1f6e5d1cb29eff4aaf6948994143ecea33e1df09f3c17976e7d",
+    "composed_agent_blob": "defa9fa5f96726713f9b1254716a15d2aeba2a14",
+    "approve_substitution_only": true,
+    "retained_other_current_agent_bytes": true,
+    "changed_extraction_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+    "changed_extraction_sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "new_test_blob": "22113f0b65a9ebeb3d403c578bbe722d69f13e03",
+    "composition_receipt": "latest-composition.json",
+    "composition_receipt_sha256": "f9625c25536a06195dc22cb94ef3491f69e09bdf2ace78142610a2be3b06e3f3",
+    "targeted_tests_passed": 36,
+    "subtests_passed": 32,
+    "independently_authored_harness_replay": {
+      "tests": 4,
+      "successful": true,
+      "harness_sha256": "125bb8ae3f739ec9f655df9e68ee6e747c7b9d09666b0e9d64496210defb96bf",
+      "execution_by": "production_scope",
+      "source_unchanged": true,
+      "native_receipt": "latest-bridge-receiving.json",
+      "observations": {
+        "deposit_followup_read": {
+          "status_after_first": "FAILED",
+          "effects_after_first": {
+            "payments": 1,
+            "remind": 0,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 1,
+            "remind": 0,
+            "send": 1
+          },
+          "permit_revoked": true
+        },
+        "known_provider_error": {
+          "status_after_first": "FAILED",
+          "effects": {
+            "payments": 0,
+            "remind": 0,
+            "send": 0
+          },
+          "permit_revoked": true,
+          "body_retained": true
+        },
+        "read_only_preflight": {
+          "status_after_first": "PENDING",
+          "final_status": "APPROVED",
+          "effects_after_first": {
+            "payments": 0,
+            "remind": 0,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          }
+        },
+        "reminder_response_lost": {
+          "status_after_first": "FAILED",
+          "effects_after_first": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          },
+          "permit_revoked": true
+        }
+      },
+      "native_receipt_sha256": "832bac1b0cea2beb4fed065b52075edfb6a13c6bdb1628e0dfd9e799f2de5b9c"
+    },
+    "boundary": "Additional author composition receiving on changed extraction bytes. Original187 independent acceptance and prior327 exact-source review remain separate. Browser recovery source is retained by normal Git merge; no installed browser execution claim."
+  },
+  "receipt_term_main": {
+    "sha": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+    "tree": "ba5ab49270c136d86bc492411f49a5bdebdb6049",
+    "current_agent_blob": "0119c1a39745fa6d131c76824c89c4adc5bd7367",
+    "composed_agent_sha256": "743d283a5525a33820b1a2616054384e0013927c5e54cd12275c9160b9b8fd3a",
+    "composed_agent_blob": "493370706f68f37baa4f5932ac5ba14c065a91f4",
+    "approve_substitution_only": true,
+    "all_other_current_agent_bytes_retained": true,
+    "selected_files": 33,
+    "native_selection": "22 approval and new receipt-term tests, 26 subtests passed",
+    "independently_authored_harness_replay": {
+      "executed_by": "production_scope author",
+      "tests_run": 4,
+      "failures": 0,
+      "errors": 0,
+      "source_unchanged": true,
+      "successful": true,
+      "native_receipt": "receipt-bridge-receiving.json",
+      "harness_sha256": "125bb8ae3f739ec9f655df9e68ee6e747c7b9d09666b0e9d64496210defb96bf",
+      "native_receipt_sha256": "f0ced1fe1048c49e59e49ac5afb43ed1aada26f660fec62015a10bdbe9ee4ffa"
+    },
+    "receipt": "receipt-composition.json",
+    "receipt_sha256": "54006ffc355e9e193bbcdae9a23a6046175ec05bd08f9b6c89c234600fb76c0c",
+    "limit": "Original independent acceptance remains pinned to187; this author replay qualifies the newly integrated mock send behavior without claiming live provider, browser or installed adoption."
+  }
+}

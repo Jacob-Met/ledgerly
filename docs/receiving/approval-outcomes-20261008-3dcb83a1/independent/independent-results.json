@@ -1,0 +1,382 @@
+{
+  "decision": "accept exact candidate for ordinary outgoing-exception finality in the existing bridge/API",
+  "harness_sha256": "125bb8ae3f739ec9f655df9e68ee6e747c7b9d09666b0e9d64496210defb96bf",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "reviewer": "estate_continuity-3dcb83a1",
+  "scope": "Four unchanged stdlib unittest methods with actual bridge.handle_json and authored SandboxMock. Acceptance concerns reuse of the same in-memory approval after a returned ordinary exception. No provider idempotency, restart recovery, concurrent execution, browser rendering, full-suite, deployment or real financial effect is inferred.",
+  "source_base": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "source_base_tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+  "source_review": {
+    "changed_methods": [
+      "Agent.approve"
+    ],
+    "finding": "Generic Exception handler follows and preserves the existing PayPalError handler. Reminder preflight remains outside the outgoing try. Ordinary post-effect failures retain the original exception and record FAILED/UNKNOWN; existing one-shot permits close before the caller receives the exception."
+  },
+  "unchanged_receiving_files": {
+    "fixtures/01_simple_usd_hourly.txt": {
+      "bytes": 282,
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902"
+    },
+    "fixtures/07_partial_payment_deposit.txt": {
+      "bytes": 319,
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42"
+    },
+    "ledgerly/__init__.py": {
+      "bytes": 119,
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    "ledgerly/extract.py": {
+      "bytes": 26624,
+      "git_blob": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d",
+      "sha256": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8"
+    },
+    "ledgerly/paypal.py": {
+      "bytes": 24474,
+      "git_blob": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef",
+      "sha256": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4"
+    },
+    "web-demo/python/bridge.py": {
+      "bytes": 6223,
+      "git_blob": "5573f8b488ee4421e073fce057e6928aac6f6630",
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda"
+    },
+    "web-demo/python/review.py": {
+      "bytes": 4379,
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    }
+  },
+  "variants": {
+    "baseline": {
+      "agent": {
+        "bytes": 29113,
+        "git_blob": "19f261b1430769952057697d68472722a11cf643",
+        "sha256": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8"
+      },
+      "command": [
+        "/usr/bin/python3",
+        "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/independent_review.py",
+        "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/baseline",
+        "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/baseline.json"
+      ],
+      "errors": 0,
+      "failures": 2,
+      "observations": {
+        "deposit_followup_read": {
+          "audit": [
+            "approve_failed"
+          ],
+          "effects_after_first": {
+            "payments": 1,
+            "remind": 0,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 1,
+            "remind": 0,
+            "send": 2
+          },
+          "first": {
+            "error": "URLError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "<urlopen error authored post-payment status response was lost>",
+            "ok": false,
+            "pending_count": 1
+          },
+          "permit_revoked": true,
+          "provider_status": "PARTIALLY_PAID",
+          "retry": {
+            "error": "PayPalError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "422 UNPROCESSABLE_ENTITY: The requested action could not be performed. [INVALID_INVOICE_STATUS]",
+            "ok": false,
+            "pending_count": 0
+          },
+          "status_after_first": "PENDING"
+        },
+        "known_provider_error": {
+          "attempts": 1,
+          "audit": [
+            "approve_failed"
+          ],
+          "body_retained": true,
+          "effects": {
+            "payments": 0,
+            "remind": 0,
+            "send": 0
+          },
+          "first": {
+            "error": "PayPalError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "DRAFT",
+            "message": "503 UNAVAILABLE: authored provider refusal",
+            "ok": false,
+            "pending_count": 0
+          },
+          "permit_revoked": true,
+          "retry": {
+            "error": "StopIteration",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "DRAFT",
+            "message": "",
+            "ok": false,
+            "pending_count": 0
+          },
+          "status_after_first": "FAILED"
+        },
+        "read_only_preflight": {
+          "audit": [
+            "approved",
+            "approved"
+          ],
+          "effects_after_first": {
+            "payments": 0,
+            "remind": 0,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          },
+          "final_status": "APPROVED",
+          "first": {
+            "error": "URLError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "<urlopen error authored read before reminder>",
+            "ok": false,
+            "pending_count": 1
+          },
+          "retry": {
+            "error": null,
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 1,
+            "ledger_status": "SENT",
+            "message": null,
+            "ok": true,
+            "pending_count": 0
+          },
+          "reviewed_note_unchanged": true,
+          "status_after_first": "PENDING"
+        },
+        "reminder_response_lost": {
+          "audit": [
+            "approved"
+          ],
+          "effects_after_first": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 0,
+            "remind": 2,
+            "send": 1
+          },
+          "first": {
+            "error": "TimeoutError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "authored reminder response was lost",
+            "ok": false,
+            "pending_count": 1
+          },
+          "permit_revoked": true,
+          "retry": {
+            "error": "TimeoutError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "authored reminder response was lost",
+            "ok": false,
+            "pending_count": 1
+          },
+          "status_after_first": "PENDING"
+        }
+      },
+      "receipt_sha256": "34a2493998cd1303c5ebdb5d9a1bc9288708434df499450eb9a8b8502b673f07",
+      "skips": 0,
+      "source": "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/baseline",
+      "source_unchanged": true,
+      "successful": false,
+      "tests_run": 4
+    },
+    "candidate": {
+      "agent": {
+        "bytes": 30090,
+        "git_blob": "c1c88bd74bc96328f296688ef6592e67cd5c38cb",
+        "sha256": "416ecbadf7c1024dbc1538b0da8ea7bee3f6c5af81140fe15031cfc211e16525"
+      },
+      "command": [
+        "/usr/bin/python3",
+        "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/independent_review.py",
+        "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/candidate",
+        "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/candidate.json"
+      ],
+      "errors": 0,
+      "failures": 0,
+      "observations": {
+        "deposit_followup_read": {
+          "audit": [
+            "approve_failed"
+          ],
+          "effects_after_first": {
+            "payments": 1,
+            "remind": 0,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 1,
+            "remind": 0,
+            "send": 1
+          },
+          "first": {
+            "error": "URLError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "<urlopen error authored post-payment status response was lost>",
+            "ok": false,
+            "pending_count": 0
+          },
+          "permit_revoked": true,
+          "provider_status": "PARTIALLY_PAID",
+          "retry": {
+            "error": "StopIteration",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "",
+            "ok": false,
+            "pending_count": 0
+          },
+          "status_after_first": "FAILED"
+        },
+        "known_provider_error": {
+          "attempts": 1,
+          "audit": [
+            "approve_failed"
+          ],
+          "body_retained": true,
+          "effects": {
+            "payments": 0,
+            "remind": 0,
+            "send": 0
+          },
+          "first": {
+            "error": "PayPalError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "DRAFT",
+            "message": "503 UNAVAILABLE: authored provider refusal",
+            "ok": false,
+            "pending_count": 0
+          },
+          "permit_revoked": true,
+          "retry": {
+            "error": "StopIteration",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "DRAFT",
+            "message": "",
+            "ok": false,
+            "pending_count": 0
+          },
+          "status_after_first": "FAILED"
+        },
+        "read_only_preflight": {
+          "audit": [
+            "approved",
+            "approved"
+          ],
+          "effects_after_first": {
+            "payments": 0,
+            "remind": 0,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          },
+          "final_status": "APPROVED",
+          "first": {
+            "error": "URLError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "<urlopen error authored read before reminder>",
+            "ok": false,
+            "pending_count": 1
+          },
+          "retry": {
+            "error": null,
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 1,
+            "ledger_status": "SENT",
+            "message": null,
+            "ok": true,
+            "pending_count": 0
+          },
+          "reviewed_note_unchanged": true,
+          "status_after_first": "PENDING"
+        },
+        "reminder_response_lost": {
+          "audit": [
+            "approved",
+            "approve_failed"
+          ],
+          "effects_after_first": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          },
+          "effects_after_retry": {
+            "payments": 0,
+            "remind": 1,
+            "send": 1
+          },
+          "first": {
+            "error": "TimeoutError",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "authored reminder response was lost",
+            "ok": false,
+            "pending_count": 0
+          },
+          "permit_revoked": true,
+          "retry": {
+            "error": "StopIteration",
+            "ledger_paid_amount": "0",
+            "ledger_reminders_sent": 0,
+            "ledger_status": "SENT",
+            "message": "",
+            "ok": false,
+            "pending_count": 0
+          },
+          "status_after_first": "FAILED"
+        }
+      },
+      "receipt_sha256": "baa25ff785427c397152aaf0e2a010123c15a0c455aeff799d2cd5a64dcb9008",
+      "skips": 0,
+      "source": "/home/jacob/hamon-ledgerly-approval-independent-3dcb83a1/candidate",
+      "source_unchanged": true,
+      "successful": true,
+      "tests_run": 4
+    }
+  }
+}
