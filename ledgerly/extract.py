@@ -98,6 +98,28 @@ _PAID_CONFIRMED_RE = re.compile(
     r"| (?:by|via) (?:bank transfer|wire transfer|cash|check|cheque))*[.!]?", re.I
 )
 _TOTAL_RE = re.compile(r"\b(total|subtotal|budget|balance|altogether)\b", re.I)
+# A summary word can also be part of a work description ("Budget planning").
+# Only complete labels identify totals when a priced item has been parsed.
+# Currency, tax and payment metadata may appear on either side of the label.
+_SUMMARY_METADATA = (
+    r"(?:the|our|your|grand|net|gross|overall|estimated|agreed|approved|final|"
+    r"invoice|project|account|current|outstanding|remaining|amount|labor|labour|"
+    r"materials?|services?|expenses?|annual|yearly|quarterly|monthly|weekly|daily|"
+    r"pre[- ]tax|post[- ]tax|cost|price|charges?|fees?|cap|estimate|"
+    r"total|subtotal|budget|balance|"
+    rf"{_CODE}|{_SYM}|"
+    r"tax|vat|included|excluded|inc\.?|incl\.?|excl\.?|"
+    r"due|payable|owed|owing|today|tomorrow|now|immediately|on|upon|receipt|"
+    r"to\s+(?:pay|invoice|bill|be\s+(?:paid|invoiced|billed)))"
+)
+_SUMMARY_LABEL_RE = re.compile(
+    rf"(?:{_SUMMARY_METADATA}\s+)*"
+    r"(?:total|sub[ -]?total|budget|balance|altogether)"
+    rf"(?:\s+{_SUMMARY_METADATA})*"
+    r"(?:\s+(?:for|of|before|after|including|excluding|incl\.?|excl\.?|on|"
+    r"as\s+of)\s+.+)?",
+    re.I,
+)
 _BILLING_RE = re.compile(
     r"\b(?:send|email|address|forward)\s+(?:the\s+|your\s+|all\s+)?invoices?\s+to\s+(" + EMAIL_RE.pattern + ")",
     re.I,
@@ -288,6 +310,13 @@ def parse_qty(raw: str) -> tuple[Optional[Decimal], Optional[str]]:
     if approx:
         return q, f"approximate quantity '{raw.strip()}' - used {q}"
     return q, None
+
+
+def _is_summary_label(description: str) -> bool:
+    # Formatting and currency annotations do not turn a total into priced work.
+    label = re.sub(r"[*_`()]", " ", description)
+    label = re.sub(r"\s+", " ", label).strip(" :;.–—-")
+    return _SUMMARY_LABEL_RE.fullmatch(label) is not None
 
 
 def _split_headers(text: str) -> tuple[dict[str, str], str]:
@@ -550,10 +579,10 @@ class RulesExtractor:
                     issues.append(Issue("amount_paid", "error",
                                         f"Prior payment is not unambiguously confirmed; review the amount already received: {line!r}"))
                 continue
-            if _TOTAL_RE.search(line):
+            item, reason = self._item_from_line(line, monies[0])
+            if _TOTAL_RE.search(line) and (item is None or _is_summary_label(item.desc)):
                 stated.append((ccy, amt))
                 continue
-            item, reason = self._item_from_line(line, monies[0])
             if item is None:
                 issues.append(Issue("line_items", "warning", f"Could not parse priced line: {line!r}"))
                 continue
@@ -644,7 +673,7 @@ class RulesExtractor:
                 except ValueError as error:
                     issues.append(Issue("line_items", "error", f"Unreadable table amount ({error}): {raw_price!r}"))
                     continue
-            if _TOTAL_RE.search(desc):
+            if _is_summary_label(desc):
                 totals.append((ccy or doc_ccy, price))
                 continue
             qty, reason = parse_qty(raw_qty)
