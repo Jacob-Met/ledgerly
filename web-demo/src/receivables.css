@@ -1,0 +1,27 @@
+.receivables-panel{margin-top:20px}
+.receivables-controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;margin:18px 0}
+.receivables-controls label{display:flex;flex:1 1 160px;min-width:0;flex-direction:column;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.08em}
+.receivables-controls select{width:100%;min-width:0;max-width:100%;padding:10px 12px;border:1px solid #bac6bb;border-radius:5px;background:#fff;font:inherit;font-size:.85rem;letter-spacing:normal}
+.receivables-controls button{flex:0 1 auto}
+.receivables-controls :focus-visible{outline:3px solid #246346;outline-offset:3px}
+.receivables-view{min-width:0}
+.receivables-note{margin:12px 0 0;color:#526350;font:12px/1.55 var(--mono);overflow-wrap:anywhere}
+.receivables-selection-label{font-size:.65rem;font-weight:800;letter-spacing:.08em;color:#526350}
+.receivables-amounts{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.receivables-amount{display:flex;flex:1 1 140px;min-width:0;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid #c4d2c0;border-radius:6px;background:#f4f7f0}
+.receivables-amount span{font-size:.7rem;letter-spacing:.08em;font-weight:800;color:#53614c}
+.receivables-amount strong{font:700 1.25rem/1.2 ui-monospace,monospace;overflow-wrap:anywhere}
+.receivables-amount small{font-size:.7rem;color:#5a6854}
+.receivables-client{min-width:0;margin-top:20px;padding-top:18px;border-top:1px solid #cdd6c9}
+.receivables-client h3{margin:0;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.receivables-client header p{margin:5px 0;color:#566653;font-size:.8rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.receivables-invoices{list-style:none;padding:0;margin:10px 0}
+.receivables-invoices li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 12px;padding:12px 0;border-top:1px solid #dde3d8}
+.receivables-invoices li>div:first-child{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.receivables-invoices strong{font-size:.85rem;overflow-wrap:anywhere}
+.receivables-invoices span,.receivables-invoices small{font-size:.65rem;color:#5c6755;overflow-wrap:anywhere}
+.receivables-invoice-balance{font:700 .9rem ui-monospace,monospace;text-align:right;overflow-wrap:anywhere}
+.receivables-invoices p,.receivables-invoices small{grid-column:1/-1;margin:0;font-size:.75rem;overflow-wrap:anywhere}
+.receivables-invoices li[data-due-state=overdue] p b{color:#934523}
+.receivables-invoices li[data-due-state=today] p b{color:#325942}
+@media(max-width:430px){.receivables-controls{display:grid;grid-template-columns:minmax(0,1fr)}.receivables-controls button{width:100%}.receivables-invoices li{grid-template-columns:minmax(0,1fr)}.receivables-invoice-balance{text-align:left}}

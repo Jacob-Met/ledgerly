@@ -26,6 +26,43 @@ The file uses UTF-8 with BOM, CRLF record endings, a header and quoted CSV field
 
 An empty/reset sandbox or an unavailable engine has no current download. If the browser cannot start a download, the displayed snapshot remains available for an explicit retry. Reset clears the working ledger; it does not remove CSV files already saved by the visitor.
 
+## Review outstanding balances by client
+
+The **See what each client owes** board groups positive open balances by the
+exact billing email recorded in the sandbox ledger. Select a client and a due
+state to see that selection's invoices and separate currency totals. **Clear
+balance filters** restores the complete board. The original invoice ledger,
+approval cards and payment controls remain available independently.
+
+An invoice counts when its native status is `SENT`, `UNPAID`, `PARTIALLY_PAID`
+or `PAYMENT_PENDING` and its balance is positive. Drafts, paid or cancelled
+invoices and other statuses are counted explicitly outside the board; open
+invoices with a zero balance are also excluded. A partial payment therefore
+contributes only the remaining balance. Every displayed invoice retains its
+original status and balance text.
+
+Due states compare the recorded due date with the sandbox clock shown in the
+snapshot label. A missing due date is **No due date**, never assumed overdue.
+Advancing the local clock, approving an invoice or simulating a payment updates
+the board through the same accepted snapshot as the ledger. Billing emails that
+differ by case or whitespace stay separate; shared or changed display names do
+not merge client identities.
+
+Totals add decimal strings exactly, without binary floating-point money
+arithmetic, currency conversion or currency-based rounding. Their fractional
+scale comes from the included balance strings, so `0.1` plus `0.2` displays
+`0.3`, while `100.50` plus `0.3` displays `100.80`. Each invoice still shows its
+original string. This is an overview of this tab's in-memory sandbox, rather
+than a refreshed provider statement or accounting balance.
+
+While an action runs, the board hides its prior balances and disables its own
+controls. Losing the Python session clears the accepted board; restarting or
+resetting opens an empty one. A malformed date, duplicate invoice identity,
+negative/nonfinite balance or incomplete row holds the complete board with an
+explicit explanation. A balance string over 1,100 characters, with over 1,000
+coefficient digits or an exponent outside ±1,000 is also refused for display.
+The view cannot send, pay, refresh, export or modify an invoice.
+
 ## Completed reviews
 
 Open **Completed reviews** to inspect the original queued invoice or reminder after its action leaves the approval queue. Each record shows the retained status and result, including an explicit **OUTCOME UNKNOWN** when the agent recorded one. Rejected records retain their actual reason, including automatic reminder invalidation. The timestamp is when the proposal was queued. Opening a record is read-only and does not retry an action or refresh provider facts. A lost engine leaves the last received history labeled unavailable; an explicit empty restart, reset or tab close clears the session history. Open disclosures and summary focus remain with the same retained action across ordinary snapshots.

@@ -1,0 +1,77 @@
+name: receivables-browser
+on:
+  pull_request:
+    paths:
+      - 'web-demo/**'
+      - 'ledgerly/**'
+      - 'fixtures/**'
+      - '.github/workflows/receivables-browser.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'web-demo/**'
+      - 'ledgerly/**'
+      - 'fixtures/**'
+      - '.github/workflows/receivables-browser.yml'
+permissions:
+  contents: read
+concurrency:
+  group: receivables-browser-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  receive-client-balances:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # Same maintained pin as invoice-record receiving.
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # Same maintained pin as invoice-record receiving.
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web-demo/package-lock.json
+      - name: Receive real native snapshots with the independent protocol
+        env:
+          PYTHON: python3
+          LEDGERLY_RECEIVABLES_PEER_OUTPUT: ${{ runner.temp }}/receivables-peer/cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/receivables-peer"
+          python3 --version
+          node --experimental-strip-types --test web-demo/tests/receivables-peer.mjs 2>&1 \
+            | tee "${RUNNER_TEMP}/receivables-peer/node-test.log"
+      - name: Install the existing locked project dependencies
+        run: npm ci
+        working-directory: web-demo
+      - name: Build the real staged Python browser application
+        run: npm run build
+        working-directory: web-demo
+      - name: Require the installed system browser and built-in CDP client
+        id: browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          RECEIVABLES_BROWSER="$(command -v google-chrome)"
+          [[ -x "${RECEIVABLES_BROWSER}" ]]
+          "${RECEIVABLES_BROWSER}" --version
+          node --version
+          node -e 'if (typeof WebSocket !== "function") throw new Error("Built-in WebSocket is required")'
+          printf 'executable=%s\n' "${RECEIVABLES_BROWSER}" >> "${GITHUB_OUTPUT}"
+      - name: Receive actual balances, native keyboard filters and session lifecycle
+        run: >-
+          node web-demo/tools/check_receivables_browser.mjs
+          --browser "${{ steps.browser.outputs.executable }}"
+          --output "${RUNNER_TEMP}/receivables-browser"
+          --emit-bundle
+      - name: Preserve exact snapshots, screenshots and receiving logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # Same received official v4 pin as invoice-record receiving.
+        with:
+          name: receivables-receiving-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/receivables-browser
+            ${{ runner.temp }}/receivables-peer
+          if-no-files-found: warn
+          retention-days: 14
+          compression-level: 6
+

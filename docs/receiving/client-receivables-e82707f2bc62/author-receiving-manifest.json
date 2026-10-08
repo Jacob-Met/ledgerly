@@ -1,0 +1,10 @@
+{
+  "schema": "ledgerly.receivables-author-archive/1",
+  "path": "author-receiving.zip",
+  "bytes": 80690,
+  "sha256": "7a85be127af406ac35b5dc0f6ae3307b8c8c6ce164eb3486a26a8f4f359d82ab",
+  "git_blob": "28c98c8c17ce166ecc63758a5791e2b958331d62",
+  "members": 26,
+  "uncompressed_bytes": 491465,
+  "verified_each_member": true
+}

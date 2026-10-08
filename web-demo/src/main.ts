@@ -8,6 +8,8 @@ import './approval-preview.css';
 import './invoice-details.css';
 import {createInvoiceDetailsView} from './invoice-details';
 import {createInvoiceRecordDownloads} from './invoice-record';
+import './receivables.css';
+import {createReceivablesView} from './receivables';
 import {approvalListMarkup} from './approval-preview';
 import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
 import {WorkerClient, WorkerUnavailableError} from './worker-client';
@@ -16,6 +18,7 @@ const ledgerExport=createLedgerExport($<HTMLButtonElement>('#ledger-export'),$<H
 const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const invoiceDetails=createInvoiceDetailsView($<HTMLElement>('#ledger-list'));
 const invoiceRecords=createInvoiceRecordDownloads($<HTMLElement>('#ledger-list'),status);
+const receivables=createReceivablesView({mount:$<HTMLElement>('#receivables-view'),note:$<HTMLElement>('#receivables-note'),client:$<HTMLSelectElement>('#receivables-client'),due:$<HTMLSelectElement>('#receivables-due'),reset:$<HTMLButtonElement>('#receivables-reset'),summary:$<HTMLElement>('#receivables-summary'),list:$<HTMLElement>('#receivables-list')});
 const worker=new WorkerClient(()=>new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'}),{
  ready:()=>status('Python loaded locally. No external service is connected.','ready'),
  unavailable:engineUnavailable,
@@ -50,6 +53,7 @@ function syncControls(){
  $<HTMLElement>('#completed-reviews-note').textContent=needsFreshSandbox?'The previous sandbox is unavailable. These are its last received reviews. Restart opens an empty history; no action is replayed.':!ready?'Load the local engine to view completed reviews in this tab.':busy?'Showing the last received reviews while the sandbox updates.':'Read only · Original queued proposals and recorded results, most recently queued first. Reset or close this tab to discard them.';
  ledgerExport.setAvailable(enabled);
  invoiceDetails.setAvailability(ready,busy);
+ receivables.setAvailability(ready,busy);
  for(const id of ['fixture-select','load-fixture','job-email','analyze','demo-date','advance-clock','run-chase','reset-sandbox','payment-amount'])$<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>(`#${id}`).disabled=!enabled;
  for(const el of Array.from(document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#review-form input,#review-form select,#review-form button,#approval-list button,#ledger-list button')))el.disabled=!enabled;
  invoiceRecords.setAvailability(ready,busy);
@@ -81,6 +85,7 @@ function renderAnalysis(ex:any){
 }function renderState(state:any){
  invoiceRecords.update(state);
  ledgerExport.setSnapshot(state);
+ receivables.setSnapshot(state);
  canReplay=Boolean(state.can_replay);
  $<HTMLElement>('#mock-requests').textContent=String(state.mock_requests??0);$<HTMLElement>('#external-calls').textContent=String(state.external_calls??0);
  const dateInput=$<HTMLInputElement>('#demo-date');if(document.activeElement!==dateInput)dateInput.value=state.today||'';$<HTMLButtonElement>('#replay-webhook').disabled=!ready||!state.can_replay||busy;

@@ -1,0 +1,158 @@
+{
+  "schema": "ledgerly.history.receivables-composition.v1",
+  "source_parent": "84fc3c66d2efe823deeb7326b1bc68633464d35f",
+  "prior_qualified_head": "ae1e859aa26bffdee7e8b8cb673acd6c74420263",
+  "incoming_main": "295153cc0c354415c39bcee7d2384412b4fa629f",
+  "incoming_tree": "599514b1ea0dc06edd0f8ed4acf7b1fdbbc49470",
+  "incoming_base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "incoming_paths": [
+    {
+      "path": ".github/workflows/receivables-browser.yml",
+      "source_blob": "46f03bcc9511761edb423b78162d37912c868269",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/README.md",
+      "source_blob": "5600d45cabc7d3c011596224b1f354e7ca83b2de",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/author-receiving-manifest.json",
+      "source_blob": "9878553e0b1d48813d263531b790f823e19df6f9",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/author-receiving.zip",
+      "source_blob": "28c98c8c17ce166ecc63758a5791e2b958331d62",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/current-composition-preservation.json",
+      "source_blob": "0b612ff7e830f4c65c6be00ab24921952ebf56b9",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/current-native-composition.json",
+      "source_blob": "fbe705e09992f44e151be4bcfbe6ace4d971499b",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/first-native-v1.zip",
+      "source_blob": "64358bcb9d42706a48d7a01012f7c5f368d882a8",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/independent/README.md",
+      "source_blob": "8c901cec20bf67ec4a75c0c253a958bfe6c3d98b",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/independent/peer-evidence.zip",
+      "source_blob": "2bf2ae0c8c76bcb28a05c23aa246586b0f578328",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/independent/protocol.json",
+      "source_blob": "8062801494eb86ccbc4a6a9094670246c14b244b",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/independent/receiving.json",
+      "source_blob": "690999180b8190524bc73b8e6a1f5be9ad2c59c8",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/publication-base.json",
+      "source_blob": "4116f4050851850de06bbe816f88c297fe6a4256",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/source-freeze-v1.json",
+      "source_blob": "6485cdd0b3a16ab3f722fe67fdf8eb8cea5ab0ae",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "docs/receiving/client-receivables-e82707f2bc62/visual-correction-v2.json",
+      "source_blob": "68d4f106535f56e9368dc141322be49f0390087b",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/README.md",
+      "source_blob": "04752c3ceb514b750b60f9beb6ef4aa217ecf1fb",
+      "handling": "retain complete incoming content and add only the established history hook/section"
+    },
+    {
+      "path": "web-demo/index.html",
+      "source_blob": "42235a54fb754a5530d2700b4480878adb860aa4",
+      "handling": "retain complete incoming content and add only the established history hook/section"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "source_blob": "ecbca0b2e3f7646bda9fd389595484a2a8f422be",
+      "handling": "retain complete incoming content and add only the established history hook/section"
+    },
+    {
+      "path": "web-demo/src/receivables.css",
+      "source_blob": "84dc9078229aaaad0a13f382a6466e343a7489ae",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/src/receivables.ts",
+      "source_blob": "c2d4f6bd9206d7199fe053bd45e2e8df2ad96ad9",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/tests/engine-recovery.test.ts",
+      "source_blob": "2eddbae754beddc71bae85775101cf2125d2df37",
+      "handling": "retain complete incoming content and add only the established history hook/section"
+    },
+    {
+      "path": "web-demo/tests/fixtures/receivables-native-snapshot.json",
+      "source_blob": "38411dba76bd77ed1bfafe5afe029aee240d9efc",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/tests/receivables-cases.ts",
+      "source_blob": "0ad6b27c4fcf7fc1241807587dcf837cc5db3a6b",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/tests/receivables-peer-fixture.py",
+      "source_blob": "ef8439cacf15488e13a9af233f7f054fdcd6747d",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/tests/receivables-peer.mjs",
+      "source_blob": "da6a97dd4ca443d385bdd7e3f45d3d1335f42cdb",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/tests/receivables.test.ts",
+      "source_blob": "afd81ca931c4ccc2d7c85d3bf7895cc6179604b7",
+      "handling": "exact incoming blob"
+    },
+    {
+      "path": "web-demo/tools/check_receivables_browser.mjs",
+      "source_blob": "aa362ab13b28854f6323b5b4d6c53f3f8439a0ca",
+      "handling": "exact incoming blob"
+    }
+  ],
+  "shared_paths": [
+    "web-demo/src/main.ts",
+    "web-demo/tests/engine-recovery.test.ts",
+    "web-demo/index.html",
+    "web-demo/README.md"
+  ],
+  "history_implementation_and_receiver_changed": false,
+  "core_provider_queue_or_approval_changed": false,
+  "qualification": "pending normal Verify, invoice-record and new receivables workflows on this composition",
+  "previous_final_gate": {
+    "head": "84fc3c66d2efe823deeb7326b1bc68633464d35f",
+    "verify_run": 37811082210,
+    "invoice_record_run": 37811082131,
+    "status": "success",
+    "actual_checkout": "7c7b16691662608e5908ae01eca8e7e9a93ada19",
+    "scope": "prior fba composition;45 declared application inputs without the receivables module"
+  },
+  "native_transport": "No duplicate native run; process3369422 completion still unknown"
+}

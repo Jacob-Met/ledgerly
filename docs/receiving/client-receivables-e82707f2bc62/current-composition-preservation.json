@@ -1,0 +1,23 @@
+{
+  "schema": "ledgerly.receivables-preservation/1",
+  "created_at": "2026-10-08T15:42:20.196889+00:00",
+  "parent": "8a122cf637610880e23716823a5eb71d78187391",
+  "preservation": {
+    "web-demo/src/main.ts": {
+      "removed_additive_lines": 5,
+      "original_git_blob": "ed7cb86a2ff4e5ac4b7d5a140b5db208633ec3a7"
+    },
+    "web-demo/index.html": {
+      "removed_additive_sections": 1,
+      "original_git_blob": "a15b9b744276bc31570dcc14eedb3539fabbc9e8"
+    },
+    "web-demo/README.md": {
+      "removed_additive_sections": 1,
+      "original_git_blob": "0e1a9dee5f428dac69f3252f13fdecf7d82ad7af"
+    },
+    "web-demo/tests/engine-recovery.test.ts": {
+      "removed_import_and_vm_binding_only": true,
+      "original_git_blob": "8668d44fcf691f5a2cfac267474a477f8ff95e28"
+    }
+  }
+}
