@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>Sandbox invoice record — LDG-0001</title><style>.invoice-card-with-details { min-width: 0; }
+.invoice-details { margin-top: 16px; border-top: 1px solid var(--line, #d6ddd6); padding-top: 12px; min-width: 0; }
+.invoice-details summary { cursor: pointer; padding: 8px 0; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.invoice-details summary span { font-size: .8rem; font-weight: 400; }
+.invoice-details summary:focus-visible, .invoice-detail-table:focus-visible { outline: 3px solid #276749; outline-offset: 3px; }
+.invoice-detail-content { padding-top: 8px; font-size: .84rem; min-width: 0; }
+.invoice-detail-content p { line-height: 1.6; }
+.invoice-detail-provenance, .invoice-detail-state, .invoice-detail-explanation { color: #46594f; overflow-wrap: anywhere; }
+.invoice-detail-state[data-inactive="true"] { color: #773a13; font-weight: 600; }
+.invoice-detail-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; margin: 18px 0; }
+.invoice-detail-fields > div { min-width: 0; }
+.invoice-detail-fields dt { color: #52665a; font-size: .72rem; font-weight: 700; margin-bottom: 4px; }
+.invoice-detail-fields dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.invoice-detail-table { max-width: 100%; overflow-x: auto; margin: 16px 0; border: 1px solid var(--line, #d6ddd6); border-radius: 6px; }
+.invoice-detail-table table { width: 100%; min-width: 380px; border-collapse: collapse; font-size: .78rem; }
+.invoice-detail-table caption { text-align: left; padding: 10px; font-weight: 700; }
+.invoice-detail-table th, .invoice-detail-table td { padding: 10px; text-align: left; vertical-align: top; border-top: 1px solid var(--line, #d6ddd6); white-space: pre-wrap; overflow-wrap: anywhere; }
+.invoice-detail-table td:first-child { max-width: 24rem; }
+.invoice-detail-table th { color: #46594f; font-size: .7rem; }
+.invoice-detail-description { display: block; margin-top: 4px; }
+.invoice-detail-content h4 { margin: 18px 0 8px; font-size: .8rem; }
+.invoice-detail-note { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.invoice-detail-empty { color: #46594f; }
+@media (max-width: 520px) { .invoice-detail-fields { grid-template-columns: minmax(0, 1fr); } }
+
+:root { color-scheme: light; --line: #cfd8d1; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 28px; color: #172b22; background: #fff;
+  font-family: system-ui, sans-serif; line-height: 1.5; }
+main { max-width: 900px; margin: 0 auto; min-width: 0; }
+h1 { font-size: 1.8rem; margin: 8px 0 16px; overflow-wrap: anywhere; }
+h2 { font-size: 1.1rem; margin-top: 28px; }
+.record-label { letter-spacing: .12em; font-size: .8rem; font-weight: 800; }
+.record-boundary { border-left: 4px solid #276749; padding-left: 14px; overflow-wrap: anywhere; }
+.record-metadata { font-size: .85rem; overflow-wrap: anywhere; }
+.record-toolbar { margin: 24px 0; }
+.record-toolbar button { font: inherit; padding: 10px 16px; border: 1px solid #276749;
+  border-radius: 6px; background: #edf4ee; color: #172b22; cursor: pointer; }
+.record-toolbar button:focus-visible { outline: 3px solid #276749; outline-offset: 3px; }
+.record-toolbar p, footer { font-size: .82rem; color: #46594f; }
+.record-summary { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 20px; }
+.record-summary div { min-width: 0; }
+.record-summary dt { font-size: .75rem; font-weight: 700; color: #46594f; }
+.record-summary dd { margin: 3px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+footer { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 28px; }
+@media (max-width: 520px) {
+  body { padding: 18px; }
+  .record-summary { grid-template-columns: minmax(0,1fr); }
+}
+@page { size: A4; margin: 16mm; }
+@media print {
+  body { padding: 0; color: #000; font-size: 10pt; }
+  main { max-width: none; }
+  .record-toolbar { display: none; }
+  .invoice-detail-table { overflow: visible; }
+  .invoice-detail-table table { min-width: 0; table-layout: fixed; }
+  .invoice-detail-table td:first-child { max-width: none; }
+  .invoice-detail-table th, .invoice-detail-table td { padding: 6px; }
+  tr, .record-summary > div, .invoice-detail-fields > div { break-inside: avoid; }
+  h1, h2, h4, summary { break-after: avoid; }
+}
+</style></head><body data-invoice-record-format="ledgerly.sandbox-invoice-record.v1"><main><header><p class="record-label">SANDBOX INVOICE RECORD</p><h1>Invoice LDG-0001</h1><p id="invoice-record-boundary" class="record-boundary">A saved copy from Ledgerly’s in-memory simulation. This is not a payable invoice, a payment receipt or a current provider statement. No real money moved.</p><p class="record-metadata">Sandbox clock at source snapshot: <span id="invoice-record-snapshot">2026-10-08</span><br>File created at (UTC): <span id="invoice-record-created">2026-10-08T14:37:21.505Z</span></p></header><div class="record-toolbar"><button id="print-invoice-record" type="button">Print this record</button><p>Open or print this saved copy without loading the Python engine. It does not update when the sandbox changes.</p></div><section aria-labelledby="record-summary-heading"><h2 id="record-summary-heading">Original agent ledger summary</h2><dl class="record-summary"><div><dt>Invoice reference</dt><dd data-ledger-field="invoice_id">INV2-MOCK-0001-2DAA</dd></div><div><dt>Invoice number</dt><dd data-ledger-field="invoice_number">LDG-0001</dd></div><div><dt>Client</dt><dd data-ledger-field="client_name">Priya Nair</dd></div><div><dt>Recipient email</dt><dd data-ledger-field="client_email">priya@orbitlabs.example</dd></div><div><dt>Currency</dt><dd data-ledger-field="currency">EUR</dd></div><div><dt>Invoice total</dt><dd data-ledger-field="total">360</dd></div><div><dt>Paid amount</dt><dd data-ledger-field="paid_amount">0</dd></div><div><dt>Balance</dt><dd data-ledger-field="balance">360</dd></div><div><dt>Agent ledger status</dt><dd data-ledger-field="status">SENT</dd></div><div><dt>Sent on</dt><dd data-ledger-field="sent_on">2026-10-08</dd></div><div><dt>Due on</dt><dd data-ledger-field="due_on">2026-11-07</dd></div><div><dt>Reminders sent</dt><dd data-ledger-field="reminders_sent">0</dd></div></dl></section><details class="invoice-details" aria-disabled="false" data-invoice-detail-id="INV2-MOCK-0001-2DAA" open><summary>Invoice details <span>· sandbox record</span></summary><div class="invoice-detail-content"><p class="invoice-detail-provenance">Sandbox clock at snapshot: 2026-10-08</p><p class="invoice-detail-state" data-invoice-details-state></p><dl class="invoice-detail-fields"><div><dt>Invoice reference</dt><dd>INV2-MOCK-0001-2DAA</dd></div><div><dt>Invoice number</dt><dd>LDG-0001</dd></div><div><dt>Sandbox provider status</dt><dd>SENT</dd></div><div><dt>Recipient</dt><dd>Priya Nair
+priya@orbitlabs.example</dd></div><div><dt>From</dt><dd>Ledgerly Demo
+freelancer@example.test</dd></div><div><dt>Invoice date</dt><dd>2026-10-08</dd></div><div><dt>Payment terms</dt><dd>Net 30 days</dd></div><div><dt>Due date</dt><dd>2026-11-07</dd></div></dl><div class="invoice-detail-table" tabindex="0" role="region" aria-label="Invoice items; scroll horizontally if needed"><table><caption>Invoice items</caption><thead><tr><th scope="col">Item</th><th scope="col">Quantity</th><th scope="col">Unit</th><th scope="col">Unit price</th></tr></thead><tbody><tr><td>Localisation QA</td><td>6</td><td>HOURS</td><td>EUR 60.00</td></tr></tbody></table></div><dl class="invoice-detail-fields invoice-detail-amounts"><div><dt>Provider invoice total</dt><dd>EUR 360.00</dd></div><div><dt>Provider paid amount</dt><dd>EUR 0.00</dd></div><div><dt>Provider amount due</dt><dd>EUR 360.00</dd></div></dl><p class="invoice-detail-explanation">Amounts and payment entries are copied from the sandbox provider record. The ledger summary above is the agent’s view; these values are not recalculated or combined across currencies.</p><h4>Invoice note</h4><div class="invoice-detail-note">Thank you for your business.</div><p class="invoice-detail-empty">No recorded sandbox payments.</p></div></details><footer>Only the selected displayed invoice is included. Amounts, dates, items and recorded payments are copied without recalculation or a provider refresh. This HTML file cannot restore a sandbox or authorize any action.</footer></main><script>(() => {
+  const openRecord = () => { document.querySelector('.invoice-details').open = true; };
+  window.addEventListener('beforeprint', openRecord);
+  document.querySelector('#print-invoice-record').addEventListener('click', () => {
+    openRecord();
+    window.print();
+  });
+})();</script></body></html>

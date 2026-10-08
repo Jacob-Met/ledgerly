@@ -1,23 +1,31 @@
-# Native standalone invoice record receiving
+# Native invoice record receiving packet
 
-This evidence branch preserves the actual font-limited current-payment composition of [Ledgerly PR35](https://github.com/Jacob-Met/ledgerly/pull/35). It is not a claim that every Japanese glyph printed correctly in the original Ubuntu font environment.
+This evidence branch preserves the actual offline sandbox invoice qualification for [PR35](https://github.com/Jacob-Met/ledgerly/pull/35), including the original absence, the narrowly corrected receiver probe, the observed native CJK-font failure, and the accepted successor. The production branch remains separate.
 
-The complete source checkout was 01fc8a6b9677160ec9417845c492af74d741640d, tree f1b25a10d4db0c651a798c79346f0705deae25dc, composing head 43bc2a7d7614dd61d0197835d454487769e9cd1b onto main b9c24ace6b57a17215a53c50b674bd187d13f8ed. [Run 37792087248](https://github.com/Jacob-Met/ledgerly/actions/runs/37792087248/job/113361851887) passed all eight actual browser groups and emitted the bounded fixture packet. The paired maintained run passed 205 Python tests plus 96 subtests, 88 frontend tests, audit/build, and the existing CSV receiving.
+## Accepted current source
 
-All 224 numbered native chunks, the 686960-byte payload SHA256, all twelve member sizes/SHA256 values, and their native Git blob identities were independently checked. The exact files below were decoded from that actual log. They were not reconstructed from source or generated again for this branch.
+Head `de24842a91314fdb89e1b8121d206693fbceb5d3`, tree `cbe35389f27031b0c0162fec7ebfd5e6053d5b0f`, is composed with current payment-owner main `b9c24ace6b57a17215a53c50b674bd187d13f8ed`. Hosted checkout `2ee0920dc2f18af4d05eb5c2e30984d5e6e3cc63` has those two exact parents and the same candidate tree. All 610 current source leaves are preserved on this evidence branch. The previous evidence commit `b6bbaa6f78949b8fd6048d12428561cc9dfd5844` remains a parent; its 25 raw logs, fixtures and independent receipt remain byte-exact.
 
-- [Index and complete source/file identities](index.json)
-- [Independent PDF receiving and complete extracted texts](independent-print-receiving.json)
-- [Paid USD standalone HTML](fixtures/font-limited-current-base/paid-usd-record.html)
-- [Paid USD actual two-page PDF](fixtures/font-limited-current-base/paid-usd-record-1280.pdf)
-- [Literal JPY standalone HTML](fixtures/font-limited-current-base/literal-jpy-record.html)
-- [Literal JPY actual font-limited two-page PDF](fixtures/font-limited-current-base/literal-jpy-record-390.pdf)
-- [Actual receiving report](fixtures/font-limited-current-base/receiving-report.json)
+[Browser run 37793910451](https://github.com/Jacob-Met/ledgerly/actions/runs/37793910451/job/113368229714) passes eight meaningful groups and creates 14 artifacts. It exercises real Python Worker-produced retained invoices, explicit selected-record HTML downloads, direct offline reopening, complete original display comparisons, later app mutation, busy/inactive and missing identity refusal, literal markup/Unicode, download failure/retry, and actual print output. [Maintained run 37793910271](https://github.com/Jacob-Met/ledgerly/actions/runs/37793910271) passes 205 Python tests plus 96 subtests, 88 frontend tests including 12 record cases, audit/build, and the unchanged CSV owner's eight downloads/seven browser groups.
 
-The original missing-action run, first print-visibility probe failure, corrected passing prior-base run, and current-payment run retain all twelve complete browser/engine/Python logs under logs/. The original phase boundaries remain in the parent receiving directory and source history.
+## Actual printed documents received
 
-Direct receiving found a concrete environment limitation. The four actual viewport PNGs have clear sandbox wording, timestamps, print controls and summary layout, but the installed Linux font displays Japanese as missing-glyph boxes. PyMuPDF 1.26.6 and pypdf 6.10.0 both find missing CJK mappings in the actual JPY PDF. The downloaded HTML and real browser DOM preserve the exact original Unicode. The independent reviewer received both USD A4 page images and all 79 expected USD text parts. The full findings and both readers' extracted text are retained without alteration.
+The [final independent receipt](independent-print-font-qualified.json) binds the exact original PDF bytes to the source, runtime, raw log and bounded bundle. PyMuPDF 1.26.6 receives all 79 expected USD text parts and all 75 JPY parts, including exact 日本語, 海 and emoji. Both actual PDFs have two A4 pages, with no out-of-page text blocks. The independent receiver rasterized and directly inspected all four pages: full items and literal markup, original ledger/provider values, the exact USD 100.25 payment/method/reference, notes and boundary footer remain readable without clipping or overlap.
 
-The next receiving boundary installs only Ubuntu's standard fonts-noto-cjk in the owned hosted workflow, records the actual package version and selected Japanese font family/path/hash, and repeats the exact production and behavioral checks. No product font embedding, source string replacement or weakened assertion is used. That successor outcome is separate from this preserved packet.
+The secondary pypdf 6.10.0 comparison also receives all expected parts after explicitly documented NFKC for that reader's compatibility radical/ligature extraction. Source HTML and product strings are unchanged and are not normalized. The automated report's narrower PDF-generation-only statement is retained as emitted; the separate independent receipt extends the evidence to actual text and pixels.
 
-The twelve fixture/report files here exclude browser profiles, download caches, raw session-snapshot JSON and arbitrary environment/source files. The ordinary GitHub artifact retains the other three authored native snapshots; this bounded log packet deliberately contains only the fixed rendered fixtures and report. This branch adds evidence only and preserves every source leaf of the actual head above.
+The final hosted environment uses Node 22.23.3 and unchanged system Chrome 154.0.8037.97. Its only source change from the font-limited phase is the owned workflow's standard fonts-noto-cjk setup/preflight: version `1:20230817+repack1-3`, matched `Noto Sans CJK JP`, file `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc`, SHA256 `b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a`. All other 24 runtime inputs and all 31 built assets remain byte-identical. No font is embedded in product source.
+
+## Preserved phases
+
+- `logs/original/`: the original actual product lacks the Save action after two native groups pass.
+- `logs/first-candidate/`: actual downloads succeed, then the receiver incorrectly checks the print button's own display instead of its hidden ancestor.
+- `logs/corrected-prior-base/`: two visibility-probe substitutions preserve all production bytes and yield eight passing groups.
+- `logs/font-limited-current-base/` and `fixtures/font-limited-current-base/`: the current payment owner is preserved; browser gates pass, but direct PDF receiving finds missing CJK glyphs. [The original independent finding](independent-print-receiving.json) remains exact.
+- `logs/font-qualified-current-base/` and `fixtures/font-qualified-current-base/`: the font-only environment correction resolves that observed failure with the unchanged production, fixture strings and behavioral receiver.
+
+[index.json](index.json) records every included file's size, SHA256 and native Git blob identity. Both bounded native bundles and all three raw logs for each of the five actual phases are retained. The fixed final bundle contains five authored HTML downloads, four viewport PNGs, two actual PDFs and the emitted report. Its 228 numbered chunks, 697,952 payload bytes and all 12 member hashes were independently verified. The ordinary hosted artifact is ID 11557622154, with ZIP SHA256 `a0f583987933665613423685f5cb80cb91010b0530c9c342a74d0c33cf7625da`.
+
+## Scope
+
+Acceptance covers these authored fixtures and the recorded browser/font environment. No physical printer, operating-system print dialog, universal font coverage or arbitrary document pagination was received. These documents are saved sandbox snapshots; they do not refresh a provider, authorize an action, restore a sandbox, or establish a real payable invoice or payment receipt.

@@ -1,14 +1,18 @@
 {
   "schema": "ledgerly.invoice-record.native-packet.v1",
-  "status": "Font-limited current-payment composition retained before an explicit hosted CJK-font receiving correction.",
+  "status": "Accepted for the authored offline sandbox invoice HTML and actual PDF fixture scope; final font-qualified current-payment composition independently received.",
   "repo": "Jacob-Met/ledgerly",
   "issue": 34,
   "pull_request": 35,
   "source": {
-    "head": "43bc2a7d7614dd61d0197835d454487769e9cd1b",
-    "tree": "f1b25a10d4db0c651a798c79346f0705deae25dc",
+    "head": "de24842a91314fdb89e1b8121d206693fbceb5d3",
+    "tree": "cbe35389f27031b0c0162fec7ebfd5e6053d5b0f",
     "base": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
-    "actual_checkout": "01fc8a6b9677160ec9417845c492af74d741640d",
+    "actual_checkout": "2ee0920dc2f18af4d05eb5c2e30984d5e6e3cc63",
+    "actual_checkout_parents": [
+      "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+      "de24842a91314fdb89e1b8121d206693fbceb5d3"
+    ],
     "source_files": [
       {
         "path": "ledgerly/__init__.py",
@@ -180,19 +184,19 @@
       },
       {
         "path": ".github/workflows/invoice-record-browser.yml",
-        "blob": "3316f5e2c65232a0400555ff6302a4a14da2561d",
-        "bytes": 2586,
-        "sha256": "cc30e2ff2c3b83fa1448229d104e929d9c995750ccf1d2a83409aa56d61e685e",
-        "receiving": "prior directly fetched exact unchanged Git blob"
+        "blob": "f51c35982a596376860df109f0a37f2e49fd3eb1",
+        "bytes": 3530,
+        "sha256": "7f1008c10e18fb39e8aaec2d9eab999622995087f380f03c7faad1e094c443c6",
+        "receiving": "fresh exact published font-only receiving workflow"
       }
     ]
   },
   "runs": {
-    "browser": 37792087248,
-    "browser_job": 113361851887,
-    "maintained": 37792087010,
-    "python_job": 113361849638,
-    "engine_job": 113361850205
+    "browser": 37793910451,
+    "browser_job": 113368229714,
+    "maintained": 37793910271,
+    "python_job": 113368228779,
+    "engine_job": 113368228309
   },
   "automated": {
     "browser_groups": 8,
@@ -207,51 +211,116 @@
     "source_unchanged": true
   },
   "bundle": {
-    "bytes": 686960,
-    "sha256": "7ec5891b9bca398371d115285daed1d62d655f49808426aa0d7877518336bdd7",
-    "chunks": 224,
-    "total_member_bytes": 513959,
+    "bytes": 697952,
+    "sha256": "09aa57e2ea1a182c3eb1e210b46585742f10a322813ab0b92f92766b551c107a",
+    "chunks": 228,
+    "total_member_bytes": 522203,
     "member_count": 12,
     "all_member_sizes_sha256_and_git_blob_ids_independently_verified": true,
     "report_identical_to_actual_log": true,
     "format": "Existing estate native numbered fixture bundle, fixed rendering artifacts and report only."
   },
   "artifact": {
-    "id": 11556364484,
-    "name": "invoice-record-receiving-37792087248",
-    "size_in_bytes": 417864,
-    "url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/artifacts/11556364484",
-    "archive_download_url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/artifacts/11556364484/zip",
+    "id": 11557622154,
+    "name": "invoice-record-receiving-37793910451",
+    "size_in_bytes": 421493,
+    "url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/artifacts/11557622154",
+    "archive_download_url": "https://api.github.com/repos/Jacob-Met/ledgerly/actions/artifacts/11557622154/zip",
     "expired": false,
-    "created_at": "2026-10-08T14:24:46Z",
-    "expires_at": "2026-10-22T14:24:46Z",
-    "updated_at": "2026-10-08T14:24:46Z",
-    "digest": "sha256:219cfb891d996a98a884ade34ae04346a42ad02cbb2779da470a8b6aec6ce035",
+    "created_at": "2026-10-08T14:37:34Z",
+    "expires_at": "2026-10-22T14:37:33Z",
+    "updated_at": "2026-10-08T14:37:34Z",
+    "digest": "sha256:a0f583987933665613423685f5cb80cb91010b0530c9c342a74d0c33cf7625da",
     "workflow_run": {
-      "id": 37792087248,
+      "id": 37793910451,
       "repository_id": 1404688459,
       "head_repository_id": 1404688459,
       "head_branch": "work/invoice-record-7879c2abc07f-20261008",
-      "head_sha": "43bc2a7d7614dd61d0197835d454487769e9cd1b"
+      "head_sha": "de24842a91314fdb89e1b8121d206693fbceb5d3"
     }
   },
   "receiving": {
-    "author_viewports": {
+    "author_viewport": {
       "reviewer": "/root/github_execution/echo_opening_receiving",
-      "files": [
-        "paid-usd-record-1280.png",
-        "literal-jpy-record-390.png",
-        "eur-record-390.png",
-        "original-usd-record-1280.png"
-      ],
-      "finding": "Visible sandbox wording, timestamps, print action and summary layout have no clipping/overlap; installed Linux font displays tofu for Japanese. Viewport-only inspection; original invoice content remains exactly checked by HTML/DOM."
+      "path": "fixtures/font-qualified-current-base/literal-jpy-record-390.png",
+      "sha256": "6c27f677a80d82666d360b3e7751ee17e6ff983309a2c1919fb60f67cd9e9a65",
+      "finding": "Japanese now renders exactly in the actual viewport without clipping or overlap.",
+      "boundary": "Direct actual viewport image receipt. Prior four viewport images remain preserved in the font-limited phase."
     },
     "independent_print": {
       "reviewer": "/root/github_execution",
+      "receipt": "independent-print-font-qualified.json",
+      "receipt_blob": "a22702042777913526f42635458ecdb6c94a9714",
+      "status": "accepted for the authored sandbox invoice HTML and actual PDF fixture scope",
+      "pdfs": [
+        {
+          "path": "fixtures/font-qualified-current-base/literal-jpy-record-390.pdf",
+          "sha256": "68fab8e83055a623676a7137ecf32658bf141462dd20285e29a6ad012b023ba3",
+          "pages": 2,
+          "expected_text_parts": 75,
+          "missing": [],
+          "secondary_missing_with_nfkc": [],
+          "page_rasters": [
+            {
+              "page": 1,
+              "width": 595,
+              "height": 842,
+              "jpegSha256": "aecf75f75bac2413d12ef1966a163c801c293518ee853f9bc144fe1e11d8f201"
+            },
+            {
+              "page": 2,
+              "width": 595,
+              "height": 842,
+              "jpegSha256": "3c8ba9ed4c6f2054de9b09c147629aafb0854b8baef652c627b4071004ec0f8f"
+            }
+          ],
+          "visual_finding": "Both pages are readable. Japanese client text, 海 and the emoji render without tofu; literal markup remains text. Full wrapped long item, separate JPY amounts, note and boundary footer are visible. No clipped or overlapping content observed."
+        },
+        {
+          "path": "fixtures/font-qualified-current-base/paid-usd-record-1280.pdf",
+          "sha256": "82bc69f1f44b00ff41bb252d8152e97715f7db674b56f5daeef56b1070aab0b7",
+          "pages": 2,
+          "expected_text_parts": 79,
+          "missing": [],
+          "secondary_missing_with_nfkc": [],
+          "page_rasters": [
+            {
+              "page": 1,
+              "width": 595,
+              "height": 842,
+              "jpegSha256": "87b50ad69b0ac309435f8401337180372657d6262bd7b6d5d9dc1450c25b363c"
+            },
+            {
+              "page": 2,
+              "width": 595,
+              "height": 842,
+              "jpegSha256": "34fa09d3df001f0df5e16dfd84b09c267f8d46dd2763a9245b0156436db802d1"
+            }
+          ],
+          "visual_finding": "Both pages are readable. Ledger and provider values remain separate; full invoice item, exact 100.25 payment, method/reference, note and boundary footer are visible. No clipped or overlapping content observed."
+        }
+      ],
+      "method": {
+        "input": "Exact original native PDF bytes decoded in memory from the complete ordered, hashed native job-log bundle; every member rehashed before use.",
+        "readerVersions": {
+          "PyMuPDF": "1.26.6",
+          "pypdf": "6.10.0"
+        },
+        "textComparison": "Primary PyMuPDF page text compared to all printed source HTML text parts, removing Unicode whitespace only to allow line wrapping. Secondary pypdf corroboration applies NFKC because that reader emits 日 as compatibility radical ⽇ and ﬁ as a ligature. This is documented extraction behavior, not a source edit.",
+        "raster": "Every page of both distinct actual PDFs independently rasterized in memory with PyMuPDF at 1x, 595 by 842 pixels, JPEG quality 78, and directly visually inspected. No browser, build, source mutation or file write was involved."
+      },
+      "limits": [
+        "Authored fixtures and the specified Chrome/font environment only; no universal installed-font or arbitrary document pagination claim.",
+        "No physical printer or operating-system print dialog was exercised.",
+        "Standalone sandbox snapshot only; no real payable invoice, payment receipt, provider refresh, provider action or sandbox restore claim."
+      ]
+    },
+    "preserved_font_finding": {
+      "source": "43bc2a7d7614dd61d0197835d454487769e9cd1b",
       "receipt": "independent-print-receiving.json",
-      "status": "USD accepted; JPY native PDF font coverage failed.",
+      "receipt_blob": "8ca33681f5602ef9635c47a92989881ba64bafc7",
       "finding": "PyMuPDF and pypdf both find missing CJK glyph mappings in actual JPY PDF. Source HTML/DOM retain exact Unicode. Native Linux PDF fonts are DejaVu Sans only. Parent visually received both USD A4 pages and all 79 expected text parts.",
-      "next_boundary": "Only the hosted receiver environment receives standard fonts-noto-cjk and a logged package/fc-match/hash preflight. Production, source strings and behavioral assertions stay unchanged."
+      "old_evidence_commit": "b6bbaa6f78949b8fd6048d12428561cc9dfd5844"
     }
   },
   "preserved_phases": [
@@ -286,6 +355,15 @@
       "browser_run": 37792087248,
       "maintained_run": 37792087010,
       "outcome": "Current payment owner preserved; all automated gates passed. Direct artifact/PDF receiving identified native missing CJK-font coverage, retained here."
+    },
+    {
+      "path": "logs/font-qualified-current-base",
+      "head": "de24842a91314fdb89e1b8121d206693fbceb5d3",
+      "tree": "cbe35389f27031b0c0162fec7ebfd5e6053d5b0f",
+      "actual_checkout": "2ee0920dc2f18af4d05eb5c2e30984d5e6e3cc63",
+      "browser_run": 37793910451,
+      "maintained_run": 37793910271,
+      "outcome": "Only the owned hosted CJK font environment changed. Eight browser groups / 14 artifacts, 205 Python + 96 subtests, 88 frontend plus original CSV gates pass. Actual 12-member bundle received; independent exact PDF text and all four page rasters accepted."
     }
   ],
   "files": [
@@ -438,7 +516,133 @@
       "sha": "8ca33681f5602ef9635c47a92989881ba64bafc7",
       "bytes": 9169,
       "sha256": "3bc1b56733ae24d91517d76cd94a5b780ba890d4d83e51b55a2162723932330b"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/eur-record-390.png",
+      "sha": "b0969e4b26d45ca5d380044a3e24a0c2e7594cdd",
+      "bytes": 60171,
+      "sha256": "424a07cf081ceea15a1b1dc174e643b5dc1811ae734e814128d8ee00b560a5b4"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/eur-record.html",
+      "sha": "daf4aa88e58b3edbcd5027600c5943f5446e3eb2",
+      "bytes": 8945,
+      "sha256": "7e38fe1bd6f167d977ef07ef9610dbfb88d3a6ea185223651c33e0aac1821584"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/literal-jpy-record-390.pdf",
+      "sha": "6e07f21bcaf6c8d0d3b96541155a9ecdebfe82c4",
+      "bytes": 64542,
+      "sha256": "68fab8e83055a623676a7137ecf32658bf141462dd20285e29a6ad012b023ba3"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/literal-jpy-record-390.png",
+      "sha": "a8fe649d7bab73e684aa15b89956d78b20166d2c",
+      "bytes": 63598,
+      "sha256": "6c27f677a80d82666d360b3e7751ee17e6ff983309a2c1919fb60f67cd9e9a65"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/literal-jpy-record.html",
+      "sha": "341cd52418a6f88d2b506e8874ee49dddd684f3c",
+      "bytes": 9190,
+      "sha256": "eea9d4d3a2cd7ec38c481b2a52c43a834a2dd73fe74f871884aff5e828e75001"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/original-usd-record-1280.png",
+      "sha": "1d030c481cc524c0286865d7dc65b6597f7aed7d",
+      "bytes": 102714,
+      "sha256": "fbd7ac743a13ce85ee768a83da7512e95e4c31c1b9b9a0fb1951f8e29728c336"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/original-usd-record.html",
+      "sha": "3226c39281cdc3552552de4b271aab47c308f0b6",
+      "bytes": 8956,
+      "sha256": "e9b1b3aa327f31b317282c01baef582cadc2902d6b9fee8b117646233523419f"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/paid-usd-record-1280.pdf",
+      "sha": "39169d52e0c1902434c1a8489dfda252276de71b",
+      "bytes": 58313,
+      "sha256": "82bc69f1f44b00ff41bb252d8152e97715f7db674b56f5daeef56b1070aab0b7"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/paid-usd-record-1280.png",
+      "sha": "525300d242a9a30534e6d7b04d96f1b16d193552",
+      "bytes": 105595,
+      "sha256": "dce31d3ac0a1fe83df5026749b2bfa9e00adc8a972fc0cbc6bb96543cf651e21"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/paid-usd-record.html",
+      "sha": "3497ad3c9d1de10d4420823c73318f7498e98a81",
+      "bytes": 9365,
+      "sha256": "291820415e482c611d879761147b8e7f6fd6e4f82d47129a3da4859073c748af"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/receiving-report.json",
+      "sha": "48e08667f7252eb87e53ffefeb9354e7a9542ca6",
+      "bytes": 21624,
+      "sha256": "c8531218f68f6c7da96c066eef9116f0591ebf7a0c1a5f2d188925ceb00966ad"
+    },
+    {
+      "path": "fixtures/font-qualified-current-base/retried-literal-record.html",
+      "sha": "695068514b9384b4725b829bd3b5508e2108a1ac",
+      "bytes": 9190,
+      "sha256": "bba6084296d48e9909a78a5af17fca0135e2b82f2cd8a4df82dbea19577b53d3"
+    },
+    {
+      "path": "logs/font-qualified-current-base/browser.log",
+      "sha": "21e5fcd1f8e07bf00c842d14fa8eff010321a8a2",
+      "bytes": 996347,
+      "sha256": "4ba2a791b6f6b3c5104211d5bf4c2c02f81ff0ee677422d7496d54dcc60befcf"
+    },
+    {
+      "path": "logs/font-qualified-current-base/engine.log",
+      "sha": "849e4bb8ee9fc7cf0ae05e41666204c8779d5e5b",
+      "bytes": 462783,
+      "sha256": "4b95cad5e920710e3ec5064f32e341550295b3a42722e4d44fbf01fed7ada33a"
+    },
+    {
+      "path": "logs/font-qualified-current-base/python.log",
+      "sha": "6257efc633892efa29be419cf9f79840305eabab",
+      "bytes": 15837,
+      "sha256": "3ba34503334d010d642e34b959a58488ae872b50ab560f0bec57a967519bde71"
+    },
+    {
+      "path": "independent-print-font-qualified.json",
+      "sha": "a22702042777913526f42635458ecdb6c94a9714",
+      "bytes": 15987,
+      "sha256": "050ade34c488a8b5680b5ac7d53419a7946efb123e54eec33eae1b60f7b7be87"
     }
   ],
-  "storage_boundary": "Evidence-only native Git branch. Every source leaf from the actual qualified head is preserved. Raw logs and rendered fixtures contain only the authorized fictional receiving data; no arbitrary environment, browser profile or user session files are included."
+  "storage_boundary": "Evidence-only native Git branch. Every source leaf from the actual qualified head is preserved. Raw logs and rendered fixtures contain only the authorized fictional receiving data; no arbitrary environment, browser profile or user session files are included.",
+  "font_environment": {
+    "package": "fonts-noto-cjk",
+    "version": "1:20230817+repack1-3",
+    "family": "Noto Sans CJK JP",
+    "file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+  },
+  "causal_closure": {
+    "unchangedSourceInputs": 24,
+    "onlySourceChange": ".github/workflows/invoice-record-browser.yml",
+    "all25SourceIdentitiesBound": true,
+    "unchangedBuiltAssets": 31,
+    "buildChanges": []
+  },
+  "evidence_graph": {
+    "previous_evidence_commit": "b6bbaa6f78949b8fd6048d12428561cc9dfd5844",
+    "source_parent": "de24842a91314fdb89e1b8121d206693fbceb5d3",
+    "source_tree": "cbe35389f27031b0c0162fec7ebfd5e6053d5b0f",
+    "source_leaves_preserved": 610,
+    "evidence_files": 43,
+    "preserved_old_nonmetadata_files": 25,
+    "new_received_artifact_log_files": 15,
+    "new_independent_receipt_files": 1,
+    "metadata_files_replaced": 2
+  },
+  "limits": [
+    "Authored fixtures and the specified Chrome/font environment only; no universal installed-font or arbitrary document pagination claim.",
+    "No physical printer or operating-system print dialog was exercised.",
+    "Standalone sandbox snapshot only; no real payable invoice, payment receipt, provider refresh, provider action or sandbox restore claim."
+  ]
 }

@@ -51,6 +51,22 @@ jobs:
           node --version
           "${INVOICE_RECORD_BROWSER}" --version
           printf 'executable=%s\n' "${INVOICE_RECORD_BROWSER}" >> "${GITHUB_OUTPUT}"
+      - name: Qualify Japanese glyphs in the installed browser's print environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends fonts-noto-cjk
+          dpkg-query -W -f='${binary:Package} ${Version}\n' fonts-noto-cjk
+          command -v fc-match
+          INVOICE_RECORD_JP_FONT_FAMILY="$(fc-match --format='%{family}\n' 'sans-serif:lang=ja')"
+          INVOICE_RECORD_JP_FONT_FILE="$(fc-match --format='%{file}\n' 'sans-serif:lang=ja')"
+          printf 'Japanese font family: %s\nJapanese font file: %s\n' \
+            "${INVOICE_RECORD_JP_FONT_FAMILY}" "${INVOICE_RECORD_JP_FONT_FILE}"
+          [[ "${INVOICE_RECORD_JP_FONT_FAMILY}" == *"Noto Sans CJK JP"* ]]
+          [[ -f "${INVOICE_RECORD_JP_FONT_FILE}" ]]
+          dpkg-query -S -- "${INVOICE_RECORD_JP_FONT_FILE}"
+          sha256sum -- "${INVOICE_RECORD_JP_FONT_FILE}"
       - name: Receive real Python invoice, actual HTML download and offline printing
         run: 'node web-demo/tools/check_invoice_record_browser.mjs --browser "${{ steps.browser.outputs.executable }}" --output "${RUNNER_TEMP}/invoice-record-receiving"'
       - name: Preserve bounded native snapshots, downloaded files and print evidence
