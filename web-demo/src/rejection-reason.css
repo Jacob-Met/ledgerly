@@ -1,0 +1,5 @@
+.rejection-reason{display:grid;gap:7px;margin:14px 0;color:var(--muted);font-size:11px}
+.rejection-reason textarea{min-height:64px;font:inherit;line-height:1.5}
+.rejection-reason-help{font-size:10px;line-height:1.5}
+.rejection-reason textarea[aria-invalid="true"]{border-color:var(--red)}
+.rejection-reason textarea:disabled{opacity:.6}

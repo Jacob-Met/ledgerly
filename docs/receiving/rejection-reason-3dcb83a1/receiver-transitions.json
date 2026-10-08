@@ -1,0 +1,40 @@
+{
+  "schema": "ledgerly.rejection-reason-receiver-transitions/1",
+  "product_source_changed": false,
+  "versions": [
+    {
+      "label": "initial date-filling receiver; retained original baseline/environment failure",
+      "git_blob": "439d26c84d5cc995473e834d1548ffbaa5d1627e"
+    },
+    {
+      "label": "native date-field filling; original eight-group Worker-protocol failure",
+      "git_blob": "9ad9c6314f4d60aa21e6a24c7ab74ef5edc88625"
+    },
+    {
+      "label": "Worker Network observation; retained embedded-resource classification failure and final baseline",
+      "git_blob": "61ddfd7cd62d8ce680e17f06feed35fe652f7bfb"
+    },
+    {
+      "label": "accepted receiver; inline date SVG classified separately from HTTP",
+      "git_blob": "14f0bda8ad5d31facf0cf63a9e9f07ab185e8523"
+    }
+  ],
+  "transformations": [
+    {
+      "old": " await textInput('#demo-date',date.toISOString().slice(0,10));",
+      "replacement": " const dueDay=date.toISOString().slice(0,10);\n await evaluate('document.querySelector(\"#demo-date\").value='+JSON.stringify(dueDay));\n assert.equal(await value('#demo-date'),dueDay);",
+      "reason": "Set the existing HTML date field through its native value property; keyboard character insertion is not a date-input filling API. This affects only the later reminder setup after the baseline's missing-field assertion."
+    },
+    {
+      "old": "   void command('Network.enable',{},workerSession).then(()=>command('Fetch.enable',{patterns:[{urlPattern:'http*'}]},workerSession))\n    .catch(error=>pageErrors.push(error.message));",
+      "replacement": "   void command('Network.enable',{},workerSession).catch(error=>pageErrors.push(error.message));",
+      "added_assertion": "All observed page and Worker network requests must be GET on the local origin.",
+      "reason": "Chrome Worker targets support Network.enable, but not Fetch.enable; preserve the browser sandbox and actual Worker instead of suppressing the protocol error."
+    },
+    {
+      "old": " assert.ok(report.requests.every(request=>request.method==='GET'&&new URL(request.url).origin===base),\n  'all observed page and Worker network requests stay on the local receiving origin');",
+      "replacement": " assert.ok(report.requests.every(request=>request.method==='GET'&&(\n  new URL(request.url).origin===base||request.url.startsWith('data:image/svg+xml;base64,'))),\n  'observed page and Worker HTTP requests stay local; embedded browser SVG resources make no network request');\n report.embeddedBrowserResources=report.requests.filter(request=>request.url.startsWith('data:image/svg+xml;base64,'));",
+      "reason": "The current native HTML date input emits one inline data:image/svg+xml calendar icon. It has no HTTP origin and makes no network request; actual HTTP(S) requests remain constrained to the local origin."
+    }
+  ]
+}

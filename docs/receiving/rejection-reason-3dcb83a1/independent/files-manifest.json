@@ -1,0 +1,43 @@
+{
+  "files": [
+    {
+      "path": "contract.json",
+      "bytes": 1962,
+      "sha256": "a0f03e9492f01f32f259483cc1bee093643dbf365dbd9c9d3ccb5223534c4113",
+      "git_blob": "fb26ee935361c156e1d3bdaf26711866302abcdc"
+    },
+    {
+      "path": "receive_rejection_identity.py",
+      "bytes": 10225,
+      "sha256": "0520f8225d784e834faabf18ef7b4daa8e8409e9ee48f62c754919da1d368313",
+      "git_blob": "e5910d8b2dce2f5de27b6faf7120a89eec7ebd8f"
+    },
+    {
+      "path": "independent-results.json",
+      "bytes": 42986,
+      "sha256": "b9d312a3f2484dd7ad45303e38dd89949b6e493616ffe42a6a0767b417617b42",
+      "git_blob": "ddce8cb97f6ab80357265483f3d7235db9fcf724"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 4893,
+      "sha256": "bbae28d01953b990d5c1d8859fcd4b3142b2fdba5bb6116b8f1fb04445e31e51",
+      "git_blob": "59af9256d8fdbf029e5469c3efb14c5d38ca5781"
+    }
+  ],
+  "payload_bytes": 60066,
+  "raw_native_reports": [
+    {
+      "path": "/home/jacob/.commander-tp-2/ledgerly-rejection-independent-3dcb83a1/baseline.json",
+      "bytes": 93030,
+      "sha256": "b0de0ad144d4bddb96f9033c8741c598544bf0d90df7cf44f26118b6ba26c798",
+      "git_blob": "a149ebbb9adfff52996b1ccc4ed5eb3b838d00bf"
+    },
+    {
+      "path": "/home/jacob/.commander-tp-2/ledgerly-rejection-independent-3dcb83a1/candidate.json",
+      "bytes": 93519,
+      "sha256": "7e81d12cd9629efbb82f8db906e71288ed82271095f2e23c2098781d902e8666",
+      "git_blob": "1081ee5382d1b616ad482a37dfa0202d9e9853f9"
+    }
+  ]
+}

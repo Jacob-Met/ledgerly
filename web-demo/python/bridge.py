@@ -79,7 +79,15 @@ class Demo:
             else:result=self.draft(text)
         elif action=="approve":
             pending=next(a for a in self.agent.list_pending() if a["id"]==req["action_id"]);self.agent.approve(req["action_id"],approver="browser visitor");result={"approved":True,"kind":pending["kind"],"invoice_id":pending["invoice_id"]}
-        elif action=="reject": self.agent.reject(req["action_id"],"Rejected by the browser visitor");result={"rejected":True}
+        elif action=="reject":
+            reason=req.get("reason","")
+            if not isinstance(reason,str):
+                raise ValueError("Rejection reason must be text.")
+            if len(reason)>500:
+                raise ValueError("Use at most 500 characters for the rejection reason.")
+            reason=reason if reason.strip() else "Rejected by the browser visitor"
+            self.agent.reject(req["action_id"],reason)
+            result={"rejected":True,"reason":reason}
         elif action=="payment":
             amount=req.get("amount");event=self.mock.simulate_payer_payment(req["invoice_id"],None if amount is None or amount=="" else Decimal(str(amount)));raw=json.dumps(event,separators=(",",":")).encode("utf-8");headers=self.mock.sign(raw);self.last_event=(raw,headers);result=self.agent.handle_webhook(raw,headers)
         elif action=="replay": result={"ok":False,"message":"No webhook to replay."} if self.last_event is None else self.agent.handle_webhook(*self.last_event)

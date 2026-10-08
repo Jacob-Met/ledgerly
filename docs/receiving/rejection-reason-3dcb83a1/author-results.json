@@ -1,0 +1,1120 @@
+{
+  "schema": "ledgerly.rejection-reason-author/1",
+  "base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "base_tree": "ddb2360a65b646a281969fea1abbb3238c154340",
+  "source_scope": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6063937559",
+  "status": "author receiving accepted; independent review separately attributed",
+  "change": "Carry an optional action-bound rejection note from the existing queued browser action to the unchanged Agent rejection result/audit.",
+  "contract": {
+    "maximum": "500 Python Unicode code points; the browser uses Array.from(text).length",
+    "exact_text": "Nonblank input is passed verbatim, including leading/trailing whitespace, newlines and Unicode.",
+    "default": "Missing, empty or Python-str.strip-empty input uses Rejected by the browser visitor.",
+    "refusal": "Non-string or over-limit input fails before Agent.reject; pending/provider state remains unchanged.",
+    "approval": "The existing approval payload contains only action_id. An unfinished rejection note does not grant, alter or block approval.",
+    "lifetime": "Notes remain associated with current pending IDs across snapshots/refusals and clear as those IDs leave the queue or the sandbox resets."
+  },
+  "product": [
+    {
+      "path": "web-demo/src/rejection-reason.ts",
+      "bytes": 3147,
+      "git_blob": "73d7a37dbdeb7880b7050b4976ca663284e7b021",
+      "sha256": "34a2558d877d4f5b641fa972bd46e4a7b7d874ab803495b9520ec899af2187ed"
+    },
+    {
+      "path": "web-demo/src/rejection-reason.css",
+      "bytes": 337,
+      "git_blob": "8c80fe72f7d1cc57126077dc7ddf37e6358a398d",
+      "sha256": "b981ef166ca7f0fef0d68585f949d6ad84ec33b0d7a4c2789e6ca0bba17835c4"
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "bytes": 19228,
+      "git_blob": "6ba57a329d691ae890776645b40f86b68923301a",
+      "sha256": "2b096d49f1a36ad2cb7a596f9ff043cc42c514b1414dd4a821b5e3942de322fa"
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "bytes": 6994,
+      "git_blob": "c0f4f95ec193b55c1ad10cc59d980e4dfb4d0858",
+      "sha256": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81"
+    },
+    {
+      "path": "web-demo/README.md",
+      "bytes": 12913,
+      "git_blob": "8ff38f616a640abe3c0eb71f7755dca70d8bc2ee",
+      "sha256": "375ad26593218d24ec145cd72cdea17ca86015f5cf15d20d65c4f9548f69458f"
+    },
+    {
+      "path": "tests/test_browser_rejection_reason.py",
+      "bytes": 6946,
+      "git_blob": "9edbbe66c2100b0281588d0eadc8eafef82879fe",
+      "sha256": "affc64380c0a741a368614f10c77a7f299cc81b4b49dc2df30a7e9383bb434cc"
+    },
+    {
+      "path": "web-demo/tools/check_rejection_reason_browser.mjs",
+      "bytes": 22130,
+      "git_blob": "14f0bda8ad5d31facf0cf63a9e9f07ab185e8523",
+      "sha256": null
+    }
+  ],
+  "unchanged_core": {
+    "ledgerly/__init__.py": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+    "ledgerly/agent.py": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+    "ledgerly/extract.py": "5d22bb5a4292529f9de2df521c4623a783779511",
+    "ledgerly/paypal.py": "66f067204d357499b3f7010a946563a431d50aea"
+  },
+  "source_correspondence": {
+    "native_bridge_only_reject_body_changed": true,
+    "api_provider_extractor_declaration": "No source edits to Agent, provider, extractor, review adapter, invoice detail projection, approval preview, engine worker, worker client, dependency lock or workflows.",
+    "native_source_pins_retained": "source-pins.json in each native root; exact primary Git blobs were checked before staging and exact file hashes after receiving.",
+    "current_main_readback": "fba278f552e868ad2b94b7f1dc309eed6f1e8514 after accepted browser receiving"
+  },
+  "first_native_witness": {
+    "base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+    "runtime": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "execution": "full current bridge.handle_json -> Demo -> Agent -> SandboxMock, exact in-memory source loader",
+    "native_source_files": [
+      {
+        "path": "ledgerly/__init__.py",
+        "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+        "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+      },
+      {
+        "path": "ledgerly/agent.py",
+        "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+        "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+      },
+      {
+        "path": "ledgerly/extract.py",
+        "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511",
+        "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58"
+      },
+      {
+        "path": "ledgerly/paypal.py",
+        "git_blob": "66f067204d357499b3f7010a946563a431d50aea",
+        "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3"
+      },
+      {
+        "path": "web-demo/python/bridge.py",
+        "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+        "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0"
+      },
+      {
+        "path": "web-demo/python/review.py",
+        "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+        "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+      },
+      {
+        "path": "web-demo/python/invoice_details.py",
+        "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015",
+        "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6"
+      }
+    ],
+    "requested_reason": "  Wrong milestone — please revise 🧾\nNo reminder yet.  ",
+    "bridge_recorded_reason": "Rejected by the browser visitor",
+    "bridge_kept_requested_reason": false,
+    "bridge_action_status": "REJECTED",
+    "bridge_pending_after": 0,
+    "bridge_mock_requests_unchanged": true,
+    "same_action_retry_refused": true,
+    "core_control_kept_exact_reason": true,
+    "core_control_audit_kept_exact_reason": true,
+    "core_control_mock_requests_unchanged": true,
+    "source_files_written": 0
+  },
+  "native_regression": {
+    "schema": "ledgerly.rejection-reason-native/1",
+    "base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+    "runtime": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "guard_before": {
+      "disk_free_bytes": 40646746112,
+      "memory_available_bytes": 9036185600
+    },
+    "commands": [
+      {
+        "variant": "baseline",
+        "command": [
+          "/usr/bin/python3",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_browser_rejection_reason.py",
+          "-v"
+        ],
+        "exit": 1,
+        "seconds": 0.209,
+        "methods": 6,
+        "status_line": "FAILED (failures=9)",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "2d57df30cbcf49be3b75873a8970d000768ca69f316bc17e8de56ffd18b83abf"
+      },
+      {
+        "variant": "candidate",
+        "command": [
+          "/usr/bin/python3",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_browser_rejection_reason.py",
+          "-v"
+        ],
+        "exit": 0,
+        "seconds": 0.162,
+        "methods": 6,
+        "status_line": "OK",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "5c660199e0b784b7a9ba8a5040000dcc878e3716757409fd377d0c7d8101d3cc"
+      }
+    ],
+    "bridge_only_reject_body_changed": true,
+    "core_original_git_blobs": {
+      "ledgerly/__init__.py": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "ledgerly/agent.py": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+      "ledgerly/extract.py": "5d22bb5a4292529f9de2df521c4623a783779511",
+      "ledgerly/paypal.py": "66f067204d357499b3f7010a946563a431d50aea"
+    },
+    "all_source_bytes_unchanged": true,
+    "guard_after": {
+      "disk_free_bytes": 40645853184,
+      "memory_available_bytes": 8980082688
+    }
+  },
+  "builds": {
+    "linux": {
+      "schema": "ledgerly.rejection-reason-build/1",
+      "base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+      "guard_before": {
+        "disk_free_bytes": 40184279040,
+        "available_memory_bytes": 9421602816
+      },
+      "commands": [
+        {
+          "command": [
+            "npm",
+            "ci",
+            "--no-audit",
+            "--no-fund",
+            "--cache",
+            "/home/jacob/.commander-tp-2/ledgerly-rejection-reasons-3dcb83a1/npm-cache"
+          ],
+          "cwd": "candidate/web-demo",
+          "exit": 0,
+          "seconds": 5.73,
+          "stdout_sha256": "524aa6f967adcc9f2dc758dccb09630b298d7830d613c3b59d355958e3508b1f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "pre_build_guard": {
+            "disk_free_bytes": 40040759296,
+            "available_memory_bytes": 9242882048
+          },
+          "variant": "baseline"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "cwd": "baseline/web-demo",
+          "exit": 0,
+          "seconds": 2.386,
+          "stdout_sha256": "41e01624e8096f3f61ec49fbd89612b8730b4858d7f6ce9f82091e5b7f67e607",
+          "stderr_sha256": "c25ed599ec51a5abcd5dc4e2adbaa6c3ba5fbe8ffe95c486c6fb687223fa5b39"
+        },
+        {
+          "pre_build_guard": {
+            "disk_free_bytes": 40015667200,
+            "available_memory_bytes": 9268412416
+          },
+          "variant": "candidate"
+        },
+        {
+          "command": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "cwd": "candidate/web-demo",
+          "exit": 0,
+          "seconds": 2.63,
+          "stdout_sha256": "2d2bbee24dda359800104f34d5cfa5c332c74151672e214097f4776bfc74b2cf",
+          "stderr_sha256": "de1115f46d54e97d5363394ba04e83243767f3a3ef98b7c683627f51d2230a47"
+        }
+      ],
+      "dependency_source": "unchanged current package-lock.json; ordinary isolated npm ci",
+      "dependency_bytes": 140138019,
+      "all_source_bytes_unchanged": true,
+      "build_assets_bytes": 49693899,
+      "guard_after": {
+        "disk_free_bytes": 39990566912,
+        "available_memory_bytes": 9200836608
+      },
+      "dependency_versions": {
+        "pyodide": {
+          "version": "0.29.3",
+          "resolved": "https://registry.npmjs.org/pyodide/-/pyodide-0.29.3.tgz",
+          "overridden": false
+        },
+        "typescript": {
+          "version": "5.9.3",
+          "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+          "overridden": false
+        },
+        "vite": {
+          "version": "8.3.3",
+          "resolved": "https://registry.npmjs.org/vite/-/vite-8.3.3.tgz",
+          "overridden": false
+        },
+        "vitest": {
+          "version": "5.0.3",
+          "resolved": "https://registry.npmjs.org/vitest/-/vitest-5.0.3.tgz",
+          "overridden": false
+        }
+      }
+    },
+    "windows": {
+      "schema": "ledgerly.rejection-reason-windows-build/1",
+      "base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+      "node": "v24.21.0",
+      "guardBefore": {
+        "diskFreeBytes": 470138589184,
+        "availableMemoryBytes": 23516737536
+      },
+      "commands": [
+        {
+          "label": "npm-ci",
+          "variant": "candidate",
+          "command": [
+            "C:\\Users\\minec\\AppData\\Local\\Hamon\\node\\node-v24.21.0-win-x64\\node.exe",
+            "C:\\Users\\minec\\AppData\\Local\\Hamon\\node\\node-v24.21.0-win-x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "ci",
+            "--no-audit",
+            "--no-fund",
+            "--cache",
+            "C:\\Users\\minec\\ledgerly-rejection-reasons-3dcb83a1\\npm-cache"
+          ],
+          "exit": 0,
+          "seconds": 8.429,
+          "guardBefore": {
+            "diskFreeBytes": 470137933824,
+            "availableMemoryBytes": 23512190976
+          },
+          "stdoutSHA256": "316962df837e6b96e8f39158979da3057b2f22b31bc6b4b5bc22135334a3934a",
+          "stderrSHA256": "e49b794cae6663ada86efea1579a0381251a5d4d1ff9b0cefed3e5622b21317d",
+          "error": null
+        },
+        {
+          "label": "baseline-build",
+          "variant": "baseline",
+          "command": [
+            "C:\\Users\\minec\\AppData\\Local\\Hamon\\node\\node-v24.21.0-win-x64\\node.exe",
+            "C:\\Users\\minec\\AppData\\Local\\Hamon\\node\\node-v24.21.0-win-x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "build"
+          ],
+          "exit": 0,
+          "seconds": 3.23,
+          "guardBefore": {
+            "diskFreeBytes": 470032236544,
+            "availableMemoryBytes": 23418646528
+          },
+          "stdoutSHA256": "b01e577ea1c8dbec3f6abfc8d4558f0155c1cfabcfa15ed33f823735be6f95fb",
+          "stderrSHA256": "6206420435dbae000d2362ccc9e89d284ed6d22f9461786b74375021cfff8ccf",
+          "error": null
+        },
+        {
+          "label": "candidate-build",
+          "variant": "candidate",
+          "command": [
+            "C:\\Users\\minec\\AppData\\Local\\Hamon\\node\\node-v24.21.0-win-x64\\node.exe",
+            "C:\\Users\\minec\\AppData\\Local\\Hamon\\node\\node-v24.21.0-win-x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "run",
+            "build"
+          ],
+          "exit": 0,
+          "seconds": 1.113,
+          "guardBefore": {
+            "diskFreeBytes": 470004633600,
+            "availableMemoryBytes": 23417282560
+          },
+          "stdoutSHA256": "a70746737275f1dae4bf75edf87c1d76f538b806848c640d8214f0977cdcabf6",
+          "stderrSHA256": "80ff6d41b21126b9b2d4f9b47fa397fb35cca898f1e59acb6f23808271bf92c6",
+          "error": null
+        }
+      ],
+      "dependencyBytes": 99718698,
+      "allSourceBytesUnchanged": true,
+      "buildAssetBytes": 49693899,
+      "guardAfter": {
+        "diskFreeBytes": 469979631616,
+        "availableMemoryBytes": 23398223872
+      }
+    }
+  },
+  "browser": {
+    "status": "passed",
+    "node": "v24.21.0",
+    "browser": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/154.0.8037.57",
+      "revision": "@73c14f6228d7cd537c855007e8f88678969cc0eb",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "jsVersion": "15.4.80.11"
+    },
+    "receiver": {
+      "git_blob": "14f0bda8ad5d31facf0cf63a9e9f07ab185e8523",
+      "bytes": 22130
+    },
+    "raw_receipt": {
+      "path": "C:\\Users\\minec\\ledgerly-rejection-reasons-3dcb83a1\\candidate-browser-accepted\\browser-results.json",
+      "bytes": 171373,
+      "sha256": "15ccc252f6b1beb5d89309535f6d833bfc1b6f1a0da2e285077f7e56b2d87c58"
+    },
+    "checks": [
+      "actual current Python engine creates two independently gated currency actions",
+      "literal notes and labels are action-bound; typing sends no Worker request or approval",
+      "busy state disables notes and controls; unrelated native snapshot retains both exact drafts",
+      "actual bridge refusal preserves both pending actions and their exact local notes",
+      "explicit keyboard rejection receives the exact selected note, leaves the other note intact and makes no provider request",
+      "501 Unicode characters refuse locally without consumption; the separate approval path ignores an unfinished rejection note",
+      "narrow-layout reminder note reaches the same real rejection path without sending the reminder",
+      "empty note keeps the legacy reason; explicit reset clears action-bound notes and sandbox state"
+    ],
+    "actual_call_count": 16,
+    "actual_reply_count": 16,
+    "actual_calls": [
+      {
+        "id": 1,
+        "action": "init",
+        "payload": {}
+      },
+      {
+        "id": 2,
+        "action": "analyze",
+        "payload": {
+          "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+        }
+      },
+      {
+        "id": 3,
+        "action": "draft",
+        "payload": {
+          "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+        }
+      },
+      {
+        "id": 4,
+        "action": "advance",
+        "payload": {
+          "day": "2026-10-08"
+        }
+      },
+      {
+        "id": 5,
+        "action": "reject",
+        "payload": {
+          "action_id": "apv_907fd0778e",
+          "reason": "  Wrong <milestone> & recipient — 🧾\nPlease revise, then ask again.  "
+        }
+      },
+      {
+        "id": 6,
+        "action": "reject",
+        "payload": {
+          "action_id": "apv_907fd0778e",
+          "reason": "  Wrong <milestone> & recipient — 🧾\nPlease revise, then ask again.  "
+        }
+      },
+      {
+        "id": 7,
+        "action": "approve",
+        "payload": {
+          "action_id": "apv_e9e941117c"
+        }
+      },
+      {
+        "id": 8,
+        "action": "advance",
+        "payload": {
+          "day": "2026-11-09"
+        }
+      },
+      {
+        "id": 9,
+        "action": "chase",
+        "payload": {}
+      },
+      {
+        "id": 10,
+        "action": "reject",
+        "payload": {
+          "action_id": "apv_31420ed52e",
+          "reason": "Client asked for a pause.\nNo reminder this week."
+        }
+      },
+      {
+        "id": 11,
+        "action": "analyze",
+        "payload": {
+          "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n"
+        }
+      },
+      {
+        "id": 12,
+        "action": "draft",
+        "payload": {
+          "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n"
+        }
+      },
+      {
+        "id": 13,
+        "action": "reject",
+        "payload": {
+          "action_id": "apv_70bb005262",
+          "reason": ""
+        }
+      },
+      {
+        "id": 14,
+        "action": "analyze",
+        "payload": {
+          "text": "From: Rina Chen <rina.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nRina\n"
+        }
+      },
+      {
+        "id": 15,
+        "action": "draft",
+        "payload": {
+          "text": "From: Rina Chen <rina.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nRina\n"
+        }
+      },
+      {
+        "id": 16,
+        "action": "reset",
+        "payload": {}
+      }
+    ],
+    "replies": [
+      {
+        "index": 0,
+        "ok": true,
+        "state": {
+          "today": "2026-10-08",
+          "pending": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "ledger": []
+        }
+      },
+      {
+        "index": 1,
+        "ok": true,
+        "state": {
+          "today": "2026-10-08",
+          "pending": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "ledger": []
+        }
+      },
+      {
+        "index": 2,
+        "ok": true,
+        "state": {
+          "today": "2026-10-08",
+          "pending": [
+            {
+              "id": "apv_907fd0778e",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-E1CE"
+            },
+            {
+              "id": "apv_e9e941117c",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0002-675A"
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 3,
+        "ok": true,
+        "state": {
+          "today": "2026-10-08",
+          "pending": [
+            {
+              "id": "apv_907fd0778e",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-E1CE"
+            },
+            {
+              "id": "apv_e9e941117c",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0002-675A"
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 4,
+        "ok": false,
+        "error": "KeyError",
+        "message": "'no such action missing-authored-receiver-action'",
+        "state": {
+          "today": "2026-10-08",
+          "pending": [
+            {
+              "id": "apv_907fd0778e",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-E1CE"
+            },
+            {
+              "id": "apv_e9e941117c",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0002-675A"
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 5,
+        "ok": true,
+        "result": {
+          "rejected": true,
+          "reason": "  Wrong <milestone> & recipient — 🧾\nPlease revise, then ask again.  "
+        },
+        "state": {
+          "today": "2026-10-08",
+          "pending": [
+            {
+              "id": "apv_e9e941117c",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0002-675A"
+            }
+          ],
+          "mock_requests": 6,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 6,
+        "ok": true,
+        "result": {
+          "approved": true,
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0002-675A"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "pending": [],
+          "mock_requests": 8,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 7,
+        "ok": true,
+        "state": {
+          "today": "2026-11-09",
+          "pending": [],
+          "mock_requests": 8,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 8,
+        "ok": true,
+        "state": {
+          "today": "2026-11-09",
+          "pending": [
+            {
+              "id": "apv_31420ed52e",
+              "kind": "send_reminder",
+              "invoice_id": "INV2-MOCK-0002-675A"
+            }
+          ],
+          "mock_requests": 9,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 9,
+        "ok": true,
+        "result": {
+          "rejected": true,
+          "reason": "Client asked for a pause.\nNo reminder this week."
+        },
+        "state": {
+          "today": "2026-11-09",
+          "pending": [],
+          "mock_requests": 9,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 10,
+        "ok": true,
+        "state": {
+          "today": "2026-11-09",
+          "pending": [],
+          "mock_requests": 9,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 11,
+        "ok": true,
+        "state": {
+          "today": "2026-11-09",
+          "pending": [
+            {
+              "id": "apv_70bb005262",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0003-6A3C"
+            }
+          ],
+          "mock_requests": 12,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0003-6A3C",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 12,
+        "ok": true,
+        "result": {
+          "rejected": true,
+          "reason": "Rejected by the browser visitor"
+        },
+        "state": {
+          "today": "2026-11-09",
+          "pending": [],
+          "mock_requests": 12,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0003-6A3C",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 13,
+        "ok": true,
+        "state": {
+          "today": "2026-11-09",
+          "pending": [],
+          "mock_requests": 12,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0003-6A3C",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 14,
+        "ok": true,
+        "state": {
+          "today": "2026-11-09",
+          "pending": [
+            {
+              "id": "apv_8d11af0fd1",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0004-ECAA"
+            }
+          ],
+          "mock_requests": 15,
+          "external_calls": 0,
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-E1CE",
+              "currency": "EUR",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-675A",
+              "currency": "USD",
+              "status": "SENT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0003-6A3C",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            },
+            {
+              "invoice_id": "INV2-MOCK-0004-ECAA",
+              "currency": "USD",
+              "status": "DRAFT",
+              "reminders_sent": 0
+            }
+          ]
+        }
+      },
+      {
+        "index": 15,
+        "ok": true,
+        "result": {
+          "reset": true
+        },
+        "state": {
+          "today": "2026-10-08",
+          "pending": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "ledger": []
+        }
+      }
+    ],
+    "source_hashes": {
+      "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+      "ledgerly/extract.py": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+      "ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "web-demo/python/bridge.py": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81",
+      "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "web-demo/src/main.ts": "2b096d49f1a36ad2cb7a596f9ff043cc42c514b1414dd4a821b5e3942de322fa",
+      "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+      "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+      "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+      "web-demo/src/rejection-reason.ts": "34a2558d877d4f5b641fa972bd46e4a7b7d874ab803495b9520ec899af2187ed",
+      "web-demo/src/rejection-reason.css": "b981ef166ca7f0fef0d68585f949d6ad84ec33b0d7a4c2789e6ca0bba17835c4",
+      "web-demo/package.json": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+      "web-demo/package-lock.json": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+      "web-demo/tsconfig.json": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+      "web-demo/vite.config.ts": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c",
+      "web-demo/scripts/stage-python.mjs": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82"
+    },
+    "all_source_bytes_unchanged": true,
+    "http_requests": [
+      {
+        "url": "http://127.0.0.1:55234/",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/assets/index-mCgve2r1.js",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/assets/index-fkc9Jnky.css",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/favicon.svg",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/assets/engine.worker-B5Sd8fS4.js",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/pyodide/pyodide-lock.json",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/pyodide/python_stdlib.zip",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/pyodide/pyodide.asm.wasm",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/pyodide/pyodide.asm.js",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/python/ledgerly/__init__.py",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/python/ledgerly/agent.py",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/python/ledgerly/extract.py",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/python/ledgerly/paypal.py",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/python/bridge.py",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/python/review.py",
+        "method": "GET"
+      },
+      {
+        "url": "http://127.0.0.1:55234/python/invoice_details.py",
+        "method": "GET"
+      }
+    ],
+    "embedded_svg_resources": [
+      {
+        "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+        "method": "GET"
+      }
+    ],
+    "external_requests": [],
+    "page_errors": [],
+    "artifacts": [
+      {
+        "name": "phone-reminder-note.png",
+        "bytes": 44289,
+        "sha256": "0a2d0ed318adb416929a0d58575f077320a89b1123fee0b802aae2396887efc3"
+      },
+      {
+        "name": "completed-reset.png",
+        "bytes": 43180,
+        "sha256": "64170764711841cd84975aca7dcde46103adc809ee75571cb4a061275b6b507c"
+      }
+    ],
+    "directly_viewed_artifact": "phone-reminder-note.png",
+    "baseline": {
+      "status": "failed",
+      "completed_groups": [
+        "actual current Python engine creates two independently gated currency actions"
+      ],
+      "error": "AssertionError [ERR_ASSERTION]: each actual pending action must expose its own optional rejection reason\n\n0 !== 2\n\n    at file:///C:/Users/minec/ledgerly-rejection-reasons-3dcb83a1/check_rejection_reason_browser.mjs:246:9",
+      "raw_receipt": {
+        "published": "browser-baseline.json",
+        "bytes": 11883,
+        "sha256": "e26a9b58ebb89f342ed01e1b5b4bb6b8c7882e91bde7b8398c35c05939aaf532"
+      },
+      "receiver_git_blob": "61ddfd7cd62d8ce680e17f06feed35fe652f7bfb",
+      "final_receiver_correspondence": "The final change only classifies the embedded date SVG at the final network assertion, after the baseline has already stopped at the missing note controls. All source and executed receiver text before that assertion are byte-identical.",
+      "original_source_bytes_unchanged": true
+    },
+    "original_environment_and_harness_results": [
+      {
+        "kind": "Linux browser startup",
+        "groups": 0,
+        "status": "failed",
+        "reason": "Current cached Chrome refused before app load because its normal sandbox was unavailable; no protection was disabled.",
+        "path": "baseline-browser/browser-results.json in Linux root",
+        "bytes": 10656,
+        "sha256": "1e7bc4c2f2057ecd36e0538d7be09346b4b26aa60db28ef385c2abcc972761fe"
+      },
+      {
+        "kind": "Worker CDP receiver command",
+        "groups": 8,
+        "status": "failed",
+        "reason": "Worker targets reject Fetch.enable. The final receiver keeps Network observation, and the page still constrains HTTP requests.",
+        "path": "candidate-browser/browser-results.json in Windows root",
+        "bytes": 171212,
+        "sha256": "aa4b0d812da5a5c4bb108a87959c0321c85309c3a0fb739f676843756c95ce6d"
+      },
+      {
+        "kind": "Embedded resource classification",
+        "groups": 8,
+        "status": "failed",
+        "reason": "Native date control's inline data:image/svg+xml is a browser resource, not an HTTP request. The final gate explicitly retains that distinction.",
+        "path": "candidate-browser-final/browser-results.json in Windows root",
+        "bytes": 171135,
+        "sha256": "19cf533549e410a120bdd76741bb05efa73e88043aed0abd4ab356e629641495"
+      }
+    ]
+  },
+  "replay_roots": {
+    "linux": "/home/jacob/.commander-tp-2/ledgerly-rejection-reasons-3dcb83a1",
+    "windows": "C:\\Users\\minec\\ledgerly-rejection-reasons-3dcb83a1"
+  },
+  "boundary": "This is a local sandbox demo. Source/branch publication, independent receiving and hosted CI have their own later records. No production provider, runtime deployment, shared service or enrolled native identity is claimed."
+}

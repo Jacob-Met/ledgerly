@@ -9,6 +9,8 @@ import {createInvoiceRecordDownloads} from './invoice-record';
 import './receivables.css';
 import {createReceivablesView} from './receivables';
 import {approvalListMarkup} from './approval-preview';
+import './rejection-reason.css';
+import {createRejectionReasons} from './rejection-reason';
 import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
 import {WorkerClient, WorkerUnavailableError} from './worker-client';
 const $=<T extends HTMLElement>(selector:string)=>document.querySelector(selector) as T;
@@ -17,6 +19,7 @@ const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 const invoiceDetails=createInvoiceDetailsView($<HTMLElement>('#ledger-list'));
 const invoiceRecords=createInvoiceRecordDownloads($<HTMLElement>('#ledger-list'),status);
 const receivables=createReceivablesView({mount:$<HTMLElement>('#receivables-view'),note:$<HTMLElement>('#receivables-note'),client:$<HTMLSelectElement>('#receivables-client'),due:$<HTMLSelectElement>('#receivables-due'),reset:$<HTMLButtonElement>('#receivables-reset'),summary:$<HTMLElement>('#receivables-summary'),list:$<HTMLElement>('#receivables-list')});
+const rejectionReasons=createRejectionReasons($<HTMLElement>('#approval-list'));
 const worker=new WorkerClient(()=>new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'}),{
  ready:()=>status('Python loaded locally. No external service is connected.','ready'),
  unavailable:engineUnavailable,
@@ -48,6 +51,7 @@ function engineUnavailable(error:WorkerUnavailableError){
 function analysisBlocked(ex:any){return !ex||ex.issues?.some((x:any)=>x.severity==='error')||(ex.confidence||0)<0.5||!ex.line_items?.length;}
 function syncControls(){
  const enabled=ready&&!busy;
+ rejectionReasons.setAvailability(ready,busy);
  ledgerExport.setAvailable(enabled);
  invoiceDetails.setAvailability(ready,busy);
  receivables.setAvailability(ready,busy);
@@ -87,6 +91,7 @@ function renderAnalysis(ex:any){
  $<HTMLElement>('#mock-requests').textContent=String(state.mock_requests??0);$<HTMLElement>('#external-calls').textContent=String(state.external_calls??0);
  const dateInput=$<HTMLInputElement>('#demo-date');if(document.activeElement!==dateInput)dateInput.value=state.today||'';$<HTMLButtonElement>('#replay-webhook').disabled=!ready||!state.can_replay||busy;
  const queue=state.pending||[];$<HTMLElement>('#approval-list').innerHTML=approvalListMarkup(queue);
+ rejectionReasons.afterRender(queue.map((action:any)=>action.id));
  const ledger=state.ledger||[];invoiceDetails.beforeRender(ledger.map((entry:any)=>entry.invoice_id));$<HTMLElement>('#ledger-list').innerHTML=ledger.length?ledger.map((e:any)=>{const open=['SENT','PARTIALLY_PAID','UNPAID'].includes(e.status)&&Number(e.balance)>0;return `<article class="invoice-card invoice-card-with-details" data-due="${esc(e.due_on||'')}"><div class="invoice-head"><div><span class="eyebrow">${esc(e.invoice_number)}</span><h3>${esc(e.client_name||e.client_email||'Client')}</h3></div><span class="status-chip ${esc(String(e.status).toLowerCase())}">${esc(e.status)}</span></div><div class="invoice-meta"><span>${esc(e.currency)} ${esc(e.total)}</span><span>PAID ${esc(e.paid_amount)}</span><span>BALANCE ${esc(e.balance)}</span></div><div class="invoice-meta"><span>DUE ${esc(e.due_on||'Terms missing')}</span><span>REMINDERS ${esc(e.reminders_sent)}</span></div>${open?`<button class="button button-payment" data-pay="${esc(e.invoice_id)}">Simulate sandbox payment</button>`:''}${invoiceDetails.markup(e.invoice_id,state)}${invoiceRecords.markup(e.invoice_id)}</article>`;}).join(''):'<p class="empty">No invoices in this sandbox ledger yet.</p>';
  invoiceDetails.afterRender();invoiceDetails.setAvailability(ready,busy);
  invoiceRecords.setAvailability(ready,busy);
@@ -176,7 +181,20 @@ $('#draft').addEventListener('click',async()=>{
  }else if(reviewEngaged){$<HTMLElement>('#review-result').textContent='Drafting did not complete. Check the sandbox ledger before preparing another revision. Your edits remain here.';$<HTMLInputElement>('#review-confirm').checked=false;}
  syncControls();
 });
-$('#approval-list').addEventListener('click',async(event)=>{const b=(event.target as HTMLElement).closest<HTMLButtonElement>('button[data-approve],button[data-reject]');if(!b||busy)return;b.disabled=true;const id=b.dataset.approve||b.dataset.reject||'';const reply=await runAction(b.dataset.approve?'approve':'reject',{action_id:id});if(reply?.ok)status(reply.result.approved?'Approved in the in-memory sandbox. No PayPal request was made.':'Rejected; nothing was sent.','ready');});
+$('#approval-list').addEventListener('click',async(event)=>{
+ const b=(event.target as HTMLElement).closest<HTMLButtonElement>('button[data-approve],button[data-reject]');
+ if(!b||busy||!ready)return;
+ const approving=Boolean(b.dataset.approve),id=b.dataset.approve||b.dataset.reject||'';
+ const payload:Record<string,unknown>={action_id:id};
+ if(!approving){
+  const reason=rejectionReasons.read(id);
+  if(!reason.ok){status(reason.message,'error');return;}
+  payload.reason=reason.value;
+ }
+ b.disabled=true;
+ const reply=await runAction(approving?'approve':'reject',payload);
+ if(reply?.ok)status(reply.result.approved?'Approved in the in-memory sandbox. No PayPal request was made.':`Rejected; nothing was sent. Reason: ${reply.result.reason}`,'ready');
+});
 $('#ledger-list').addEventListener('click',async(event)=>{const b=(event.target as HTMLElement).closest<HTMLButtonElement>('button[data-pay]');if(!b)return;b.disabled=true;const amount=$<HTMLInputElement>('#payment-amount').value.trim();const reply=await runAction('payment',{invoice_id:b.dataset.pay||'',amount:amount||null});if(reply?.ok)status(`Mock webhook verified: ${reply.result.from} -> ${reply.result.to}.`,'ready');});
 $('#advance-clock').addEventListener('click',async()=>{const day=$<HTMLInputElement>('#demo-date').value;if(!day){status('Choose a date for the local clock.','error');return;}await runAction('advance',{day});});
 $('#run-chase').addEventListener('click',async()=>{status('Running the overdue scan and reminder rules...','loading');await runAction('chase');});

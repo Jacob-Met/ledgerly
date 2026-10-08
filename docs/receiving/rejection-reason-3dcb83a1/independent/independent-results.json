@@ -1,0 +1,1280 @@
+{
+  "schema": "hamon.independent-receiving.ledgerly-rejection-identity.v1",
+  "reviewer": "estate_coordination/3dcb83a1",
+  "contract_file": "contract.json",
+  "harness_file": "receive_rejection_identity.py",
+  "acceptance": "accepted exact candidate bridge",
+  "counts_are_assertions_in_four_real_sequential_public_API_groups": true,
+  "aggregation_did_not_execute_source": true,
+  "canonical_value_encoding": "UTF-8 JSON ensure_ascii=False, sort_keys=True, separators=(comma,colon)",
+  "source_difference": [
+    "web-demo/python/bridge.py"
+  ],
+  "aggregation_guard": {
+    "free_disk": 28718387200,
+    "available_memory": 9390837760
+  },
+  "runs": {
+    "baseline": {
+      "raw_report": {
+        "path": "/home/jacob/.commander-tp-2/ledgerly-rejection-independent-3dcb83a1/baseline.json",
+        "bytes": 93030,
+        "sha256": "b0de0ad144d4bddb96f9033c8741c598544bf0d90df7cf44f26118b6ba26c798",
+        "git_blob": "a149ebbb9adfff52996b1ccc4ed5eb3b838d00bf"
+      },
+      "source": "/home/jacob/.commander-tp-2/ledgerly-rejection-reasons-3dcb83a1/baseline",
+      "source_base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+      "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+      "entrypoint": "bridge.handle_json(JSON) -> actual Demo/Agent/SandboxMock",
+      "source_pins": {
+        "ledgerly/__init__.py": {
+          "bytes": 119,
+          "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+          "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf"
+        },
+        "ledgerly/extract.py": {
+          "bytes": 35313,
+          "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+          "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511"
+        },
+        "ledgerly/paypal.py": {
+          "bytes": 26243,
+          "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+          "git_blob": "66f067204d357499b3f7010a946563a431d50aea"
+        },
+        "ledgerly/agent.py": {
+          "bytes": 39041,
+          "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+          "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30"
+        },
+        "web-demo/python/review.py": {
+          "bytes": 4379,
+          "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+          "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8"
+        },
+        "web-demo/python/invoice_details.py": {
+          "bytes": 1196,
+          "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+          "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015"
+        },
+        "web-demo/python/bridge.py": {
+          "bytes": 6627,
+          "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+          "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945"
+        }
+      },
+      "source_unchanged": true,
+      "guard": {
+        "free_disk": 31087054848,
+        "available_memory": 10635423744
+      },
+      "setup_action_ids": [
+        "apv_8f38485c50",
+        "apv_36d766730b"
+      ],
+      "setup_invoice_ids": [
+        "INV2-MOCK-0001-2D1E",
+        "INV2-MOCK-0002-23AC"
+      ],
+      "passed": 18,
+      "failed": 4,
+      "groups": [
+        "duplicate identity",
+        "legacy default",
+        "selected identity",
+        "stale identity"
+      ],
+      "external_calls": 0,
+      "fatal": null,
+      "checks": [
+        {
+          "group": "stale identity",
+          "name": "unknown identity refuses",
+          "pass": true,
+          "observed": [
+            false,
+            "KeyError"
+          ],
+          "required": [
+            false,
+            "KeyError"
+          ]
+        },
+        {
+          "group": "stale identity",
+          "name": "both real identities remain pending",
+          "pass": true,
+          "observed": [
+            "apv_8f38485c50",
+            "apv_36d766730b"
+          ],
+          "required": [
+            "apv_8f38485c50",
+            "apv_36d766730b"
+          ]
+        },
+        {
+          "group": "stale identity",
+          "name": "unknown identity has no action/audit/invoice/request effects",
+          "pass": true,
+          "observed_canonical_json": {
+            "bytes": 3809,
+            "sha256": "83adacec232910f14a86fe5d7c1a76a06eecb85ffa78cefd2b502d2d7a81a65d"
+          },
+          "required_canonical_json": {
+            "bytes": 3809,
+            "sha256": "83adacec232910f14a86fe5d7c1a76a06eecb85ffa78cefd2b502d2d7a81a65d"
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "public rejection succeeds",
+          "pass": true,
+          "observed": [
+            true,
+            true
+          ],
+          "required": [
+            true,
+            true
+          ]
+        },
+        {
+          "group": "selected identity",
+          "name": "public result preserves literal reason",
+          "pass": false,
+          "observed": null,
+          "required": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+        },
+        {
+          "group": "selected identity",
+          "name": "selected action stores exact literal reason",
+          "pass": false,
+          "observed": {
+            "reason": "Rejected by the browser visitor"
+          },
+          "required": {
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "only selected action is rejected",
+          "pass": true,
+          "observed": "REJECTED",
+          "required": "REJECTED"
+        },
+        {
+          "group": "selected identity",
+          "name": "other pending action is byte-equivalent",
+          "pass": true,
+          "observed": {
+            "created_at": "2026-10-08T17:14:51.408561+00:00",
+            "id": "apv_36d766730b",
+            "invoice_id": "INV2-MOCK-0002-23AC",
+            "kind": "send_invoice",
+            "payload": {
+              "invoice": {
+                "configuration": {
+                  "allow_tip": false,
+                  "partial_payment": {
+                    "allow_partial_payment": false
+                  },
+                  "tax_calculated_after_discount": true,
+                  "tax_inclusive": false
+                },
+                "detail": {
+                  "currency_code": "USD",
+                  "invoice_date": "2026-10-08",
+                  "invoice_number": "LDG-0002",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "due_date": "2026-10-22",
+                    "term_type": "DUE_ON_DATE_SPECIFIED"
+                  }
+                },
+                "invoicer": {
+                  "email_address": "freelancer@example.test",
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  }
+                },
+                "items": [
+                  {
+                    "name": "Follow-up workshop",
+                    "quantity": "3",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "30.00"
+                    },
+                    "unit_of_measure": "HOURS"
+                  }
+                ],
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "email_address": "bob.two@example.test",
+                      "name": {
+                        "given_name": "Bob",
+                        "surname": "Two"
+                      }
+                    }
+                  }
+                ]
+              },
+              "prepaid": "0"
+            },
+            "result": null,
+            "status": "PENDING",
+            "summary": "Send invoice LDG-0002 for USD 90 to bob.two@example.test"
+          },
+          "required": {
+            "created_at": "2026-10-08T17:14:51.408561+00:00",
+            "id": "apv_36d766730b",
+            "invoice_id": "INV2-MOCK-0002-23AC",
+            "kind": "send_invoice",
+            "payload": {
+              "invoice": {
+                "configuration": {
+                  "allow_tip": false,
+                  "partial_payment": {
+                    "allow_partial_payment": false
+                  },
+                  "tax_calculated_after_discount": true,
+                  "tax_inclusive": false
+                },
+                "detail": {
+                  "currency_code": "USD",
+                  "invoice_date": "2026-10-08",
+                  "invoice_number": "LDG-0002",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "due_date": "2026-10-22",
+                    "term_type": "DUE_ON_DATE_SPECIFIED"
+                  }
+                },
+                "invoicer": {
+                  "email_address": "freelancer@example.test",
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  }
+                },
+                "items": [
+                  {
+                    "name": "Follow-up workshop",
+                    "quantity": "3",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "30.00"
+                    },
+                    "unit_of_measure": "HOURS"
+                  }
+                ],
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "email_address": "bob.two@example.test",
+                      "name": {
+                        "given_name": "Bob",
+                        "surname": "Two"
+                      }
+                    }
+                  }
+                ]
+              },
+              "prepaid": "0"
+            },
+            "result": null,
+            "status": "PENDING",
+            "summary": "Send invoice LDG-0002 for USD 90 to bob.two@example.test"
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "public pending list retains only the other identity",
+          "pass": true,
+          "observed": [
+            "apv_36d766730b"
+          ],
+          "required": [
+            "apv_36d766730b"
+          ]
+        },
+        {
+          "group": "selected identity",
+          "name": "existing Agent audit retains exact attribution and reason",
+          "pass": false,
+          "observed": {
+            "action": "apv_8f38485c50",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          },
+          "required": {
+            "action": "apv_8f38485c50",
+            "event": "rejected",
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "exactly one audit event appended",
+          "pass": true,
+          "observed": 7,
+          "required": 7
+        },
+        {
+          "group": "selected identity",
+          "name": "rejection leaves provider mock and invoice ledger unchanged",
+          "pass": true,
+          "observed": {
+            "ledger": {
+              "INV2-MOCK-0001-2D1E": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-2D1E",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-23AC": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-23AC",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "d77f04dc436bdd8c44ab0601098f144ec7d78baf3f553a8668f8e9564d703dca",
+            "mock_request_count": 6
+          },
+          "required": {
+            "ledger": {
+              "INV2-MOCK-0001-2D1E": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-2D1E",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-23AC": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-23AC",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "d77f04dc436bdd8c44ab0601098f144ec7d78baf3f553a8668f8e9564d703dca",
+            "mock_request_count": 6
+          }
+        },
+        {
+          "group": "duplicate identity",
+          "name": "consumed identity refuses",
+          "pass": true,
+          "observed": [
+            false,
+            "ValueError"
+          ],
+          "required": [
+            false,
+            "ValueError"
+          ]
+        },
+        {
+          "group": "duplicate identity",
+          "name": "refusal identifies the consumed action",
+          "pass": true,
+          "observed": true,
+          "required": true
+        },
+        {
+          "group": "duplicate identity",
+          "name": "duplicate has no action/audit/invoice/request effects",
+          "pass": true,
+          "observed_canonical_json": {
+            "bytes": 3980,
+            "sha256": "ecc579186f4176fa663340aeaaf56bb5420d419623096f1aa5fc9b2a5e95daf1"
+          },
+          "required_canonical_json": {
+            "bytes": 3980,
+            "sha256": "ecc579186f4176fa663340aeaaf56bb5420d419623096f1aa5fc9b2a5e95daf1"
+          }
+        },
+        {
+          "group": "duplicate identity",
+          "name": "other identity remains pending",
+          "pass": true,
+          "observed": [
+            "apv_36d766730b"
+          ],
+          "required": [
+            "apv_36d766730b"
+          ]
+        },
+        {
+          "group": "legacy default",
+          "name": "omitted reason succeeds with documented default",
+          "pass": false,
+          "observed": {
+            "rejected": true
+          },
+          "required": {
+            "reason": "Rejected by the browser visitor",
+            "rejected": true
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "second action stores its own default",
+          "pass": true,
+          "observed": {
+            "reason": "Rejected by the browser visitor"
+          },
+          "required": {
+            "reason": "Rejected by the browser visitor"
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "first action history is preserved exactly",
+          "pass": true,
+          "observed_canonical_json": {
+            "bytes": 1029,
+            "sha256": "d329a88e81bdcf0bad0d698d9477263754e1a859ef4e94bb7ab41be58ea1e424"
+          },
+          "required_canonical_json": {
+            "bytes": 1029,
+            "sha256": "d329a88e81bdcf0bad0d698d9477263754e1a859ef4e94bb7ab41be58ea1e424"
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "no pending identity remains",
+          "pass": true,
+          "observed": [],
+          "required": []
+        },
+        {
+          "group": "legacy default",
+          "name": "default attribution belongs to the second action",
+          "pass": true,
+          "observed": {
+            "action": "apv_36d766730b",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          },
+          "required": {
+            "action": "apv_36d766730b",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "second rejection has no provider or ledger effects",
+          "pass": true,
+          "observed": {
+            "ledger": {
+              "INV2-MOCK-0001-2D1E": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-2D1E",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-23AC": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-23AC",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "d77f04dc436bdd8c44ab0601098f144ec7d78baf3f553a8668f8e9564d703dca",
+            "mock_request_count": 6
+          },
+          "required": {
+            "ledger": {
+              "INV2-MOCK-0001-2D1E": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-2D1E",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-23AC": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-23AC",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "d77f04dc436bdd8c44ab0601098f144ec7d78baf3f553a8668f8e9564d703dca",
+            "mock_request_count": 6
+          }
+        }
+      ],
+      "steps": [
+        {
+          "name": "stale",
+          "ok": false,
+          "result": null,
+          "error": "KeyError",
+          "message": "'no such action missing-apv_8f38485c50'",
+          "pending_ids": [
+            "apv_8f38485c50",
+            "apv_36d766730b"
+          ],
+          "external_calls": 0,
+          "mock_requests": 6
+        },
+        {
+          "name": "selected",
+          "ok": true,
+          "result": {
+            "rejected": true
+          },
+          "error": null,
+          "message": null,
+          "pending_ids": [
+            "apv_36d766730b"
+          ],
+          "external_calls": 0,
+          "mock_requests": 6,
+          "audit_event": {
+            "action": "apv_8f38485c50",
+            "at": "2026-10-08T17:14:51.411457+00:00",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          },
+          "action_result": {
+            "reason": "Rejected by the browser visitor"
+          }
+        },
+        {
+          "name": "duplicate",
+          "ok": false,
+          "result": null,
+          "error": "ValueError",
+          "message": "action apv_8f38485c50 already REJECTED: Rejected by the browser visitor",
+          "pending_ids": [
+            "apv_36d766730b"
+          ],
+          "external_calls": 0,
+          "mock_requests": 6
+        },
+        {
+          "name": "legacy",
+          "ok": true,
+          "result": {
+            "rejected": true
+          },
+          "error": null,
+          "message": null,
+          "pending_ids": [],
+          "external_calls": 0,
+          "mock_requests": 6,
+          "audit_event": {
+            "action": "apv_36d766730b",
+            "at": "2026-10-08T17:14:51.414147+00:00",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          }
+        }
+      ],
+      "os_exit_code": null,
+      "os_exit_observation": "Completed result returned; later remote PID session unavailable."
+    },
+    "candidate": {
+      "raw_report": {
+        "path": "/home/jacob/.commander-tp-2/ledgerly-rejection-independent-3dcb83a1/candidate.json",
+        "bytes": 93519,
+        "sha256": "7e81d12cd9629efbb82f8db906e71288ed82271095f2e23c2098781d902e8666",
+        "git_blob": "1081ee5382d1b616ad482a37dfa0202d9e9853f9"
+      },
+      "source": "/home/jacob/.commander-tp-2/ledgerly-rejection-reasons-3dcb83a1/candidate",
+      "source_base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+      "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+      "entrypoint": "bridge.handle_json(JSON) -> actual Demo/Agent/SandboxMock",
+      "source_pins": {
+        "ledgerly/__init__.py": {
+          "bytes": 119,
+          "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+          "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf"
+        },
+        "ledgerly/extract.py": {
+          "bytes": 35313,
+          "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+          "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511"
+        },
+        "ledgerly/paypal.py": {
+          "bytes": 26243,
+          "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+          "git_blob": "66f067204d357499b3f7010a946563a431d50aea"
+        },
+        "ledgerly/agent.py": {
+          "bytes": 39041,
+          "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+          "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30"
+        },
+        "web-demo/python/review.py": {
+          "bytes": 4379,
+          "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+          "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8"
+        },
+        "web-demo/python/invoice_details.py": {
+          "bytes": 1196,
+          "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+          "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015"
+        },
+        "web-demo/python/bridge.py": {
+          "bytes": 6994,
+          "sha256": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81",
+          "git_blob": "c0f4f95ec193b55c1ad10cc59d980e4dfb4d0858"
+        }
+      },
+      "source_unchanged": true,
+      "guard": {
+        "free_disk": 30722420736,
+        "available_memory": 10280615936
+      },
+      "setup_action_ids": [
+        "apv_434c5509e9",
+        "apv_5982f46c91"
+      ],
+      "setup_invoice_ids": [
+        "INV2-MOCK-0001-DEC0",
+        "INV2-MOCK-0002-5B5F"
+      ],
+      "passed": 22,
+      "failed": 0,
+      "groups": [
+        "duplicate identity",
+        "legacy default",
+        "selected identity",
+        "stale identity"
+      ],
+      "external_calls": 0,
+      "fatal": null,
+      "checks": [
+        {
+          "group": "stale identity",
+          "name": "unknown identity refuses",
+          "pass": true,
+          "observed": [
+            false,
+            "KeyError"
+          ],
+          "required": [
+            false,
+            "KeyError"
+          ]
+        },
+        {
+          "group": "stale identity",
+          "name": "both real identities remain pending",
+          "pass": true,
+          "observed": [
+            "apv_434c5509e9",
+            "apv_5982f46c91"
+          ],
+          "required": [
+            "apv_434c5509e9",
+            "apv_5982f46c91"
+          ]
+        },
+        {
+          "group": "stale identity",
+          "name": "unknown identity has no action/audit/invoice/request effects",
+          "pass": true,
+          "observed_canonical_json": {
+            "bytes": 3809,
+            "sha256": "024240bef7e03fda1cb3ef2ebf663d64ad69a2d035e615c727785ca84827a450"
+          },
+          "required_canonical_json": {
+            "bytes": 3809,
+            "sha256": "024240bef7e03fda1cb3ef2ebf663d64ad69a2d035e615c727785ca84827a450"
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "public rejection succeeds",
+          "pass": true,
+          "observed": [
+            true,
+            true
+          ],
+          "required": [
+            true,
+            true
+          ]
+        },
+        {
+          "group": "selected identity",
+          "name": "public result preserves literal reason",
+          "pass": true,
+          "observed": "   Hold \"alpha α\"\n<not approved> & café 🙂\t ",
+          "required": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+        },
+        {
+          "group": "selected identity",
+          "name": "selected action stores exact literal reason",
+          "pass": true,
+          "observed": {
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          },
+          "required": {
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "only selected action is rejected",
+          "pass": true,
+          "observed": "REJECTED",
+          "required": "REJECTED"
+        },
+        {
+          "group": "selected identity",
+          "name": "other pending action is byte-equivalent",
+          "pass": true,
+          "observed": {
+            "created_at": "2026-10-08T17:15:56.119604+00:00",
+            "id": "apv_5982f46c91",
+            "invoice_id": "INV2-MOCK-0002-5B5F",
+            "kind": "send_invoice",
+            "payload": {
+              "invoice": {
+                "configuration": {
+                  "allow_tip": false,
+                  "partial_payment": {
+                    "allow_partial_payment": false
+                  },
+                  "tax_calculated_after_discount": true,
+                  "tax_inclusive": false
+                },
+                "detail": {
+                  "currency_code": "USD",
+                  "invoice_date": "2026-10-08",
+                  "invoice_number": "LDG-0002",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "due_date": "2026-10-22",
+                    "term_type": "DUE_ON_DATE_SPECIFIED"
+                  }
+                },
+                "invoicer": {
+                  "email_address": "freelancer@example.test",
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  }
+                },
+                "items": [
+                  {
+                    "name": "Follow-up workshop",
+                    "quantity": "3",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "30.00"
+                    },
+                    "unit_of_measure": "HOURS"
+                  }
+                ],
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "email_address": "bob.two@example.test",
+                      "name": {
+                        "given_name": "Bob",
+                        "surname": "Two"
+                      }
+                    }
+                  }
+                ]
+              },
+              "prepaid": "0"
+            },
+            "result": null,
+            "status": "PENDING",
+            "summary": "Send invoice LDG-0002 for USD 90 to bob.two@example.test"
+          },
+          "required": {
+            "created_at": "2026-10-08T17:15:56.119604+00:00",
+            "id": "apv_5982f46c91",
+            "invoice_id": "INV2-MOCK-0002-5B5F",
+            "kind": "send_invoice",
+            "payload": {
+              "invoice": {
+                "configuration": {
+                  "allow_tip": false,
+                  "partial_payment": {
+                    "allow_partial_payment": false
+                  },
+                  "tax_calculated_after_discount": true,
+                  "tax_inclusive": false
+                },
+                "detail": {
+                  "currency_code": "USD",
+                  "invoice_date": "2026-10-08",
+                  "invoice_number": "LDG-0002",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "due_date": "2026-10-22",
+                    "term_type": "DUE_ON_DATE_SPECIFIED"
+                  }
+                },
+                "invoicer": {
+                  "email_address": "freelancer@example.test",
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  }
+                },
+                "items": [
+                  {
+                    "name": "Follow-up workshop",
+                    "quantity": "3",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "30.00"
+                    },
+                    "unit_of_measure": "HOURS"
+                  }
+                ],
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "email_address": "bob.two@example.test",
+                      "name": {
+                        "given_name": "Bob",
+                        "surname": "Two"
+                      }
+                    }
+                  }
+                ]
+              },
+              "prepaid": "0"
+            },
+            "result": null,
+            "status": "PENDING",
+            "summary": "Send invoice LDG-0002 for USD 90 to bob.two@example.test"
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "public pending list retains only the other identity",
+          "pass": true,
+          "observed": [
+            "apv_5982f46c91"
+          ],
+          "required": [
+            "apv_5982f46c91"
+          ]
+        },
+        {
+          "group": "selected identity",
+          "name": "existing Agent audit retains exact attribution and reason",
+          "pass": true,
+          "observed": {
+            "action": "apv_434c5509e9",
+            "event": "rejected",
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          },
+          "required": {
+            "action": "apv_434c5509e9",
+            "event": "rejected",
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          }
+        },
+        {
+          "group": "selected identity",
+          "name": "exactly one audit event appended",
+          "pass": true,
+          "observed": 7,
+          "required": 7
+        },
+        {
+          "group": "selected identity",
+          "name": "rejection leaves provider mock and invoice ledger unchanged",
+          "pass": true,
+          "observed": {
+            "ledger": {
+              "INV2-MOCK-0001-DEC0": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-DEC0",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-5B5F": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-5B5F",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "406faa04230b33bcaf7b28e8c86020bbf89239c291f4fb98fd31fd2caf011327",
+            "mock_request_count": 6
+          },
+          "required": {
+            "ledger": {
+              "INV2-MOCK-0001-DEC0": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-DEC0",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-5B5F": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-5B5F",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "406faa04230b33bcaf7b28e8c86020bbf89239c291f4fb98fd31fd2caf011327",
+            "mock_request_count": 6
+          }
+        },
+        {
+          "group": "duplicate identity",
+          "name": "consumed identity refuses",
+          "pass": true,
+          "observed": [
+            false,
+            "ValueError"
+          ],
+          "required": [
+            false,
+            "ValueError"
+          ]
+        },
+        {
+          "group": "duplicate identity",
+          "name": "refusal identifies the consumed action",
+          "pass": true,
+          "observed": true,
+          "required": true
+        },
+        {
+          "group": "duplicate identity",
+          "name": "duplicate has no action/audit/invoice/request effects",
+          "pass": true,
+          "observed_canonical_json": {
+            "bytes": 4026,
+            "sha256": "38f023532ec5a15bd4ceb6f9af9afd9ffad918ef3a8349cba5a426a108a280ad"
+          },
+          "required_canonical_json": {
+            "bytes": 4026,
+            "sha256": "38f023532ec5a15bd4ceb6f9af9afd9ffad918ef3a8349cba5a426a108a280ad"
+          }
+        },
+        {
+          "group": "duplicate identity",
+          "name": "other identity remains pending",
+          "pass": true,
+          "observed": [
+            "apv_5982f46c91"
+          ],
+          "required": [
+            "apv_5982f46c91"
+          ]
+        },
+        {
+          "group": "legacy default",
+          "name": "omitted reason succeeds with documented default",
+          "pass": true,
+          "observed": {
+            "reason": "Rejected by the browser visitor",
+            "rejected": true
+          },
+          "required": {
+            "reason": "Rejected by the browser visitor",
+            "rejected": true
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "second action stores its own default",
+          "pass": true,
+          "observed": {
+            "reason": "Rejected by the browser visitor"
+          },
+          "required": {
+            "reason": "Rejected by the browser visitor"
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "first action history is preserved exactly",
+          "pass": true,
+          "observed_canonical_json": {
+            "bytes": 1052,
+            "sha256": "d619b4a4db8fb0a386ebb9d685a37baeade539f9285a0391285b2f242e58730f"
+          },
+          "required_canonical_json": {
+            "bytes": 1052,
+            "sha256": "d619b4a4db8fb0a386ebb9d685a37baeade539f9285a0391285b2f242e58730f"
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "no pending identity remains",
+          "pass": true,
+          "observed": [],
+          "required": []
+        },
+        {
+          "group": "legacy default",
+          "name": "default attribution belongs to the second action",
+          "pass": true,
+          "observed": {
+            "action": "apv_5982f46c91",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          },
+          "required": {
+            "action": "apv_5982f46c91",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          }
+        },
+        {
+          "group": "legacy default",
+          "name": "second rejection has no provider or ledger effects",
+          "pass": true,
+          "observed": {
+            "ledger": {
+              "INV2-MOCK-0001-DEC0": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-DEC0",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-5B5F": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-5B5F",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "406faa04230b33bcaf7b28e8c86020bbf89239c291f4fb98fd31fd2caf011327",
+            "mock_request_count": 6
+          },
+          "required": {
+            "ledger": {
+              "INV2-MOCK-0001-DEC0": {
+                "balance": "80",
+                "client_email": "alice.one@example.test",
+                "client_name": "Alice One",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0001-DEC0",
+                "invoice_number": "LDG-0001",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "80"
+              },
+              "INV2-MOCK-0002-5B5F": {
+                "balance": "90",
+                "client_email": "bob.two@example.test",
+                "client_name": "Bob Two",
+                "currency": "USD",
+                "due_on": "2026-10-22",
+                "invoice_id": "INV2-MOCK-0002-5B5F",
+                "invoice_number": "LDG-0002",
+                "paid_amount": "0",
+                "reminders_sent": 0,
+                "sent_on": null,
+                "status": "DRAFT",
+                "total": "90"
+              }
+            },
+            "mock_invoices_sha256": "406faa04230b33bcaf7b28e8c86020bbf89239c291f4fb98fd31fd2caf011327",
+            "mock_request_count": 6
+          }
+        }
+      ],
+      "steps": [
+        {
+          "name": "stale",
+          "ok": false,
+          "result": null,
+          "error": "KeyError",
+          "message": "'no such action missing-apv_434c5509e9'",
+          "pending_ids": [
+            "apv_434c5509e9",
+            "apv_5982f46c91"
+          ],
+          "external_calls": 0,
+          "mock_requests": 6
+        },
+        {
+          "name": "selected",
+          "ok": true,
+          "result": {
+            "rejected": true,
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          },
+          "error": null,
+          "message": null,
+          "pending_ids": [
+            "apv_5982f46c91"
+          ],
+          "external_calls": 0,
+          "mock_requests": 6,
+          "audit_event": {
+            "action": "apv_434c5509e9",
+            "at": "2026-10-08T17:15:56.122483+00:00",
+            "event": "rejected",
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          },
+          "action_result": {
+            "reason": "   Hold \"alpha α\"\n<not approved> & café 🙂\t "
+          }
+        },
+        {
+          "name": "duplicate",
+          "ok": false,
+          "result": null,
+          "error": "ValueError",
+          "message": "action apv_434c5509e9 already REJECTED:    Hold \"alpha α\"\n<not approved> & café 🙂\t ",
+          "pending_ids": [
+            "apv_5982f46c91"
+          ],
+          "external_calls": 0,
+          "mock_requests": 6
+        },
+        {
+          "name": "legacy",
+          "ok": true,
+          "result": {
+            "rejected": true,
+            "reason": "Rejected by the browser visitor"
+          },
+          "error": null,
+          "message": null,
+          "pending_ids": [],
+          "external_calls": 0,
+          "mock_requests": 6,
+          "audit_event": {
+            "action": "apv_5982f46c91",
+            "at": "2026-10-08T17:15:56.125264+00:00",
+            "event": "rejected",
+            "reason": "Rejected by the browser visitor"
+          }
+        }
+      ],
+      "os_exit_code": null,
+      "os_exit_observation": "Completed result returned; later remote PID session unavailable."
+    }
+  }
+}

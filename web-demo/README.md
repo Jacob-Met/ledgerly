@@ -18,6 +18,22 @@ Review requires explicit quantities, positive prices, supported currencies, whol
 
 No model, HTTP PayPal client, provider key, backend, analytics or localStorage is used. Pyodide and the staged Python modules load from this repo's Pages site. Email text and the working ledger stay in tab memory and disappear on reset/close. An explicitly downloaded CSV is a separate local file. The sandbox's HMAC is a test signature, not PayPal's production certificate verification; invoice actions are clearly labelled simulations. The confidence score is a heuristic, not a calibrated probability. Do not paste confidential client material.
 
+## Give a reason when rejecting a queued action
+
+Each pending send or reminder has **Reason for rejecting (optional)**. You can
+write up to 500 characters, including line breaks and Unicode, then choose
+**Reject**. Typing alone changes no invoice or approval. The selected action's
+reason is retained verbatim in the existing agent result and audit; the status
+message confirms it as literal text. An empty or whitespace-only field keeps the
+existing “Rejected by the browser visitor” reason.
+
+Notes stay with their action IDs across ordinary queue updates and a failed
+request. They clear when that action leaves the queue or the sandbox resets or
+restarts. A busy or unavailable engine disables editing and action buttons.
+Approving still uses the existing independent approval path; an unfinished
+rejection note does not prevent approval and is not sent with it. Notes remain
+only in the tab's sandbox and disappear on reset or close.
+
 ## Download the displayed sandbox ledger
 
 Use **Download sandbox ledger CSV** while the local engine is ready and the ledger contains invoices. Save this local snapshot before closing or resetting the tab. Each row is explicitly marked `SANDBOX` and includes the snapshot date, invoice identity, recipient, currency, original total/paid/balance strings, status, sent/due dates and reminder count. Currencies are never combined and JavaScript does not calculate money. Downloading calls no worker or provider and approves no action.
