@@ -273,18 +273,12 @@ def parse_qty(raw: str) -> tuple[Optional[Decimal], Optional[str]]:
     numeric = s[approx.end():] if approx else s
     rng = re.fullmatch(rf"({_Q_NUMBER})\s*(?:-|–|to)\s*({_Q_NUMBER})", numeric)
     if rng:
-        try:
-            lo = _dec(rng.group(1))
-        except ValueError as error:
-            return None, f"unreadable quantity '{raw.strip()}' ({error})"
+        lo = _dec(rng.group(1))
         return lo, f"range '{raw.strip()}' - used lower bound {lo}; confirm with client"
     n = re.fullmatch(_Q_NUMBER, numeric)
     if not n:
         return None, f"unreadable quantity '{raw.strip()}'"
-    try:
-        q = _dec(n.group(0))
-    except ValueError as error:
-        return None, f"unreadable quantity '{raw.strip()}' ({error})"
+    q = _dec(n.group(0))
     if approx:
         return q, f"approximate quantity '{raw.strip()}' - used {q}"
     return q, None

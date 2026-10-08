@@ -1,0 +1,46 @@
+{
+  "runs": [
+    {
+      "source": "candidate",
+      "started_utc": "2026-10-08T10:54:51.090219+00:00",
+      "command": [
+        "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "tests"
+      ],
+      "cwd": "/dev/shm/ledgerly-values-current-4bda-06e2ad0ce13f/candidate",
+      "exit_code": 0,
+      "summary": "56 passed, 32 subtests passed in 0.14s",
+      "log": "candidate-focused-owner-and-values.log",
+      "log_sha256": "cc6e6a8615db3e131f712130352c4d29a573cf87f873e0504e066cc9806d14bb",
+      "all_snapshot_inputs_unchanged": true
+    },
+    {
+      "source": "main",
+      "started_utc": "2026-10-08T10:54:51.519794+00:00",
+      "command": [
+        "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "tests"
+      ],
+      "cwd": "/dev/shm/ledgerly-values-current-4bda-06e2ad0ce13f/main",
+      "exit_code": 1,
+      "summary": "22 failed, 34 passed, 32 subtests passed in 0.42s",
+      "log": "main-focused-owner-and-values.log",
+      "log_sha256": "f76251e5f84cc849aae0024dad6f2b3c2d7dcd02e3da568203b07fb29ac785c2",
+      "all_snapshot_inputs_unchanged": true
+    }
+  ],
+  "python": "Python 3.12.14",
+  "pytest": "pytest 9.1.1"
+}

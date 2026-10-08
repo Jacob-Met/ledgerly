@@ -1,0 +1,304 @@
+{
+  "recorded_at": "2026-10-08T13:44:56.030Z",
+  "scope": "Receive original PR19 ancestry and its complete contribution with the bounded parse_qty refusal correction, maintained controls, and new receiving evidence.",
+  "current_commit": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "current_tree": "cb1877320fc40166cc7f10c035d5e7866be53713",
+  "original_pr19_head": "f67e2c4034804f657eccad38887f377f28011e98",
+  "original_pr19_tree": "ae425d9afb682b55138143780b461d1c61e9e820",
+  "proposed_merge_parents": [
+    "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+    "f67e2c4034804f657eccad38887f377f28011e98"
+  ],
+  "common_base": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "final_runtime_tree_before_receiving_docs": "be33c7b9d802224068505dfda7d07a3a8277b5e6",
+  "source_preservation": {
+    "production": [
+      {
+        "path": "ledgerly/agent.py",
+        "incoming_function": "tool_create_invoice",
+        "function_exact_original_pr19": true,
+        "outside_function_and_import_restores_current_bytes_exact": true,
+        "current_restored_sha256": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05"
+      },
+      {
+        "path": "ledgerly/paypal.py",
+        "incoming_function": "build_invoice",
+        "function_exact_original_pr19": true,
+        "outside_function_and_import_restores_current_bytes_exact": true,
+        "current_restored_sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f"
+      },
+      {
+        "path": "ledgerly/extract.py",
+        "only_receiver_changed_function": "parse_qty",
+        "restores_original_pr19_bytes_exact": true,
+        "fixed_sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58"
+      },
+      {
+        "path": "tests/test_invoice_quantity_receiving.py",
+        "post_complete_suite_change": "module docstring only",
+        "all_executable_AST_exact_executed_complete_suite": true
+      },
+      {
+        "path": "tests/test_webhook_approval_composition.py",
+        "post_complete_suite_change": "module docstring only",
+        "all_executable_AST_exact_executed_complete_suite": true
+      }
+    ],
+    "current_approval_webhook_receipt_and_general_run_methods_preserved": true,
+    "runtime_notes": "Final source differs from the complete native execution only in two maintained test module docstrings; their executable AST is identical. Final thirteen controls and the standalone quantity entrypoint passed separately."
+  },
+  "original_added_paths_retained_exact": 54,
+  "current_unowned_leaves_retained_exact": 361,
+  "production_outputs": [
+    {
+      "path": "ledgerly/agent.py",
+      "git_blob": "b44658de8399c065c7d60e9b412f6251b294987e",
+      "sha256": "eb1879983209892cf1f1f6916c83629759d7f4f25a126a0627f903fc642b200b",
+      "bytes": 32548,
+      "mode": "100644"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511",
+      "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+      "bytes": 35313,
+      "mode": "100644"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "git_blob": "1d805837d9ed4fe29f42ae7093764c47b0060edd",
+      "sha256": "e04fa6abc90747f9b723660aa8d76a174e4bff89e1e41067aefb4c75bc971965",
+      "bytes": 25259,
+      "mode": "100644"
+    }
+  ],
+  "native": {
+    "started_at": "2026-10-08T13:29:49.555Z",
+    "finished_at": "2026-10-08T13:29:51.189Z",
+    "command": [
+      "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-p",
+      "no:cacheprovider",
+      "-q"
+    ],
+    "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/source",
+    "source_tree": "871f7aef9e2a52a5d040e971f8b2be714500a8ec",
+    "exit_code": 0,
+    "log": "native-current.log",
+    "sha256": "4f40bebdb2dc2004c6eb45b0647a7f5c4334f4918f7c48022bd6c931efe2331c",
+    "passed": 276,
+    "subtests_passed": 85,
+    "raw_log": "................................................................... [ 24%]\n.................................................. [ 42%]\n...................................................................................... [ 73%]\n........................................................................ [ 99%]\n.                                                                        [100%]\n276 passed, 85 subtests passed in 0.85s\n"
+  },
+  "node_pyodide": {
+    "started_at": "2026-10-08T13:34:03.237Z",
+    "finished_at": "2026-10-08T13:34:07.130Z",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/vitest/vitest.mjs",
+      "run"
+    ],
+    "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/source/web-demo",
+    "exit_code": 0,
+    "node": "v24.19.0",
+    "source_tree": "871f7aef9e2a52a5d040e971f8b2be714500a8ec",
+    "staging": {
+      "native_and_fixture_files": [
+        {
+          "source": "ledgerly/__init__.py",
+          "target": "web-demo/public/python/ledgerly/__init__.py",
+          "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+          "bytes": 119
+        },
+        {
+          "source": "ledgerly/agent.py",
+          "target": "web-demo/public/python/ledgerly/agent.py",
+          "sha256": "eb1879983209892cf1f1f6916c83629759d7f4f25a126a0627f903fc642b200b",
+          "bytes": 32548
+        },
+        {
+          "source": "ledgerly/extract.py",
+          "target": "web-demo/public/python/ledgerly/extract.py",
+          "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+          "bytes": 35313
+        },
+        {
+          "source": "ledgerly/paypal.py",
+          "target": "web-demo/public/python/ledgerly/paypal.py",
+          "sha256": "e04fa6abc90747f9b723660aa8d76a174e4bff89e1e41067aefb4c75bc971965",
+          "bytes": 25259
+        },
+        {
+          "source": "web-demo/python/bridge.py",
+          "target": "web-demo/public/python/bridge.py",
+          "sha256": "2a1a779a7cab981487fc37c0b87f81f6ecd8b2b587c1f787213aa12818d0bec7",
+          "bytes": 6475
+        },
+        {
+          "source": "web-demo/python/review.py",
+          "target": "web-demo/public/python/review.py",
+          "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+          "bytes": 4379
+        },
+        {
+          "source": "fixtures/01_simple_usd_hourly.txt",
+          "target": "web-demo/public/fixtures/01_simple_usd_hourly.txt",
+          "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+          "bytes": 282
+        },
+        {
+          "source": "fixtures/02_gbp_proofreading.txt",
+          "target": "web-demo/public/fixtures/02_gbp_proofreading.txt",
+          "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+          "bytes": 293
+        },
+        {
+          "source": "fixtures/03_eur_fixed_project.txt",
+          "target": "web-demo/public/fixtures/03_eur_fixed_project.txt",
+          "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+          "bytes": 265
+        },
+        {
+          "source": "fixtures/04_multi_currency.txt",
+          "target": "web-demo/public/fixtures/04_multi_currency.txt",
+          "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+          "bytes": 288
+        },
+        {
+          "source": "fixtures/05_missing_email.txt",
+          "target": "web-demo/public/fixtures/05_missing_email.txt",
+          "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+          "bytes": 238
+        },
+        {
+          "source": "fixtures/06_ambiguous_qty.txt",
+          "target": "web-demo/public/fixtures/06_ambiguous_qty.txt",
+          "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+          "bytes": 246
+        },
+        {
+          "source": "fixtures/07_partial_payment_deposit.txt",
+          "target": "web-demo/public/fixtures/07_partial_payment_deposit.txt",
+          "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+          "bytes": 319
+        },
+        {
+          "source": "fixtures/08_jpy_zero_decimal.txt",
+          "target": "web-demo/public/fixtures/08_jpy_zero_decimal.txt",
+          "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+          "bytes": 271
+        },
+        {
+          "source": "fixtures/09_table_cad.txt",
+          "target": "web-demo/public/fixtures/09_table_cad.txt",
+          "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+          "bytes": 380
+        },
+        {
+          "source": "fixtures/10_billing_address_net45.txt",
+          "target": "web-demo/public/fixtures/10_billing_address_net45.txt",
+          "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+          "bytes": 330
+        },
+        {
+          "source": "fixtures/11_range_qty_approx.txt",
+          "target": "web-demo/public/fixtures/11_range_qty_approx.txt",
+          "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+          "bytes": 239
+        },
+        {
+          "source": "fixtures/12_prompt_injection.txt",
+          "target": "web-demo/public/fixtures/12_prompt_injection.txt",
+          "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+          "bytes": 315
+        }
+      ],
+      "byte_equal": true,
+      "browser_runtime_files_copied": false,
+      "reason": "Shared temporary storage could not hold a duplicate12.2MB browser runtime. Actual Node loadPyodide uses the unchanged pinned npm runtime directory directly."
+    },
+    "runtime_input_receipt": "runtime-inputs.json",
+    "log": "node-pyodide-current.log",
+    "log_sha256": "9093302fb8ad96d8273fcacc90e15e2f38236dc4fba09c9a868465de498bec86",
+    "standard_npm_staging_or_build_claimed": false,
+    "passed_tests": 34,
+    "passed_files": 6,
+    "includes_current_pr30_native_controls": 6,
+    "raw_log": "\n RUN  v5.0.3 /dev/shm/hamon-68094585a1c2/ledgerly-values-integration/source/web-demo\n\n\n Test Files  6 passed (6)\n      Tests  34 passed (34)\n   Start at  22:34:03\n   Duration  3.33s (tests 87%, transform 7%, import 6%)\n\n"
+  },
+  "final_maintained_controls": {
+    "runs": [
+      {
+        "name": "maintained-tests",
+        "started_at": "2026-10-08T13:37:28.494Z",
+        "finished_at": "2026-10-08T13:37:29.393Z",
+        "command": [
+          "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-q",
+          "tests/test_invoice_quantity_receiving.py",
+          "tests/test_webhook_approval_composition.py"
+        ],
+        "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/source",
+        "exit_code": 0,
+        "log": "maintained-tests.log",
+        "sha256": "e2c1e533767b23d0e1746d23f85fe9df229841e47231a4bb398a2bd983100183"
+      },
+      {
+        "name": "quantity-cli",
+        "started_at": "2026-10-08T13:37:29.394Z",
+        "finished_at": "2026-10-08T13:37:29.500Z",
+        "command": [
+          "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+          "-B",
+          "tests/test_invoice_quantity_receiving.py",
+          "--source-root",
+          "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/source"
+        ],
+        "cwd": "/dev/shm/hamon-68094585a1c2/ledgerly-values-integration/source",
+        "exit_code": 0,
+        "log": "quantity-cli.log",
+        "sha256": "5af54e3b2dabcde0639041c48cb4298cb2e8e9257a76ac7fe74560f416eceeb7"
+      }
+    ],
+    "pytest_passed": 13,
+    "subtests_passed": 22,
+    "standalone_quantity_methods_passed": 10,
+    "raw_pytest_log": ".............                                      [100%]\n13 passed, 22 subtests passed in 0.06s\n",
+    "raw_cli_log": "test_existing_next_integer_review (__main__.QuantityReceiving.test_existing_next_integer_review) ... ok\ntest_oversized_approximate_range_lower_requires_review (__main__.QuantityReceiving.test_oversized_approximate_range_lower_requires_review) ... ok\ntest_oversized_approximate_requires_review (__main__.QuantityReceiving.test_oversized_approximate_requires_review) ... ok\ntest_oversized_plain_requires_review (__main__.QuantityReceiving.test_oversized_plain_requires_review) ... ok\ntest_oversized_range_lower_requires_review (__main__.QuantityReceiving.test_oversized_range_lower_requires_review) ... ok\ntest_valid_existing_approximate_and_range_warnings (__main__.QuantityReceiving.test_valid_existing_approximate_and_range_warnings) ... ok\ntest_valid_first_item_does_not_allocate_before_oversized_second (__main__.QuantityReceiving.test_valid_first_item_does_not_allocate_before_oversized_second) ... ok\ntest_valid_fraction (__main__.QuantityReceiving.test_valid_fraction) ... ok\ntest_valid_grouped_fraction (__main__.QuantityReceiving.test_valid_grouped_fraction) ... ok\ntest_valid_maximum (__main__.QuantityReceiving.test_valid_maximum) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.008s\n\nOK\n"
+  },
+  "post_execution": {
+    "runtime_sources_pinned": 72,
+    "runtime_package_asset_pins_unchanged": 9,
+    "staged_native_fixture_files_exact": 18,
+    "source_pins": "source-pins.json"
+  },
+  "owner_coordination": {
+    "source_pr": "https://github.com/Jacob-Met/ledgerly/pull/19",
+    "finding": "https://github.com/Jacob-Met/ledgerly/pull/19#issuecomment-6060078538",
+    "receiver_patch": "https://github.com/Jacob-Met/ledgerly/pull/19#issuecomment-6060630820",
+    "original_author_head_unchanged": true,
+    "owner_abandonment_inferred": false,
+    "publication_authority": "Root serializes receiving publication. Original owner checkout, branch and evidence are preserved."
+  },
+  "original_negative_evidence": {
+    "quantity": "The original receiver packet retains ten exceptions across five regression methods against exact f67, with five ordinary control methods. Corrected original source passes ten methods and 22 form subcases. The same control bodies are maintained here.",
+    "webhook_approval": "The original independent receiver retains two failures and one unchanged approval control on main350, followed by three passes with PR21. The same lifecycle controls are maintained here."
+  },
+  "receiving_method": {
+    "selected_runtime_files": 72,
+    "selected_source_bytes": 659574,
+    "complete_native_execution_tree": "871f7aef9e2a52a5d040e971f8b2be714500a8ec",
+    "final_test_only_changes": "Two maintained test module docstrings corrected their historical scope/filename after the complete native run. Executable AST is identical. Final 13 controls and the preserved CLI entrypoint pass separately. Production files and all Node/Pyodide inputs are unchanged.",
+    "runtime": "Existing Python 3.12.14 / pytest 9.1.1 and Node 24.19.0; exact installed Pyodide 0.29.3, Vitest 5.0.3, Vite 8.3.3 and TypeScript 5.9.3. No dependency install or substitution.",
+    "node_staging": "The six actual Python inputs and twelve fixtures were copied byte for byte. Node loadPyodide uses the verified npm runtime in place. Temporary storage could not hold another browser-runtime copy; standard npm staging/build is not claimed."
+  },
+  "remaining_gate": "Fresh receiving PR CI must qualify the actual final tree, including standard npm staging/audit/build. No live provider, new rendered-browser run, source integration or deployment is claimed."
+}

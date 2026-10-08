@@ -1,0 +1,56 @@
+.............................FF                                          [100%]
+=================================== FAILURES ===================================
+___ test_malformed_numeric_tail_cannot_be_silently_discarded[USD 12.345.67] ____
+
+token = 'USD 12.345.67'
+
+    @pytest.mark.parametrize("token", ["USD 12.345.67", "USD 1e33e2"])
+    def test_malformed_numeric_tail_cannot_be_silently_discarded(token):
+        text = (SOURCE_PREFIX + "- 1 x Valid anchor @ USD 5.00\n"
+                f"- 1 x Service @ {token}\nNet 30\n")
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_money_token_receiving.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f46d0d90980>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f46d0d91c10>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-D5BA', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '17.34', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-D5BA', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '17.34', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+_____ test_malformed_numeric_tail_cannot_be_silently_discarded[USD 1e33e2] _____
+
+token = 'USD 1e33e2'
+
+    @pytest.mark.parametrize("token", ["USD 12.345.67", "USD 1e33e2"])
+    def test_malformed_numeric_tail_cannot_be_silently_discarded(token):
+        text = (SOURCE_PREFIX + "- 1 x Valid anchor @ USD 5.00\n"
+                f"- 1 x Service @ {token}\nNet 30\n")
+        agent, mock = make_agent()
+        result = agent.tool_create_invoice(text)
+>       assert_refused_without_requests(agent, mock, result)
+
+tests/test_money_token_receiving.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+agent = <ledgerly.agent.Agent object at 0x7f46d0d92e10>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f46d0d91e50>
+result = {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-3C9D', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '1005.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+
+    def assert_refused_without_requests(agent, mock, result):
+>       assert result["ok"] is False, result
+E       AssertionError: {'ok': True, 'invoices': [{'invoice_id': 'INV2-MOCK-0001-3C9D', 'invoice_number': 'LDG-0001', 'currency': 'USD', 'total': '1005.00', ...}], 'confidence': 1.0, 'issues': [], ...}
+E       assert True is False
+
+tests/test_invoice_values_receiving.py:47: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_money_token_receiving.py::test_malformed_numeric_tail_cannot_be_silently_discarded[USD 12.345.67]
+FAILED tests/test_money_token_receiving.py::test_malformed_numeric_tail_cannot_be_silently_discarded[USD 1e33e2]
+2 failed, 29 passed in 0.12s
