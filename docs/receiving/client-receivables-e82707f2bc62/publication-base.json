@@ -1,0 +1,13 @@
+{
+  "schema": "ledgerly.receivables-final-base/1",
+  "recorded_at": "2026-10-08T16:02:57.273569+00:00",
+  "base": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "base_tree": "ddb2360a65b646a281969fea1abbb3238c154340",
+  "base_leaves": 693,
+  "agent_git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+  "agent_sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+  "prior_independent_native_base": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+  "frontend_source_identical_to_independent_receiving": true,
+  "new_native_dependency_qualification": "Actual composed PR native, peer, npm and Chrome gates required before integration.",
+  "prior_receipts_preserved": true
+}

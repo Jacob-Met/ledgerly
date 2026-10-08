@@ -1,0 +1,249 @@
+{
+  "schema": "ledgerly.receivables.independent-receiving.v1",
+  "recorded_at": "2026-10-08T15:55:21.295591+00:00",
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/39",
+  "independent_freeze": {
+    "frozen_at": "2026-10-08T15:28:29.064318+00:00",
+    "candidate_source_opened": false,
+    "author_candidate_tests_opened": false,
+    "files": {
+      "protocol.json": {
+        "bytes": 5780,
+        "sha256": "05985d23c3de1bb2f953283a1dd75c15d9393b22c9f534cfe0b159a342347854",
+        "git_blob": "8062801494eb86ccbc4a6a9094670246c14b244b"
+      },
+      "receivables-peer-fixture.py": {
+        "bytes": 3239,
+        "sha256": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757",
+        "git_blob": "ef8439cacf15488e13a9af233f7f054fdcd6747d"
+      },
+      "receivables-peer.mjs": {
+        "bytes": 10805,
+        "sha256": "5e2b545cb4b0875900d8d42c76768efae4bda9d54c7f97a881989c448e80b0b8",
+        "git_blob": "b06c556723eaf92064b09476dda1b71151310056"
+      }
+    }
+  },
+  "receiver_successors": [
+    {
+      "frozen_at": "2026-10-08T15:34:07.466741+00:00",
+      "candidate_source_opened": false,
+      "reason": "The actual original native18-command baseline snapshot records EUR balance as string9.9; the draft input9.90 is normalized by the unchanged extraction pipeline before the frontend sees it. Exactly two expected selected-total strings are corrected to retain the actual snapshot scale, before candidate access. The original protocol/test/baseline output remain unchanged in evidence.",
+      "original_test_sha256": "5e2b545cb4b0875900d8d42c76768efae4bda9d54c7f97a881989c448e80b0b8",
+      "successor_test_sha256": "c8f9fa802e51baf8f3e8b84dd1860b39c7612654188bc8108fe55a496d47d108",
+      "successor_git_blob": "d76f8fb84157a076b2eb0a9e0121986f33495c23",
+      "replacement_count": 2,
+      "reversing_only_expected_format_correction_recovers_original": true,
+      "actual_baseline_balance": "9.9",
+      "native_fixture_unchanged": true,
+      "production_unchanged": true,
+      "original_baseline_result": "1native control passed,4missing-module failures. Missing-feature assertions precede the two changed expected literals; no duplicate baseline run is needed."
+    },
+    {
+      "frozen_at": "2026-10-08T15:42:56.228845+00:00",
+      "reason": "The supplied excluded.status field represents an exclusion reason for a zero open balance: ZERO_BALANCE. Other excluded rows retain their actual non-open status. The independent protocol assumed SENT for the zero open row; author clarified the reason convention and the production UI already labels it zero balance. This single expected bucket key is corrected without changing the zero exclusion/count or any money assertion.",
+      "original_test_sha256": "c8f9fa802e51baf8f3e8b84dd1860b39c7612654188bc8108fe55a496d47d108",
+      "successor_test_sha256": "8dbe0c43265cbb2a230cc496cbe8aa7e6fc00bdc8193b7228b86c3ec8872417d",
+      "successor_git_blob": "da6a97dd4ca443d385bdd7e3f45d3d1335f42cdb",
+      "replacement_count": 1,
+      "reversing_only_bucket_key_recovers_previous_test": true,
+      "production_module_sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+      "production_unchanged": true,
+      "receiving_plan": "Only the affected exact-decimal/status case is rerun; original4pass/1receiver-contract mismatch remains preserved. Existing full native and new hosted workflows must qualify final integrated composition."
+    }
+  ],
+  "active_tests": {
+    "receivables-peer.mjs": {
+      "bytes": 10811,
+      "sha256": "8dbe0c43265cbb2a230cc496cbe8aa7e6fc00bdc8193b7228b86c3ec8872417d",
+      "git_blob": "da6a97dd4ca443d385bdd7e3f45d3d1335f42cdb"
+    },
+    "receivables-peer-fixture.py": {
+      "bytes": 3239,
+      "sha256": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757",
+      "git_blob": "ef8439cacf15488e13a9af233f7f054fdcd6747d"
+    }
+  },
+  "phases": [
+    {
+      "phase": "baseline-v1",
+      "result": "1native control passed;4missing-module failures",
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+          "--experimental-strip-types",
+          "--test",
+          "/workspace/scratch/e82707f2bc62/ledgerly-receivables-independent/receivables-peer.mjs"
+        ],
+        "source": "/workspace/scratch/e82707f2bc62/ledgerly-receivables/baseline",
+        "source_commit": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+        "started_at": "2026-10-08T15:33:04.153007+00:00",
+        "finished_at": "2026-10-08T15:33:04.568306+00:00",
+        "returncode": 1,
+        "tests": {
+          "receivables-peer.mjs": "5e2b545cb4b0875900d8d42c76768efae4bda9d54c7f97a881989c448e80b0b8",
+          "receivables-peer-fixture.py": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757"
+        },
+        "log_sha256": "3bda721dada7a147596c3b290cb57c0e4879bc5cdba6d82d87d33e8571daa45a"
+      },
+      "native_commands": 18,
+      "source_unchanged": true,
+      "snapshot_read_unchanged": true,
+      "external_calls": 0
+    },
+    {
+      "phase": "candidate-v1-format-tests",
+      "result": "4passed;1receiver exclusion-bucket mismatch",
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+          "--experimental-strip-types",
+          "--test",
+          "/workspace/scratch/e82707f2bc62/ledgerly-receivables-independent/receivables-peer.mjs"
+        ],
+        "source": "/workspace/scratch/e82707f2bc62/ledgerly-receivables/candidate",
+        "composition_commit": "8a122cf637610880e23716823a5eb71d78187391",
+        "started_at": "2026-10-08T15:34:58.292348+00:00",
+        "finished_at": "2026-10-08T15:34:58.758976+00:00",
+        "returncode": 1,
+        "tests": {
+          "receivables-peer.mjs": "c8f9fa802e51baf8f3e8b84dd1860b39c7612654188bc8108fe55a496d47d108",
+          "receivables-peer-fixture.py": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757"
+        },
+        "module_sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+        "log_sha256": "0ff7331fea31859207c698e1b7b8edfdffbd00ef7c9a4b2bbc100c2aef6ffed5"
+      },
+      "native_commands": 18,
+      "source_unchanged": true,
+      "snapshot_read_unchanged": true,
+      "external_calls": 0
+    },
+    {
+      "phase": "candidate-v1-zero-reason-focused",
+      "result": "1affected exact-money/status case passed",
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+          "--experimental-strip-types",
+          "--test",
+          "--test-name-pattern",
+          "exact decimal sums",
+          "/workspace/scratch/e82707f2bc62/ledgerly-receivables-independent/receivables-peer.mjs"
+        ],
+        "source": "/workspace/scratch/e82707f2bc62/ledgerly-receivables/candidate",
+        "composition_commit": "8a122cf637610880e23716823a5eb71d78187391",
+        "started_at": "2026-10-08T15:42:56.230519+00:00",
+        "finished_at": "2026-10-08T15:42:56.800850+00:00",
+        "returncode": 0,
+        "tests": {
+          "receivables-peer.mjs": "8dbe0c43265cbb2a230cc496cbe8aa7e6fc00bdc8193b7228b86c3ec8872417d",
+          "receivables-peer-fixture.py": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757"
+        },
+        "module_sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+        "log_sha256": "135f39df8f623a59a153799da967f58da0479d35571022fc2c877854105f0810"
+      },
+      "native_commands": 18,
+      "source_unchanged": true,
+      "snapshot_read_unchanged": true,
+      "external_calls": 0
+    },
+    {
+      "phase": "current-1eb-full-peer",
+      "result": "5passed;0failed;0skipped on current1eb native-core composition",
+      "receipt": {
+        "command": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+          "--experimental-strip-types",
+          "--test",
+          "/workspace/scratch/e82707f2bc62/ledgerly-receivables-independent/receivables-peer.mjs"
+        ],
+        "source": "/workspace/scratch/e82707f2bc62/ledgerly-receivables/current-composition",
+        "composition_commit": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+        "started_at": "2026-10-08T15:51:17.134576+00:00",
+        "finished_at": "2026-10-08T15:51:17.499491+00:00",
+        "returncode": 0,
+        "tests": {
+          "receivables-peer.mjs": "8dbe0c43265cbb2a230cc496cbe8aa7e6fc00bdc8193b7228b86c3ec8872417d",
+          "receivables-peer-fixture.py": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757"
+        },
+        "module_sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+        "log_sha256": "202d69b2323474822c6fbf9087fc681ea4720b26745ded0b42e29b20f7fd76f3",
+        "node_version": "v24.19.0",
+        "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+      },
+      "native_commands": 18,
+      "source_unchanged": true,
+      "snapshot_read_unchanged": true,
+      "external_calls": 0
+    }
+  ],
+  "source_review": {
+    "reviewer": "estate-e82707f2bc62/root",
+    "observed_at": "2026-10-08T15:55:21.174015+00:00",
+    "current_receiving_parent": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+    "same_feature_runtime_as_original_freeze": true,
+    "main_hook_proof": {
+      "added_lines": 5,
+      "removing_only_receivables_lines_recovers_parent_blob": "ed7cb86a2ff4e5ac4b7d5a140b5db208633ec3a7"
+    },
+    "reviewed_files": {
+      "web-demo/src/receivables.ts": {
+        "bytes": 13119,
+        "sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+        "git_blob": "c2d4f6bd9206d7199fe053bd45e2e8df2ad96ad9"
+      },
+      "web-demo/src/receivables.css": {
+        "bytes": 2675,
+        "sha256": "0507a4ac3030497850d9bb05d6594ba6c89f51fd6bb109672125ac283e05e409",
+        "git_blob": "86a30959e4559b04ad6e3c0207c7a4cabdf959d7"
+      },
+      "web-demo/src/main.ts": {
+        "bytes": 19179,
+        "sha256": "dd881341f42ed68a5312aca2631d7f1ac75d0b99bd26e5d76e75668e4a3381fd",
+        "git_blob": "ecbca0b2e3f7646bda9fd389595484a2a8f422be"
+      },
+      "web-demo/index.html": {
+        "bytes": 7153,
+        "sha256": "22ba72e90a53d104bd2a5dca9f94384dd8905d64a94858fc8f51f163cee82e28",
+        "git_blob": "4618973e9f26d5604cb21f4fd2dec18b0e33d5d0"
+      },
+      "web-demo/README.md": {
+        "bytes": 14205,
+        "sha256": "14dfeb4f26444388dea52aff0c54edc610321f051ff55cee1f1d4e22adf82f5e",
+        "git_blob": "04752c3ceb514b750b60f9beb6ef4aa217ecf1fb"
+      },
+      "web-demo/tools/check_receivables_browser.mjs": {
+        "bytes": 28511,
+        "sha256": "1498f2c8e0cb3528679ed4ab7185a8c630796b0ccb845795335daf943e5fe4c8",
+        "git_blob": "c719bec67086afe3b676dae96cc2366abb378d24"
+      },
+      ".github/workflows/receivables-browser.yml": {
+        "bytes": 3001,
+        "sha256": "0e9fdbf72261e2976c901a6e915ce321a39a5eba4eb11e312bcd248af4ef6235",
+        "git_blob": "46f03bcc9511761edb423b78162d37912c868269"
+      }
+    },
+    "semantic_review": [
+      "Exact nonnegative decimal parsing uses integer units and a bounded scale; addition does not convert monetary values to binary floating point.",
+      "Complete snapshot admission precedes usable output. Dates are canonical calendar days in the supplied snapshot, with explicit null/undated handling.",
+      "Exact billing email identity, typed copied invoice fields and literal escaped names are retained; every currency is totaled separately.",
+      "Original main logic is preserved by five additive CSS/import/controller/snapshot/availability lines; existing invoice download/detail/approval/recovery behavior remains owned by its prior contributors.",
+      "Controller clears visible balances while busy, rejects malformed snapshots, and invalidates prepared state on lost readiness. Filtering makes no Worker/provider request.",
+      "Full425-line native Chrome receiver and separate workflow were reviewed: actual built Pyodide/Worker execution, keyboard and390px checks, authored reply hold/corruption/terminal error, restart/reset, exact source/build hashes and actual PNG custody. No browser execution or visual inspection is claimed from source review."
+    ],
+    "acceptance": "Accepted source and independent native semantics for normal publication. Existing full native/npm gates and the new realChrome gate on actual current composition remain required before integration; preserve any failure and distinguish tested synthetic from actual merge."
+  },
+  "archive": {
+    "bytes": 179389,
+    "sha256": "f948b715d1c1c3d1230ba819d57e7c47b6fd77408a00aa80c0b0b66b3faba498",
+    "git_blob": "2bf2ae0c8c76bcb28a05c23aa246586b0f578328",
+    "members": 57,
+    "all_members_read_back_equal": true
+  },
+  "boundaries": [
+    "The original protocol and tests remain frozen. Two native-format expected strings were corrected from actual baseline evidence before candidate access; one exclusion-reason key was clarified after an original4/1 candidate run. No production edit was requested for these receiver corrections.",
+    "The focused successor does not relabel the earlier4/1 result. All5 final cases actually passed together on current1eb monetary-core composition, while all received board runtime bytes remained unchanged.",
+    "Native fixtures use actual in-memory SandboxMock commands with an explicit fixture Clock. No real customer, PayPal/network action or financial-policy acceptance is claimed.",
+    "Browser source review is complete; actual Chrome execution, screenshot inspection, native CI and merge identity remain separate pending gates."
+  ]
+}
