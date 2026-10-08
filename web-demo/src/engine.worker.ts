@@ -1,10 +1,8 @@
 import { loadPyodide, type PyodideInterface } from 'pyodide';
+import {retryableLoader} from './retryable-loader';
 type Request={id:number;action:string;payload?:Record<string,unknown>};
 const scope=self as unknown as DedicatedWorkerGlobalScope;
-let engine:PyodideInterface|undefined,loading:Promise<PyodideInterface>|undefined;
-async function boot():Promise<PyodideInterface>{
- if(engine)return engine;if(loading)return loading;
- loading=(async()=>{
+const boot=retryableLoader<PyodideInterface>(async()=>{
   const py=await loadPyodide({indexURL:new URL('../pyodide/',scope.location.href).href});
   py.FS.mkdirTree('/demo/ledgerly');
   for(const name of ['__init__.py','agent.py','extract.py','paypal.py']){
@@ -16,9 +14,8 @@ async function boot():Promise<PyodideInterface>{
    py.FS.writeFile(`/demo/${name}`,await source.text());
   }
   await py.runPythonAsync("import sys; sys.path.insert(0, '/demo'); import bridge");
-  engine=py;scope.postMessage({type:'ready'});return py;
- })();return loading;
-}
+  scope.postMessage({type:'ready'});return py;
+});
 async function run(request:Request):Promise<void>{
  try{const py=await boot();py.globals.set('request_json',JSON.stringify({action:request.action,...(request.payload||{})}));const result=await py.runPythonAsync('bridge.handle_json(request_json)');py.globals.delete('request_json');scope.postMessage({id:request.id,ok:true,data:JSON.parse(String(result))});}
  catch(error){scope.postMessage({id:request.id,ok:false,error:String(error)});}
