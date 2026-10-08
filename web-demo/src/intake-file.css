@@ -1,0 +1,10 @@
+.intake-files { margin: 1.2rem 0; padding: 1rem; border: 1px solid var(--line, #cbd3c4); border-radius: 12px; background: #f5f7f1; }
+.intake-files h3 { margin: 0 0 .4rem; font-size: 1rem; }
+.intake-files p { line-height: 1.5; overflow-wrap: anywhere; }
+.intake-file-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+#intake-file-status { margin-bottom: 0; font-size: .9rem; }
+#intake-preview { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #cbd3c4; }
+#intake-preview h4 { margin: 0 0 .6rem; }
+#intake-preview-source { max-height: 12rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; padding: .7rem; background: white; border: 1px solid #dce2d6; border-radius: 6px; font-size: .85rem; }
+.intake-files button:focus-visible, #intake-preview-heading:focus-visible { outline: 3px solid #386641; outline-offset: 3px; }
+@media (max-width: 480px) { .intake-file-actions > button { flex: 1 1 100%; white-space: normal; } }

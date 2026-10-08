@@ -1,0 +1,16 @@
+{
+  "schema": "ledgerly.browser-admission-observation/1",
+  "device": "d55b2499-5e82-4805-819a-d0d7ddea1efe",
+  "pid": 383377,
+  "command": [
+    "/snap/bin/chromium",
+    "--version"
+  ],
+  "exit_code": 1,
+  "runtime_seconds": 18.54,
+  "timeout_seconds": 15,
+  "application_browser_launched": false,
+  "metadata_file_written": false,
+  "source": "Exact observed RDC process result; recorded after completion, no replay.",
+  "raw_process_result": "[Reading 18 new lines (total: 18 lines)]\n\nTraceback (most recent call last):\n  File \"<string>\", line 11, in <module>\n    p=subprocess.run([chrome,'--version'],text=True,capture_output=True,timeout=15)\n  File \"/usr/lib/python3.14/subprocess.py\", line 557, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 1221, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 2154, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.14/subprocess.py\", line 1268, in _check_timeout\n    raise TimeoutExpired(\n    ...<2 lines>...\n            stderr=b''.join(stderr_seq) if stderr_seq else None)\nsubprocess.TimeoutExpired: Command '['/snap/bin/chromium', '--version']' timed out after 15 seconds\n\n\u2705 Process completed with exit code 1 (runtime: 18.54s)"
+}

@@ -1,0 +1,289 @@
+{
+  "schema": "ledgerly.intake-current-receiver-source/1",
+  "actual_parent": "295153cc0c354415c39bcee7d2384412b4fa629f",
+  "actual_parent_tree": "599514b1ea0dc06edd0f8ed4acf7b1fdbbc49470",
+  "original_baseline": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+  "files": {
+    "fixtures/01_simple_usd_hourly.txt": {
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866"
+    },
+    "fixtures/02_gbp_proofreading.txt": {
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05"
+    },
+    "fixtures/03_eur_fixed_project.txt": {
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786"
+    },
+    "fixtures/04_multi_currency.txt": {
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e"
+    },
+    "fixtures/05_missing_email.txt": {
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7"
+    },
+    "fixtures/06_ambiguous_qty.txt": {
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9"
+    },
+    "fixtures/07_partial_payment_deposit.txt": {
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b"
+    },
+    "fixtures/08_jpy_zero_decimal.txt": {
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c"
+    },
+    "fixtures/09_table_cad.txt": {
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1"
+    },
+    "fixtures/10_billing_address_net45.txt": {
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb"
+    },
+    "fixtures/11_range_qty_approx.txt": {
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082"
+    },
+    "fixtures/12_prompt_injection.txt": {
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b"
+    },
+    "ledgerly/__init__.py": {
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf"
+    },
+    "ledgerly/agent.py": {
+      "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+      "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30"
+    },
+    "ledgerly/demo.py": {
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+      "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9"
+    },
+    "ledgerly/extract.py": {
+      "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+      "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511"
+    },
+    "ledgerly/paypal.py": {
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "git_blob": "66f067204d357499b3f7010a946563a431d50aea"
+    },
+    "web-demo/index.html": {
+      "sha256": "a5b390f10a95ced1bbc124319eda8d7a2b3ac1043b8d8736b4ce90e0521c5949",
+      "git_blob": "587525b4937575facfc66ea45362e098fc3e09b5"
+    },
+    "web-demo/package-lock.json": {
+      "sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+      "git_blob": "555bceb19a4e55ad488ec2c8420b02e3756954d4"
+    },
+    "web-demo/package.json": {
+      "sha256": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+      "git_blob": "c54e9f9d06988f14b3e03ca2f22629313fef5da8"
+    },
+    "web-demo/public/favicon.svg": {
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+      "git_blob": "de1096fdf1b4568cf04715c0c90cd512a9c5d1ce"
+    },
+    "web-demo/python/bridge.py": {
+      "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+      "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945"
+    },
+    "web-demo/python/invoice_details.py": {
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015"
+    },
+    "web-demo/python/review.py": {
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8"
+    },
+    "web-demo/scripts/stage-python.mjs": {
+      "sha256": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+      "git_blob": "5c1be224027f6bc5c691a0bbb62ca55098482e81"
+    },
+    "web-demo/src/approval-preview.css": {
+      "sha256": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+      "git_blob": "fdffade7bd101087a59f508a7b23620a0f2c7128"
+    },
+    "web-demo/src/approval-preview.ts": {
+      "sha256": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+      "git_blob": "d57fdd6eaeea2e3c41f0b3f3841dca08a3fe8d3d"
+    },
+    "web-demo/src/engine.worker.ts": {
+      "sha256": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+      "git_blob": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96"
+    },
+    "web-demo/src/invoice-details.css": {
+      "sha256": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+      "git_blob": "1cb25514753f3c8104f13afb575633e7fce5811b"
+    },
+    "web-demo/src/invoice-details.test.ts": {
+      "sha256": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da",
+      "git_blob": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69"
+    },
+    "web-demo/src/invoice-details.ts": {
+      "sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+      "git_blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd"
+    },
+    "web-demo/src/invoice-record.ts": {
+      "sha256": "dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0",
+      "git_blob": "fa2e13908997e007bc67657a418c45bbae72214e"
+    },
+    "web-demo/src/ledger-export.css": {
+      "sha256": "7b07d96c413f8595c93d1da0d9c85fcea6b9e10b7e1d2ce2e51abceae4cc28fa",
+      "git_blob": "63933b271fd025a5d21888f3373faefa7f8f593d"
+    },
+    "web-demo/src/ledger-export.test.ts": {
+      "sha256": "b44fa1861678468ca9b79162c7356ee7ef31d8027ec91152ec6f161bbd8da60b",
+      "git_blob": "3727493f7366db1771dcda96e4dd19ac4deb44f0"
+    },
+    "web-demo/src/ledger-export.ts": {
+      "sha256": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc",
+      "git_blob": "6f65f1c5401408406b9706602cfd78ddf9277d11"
+    },
+    "web-demo/src/main.ts": {
+      "sha256": "2ad45f533079d1206fd7726c5241d6c0e29f4c8c80ceb2e93e6593f7f4fecc73",
+      "git_blob": "d31156f5feabb6b226c14d2d1f72ebb0504f8ab7"
+    },
+    "web-demo/src/retryable-loader.ts": {
+      "sha256": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a",
+      "git_blob": "d6e49a01fccbbeffb892c0c814eaf4064c00045b"
+    },
+    "web-demo/src/review.css": {
+      "sha256": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895",
+      "git_blob": "8d3da08a25b21b8156c198f99930e53de315e451"
+    },
+    "web-demo/src/review.ts": {
+      "sha256": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+      "git_blob": "53463561542dfe0a5b1c3e6b0581e050c98fcc91"
+    },
+    "web-demo/src/style.css": {
+      "sha256": "94146460348e640e58e24c73ac99d9088a201dec8ef9c85d84c42e5e23ce77db",
+      "git_blob": "da0a2c54b85c2058e1a654f4a029e3e6b9c94db7"
+    },
+    "web-demo/src/worker-client.ts": {
+      "sha256": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+      "git_blob": "0d56a2b3732e101f5b27fba22bd39790912caafd"
+    },
+    "web-demo/tsconfig.json": {
+      "sha256": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+      "git_blob": "408840754fae30406085341098dd2ec7d084d528"
+    },
+    "web-demo/vite.config.ts": {
+      "sha256": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c",
+      "git_blob": "031e19417070e2b63cc48b2ae105e0f40eea6ef0"
+    },
+    "web-demo/src/receivables.ts": {
+      "sha256": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+      "git_blob": "c2d4f6bd9206d7199fe053bd45e2e8df2ad96ad9"
+    },
+    "web-demo/src/receivables.css": {
+      "sha256": "1d7eb6f8f7653bd7507af057f905de3213f20b5c0c093b4cfc2f2e35871dd606",
+      "git_blob": "84dc9078229aaaad0a13f382a6466e343a7489ae"
+    },
+    "web-demo/tests/approval-preview.test.ts": {
+      "sha256": "a9b93d25e5b31f681e32592f3a6740ebc16e79326e3313251e6bd2cb93f24dc1",
+      "git_blob": "c02c82f16413dc8d5c88858dc8c8dec5c0ff1bc0"
+    },
+    "web-demo/tests/engine-recovery.test.ts": {
+      "sha256": "5498c7338565561fefe547acad0019b3e6fc17886dad61c07fcdf0a7f7ad4f6c",
+      "git_blob": "8ea631e636a26214701e6f115d426270f3a22901"
+    },
+    "web-demo/tests/engine.test.ts": {
+      "sha256": "34d9ad388fc191783e296d7c8ebd4f7b02910231cb0db976b49f6c8fb9f88cad",
+      "git_blob": "ccdc50843946b4b562e183f38d45948ec20cd614"
+    },
+    "web-demo/tests/fixtures/receivables-native-snapshot.json": {
+      "sha256": "5f84a85e2ba2c372265318dd577e5b8c2c5da74d8b1a2c835c9783668dc95d5c",
+      "git_blob": "38411dba76bd77ed1bfafe5afe029aee240d9efc"
+    },
+    "web-demo/tests/invoice-details.test.ts": {
+      "sha256": "b0112b332043c47959895436be62243fb9209e4c886eef1471ce2eb43b63ca4c",
+      "git_blob": "707fe2202c00def01451258606176cd2af182304"
+    },
+    "web-demo/tests/invoice-record.test.ts": {
+      "sha256": "8a4da5f81f64ed0e40dd256510ac145567a7bbadb7051848ee58cd683652d46e",
+      "git_blob": "76f425ee7ce96d00dc2ed16d86b70a01ed166dc2"
+    },
+    "web-demo/tests/overdue-scan.test.ts": {
+      "sha256": "dff470bf583ef7d0b55b705e34f9997db400635035cf897e8adcb7ab3a6d4202",
+      "git_blob": "772a4595d6444221a5b9fb46d5d7833bf09f67da"
+    },
+    "web-demo/tests/receivables-cases.ts": {
+      "sha256": "9f13a482241ce951c2340f01d88225c0ec09f65f754bd6aa9e4dee491480e813",
+      "git_blob": "0ad6b27c4fcf7fc1241807587dcf837cc5db3a6b"
+    },
+    "web-demo/tests/receivables-peer-fixture.py": {
+      "sha256": "8fea7764eefff348302df852a171e2400296fd9a7dec0306e87c20a08cea6757",
+      "git_blob": "ef8439cacf15488e13a9af233f7f054fdcd6747d"
+    },
+    "web-demo/tests/receivables-peer.mjs": {
+      "sha256": "8dbe0c43265cbb2a230cc496cbe8aa7e6fc00bdc8193b7228b86c3ec8872417d",
+      "git_blob": "da6a97dd4ca443d385bdd7e3f45d3d1335f42cdb"
+    },
+    "web-demo/tests/receivables.test.ts": {
+      "sha256": "ed1acff2b8e80b0ab27e549e57592a9417a0664a734c3714c2ce58ae6b9e77ff",
+      "git_blob": "afd81ca931c4ccc2d7c85d3bf7895cc6179604b7"
+    },
+    "web-demo/tests/review.test.ts": {
+      "sha256": "5d89fa38794f021dca8c304e85c45f9092c55b7df94528aa46aa790d1b019d9d",
+      "git_blob": "784b30a2ceb21b5ec651f80ef9fffa37054d73b9"
+    },
+    "web-demo/tests/worker-client.test.ts": {
+      "sha256": "33cfa5b305b41921b53ba8ca923f9a7ae6b243bbc7be603c4df7d20091eb1e67",
+      "git_blob": "077aa60dd05916ca3c64144f3ea4c2bf6ac08364"
+    },
+    "web-demo/src/intake-file.ts": {
+      "sha256": "1a55df3b697038840cd54c5a22b8c960f682e6cc8e366680570aa2ee835a60fa",
+      "git_blob": "0f358fa89fa0fb199574b2e1920d40cf43ed5a88"
+    },
+    "web-demo/src/intake-file-ui.ts": {
+      "sha256": "f772021b1ba76ead1281a73a33028b5fbb44e170868c08d74b316f91e0853a41",
+      "git_blob": "6578e62a7e20d611e04c1d431c0b4d42334b2c9c"
+    },
+    "web-demo/src/intake-file.css": {
+      "sha256": "2a27225afee6bcb4789caba53d7ac819149d4b7bb067a2aa58b21a49fdc798fb",
+      "git_blob": "9e4634e317d0a5ccf24e68566005aae48a9eeca7"
+    },
+    "web-demo/tests/intake-file.test.ts": {
+      "sha256": "718c8ede14d62def67b5f869f00abbfffa8fed6b2aa18f76979b95ad7e52ea13",
+      "git_blob": "105410b72dd83d34dafddc5cbea5e78c14a1a544"
+    },
+    "web-demo/tools/check_intake_file_browser.mjs": {
+      "sha256": "2019f72ecd71f6bc311759f27b1aef8a0f56c158a5b0f2126b94d8423148219e",
+      "git_blob": "cb99f9b556b355c852700f940272f092a8edc6bf"
+    },
+    ".github/workflows/ci.yml": {
+      "sha256": "1b40451c798c75fafe8774523a8d997ea5bdc33922714296d65f3c1c463b7095",
+      "git_blob": "3bb98f82eac6a3c14711fe37b415ef1a7d928191"
+    },
+    "docs/receipts/intake-files-e3a41d2b3368-20261008/baseline-source-manifest.json": {
+      "sha256": "59d8b3ec2f708d9263d0830d41641d123b8d3ae923ef7d84ab184238811cc6a8",
+      "git_blob": "fcf973b153da69b1420c365a4b755961998bd16f"
+    },
+    "docs/receipts/intake-files-e3a41d2b3368-20261008/author-native/receive-core-v1.mjs": {
+      "sha256": "87c4f8246230eaaedde0eb16d7fadedfed7c37713fd5e041f8372b24b595d22f",
+      "git_blob": "441b9f7b380e3fe5f3f29e595f1ca1260c686b81"
+    },
+    "docs/receipts/intake-files-e3a41d2b3368-20261008/author-native/native-core-v1.json": {
+      "sha256": "eff50155f45ada6c9271c48e2ff07e5e93aefafae30005b77fe7e7fd277ba8c0",
+      "git_blob": "11b1cb739cb41d31b14c10024e83c9bc195c823c"
+    },
+    "docs/receipts/intake-files-e3a41d2b3368-20261008/baseline-source.json": {
+      "sha256": "54a9954cd91a671d4798d8e52edbc10fbd5cfe3e6aea4e70347ee9cb05fcd2d5",
+      "git_blob": "e51173390521fe8966920f113594704339ec9f29"
+    },
+    "tests/test_browser_overdue_scan.py": {
+      "sha256": "0b9540e45098b3ce435ddf948dfc669888010e8bd14119045d5430cfc64fba63",
+      "git_blob": "8b2fb0c42d6ca6707149056175d749d6aecd9939"
+    }
+  },
+  "test_closure_delta": {
+    "harness": "Only two-method intake UI lifecycle port added to existing VM globals; no assertions changed. Actual intake DOM and files are received by browser.",
+    "fixture": "Existing actual-parent overdue scan test recovered byte-for-byte; not a source delta.",
+    "timeouts": "Unchanged 10000ms Pyodide hooks; native rerun bounds worker count."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "ledgerly.intake-native-core/1",
+  "status": "pass",
+  "at": "2026-10-08T16:36:48.268Z",
+  "node": "v26.3.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "sourceBefore": {
+    "src/intake-file.ts": "1a55df3b697038840cd54c5a22b8c960f682e6cc8e366680570aa2ee835a60fa",
+    "src/intake-file-ui.ts": "f772021b1ba76ead1281a73a33028b5fbb44e170868c08d74b316f91e0853a41",
+    "src/main.ts": "7250e791f887040361bf319b7cc6f65fa5303909ebcef0071faa416ba55a35ec",
+    "src/review.ts": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+    "src/intake-file.css": "2a27225afee6bcb4789caba53d7ac819149d4b7bb067a2aa58b21a49fdc798fb",
+    "tests/intake-file.test.ts": "718c8ede14d62def67b5f869f00abbfffa8fed6b2aa18f76979b95ad7e52ea13",
+    "index.html": "a11c7a81ce70f4ed27c3fe73b2a0d499a221f6ee1a5e8fe1fe858f20544e1391"
+  },
+  "groups": [
+    {
+      "name": "source-only exact round trip and bounded filename",
+      "status": "pass",
+      "assertions": 3
+    },
+    {
+      "name": "unfinished strings remain literal and no derived authority enters the format",
+      "status": "pass",
+      "assertions": 4
+    },
+    {
+      "name": "caller and decoded object mutations do not cross file boundaries",
+      "status": "pass",
+      "assertions": 1
+    },
+    {
+      "name": "strict outer shape and version admission",
+      "status": "pass",
+      "assertions": 9
+    },
+    {
+      "name": "no saved review, confirmation, invoice, ledger or unknown metadata can be admitted",
+      "status": "pass",
+      "assertions": 8
+    },
+    {
+      "name": "strict raw field and line item shape",
+      "status": "pass",
+      "assertions": 10
+    },
+    {
+      "name": "saved time describes a valid exact UTC instant",
+      "status": "pass",
+      "assertions": 5
+    },
+    {
+      "name": "line count and original ordering remain bounded",
+      "status": "pass",
+      "assertions": 4
+    },
+    {
+      "name": "UTF-8 limit admits exact boundary and refuses overflow before parsing",
+      "status": "pass",
+      "assertions": 5
+    },
+    {
+      "name": "JSON key order does not alter values and malformed JSON fails closed",
+      "status": "pass",
+      "assertions": 5
+    },
+    {
+      "name": "all candidate TypeScript source parses under native type erasure",
+      "status": "pass",
+      "assertions": 4
+    }
+  ],
+  "assertions": 59,
+  "limits": "Native exact TypeScript codec and source syntax receiving only. Full Vite semantic build, Python Worker and browser behavior are separate gates.",
+  "sourceAfter": {
+    "src/intake-file.ts": "1a55df3b697038840cd54c5a22b8c960f682e6cc8e366680570aa2ee835a60fa",
+    "src/intake-file-ui.ts": "f772021b1ba76ead1281a73a33028b5fbb44e170868c08d74b316f91e0853a41",
+    "src/main.ts": "7250e791f887040361bf319b7cc6f65fa5303909ebcef0071faa416ba55a35ec",
+    "src/review.ts": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+    "src/intake-file.css": "2a27225afee6bcb4789caba53d7ac819149d4b7bb067a2aa58b21a49fdc798fb",
+    "tests/intake-file.test.ts": "718c8ede14d62def67b5f869f00abbfffa8fed6b2aa18f76979b95ad7e52ea13",
+    "index.html": "a11c7a81ce70f4ed27c3fe73b2a0d499a221f6ee1a5e8fe1fe858f20544e1391"
+  },
+  "passed": 11,
+  "failed": 0,
+  "driverSha256": "87c4f8246230eaaedde0eb16d7fadedfed7c37713fd5e041f8372b24b595d22f"
+}

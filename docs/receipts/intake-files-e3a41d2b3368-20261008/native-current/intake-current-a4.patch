@@ -1,0 +1,101 @@
+--- a/web-demo/src/main.ts
++++ b/web-demo/src/main.ts
+@@ -1,5 +1,8 @@
+ import './style.css';
+ import './review.css';
++import './intake-file.css';
++import {createIntakeFileControls} from './intake-file-ui';
++import type {IntakeFile} from './intake-file';
+ import './ledger-export.css';
+ import {createLedgerExport} from './ledger-export';
+ import './approval-preview.css';
+@@ -26,10 +29,44 @@
+ });
+ let ready=false,busy=false,analysisResult:any=null,needsFreshSandbox=false,reviewNeedsAnalysis=false;
+ let reviewId:string|null=null,reviewEngaged=false,canReplay=false,rawDraftUsed=false;
++const intakeFiles=createIntakeFileControls($<HTMLElement>('.intake'),{
++ snapshot:()=>({sourceText:$<HTMLTextAreaElement>('#job-email').value,
++  fields:$<HTMLFormElement>('#review-form')?readReviewFields($<HTMLFormElement>('#review-form')):null}),
++ replace:replaceIntake,
++});
++async function replaceIntake(file:IntakeFile):Promise<boolean>{
++ if(!ready||busy)return false;
++ const previousForm=$<HTMLFormElement>('#review-form');
++ reviewId=null;rawDraftUsed=false;reviewEngaged=Boolean(previousForm);reviewNeedsAnalysis=Boolean(previousForm);
++ if(previousForm){
++  $<HTMLInputElement>('#review-confirm').checked=false;
++  $<HTMLElement>('#review-result').textContent='The old review is retired. The incoming source is being checked; existing input remains until that check completes.';
++ }else analysisResult=null;
++ syncControls();
++ const reply=await runAction('analyze',{text:file.source_text});
++ if(!reply?.ok){
++  if(previousForm)$<HTMLElement>('#review-result').textContent='Opening did not complete. Your previous fields remain; confirm and check them again before drafting.';
++  syncControls();return false;
++ }
++ $<HTMLTextAreaElement>('#job-email').value=file.source_text;
++ renderAnalysis(reply.result);
++ reviewNeedsAnalysis=false;
++ if(file.review_fields){
++  const fields=file.review_fields,form=$<HTMLFormElement>('#review-form');
++  for(const name of ['client_name','client_email','due_days','amount_paid'] as const)
++   (form.elements.namedItem(name) as HTMLInputElement).value=fields[name];
++  $<HTMLElement>('#review-lines').innerHTML=reviewLinesMarkup(fields.line_items,reply.result.review_currencies||[]);
++  markReviewDirty('Restored unfinished fields. Read the current original warnings, confirm your review and check these fields with Python.');
++  $<HTMLDetailsElement>('#review-editor').open=true;
++  $<HTMLInputElement>('#review-client-name').focus();
++ }else $<HTMLDetailsElement>('#review-editor').querySelector<HTMLElement>('summary')?.focus();
++ syncControls();return true;
++}
+ function status(text:string,kind='info'){$<HTMLElement>('#status-message').textContent=text;$<HTMLElement>('#status-message').dataset.kind=kind;}
+ function call(action:string,payload:Record<string,unknown>={}){return worker.call(action,payload);}
+ function recoveryMessage(error:WorkerUnavailableError){return `${error.message} The in-memory sandbox is unavailable. Restart opens an empty sandbox. Your source email and correction fields stay here; no action will be replayed.`;}
+ function engineUnavailable(error:WorkerUnavailableError){
++ intakeFiles.currentChanged('The Python session ended. Open the file again after reviewing your retained input.');
+  const form=$<HTMLFormElement>('#review-form');
+  needsFreshSandbox=true;reviewNeedsAnalysis=Boolean(form);reviewId=null;canReplay=false;rawDraftUsed=false;
+  if(form){
+@@ -52,6 +89,7 @@
+ function syncControls(){
+  const enabled=ready&&!busy;
+  rejectionReasons.setAvailability(ready,busy);
++ intakeFiles.setAvailability(ready,busy);
+  ledgerExport.setAvailable(enabled);
+  invoiceDetails.setAvailability(ready,busy);
+  receivables.setAvailability(ready,busy);
+@@ -66,16 +104,19 @@
+ }
+ function setControls(enabled:boolean){ready=enabled;syncControls();}
+ function invalidateAnalysis(message:string){
++ intakeFiles.currentChanged();
+  analysisResult=null;reviewId=null;reviewEngaged=false;rawDraftUsed=false;reviewNeedsAnalysis=false;
+  $<HTMLElement>('#analysis').innerHTML=`<p class="empty">${esc(message)}</p>`;syncControls();
+ }
+ function markReviewDirty(message='Fields changed. Confirm your review and check them again.'){
++ intakeFiles.currentChanged();
+  reviewEngaged=true;reviewId=null;
+  const check=$<HTMLInputElement>('#review-confirm');if(check)check.checked=false;
+  const result=$<HTMLElement>('#review-result');if(result)result.textContent=message;
+  syncControls();
+ }
+ function renderAnalysis(ex:any){
++ intakeFiles.currentChanged();
+  reviewId=null;reviewEngaged=false;rawDraftUsed=false;
+  analysisResult=ex;const panel=$<HTMLElement>('#analysis'),items=ex.line_items||[],issues=ex.issues||[];
+  const rows=items.map((x:any)=>`<tr><td>${esc(x.desc)}</td><td>${esc(x.qty??'Unclear')} ${esc(x.unit||'')}</td><td>${esc(x.currency||ex.currency||'')}</td><td>${esc(x.unit_price)}</td></tr>`).join('');
+@@ -100,6 +141,7 @@
+ async function runAction(name:string,payload:Record<string,unknown>={}){
+  if(busy)return null;
+  if(!ready&&name!=='init'){status('Load the local Python engine first.','error');return null;}
++ if(['analyze','review','draft','reset'].includes(name))intakeFiles.currentChanged('An intake action started. Open the file again before replacing the current input.');
+  busy=true;syncControls();
+  try{
+   const reply=await call(name,payload);
+@@ -140,7 +182,7 @@
+ $('#analysis').addEventListener('input',(event)=>{
+  const target=event.target as HTMLInputElement;
+  if(!target.closest('#review-form'))return;
+- if(target.id==='review-confirm'){reviewEngaged=true;reviewId=null;$<HTMLElement>('#review-result').textContent=target.checked?'Review confirmed. Check the fields with Python to prepare a draft.':'Confirm your review before checking the fields.';syncControls();return;}
++ if(target.id==='review-confirm'){intakeFiles.currentChanged();reviewEngaged=true;reviewId=null;$<HTMLElement>('#review-result').textContent=target.checked?'Review confirmed. Check the fields with Python to prepare a draft.':'Confirm your review before checking the fields.';syncControls();return;}
+  markReviewDirty();
+ });
+ $('#analysis').addEventListener('click',(event)=>{

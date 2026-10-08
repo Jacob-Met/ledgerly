@@ -1,0 +1,26 @@
+{
+  "schema": "ledgerly.intake-native-dependencies/1",
+  "started_at": "2026-10-08T17:50:08.670199+00:00",
+  "cwd": "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate/web-demo",
+  "command": [
+    "/usr/bin/npm",
+    "ci",
+    "--cache",
+    "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/npm-cache",
+    "--no-audit",
+    "--no-fund"
+  ],
+  "lock_sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+  "available_before": 19463794688,
+  "exit_code": 0,
+  "completed_at": "2026-10-08T17:50:20.775904+00:00",
+  "lock_after": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+  "log_sha256": "224481acec194d4794bf6065e9200ecdf11df9c4cb1a08b068f3f5e2d7242a09",
+  "source_unchanged": true,
+  "packages": {
+    "pyodide": "0.29.3",
+    "typescript": "5.9.3",
+    "vite": "8.3.3",
+    "vitest": "5.0.3"
+  }
+}

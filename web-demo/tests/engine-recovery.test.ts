@@ -100,7 +100,9 @@ function app() {
     }),
   };
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons});
+    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons,
+    // File picking and download DOM behavior is received by the actual browser gate.
+    createIntakeFileControls: () => ({setAvailability() {}, currentChanged() {}})});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;
