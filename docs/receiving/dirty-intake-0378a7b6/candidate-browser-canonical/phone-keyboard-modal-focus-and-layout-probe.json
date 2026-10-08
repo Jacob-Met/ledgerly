@@ -1,0 +1,137 @@
+{
+  "calls": [
+    {
+      "id": 1,
+      "action": "init",
+      "payload": {}
+    },
+    {
+      "id": 2,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n"
+      }
+    }
+  ],
+  "replies": [
+    {
+      "id": 1,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "ready": true,
+          "engine": "RulesExtractor + RulePlanner + SandboxMock"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Maya Chen",
+          "client_email": "maya.chen@brightfern.example",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Copywriting",
+              "qty": "12",
+              "unit_price": "85",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "SEO keyword audit",
+              "qty": "1",
+              "unit_price": "300",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 15,
+          "amount_paid": "0",
+          "total": "1320",
+          "confidence": 1,
+          "issues": [],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "1320"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    }
+  ]
+}

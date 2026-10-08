@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-08T21:16:00Z",
+  "reviewer": "chatgpt-0378a7b6b7c2/mac_product",
+  "inputs_seen": "Issue55 outcome and original base fixture01; no candidate source/author driver seen",
+  "base": "c498f55883c755553b59921199d54689d99c9730",
+  "corrected_fields": {
+    "email": "reviewer+kept@orchid.example",
+    "terms": "NET_21",
+    "description": "Revised <orchid> & retainer",
+    "quantity": "1.75",
+    "price": "18.40"
+  },
+  "expected": [
+    "Edit real DOM recipient/terms/line item fields then alter source email: every exact correction remains visible; any prior checked state and draft authority become unusable immediately; earlier-analysis status is explicit.",
+    "Reanalyze dirty form: user can cancel without replacing corrected fields; keep uses newly prepared analysis and warnings while preserving corrections, returns unchecked status and requires an explicit fresh check before drafting.",
+    "Explicit replace changes dirty fields to the newly analyzed source values; it must require deliberate action and must not retain prior checked authority.",
+    "Loading a fixture while dirty: cancellation leaves current source and all correction fields exact; explicit replacement replaces the source and retires old correction authority.",
+    "Preparation failure before replacement preserves previous corrections and offers a usable retry/cancel route; a late/stale result cannot restore a previously checked draft permit.",
+    "The confirmation must have an accessible name, keyboard cancellation and focus restoration; disabled/busy controls must not accidentally admit duplicate replacement.",
+    "Existing saved-intake #41 behavior and core approval rules retain their separate ownership; reviewer will not modify production or dependencies."
+  ],
+  "boundary": "Distinct changed-input native Chrome consumer receiving plus narrow source review. No real invoice/provider, original source modification, general browser implementation claim, or duplicate complete author suite."
+}

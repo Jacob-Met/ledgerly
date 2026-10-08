@@ -182,3 +182,26 @@ or PDF-text inspection.
 ## Continue unfinished intake
 
 Use **Save intake** to keep source text and unfinished correction fields in a local file. **Open intake** previews that file; **Replace current intake** runs fresh Python source analysis and restores any fields unchecked. See [the intake workflow and format](docs/intake-files.md) for source-only behavior, fresh review and receiving instructions.
+
+## Keep corrections when the source changes
+
+Editing the job email keeps corrected recipient, terms and line-item fields in
+the page. The earlier extraction is marked as earlier analysis, and its checked
+revision is retired. Choose **Analyze** to refresh the original warnings before
+confirming and checking those retained fields again.
+
+When the fields differ from the extraction, Analyze offers **Analyze and keep
+corrections**, **Analyze and use extracted fields**, and **Cancel**. Keeping
+corrections refreshes the real Python analysis, restores the exact editable
+strings and leaves the human confirmation unchecked. Using extracted fields
+replaces the correction form only after analysis succeeds. A failed analysis
+retains the fields for another explicit attempt.
+
+**Load example** asks before discarding corrected fields and source text.
+Cancel or Escape keeps the intake; a failed example load also preserves it.
+Clean, unedited intake keeps the ordinary controls. The dialog supports Tab,
+Enter, Space and Escape, with a visible focus ring and a narrow-screen layout.
+
+This protects the current open page. Use **Save intake** to keep an explicit
+file before closing or reloading. Checking and drafting still follow the
+existing Python validation, one-use revision and separate send-approval steps.

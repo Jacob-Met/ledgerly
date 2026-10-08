@@ -11,7 +11,9 @@ import {createInvoiceDetailsView} from '../src/invoice-details';
 import {createInvoiceRecordDownloads} from '../src/invoice-record';
 import {createReceivablesView} from '../src/receivables';
 import {createRejectionReasons} from '../src/rejection-reason';
-import {readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup} from '../src/review';
+import {fieldsFromExtraction, readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup} from '../src/review';
+
+import {hasIntakeCorrections} from '../src/intake-replacement';
 
 const sourceRoot = process.env.LEDGERLY_RECOVERY_SOURCE_ROOT || path.resolve(process.cwd(), 'src');
 const tick = () => new Promise<void>(resolve => setImmediate(resolve));
@@ -100,9 +102,11 @@ function app() {
     }),
   };
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons,
+    fieldsFromExtraction, hasIntakeCorrections, readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons,
     // File picking and download DOM behavior is received by the actual browser gate.
-    createIntakeFileControls: () => ({setAvailability() {}, currentChanged() {}})});
+    createIntakeFileControls: () => ({setAvailability() {}, currentChanged() {}}),
+    // The actual modal and replacement choices are received by the native browser gate.
+    createIntakeReplacementReview: () => ({cancel() {}, request: async () => 'cancel'})});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;

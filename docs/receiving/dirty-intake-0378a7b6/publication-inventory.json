@@ -1,0 +1,618 @@
+{
+  "files": [
+    {
+      "path": "adopt_maintained_keyboard.mjs",
+      "bytes": 1486
+    },
+    {
+      "path": "candidate-browser-1/fixture-cancel-failure-and-explicit-replacement-probe.json",
+      "bytes": 3142
+    },
+    {
+      "path": "candidate-browser-1/reanalyze-cancel-and-explicit-extraction-probe.json",
+      "bytes": 5476
+    },
+    {
+      "path": "candidate-browser-1/receipt.json",
+      "bytes": 17118
+    },
+    {
+      "path": "candidate-browser-1/source-change-keep-fresh-check-separate-approval-probe.json",
+      "bytes": 35961
+    },
+    {
+      "path": "candidate-browser-1.log",
+      "bytes": 1944
+    },
+    {
+      "path": "candidate-browser-2/clean-reanalysis-and-exact-source-restoration-probe.json",
+      "bytes": 8197
+    },
+    {
+      "path": "candidate-browser-2/fixture-cancel-failure-and-explicit-replacement-probe.json",
+      "bytes": 3142
+    },
+    {
+      "path": "candidate-browser-2/phone-analyze-dialog.png",
+      "bytes": 40492
+    },
+    {
+      "path": "candidate-browser-2/phone-fixture-dialog.png",
+      "bytes": 43310
+    },
+    {
+      "path": "candidate-browser-2/phone-keyboard-modal-focus-and-layout-probe.json",
+      "bytes": 3142
+    },
+    {
+      "path": "candidate-browser-2/portable-intake-keeps-unfinished-fields-fresh-review-probe.json",
+      "bytes": 5505
+    },
+    {
+      "path": "candidate-browser-2/real-analysis-reply-then-authored-worker-failure-probe.json",
+      "bytes": 8659
+    },
+    {
+      "path": "candidate-browser-2/reanalyze-cancel-and-explicit-extraction-probe.json",
+      "bytes": 5476
+    },
+    {
+      "path": "candidate-browser-2/receipt.json",
+      "bytes": 28178
+    },
+    {
+      "path": "candidate-browser-2/retained-intake.json",
+      "bytes": 935
+    },
+    {
+      "path": "candidate-browser-2/source-change-keep-fresh-check-separate-approval-probe.json",
+      "bytes": 35961
+    },
+    {
+      "path": "candidate-browser-2.log",
+      "bytes": 1516
+    },
+    {
+      "path": "candidate-browser-canonical/clean-reanalysis-and-exact-source-restoration-probe.json",
+      "bytes": 8197
+    },
+    {
+      "path": "candidate-browser-canonical/fixture-cancel-failure-and-explicit-replacement-probe.json",
+      "bytes": 3142
+    },
+    {
+      "path": "candidate-browser-canonical/phone-analyze-dialog.png",
+      "bytes": 40492
+    },
+    {
+      "path": "candidate-browser-canonical/phone-fixture-dialog.png",
+      "bytes": 43310
+    },
+    {
+      "path": "candidate-browser-canonical/phone-keyboard-modal-focus-and-layout-probe.json",
+      "bytes": 3142
+    },
+    {
+      "path": "candidate-browser-canonical/portable-intake-keeps-unfinished-fields-fresh-review-probe.json",
+      "bytes": 5505
+    },
+    {
+      "path": "candidate-browser-canonical/real-analysis-reply-then-authored-worker-failure-probe.json",
+      "bytes": 8659
+    },
+    {
+      "path": "candidate-browser-canonical/reanalyze-cancel-and-explicit-extraction-probe.json",
+      "bytes": 5476
+    },
+    {
+      "path": "candidate-browser-canonical/receipt.json",
+      "bytes": 28178
+    },
+    {
+      "path": "candidate-browser-canonical/retained-intake.json",
+      "bytes": 935
+    },
+    {
+      "path": "candidate-browser-canonical/source-change-keep-fresh-check-separate-approval-probe.json",
+      "bytes": 35961
+    },
+    {
+      "path": "candidate-browser-canonical.log",
+      "bytes": 1516
+    },
+    {
+      "path": "candidate-build-1.log",
+      "bytes": 6872
+    },
+    {
+      "path": "candidate-build-2.log",
+      "bytes": 6872
+    },
+    {
+      "path": "candidate-tests-1.log",
+      "bytes": 14820
+    },
+    {
+      "path": "candidate-tests-2.log",
+      "bytes": 4748
+    },
+    {
+      "path": "canonical-build.log",
+      "bytes": 6872
+    },
+    {
+      "path": "canonical-tests.log",
+      "bytes": 4750
+    },
+    {
+      "path": "check_intake_file_browser.windows-v2.mjs",
+      "bytes": 40260
+    },
+    {
+      "path": "check_intake_file_browser.windows-v3.mjs",
+      "bytes": 40482
+    },
+    {
+      "path": "check_intake_file_browser.windows.mjs",
+      "bytes": 39498
+    },
+    {
+      "path": "claim.md",
+      "bytes": 3058
+    },
+    {
+      "path": "independent-mac/contract-before-candidate.json",
+      "bytes": 2009
+    },
+    {
+      "path": "independent-mac/manifest.json",
+      "bytes": 699
+    },
+    {
+      "path": "independent-mac/native-first/kept-refreshed-warnings.png",
+      "bytes": 238483
+    },
+    {
+      "path": "independent-mac/native-first/phone-explicit-choice.png",
+      "bytes": 261916
+    },
+    {
+      "path": "independent-mac/native-first/receipt.json",
+      "bytes": 51147
+    },
+    {
+      "path": "independent-mac/native-first.log",
+      "bytes": 1132
+    },
+    {
+      "path": "independent-mac/receive.mjs",
+      "bytes": 11385
+    },
+    {
+      "path": "independent-mac/REVIEW.md",
+      "bytes": 3387
+    },
+    {
+      "path": "maintained-intake-original/receiving-report.json",
+      "bytes": 21983
+    },
+    {
+      "path": "maintained-intake-original.log",
+      "bytes": 1960
+    },
+    {
+      "path": "maintained-intake-windows/actual-checked-intake.json",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows/actual-retained-after-failure.json",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows/actual-source-only-intake.json",
+      "bytes": 685
+    },
+    {
+      "path": "maintained-intake-windows/actual-unfinished-intake.json",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows/candidate-unfinished-worker.json",
+      "bytes": 8675
+    },
+    {
+      "path": "maintained-intake-windows/desktop-restored-intake.png",
+      "bytes": 117387
+    },
+    {
+      "path": "maintained-intake-windows/downloads/4d816b3e-01f5-4cf0-aca4-191bfa1a4fef",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows/downloads/5ba9202f-f29f-4caa-b02c-ff3027278625",
+      "bytes": 685
+    },
+    {
+      "path": "maintained-intake-windows/downloads/f3e10459-ac0c-41b0-a7fc-e729367dd61c",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows/downloads/f84265d4-01ff-4e5e-b735-d40046d14fe5",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows/failed-page.png",
+      "bytes": 48801
+    },
+    {
+      "path": "maintained-intake-windows/failed-worker.json",
+      "bytes": 123035
+    },
+    {
+      "path": "maintained-intake-windows/inputs/authority.json",
+      "bytes": 761
+    },
+    {
+      "path": "maintained-intake-windows/inputs/invalid-utf8.json",
+      "bytes": 3
+    },
+    {
+      "path": "maintained-intake-windows/inputs/line-normalization.json",
+      "bytes": 718
+    },
+    {
+      "path": "maintained-intake-windows/inputs/malformed.json",
+      "bytes": 1
+    },
+    {
+      "path": "maintained-intake-windows/inputs/numeric.json",
+      "bytes": 712
+    },
+    {
+      "path": "maintained-intake-windows/inputs/oversized.json",
+      "bytes": 2097153
+    },
+    {
+      "path": "maintained-intake-windows/inputs/slow-intake.json",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows/inputs/source-normalization.json",
+      "bytes": 482
+    },
+    {
+      "path": "maintained-intake-windows/inputs/unsupported.json",
+      "bytes": 714
+    },
+    {
+      "path": "maintained-intake-windows/interrupted-replacement-worker.json",
+      "bytes": 115210
+    },
+    {
+      "path": "maintained-intake-windows/original-build.log",
+      "bytes": 3032
+    },
+    {
+      "path": "maintained-intake-windows/original-worker.json",
+      "bytes": 8453
+    },
+    {
+      "path": "maintained-intake-windows/receiving-report.json",
+      "bytes": 49941
+    },
+    {
+      "path": "maintained-intake-windows-v2/actual-checked-intake.json",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v2/actual-retained-after-failure.json",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v2/actual-source-only-intake.json",
+      "bytes": 171
+    },
+    {
+      "path": "maintained-intake-windows-v2/actual-unfinished-intake.json",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows-v2/actual-valid-source-only-intake.json",
+      "bytes": 435
+    },
+    {
+      "path": "maintained-intake-windows-v2/candidate-unfinished-worker.json",
+      "bytes": 8675
+    },
+    {
+      "path": "maintained-intake-windows-v2/desktop-restored-intake.png",
+      "bytes": 117387
+    },
+    {
+      "path": "maintained-intake-windows-v2/downloads/09ee1f9b-476f-4677-b356-9e3f9737c21f",
+      "bytes": 171
+    },
+    {
+      "path": "maintained-intake-windows-v2/downloads/421faac8-2d7c-4d50-bbf7-2cc30e658c96",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows-v2/downloads/776f3f20-cad6-4796-a0e0-a27d231305b5",
+      "bytes": 435
+    },
+    {
+      "path": "maintained-intake-windows-v2/downloads/8cfb9019-3182-46ba-aadf-d39f478217db",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v2/downloads/a22e6c3f-09bb-42cb-89f3-6c0b800d688c",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v2/failed-page.png",
+      "bytes": 38267
+    },
+    {
+      "path": "maintained-intake-windows-v2/failed-worker.json",
+      "bytes": 41403
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/authority.json",
+      "bytes": 761
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/invalid-utf8.json",
+      "bytes": 3
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/line-normalization.json",
+      "bytes": 718
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/malformed.json",
+      "bytes": 1
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/numeric.json",
+      "bytes": 712
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/oversized.json",
+      "bytes": 2097153
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/slow-intake.json",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/source-normalization.json",
+      "bytes": 482
+    },
+    {
+      "path": "maintained-intake-windows-v2/inputs/unsupported.json",
+      "bytes": 714
+    },
+    {
+      "path": "maintained-intake-windows-v2/interrupted-replacement-worker.json",
+      "bytes": 115210
+    },
+    {
+      "path": "maintained-intake-windows-v2/mobile-intake-preview.png",
+      "bytes": 42410
+    },
+    {
+      "path": "maintained-intake-windows-v2/original-build.log",
+      "bytes": 3032
+    },
+    {
+      "path": "maintained-intake-windows-v2/original-worker.json",
+      "bytes": 8453
+    },
+    {
+      "path": "maintained-intake-windows-v2/receiving-report.json",
+      "bytes": 53974
+    },
+    {
+      "path": "maintained-intake-windows-v2.log",
+      "bytes": 3598
+    },
+    {
+      "path": "maintained-intake-windows-v3/actual-checked-intake.json",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v3/actual-retained-after-failure.json",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v3/actual-source-only-intake.json",
+      "bytes": 171
+    },
+    {
+      "path": "maintained-intake-windows-v3/actual-unfinished-intake.json",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows-v3/actual-valid-source-only-intake.json",
+      "bytes": 435
+    },
+    {
+      "path": "maintained-intake-windows-v3/candidate-unfinished-worker.json",
+      "bytes": 8675
+    },
+    {
+      "path": "maintained-intake-windows-v3/desktop-restored-intake.png",
+      "bytes": 117387
+    },
+    {
+      "path": "maintained-intake-windows-v3/dirty-source-before-fresh-page.json",
+      "bytes": 122823
+    },
+    {
+      "path": "maintained-intake-windows-v3/downloads/2d054104-1b5b-41cc-ad93-f2a9f0c0ed1a",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v3/downloads/477e90e6-8bfa-4948-850c-6cb5ffa9b2f3",
+      "bytes": 901
+    },
+    {
+      "path": "maintained-intake-windows-v3/downloads/6b351447-528b-49f2-877f-7c57cded3ed0",
+      "bytes": 171
+    },
+    {
+      "path": "maintained-intake-windows-v3/downloads/886289bb-0c09-477e-9be6-bb52d82f3a16",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows-v3/downloads/89437c1b-68fe-4d9b-b3f9-d5d61f46e17c",
+      "bytes": 435
+    },
+    {
+      "path": "maintained-intake-windows-v3/final-worker-and-keyboard.json",
+      "bytes": 41403
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/authority.json",
+      "bytes": 761
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/invalid-utf8.json",
+      "bytes": 3
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/line-normalization.json",
+      "bytes": 718
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/malformed.json",
+      "bytes": 1
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/numeric.json",
+      "bytes": 712
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/oversized.json",
+      "bytes": 2097153
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/slow-intake.json",
+      "bytes": 905
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/source-normalization.json",
+      "bytes": 482
+    },
+    {
+      "path": "maintained-intake-windows-v3/inputs/unsupported.json",
+      "bytes": 714
+    },
+    {
+      "path": "maintained-intake-windows-v3/interrupted-replacement-worker.json",
+      "bytes": 115210
+    },
+    {
+      "path": "maintained-intake-windows-v3/mobile-intake-preview.png",
+      "bytes": 42458
+    },
+    {
+      "path": "maintained-intake-windows-v3/original-build.log",
+      "bytes": 3764
+    },
+    {
+      "path": "maintained-intake-windows-v3/original-worker.json",
+      "bytes": 8453
+    },
+    {
+      "path": "maintained-intake-windows-v3/receiving-report.json",
+      "bytes": 42403
+    },
+    {
+      "path": "maintained-intake-windows-v3.log",
+      "bytes": 2344
+    },
+    {
+      "path": "maintained-intake-windows.log",
+      "bytes": 4432
+    },
+    {
+      "path": "npm-ci.log",
+      "bytes": 1276
+    },
+    {
+      "path": "original-browser/fixture-load-probe.json",
+      "bytes": 3142
+    },
+    {
+      "path": "original-browser/fixture-load.png",
+      "bytes": 181759
+    },
+    {
+      "path": "original-browser/ordinary-draft-probe.json",
+      "bytes": 30801
+    },
+    {
+      "path": "original-browser/reanalyze-probe.json",
+      "bytes": 5476
+    },
+    {
+      "path": "original-browser/reanalyze.png",
+      "bytes": 202363
+    },
+    {
+      "path": "original-browser/receipt.json",
+      "bytes": 23654
+    },
+    {
+      "path": "original-browser/source-edit-probe.json",
+      "bytes": 3142
+    },
+    {
+      "path": "original-browser/source-edit.png",
+      "bytes": 177169
+    },
+    {
+      "path": "original-browser.log",
+      "bytes": 928
+    },
+    {
+      "path": "original-build.log",
+      "bytes": 6872
+    },
+    {
+      "path": "original-checkout-line-endings.json",
+      "bytes": 313139
+    },
+    {
+      "path": "prepare_final_packet.mjs",
+      "bytes": 5201
+    },
+    {
+      "path": "receive_candidate_browser.mjs",
+      "bytes": 15912
+    },
+    {
+      "path": "receive_candidate_browser.v1.mjs",
+      "bytes": 15903
+    },
+    {
+      "path": "receive_original_browser.mjs",
+      "bytes": 8923
+    },
+    {
+      "path": "RECEIVING.md",
+      "bytes": 7382
+    },
+    {
+      "path": "restore_canonical.mjs",
+      "bytes": 2234
+    }
+  ],
+  "excludedNativeOnly": [
+    "maintained-intake-original/original-source",
+    "maintained-intake-windows/original-source",
+    "maintained-intake-windows-v2/original-source",
+    "maintained-intake-windows-v3/original-source"
+  ]
+}

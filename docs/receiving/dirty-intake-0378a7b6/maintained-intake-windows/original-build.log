@@ -1,0 +1,24 @@
+
+> ledgerly-offline-browser-demo@0.1.0 build
+> node scripts/stage-python.mjs && tsc --noEmit && vite build
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+[36mvite v8.3.3 [32mbuilding client environment for production...[36m[39m
+transforming...
+[33m[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+[33m[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+[33m[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+[33m[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+[33m[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+[33m[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+[33m[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.[39m
+✓ 16 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/__vite-browser-external-DKcLY8Mr.js   0.11 kB
+dist/index.html                                   6.03 kB │ gzip:  2.44 kB
+dist/assets/engine.worker-B5Sd8fS4.js            20.22 kB
+dist/assets/index-Drbn2oMn.css                   12.87 kB │ gzip:  3.36 kB
+dist/assets/index-N9bLIP9Y.js                    40.96 kB │ gzip: 13.63 kB
+
+[32m✓ built in 352ms[39m

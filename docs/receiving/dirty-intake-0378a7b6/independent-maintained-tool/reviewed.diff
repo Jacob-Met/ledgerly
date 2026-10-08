@@ -1,0 +1,33 @@
+--- current-main-maintained
+
++++ candidate-maintained
+
+@@ -411,6 +411,17 @@
+
+   eq((await state()).ledger,[],'Recovery check still creates no invoice');
+   passed('failed replacement preserves recoverable input, retires authority and composes with explicit Worker restart');
+ 
++  const retainedFields=(await inputSnapshot()).fields;
++  await textInput('#job-email','Unfinished fictional source only.');
++  eq((await inputSnapshot()).fields,retainedFields,'Edited source keeps the existing unfinished corrections');
++  eq((await inputSnapshot()).confirmed,false,'Editing source retires the existing human confirmation');
++  eq((await inputSnapshot()).draftDisabled,true,'Editing source retires the existing checked revision');
++  eq(await evaluate('document.querySelector("#review-check").disabled'),true,'Changed source needs explicit analysis before checking retained corrections');
++  // Preserve trusted input evidence before the independent source-only page.
++  const priorTrusted=await evaluate('__intakeProbe.events');
++  await savePageProbe('dirty-source-before-fresh-page.json');
++  // A source-only file now starts from genuinely unreviewed input in a fresh page.
++  await newPage();await navigate('candidate');await action('#engine-start');
+   await textInput('#job-email','Unfinished fictional source only.');
+   const sourceOnlyCalls=await calls(),sourceOnly=await download('actual-source-only-intake.json');
+   eq(sourceOnly.data.review_fields,null,'Source-only save does not invent editable fields');
+@@ -442,7 +453,7 @@
+
+   await screenshot('mobile-intake-preview.png');await replacePreview();
+   eq((await inputSnapshot()).fields,checked.data.review_fields,'Mobile explicit replacement preserves raw fields');
+   eq(await evaluate('!!globalThis.__intakeLiteralExecuted'),false,'Literal text remains nonexecuting');
+-  const trusted=await evaluate('__intakeProbe.events');
++  const trusted=[...priorTrusted,...await evaluate('__intakeProbe.events')];
+   ok(trusted.some(e=>e.type==='keydown'&&e.key==='Enter'&&e.id==='intake-save'),'Download exercised trusted keyboard activation');
+   ok(trusted.some(e=>e.type==='keydown'&&e.key==='Enter'&&e.id==='intake-replace'),'Replacement exercised trusted keyboard activation');
+   ok(trusted.some(e=>e.type==='keydown'&&e.key===' '&&e.id==='review-confirm'),'Confirmation exercised trusted Space');

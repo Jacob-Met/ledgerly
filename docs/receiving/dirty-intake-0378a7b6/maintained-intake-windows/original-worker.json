@@ -1,0 +1,428 @@
+{
+  "calls": [
+    {
+      "id": 1,
+      "action": "init",
+      "payload": {}
+    },
+    {
+      "id": 2,
+      "action": "analyze",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n"
+      }
+    }
+  ],
+  "replies": [
+    {
+      "id": 1,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "ready": true,
+          "engine": "RulesExtractor + RulePlanner + SandboxMock"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Darnell Brooks",
+          "client_email": null,
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 7,
+          "amount_paid": "0",
+          "total": "930",
+          "confidence": 0.75,
+          "issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "930"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    }
+  ],
+  "fileReads": [],
+  "events": [
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "engine-start",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "analyze",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-client-name",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-client-name",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-client-name",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-client-name",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-client-name",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-client-email",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-client-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-client-email",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-client-email",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-line-0-price",
+      "trusted": true
+    }
+  ],
+  "held": null
+}

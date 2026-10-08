@@ -1,0 +1,28 @@
+{
+  "format": "ledgerly-intake",
+  "version": 1,
+  "saved_at": "2026-10-08T21:09:51.278Z",
+  "source_text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n\nUnfinished source revision.",
+  "review_fields": {
+    "client_name": "Edited recipient Ω",
+    "client_email": "reviewed@example.test",
+    "due_days": "45",
+    "amount_paid": "0",
+    "line_items": [
+      {
+        "desc": "Corrected <work> & revision",
+        "qty": "7",
+        "unit_price": "85",
+        "currency": "USD",
+        "unit": "hours"
+      },
+      {
+        "desc": "SEO keyword audit",
+        "qty": "1",
+        "unit_price": "300",
+        "currency": "USD",
+        "unit": ""
+      }
+    ]
+  }
+}

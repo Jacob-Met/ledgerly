@@ -1,0 +1,553 @@
+{
+  "head": "c498f55883c755553b59921199d54689d99c9730",
+  "tree": "efb9d2f50f79336588f7b14beca29a889899e1a9",
+  "at": "2026-10-08T20:53:12.429Z",
+  "driverSha256": "92f8f9f51f7efb706ff399507ffd2c8c8f403584b8cda99e51ab3bbeb89cafe3",
+  "source": {
+    "ledgerly/__init__.py": "2f4a0c1e89f192c191b8ddcc84cdf6fb46b0805b6843e1ad314061adbda4ce24",
+    "ledgerly/agent.py": "484cca7ff716158680196650bf66bb3ae484eae8704a49280d96525b7d0b285f",
+    "ledgerly/demo.py": "fb4bd349196c7785dbd52e9fab974a33d08a15fe5960622f4e94cac8c48bd909",
+    "ledgerly/extract.py": "1c243686584b34cf3ae7b5b7ccc70f0f63b0d121de12f1ad3e35886cb334987b",
+    "ledgerly/paypal.py": "91116d4fb6a20fda4aebe55804e1f1564a8bc17f0b697dc64579e7ec1b3c8269",
+    "web-demo/index.html": "bfcea83025eafe42191cdf219f2c2b35e85dab932aea9895d615242a25ea15d9",
+    "web-demo/package-lock.json": "9dbd92e5afa8d0fc9032d5fd0a4f0a9823c37ee88414cb01f32a5415a7af34ea",
+    "web-demo/package.json": "971aa4b930326bec40b4a9cfcf217c7049186245e5aaa721a92c7a166ed57cea",
+    "web-demo/src/approval-preview.css": "83b8bcbffb4d347a266bb69aec2ff177eb3f9ec93177269d975f8e82cac5a992",
+    "web-demo/src/approval-preview.ts": "e3ed532bee1f3b8f981a089b3ea10cb018f786fb3b27d9b572990cb83294128f",
+    "web-demo/src/engine.worker.ts": "ba7ab99f607c7926f1f1c289bdccb5bb93b85a23fe80d6f32f5787006bd75cc5",
+    "web-demo/src/intake-file-ui.ts": "c1afbbc751f172331654f6cbe9fd94e0d15bcc19383d560f06d5aff76aa63970",
+    "web-demo/src/intake-file.css": "fa8df909d787f0dcc2a0b64e89becbbe1a6f27b13422e24d50cc82328fe42013",
+    "web-demo/src/intake-file.ts": "253d494006b384d662a800511a441cad23656554c0a632c56f479e269baa3ec8",
+    "web-demo/src/invoice-details.css": "3ad59e5f92b479fcdd9a8b880116d3d335b71d7361fa3770a900d4c460f5b875",
+    "web-demo/src/invoice-details.test.ts": "13c67b36bc6eb21a83123d42b498bcc2ff367595d7a735caa612e4c65a713a0a",
+    "web-demo/src/invoice-details.ts": "f8c9f80815a0c8ea1e947ef92d478d24f832cc73385578c24b50ddf3f51eb68a",
+    "web-demo/src/invoice-record.ts": "2b0a2790f01eb75bbcf64086d430993da9b41207e8ef1b0bb916e8a9ac1a0425",
+    "web-demo/src/ledger-export.css": "f7282a6b6672c122ad5ba1f372b04e7f16282d0341aced3f3cdd2eb8f040355d",
+    "web-demo/src/ledger-export.test.ts": "3eac920d52ed3299a2c678a7b717c494859a6c9308a70b48465e2cd6784e4da2",
+    "web-demo/src/ledger-export.ts": "5311c90bad09f5ce1946474b9dbf2a1afa111fac6455a02c51dbabcd4c5f8d41",
+    "web-demo/src/main.ts": "c42dc7184d72830f1942b068e32f5437affb4caba04f94791a65970fa0a5b7d9",
+    "web-demo/src/receivables.css": "29546970460b5e0e49735935a98926726b6daeb237228fc027dbab83311e48b1",
+    "web-demo/src/receivables.ts": "052a1613739e8198f0bd119dcac97b97910a1bcb9ea4cdc78dac36b0f4cf8011",
+    "web-demo/src/rejection-reason.css": "0b15478c7d31fd06e13009f916775b07ab6c1f9770298564bcfcf001b286f5ab",
+    "web-demo/src/rejection-reason.ts": "0363cb12044f046a94325e01677df22214f2883aee973c28b0a749b039fc081f",
+    "web-demo/src/retryable-loader.ts": "b43d35c81cb1b783c74e8d7ec2776c77460ba0d6c2a9c38c9845f404ff6af001",
+    "web-demo/src/review.css": "f7e184ecb50f9a79ccf41d08634d54c1fa1862bfb8b6fb5a44960d215e166f7f",
+    "web-demo/src/review.ts": "206fc5d1eec23512e079cfdaf1ac3c3c41c180630581175a50d010118fea112b",
+    "web-demo/src/style.css": "1531b5f5d697064ef59a9de9188c4677eac298d1b4d1b907b234eb1cafe0e230",
+    "web-demo/src/worker-client.ts": "aefe4523e0ffe15ef27627ae1a97ac0a6c72748240d9e954da4cab4db0f22c3c"
+  },
+  "buildHashes": {
+    "assets/engine.worker-B5Sd8fS4.js": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+    "assets/index-Cdu9JSVN.css": "46f68f3471dd4c61305a7b03025bc5872bb442b5f9cf1d4883700a7a7c6ddaa8",
+    "assets/index-SeROFrVa.js": "1d7448f658237e3b77d9dcbca513830d64541e6cb2d7062912d86a695ddf426f",
+    "assets/__vite-browser-external-DKcLY8Mr.js": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+    "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df",
+    "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5",
+    "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "fixtures/01_simple_usd_hourly.txt": "030167ce583f82d41320f65ae088d7791e7f216433d0125c9604d8568e706a0c",
+    "fixtures/02_gbp_proofreading.txt": "783bc313490d294ae2dd7ff652f9230ea00ac879485567960690ddcc41aaaee6",
+    "fixtures/03_eur_fixed_project.txt": "876c8ed76cb58c75451e9d7733b3eceb7308c01678d898cae155a3634baeacb4",
+    "fixtures/04_multi_currency.txt": "7004dcc0f4d9e424c8c8584450973609dc78d0cde21e3453b9a4692c0c5ba9eb",
+    "fixtures/05_missing_email.txt": "d2f4f457eab61587cb5aeb518d6d40b8708cd2220f2e653ca58f4e797803ba08",
+    "fixtures/06_ambiguous_qty.txt": "01bf02f9d6014a2d1a471d1387dbdf90e9ee3700ddd2b158914dea8e40d40d1d",
+    "fixtures/07_partial_payment_deposit.txt": "956404ed06239b9969fd3b1c22236b2f6d53c04d4f5f7b65039505b99897ec5a",
+    "fixtures/08_jpy_zero_decimal.txt": "ab2301bbb03a9f4ed526eae5df339d1a6ca7e7d0d01701fe09e519ccd4320f85",
+    "fixtures/09_table_cad.txt": "deef85162d2e6c431ae9bb46af9f5d0e8188fd8e88039ab9742a2bab48a9ea6f",
+    "fixtures/10_billing_address_net45.txt": "1ab972796959cd3328524f8534a30642734336c163a2fd37be1c1e151570f145",
+    "fixtures/11_range_qty_approx.txt": "bf855cadf0b4375a7da1251cd6d2ca5ba7ba4161a1b8520423afbe193abc6808",
+    "fixtures/12_prompt_injection.txt": "90674a1c10193d18444a1ad30a66efb84190dcd5e7db97f615bdfb2b673b6d0a",
+    "index.html": "b5ad4f6f4ff83754da43050b789c92cd4f9e3d76f6b1d1a825e32252f046e52c",
+    "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+    "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+    "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+    "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+    "python/bridge.py": "7bbc8f2a6e11ab37151190cf81b986f909657edcee1d249ff7e9263f125e0a22",
+    "python/invoice_details.py": "7896fc0a203e9ae22ae31851ff45fdc62b328cf2fa2f13a098ea5ab81e5cb907",
+    "python/ledgerly/agent.py": "484cca7ff716158680196650bf66bb3ae484eae8704a49280d96525b7d0b285f",
+    "python/ledgerly/extract.py": "1c243686584b34cf3ae7b5b7ccc70f0f63b0d121de12f1ad3e35886cb334987b",
+    "python/ledgerly/paypal.py": "91116d4fb6a20fda4aebe55804e1f1564a8bc17f0b697dc64579e7ec1b3c8269",
+    "python/ledgerly/__init__.py": "2f4a0c1e89f192c191b8ddcc84cdf6fb46b0805b6843e1ad314061adbda4ce24",
+    "python/review.py": "1e7453f1c68e614397c02fdec61bcb8cf74f15dbb5fe3bd122825d909dd80a28"
+  },
+  "cases": [
+    {
+      "id": "source-edit",
+      "expectedPreservation": false,
+      "baselineFailureObserved": true,
+      "before": {
+        "client_name": "Edited recipient Ω",
+        "client_email": "reviewed@example.test",
+        "due_days": "45",
+        "amount_paid": "0",
+        "line_items": [
+          {
+            "desc": "Corrected <work> & revision",
+            "qty": "7",
+            "unit_price": "85",
+            "currency": "USD",
+            "unit": "hours"
+          },
+          {
+            "desc": "SEO keyword audit",
+            "qty": "1",
+            "unit_price": "300",
+            "currency": "USD",
+            "unit": ""
+          }
+        ]
+      },
+      "after": null,
+      "dialogs": [],
+      "originalSource": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n",
+      "afterSource": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n\nA reviewed spelling correction.",
+      "callsBefore": 2,
+      "callsAfter": 2
+    },
+    {
+      "id": "reanalyze",
+      "expectedPreservation": false,
+      "baselineFailureObserved": true,
+      "before": {
+        "client_name": "Edited recipient Ω",
+        "client_email": "reviewed@example.test",
+        "due_days": "45",
+        "amount_paid": "0",
+        "line_items": [
+          {
+            "desc": "Corrected <work> & revision",
+            "qty": "7",
+            "unit_price": "85",
+            "currency": "USD",
+            "unit": "hours"
+          },
+          {
+            "desc": "SEO keyword audit",
+            "qty": "1",
+            "unit_price": "300",
+            "currency": "USD",
+            "unit": ""
+          }
+        ]
+      },
+      "after": {
+        "client_name": "Maya Chen",
+        "client_email": "maya.chen@brightfern.example",
+        "due_days": "15",
+        "amount_paid": "0",
+        "line_items": [
+          {
+            "desc": "Copywriting",
+            "qty": "12",
+            "unit_price": "85",
+            "currency": "USD",
+            "unit": "hours"
+          },
+          {
+            "desc": "SEO keyword audit",
+            "qty": "1",
+            "unit_price": "300",
+            "currency": "USD",
+            "unit": ""
+          }
+        ]
+      },
+      "dialogs": [],
+      "originalSource": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n",
+      "afterSource": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n",
+      "callsBefore": 2,
+      "callsAfter": 3
+    },
+    {
+      "id": "fixture-load",
+      "expectedPreservation": false,
+      "baselineFailureObserved": true,
+      "before": {
+        "client_name": "Edited recipient Ω",
+        "client_email": "reviewed@example.test",
+        "due_days": "45",
+        "amount_paid": "0",
+        "line_items": [
+          {
+            "desc": "Corrected <work> & revision",
+            "qty": "7",
+            "unit_price": "85",
+            "currency": "USD",
+            "unit": "hours"
+          },
+          {
+            "desc": "SEO keyword audit",
+            "qty": "1",
+            "unit_price": "300",
+            "currency": "USD",
+            "unit": ""
+          }
+        ]
+      },
+      "after": null,
+      "dialogs": [],
+      "originalSource": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n",
+      "afterSource": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n",
+      "callsBefore": 2,
+      "callsAfter": 2
+    },
+    {
+      "id": "ordinary-clean-reanalysis",
+      "pass": true
+    },
+    {
+      "id": "real-correct-check-draft-separate-approval",
+      "pass": true
+    }
+  ],
+  "external": [],
+  "pageErrors": [],
+  "serverRequests": [
+    {
+      "path": "/",
+      "sha256": "b5ad4f6f4ff83754da43050b789c92cd4f9e3d76f6b1d1a825e32252f046e52c"
+    },
+    {
+      "path": "/assets/index-SeROFrVa.js",
+      "sha256": "1d7448f658237e3b77d9dcbca513830d64541e6cb2d7062912d86a695ddf426f"
+    },
+    {
+      "path": "/assets/index-Cdu9JSVN.css",
+      "sha256": "46f68f3471dd4c61305a7b03025bc5872bb442b5f9cf1d4883700a7a7c6ddaa8"
+    },
+    {
+      "path": "/favicon.svg",
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "/assets/engine.worker-B5Sd8fS4.js",
+      "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94"
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.js",
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+    },
+    {
+      "path": "/python/ledgerly/__init__.py",
+      "sha256": "2f4a0c1e89f192c191b8ddcc84cdf6fb46b0805b6843e1ad314061adbda4ce24"
+    },
+    {
+      "path": "/python/ledgerly/agent.py",
+      "sha256": "484cca7ff716158680196650bf66bb3ae484eae8704a49280d96525b7d0b285f"
+    },
+    {
+      "path": "/python/ledgerly/extract.py",
+      "sha256": "1c243686584b34cf3ae7b5b7ccc70f0f63b0d121de12f1ad3e35886cb334987b"
+    },
+    {
+      "path": "/python/ledgerly/paypal.py",
+      "sha256": "91116d4fb6a20fda4aebe55804e1f1564a8bc17f0b697dc64579e7ec1b3c8269"
+    },
+    {
+      "path": "/python/bridge.py",
+      "sha256": "7bbc8f2a6e11ab37151190cf81b986f909657edcee1d249ff7e9263f125e0a22"
+    },
+    {
+      "path": "/python/review.py",
+      "sha256": "1e7453f1c68e614397c02fdec61bcb8cf74f15dbb5fe3bd122825d909dd80a28"
+    },
+    {
+      "path": "/python/invoice_details.py",
+      "sha256": "7896fc0a203e9ae22ae31851ff45fdc62b328cf2fa2f13a098ea5ab81e5cb907"
+    },
+    {
+      "path": "/fixtures/01_simple_usd_hourly.txt",
+      "sha256": "030167ce583f82d41320f65ae088d7791e7f216433d0125c9604d8568e706a0c"
+    },
+    {
+      "path": "/",
+      "sha256": "b5ad4f6f4ff83754da43050b789c92cd4f9e3d76f6b1d1a825e32252f046e52c"
+    },
+    {
+      "path": "/assets/index-SeROFrVa.js",
+      "sha256": "1d7448f658237e3b77d9dcbca513830d64541e6cb2d7062912d86a695ddf426f"
+    },
+    {
+      "path": "/assets/index-Cdu9JSVN.css",
+      "sha256": "46f68f3471dd4c61305a7b03025bc5872bb442b5f9cf1d4883700a7a7c6ddaa8"
+    },
+    {
+      "path": "/favicon.svg",
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "/assets/engine.worker-B5Sd8fS4.js",
+      "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94"
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.js",
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+    },
+    {
+      "path": "/python/ledgerly/__init__.py",
+      "sha256": "2f4a0c1e89f192c191b8ddcc84cdf6fb46b0805b6843e1ad314061adbda4ce24"
+    },
+    {
+      "path": "/python/ledgerly/agent.py",
+      "sha256": "484cca7ff716158680196650bf66bb3ae484eae8704a49280d96525b7d0b285f"
+    },
+    {
+      "path": "/python/ledgerly/extract.py",
+      "sha256": "1c243686584b34cf3ae7b5b7ccc70f0f63b0d121de12f1ad3e35886cb334987b"
+    },
+    {
+      "path": "/python/ledgerly/paypal.py",
+      "sha256": "91116d4fb6a20fda4aebe55804e1f1564a8bc17f0b697dc64579e7ec1b3c8269"
+    },
+    {
+      "path": "/python/bridge.py",
+      "sha256": "7bbc8f2a6e11ab37151190cf81b986f909657edcee1d249ff7e9263f125e0a22"
+    },
+    {
+      "path": "/python/review.py",
+      "sha256": "1e7453f1c68e614397c02fdec61bcb8cf74f15dbb5fe3bd122825d909dd80a28"
+    },
+    {
+      "path": "/python/invoice_details.py",
+      "sha256": "7896fc0a203e9ae22ae31851ff45fdc62b328cf2fa2f13a098ea5ab81e5cb907"
+    },
+    {
+      "path": "/fixtures/01_simple_usd_hourly.txt",
+      "sha256": "030167ce583f82d41320f65ae088d7791e7f216433d0125c9604d8568e706a0c"
+    },
+    {
+      "path": "/",
+      "sha256": "b5ad4f6f4ff83754da43050b789c92cd4f9e3d76f6b1d1a825e32252f046e52c"
+    },
+    {
+      "path": "/assets/index-SeROFrVa.js",
+      "sha256": "1d7448f658237e3b77d9dcbca513830d64541e6cb2d7062912d86a695ddf426f"
+    },
+    {
+      "path": "/assets/index-Cdu9JSVN.css",
+      "sha256": "46f68f3471dd4c61305a7b03025bc5872bb442b5f9cf1d4883700a7a7c6ddaa8"
+    },
+    {
+      "path": "/favicon.svg",
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "/assets/engine.worker-B5Sd8fS4.js",
+      "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94"
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.js",
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+    },
+    {
+      "path": "/python/ledgerly/__init__.py",
+      "sha256": "2f4a0c1e89f192c191b8ddcc84cdf6fb46b0805b6843e1ad314061adbda4ce24"
+    },
+    {
+      "path": "/python/ledgerly/agent.py",
+      "sha256": "484cca7ff716158680196650bf66bb3ae484eae8704a49280d96525b7d0b285f"
+    },
+    {
+      "path": "/python/ledgerly/extract.py",
+      "sha256": "1c243686584b34cf3ae7b5b7ccc70f0f63b0d121de12f1ad3e35886cb334987b"
+    },
+    {
+      "path": "/python/ledgerly/paypal.py",
+      "sha256": "91116d4fb6a20fda4aebe55804e1f1564a8bc17f0b697dc64579e7ec1b3c8269"
+    },
+    {
+      "path": "/python/bridge.py",
+      "sha256": "7bbc8f2a6e11ab37151190cf81b986f909657edcee1d249ff7e9263f125e0a22"
+    },
+    {
+      "path": "/python/review.py",
+      "sha256": "1e7453f1c68e614397c02fdec61bcb8cf74f15dbb5fe3bd122825d909dd80a28"
+    },
+    {
+      "path": "/python/invoice_details.py",
+      "sha256": "7896fc0a203e9ae22ae31851ff45fdc62b328cf2fa2f13a098ea5ab81e5cb907"
+    },
+    {
+      "path": "/fixtures/01_simple_usd_hourly.txt",
+      "sha256": "030167ce583f82d41320f65ae088d7791e7f216433d0125c9604d8568e706a0c"
+    },
+    {
+      "path": "/fixtures/04_multi_currency.txt",
+      "sha256": "7004dcc0f4d9e424c8c8584450973609dc78d0cde21e3453b9a4692c0c5ba9eb"
+    },
+    {
+      "path": "/",
+      "sha256": "b5ad4f6f4ff83754da43050b789c92cd4f9e3d76f6b1d1a825e32252f046e52c"
+    },
+    {
+      "path": "/assets/index-SeROFrVa.js",
+      "sha256": "1d7448f658237e3b77d9dcbca513830d64541e6cb2d7062912d86a695ddf426f"
+    },
+    {
+      "path": "/assets/index-Cdu9JSVN.css",
+      "sha256": "46f68f3471dd4c61305a7b03025bc5872bb442b5f9cf1d4883700a7a7c6ddaa8"
+    },
+    {
+      "path": "/favicon.svg",
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "/assets/engine.worker-B5Sd8fS4.js",
+      "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94"
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.js",
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+    },
+    {
+      "path": "/python/ledgerly/__init__.py",
+      "sha256": "2f4a0c1e89f192c191b8ddcc84cdf6fb46b0805b6843e1ad314061adbda4ce24"
+    },
+    {
+      "path": "/python/ledgerly/agent.py",
+      "sha256": "484cca7ff716158680196650bf66bb3ae484eae8704a49280d96525b7d0b285f"
+    },
+    {
+      "path": "/python/ledgerly/extract.py",
+      "sha256": "1c243686584b34cf3ae7b5b7ccc70f0f63b0d121de12f1ad3e35886cb334987b"
+    },
+    {
+      "path": "/python/ledgerly/paypal.py",
+      "sha256": "91116d4fb6a20fda4aebe55804e1f1564a8bc17f0b697dc64579e7ec1b3c8269"
+    },
+    {
+      "path": "/python/bridge.py",
+      "sha256": "7bbc8f2a6e11ab37151190cf81b986f909657edcee1d249ff7e9263f125e0a22"
+    },
+    {
+      "path": "/python/review.py",
+      "sha256": "1e7453f1c68e614397c02fdec61bcb8cf74f15dbb5fe3bd122825d909dd80a28"
+    },
+    {
+      "path": "/python/invoice_details.py",
+      "sha256": "7896fc0a203e9ae22ae31851ff45fdc62b328cf2fa2f13a098ea5ab81e5cb907"
+    },
+    {
+      "path": "/fixtures/01_simple_usd_hourly.txt",
+      "sha256": "030167ce583f82d41320f65ae088d7791e7f216433d0125c9604d8568e706a0c"
+    },
+    {
+      "path": "/",
+      "sha256": "b5ad4f6f4ff83754da43050b789c92cd4f9e3d76f6b1d1a825e32252f046e52c"
+    },
+    {
+      "path": "/assets/index-SeROFrVa.js",
+      "sha256": "1d7448f658237e3b77d9dcbca513830d64541e6cb2d7062912d86a695ddf426f"
+    },
+    {
+      "path": "/assets/index-Cdu9JSVN.css",
+      "sha256": "46f68f3471dd4c61305a7b03025bc5872bb442b5f9cf1d4883700a7a7c6ddaa8"
+    },
+    {
+      "path": "/favicon.svg",
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "/assets/engine.worker-B5Sd8fS4.js",
+      "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94"
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.js",
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+    },
+    {
+      "path": "/python/ledgerly/__init__.py",
+      "sha256": "2f4a0c1e89f192c191b8ddcc84cdf6fb46b0805b6843e1ad314061adbda4ce24"
+    },
+    {
+      "path": "/python/ledgerly/agent.py",
+      "sha256": "484cca7ff716158680196650bf66bb3ae484eae8704a49280d96525b7d0b285f"
+    },
+    {
+      "path": "/python/ledgerly/extract.py",
+      "sha256": "1c243686584b34cf3ae7b5b7ccc70f0f63b0d121de12f1ad3e35886cb334987b"
+    },
+    {
+      "path": "/python/ledgerly/paypal.py",
+      "sha256": "91116d4fb6a20fda4aebe55804e1f1564a8bc17f0b697dc64579e7ec1b3c8269"
+    },
+    {
+      "path": "/python/bridge.py",
+      "sha256": "7bbc8f2a6e11ab37151190cf81b986f909657edcee1d249ff7e9263f125e0a22"
+    },
+    {
+      "path": "/python/review.py",
+      "sha256": "1e7453f1c68e614397c02fdec61bcb8cf74f15dbb5fe3bd122825d909dd80a28"
+    },
+    {
+      "path": "/python/invoice_details.py",
+      "sha256": "7896fc0a203e9ae22ae31851ff45fdc62b328cf2fa2f13a098ea5ab81e5cb907"
+    },
+    {
+      "path": "/fixtures/01_simple_usd_hourly.txt",
+      "sha256": "030167ce583f82d41320f65ae088d7791e7f216433d0125c9604d8568e706a0c"
+    }
+  ],
+  "browser": "154.0.8037.98",
+  "sourceAndBuildUnchanged": true,
+  "pass": true
+}

@@ -1,0 +1,9 @@
+# Maintained intake receiver setup acceptance
+
+Accepted only the narrow source adjustment in `web-demo/tools/check_intake_file_browser.mjs`, SHA-256 `abda8db353383e970a68ca678470a5c9dd850734d8f4282b6580946319cb60b1`, on base c498f558. The independent runtime acceptance remains pinned separately.
+
+I inspected the exact diff and the existing evaluate, event-observer, savePageProbe, newPage and source-only helpers. The changed-source case now asserts preserved fields and retired confirmation/draft/check authority. A genuinely fresh candidate page then supplies the preexisting source-only scenario, which must contain no correction form. These are distinct intended initial states under the new feature; no original source-only assertion is removed.
+
+The observer records only events with isTrusted true. evaluate requests returnByValue, so priorTrusted is a concrete serialized snapshot of events already produced on the first page. Saving that original probe before switching pages preserves the evidence. Concatenating it with the new page's actual events retains all four original Enter/Space/Escape predicates verbatim; it does not synthesize a keyboard event or weaken the predicates. The source comparison confirms exactly eleven inserted setup lines plus one replacement line, with every other line retained.
+
+My first automated diff-shape preflight expected twelve pure insertions because the reported twelve additions included the replacement line. Its count assumption failed; the original driver and observed opcodes are retained. A separate successor receiver corrected only that count and the output directory, then passed. Candidate bytes stayed exact. This is source acceptance, not a claim of running the maintained browser suite or accepting an unexamined platform-launch adaptation.

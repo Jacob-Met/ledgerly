@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-08T21:24:28Z",
+  "reviewer": "chatgpt-0378a7b6b7c2/mac_product",
+  "source_sha256": "abda8db353383e970a68ca678470a5c9dd850734d8f4282b6580946319cb60b1",
+  "base": "c498f55883c755553b59921199d54689d99c9730",
+  "edit_opcodes": [
+    [
+      "insert",
+      413,
+      413,
+      413,
+      424
+    ],
+    [
+      "replace",
+      444,
+      445,
+      455,
+      456
+    ]
+  ],
+  "original_keyboard_predicates_unchanged": [
+    "  ok(trusted.some(e=>e.type==='keydown'&&e.key==='Enter'&&e.id==='intake-save'),'Download exercised trusted keyboard activation');",
+    "  ok(trusted.some(e=>e.type==='keydown'&&e.key==='Enter'&&e.id==='intake-replace'),'Replacement exercised trusted keyboard activation');",
+    "  ok(trusted.some(e=>e.type==='keydown'&&e.key===' '&&e.id==='review-confirm'),'Confirmation exercised trusted Space');",
+    "  ok(trusted.some(e=>e.type==='keydown'&&e.key==='Escape'),'Preview exercised trusted Escape');"
+  ],
+  "only_added_setup_and_trusted_event_snapshot": true,
+  "exact_runtime_receiving_stays_separate": true,
+  "source_unchanged": true,
+  "scope": "Narrow source acceptance only; no claim that reviewer ran maintained 408 assertions."
+}

@@ -1,0 +1,1056 @@
+{
+  "schema": "ledgerly.intake-file-browser/1",
+  "status": "failed",
+  "started_at": "2026-10-08T21:13:03.357Z",
+  "project": "C:\\Users\\minec\\hamon-0378a7b6-ledgerly-discovery",
+  "build": "C:\\Users\\minec\\hamon-0378a7b6-ledgerly-discovery\\web-demo\\dist",
+  "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "node": "v24.21.0",
+  "platform": "win32",
+  "checkout": null,
+  "claim": "https://github.com/Jacob-Met/ledgerly/issues/41",
+  "checks": [
+    {
+      "name": "original actual application loses unfinished intake across page reload",
+      "assertions_so_far": 157
+    },
+    {
+      "name": "actual local download preserves unfinished input without creating validation or invoice state",
+      "assertions_so_far": 182
+    },
+    {
+      "name": "fresh-page opening previews first and requires fresh actual Python checks",
+      "assertions_so_far": 203
+    },
+    {
+      "name": "checked files confer no authority; intake replacement preserves existing invoices and separate approval",
+      "assertions_so_far": 249
+    },
+    {
+      "name": "malformed, unsupported, oversized and lossy files are refused before current intake changes",
+      "assertions_so_far": 297
+    },
+    {
+      "name": "actual delayed file reads cannot override a newer edit, selection or cancellation",
+      "assertions_so_far": 316
+    },
+    {
+      "name": "failed replacement preserves recoverable input, retires authority and composes with explicit Worker restart",
+      "assertions_so_far": 352
+    },
+    {
+      "name": "source-only files use fresh extraction: invalid input stays blocked and valid input keeps explicit draft plus send approval",
+      "assertions_so_far": 392
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "original-build.log",
+      "bytes": 3032,
+      "sha256": "8a91a2f3fe42a573e74c0ad96c71a629c39a86294835e1dfb79bce887c4cb201",
+      "kind": "actual original npm run build",
+      "code": 0,
+      "signal": null
+    },
+    {
+      "name": "original-worker.json",
+      "bytes": 8453,
+      "sha256": "e4a6e3355e1583329a0017e63ac1e70706e1669159420a53ff087c7481581004",
+      "kind": "observed actual page/Worker data; authored holds identified"
+    },
+    {
+      "name": "actual-unfinished-intake.json",
+      "bytes": 905,
+      "sha256": "69f6a94d52a68c73a37af0ea26ad1fd6879cfa767bc8e89d50a6798ea66457e1",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-intake-20261008T211309514Z.json"
+    },
+    {
+      "name": "candidate-unfinished-worker.json",
+      "bytes": 8675,
+      "sha256": "2fe52fa4997b93f9491362240ffdcbb57ca49908f06b056023a5dbc504e8d544",
+      "kind": "observed actual page/Worker data; authored holds identified"
+    },
+    {
+      "name": "actual-checked-intake.json",
+      "bytes": 901,
+      "sha256": "d0cd0bbf63ce4c9346f602f7ea4aa3422ed5149d4c6f4355a769822d643202ad",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-intake-20261008T211312436Z.json"
+    },
+    {
+      "name": "desktop-restored-intake.png",
+      "bytes": 117387,
+      "sha256": "eea3b467d1552430b59cc9e17160f4132f8cff599eb3887a3ff4491f787a817b",
+      "kind": "actual Chrome screenshot"
+    },
+    {
+      "name": "actual-retained-after-failure.json",
+      "bytes": 901,
+      "sha256": "788f8c9363c7f9d9430dc1f2d2488dd2117ee10bac3a70a9b2fc417cdcbd3d72",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-intake-20261008T211314534Z.json"
+    },
+    {
+      "name": "interrupted-replacement-worker.json",
+      "bytes": 115210,
+      "sha256": "2196a9d34c472ae70ca2cf7133d7b2f83956d702136f51a491424a75ebe464ad",
+      "kind": "observed actual page/Worker data; authored holds identified"
+    },
+    {
+      "name": "actual-source-only-intake.json",
+      "bytes": 171,
+      "sha256": "0331c883144049a8a2fce95446b4a43b4d770e7da4932986dadb6ad02ea19d8c",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-intake-20261008T211318142Z.json"
+    },
+    {
+      "name": "actual-valid-source-only-intake.json",
+      "bytes": 435,
+      "sha256": "c3bc08523958a19210381f5e05b8edd25af45b3bc2ab28a8c5090170186c3061",
+      "kind": "actual browser download",
+      "suggestedFilename": "ledgerly-intake-20261008T211318519Z.json"
+    },
+    {
+      "name": "mobile-intake-preview.png",
+      "bytes": 42410,
+      "sha256": "3c5306e2c500c9d04e6a3580d4b68918737a014f9dfe1f639e41dbdc750cd6ec",
+      "kind": "actual Chrome screenshot"
+    },
+    {
+      "name": "failed-worker.json",
+      "bytes": 41403,
+      "sha256": "d69f68c49c94ea856155e478e243681ac33a5a573d0e2cf0d2e9ed47772e778a",
+      "kind": "observed actual page/Worker data; authored holds identified"
+    },
+    {
+      "name": "failed-page.png",
+      "bytes": 38267,
+      "sha256": "e10e31bd9d095bd7a5a7ceb98b19c56521933c6ce3ea32366368759d921536ff",
+      "kind": "actual Chrome screenshot"
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:57097/baseline/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/baseline/assets/index-N9bLIP9Y.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/baseline/assets/index-Drbn2oMn.css",
+      "method": "GET"
+    },
+    {
+      "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/baseline/favicon.svg",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/baseline/assets/engine.worker-B5Sd8fS4.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/baseline/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/baseline/assets/index-N9bLIP9Y.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/baseline/assets/index-Drbn2oMn.css",
+      "method": "GET"
+    },
+    {
+      "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/index-B8G5wi2X.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/index-DbD4nJbv.css",
+      "method": "GET"
+    },
+    {
+      "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/favicon.svg",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/engine.worker-B5Sd8fS4.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/index-B8G5wi2X.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/index-DbD4nJbv.css",
+      "method": "GET"
+    },
+    {
+      "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/engine.worker-B5Sd8fS4.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/engine.worker-B5Sd8fS4.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/index-B8G5wi2X.js",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/index-DbD4nJbv.css",
+      "method": "GET"
+    },
+    {
+      "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJXaW5kb3dUZXh0IiBkPSJNMjAgM2gtMVYxaC0ydjJIN1YxSDV2Mkg0Yy0xLjEgMC0yIC45LTIgMnYxNmMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjVjMC0xLjEtLjktMi0yLTJ6bTAgMThINFY4aDE2djEzeiIvPjxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz48L3N2Zz4=",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:57097/candidate/assets/engine.worker-B5Sd8fS4.js",
+      "method": "GET"
+    }
+  ],
+  "externalRequests": [],
+  "serverRequests": [
+    {
+      "method": "GET",
+      "path": "/baseline/"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/assets/index-Drbn2oMn.css"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/assets/index-N9bLIP9Y.js"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/favicon.svg"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/assets/engine.worker-B5Sd8fS4.js"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/pyodide/pyodide-lock.json"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/pyodide/python_stdlib.zip"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/pyodide/pyodide.asm.wasm"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/pyodide/pyodide.asm.js"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/python/ledgerly/__init__.py"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/python/ledgerly/agent.py"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/python/ledgerly/extract.py"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/python/ledgerly/paypal.py"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/python/bridge.py"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/python/review.py"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/python/invoice_details.py"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/assets/index-Drbn2oMn.css"
+    },
+    {
+      "method": "GET",
+      "path": "/baseline/assets/index-N9bLIP9Y.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/index-DbD4nJbv.css"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/index-B8G5wi2X.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/favicon.svg"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/engine.worker-B5Sd8fS4.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide-lock.json"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/python_stdlib.zip"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.wasm"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/__init__.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/agent.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/extract.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/paypal.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/bridge.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/review.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/invoice_details.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/index-DbD4nJbv.css"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/index-B8G5wi2X.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/engine.worker-B5Sd8fS4.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide-lock.json"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/python_stdlib.zip"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.wasm"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/__init__.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/agent.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/extract.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/paypal.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/bridge.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/review.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/invoice_details.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/engine.worker-B5Sd8fS4.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide-lock.json"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/python_stdlib.zip"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.wasm"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/__init__.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/agent.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/extract.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/paypal.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/bridge.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/review.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/invoice_details.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/index-B8G5wi2X.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/index-DbD4nJbv.css"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/assets/engine.worker-B5Sd8fS4.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide-lock.json"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/python_stdlib.zip"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.wasm"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/pyodide/pyodide.asm.js"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/__init__.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/agent.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/extract.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/ledgerly/paypal.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/bridge.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/review.py"
+    },
+    {
+      "method": "GET",
+      "path": "/candidate/python/invoice_details.py"
+    }
+  ],
+  "pageErrors": [],
+  "sourceSha256": {
+    ".github/workflows/ci.yml": "1b40451c798c75fafe8774523a8d997ea5bdc33922714296d65f3c1c463b7095",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+    "ledgerly/demo.py": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+    "ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+    "web-demo/index.html": "a5b390f10a95ced1bbc124319eda8d7a2b3ac1043b8d8736b4ce90e0521c5949",
+    "web-demo/package-lock.json": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+    "web-demo/package.json": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+    "web-demo/public/favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "web-demo/python/bridge.py": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81",
+    "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+    "web-demo/scripts/stage-python.mjs": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+    "web-demo/src/approval-preview.css": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+    "web-demo/src/intake-file-ui.ts": "f772021b1ba76ead1281a73a33028b5fbb44e170868c08d74b316f91e0853a41",
+    "web-demo/src/intake-file.css": "2a27225afee6bcb4789caba53d7ac819149d4b7bb067a2aa58b21a49fdc798fb",
+    "web-demo/src/intake-file.ts": "1a55df3b697038840cd54c5a22b8c960f682e6cc8e366680570aa2ee835a60fa",
+    "web-demo/src/invoice-details.css": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+    "web-demo/src/invoice-details.test.ts": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da",
+    "web-demo/src/invoice-details.ts": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+    "web-demo/src/invoice-record.ts": "dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0",
+    "web-demo/src/ledger-export.css": "7b07d96c413f8595c93d1da0d9c85fcea6b9e10b7e1d2ce2e51abceae4cc28fa",
+    "web-demo/src/ledger-export.test.ts": "b44fa1861678468ca9b79162c7356ee7ef31d8027ec91152ec6f161bbd8da60b",
+    "web-demo/src/ledger-export.ts": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc",
+    "web-demo/src/main.ts": "10d6b168717f655abda291a4e0a35328c92d2c8821fb8e186f870189a2e31785",
+    "web-demo/src/receivables.css": "1d7eb6f8f7653bd7507af057f905de3213f20b5c0c093b4cfc2f2e35871dd606",
+    "web-demo/src/receivables.ts": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+    "web-demo/src/rejection-reason.css": "b981ef166ca7f0fef0d68585f949d6ad84ec33b0d7a4c2789e6ca0bba17835c4",
+    "web-demo/src/rejection-reason.ts": "34a2558d877d4f5b641fa972bd46e4a7b7d874ab803495b9520ec899af2187ed",
+    "web-demo/src/retryable-loader.ts": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a",
+    "web-demo/src/review.css": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895",
+    "web-demo/src/review.ts": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+    "web-demo/src/style.css": "94146460348e640e58e24c73ac99d9088a201dec8ef9c85d84c42e5e23ce77db",
+    "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+    "web-demo/tests/engine-recovery.test.ts": "996d938e6dfad932d636c645e87c503ea22d7cbf06eb33a5dbb88df9ade7929f",
+    "web-demo/tests/intake-file.test.ts": "718c8ede14d62def67b5f869f00abbfffa8fed6b2aa18f76979b95ad7e52ea13",
+    "web-demo/tools/check_intake_file_browser.mjs": "7b3986c609318f9c267f42513e9105f708e5f682231f7b5d27b57e4c637d845b",
+    "web-demo/tsconfig.json": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+    "web-demo/vite.config.ts": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c"
+  },
+  "sourceUnchanged": true,
+  "buildUnchanged": true,
+  "observer": "Native Worker requests/replies are copied. One failure control holds a real reply then dispatches an authored Worker error. Delayed file controls call the original File.arrayBuffer only when released; no admitted bytes or Python results are synthesized.",
+  "boundary": "Actual local downloads, file picker input, Python checks, current ledger and approval controls. No provider, durable sandbox backup, payment or filesystem-watcher claim.",
+  "baseline": {
+    "commit": "fba278f552e868ad2b94b7f1dc309eed6f1e8514",
+    "tree": "ddb2360a65b646a281969fea1abbb3238c154340",
+    "capsuleSha256": "54a9954cd91a671d4798d8e52edbc10fbd5cfe3e6aea4e70347ee9cb05fcd2d5",
+    "files": [
+      {
+        "path": "fixtures/01_simple_usd_hourly.txt",
+        "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+        "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+        "bytes": 282,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/02_gbp_proofreading.txt",
+        "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+        "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+        "bytes": 293,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/03_eur_fixed_project.txt",
+        "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+        "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+        "bytes": 265,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/04_multi_currency.txt",
+        "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+        "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+        "bytes": 288,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/05_missing_email.txt",
+        "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+        "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+        "bytes": 238,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/06_ambiguous_qty.txt",
+        "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+        "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+        "bytes": 246,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/07_partial_payment_deposit.txt",
+        "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+        "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+        "bytes": 319,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/08_jpy_zero_decimal.txt",
+        "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+        "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+        "bytes": 271,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/09_table_cad.txt",
+        "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+        "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+        "bytes": 380,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/10_billing_address_net45.txt",
+        "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb",
+        "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+        "bytes": 330,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/11_range_qty_approx.txt",
+        "git_blob": "a57623c866fec4554707e5c3ac35f40311792082",
+        "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+        "bytes": 239,
+        "mode": "100644"
+      },
+      {
+        "path": "fixtures/12_prompt_injection.txt",
+        "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b",
+        "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+        "bytes": 315,
+        "mode": "100644"
+      },
+      {
+        "path": "ledgerly/__init__.py",
+        "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+        "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+        "bytes": 119,
+        "mode": "100644"
+      },
+      {
+        "path": "ledgerly/agent.py",
+        "git_blob": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+        "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+        "bytes": 39041,
+        "mode": "100644"
+      },
+      {
+        "path": "ledgerly/demo.py",
+        "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+        "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+        "bytes": 3169,
+        "mode": "100644"
+      },
+      {
+        "path": "ledgerly/extract.py",
+        "git_blob": "5d22bb5a4292529f9de2df521c4623a783779511",
+        "sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+        "bytes": 35313,
+        "mode": "100644"
+      },
+      {
+        "path": "ledgerly/paypal.py",
+        "git_blob": "66f067204d357499b3f7010a946563a431d50aea",
+        "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+        "bytes": 26243,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/index.html",
+        "git_blob": "a15b9b744276bc31570dcc14eedb3539fabbc9e8",
+        "sha256": "052d3f2b7885531e54418c456f1e6630bc3b988e37d768394ba48060d59116ef",
+        "bytes": 5935,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/package-lock.json",
+        "git_blob": "555bceb19a4e55ad488ec2c8420b02e3756954d4",
+        "sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+        "bytes": 36820,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/package.json",
+        "git_blob": "c54e9f9d06988f14b3e03ca2f22629313fef5da8",
+        "sha256": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+        "bytes": 403,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/public/favicon.svg",
+        "git_blob": "de1096fdf1b4568cf04715c0c90cd512a9c5d1ce",
+        "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+        "bytes": 240,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/python/bridge.py",
+        "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+        "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+        "bytes": 6627,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/python/invoice_details.py",
+        "git_blob": "019c1b43c3785894ec8e181983497c46bf57e015",
+        "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+        "bytes": 1196,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/python/review.py",
+        "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+        "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+        "bytes": 4379,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/scripts/stage-python.mjs",
+        "git_blob": "5c1be224027f6bc5c691a0bbb62ca55098482e81",
+        "sha256": "7ac48ac188c1f4363b979e87fbfd65e75bc246a9578caa9734145b8ce8f51d82",
+        "bytes": 995,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/approval-preview.css",
+        "git_blob": "fdffade7bd101087a59f508a7b23620a0f2c7128",
+        "sha256": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+        "bytes": 1815,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/approval-preview.ts",
+        "git_blob": "d57fdd6eaeea2e3c41f0b3f3841dca08a3fe8d3d",
+        "sha256": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+        "bytes": 5514,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/engine.worker.ts",
+        "git_blob": "9d60bdf17f474cf9b5d4c48ad28b1553406f7d96",
+        "sha256": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+        "bytes": 1736,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/invoice-details.css",
+        "git_blob": "1cb25514753f3c8104f13afb575633e7fce5811b",
+        "sha256": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+        "bytes": 2214,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/invoice-details.test.ts",
+        "git_blob": "988f5f287d51ba63eb04d1bf3db0a4a2eff39a69",
+        "sha256": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da",
+        "bytes": 5840,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/invoice-details.ts",
+        "git_blob": "3de02706a97eab7c1310f520a26e40e3066f1bfd",
+        "sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+        "bytes": 9311,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/invoice-record.ts",
+        "git_blob": "fa2e13908997e007bc67657a418c45bbae72214e",
+        "sha256": "dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0",
+        "bytes": 10907,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/ledger-export.css",
+        "git_blob": "63933b271fd025a5d21888f3373faefa7f8f593d",
+        "sha256": "7b07d96c413f8595c93d1da0d9c85fcea6b9e10b7e1d2ce2e51abceae4cc28fa",
+        "bytes": 256,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/ledger-export.test.ts",
+        "git_blob": "3727493f7366db1771dcda96e4dd19ac4deb44f0",
+        "sha256": "b44fa1861678468ca9b79162c7356ee7ef31d8027ec91152ec6f161bbd8da60b",
+        "bytes": 4353,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/ledger-export.ts",
+        "git_blob": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+        "sha256": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc",
+        "bytes": 4944,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/main.ts",
+        "git_blob": "ed7cb86a2ff4e5ac4b7d5a140b5db208633ec3a7",
+        "sha256": "4be360ecec9513a185b5f987e49f50061787ee0a8fcb585f33d688e1fb59adad",
+        "bytes": 18663,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/retryable-loader.ts",
+        "git_blob": "d6e49a01fccbbeffb892c0c814eaf4064c00045b",
+        "sha256": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a",
+        "bytes": 404,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/review.css",
+        "git_blob": "8d3da08a25b21b8156c198f99930e53de315e451",
+        "sha256": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895",
+        "bytes": 1829,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/review.ts",
+        "git_blob": "53463561542dfe0a5b1c3e6b0581e050c98fcc91",
+        "sha256": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+        "bytes": 6591,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/style.css",
+        "git_blob": "da0a2c54b85c2058e1a654f4a029e3e6b9c94db7",
+        "sha256": "94146460348e640e58e24c73ac99d9088a201dec8ef9c85d84c42e5e23ce77db",
+        "bytes": 7353,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/src/worker-client.ts",
+        "git_blob": "0d56a2b3732e101f5b27fba22bd39790912caafd",
+        "sha256": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+        "bytes": 3972,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/tsconfig.json",
+        "git_blob": "408840754fae30406085341098dd2ec7d084d528",
+        "sha256": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+        "bytes": 211,
+        "mode": "100644"
+      },
+      {
+        "path": "web-demo/vite.config.ts",
+        "git_blob": "031e19417070e2b63cc48b2ae105e0f40eea6ef0",
+        "sha256": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c",
+        "bytes": 173,
+        "mode": "100644"
+      }
+    ],
+    "buildSha256": {
+      "assets/__vite-browser-external-DKcLY8Mr.js": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+      "assets/engine.worker-B5Sd8fS4.js": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+      "assets/index-Drbn2oMn.css": "49f5c98558da15f1628e0d543342564dfb2143425a3ec80806a877f4fb463ba7",
+      "assets/index-N9bLIP9Y.js": "a64fcdcac37500dc9bc5d6000a50de9b71a46523ac8c800a20c70ec545cc836e",
+      "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+      "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "index.html": "2d29e2989bdecfee122e3957d82820bd91e68d207d400c44a27a422e2e2e6f24",
+      "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+      "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+      "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+      "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+      "python/bridge.py": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+      "python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "python/ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+      "python/ledgerly/extract.py": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+      "python/ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    }
+  },
+  "buildSha256": {
+    "assets/__vite-browser-external-DKcLY8Mr.js": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+    "assets/engine.worker-B5Sd8fS4.js": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+    "assets/index-B8G5wi2X.js": "9b6e07a184efa5c23acbf4bb3c534194167658cbfd92865b11a77922d5637107",
+    "assets/index-DbD4nJbv.css": "eb5f810fac708eabbd2cb484eb71afbe6d78b78381f0390ad34473457f97587e",
+    "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df",
+    "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5",
+    "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "index.html": "8d048a7fd91d554a175a332e9139914eafca62dddd7dabdc6ca0754adc438003",
+    "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+    "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+    "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+    "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+    "python/bridge.py": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81",
+    "python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "python/ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+    "python/ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "python/ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+    "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "browserFlags": [
+    "--headless=new",
+    "--disable-gpu",
+    "--no-first-run",
+    "--disable-background-networking",
+    "--disable-component-update",
+    "--disable-sync",
+    "--disable-default-apps",
+    "--disable-features=Translate,MediaRouter,OptimizationHints",
+    "--metrics-recording-only",
+    "--remote-debugging-port=0",
+    "--user-data-dir=C:\\Users\\minec\\hamon-0378a7b6-ledgerly-discovery\\docs\\receiving\\dirty-intake-0378a7b6\\maintained-intake-windows-v2\\chrome-ZmSGRt",
+    "about:blank"
+  ],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.98",
+    "revision": "@b859317bf11f6be47f9b7799ec690a0a42a1fb33",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  },
+  "originalBoundary": {
+    "input": {
+      "sourceText": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+      "fields": {
+        "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+        "client_email": "billing@example.test",
+        "due_days": "later",
+        "amount_paid": "0",
+        "line_items": [
+          {
+            "desc": "Logo concepts",
+            "qty": "",
+            "unit_price": "1,200.00",
+            "currency": "USD",
+            "unit": ""
+          },
+          {
+            "desc": "Brand colour guide",
+            "qty": "1",
+            "unit_price": "180",
+            "currency": "USD",
+            "unit": ""
+          }
+        ]
+      },
+      "confirmed": false,
+      "draftDisabled": true
+    },
+    "afterReload": {
+      "sourceText": "",
+      "fields": null,
+      "confirmed": false,
+      "draftDisabled": true
+    }
+  },
+  "error": "AssertionError [ERR_ASSERTION]: Confirmation exercised trusted Space\n    at ok (file:///C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/docs/receiving/dirty-intake-0378a7b6/check_intake_file_browser.windows-v2.mjs:34:46)\n    at file:///C:/Users/minec/hamon-0378a7b6-ledgerly-discovery/docs/receiving/dirty-intake-0378a7b6/check_intake_file_browser.windows-v2.mjs:456:3",
+  "browserLog": "\r\nDevTools listening on ws://127.0.0.1:57099/devtools/browser/93207cd0-bae0-44fb-a387-c2b23d00e357\r\n[61284:80948:1008/141308.841:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\r\n[61284:80948:1008/141308.927:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:702]   Error code: 401  Error message: Authentication Failed: wrong_secret\r\n[61284:80948:1008/141308.927:ERROR:google_apis\\gcm\\engine\\mcs_client.cc:704] Failed to log in to GCM, resetting connection.\r\n[61284:83372:1008/141309.517:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141309.518:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141309.518:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141309.518:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141310.269:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141310.397:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141310.415:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141312.437:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141312.437:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141312.437:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141312.437:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141312.439:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141312.450:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141312.463:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141314.535:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141314.535:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141314.536:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141314.536:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141314.538:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141314.548:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141314.565:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.143:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.144:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.144:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.144:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.148:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.160:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.182:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.519:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.520:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.520:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.521:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.525:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.538:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n[61284:83372:1008/141318.553:ERROR:chrome\\browser\\download\\download_status_updater_win.cc:36] Failed initializing an ITaskbarList3 interface.\r\n",
+  "lastPage": {
+    "url": "http://127.0.0.1:57097/candidate/",
+    "focus": "<input id=\"review-client-name\" name=\"client_name\" value=\"Darnell Brooks\" autocomplete=\"off\">",
+    "text": "L\nLEDGERLY\nINVOICE OPS / LOCAL SIMULATION\nPYTHON READY / OFFLINE\n\nPAYMENT AUTOMATION / HUMAN IN CONTROL\n\nMove the work.\nKeep the switch.\n\nPaste a job email. Ledgerly's actual Python rules extract line items, flag uncertainty and prepare an in-memory invoice draft. You choose if the sandbox invoice is sent, whether a webhook is trusted and if an overdue reminder is approved.\n\nNO MODEL CALL\nNO PAYPAL NETWORK\nNO REAL MONEY\nRUNTIME / WASM\nPython, in this tab.\n\nPyodide runs Ledgerly source modules on the page. Close or reset to discard this sandbox ledger.\n\nPython engine loaded\n\nThe sandbox stays in this tab. Close or reset it to discard its ledger.\n\n01 / INTAKE\n\nBring a job email.\n\nTry a fictional fixture or paste your own non-sensitive text. Save intake keeps an explicit local file of your source and unfinished corrections.\n\nFICTIONAL FIXTURE\nUSD / hourly\nTwo currencies\nMissing recipient\nDeposit already paid\nUntrusted email text\nLoad example\nJOB EMAIL / PASTE HERE\nAnalyze with Python rules\nRULE EXTRACTOR / REAL OUTPUT\n75% confidence\nrules\nDarnell Brooks\nRecipient email not found\nCURRENCY\nUSD\nTERMS\nNET 7 DAYS\nLINE ITEM\tQTY\tCCY\tUNIT\nLogo concepts\t3\tUSD\t250\nBrand colour guide\t1\tUSD\t180\nEXTRACTED TOTAL\tUSD 930\nINFO / client_name\nClient name taken from signature.\nERROR / client_email\nNo client email found; PayPal needs a recipient email to send an invoice.\n\nErrors or low extraction confidence block drafting. Open the correction form to check the details yourself.\n\nReview or correct invoice fields\n\nSupply the details you have confirmed. Your corrections are marked as human input; they do not change the original extraction above.\n\nClient name\nRecipient email\nPayment due in days\n0 means due on receipt; maximum 365.\nPrior payment already received\n0 if none. A payment across currencies needs separate allocation.\nLine 1\nWork description\nQuantity\nUnit price\nCurrency\nChoose currency\nAUD\nBRL\nCAD\nCHF\nCNY\nCZK\nDKK\nEUR\nGBP\nHKD\nHUF\nILS\nJPY\nMXN\nMYR\nNOK\nNZD\nPHP\nPLN\nSEK\nSGD\nTHB\nTWD\nUSD\nUnit (optional)\nRemove line\nLine 2\nWork description\nQuantity\nUnit price\nCurrency\nChoose currency\nAUD\nBRL\nCAD\nCHF\nCNY\nCZK\nDKK\nEUR\nGBP\nHKD\nHUF\nILS\nJPY\nMXN\nMYR\nNOK\nNZD\nPHP\nPLN\nSEK\nSGD\nTHB\nTWD\nUSD\nUnit (optional)\nRemove line\nAdd line item\nI checked the recipient, terms, amounts and every original warning against the job details.\nCheck corrected fields with Python\nRestored unfinished fields. Read the current original warnings, confirm your review and check these fields with Python.\nCreate reviewed sandbox draft\nContinue this intake later\n\nSave the source email and unfinished correction fields to a local file. Reopening requires fresh Python checks; the sandbox ledger stays separate.\n\nSave intake\nOpen intake\n\nIntake restored. Read the current Python warnings, confirm the unfinished fields and check them before drafting.\n\n02 / HUMAN GATE\n\nNothing sends itself.\n\nInvoice sends and reminders appear here as pending actions. The Python GatedClient blocks them until you approve.\n\nSEND INVOICE\nINV2-MOCK-0001-4CB3\n\nSend invoice LDG-0001 for USD 1,320 to maya.chen@brightfern.example\n\nReview queued invoice\nInvoice\nLDG-0001\nRecipient\nMaya Chen · maya.chen@brightfern.example\nFrom\nLedgerly Demo · freelancer@example.test\nInvoice date\n2026-10-08\nPayment terms\nNet 15 days\nDue date\n2026-10-23\nPrior payment reported\nUSD 0\nQueued invoice items\nItem\tQuantity\tUnit price\nCopywriting\t12 hr\tUSD 85.00\nSEO keyword audit\t1\tUSD 300.00\nInvoice note\nThank you for your business.\nReason for rejecting (optional)\n0/500 characters. Saved only when you choose Reject.\nApprove in sandbox\nReject\n\n03 / SANDBOX LEDGER\n\nPayment, then follow-up.\n\nSimulate payment webhooks, advance the local demo clock and draft an overdue reminder.\n\nDownload sandbox ledger CSV\n\n1 sandbox invoice. Each row keeps its own currency and balances.\n\nDEMO DATE\nAdvance clock\nScan overdue\nOPTIONAL PARTIAL PAYMENT\nReplay last webhook\nLDG-0001\nMaya Chen\nDRAFT\nUSD 1320\nPAID 0\nBALANCE 1320\nDUE 2026-10-23\nREMINDERS 0\nInvoice details · sandbox record\nSave sandbox invoice record\n\nKeep this invoice’s displayed details in a standalone HTML copy.\n\n3 in-memory PayPal-style calls / 0 external calls\nReset sandbox\n\nCLIENT BALANCES / LOCAL SNAPSHOT\n\nSee what each client owes.\n\nReview positive open balances by billing email and due date. Every currency keeps its own total. This view reads the in-memory sandbox ledger.\n\nCLIENT\nAll clients\nDUE STATE\nAll due states\nOverdue\nDue today\nDue later\nNo due date\nClear balance filters\n\nSnapshot 2026-10-08. Showing 0 of 0 outstanding invoices. All clients; all due states. Not counted: 1 DRAFT.\n\nNo positive open balances in this sandbox ledger.\n\n04 / EVENT TRACE\n\nReplayable decisions.\n\nSummaries from Ledgerly's actual agent audit list; visitor text is not displayed here.\n\nqueued\nsend_invoice\n21:13:18\ntool\n21:13:18\ntool\n21:13:18\n\nGate verified: an unapproved send was blocked. create_invoice -> 1 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-4CB3 is DRAFT\n\nLOCAL SANDBOX ONLY. RulePlanner + RulesExtractor run in Pyodide. PayPal behavior is the repository's in-memory SandboxMock, not a live PayPal integration. Do not paste confidential client data.\n\nPyodide 0.29.3 / MPL-2.0"
+  },
+  "browserExit": {
+    "code": 0,
+    "signal": null
+  },
+  "assertions": 408,
+  "completed_at": "2026-10-08T21:13:19.501Z"
+}

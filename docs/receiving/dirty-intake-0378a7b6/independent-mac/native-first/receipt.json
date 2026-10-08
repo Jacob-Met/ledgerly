@@ -1,0 +1,1443 @@
+{
+  "at": "2026-10-08T21:18:29.998Z",
+  "pins": {
+    "web-demo/src/main.ts": "10d6b168717f655abda291a4e0a35328c92d2c8821fb8e186f870189a2e31785",
+    "web-demo/src/intake-replacement.ts": "75e42d8fdc1860ad723f7cd09a5c09d16fb04a60959814908166720924a53f83",
+    "web-demo/src/intake-replacement.css": "104ae9cc1b32852a65c30455c1d40276906e81662dc03493ad1a7bb51a29df4b"
+  },
+  "sourceBefore": {
+    "approval-preview.css": "db10dd7056dadc710a0d807db3f61bb07cef8d7be6d082f3656c7028a30780c7",
+    "approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+    "intake-file-ui.ts": "f772021b1ba76ead1281a73a33028b5fbb44e170868c08d74b316f91e0853a41",
+    "intake-file.css": "2a27225afee6bcb4789caba53d7ac819149d4b7bb067a2aa58b21a49fdc798fb",
+    "intake-file.ts": "1a55df3b697038840cd54c5a22b8c960f682e6cc8e366680570aa2ee835a60fa",
+    "intake-replacement.css": "104ae9cc1b32852a65c30455c1d40276906e81662dc03493ad1a7bb51a29df4b",
+    "intake-replacement.ts": "75e42d8fdc1860ad723f7cd09a5c09d16fb04a60959814908166720924a53f83",
+    "invoice-details.css": "95a043df8cf1dfe58d8f284ec298cc4fba8a612b712e583140e9abe9317f47ce",
+    "invoice-details.test.ts": "80143a578a670826cb3cda30863f46daf2b625ccd6a63bcb55a24dc46be6e4da",
+    "invoice-details.ts": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+    "invoice-record.ts": "dbe53abd50d8e96f3f0d470ae2ea7b7e3b323d1d69f6b945aba0c73900f4cdb0",
+    "ledger-export.css": "7b07d96c413f8595c93d1da0d9c85fcea6b9e10b7e1d2ce2e51abceae4cc28fa",
+    "ledger-export.test.ts": "b44fa1861678468ca9b79162c7356ee7ef31d8027ec91152ec6f161bbd8da60b",
+    "ledger-export.ts": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc",
+    "main.ts": "10d6b168717f655abda291a4e0a35328c92d2c8821fb8e186f870189a2e31785",
+    "receivables.css": "1d7eb6f8f7653bd7507af057f905de3213f20b5c0c093b4cfc2f2e35871dd606",
+    "receivables.ts": "e40648104202ad83682a4e5d76f4c6332d37e5d50e3c834d15dd40e3aa826e68",
+    "rejection-reason.css": "b981ef166ca7f0fef0d68585f949d6ad84ec33b0d7a4c2789e6ca0bba17835c4",
+    "rejection-reason.ts": "34a2558d877d4f5b641fa972bd46e4a7b7d874ab803495b9520ec899af2187ed",
+    "retryable-loader.ts": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a",
+    "review.css": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895",
+    "review.ts": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+    "style.css": "94146460348e640e58e24c73ac99d9088a201dec8ef9c85d84c42e5e23ce77db",
+    "worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1"
+  },
+  "buildBefore": {
+    "assets/engine.worker-B5Sd8fS4.js": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94",
+    "assets/index-B8G5wi2X.js": "9b6e07a184efa5c23acbf4bb3c534194167658cbfd92865b11a77922d5637107",
+    "assets/index-DbD4nJbv.css": "eb5f810fac708eabbd2cb484eb71afbe6d78b78381f0390ad34473457f97587e",
+    "assets/__vite-browser-external-DKcLY8Mr.js": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c",
+    "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df",
+    "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5",
+    "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "index.html": "8d048a7fd91d554a175a332e9139914eafca62dddd7dabdc6ca0754adc438003",
+    "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+    "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+    "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+    "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+    "python/bridge.py": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81",
+    "python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "python/ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+    "python/ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "python/ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+    "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "cases": [
+    {
+      "name": "source-edit preserves exact changed values and retires checked authority",
+      "pass": true,
+      "fields": {
+        "client_name": "Orchid independent correction",
+        "client_email": "reviewer+kept@orchid.example",
+        "due_days": "21",
+        "amount_paid": "0",
+        "line_items": [
+          {
+            "desc": "Revised <orchid> & retainer",
+            "qty": "1.75",
+            "unit_price": "18.40",
+            "currency": "USD",
+            "unit": "hours"
+          },
+          {
+            "desc": "SEO keyword audit",
+            "qty": "1",
+            "unit_price": "300",
+            "currency": "USD",
+            "unit": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "keyboard cancel restores focus and exact source/corrections",
+      "pass": true
+    },
+    {
+      "name": "keep uses fresh actual Python warnings and unchecked corrected fields",
+      "pass": true,
+      "oldWarnings": "NO FLAGS\nThe rule validator found no issue.",
+      "newWarnings": "ERROR / line_items\nNo priced line items found.\nERROR / currency\nInvoice currency is required."
+    },
+    {
+      "name": "fresh human check admits one draft and preserves separate send approval",
+      "pass": true
+    },
+    {
+      "name": "fixture cancel and actual HTTP failure retain source and fields",
+      "pass": true
+    },
+    {
+      "name": "explicit fixture replacement is busy-bound and retires old form",
+      "pass": true
+    },
+    {
+      "name": "explicit reanalysis replacement uses extracted fields at phone width",
+      "pass": true
+    }
+  ],
+  "requests": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "8d048a7fd91d554a175a332e9139914eafca62dddd7dabdc6ca0754adc438003"
+    },
+    {
+      "path": "/assets/index-B8G5wi2X.js",
+      "status": 200,
+      "sha256": "9b6e07a184efa5c23acbf4bb3c534194167658cbfd92865b11a77922d5637107"
+    },
+    {
+      "path": "/assets/index-DbD4nJbv.css",
+      "status": 200,
+      "sha256": "eb5f810fac708eabbd2cb484eb71afbe6d78b78381f0390ad34473457f97587e"
+    },
+    {
+      "path": "/favicon.svg",
+      "status": 200,
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+    },
+    {
+      "path": "/assets/engine.worker-B5Sd8fS4.js",
+      "status": 200,
+      "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94"
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "status": 200,
+      "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "status": 200,
+      "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.js",
+      "status": 200,
+      "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "status": 200,
+      "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+    },
+    {
+      "path": "/python/ledgerly/__init__.py",
+      "status": 200,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    {
+      "path": "/python/ledgerly/agent.py",
+      "status": 200,
+      "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+    },
+    {
+      "path": "/python/ledgerly/extract.py",
+      "status": 200,
+      "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20"
+    },
+    {
+      "path": "/python/ledgerly/paypal.py",
+      "status": 200,
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3"
+    },
+    {
+      "path": "/python/bridge.py",
+      "status": 200,
+      "sha256": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81"
+    },
+    {
+      "path": "/python/review.py",
+      "status": 200,
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    },
+    {
+      "path": "/python/invoice_details.py",
+      "status": 200,
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6"
+    },
+    {
+      "path": "/fixtures/01_simple_usd_hourly.txt",
+      "status": 200,
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902"
+    },
+    {
+      "path": "/fixtures/04_multi_currency.txt",
+      "status": 503,
+      "independentlyInjected": true
+    },
+    {
+      "path": "/fixtures/04_multi_currency.txt",
+      "status": 200,
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3"
+    }
+  ],
+  "external": [],
+  "errors": [],
+  "observed": {
+    "calls": [
+      {
+        "id": 1,
+        "action": "init",
+        "payload": {}
+      },
+      {
+        "id": 2,
+        "action": "analyze",
+        "payload": {
+          "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n"
+        }
+      },
+      {
+        "id": 3,
+        "action": "review",
+        "payload": {
+          "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n",
+          "fields": {
+            "client_name": "Orchid independent correction",
+            "client_email": "reviewer+kept@orchid.example",
+            "due_days": "21",
+            "amount_paid": "0",
+            "line_items": [
+              {
+                "desc": "Revised <orchid> & retainer",
+                "qty": "1.75",
+                "unit_price": "18.40",
+                "currency": "USD",
+                "unit": "hours"
+              },
+              {
+                "desc": "SEO keyword audit",
+                "qty": "1",
+                "unit_price": "300",
+                "currency": "USD",
+                "unit": ""
+              }
+            ]
+          },
+          "confirmed": true
+        }
+      },
+      {
+        "id": 4,
+        "action": "analyze",
+        "payload": {
+          "text": "From: New Lead <newlead@ash.example>\nSubject: Revised scope\nPlease invoice the revised scope.\nPayment terms Net 9."
+        }
+      },
+      {
+        "id": 5,
+        "action": "review",
+        "payload": {
+          "text": "From: New Lead <newlead@ash.example>\nSubject: Revised scope\nPlease invoice the revised scope.\nPayment terms Net 9.",
+          "fields": {
+            "client_name": "Orchid independent correction",
+            "client_email": "reviewer+kept@orchid.example",
+            "due_days": "21",
+            "amount_paid": "0",
+            "line_items": [
+              {
+                "desc": "Revised <orchid> & retainer",
+                "qty": "1.75",
+                "unit_price": "18.40",
+                "currency": "USD",
+                "unit": "hours"
+              },
+              {
+                "desc": "SEO keyword audit",
+                "qty": "1",
+                "unit_price": "300",
+                "currency": "USD",
+                "unit": ""
+              }
+            ]
+          },
+          "confirmed": true
+        }
+      },
+      {
+        "id": 6,
+        "action": "draft",
+        "payload": {
+          "text": "From: New Lead <newlead@ash.example>\nSubject: Revised scope\nPlease invoice the revised scope.\nPayment terms Net 9.",
+          "review_id": "d735ed98cbc6414193f338e15353624f"
+        }
+      },
+      {
+        "id": 7,
+        "action": "analyze",
+        "payload": {
+          "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+        }
+      },
+      {
+        "id": 8,
+        "action": "analyze",
+        "payload": {
+          "text": "From: Priya Nair <priya@orbitlabs.example>\nTo: jacob@ledgerly.example\nSubject: Two workstreams, two budgets\n\nHi Jacob,\n\nOur US entity and EU entity are paying separately:\n\n- 20 hours of React development at $95/hr\n- 6 hours of localisation QA at €60/hr\n\nNet 30 for both.\n\nThanks,\nPriya\n"
+        }
+      }
+    ],
+    "replies": [
+      {
+        "id": 1,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "ready": true,
+            "engine": "RulesExtractor + RulePlanner + SandboxMock"
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [],
+            "invoice_details": [],
+            "pending": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      },
+      {
+        "id": 2,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "client_name": "Maya Chen",
+            "client_email": "maya.chen@brightfern.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "Copywriting",
+                "qty": "12",
+                "unit_price": "85",
+                "currency": "USD",
+                "unit": "hours"
+              },
+              {
+                "desc": "SEO keyword audit",
+                "qty": "1",
+                "unit_price": "300",
+                "currency": "USD",
+                "unit": null
+              }
+            ],
+            "due_days": 15,
+            "amount_paid": "0",
+            "total": "1320",
+            "confidence": 1,
+            "issues": [],
+            "source": "rules",
+            "review_currencies": [
+              "AUD",
+              "BRL",
+              "CAD",
+              "CHF",
+              "CNY",
+              "CZK",
+              "DKK",
+              "EUR",
+              "GBP",
+              "HKD",
+              "HUF",
+              "ILS",
+              "JPY",
+              "MXN",
+              "MYR",
+              "NOK",
+              "NZD",
+              "PHP",
+              "PLN",
+              "SEK",
+              "SGD",
+              "THB",
+              "TWD",
+              "USD"
+            ],
+            "totals_by_currency": [
+              {
+                "currency": "USD",
+                "total": "1320"
+              }
+            ]
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [],
+            "invoice_details": [],
+            "pending": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      },
+      {
+        "id": 3,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "client_name": "Orchid independent correction",
+            "client_email": "reviewer+kept@orchid.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "Revised <orchid> & retainer",
+                "qty": "1.75",
+                "unit_price": "18.40",
+                "currency": "USD",
+                "unit": "hours"
+              },
+              {
+                "desc": "SEO keyword audit",
+                "qty": "1",
+                "unit_price": "300",
+                "currency": "USD",
+                "unit": null
+              }
+            ],
+            "due_days": 21,
+            "amount_paid": "0",
+            "total": "332.2000",
+            "confidence": 1,
+            "issues": [],
+            "source": "human_review",
+            "valid": true,
+            "review_id": "e1a8452431ea4577a68e4028eb126dc4",
+            "original_issues": [],
+            "totals_by_currency": [
+              {
+                "currency": "USD",
+                "total": "332.2000"
+              }
+            ],
+            "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [],
+            "invoice_details": [],
+            "pending": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      },
+      {
+        "id": 4,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "client_name": "New Lead",
+            "client_email": "newlead@ash.example",
+            "currency": null,
+            "line_items": [],
+            "due_days": 9,
+            "amount_paid": "0",
+            "total": "0",
+            "confidence": 0.5,
+            "issues": [
+              {
+                "field": "line_items",
+                "severity": "error",
+                "message": "No priced line items found."
+              },
+              {
+                "field": "currency",
+                "severity": "error",
+                "message": "Invoice currency is required."
+              }
+            ],
+            "source": "rules",
+            "review_currencies": [
+              "AUD",
+              "BRL",
+              "CAD",
+              "CHF",
+              "CNY",
+              "CZK",
+              "DKK",
+              "EUR",
+              "GBP",
+              "HKD",
+              "HUF",
+              "ILS",
+              "JPY",
+              "MXN",
+              "MYR",
+              "NOK",
+              "NZD",
+              "PHP",
+              "PLN",
+              "SEK",
+              "SGD",
+              "THB",
+              "TWD",
+              "USD"
+            ],
+            "totals_by_currency": [
+              {
+                "currency": "Unknown currency",
+                "total": "0"
+              }
+            ]
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [],
+            "invoice_details": [],
+            "pending": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      },
+      {
+        "id": 5,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "client_name": "Orchid independent correction",
+            "client_email": "reviewer+kept@orchid.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "Revised <orchid> & retainer",
+                "qty": "1.75",
+                "unit_price": "18.40",
+                "currency": "USD",
+                "unit": "hours"
+              },
+              {
+                "desc": "SEO keyword audit",
+                "qty": "1",
+                "unit_price": "300",
+                "currency": "USD",
+                "unit": null
+              }
+            ],
+            "due_days": 21,
+            "amount_paid": "0",
+            "total": "332.2000",
+            "confidence": 1,
+            "issues": [],
+            "source": "human_review",
+            "valid": true,
+            "review_id": "d735ed98cbc6414193f338e15353624f",
+            "original_issues": [
+              {
+                "field": "line_items",
+                "severity": "error",
+                "message": "No priced line items found."
+              },
+              {
+                "field": "currency",
+                "severity": "error",
+                "message": "Invoice currency is required."
+              }
+            ],
+            "totals_by_currency": [
+              {
+                "currency": "USD",
+                "total": "332.2000"
+              }
+            ],
+            "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [],
+            "invoice_details": [],
+            "pending": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      },
+      {
+        "id": 6,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "final": "create_invoice -> 1 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-ED7C is DRAFT",
+            "pending": [
+              {
+                "id": "apv_6ec90e1e5a",
+                "kind": "send_invoice",
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "summary": "Send invoice LDG-0001 for USD 332.2000 to reviewer+kept@orchid.example",
+                "payload": {
+                  "invoice": {
+                    "detail": {
+                      "invoice_number": "LDG-0001",
+                      "invoice_date": "2026-10-08",
+                      "currency_code": "USD",
+                      "note": "Thank you for your business.",
+                      "payment_term": {
+                        "term_type": "DUE_ON_DATE_SPECIFIED",
+                        "due_date": "2026-10-29"
+                      }
+                    },
+                    "invoicer": {
+                      "name": {
+                        "given_name": "Ledgerly",
+                        "surname": "Demo"
+                      },
+                      "email_address": "freelancer@example.test"
+                    },
+                    "primary_recipients": [
+                      {
+                        "billing_info": {
+                          "name": {
+                            "given_name": "Orchid independent",
+                            "surname": "correction"
+                          },
+                          "email_address": "reviewer+kept@orchid.example"
+                        }
+                      }
+                    ],
+                    "items": [
+                      {
+                        "name": "Revised <orchid> & retainer",
+                        "quantity": "1.75",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "18.40"
+                        },
+                        "unit_of_measure": "HOURS"
+                      },
+                      {
+                        "name": "SEO keyword audit",
+                        "quantity": "1",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "300.00"
+                        },
+                        "unit_of_measure": "QUANTITY"
+                      }
+                    ],
+                    "configuration": {
+                      "partial_payment": {
+                        "allow_partial_payment": false
+                      },
+                      "allow_tip": false,
+                      "tax_calculated_after_discount": true,
+                      "tax_inclusive": false
+                    }
+                  },
+                  "prepaid": "0"
+                },
+                "status": "PENDING",
+                "result": null,
+                "created_at": "2026-10-08T21:18:33.176999+00:00"
+              }
+            ],
+            "unauthorized_send_blocked": true,
+            "reviewed": true
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [
+              {
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "invoice_number": "LDG-0001",
+                "client_name": "Orchid independent correction",
+                "client_email": "reviewer+kept@orchid.example",
+                "currency": "USD",
+                "total": "332.2",
+                "paid_amount": "0",
+                "balance": "332.2",
+                "status": "DRAFT",
+                "sent_on": null,
+                "due_on": "2026-10-29",
+                "reminders_sent": 0
+              }
+            ],
+            "invoice_details": [
+              {
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "record": {
+                  "id": "INV2-MOCK-0001-ED7C",
+                  "status": "DRAFT",
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "DUE_ON_DATE_SPECIFIED",
+                      "due_date": "2026-10-29"
+                    },
+                    "metadata": {
+                      "create_time": "2026-10-08T00:00:00Z",
+                      "recipient_view_url": null,
+                      "invoicer_view_url": null
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Orchid independent",
+                          "surname": "correction"
+                        },
+                        "email_address": "reviewer+kept@orchid.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Revised <orchid> & retainer",
+                      "quantity": "1.75",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "18.40"
+                      },
+                      "unit_of_measure": "HOURS"
+                    },
+                    {
+                      "name": "SEO keyword audit",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "300.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "amount": {
+                    "currency_code": "USD",
+                    "value": "332.20",
+                    "breakdown": {
+                      "item_total": {
+                        "currency_code": "USD",
+                        "value": "332.20"
+                      }
+                    }
+                  },
+                  "due_amount": {
+                    "currency_code": "USD",
+                    "value": "332.20"
+                  },
+                  "payments": {
+                    "transactions": [],
+                    "paid_amount": {
+                      "currency_code": "USD",
+                      "value": "0.00"
+                    }
+                  }
+                }
+              }
+            ],
+            "pending": [
+              {
+                "id": "apv_6ec90e1e5a",
+                "kind": "send_invoice",
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "summary": "Send invoice LDG-0001 for USD 332.2000 to reviewer+kept@orchid.example",
+                "payload": {
+                  "invoice": {
+                    "detail": {
+                      "invoice_number": "LDG-0001",
+                      "invoice_date": "2026-10-08",
+                      "currency_code": "USD",
+                      "note": "Thank you for your business.",
+                      "payment_term": {
+                        "term_type": "DUE_ON_DATE_SPECIFIED",
+                        "due_date": "2026-10-29"
+                      }
+                    },
+                    "invoicer": {
+                      "name": {
+                        "given_name": "Ledgerly",
+                        "surname": "Demo"
+                      },
+                      "email_address": "freelancer@example.test"
+                    },
+                    "primary_recipients": [
+                      {
+                        "billing_info": {
+                          "name": {
+                            "given_name": "Orchid independent",
+                            "surname": "correction"
+                          },
+                          "email_address": "reviewer+kept@orchid.example"
+                        }
+                      }
+                    ],
+                    "items": [
+                      {
+                        "name": "Revised <orchid> & retainer",
+                        "quantity": "1.75",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "18.40"
+                        },
+                        "unit_of_measure": "HOURS"
+                      },
+                      {
+                        "name": "SEO keyword audit",
+                        "quantity": "1",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "300.00"
+                        },
+                        "unit_of_measure": "QUANTITY"
+                      }
+                    ],
+                    "configuration": {
+                      "partial_payment": {
+                        "allow_partial_payment": false
+                      },
+                      "allow_tip": false,
+                      "tax_calculated_after_discount": true,
+                      "tax_inclusive": false
+                    }
+                  },
+                  "prepaid": "0"
+                },
+                "status": "PENDING",
+                "result": null,
+                "created_at": "2026-10-08T21:18:33.176999+00:00"
+              }
+            ],
+            "audit": [
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "queued",
+                "action": "apv_6ec90e1e5a",
+                "kind": "send_invoice",
+                "invoice": "INV2-MOCK-0001-ED7C"
+              },
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "tool",
+                "ok": true
+              },
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "tool",
+                "ok": true
+              }
+            ],
+            "mock_requests": 3,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      },
+      {
+        "id": 7,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "client_name": "Priya Nair",
+            "client_email": "priya@orbitlabs.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "React development",
+                "qty": "20",
+                "unit_price": "95",
+                "currency": "USD",
+                "unit": "hours"
+              },
+              {
+                "desc": "Localisation QA",
+                "qty": "6",
+                "unit_price": "60",
+                "currency": "EUR",
+                "unit": "hours"
+              }
+            ],
+            "due_days": 30,
+            "amount_paid": "0",
+            "total": "2260",
+            "confidence": 0.9,
+            "issues": [
+              {
+                "field": "currency",
+                "severity": "warning",
+                "message": "Multiple currencies ['EUR', 'USD']; a PayPal invoice has one currency_code, so this will be split into 2 invoices."
+              }
+            ],
+            "source": "rules",
+            "review_currencies": [
+              "AUD",
+              "BRL",
+              "CAD",
+              "CHF",
+              "CNY",
+              "CZK",
+              "DKK",
+              "EUR",
+              "GBP",
+              "HKD",
+              "HUF",
+              "ILS",
+              "JPY",
+              "MXN",
+              "MYR",
+              "NOK",
+              "NZD",
+              "PHP",
+              "PLN",
+              "SEK",
+              "SGD",
+              "THB",
+              "TWD",
+              "USD"
+            ],
+            "totals_by_currency": [
+              {
+                "currency": "EUR",
+                "total": "360"
+              },
+              {
+                "currency": "USD",
+                "total": "1900"
+              }
+            ]
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [
+              {
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "invoice_number": "LDG-0001",
+                "client_name": "Orchid independent correction",
+                "client_email": "reviewer+kept@orchid.example",
+                "currency": "USD",
+                "total": "332.2",
+                "paid_amount": "0",
+                "balance": "332.2",
+                "status": "DRAFT",
+                "sent_on": null,
+                "due_on": "2026-10-29",
+                "reminders_sent": 0
+              }
+            ],
+            "invoice_details": [
+              {
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "record": {
+                  "id": "INV2-MOCK-0001-ED7C",
+                  "status": "DRAFT",
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "DUE_ON_DATE_SPECIFIED",
+                      "due_date": "2026-10-29"
+                    },
+                    "metadata": {
+                      "create_time": "2026-10-08T00:00:00Z",
+                      "recipient_view_url": null,
+                      "invoicer_view_url": null
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Orchid independent",
+                          "surname": "correction"
+                        },
+                        "email_address": "reviewer+kept@orchid.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Revised <orchid> & retainer",
+                      "quantity": "1.75",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "18.40"
+                      },
+                      "unit_of_measure": "HOURS"
+                    },
+                    {
+                      "name": "SEO keyword audit",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "300.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "amount": {
+                    "currency_code": "USD",
+                    "value": "332.20",
+                    "breakdown": {
+                      "item_total": {
+                        "currency_code": "USD",
+                        "value": "332.20"
+                      }
+                    }
+                  },
+                  "due_amount": {
+                    "currency_code": "USD",
+                    "value": "332.20"
+                  },
+                  "payments": {
+                    "transactions": [],
+                    "paid_amount": {
+                      "currency_code": "USD",
+                      "value": "0.00"
+                    }
+                  }
+                }
+              }
+            ],
+            "pending": [
+              {
+                "id": "apv_6ec90e1e5a",
+                "kind": "send_invoice",
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "summary": "Send invoice LDG-0001 for USD 332.2000 to reviewer+kept@orchid.example",
+                "payload": {
+                  "invoice": {
+                    "detail": {
+                      "invoice_number": "LDG-0001",
+                      "invoice_date": "2026-10-08",
+                      "currency_code": "USD",
+                      "note": "Thank you for your business.",
+                      "payment_term": {
+                        "term_type": "DUE_ON_DATE_SPECIFIED",
+                        "due_date": "2026-10-29"
+                      }
+                    },
+                    "invoicer": {
+                      "name": {
+                        "given_name": "Ledgerly",
+                        "surname": "Demo"
+                      },
+                      "email_address": "freelancer@example.test"
+                    },
+                    "primary_recipients": [
+                      {
+                        "billing_info": {
+                          "name": {
+                            "given_name": "Orchid independent",
+                            "surname": "correction"
+                          },
+                          "email_address": "reviewer+kept@orchid.example"
+                        }
+                      }
+                    ],
+                    "items": [
+                      {
+                        "name": "Revised <orchid> & retainer",
+                        "quantity": "1.75",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "18.40"
+                        },
+                        "unit_of_measure": "HOURS"
+                      },
+                      {
+                        "name": "SEO keyword audit",
+                        "quantity": "1",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "300.00"
+                        },
+                        "unit_of_measure": "QUANTITY"
+                      }
+                    ],
+                    "configuration": {
+                      "partial_payment": {
+                        "allow_partial_payment": false
+                      },
+                      "allow_tip": false,
+                      "tax_calculated_after_discount": true,
+                      "tax_inclusive": false
+                    }
+                  },
+                  "prepaid": "0"
+                },
+                "status": "PENDING",
+                "result": null,
+                "created_at": "2026-10-08T21:18:33.176999+00:00"
+              }
+            ],
+            "audit": [
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "queued",
+                "action": "apv_6ec90e1e5a",
+                "kind": "send_invoice",
+                "invoice": "INV2-MOCK-0001-ED7C"
+              },
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "tool",
+                "ok": true
+              },
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "tool",
+                "ok": true
+              }
+            ],
+            "mock_requests": 3,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      },
+      {
+        "id": 8,
+        "ok": true,
+        "data": {
+          "ok": true,
+          "result": {
+            "client_name": "Priya Nair",
+            "client_email": "priya@orbitlabs.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "React development",
+                "qty": "20",
+                "unit_price": "95",
+                "currency": "USD",
+                "unit": "hours"
+              },
+              {
+                "desc": "Localisation QA",
+                "qty": "6",
+                "unit_price": "60",
+                "currency": "EUR",
+                "unit": "hours"
+              }
+            ],
+            "due_days": 30,
+            "amount_paid": "0",
+            "total": "2260",
+            "confidence": 0.9,
+            "issues": [
+              {
+                "field": "currency",
+                "severity": "warning",
+                "message": "Multiple currencies ['EUR', 'USD']; a PayPal invoice has one currency_code, so this will be split into 2 invoices."
+              }
+            ],
+            "source": "rules",
+            "review_currencies": [
+              "AUD",
+              "BRL",
+              "CAD",
+              "CHF",
+              "CNY",
+              "CZK",
+              "DKK",
+              "EUR",
+              "GBP",
+              "HKD",
+              "HUF",
+              "ILS",
+              "JPY",
+              "MXN",
+              "MYR",
+              "NOK",
+              "NZD",
+              "PHP",
+              "PLN",
+              "SEK",
+              "SGD",
+              "THB",
+              "TWD",
+              "USD"
+            ],
+            "totals_by_currency": [
+              {
+                "currency": "EUR",
+                "total": "360"
+              },
+              {
+                "currency": "USD",
+                "total": "1900"
+              }
+            ]
+          },
+          "state": {
+            "today": "2026-10-08",
+            "ledger": [
+              {
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "invoice_number": "LDG-0001",
+                "client_name": "Orchid independent correction",
+                "client_email": "reviewer+kept@orchid.example",
+                "currency": "USD",
+                "total": "332.2",
+                "paid_amount": "0",
+                "balance": "332.2",
+                "status": "DRAFT",
+                "sent_on": null,
+                "due_on": "2026-10-29",
+                "reminders_sent": 0
+              }
+            ],
+            "invoice_details": [
+              {
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "record": {
+                  "id": "INV2-MOCK-0001-ED7C",
+                  "status": "DRAFT",
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "DUE_ON_DATE_SPECIFIED",
+                      "due_date": "2026-10-29"
+                    },
+                    "metadata": {
+                      "create_time": "2026-10-08T00:00:00Z",
+                      "recipient_view_url": null,
+                      "invoicer_view_url": null
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Orchid independent",
+                          "surname": "correction"
+                        },
+                        "email_address": "reviewer+kept@orchid.example"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Revised <orchid> & retainer",
+                      "quantity": "1.75",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "18.40"
+                      },
+                      "unit_of_measure": "HOURS"
+                    },
+                    {
+                      "name": "SEO keyword audit",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "300.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "amount": {
+                    "currency_code": "USD",
+                    "value": "332.20",
+                    "breakdown": {
+                      "item_total": {
+                        "currency_code": "USD",
+                        "value": "332.20"
+                      }
+                    }
+                  },
+                  "due_amount": {
+                    "currency_code": "USD",
+                    "value": "332.20"
+                  },
+                  "payments": {
+                    "transactions": [],
+                    "paid_amount": {
+                      "currency_code": "USD",
+                      "value": "0.00"
+                    }
+                  }
+                }
+              }
+            ],
+            "pending": [
+              {
+                "id": "apv_6ec90e1e5a",
+                "kind": "send_invoice",
+                "invoice_id": "INV2-MOCK-0001-ED7C",
+                "summary": "Send invoice LDG-0001 for USD 332.2000 to reviewer+kept@orchid.example",
+                "payload": {
+                  "invoice": {
+                    "detail": {
+                      "invoice_number": "LDG-0001",
+                      "invoice_date": "2026-10-08",
+                      "currency_code": "USD",
+                      "note": "Thank you for your business.",
+                      "payment_term": {
+                        "term_type": "DUE_ON_DATE_SPECIFIED",
+                        "due_date": "2026-10-29"
+                      }
+                    },
+                    "invoicer": {
+                      "name": {
+                        "given_name": "Ledgerly",
+                        "surname": "Demo"
+                      },
+                      "email_address": "freelancer@example.test"
+                    },
+                    "primary_recipients": [
+                      {
+                        "billing_info": {
+                          "name": {
+                            "given_name": "Orchid independent",
+                            "surname": "correction"
+                          },
+                          "email_address": "reviewer+kept@orchid.example"
+                        }
+                      }
+                    ],
+                    "items": [
+                      {
+                        "name": "Revised <orchid> & retainer",
+                        "quantity": "1.75",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "18.40"
+                        },
+                        "unit_of_measure": "HOURS"
+                      },
+                      {
+                        "name": "SEO keyword audit",
+                        "quantity": "1",
+                        "unit_amount": {
+                          "currency_code": "USD",
+                          "value": "300.00"
+                        },
+                        "unit_of_measure": "QUANTITY"
+                      }
+                    ],
+                    "configuration": {
+                      "partial_payment": {
+                        "allow_partial_payment": false
+                      },
+                      "allow_tip": false,
+                      "tax_calculated_after_discount": true,
+                      "tax_inclusive": false
+                    }
+                  },
+                  "prepaid": "0"
+                },
+                "status": "PENDING",
+                "result": null,
+                "created_at": "2026-10-08T21:18:33.176999+00:00"
+              }
+            ],
+            "audit": [
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "queued",
+                "action": "apv_6ec90e1e5a",
+                "kind": "send_invoice",
+                "invoice": "INV2-MOCK-0001-ED7C"
+              },
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "tool",
+                "ok": true
+              },
+              {
+                "at": "2026-10-08T21:18:33.176999+00:00",
+                "event": "tool",
+                "ok": true
+              }
+            ],
+            "mock_requests": 3,
+            "external_calls": 0,
+            "can_replay": false
+          }
+        }
+      }
+    ]
+  },
+  "browser": "154.0.8037.98",
+  "sourceAndBuildPreserved": true,
+  "pass": true
+}

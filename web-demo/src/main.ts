@@ -1,6 +1,8 @@
 import './style.css';
 import './review.css';
 import './intake-file.css';
+import './intake-replacement.css';
+import {createIntakeReplacementReview, hasIntakeCorrections} from './intake-replacement';
 import {createIntakeFileControls} from './intake-file-ui';
 import type {IntakeFile} from './intake-file';
 import './ledger-export.css';
@@ -14,7 +16,8 @@ import {createReceivablesView} from './receivables';
 import {approvalListMarkup} from './approval-preview';
 import './rejection-reason.css';
 import {createRejectionReasons} from './rejection-reason';
-import {readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
+import {fieldsFromExtraction, readReviewFields, reviewLinesMarkup, reviewMarkup, reviewResultMarkup} from './review';
+import type {ReviewFields} from './review';
 import {WorkerClient, WorkerUnavailableError} from './worker-client';
 const $=<T extends HTMLElement>(selector:string)=>document.querySelector(selector) as T;
 const ledgerExport=createLedgerExport($<HTMLButtonElement>('#ledger-export'),$<HTMLElement>('#ledger-export-note'));
@@ -29,6 +32,8 @@ const worker=new WorkerClient(()=>new Worker(new URL('./engine.worker.ts',import
 });
 let ready=false,busy=false,analysisResult:any=null,needsFreshSandbox=false,reviewNeedsAnalysis=false;
 let reviewId:string|null=null,reviewEngaged=false,canReplay=false,rawDraftUsed=false;
+let analysisSource:string|null=null,sourceNeedsAnalysis=false;
+const intakeReplacement=createIntakeReplacementReview(document.body);
 const intakeFiles=createIntakeFileControls($<HTMLElement>('.intake'),{
  snapshot:()=>({sourceText:$<HTMLTextAreaElement>('#job-email').value,
   fields:$<HTMLFormElement>('#review-form')?readReviewFields($<HTMLFormElement>('#review-form')):null}),
@@ -66,6 +71,7 @@ function status(text:string,kind='info'){$<HTMLElement>('#status-message').textC
 function call(action:string,payload:Record<string,unknown>={}){return worker.call(action,payload);}
 function recoveryMessage(error:WorkerUnavailableError){return `${error.message} The in-memory sandbox is unavailable. Restart opens an empty sandbox. Your source email and correction fields stay here; no action will be replayed.`;}
 function engineUnavailable(error:WorkerUnavailableError){
+ intakeReplacement.cancel();
  intakeFiles.currentChanged('The Python session ended. Open the file again after reviewing your retained input.');
  const form=$<HTMLFormElement>('#review-form');
  needsFreshSandbox=true;reviewNeedsAnalysis=Boolean(form);reviewId=null;canReplay=false;rawDraftUsed=false;
@@ -97,13 +103,15 @@ function syncControls(){
  for(const el of Array.from(document.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLButtonElement>('#review-form input,#review-form select,#review-form button,#approval-list button,#ledger-list button')))el.disabled=!enabled;
  invoiceRecords.setAvailability(ready,busy);
  const checked=$<HTMLInputElement>('#review-confirm');
- const check=$<HTMLButtonElement>('#review-check');if(check)check.disabled=!enabled||!checked?.checked;
+ const check=$<HTMLButtonElement>('#review-check');if(check)check.disabled=!enabled||sourceNeedsAnalysis||!checked?.checked;
  const draft=$<HTMLButtonElement>('#draft');draft.disabled=!enabled||(reviewEngaged?!reviewId:rawDraftUsed||analysisBlocked(analysisResult));
  draft.textContent=reviewEngaged?'Create reviewed sandbox draft':'Create sandbox draft';
  $<HTMLButtonElement>('#replay-webhook').disabled=!enabled||!canReplay;
 }
 function setControls(enabled:boolean){ready=enabled;syncControls();}
 function invalidateAnalysis(message:string){
+ intakeReplacement.cancel();
+ analysisSource=null;sourceNeedsAnalysis=false;
  intakeFiles.currentChanged();
  analysisResult=null;reviewId=null;reviewEngaged=false;rawDraftUsed=false;reviewNeedsAnalysis=false;
  $<HTMLElement>('#analysis').innerHTML=`<p class="empty">${esc(message)}</p>`;syncControls();
@@ -116,6 +124,8 @@ function markReviewDirty(message='Fields changed. Confirm your review and check 
  syncControls();
 }
 function renderAnalysis(ex:any){
+ intakeReplacement.cancel();
+ analysisSource=$<HTMLTextAreaElement>('#job-email').value;sourceNeedsAnalysis=false;reviewNeedsAnalysis=false;
  intakeFiles.currentChanged();
  reviewId=null;reviewEngaged=false;rawDraftUsed=false;
  analysisResult=ex;const panel=$<HTMLElement>('#analysis'),items=ex.line_items||[],issues=ex.issues||[];
@@ -168,16 +178,77 @@ $('#engine-start').addEventListener('click',async()=>{
   if(!needsFreshSandbox)$<HTMLElement>('#engine-note').textContent='Loading did not finish. Retry loading the engine when the runtime files are available. Your source email is preserved.';
  }
 });
+function correctedIntake():ReviewFields|null{
+ const form=$<HTMLFormElement>('#review-form');
+ if(!form||!analysisResult)return null;
+ const fields=readReviewFields(form);
+ return hasIntakeCorrections(fields,fieldsFromExtraction(analysisResult))?fields:null;
+}
+function sourceEdited(){
+ if(!$<HTMLFormElement>('#review-form')||!correctedIntake()){
+  invalidateAnalysis('Source text changed. Analyze it again before reviewing or drafting.');return;
+ }
+ intakeFiles.currentChanged();reviewId=null;rawDraftUsed=false;reviewEngaged=true;
+ sourceNeedsAnalysis=$<HTMLTextAreaElement>('#job-email').value!==analysisSource;
+ $<HTMLInputElement>('#review-confirm').checked=false;
+ const old=$<HTMLElement>('#intake-source-notice');old?.remove();
+ if(sourceNeedsAnalysis){
+  const notice=document.createElement('p');notice.id='intake-source-notice';notice.setAttribute('role','status');
+  notice.textContent='Earlier analysis: the source text has changed. Your corrected fields are retained below. Analyze this source to refresh the original warnings before checking the fields.';
+  $<HTMLElement>('#analysis').prepend(notice);
+ }
+ $<HTMLElement>('#review-result').textContent=sourceNeedsAnalysis?'Corrections retained. Analyze the changed source before confirming and checking these fields.':'Original source restored. Confirm and check your retained corrections again.';
+ syncControls();
+}
+function restoreCorrectedIntake(fields:ReviewFields){
+ const form=$<HTMLFormElement>('#review-form');
+ for(const name of ['client_name','client_email','due_days','amount_paid'] as const)
+  (form.elements.namedItem(name) as HTMLInputElement).value=fields[name];
+ $<HTMLElement>('#review-lines').innerHTML=reviewLinesMarkup(fields.line_items,analysisResult.review_currencies||[]);
+ markReviewDirty('Your corrections were retained. Read the refreshed original warnings above, then confirm and check every field again.');
+ $<HTMLDetailsElement>('#review-editor').open=true;
+ $<HTMLInputElement>('#review-client-name').focus();
+}
 $('#load-fixture').addEventListener('click',async()=>{
- if(!ready||busy)return;busy=true;syncControls();
- try{const name=$<HTMLSelectElement>('#fixture-select').value;const r=await fetch(new URL(`fixtures/${name}`,new URL('./',window.location.href)));if(!r.ok)throw new Error(`Fixture HTTP ${r.status}`);$<HTMLTextAreaElement>('#job-email').value=await r.text();invalidateAnalysis('Fictional input loaded. Analyze it to review and correct its fields.');status('Fictional input loaded. Analyze it with the real Python rules.','ready');}
- catch(error){status(String(error),'error');}finally{busy=false;syncControls();}
+ if(!ready||busy)return;
+ const name=$<HTMLSelectElement>('#fixture-select').value;
+ if(correctedIntake()&&await intakeReplacement.request('fixture')!=='replace')return;
+ if(!ready||busy)return;
+ busy=true;syncControls();
+ try{
+  const r=await fetch(new URL('fixtures/'+name,new URL('./',window.location.href)));
+  if(!r.ok)throw new Error('Fixture HTTP '+r.status);
+  const text=await r.text();
+  $<HTMLTextAreaElement>('#job-email').value=text;
+  invalidateAnalysis('Fictional input loaded. Analyze it to review and correct its fields.');
+  status('Fictional input loaded. Analyze it with the real Python rules.','ready');
+ }catch(error){status(String(error),'error');}finally{busy=false;syncControls();}
 });
-$('#job-email').addEventListener('input',()=>invalidateAnalysis('Source text changed. Analyze it again before reviewing or drafting.'));
+$('#job-email').addEventListener('input',sourceEdited);
 $('#analyze').addEventListener('click',async()=>{
- const text=$<HTMLTextAreaElement>('#job-email').value;if(!text.trim()){status('Paste or load a job email first.','error');return;}
- invalidateAnalysis('Running the Python rules on this source...');status('Running RulesExtractor in Python...','loading');
- const reply=await runAction('analyze',{text});if(reply?.ok){renderAnalysis(reply.result);const bad=analysisBlocked(reply.result);status(bad?'Open Review or correct invoice fields to resolve the blocking issue.':'Review extracted fields, then create the in-memory draft.','ready');}
+ if(!ready||busy)return;
+ const text=$<HTMLTextAreaElement>('#job-email').value;
+ if(!text.trim()){status('Paste or load a job email first.','error');return;}
+ const corrections=correctedIntake();
+ const choice=corrections?await intakeReplacement.request('analyze'):'replace';
+ if(choice==='cancel'||!ready||busy||$<HTMLTextAreaElement>('#job-email').value!==text)return;
+ const previousForm=$<HTMLFormElement>('#review-form');
+ if(previousForm){
+  reviewId=null;reviewEngaged=true;sourceNeedsAnalysis=true;
+  $<HTMLInputElement>('#review-confirm').checked=false;
+  $<HTMLElement>('#review-result').textContent='Checking the source. The current fields remain until analysis succeeds.';
+ }else invalidateAnalysis('Running the Python rules on this source...');
+ status('Running RulesExtractor in Python...','loading');
+ const reply=await runAction('analyze',{text});
+ if(reply?.ok){
+  renderAnalysis(reply.result);
+  if(choice==='keep'&&corrections)restoreCorrectedIntake(corrections);
+  const bad=analysisBlocked(reply.result);
+  status(choice==='keep'?'Source analyzed. Read the refreshed warnings, then confirm and check the retained corrections.':bad?'Open Review or correct invoice fields to resolve the blocking issue.':'Review extracted fields, then create the in-memory draft.','ready');
+ }else if(previousForm?.isConnected){
+  $<HTMLElement>('#review-result').textContent='Analysis did not complete. Your fields remain; analyze the source again before checking them.';
+ }
+ syncControls();
 });
 $('#analysis').addEventListener('input',(event)=>{
  const target=event.target as HTMLInputElement;
@@ -197,7 +268,7 @@ $('#analysis').addEventListener('click',(event)=>{
 });
 $('#analysis').addEventListener('submit',async(event)=>{
  const form=event.target as HTMLFormElement;if(form.id!=='review-form')return;event.preventDefault();
- if(busy||!$<HTMLInputElement>('#review-confirm').checked)return;
+ if(busy||sourceNeedsAnalysis||!$<HTMLInputElement>('#review-confirm').checked)return;
  reviewEngaged=true;reviewId=null;syncControls();
  const result=$<HTMLElement>('#review-result'),text=$<HTMLTextAreaElement>('#job-email').value,fields=readReviewFields(form);
  result.textContent='Checking the corrected fields with Python...';

@@ -1,0 +1,3941 @@
+{
+  "calls": [
+    {
+      "id": 1,
+      "action": "init",
+      "payload": {}
+    },
+    {
+      "id": 2,
+      "action": "analyze",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n"
+      }
+    },
+    {
+      "id": 3,
+      "action": "review",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "fields": {
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "due_days": "later",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "",
+              "unit_price": "1,200.00",
+              "currency": "USD",
+              "unit": ""
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 4,
+      "action": "review",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "fields": {
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "due_days": "15",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "2",
+              "unit_price": "125.00",
+              "currency": "USD",
+              "unit": ""
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 5,
+      "action": "draft",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "review_id": "22a0bbecf01f4b05a1705a07ab5ca1f9"
+      }
+    },
+    {
+      "id": 6,
+      "action": "analyze",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n"
+      }
+    },
+    {
+      "id": 7,
+      "action": "review",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "fields": {
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "due_days": "15",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "2",
+              "unit_price": "125.00",
+              "currency": "USD",
+              "unit": ""
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 8,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_c46de6a394"
+      }
+    },
+    {
+      "id": 9,
+      "action": "analyze",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n"
+      }
+    },
+    {
+      "id": 10,
+      "action": "review",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n",
+        "fields": {
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "due_days": "15",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "2",
+              "unit_price": "125.00",
+              "currency": "USD",
+              "unit": ""
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 11,
+      "action": "analyze",
+      "payload": {
+        "text": "Subject: Logo work (forwarded from WhatsApp)\n\nhey! confirming the logo stuff we talked about on the phone:\n\n3 x Logo concepts @ $250 each\n1 x Brand colour guide @ $180\n\npay you within 7 days of getting the invoice\n\nThanks,\nDarnell Brooks\n"
+      }
+    }
+  ],
+  "replies": [
+    {
+      "id": 1,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "ready": true,
+          "engine": "RulesExtractor + RulePlanner + SandboxMock"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Darnell Brooks",
+          "client_email": null,
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 7,
+          "amount_paid": "0",
+          "total": "930",
+          "confidence": 0.75,
+          "issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "930"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "ok": true,
+      "data": {
+        "ok": false,
+        "error": "ValueError",
+        "message": "Line item 1 quantity needs a plain decimal number, such as 2 or 12.50.",
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "2",
+              "unit_price": "125.00",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 15,
+          "amount_paid": "0",
+          "total": "430.00",
+          "confidence": 1,
+          "issues": [],
+          "source": "human_review",
+          "valid": true,
+          "review_id": "22a0bbecf01f4b05a1705a07ab5ca1f9",
+          "original_issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "430.00"
+            }
+          ],
+          "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "final": "create_invoice -> 1 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-971F is DRAFT",
+          "pending": [
+            {
+              "id": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "summary": "Send invoice LDG-0001 for USD 430.00 to billing@example.test",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_15",
+                      "due_date": "2026-10-23"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                          "surname": "雨"
+                        },
+                        "email_address": "billing@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Logo concepts",
+                      "quantity": "2",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "125.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    },
+                    {
+                      "name": "Brand colour guide",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "180.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T21:21:51.993999+00:00"
+            }
+          ],
+          "unauthorized_send_blocked": true,
+          "reviewed": true
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "invoice_number": "LDG-0001",
+              "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+              "client_email": "billing@example.test",
+              "currency": "USD",
+              "total": "430",
+              "paid_amount": "0",
+              "balance": "430",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-10-23",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "record": {
+                "id": "INV2-MOCK-0001-971F",
+                "status": "DRAFT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_15",
+                    "due_date": "2026-10-23"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": null,
+                    "invoicer_view_url": null
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                        "surname": "雨"
+                      },
+                      "email_address": "billing@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Logo concepts",
+                    "quantity": "2",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "125.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  },
+                  {
+                    "name": "Brand colour guide",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "180.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "430.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "430.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "summary": "Send invoice LDG-0001 for USD 430.00 to billing@example.test",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_15",
+                      "due_date": "2026-10-23"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                          "surname": "雨"
+                        },
+                        "email_address": "billing@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Logo concepts",
+                      "quantity": "2",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "125.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    },
+                    {
+                      "name": "Brand colour guide",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "180.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T21:21:51.993999+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "queued",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            },
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:51.995000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 3,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 6,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Darnell Brooks",
+          "client_email": null,
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 7,
+          "amount_paid": "0",
+          "total": "930",
+          "confidence": 0.75,
+          "issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "930"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "invoice_number": "LDG-0001",
+              "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+              "client_email": "billing@example.test",
+              "currency": "USD",
+              "total": "430",
+              "paid_amount": "0",
+              "balance": "430",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-10-23",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "record": {
+                "id": "INV2-MOCK-0001-971F",
+                "status": "DRAFT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_15",
+                    "due_date": "2026-10-23"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": null,
+                    "invoicer_view_url": null
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                        "surname": "雨"
+                      },
+                      "email_address": "billing@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Logo concepts",
+                    "quantity": "2",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "125.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  },
+                  {
+                    "name": "Brand colour guide",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "180.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "430.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "430.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "summary": "Send invoice LDG-0001 for USD 430.00 to billing@example.test",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_15",
+                      "due_date": "2026-10-23"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                          "surname": "雨"
+                        },
+                        "email_address": "billing@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Logo concepts",
+                      "quantity": "2",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "125.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    },
+                    {
+                      "name": "Brand colour guide",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "180.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T21:21:51.993999+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "queued",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            },
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:51.995000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 3,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 7,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "2",
+              "unit_price": "125.00",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 15,
+          "amount_paid": "0",
+          "total": "430.00",
+          "confidence": 1,
+          "issues": [],
+          "source": "human_review",
+          "valid": true,
+          "review_id": "c432060e1e374ecbb8ef081bbf71fd8a",
+          "original_issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "430.00"
+            }
+          ],
+          "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "invoice_number": "LDG-0001",
+              "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+              "client_email": "billing@example.test",
+              "currency": "USD",
+              "total": "430",
+              "paid_amount": "0",
+              "balance": "430",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-10-23",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "record": {
+                "id": "INV2-MOCK-0001-971F",
+                "status": "DRAFT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_15",
+                    "due_date": "2026-10-23"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": null,
+                    "invoicer_view_url": null
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                        "surname": "雨"
+                      },
+                      "email_address": "billing@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Logo concepts",
+                    "quantity": "2",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "125.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  },
+                  {
+                    "name": "Brand colour guide",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "180.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "430.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "430.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "summary": "Send invoice LDG-0001 for USD 430.00 to billing@example.test",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_15",
+                      "due_date": "2026-10-23"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                          "surname": "雨"
+                        },
+                        "email_address": "billing@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Logo concepts",
+                      "quantity": "2",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "125.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    },
+                    {
+                      "name": "Brand colour guide",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "180.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T21:21:51.993999+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "queued",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            },
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:51.995000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 3,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 8,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "approved": true,
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0001-971F"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "invoice_number": "LDG-0001",
+              "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+              "client_email": "billing@example.test",
+              "currency": "USD",
+              "total": "430",
+              "paid_amount": "0",
+              "balance": "430",
+              "status": "SENT",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-23",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "record": {
+                "id": "INV2-MOCK-0001-971F",
+                "status": "SENT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_15",
+                    "due_date": "2026-10-23"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                    "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                    "last_sent_time": "2026-10-08T00:00:00Z"
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                        "surname": "雨"
+                      },
+                      "email_address": "billing@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Logo concepts",
+                    "quantity": "2",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "125.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  },
+                  {
+                    "name": "Brand colour guide",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "180.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "430.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "430.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "queued",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            },
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:51.995000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:52.430000+00:00",
+              "event": "approved",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            }
+          ],
+          "mock_requests": 5,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 9,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Darnell Brooks",
+          "client_email": null,
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 7,
+          "amount_paid": "0",
+          "total": "930",
+          "confidence": 0.75,
+          "issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "930"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "invoice_number": "LDG-0001",
+              "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+              "client_email": "billing@example.test",
+              "currency": "USD",
+              "total": "430",
+              "paid_amount": "0",
+              "balance": "430",
+              "status": "SENT",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-23",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "record": {
+                "id": "INV2-MOCK-0001-971F",
+                "status": "SENT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_15",
+                    "due_date": "2026-10-23"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                    "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                    "last_sent_time": "2026-10-08T00:00:00Z"
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                        "surname": "雨"
+                      },
+                      "email_address": "billing@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Logo concepts",
+                    "quantity": "2",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "125.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  },
+                  {
+                    "name": "Brand colour guide",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "180.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "430.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "430.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "queued",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            },
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:51.995000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:52.430000+00:00",
+              "event": "approved",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            }
+          ],
+          "mock_requests": 5,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 10,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "2",
+              "unit_price": "125.00",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 15,
+          "amount_paid": "0",
+          "total": "430.00",
+          "confidence": 1,
+          "issues": [],
+          "source": "human_review",
+          "valid": true,
+          "review_id": "7d1e2eec11774b7098f7f3e9443fb116",
+          "original_issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "430.00"
+            }
+          ],
+          "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "invoice_number": "LDG-0001",
+              "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+              "client_email": "billing@example.test",
+              "currency": "USD",
+              "total": "430",
+              "paid_amount": "0",
+              "balance": "430",
+              "status": "SENT",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-23",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "record": {
+                "id": "INV2-MOCK-0001-971F",
+                "status": "SENT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_15",
+                    "due_date": "2026-10-23"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                    "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                    "last_sent_time": "2026-10-08T00:00:00Z"
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                        "surname": "雨"
+                      },
+                      "email_address": "billing@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Logo concepts",
+                    "quantity": "2",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "125.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  },
+                  {
+                    "name": "Brand colour guide",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "180.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "430.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "430.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "queued",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            },
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:51.995000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:52.430000+00:00",
+              "event": "approved",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            }
+          ],
+          "mock_requests": 5,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 11,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Darnell Brooks",
+          "client_email": null,
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Logo concepts",
+              "qty": "3",
+              "unit_price": "250",
+              "currency": "USD",
+              "unit": null
+            },
+            {
+              "desc": "Brand colour guide",
+              "qty": "1",
+              "unit_price": "180",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 7,
+          "amount_paid": "0",
+          "total": "930",
+          "confidence": 0.75,
+          "issues": [
+            {
+              "field": "client_name",
+              "severity": "info",
+              "message": "Client name taken from signature."
+            },
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "930"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "invoice_number": "LDG-0001",
+              "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+              "client_email": "billing@example.test",
+              "currency": "USD",
+              "total": "430",
+              "paid_amount": "0",
+              "balance": "430",
+              "status": "SENT",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-10-23",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-971F",
+              "record": {
+                "id": "INV2-MOCK-0001-971F",
+                "status": "SENT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_15",
+                    "due_date": "2026-10-23"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                    "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                    "last_sent_time": "2026-10-08T00:00:00Z"
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                        "surname": "雨"
+                      },
+                      "email_address": "billing@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Logo concepts",
+                    "quantity": "2",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "125.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  },
+                  {
+                    "name": "Brand colour guide",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "180.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "430.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "430.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "queued",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            },
+            {
+              "at": "2026-10-08T21:21:51.993999+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:51.995000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:21:52.430000+00:00",
+              "event": "approved",
+              "action": "apv_c46de6a394",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-971F"
+            }
+          ],
+          "mock_requests": 5,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "invoice_number": "LDG-0001",
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "total": "430",
+          "paid_amount": "0",
+          "balance": "430",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": "2026-10-23",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "record": {
+            "id": "INV2-MOCK-0001-971F",
+            "status": "DRAFT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-10-23"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": null,
+                "invoicer_view_url": null
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                    "surname": "雨"
+                  },
+                  "email_address": "billing@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Logo concepts",
+                "quantity": "2",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "125.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              },
+              {
+                "name": "Brand colour guide",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "180.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "430.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "430.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [
+        {
+          "id": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "summary": "Send invoice LDG-0001 for USD 430.00 to billing@example.test",
+          "payload": {
+            "invoice": {
+              "detail": {
+                "invoice_number": "LDG-0001",
+                "invoice_date": "2026-10-08",
+                "currency_code": "USD",
+                "note": "Thank you for your business.",
+                "payment_term": {
+                  "term_type": "NET_15",
+                  "due_date": "2026-10-23"
+                }
+              },
+              "invoicer": {
+                "name": {
+                  "given_name": "Ledgerly",
+                  "surname": "Demo"
+                },
+                "email_address": "freelancer@example.test"
+              },
+              "primary_recipients": [
+                {
+                  "billing_info": {
+                    "name": {
+                      "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                      "surname": "雨"
+                    },
+                    "email_address": "billing@example.test"
+                  }
+                }
+              ],
+              "items": [
+                {
+                  "name": "Logo concepts",
+                  "quantity": "2",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "125.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                },
+                {
+                  "name": "Brand colour guide",
+                  "quantity": "1",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "180.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                }
+              ],
+              "configuration": {
+                "partial_payment": {
+                  "allow_partial_payment": false
+                },
+                "allow_tip": false,
+                "tax_calculated_after_discount": true,
+                "tax_inclusive": false
+              }
+            },
+            "prepaid": "0"
+          },
+          "status": "PENDING",
+          "result": null,
+          "created_at": "2026-10-08T21:21:51.993999+00:00"
+        }
+      ],
+      "audit": [
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "queued",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        },
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:51.995000+00:00",
+          "event": "tool",
+          "ok": true
+        }
+      ],
+      "mock_requests": 3,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "invoice_number": "LDG-0001",
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "total": "430",
+          "paid_amount": "0",
+          "balance": "430",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": "2026-10-23",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "record": {
+            "id": "INV2-MOCK-0001-971F",
+            "status": "DRAFT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-10-23"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": null,
+                "invoicer_view_url": null
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                    "surname": "雨"
+                  },
+                  "email_address": "billing@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Logo concepts",
+                "quantity": "2",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "125.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              },
+              {
+                "name": "Brand colour guide",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "180.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "430.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "430.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [
+        {
+          "id": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "summary": "Send invoice LDG-0001 for USD 430.00 to billing@example.test",
+          "payload": {
+            "invoice": {
+              "detail": {
+                "invoice_number": "LDG-0001",
+                "invoice_date": "2026-10-08",
+                "currency_code": "USD",
+                "note": "Thank you for your business.",
+                "payment_term": {
+                  "term_type": "NET_15",
+                  "due_date": "2026-10-23"
+                }
+              },
+              "invoicer": {
+                "name": {
+                  "given_name": "Ledgerly",
+                  "surname": "Demo"
+                },
+                "email_address": "freelancer@example.test"
+              },
+              "primary_recipients": [
+                {
+                  "billing_info": {
+                    "name": {
+                      "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                      "surname": "雨"
+                    },
+                    "email_address": "billing@example.test"
+                  }
+                }
+              ],
+              "items": [
+                {
+                  "name": "Logo concepts",
+                  "quantity": "2",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "125.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                },
+                {
+                  "name": "Brand colour guide",
+                  "quantity": "1",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "180.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                }
+              ],
+              "configuration": {
+                "partial_payment": {
+                  "allow_partial_payment": false
+                },
+                "allow_tip": false,
+                "tax_calculated_after_discount": true,
+                "tax_inclusive": false
+              }
+            },
+            "prepaid": "0"
+          },
+          "status": "PENDING",
+          "result": null,
+          "created_at": "2026-10-08T21:21:51.993999+00:00"
+        }
+      ],
+      "audit": [
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "queued",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        },
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:51.995000+00:00",
+          "event": "tool",
+          "ok": true
+        }
+      ],
+      "mock_requests": 3,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "invoice_number": "LDG-0001",
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "total": "430",
+          "paid_amount": "0",
+          "balance": "430",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": "2026-10-23",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "record": {
+            "id": "INV2-MOCK-0001-971F",
+            "status": "DRAFT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-10-23"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": null,
+                "invoicer_view_url": null
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                    "surname": "雨"
+                  },
+                  "email_address": "billing@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Logo concepts",
+                "quantity": "2",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "125.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              },
+              {
+                "name": "Brand colour guide",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "180.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "430.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "430.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [
+        {
+          "id": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "summary": "Send invoice LDG-0001 for USD 430.00 to billing@example.test",
+          "payload": {
+            "invoice": {
+              "detail": {
+                "invoice_number": "LDG-0001",
+                "invoice_date": "2026-10-08",
+                "currency_code": "USD",
+                "note": "Thank you for your business.",
+                "payment_term": {
+                  "term_type": "NET_15",
+                  "due_date": "2026-10-23"
+                }
+              },
+              "invoicer": {
+                "name": {
+                  "given_name": "Ledgerly",
+                  "surname": "Demo"
+                },
+                "email_address": "freelancer@example.test"
+              },
+              "primary_recipients": [
+                {
+                  "billing_info": {
+                    "name": {
+                      "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                      "surname": "雨"
+                    },
+                    "email_address": "billing@example.test"
+                  }
+                }
+              ],
+              "items": [
+                {
+                  "name": "Logo concepts",
+                  "quantity": "2",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "125.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                },
+                {
+                  "name": "Brand colour guide",
+                  "quantity": "1",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "180.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                }
+              ],
+              "configuration": {
+                "partial_payment": {
+                  "allow_partial_payment": false
+                },
+                "allow_tip": false,
+                "tax_calculated_after_discount": true,
+                "tax_inclusive": false
+              }
+            },
+            "prepaid": "0"
+          },
+          "status": "PENDING",
+          "result": null,
+          "created_at": "2026-10-08T21:21:51.993999+00:00"
+        }
+      ],
+      "audit": [
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "queued",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        },
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:51.995000+00:00",
+          "event": "tool",
+          "ok": true
+        }
+      ],
+      "mock_requests": 3,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "invoice_number": "LDG-0001",
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "total": "430",
+          "paid_amount": "0",
+          "balance": "430",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-10-23",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "record": {
+            "id": "INV2-MOCK-0001-971F",
+            "status": "SENT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-10-23"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                "last_sent_time": "2026-10-08T00:00:00Z"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                    "surname": "雨"
+                  },
+                  "email_address": "billing@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Logo concepts",
+                "quantity": "2",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "125.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              },
+              {
+                "name": "Brand colour guide",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "180.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "430.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "430.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [],
+      "audit": [
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "queued",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        },
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:51.995000+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:52.430000+00:00",
+          "event": "approved",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        }
+      ],
+      "mock_requests": 5,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "invoice_number": "LDG-0001",
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "total": "430",
+          "paid_amount": "0",
+          "balance": "430",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-10-23",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "record": {
+            "id": "INV2-MOCK-0001-971F",
+            "status": "SENT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-10-23"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                "last_sent_time": "2026-10-08T00:00:00Z"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                    "surname": "雨"
+                  },
+                  "email_address": "billing@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Logo concepts",
+                "quantity": "2",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "125.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              },
+              {
+                "name": "Brand colour guide",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "180.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "430.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "430.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [],
+      "audit": [
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "queued",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        },
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:51.995000+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:52.430000+00:00",
+          "event": "approved",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        }
+      ],
+      "mock_requests": 5,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "invoice_number": "LDG-0001",
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "total": "430",
+          "paid_amount": "0",
+          "balance": "430",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-10-23",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "record": {
+            "id": "INV2-MOCK-0001-971F",
+            "status": "SENT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-10-23"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                "last_sent_time": "2026-10-08T00:00:00Z"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                    "surname": "雨"
+                  },
+                  "email_address": "billing@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Logo concepts",
+                "quantity": "2",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "125.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              },
+              {
+                "name": "Brand colour guide",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "180.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "430.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "430.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [],
+      "audit": [
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "queued",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        },
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:51.995000+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:52.430000+00:00",
+          "event": "approved",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        }
+      ],
+      "mock_requests": 5,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "invoice_number": "LDG-0001",
+          "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+          "client_email": "billing@example.test",
+          "currency": "USD",
+          "total": "430",
+          "paid_amount": "0",
+          "balance": "430",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-10-23",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-971F",
+          "record": {
+            "id": "INV2-MOCK-0001-971F",
+            "status": "SENT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_15",
+                "due_date": "2026-10-23"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                "last_sent_time": "2026-10-08T00:00:00Z"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                    "surname": "雨"
+                  },
+                  "email_address": "billing@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Logo concepts",
+                "quantity": "2",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "125.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              },
+              {
+                "name": "Brand colour guide",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "180.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "430.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "430.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "430.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [],
+      "audit": [
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "queued",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        },
+        {
+          "at": "2026-10-08T21:21:51.993999+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:51.995000+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:21:52.430000+00:00",
+          "event": "approved",
+          "action": "apv_c46de6a394",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-971F"
+        }
+      ],
+      "mock_requests": 5,
+      "external_calls": 0,
+      "can_replay": false
+    }
+  ],
+  "fileReads": [
+    {
+      "name": "actual-unfinished-intake.json",
+      "size": 905
+    },
+    {
+      "name": "actual-checked-intake.json",
+      "size": 901
+    },
+    {
+      "name": "malformed.json",
+      "size": 1
+    },
+    {
+      "name": "unsupported.json",
+      "size": 714
+    },
+    {
+      "name": "authority.json",
+      "size": 761
+    },
+    {
+      "name": "numeric.json",
+      "size": 712
+    },
+    {
+      "name": "invalid-utf8.json",
+      "size": 3
+    },
+    {
+      "name": "source-normalization.json",
+      "size": 482
+    },
+    {
+      "name": "line-normalization.json",
+      "size": 718
+    },
+    {
+      "name": "slow-intake.json",
+      "size": 905
+    },
+    {
+      "name": "slow-intake.json",
+      "size": 905
+    },
+    {
+      "name": "actual-checked-intake.json",
+      "size": 901
+    },
+    {
+      "name": "actual-checked-intake.json",
+      "size": 901
+    },
+    {
+      "name": "actual-checked-intake.json",
+      "size": 901
+    },
+    {
+      "name": "actual-unfinished-intake.json",
+      "size": 905
+    }
+  ],
+  "events": [
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "engine-start",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "intake-replace",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": " ",
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "review-check",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-line-0-qty",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-line-0-price",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-due-days",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": " ",
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "review-check",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "intake-save",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "draft",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "intake-replace",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": " ",
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "review-check",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "a",
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Backspace",
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "job-email",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Escape",
+      "id": "intake-cancel",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "intake-cancel",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "intake-replace",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": " ",
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "review-confirm",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "review-check",
+      "trusted": true
+    },
+    {
+      "type": "input",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "change",
+      "key": null,
+      "id": "intake-file",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "intake-replace",
+      "trusted": true
+    },
+    {
+      "type": "keydown",
+      "key": "Enter",
+      "id": "intake-save",
+      "trusted": true
+    }
+  ],
+  "held": {
+    "id": 11,
+    "ok": true,
+    "data": {
+      "ok": true,
+      "result": {
+        "client_name": "Darnell Brooks",
+        "client_email": null,
+        "currency": "USD",
+        "line_items": [
+          {
+            "desc": "Logo concepts",
+            "qty": "3",
+            "unit_price": "250",
+            "currency": "USD",
+            "unit": null
+          },
+          {
+            "desc": "Brand colour guide",
+            "qty": "1",
+            "unit_price": "180",
+            "currency": "USD",
+            "unit": null
+          }
+        ],
+        "due_days": 7,
+        "amount_paid": "0",
+        "total": "930",
+        "confidence": 0.75,
+        "issues": [
+          {
+            "field": "client_name",
+            "severity": "info",
+            "message": "Client name taken from signature."
+          },
+          {
+            "field": "client_email",
+            "severity": "error",
+            "message": "No client email found; PayPal needs a recipient email to send an invoice."
+          }
+        ],
+        "source": "rules",
+        "review_currencies": [
+          "AUD",
+          "BRL",
+          "CAD",
+          "CHF",
+          "CNY",
+          "CZK",
+          "DKK",
+          "EUR",
+          "GBP",
+          "HKD",
+          "HUF",
+          "ILS",
+          "JPY",
+          "MXN",
+          "MYR",
+          "NOK",
+          "NZD",
+          "PHP",
+          "PLN",
+          "SEK",
+          "SGD",
+          "THB",
+          "TWD",
+          "USD"
+        ],
+        "totals_by_currency": [
+          {
+            "currency": "USD",
+            "total": "930"
+          }
+        ]
+      },
+      "state": {
+        "today": "2026-10-08",
+        "ledger": [
+          {
+            "invoice_id": "INV2-MOCK-0001-971F",
+            "invoice_number": "LDG-0001",
+            "client_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional 雨",
+            "client_email": "billing@example.test",
+            "currency": "USD",
+            "total": "430",
+            "paid_amount": "0",
+            "balance": "430",
+            "status": "SENT",
+            "sent_on": "2026-10-08",
+            "due_on": "2026-10-23",
+            "reminders_sent": 0
+          }
+        ],
+        "invoice_details": [
+          {
+            "invoice_id": "INV2-MOCK-0001-971F",
+            "record": {
+              "id": "INV2-MOCK-0001-971F",
+              "status": "SENT",
+              "detail": {
+                "invoice_number": "LDG-0001",
+                "invoice_date": "2026-10-08",
+                "currency_code": "USD",
+                "note": "Thank you for your business.",
+                "payment_term": {
+                  "term_type": "NET_15",
+                  "due_date": "2026-10-23"
+                },
+                "metadata": {
+                  "create_time": "2026-10-08T00:00:00Z",
+                  "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-971F",
+                  "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-971F",
+                  "last_sent_time": "2026-10-08T00:00:00Z"
+                }
+              },
+              "invoicer": {
+                "name": {
+                  "given_name": "Ledgerly",
+                  "surname": "Demo"
+                },
+                "email_address": "freelancer@example.test"
+              },
+              "primary_recipients": [
+                {
+                  "billing_info": {
+                    "name": {
+                      "given_name": "<img src=x onerror=\"globalThis.__intakeLiteralExecuted=true\"> fictional",
+                      "surname": "雨"
+                    },
+                    "email_address": "billing@example.test"
+                  }
+                }
+              ],
+              "items": [
+                {
+                  "name": "Logo concepts",
+                  "quantity": "2",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "125.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                },
+                {
+                  "name": "Brand colour guide",
+                  "quantity": "1",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "180.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                }
+              ],
+              "amount": {
+                "currency_code": "USD",
+                "value": "430.00",
+                "breakdown": {
+                  "item_total": {
+                    "currency_code": "USD",
+                    "value": "430.00"
+                  }
+                }
+              },
+              "due_amount": {
+                "currency_code": "USD",
+                "value": "430.00"
+              },
+              "payments": {
+                "transactions": [],
+                "paid_amount": {
+                  "currency_code": "USD",
+                  "value": "0.00"
+                }
+              }
+            }
+          }
+        ],
+        "pending": [],
+        "audit": [
+          {
+            "at": "2026-10-08T21:21:51.993999+00:00",
+            "event": "queued",
+            "action": "apv_c46de6a394",
+            "kind": "send_invoice",
+            "invoice": "INV2-MOCK-0001-971F"
+          },
+          {
+            "at": "2026-10-08T21:21:51.993999+00:00",
+            "event": "tool",
+            "ok": true
+          },
+          {
+            "at": "2026-10-08T21:21:51.995000+00:00",
+            "event": "tool",
+            "ok": true
+          },
+          {
+            "at": "2026-10-08T21:21:52.430000+00:00",
+            "event": "approved",
+            "action": "apv_c46de6a394",
+            "kind": "send_invoice",
+            "invoice": "INV2-MOCK-0001-971F"
+          }
+        ],
+        "mock_requests": 5,
+        "external_calls": 0,
+        "can_replay": false
+      }
+    }
+  }
+}

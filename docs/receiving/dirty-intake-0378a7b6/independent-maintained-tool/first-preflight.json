@@ -1,0 +1,21 @@
+{
+  "failure": "Reviewer preflight expected12pure insertedlines; gitdiff reports12totaladditions including replacement, actual11pureinsertions+1line replacement.",
+  "observed_opcodes": [
+    [
+      "insert",
+      413,
+      413,
+      413,
+      424
+    ],
+    [
+      "replace",
+      444,
+      445,
+      455,
+      456
+    ]
+  ],
+  "candidate_source_unchanged": true,
+  "successor_change": "Only receiver count11 and distinct evidence directory; originaldriver retained."
+}

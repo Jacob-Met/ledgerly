@@ -60,7 +60,7 @@ async function artifact(name,bytes,extra={}){
 }
 async function runBuild(){
   let log='';
-  const child=spawn(process.platform==='win32'?'npm.cmd':'npm',['run','build'],
+  const child=spawn(process.execPath,["C:\\Users\\minec\\AppData\\Local\\Hamon\\node\\node-v24.21.0-win-x64\\node_modules\\npm\\bin\\npm-cli.js",'run','build'],
     {cwd:join(baseline,'web-demo'),stdio:['ignore','pipe','pipe'],env:process.env});
   child.stdout.on('data',b=>{log+=b;});child.stderr.on('data',b=>{log+=b;});
   const timer=setTimeout(()=>child.kill('SIGTERM'),180000);

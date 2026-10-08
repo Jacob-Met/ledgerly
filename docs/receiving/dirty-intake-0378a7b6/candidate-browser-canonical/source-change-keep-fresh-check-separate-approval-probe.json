@@ -1,0 +1,1187 @@
+{
+  "calls": [
+    {
+      "id": 1,
+      "action": "init",
+      "payload": {}
+    },
+    {
+      "id": 2,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n"
+      }
+    },
+    {
+      "id": 3,
+      "action": "review",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n",
+        "fields": {
+          "client_name": "Edited recipient Ω",
+          "client_email": "reviewed@example.test",
+          "due_days": "45",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Corrected <work> & revision",
+              "qty": "7",
+              "unit_price": "85",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "SEO keyword audit",
+              "qty": "1",
+              "unit_price": "300",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 4,
+      "action": "analyze",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n\nPlease verify this edited source."
+      }
+    },
+    {
+      "id": 5,
+      "action": "review",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n\nPlease verify this edited source.",
+        "fields": {
+          "client_name": "Edited recipient Ω",
+          "client_email": "reviewed@example.test",
+          "due_days": "45",
+          "amount_paid": "0",
+          "line_items": [
+            {
+              "desc": "Corrected <work> & revision",
+              "qty": "7",
+              "unit_price": "85",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "SEO keyword audit",
+              "qty": "1",
+              "unit_price": "300",
+              "currency": "USD",
+              "unit": ""
+            }
+          ]
+        },
+        "confirmed": true
+      }
+    },
+    {
+      "id": 6,
+      "action": "draft",
+      "payload": {
+        "text": "From: Maya Chen <maya.chen@brightfern.example>\nTo: jacob@ledgerly.example\nSubject: Landing page copy - let's go\n\nHi Jacob,\n\nGreat call yesterday. Confirming the scope:\n\n- 12 hours of copywriting at $85/hr\n- 1 x SEO keyword audit @ $300\n\nPayment terms Net 15 as usual.\n\nThanks,\nMaya\n\nPlease verify this edited source.",
+        "review_id": "4f08a3dfc0844d13848d55f44befbbb8"
+      }
+    },
+    {
+      "id": 7,
+      "action": "approve",
+      "payload": {
+        "action_id": "apv_a3d827ff5f"
+      }
+    }
+  ],
+  "replies": [
+    {
+      "id": 1,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "ready": true,
+          "engine": "RulesExtractor + RulePlanner + SandboxMock"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Maya Chen",
+          "client_email": "maya.chen@brightfern.example",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Copywriting",
+              "qty": "12",
+              "unit_price": "85",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "SEO keyword audit",
+              "qty": "1",
+              "unit_price": "300",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 15,
+          "amount_paid": "0",
+          "total": "1320",
+          "confidence": 1,
+          "issues": [],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "1320"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 3,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Edited recipient Ω",
+          "client_email": "reviewed@example.test",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Corrected <work> & revision",
+              "qty": "7",
+              "unit_price": "85",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "SEO keyword audit",
+              "qty": "1",
+              "unit_price": "300",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 45,
+          "amount_paid": "0",
+          "total": "895",
+          "confidence": 1,
+          "issues": [],
+          "source": "human_review",
+          "valid": true,
+          "review_id": "19e353845b4740008808f6e49fa142b0",
+          "original_issues": [],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "895"
+            }
+          ],
+          "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 4,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Maya Chen",
+          "client_email": "maya.chen@brightfern.example",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Copywriting",
+              "qty": "12",
+              "unit_price": "85",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "SEO keyword audit",
+              "qty": "1",
+              "unit_price": "300",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 15,
+          "amount_paid": "0",
+          "total": "1320",
+          "confidence": 1,
+          "issues": [],
+          "source": "rules",
+          "review_currencies": [
+            "AUD",
+            "BRL",
+            "CAD",
+            "CHF",
+            "CNY",
+            "CZK",
+            "DKK",
+            "EUR",
+            "GBP",
+            "HKD",
+            "HUF",
+            "ILS",
+            "JPY",
+            "MXN",
+            "MYR",
+            "NOK",
+            "NZD",
+            "PHP",
+            "PLN",
+            "SEK",
+            "SGD",
+            "THB",
+            "TWD",
+            "USD"
+          ],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "1320"
+            }
+          ]
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 5,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "client_name": "Edited recipient Ω",
+          "client_email": "reviewed@example.test",
+          "currency": "USD",
+          "line_items": [
+            {
+              "desc": "Corrected <work> & revision",
+              "qty": "7",
+              "unit_price": "85",
+              "currency": "USD",
+              "unit": "hours"
+            },
+            {
+              "desc": "SEO keyword audit",
+              "qty": "1",
+              "unit_price": "300",
+              "currency": "USD",
+              "unit": null
+            }
+          ],
+          "due_days": 45,
+          "amount_paid": "0",
+          "total": "895",
+          "confidence": 1,
+          "issues": [],
+          "source": "human_review",
+          "valid": true,
+          "review_id": "4f08a3dfc0844d13848d55f44befbbb8",
+          "original_issues": [],
+          "totals_by_currency": [
+            {
+              "currency": "USD",
+              "total": "895"
+            }
+          ],
+          "message": "Fields checked. Create the reviewed draft, then approve its send separately."
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [],
+          "invoice_details": [],
+          "pending": [],
+          "audit": [],
+          "mock_requests": 0,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 6,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "final": "create_invoice -> 1 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-DE72 is DRAFT",
+          "pending": [
+            {
+              "id": "apv_a3d827ff5f",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-DE72",
+              "summary": "Send invoice LDG-0001 for USD 895 to reviewed@example.test",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_45",
+                      "due_date": "2026-11-22"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Edited recipient",
+                          "surname": "Ω"
+                        },
+                        "email_address": "reviewed@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Corrected <work> & revision",
+                      "quantity": "7",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "85.00"
+                      },
+                      "unit_of_measure": "HOURS"
+                    },
+                    {
+                      "name": "SEO keyword audit",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "300.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T21:09:39.582000+00:00"
+            }
+          ],
+          "unauthorized_send_blocked": true,
+          "reviewed": true
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-DE72",
+              "invoice_number": "LDG-0001",
+              "client_name": "Edited recipient Ω",
+              "client_email": "reviewed@example.test",
+              "currency": "USD",
+              "total": "895",
+              "paid_amount": "0",
+              "balance": "895",
+              "status": "DRAFT",
+              "sent_on": null,
+              "due_on": "2026-11-22",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-DE72",
+              "record": {
+                "id": "INV2-MOCK-0001-DE72",
+                "status": "DRAFT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_45",
+                    "due_date": "2026-11-22"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": null,
+                    "invoicer_view_url": null
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "Edited recipient",
+                        "surname": "Ω"
+                      },
+                      "email_address": "reviewed@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Corrected <work> & revision",
+                    "quantity": "7",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "85.00"
+                    },
+                    "unit_of_measure": "HOURS"
+                  },
+                  {
+                    "name": "SEO keyword audit",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "300.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "895.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "895.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "895.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [
+            {
+              "id": "apv_a3d827ff5f",
+              "kind": "send_invoice",
+              "invoice_id": "INV2-MOCK-0001-DE72",
+              "summary": "Send invoice LDG-0001 for USD 895 to reviewed@example.test",
+              "payload": {
+                "invoice": {
+                  "detail": {
+                    "invoice_number": "LDG-0001",
+                    "invoice_date": "2026-10-08",
+                    "currency_code": "USD",
+                    "note": "Thank you for your business.",
+                    "payment_term": {
+                      "term_type": "NET_45",
+                      "due_date": "2026-11-22"
+                    }
+                  },
+                  "invoicer": {
+                    "name": {
+                      "given_name": "Ledgerly",
+                      "surname": "Demo"
+                    },
+                    "email_address": "freelancer@example.test"
+                  },
+                  "primary_recipients": [
+                    {
+                      "billing_info": {
+                        "name": {
+                          "given_name": "Edited recipient",
+                          "surname": "Ω"
+                        },
+                        "email_address": "reviewed@example.test"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "name": "Corrected <work> & revision",
+                      "quantity": "7",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "85.00"
+                      },
+                      "unit_of_measure": "HOURS"
+                    },
+                    {
+                      "name": "SEO keyword audit",
+                      "quantity": "1",
+                      "unit_amount": {
+                        "currency_code": "USD",
+                        "value": "300.00"
+                      },
+                      "unit_of_measure": "QUANTITY"
+                    }
+                  ],
+                  "configuration": {
+                    "partial_payment": {
+                      "allow_partial_payment": false
+                    },
+                    "allow_tip": false,
+                    "tax_calculated_after_discount": true,
+                    "tax_inclusive": false
+                  }
+                },
+                "prepaid": "0"
+              },
+              "status": "PENDING",
+              "result": null,
+              "created_at": "2026-10-08T21:09:39.582000+00:00"
+            }
+          ],
+          "audit": [
+            {
+              "at": "2026-10-08T21:09:39.583000+00:00",
+              "event": "queued",
+              "action": "apv_a3d827ff5f",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-DE72"
+            },
+            {
+              "at": "2026-10-08T21:09:39.583000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:09:39.583000+00:00",
+              "event": "tool",
+              "ok": true
+            }
+          ],
+          "mock_requests": 3,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    },
+    {
+      "id": 7,
+      "ok": true,
+      "data": {
+        "ok": true,
+        "result": {
+          "approved": true,
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0001-DE72"
+        },
+        "state": {
+          "today": "2026-10-08",
+          "ledger": [
+            {
+              "invoice_id": "INV2-MOCK-0001-DE72",
+              "invoice_number": "LDG-0001",
+              "client_name": "Edited recipient Ω",
+              "client_email": "reviewed@example.test",
+              "currency": "USD",
+              "total": "895",
+              "paid_amount": "0",
+              "balance": "895",
+              "status": "SENT",
+              "sent_on": "2026-10-08",
+              "due_on": "2026-11-22",
+              "reminders_sent": 0
+            }
+          ],
+          "invoice_details": [
+            {
+              "invoice_id": "INV2-MOCK-0001-DE72",
+              "record": {
+                "id": "INV2-MOCK-0001-DE72",
+                "status": "SENT",
+                "detail": {
+                  "invoice_number": "LDG-0001",
+                  "invoice_date": "2026-10-08",
+                  "currency_code": "USD",
+                  "note": "Thank you for your business.",
+                  "payment_term": {
+                    "term_type": "NET_45",
+                    "due_date": "2026-11-22"
+                  },
+                  "metadata": {
+                    "create_time": "2026-10-08T00:00:00Z",
+                    "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-DE72",
+                    "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-DE72",
+                    "last_sent_time": "2026-10-08T00:00:00Z"
+                  }
+                },
+                "invoicer": {
+                  "name": {
+                    "given_name": "Ledgerly",
+                    "surname": "Demo"
+                  },
+                  "email_address": "freelancer@example.test"
+                },
+                "primary_recipients": [
+                  {
+                    "billing_info": {
+                      "name": {
+                        "given_name": "Edited recipient",
+                        "surname": "Ω"
+                      },
+                      "email_address": "reviewed@example.test"
+                    }
+                  }
+                ],
+                "items": [
+                  {
+                    "name": "Corrected <work> & revision",
+                    "quantity": "7",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "85.00"
+                    },
+                    "unit_of_measure": "HOURS"
+                  },
+                  {
+                    "name": "SEO keyword audit",
+                    "quantity": "1",
+                    "unit_amount": {
+                      "currency_code": "USD",
+                      "value": "300.00"
+                    },
+                    "unit_of_measure": "QUANTITY"
+                  }
+                ],
+                "amount": {
+                  "currency_code": "USD",
+                  "value": "895.00",
+                  "breakdown": {
+                    "item_total": {
+                      "currency_code": "USD",
+                      "value": "895.00"
+                    }
+                  }
+                },
+                "due_amount": {
+                  "currency_code": "USD",
+                  "value": "895.00"
+                },
+                "payments": {
+                  "transactions": [],
+                  "paid_amount": {
+                    "currency_code": "USD",
+                    "value": "0.00"
+                  }
+                }
+              }
+            }
+          ],
+          "pending": [],
+          "audit": [
+            {
+              "at": "2026-10-08T21:09:39.583000+00:00",
+              "event": "queued",
+              "action": "apv_a3d827ff5f",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-DE72"
+            },
+            {
+              "at": "2026-10-08T21:09:39.583000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:09:39.583000+00:00",
+              "event": "tool",
+              "ok": true
+            },
+            {
+              "at": "2026-10-08T21:09:39.648000+00:00",
+              "event": "approved",
+              "action": "apv_a3d827ff5f",
+              "kind": "send_invoice",
+              "invoice": "INV2-MOCK-0001-DE72"
+            }
+          ],
+          "mock_requests": 5,
+          "external_calls": 0,
+          "can_replay": false
+        }
+      }
+    }
+  ],
+  "states": [
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [],
+      "invoice_details": [],
+      "pending": [],
+      "audit": [],
+      "mock_requests": 0,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-DE72",
+          "invoice_number": "LDG-0001",
+          "client_name": "Edited recipient Ω",
+          "client_email": "reviewed@example.test",
+          "currency": "USD",
+          "total": "895",
+          "paid_amount": "0",
+          "balance": "895",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": "2026-11-22",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-DE72",
+          "record": {
+            "id": "INV2-MOCK-0001-DE72",
+            "status": "DRAFT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_45",
+                "due_date": "2026-11-22"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": null,
+                "invoicer_view_url": null
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Edited recipient",
+                    "surname": "Ω"
+                  },
+                  "email_address": "reviewed@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Corrected <work> & revision",
+                "quantity": "7",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "85.00"
+                },
+                "unit_of_measure": "HOURS"
+              },
+              {
+                "name": "SEO keyword audit",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "300.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "895.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "895.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "895.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [
+        {
+          "id": "apv_a3d827ff5f",
+          "kind": "send_invoice",
+          "invoice_id": "INV2-MOCK-0001-DE72",
+          "summary": "Send invoice LDG-0001 for USD 895 to reviewed@example.test",
+          "payload": {
+            "invoice": {
+              "detail": {
+                "invoice_number": "LDG-0001",
+                "invoice_date": "2026-10-08",
+                "currency_code": "USD",
+                "note": "Thank you for your business.",
+                "payment_term": {
+                  "term_type": "NET_45",
+                  "due_date": "2026-11-22"
+                }
+              },
+              "invoicer": {
+                "name": {
+                  "given_name": "Ledgerly",
+                  "surname": "Demo"
+                },
+                "email_address": "freelancer@example.test"
+              },
+              "primary_recipients": [
+                {
+                  "billing_info": {
+                    "name": {
+                      "given_name": "Edited recipient",
+                      "surname": "Ω"
+                    },
+                    "email_address": "reviewed@example.test"
+                  }
+                }
+              ],
+              "items": [
+                {
+                  "name": "Corrected <work> & revision",
+                  "quantity": "7",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "85.00"
+                  },
+                  "unit_of_measure": "HOURS"
+                },
+                {
+                  "name": "SEO keyword audit",
+                  "quantity": "1",
+                  "unit_amount": {
+                    "currency_code": "USD",
+                    "value": "300.00"
+                  },
+                  "unit_of_measure": "QUANTITY"
+                }
+              ],
+              "configuration": {
+                "partial_payment": {
+                  "allow_partial_payment": false
+                },
+                "allow_tip": false,
+                "tax_calculated_after_discount": true,
+                "tax_inclusive": false
+              }
+            },
+            "prepaid": "0"
+          },
+          "status": "PENDING",
+          "result": null,
+          "created_at": "2026-10-08T21:09:39.582000+00:00"
+        }
+      ],
+      "audit": [
+        {
+          "at": "2026-10-08T21:09:39.583000+00:00",
+          "event": "queued",
+          "action": "apv_a3d827ff5f",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-DE72"
+        },
+        {
+          "at": "2026-10-08T21:09:39.583000+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:09:39.583000+00:00",
+          "event": "tool",
+          "ok": true
+        }
+      ],
+      "mock_requests": 3,
+      "external_calls": 0,
+      "can_replay": false
+    },
+    {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-DE72",
+          "invoice_number": "LDG-0001",
+          "client_name": "Edited recipient Ω",
+          "client_email": "reviewed@example.test",
+          "currency": "USD",
+          "total": "895",
+          "paid_amount": "0",
+          "balance": "895",
+          "status": "SENT",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-22",
+          "reminders_sent": 0
+        }
+      ],
+      "invoice_details": [
+        {
+          "invoice_id": "INV2-MOCK-0001-DE72",
+          "record": {
+            "id": "INV2-MOCK-0001-DE72",
+            "status": "SENT",
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_45",
+                "due_date": "2026-11-22"
+              },
+              "metadata": {
+                "create_time": "2026-10-08T00:00:00Z",
+                "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-DE72",
+                "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-DE72",
+                "last_sent_time": "2026-10-08T00:00:00Z"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Edited recipient",
+                    "surname": "Ω"
+                  },
+                  "email_address": "reviewed@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Corrected <work> & revision",
+                "quantity": "7",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "85.00"
+                },
+                "unit_of_measure": "HOURS"
+              },
+              {
+                "name": "SEO keyword audit",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "300.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "amount": {
+              "currency_code": "USD",
+              "value": "895.00",
+              "breakdown": {
+                "item_total": {
+                  "currency_code": "USD",
+                  "value": "895.00"
+                }
+              }
+            },
+            "due_amount": {
+              "currency_code": "USD",
+              "value": "895.00"
+            },
+            "payments": {
+              "transactions": [],
+              "paid_amount": {
+                "currency_code": "USD",
+                "value": "0.00"
+              }
+            }
+          }
+        }
+      ],
+      "pending": [],
+      "audit": [
+        {
+          "at": "2026-10-08T21:09:39.583000+00:00",
+          "event": "queued",
+          "action": "apv_a3d827ff5f",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-DE72"
+        },
+        {
+          "at": "2026-10-08T21:09:39.583000+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:09:39.583000+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T21:09:39.648000+00:00",
+          "event": "approved",
+          "action": "apv_a3d827ff5f",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-DE72"
+        }
+      ],
+      "mock_requests": 5,
+      "external_calls": 0,
+      "can_replay": false
+    }
+  ]
+}
