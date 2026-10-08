@@ -1,0 +1,64 @@
+{
+  "source": {
+    "source": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-pr33",
+    "evidence": "/dev/shm/memory-delivery-ledgerly-3dab/publication-composition",
+    "manifest": {
+      "bytes": 20507,
+      "sha256": "b92bc2abbbd0b5d8c8f00eb057f88f6b88a6b9a9b77a28dab636fa907e18d428",
+      "git_blob": "1f103a1a736d9cc3a8850377cd1e42f459824306",
+      "mode": "100644"
+    },
+    "paths": 37,
+    "before_paths": 36,
+    "bridge": {
+      "bytes": 6627,
+      "sha256": "c265d04c5251ae437c4ffc2eb4533a4d0a6da056d1a8d9c37835fb71b9a3acd0",
+      "git_blob": "3cb794045f6690dc1db01c4e9ae2cd8350630945",
+      "mode": "100644",
+      "upstream_git_blob": "6a3391bcba29ea65a2c6155914bda5a51d152db3"
+    }
+  },
+  "runs": [
+    {
+      "mode": "normal",
+      "exit_code": 0,
+      "execution": "exact UTF-8 runner source compiled in memory; bootstrap sets __file__ and RUNNER_SOURCE; no test source changes",
+      "executable": "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "flags": [
+        "-B"
+      ],
+      "source": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-pr33",
+      "manifest": "/dev/shm/memory-delivery-ledgerly-3dab/publication-composition/source-freeze-pr33.json",
+      "runner_sha256": "ddde7eb7b9d48776c4c3ae1448cc606e61ae53e4fa581b0088eee119d03d354a",
+      "stdout": "native-normal.stdout",
+      "stderr": "native-normal.stderr",
+      "methods": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "network_attempts": [],
+      "source_hashes_unchanged": true
+    },
+    {
+      "mode": "optimized",
+      "exit_code": 0,
+      "execution": "exact UTF-8 runner source compiled in memory; bootstrap sets __file__ and RUNNER_SOURCE; no test source changes",
+      "executable": "/workspace/scratch/3dab0b9d2ce9/canvaspilot-product/test-env/bin/python",
+      "flags": [
+        "-B",
+        "-O"
+      ],
+      "source": "/dev/shm/memory-delivery-ledgerly-3dab/candidate-pr33",
+      "manifest": "/dev/shm/memory-delivery-ledgerly-3dab/publication-composition/source-freeze-pr33.json",
+      "runner_sha256": "ddde7eb7b9d48776c4c3ae1448cc606e61ae53e4fa581b0088eee119d03d354a",
+      "stdout": "native-optimized.stdout",
+      "stderr": "native-optimized.stderr",
+      "methods": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "network_attempts": [],
+      "source_hashes_unchanged": true
+    }
+  ]
+}

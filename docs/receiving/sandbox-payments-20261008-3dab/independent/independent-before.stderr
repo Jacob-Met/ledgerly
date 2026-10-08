@@ -1,0 +1,15 @@
+test_currency_rounding_of_valid_fractional_quantities_remains_payable (__main__.PaymentReview.test_currency_rounding_of_valid_fractional_quantities_remains_payable) ... ok
+test_same_partial_invoice_survives_six_refusals_and_exact_retries (__main__.PaymentReview.test_same_partial_invoice_survives_six_refusals_and_exact_retries) ... FAIL
+
+======================================================================
+FAIL: test_same_partial_invoice_survives_six_refusals_and_exact_retries (__main__.PaymentReview.test_same_partial_invoice_survives_six_refusals_and_exact_retries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/estate-runtime-ledger-payment-review-3dab/test_payment_receiving_v1.py", line 115, in test_same_partial_invoice_survives_six_refusals_and_exact_retries
+    self.assertFalse(failed["ok"], failed)
+AssertionError: True is not false : {'ok': True, 'result': {'ok': True, 'invoice_id': 'INV2-MOCK-0001-0FA3', 'from': 'PARTIALLY_PAID', 'to': 'PAID'}, 'state': {'today': '2026-10-08', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-0FA3', 'invoice_number': 'LDG-0001', 'client_name': 'Oliver Hughes', 'client_email': 'oliver@thamesreads.example', 'currency': 'GBP', 'total': '800', 'paid_amount': '800', 'balance': '0', 'status': 'PAID', 'sent_on': '2026-10-08', 'due_on': '2026-11-07', 'reminders_sent': 0}], 'pending': [], 'audit': [{'at': '2026-10-08T13:33:39.309401+00:00', 'event': 'queued', 'action': 'apv_f14dcbd43b', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-0FA3'}, {'at': '2026-10-08T13:33:39.309409+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:33:39.309506+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T13:33:39.309748+00:00', 'event': 'approved', 'action': 'apv_f14dcbd43b', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-0FA3'}, {'at': '2026-10-08T13:33:39.310228+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-0FA3', 'event_type': 'INVOICING.INVOICE.PAID'}, {'at': '2026-10-08T13:33:39.310818+00:00', 'event': 'webhook', 'invoice': 'INV2-MOCK-0001-0FA3', 'event_type': 'INVOICING.INVOICE.PAID'}], 'mock_requests': 6, 'external_calls': 0, 'can_replay': True}}
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.007s
+
+FAILED (failures=1)

@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import {createHash} from "node:crypto";
 import {spawn} from "node:child_process";
 import {createServer} from "node:http";
-import {readFile, writeFile, mkdir, mkdtemp, rm, readdir} from "node:fs/promises";
+import {readFile, writeFile, mkdir, mkdtemp, rm, readdir, lstat} from "node:fs/promises";
 import {dirname, extname, join, resolve, sep} from "node:path";
 import {fileURLToPath, pathToFileURL} from "node:url";
 const argv = process.argv.slice(2);
@@ -288,6 +288,54 @@ async function inspectOffline(file,width=1280,print=false) {
   sessionId=appSession;
 }
 
+/** The landed CSV receiver's bounded, numbered fixture bundle convention.
+ * Only these authored rendering fixtures and the receiving report are eligible.
+ * Never scan output recursively or include browser state, source or environment files.
+ */
+async function printReceivingBundle() {
+  const rendered = [
+    "original-usd-record.html", "paid-usd-record.html", "eur-record.html",
+    "literal-jpy-record.html", "retried-literal-record.html",
+    "paid-usd-record-1280.png", "eur-record-390.png",
+    "original-usd-record-1280.png", "literal-jpy-record-390.png",
+    "paid-usd-record-1280.pdf", "literal-jpy-record-390.pdf",
+  ];
+  if (report.status === "passed")
+    for (const name of rendered) assert.ok(report.artifacts.some(item => item.name === name),
+      "A successful run must retain its fixed rendering fixture: " + name);
+  const names = [...rendered, "failed-state.png"].filter(name =>
+    report.artifacts.some(item => item.name === name));
+  names.push("receiving-report.json");
+  const files = [];
+  let total = 0;
+  for (const name of names.sort()) {
+    const filename = join(output, name);
+    const info = await lstat(filename);
+    assert.ok(info.isFile() && !info.isSymbolicLink(), "Bundle fixture must be a regular file: " + name);
+    assert.ok(info.size <= 2 * 1024 * 1024, "Bundle fixture exceeds 2 MiB: " + name);
+    const bytes = await readFile(filename);
+    assert.equal(bytes.length, info.size, "Bundle fixture changed while being read: " + name);
+    const digest = hash(bytes), expected = report.artifacts.find(item => item.name === name);
+    if (expected) {
+      assert.equal(bytes.length, expected.bytes, "Bundle fixture size differs from actual artifact: " + name);
+      assert.equal(digest, expected.sha256, "Bundle fixture digest differs from actual artifact: " + name);
+    }
+    total += bytes.length;
+    assert.ok(total <= 2 * 1024 * 1024, "Receiving packet exceeds 2 MiB; refusing to truncate evidence.");
+    files.push({path: name, bytes: bytes.length, sha256: digest, base64: bytes.toString("base64")});
+  }
+  const payload = Buffer.from(JSON.stringify({version: 1, files}), "utf8");
+  assert.ok(payload.length <= 4 * 1024 * 1024, "Serialized receiving packet exceeds 4 MiB.");
+  const encoded = payload.toString("base64"), chunks = [];
+  for (let offset = 0; offset < encoded.length; offset += 4096)
+    chunks.push(encoded.slice(offset, offset + 4096));
+  console.log("LEDGERLY_INVOICE_RECORD_BUNDLE_BEGIN " + JSON.stringify({
+    bytes: payload.length, sha256: hash(payload), chunks: chunks.length}));
+  for (let index = 0; index < chunks.length; index++)
+    console.log("LEDGERLY_INVOICE_RECORD_BUNDLE_CHUNK " + index + " " + chunks[index]);
+  console.log("LEDGERLY_INVOICE_RECORD_BUNDLE_END");
+}
+
 try {
   browser=spawn(executable,["--headless=new","--disable-gpu","--no-sandbox","--no-first-run",
     "--disable-background-networking","--disable-component-update","--disable-sync","--disable-default-apps",
@@ -460,6 +508,12 @@ try {
   report.pageErrors=pageErrors;report.totalArtifactBytes=report.artifacts.reduce((sum,item)=>sum+item.bytes,0);
   if(report.totalArtifactBytes>8*1024*1024){report.status="failed";report.artifactLimitExceeded=true;process.exitCode=1;}
   await writeFile(join(output,"receiving-report.json"),JSON.stringify(report,null,2)+"\n");
+  try { await printReceivingBundle(); }
+  catch (error) {
+    report.status="failed";report.bundleError=error.stack??String(error);process.exitCode=1;
+    await writeFile(join(output,"receiving-report.json"),JSON.stringify(report,null,2)+"\n");
+    console.error(report.bundleError);
+  }
   console.log("INVOICE_RECORD_BROWSER_RESULT "+report.status.toUpperCase()+" checks="+report.checks.length+
     " artifacts="+report.artifacts.length+" source_unchanged="+report.sourceUnchanged);
   console.log("INVOICE_RECORD_BROWSER_RECEIPT "+JSON.stringify(report));

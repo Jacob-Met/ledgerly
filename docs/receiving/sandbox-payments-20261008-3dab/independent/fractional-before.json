@@ -1,0 +1,474 @@
+{
+  "subject": "/dev/shm/estate-runtime-ledger-payment-review-3dab/before",
+  "input_text": "From: Oliver Hughes <oliver@thamesreads.example>\nTo: jacob@ledgerly.example\nSubject: Manuscript proofreading\n\nHello,\n\nPlease go ahead with the following:\n\nProofreading: 1.5 hours @ \u00a30.01/hr\n\nWe pay within 30 days of invoice.\n\nKind regards,\nOliver Hughes\n",
+  "draft_result": {
+    "final": "create_invoice -> 1 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-1A6E is DRAFT",
+    "pending": [
+      {
+        "id": "apv_2a5d2e5303",
+        "kind": "send_invoice",
+        "invoice_id": "INV2-MOCK-0001-1A6E",
+        "summary": "Send invoice LDG-0001 for GBP 0.015 to oliver@thamesreads.example",
+        "payload": {
+          "invoice": {
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "GBP",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "NET_30",
+                "due_date": "2026-11-07"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Ledgerly",
+                "surname": "Demo"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Oliver",
+                    "surname": "Hughes"
+                  },
+                  "email_address": "oliver@thamesreads.example"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Proofreading",
+                "quantity": "1.5",
+                "unit_amount": {
+                  "currency_code": "GBP",
+                  "value": "0.01"
+                },
+                "unit_of_measure": "HOURS"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          },
+          "prepaid": "0"
+        },
+        "status": "PENDING",
+        "result": null,
+        "created_at": "2026-10-08T13:29:15.273635+00:00"
+      }
+    ],
+    "unauthorized_send_blocked": true
+  },
+  "before": {
+    "detail": {
+      "invoice_number": "LDG-0001",
+      "invoice_date": "2026-10-08",
+      "currency_code": "GBP",
+      "note": "Thank you for your business.",
+      "payment_term": {
+        "term_type": "NET_30",
+        "due_date": "2026-11-07"
+      },
+      "metadata": {
+        "create_time": "2026-10-08T00:00:00Z",
+        "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-1A6E",
+        "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-1A6E",
+        "last_sent_time": "2026-10-08T00:00:00Z"
+      }
+    },
+    "invoicer": {
+      "name": {
+        "given_name": "Ledgerly",
+        "surname": "Demo"
+      },
+      "email_address": "freelancer@example.test"
+    },
+    "primary_recipients": [
+      {
+        "billing_info": {
+          "name": {
+            "given_name": "Oliver",
+            "surname": "Hughes"
+          },
+          "email_address": "oliver@thamesreads.example"
+        }
+      }
+    ],
+    "items": [
+      {
+        "name": "Proofreading",
+        "quantity": "1.5",
+        "unit_amount": {
+          "currency_code": "GBP",
+          "value": "0.01"
+        },
+        "unit_of_measure": "HOURS"
+      }
+    ],
+    "configuration": {
+      "partial_payment": {
+        "allow_partial_payment": false
+      },
+      "allow_tip": false,
+      "tax_calculated_after_discount": true,
+      "tax_inclusive": false
+    },
+    "id": "INV2-MOCK-0001-1A6E",
+    "status": "SENT",
+    "payments": {
+      "transactions": [],
+      "paid_amount": {
+        "currency_code": "GBP",
+        "value": "0.00"
+      }
+    },
+    "_has_recipient_email": true,
+    "amount": {
+      "currency_code": "GBP",
+      "value": "0.02",
+      "breakdown": {
+        "item_total": {
+          "currency_code": "GBP",
+          "value": "0.02"
+        }
+      }
+    },
+    "due_amount": {
+      "currency_code": "GBP",
+      "value": "0.02"
+    }
+  },
+  "first_result": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "invoice_id": "INV2-MOCK-0001-1A6E",
+      "from": "SENT",
+      "to": "PARTIALLY_PAID"
+    },
+    "state": {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-1A6E",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "0.02",
+          "paid_amount": "0.01",
+          "balance": "0.01",
+          "status": "PARTIALLY_PAID",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "pending": [],
+      "audit": [
+        {
+          "at": "2026-10-08T13:29:15.273644+00:00",
+          "event": "queued",
+          "action": "apv_2a5d2e5303",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-1A6E"
+        },
+        {
+          "at": "2026-10-08T13:29:15.273657+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T13:29:15.273789+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T13:29:15.274621+00:00",
+          "event": "approved",
+          "action": "apv_2a5d2e5303",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-1A6E"
+        },
+        {
+          "at": "2026-10-08T13:29:15.275240+00:00",
+          "event": "webhook",
+          "invoice": "INV2-MOCK-0001-1A6E",
+          "event_type": "INVOICING.INVOICE.PAID"
+        }
+      ],
+      "mock_requests": 5,
+      "external_calls": 0,
+      "can_replay": true
+    }
+  },
+  "after": {
+    "detail": {
+      "invoice_number": "LDG-0001",
+      "invoice_date": "2026-10-08",
+      "currency_code": "GBP",
+      "note": "Thank you for your business.",
+      "payment_term": {
+        "term_type": "NET_30",
+        "due_date": "2026-11-07"
+      },
+      "metadata": {
+        "create_time": "2026-10-08T00:00:00Z",
+        "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-1A6E",
+        "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-1A6E",
+        "last_sent_time": "2026-10-08T00:00:00Z"
+      }
+    },
+    "invoicer": {
+      "name": {
+        "given_name": "Ledgerly",
+        "surname": "Demo"
+      },
+      "email_address": "freelancer@example.test"
+    },
+    "primary_recipients": [
+      {
+        "billing_info": {
+          "name": {
+            "given_name": "Oliver",
+            "surname": "Hughes"
+          },
+          "email_address": "oliver@thamesreads.example"
+        }
+      }
+    ],
+    "items": [
+      {
+        "name": "Proofreading",
+        "quantity": "1.5",
+        "unit_amount": {
+          "currency_code": "GBP",
+          "value": "0.01"
+        },
+        "unit_of_measure": "HOURS"
+      }
+    ],
+    "configuration": {
+      "partial_payment": {
+        "allow_partial_payment": false
+      },
+      "allow_tip": false,
+      "tax_calculated_after_discount": true,
+      "tax_inclusive": false
+    },
+    "id": "INV2-MOCK-0001-1A6E",
+    "status": "PARTIALLY_PAID",
+    "payments": {
+      "transactions": [
+        {
+          "payment_id": "C8653FE835654A478",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "0.01"
+          }
+        }
+      ],
+      "paid_amount": {
+        "currency_code": "GBP",
+        "value": "0.01"
+      }
+    },
+    "_has_recipient_email": true,
+    "amount": {
+      "currency_code": "GBP",
+      "value": "0.02",
+      "breakdown": {
+        "item_total": {
+          "currency_code": "GBP",
+          "value": "0.02"
+        }
+      }
+    },
+    "due_amount": {
+      "currency_code": "GBP",
+      "value": "0.01"
+    }
+  },
+  "final_result": {
+    "ok": true,
+    "result": {
+      "ok": true,
+      "invoice_id": "INV2-MOCK-0001-1A6E",
+      "from": "PARTIALLY_PAID",
+      "to": "PAID"
+    },
+    "state": {
+      "today": "2026-10-08",
+      "ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-1A6E",
+          "invoice_number": "LDG-0001",
+          "client_name": "Oliver Hughes",
+          "client_email": "oliver@thamesreads.example",
+          "currency": "GBP",
+          "total": "0.02",
+          "paid_amount": "0.02",
+          "balance": "0.00",
+          "status": "PAID",
+          "sent_on": "2026-10-08",
+          "due_on": "2026-11-07",
+          "reminders_sent": 0
+        }
+      ],
+      "pending": [],
+      "audit": [
+        {
+          "at": "2026-10-08T13:29:15.273644+00:00",
+          "event": "queued",
+          "action": "apv_2a5d2e5303",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-1A6E"
+        },
+        {
+          "at": "2026-10-08T13:29:15.273657+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T13:29:15.273789+00:00",
+          "event": "tool",
+          "ok": true
+        },
+        {
+          "at": "2026-10-08T13:29:15.274621+00:00",
+          "event": "approved",
+          "action": "apv_2a5d2e5303",
+          "kind": "send_invoice",
+          "invoice": "INV2-MOCK-0001-1A6E"
+        },
+        {
+          "at": "2026-10-08T13:29:15.275240+00:00",
+          "event": "webhook",
+          "invoice": "INV2-MOCK-0001-1A6E",
+          "event_type": "INVOICING.INVOICE.PAID"
+        },
+        {
+          "at": "2026-10-08T13:29:15.275718+00:00",
+          "event": "webhook",
+          "invoice": "INV2-MOCK-0001-1A6E",
+          "event_type": "INVOICING.INVOICE.PAID"
+        }
+      ],
+      "mock_requests": 6,
+      "external_calls": 0,
+      "can_replay": true
+    }
+  },
+  "final_invoice": {
+    "detail": {
+      "invoice_number": "LDG-0001",
+      "invoice_date": "2026-10-08",
+      "currency_code": "GBP",
+      "note": "Thank you for your business.",
+      "payment_term": {
+        "term_type": "NET_30",
+        "due_date": "2026-11-07"
+      },
+      "metadata": {
+        "create_time": "2026-10-08T00:00:00Z",
+        "recipient_view_url": "https://www.sandbox.paypal.com/invoice/p/#INV2-MOCK-0001-1A6E",
+        "invoicer_view_url": "https://www.sandbox.paypal.com/invoice/details/INV2-MOCK-0001-1A6E",
+        "last_sent_time": "2026-10-08T00:00:00Z"
+      }
+    },
+    "invoicer": {
+      "name": {
+        "given_name": "Ledgerly",
+        "surname": "Demo"
+      },
+      "email_address": "freelancer@example.test"
+    },
+    "primary_recipients": [
+      {
+        "billing_info": {
+          "name": {
+            "given_name": "Oliver",
+            "surname": "Hughes"
+          },
+          "email_address": "oliver@thamesreads.example"
+        }
+      }
+    ],
+    "items": [
+      {
+        "name": "Proofreading",
+        "quantity": "1.5",
+        "unit_amount": {
+          "currency_code": "GBP",
+          "value": "0.01"
+        },
+        "unit_of_measure": "HOURS"
+      }
+    ],
+    "configuration": {
+      "partial_payment": {
+        "allow_partial_payment": false
+      },
+      "allow_tip": false,
+      "tax_calculated_after_discount": true,
+      "tax_inclusive": false
+    },
+    "id": "INV2-MOCK-0001-1A6E",
+    "status": "PAID",
+    "payments": {
+      "transactions": [
+        {
+          "payment_id": "C8653FE835654A478",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "0.01"
+          }
+        },
+        {
+          "payment_id": "AC3945B912394072A",
+          "type": "PAYPAL",
+          "method": "PAYPAL",
+          "payment_date": "2026-10-08",
+          "amount": {
+            "currency_code": "GBP",
+            "value": "0.01"
+          }
+        }
+      ],
+      "paid_amount": {
+        "currency_code": "GBP",
+        "value": "0.02"
+      }
+    },
+    "_has_recipient_email": true,
+    "amount": {
+      "currency_code": "GBP",
+      "value": "0.02",
+      "breakdown": {
+        "item_total": {
+          "currency_code": "GBP",
+          "value": "0.02"
+        }
+      }
+    },
+    "due_amount": {
+      "currency_code": "GBP",
+      "value": "0.00"
+    }
+  }
+}
