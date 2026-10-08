@@ -1,0 +1,245 @@
+test_changed_provider_recipient_cannot_be_approved_with_old_review_name (test_provider_changes.ProviderChangeReceiving.test_changed_provider_recipient_cannot_be_approved_with_old_review_name) ... FAIL
+test_delivery_metadata_and_money_format_do_not_churn_same_review (test_provider_changes.ProviderChangeReceiving.test_delivery_metadata_and_money_format_do_not_churn_same_review) ... ok
+test_future_provider_due_date_blocks_redraft_as_overdue (test_provider_changes.ProviderChangeReceiving.test_future_provider_due_date_blocks_redraft_as_overdue) ... FAIL
+test_missing_provider_due_amount_cannot_create_approval (test_provider_changes.ProviderChangeReceiving.test_missing_provider_due_amount_cannot_create_approval) ... FAIL
+test_nonfinite_provider_read_leaves_cached_facts_and_permit_unchanged (test_provider_changes.ProviderChangeReceiving.test_nonfinite_provider_read_leaves_cached_facts_and_permit_unchanged) ... FAIL
+test_preflight_outage_recovery_needs_explicit_retry_and_sends_once (test_provider_changes.ProviderChangeReceiving.test_preflight_outage_recovery_needs_explicit_retry_and_sends_once) ... FAIL
+test_provider_total_edit_cannot_be_rebound_to_old_local_amount (test_provider_changes.ProviderChangeReceiving.test_provider_total_edit_cannot_be_rebound_to_old_local_amount) ... FAIL
+test_returned_pending_snapshot_cannot_mutate_reviewed_payload (test_provider_changes.ProviderChangeReceiving.test_returned_pending_snapshot_cannot_mutate_reviewed_payload) ... FAIL
+test_wrong_invoice_identity_read_cannot_create_approval (test_provider_changes.ProviderChangeReceiving.test_wrong_invoice_identity_read_cannot_create_approval) ... FAIL
+test_aged_firm_reminder_requires_fresh_review (test_reminder_receiving.AgentReceiving.test_aged_firm_reminder_requires_fresh_review) ... FAIL
+test_approval_read_failure_fails_without_outgoing_or_permit (test_reminder_receiving.AgentReceiving.test_approval_read_failure_fails_without_outgoing_or_permit) ... FAIL
+test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft (test_reminder_receiving.AgentReceiving.test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft) ... FAIL
+test_draft_read_failure_does_not_create_unverified_approval (test_reminder_receiving.AgentReceiving.test_draft_read_failure_does_not_create_unverified_approval) ... FAIL
+test_drafting_refreshes_provider_after_missed_webhook (test_reminder_receiving.AgentReceiving.test_drafting_refreshes_provider_after_missed_webhook) ... FAIL
+test_invoice_send_approval_unchanged_when_status_refreshed (test_reminder_receiving.AgentReceiving.test_invoice_send_approval_unchanged_when_status_refreshed) ... ok
+test_missed_full_payment_stops_before_outgoing_request (test_reminder_receiving.AgentReceiving.test_missed_full_payment_stops_before_outgoing_request) ... FAIL
+test_missed_payment_webhook_cannot_send_stale_balance (test_reminder_receiving.AgentReceiving.test_missed_payment_webhook_cannot_send_stale_balance) ... FAIL
+test_paid_status_refresh_removes_reminder_from_pending_ui (test_reminder_receiving.AgentReceiving.test_paid_status_refresh_removes_reminder_from_pending_ui) ... FAIL
+test_partial_payment_webhook_invalidates_old_approval (test_reminder_receiving.AgentReceiving.test_partial_payment_webhook_invalidates_old_approval) ... FAIL
+test_provider_cancel_without_webhook_stops_before_request (test_reminder_receiving.AgentReceiving.test_provider_cancel_without_webhook_stops_before_request) ... FAIL
+test_same_state_preserves_exact_reviewed_text_one_shot (test_reminder_receiving.AgentReceiving.test_same_state_preserves_exact_reviewed_text_one_shot) ... ok
+test_status_refresh_invalidates_old_partial_payment_approval (test_reminder_receiving.AgentReceiving.test_status_refresh_invalidates_old_partial_payment_approval) ... FAIL
+test_unchanged_verified_webhook_does_not_churn_approval (test_reminder_receiving.AgentReceiving.test_unchanged_verified_webhook_does_not_churn_approval) ... ok
+test_browser_aged_approval_returns_error_and_no_false_success (test_reminder_receiving.BrowserBridgeReceiving.test_browser_aged_approval_returns_error_and_no_false_success) ... FAIL
+test_browser_failed_preflight_read_returns_error_without_send (test_reminder_receiving.BrowserBridgeReceiving.test_browser_failed_preflight_read_returns_error_without_send) ... FAIL
+test_browser_full_payment_existing_cancel_and_replay_preserved (test_reminder_receiving.BrowserBridgeReceiving.test_browser_full_payment_existing_cancel_and_replay_preserved) ... ok
+test_browser_partial_payment_disables_old_approval_and_fresh_draft_sends_500 (test_reminder_receiving.BrowserBridgeReceiving.test_browser_partial_payment_disables_old_approval_and_fresh_draft_sends_500) ... FAIL
+
+======================================================================
+FAIL: test_changed_provider_recipient_cannot_be_approved_with_old_review_name (test_provider_changes.ProviderChangeReceiving.test_changed_provider_recipient_cannot_be_approved_with_old_review_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 55, in test_changed_provider_recipient_cannot_be_approved_with_old_review_name
+    self.fixture.assert_no_send_and_permit_closed(old_id)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_future_provider_due_date_blocks_redraft_as_overdue (test_provider_changes.ProviderChangeReceiving.test_future_provider_due_date_blocks_redraft_as_overdue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 46, in test_future_provider_due_date_blocks_redraft_as_overdue
+    self.fixture.assert_no_send_and_permit_closed(old_id)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_missing_provider_due_amount_cannot_create_approval (test_provider_changes.ProviderChangeReceiving.test_missing_provider_due_amount_cannot_create_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 77, in test_missing_provider_due_amount_cannot_create_approval
+    self.assertIsNone(fresh, "incomplete provider money facts cannot be bound as a fresh review")
+AssertionError: PendingAction(id='apv_54ba7b874d', kind='send_reminder', invoice_id='INV2-MOCK-0001-73B4', summary='Send firm reminder for LDG-0001 (10d overdue, GBP 800 due) to alex@example.test', payload={'subject': 'Invoice LDG-0001 is 10 days overdue', 'note': 'Hi Alex,\n\nInvoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nReview Freelancer'}, status='PENDING', result=None, created_at='2026-10-08T08:20:14.554327+00:00') is not None : incomplete provider money facts cannot be bound as a fresh review
+
+======================================================================
+FAIL: test_nonfinite_provider_read_leaves_cached_facts_and_permit_unchanged (test_provider_changes.ProviderChangeReceiving.test_nonfinite_provider_read_leaves_cached_facts_and_permit_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 87, in test_nonfinite_provider_read_leaves_cached_facts_and_permit_unchanged
+    self.fixture.assert_no_send_and_permit_closed(old_id)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_preflight_outage_recovery_needs_explicit_retry_and_sends_once (test_provider_changes.ProviderChangeReceiving.test_preflight_outage_recovery_needs_explicit_retry_and_sends_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 103, in test_preflight_outage_recovery_needs_explicit_retry_and_sends_once
+    with self.assertRaises(PayPalError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PayPalError not raised
+
+======================================================================
+FAIL: test_provider_total_edit_cannot_be_rebound_to_old_local_amount (test_provider_changes.ProviderChangeReceiving.test_provider_total_edit_cannot_be_rebound_to_old_local_amount)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 35, in test_provider_total_edit_cannot_be_rebound_to_old_local_amount
+    self.fixture.assert_no_send_and_permit_closed(old_id)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_returned_pending_snapshot_cannot_mutate_reviewed_payload (test_provider_changes.ProviderChangeReceiving.test_returned_pending_snapshot_cannot_mutate_reviewed_payload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 95, in test_returned_pending_snapshot_cannot_mutate_reviewed_payload
+    self.assertEqual(self.agent.pending[aid].payload, original)
+AssertionError: {'sub[50 chars]e': 'Tampered by display code'} != {'sub[50 chars]e': 'Hi Alex,\n\nInvoice LDG-0001 for GBP 800 [188 chars]cer'}
+- {'note': 'Tampered by display code',
++ {'note': 'Hi Alex,\n'
++          '\n'
++          'Invoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct '
++          '31, 2026). Could you let me know when I can expect payment? If '
++          'something is holding it up, just reply and we can sort it out.\n'
++          '\n'
++          'Best,\n'
++          'Review Freelancer',
+   'subject': 'Invoice LDG-0001 is 10 days overdue'}
+
+======================================================================
+FAIL: test_wrong_invoice_identity_read_cannot_create_approval (test_provider_changes.ProviderChangeReceiving.test_wrong_invoice_identity_read_cannot_create_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_provider_changes.py", line 69, in test_wrong_invoice_identity_read_cannot_create_approval
+    self.assertIsNone(fresh, "a read for a different invoice cannot justify this invoice's reminder")
+AssertionError: PendingAction(id='apv_fcd0cef2e2', kind='send_reminder', invoice_id='INV2-MOCK-0001-4415', summary='Send firm reminder for LDG-0001 (10d overdue, GBP 800 due) to alex@example.test', payload={'subject': 'Invoice LDG-0001 is 10 days overdue', 'note': 'Hi Alex,\n\nInvoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nReview Freelancer'}, status='PENDING', result=None, created_at='2026-10-08T08:20:14.557550+00:00') is not None : a read for a different invoice cannot justify this invoice's reminder
+
+======================================================================
+FAIL: test_aged_firm_reminder_requires_fresh_review (test_reminder_receiving.AgentReceiving.test_aged_firm_reminder_requires_fresh_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 192, in test_aged_firm_reminder_requires_fresh_review
+    self.assert_no_send_and_permit_closed(aid)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_approval_read_failure_fails_without_outgoing_or_permit (test_reminder_receiving.AgentReceiving.test_approval_read_failure_fails_without_outgoing_or_permit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 201, in test_approval_read_failure_fails_without_outgoing_or_permit
+    self.assert_no_send_and_permit_closed(aid)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft (test_reminder_receiving.AgentReceiving.test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 217, in test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft
+    self.assert_no_send_and_permit_closed(aid)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_draft_read_failure_does_not_create_unverified_approval (test_reminder_receiving.AgentReceiving.test_draft_read_failure_does_not_create_unverified_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 208, in test_draft_read_failure_does_not_create_unverified_approval
+    self.assertEqual(self.agent.list_pending(), [], result)
+AssertionError: Lists differ: [{'id': 'apv_0e3f5a8100', 'kind': 'send_re[529 chars]00'}] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+{'id': 'apv_0e3f5a8100', 'kind': 'send_reminder', 'invoice_id': 'INV2-MOCK-0001-9F25', 'summary': 'Send firm reminder for LDG-0001 (10d overdue, GBP 800 due) to alex@example.test', 'payload': {'subject': 'Invoice LDG-0001 is 10 days overdue', 'note': 'Hi Alex,\n\nInvoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nReview Freelancer'}, 'status': 'PENDING', 'result': None, 'created_at': '2026-10-08T08:20:14.560447+00:00'}
+
+Diff is 862 characters long. Set self.maxDiff to None to see it. : {'final': 'list_overdue -> 1 overdue; send_reminder -> reminder drafted (firm); awaiting approval', 'history': [{'role': 'user', 'content': 'chase'}, {'role': 'tool', 'tool': 'list_overdue', 'args': {}, 'result': {'ok': True, 'overdue': [{'invoice_id': 'INV2-MOCK-0001-9F25', 'invoice_number': 'LDG-0001', 'client_name': 'Alex Reader', 'client_email': 'alex@example.test', 'currency': 'GBP', 'total': '800', 'paid_amount': '0', 'balance': '800', 'status': 'SENT', 'sent_on': '2026-10-01', 'due_on': '2026-10-31', 'reminders_sent': 0, 'days_overdue': 10}], 'message': '1 overdue'}}, {'role': 'tool', 'tool': 'send_reminder', 'args': {'invoice_id': 'INV2-MOCK-0001-9F25'}, 'result': {'ok': True, 'approval_id': 'apv_0e3f5a8100', 'draft': {'subject': 'Invoice LDG-0001 is 10 days overdue', 'note': 'Hi Alex,\n\nInvoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nReview Freelancer', 'tone': 'firm', 'days_overdue': 10}, 'message': 'reminder drafted (firm); awaiting approval'}}, {'role': 'assistant', 'content': 'list_overdue -> 1 overdue; send_reminder -> reminder drafted (firm); awaiting approval'}], 'pending': [{'id': 'apv_0e3f5a8100', 'kind': 'send_reminder', 'invoice_id': 'INV2-MOCK-0001-9F25', 'summary': 'Send firm reminder for LDG-0001 (10d overdue, GBP 800 due) to alex@example.test', 'payload': {'subject': 'Invoice LDG-0001 is 10 days overdue', 'note': 'Hi Alex,\n\nInvoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nReview Freelancer'}, 'status': 'PENDING', 'result': None, 'created_at': '2026-10-08T08:20:14.560447+00:00'}]}
+
+======================================================================
+FAIL: test_drafting_refreshes_provider_after_missed_webhook (test_reminder_receiving.AgentReceiving.test_drafting_refreshes_provider_after_missed_webhook)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 154, in test_drafting_refreshes_provider_after_missed_webhook
+    self.assertIn("GBP 500", self.agent.pending[aid].payload["note"])
+AssertionError: 'GBP 500' not found in 'Hi Alex,\n\nInvoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nReview Freelancer'
+
+======================================================================
+FAIL: test_missed_full_payment_stops_before_outgoing_request (test_reminder_receiving.AgentReceiving.test_missed_full_payment_stops_before_outgoing_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 135, in test_missed_full_payment_stops_before_outgoing_request
+    self.assert_no_send_and_permit_closed(aid)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_missed_payment_webhook_cannot_send_stale_balance (test_reminder_receiving.AgentReceiving.test_missed_payment_webhook_cannot_send_stale_balance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 129, in test_missed_payment_webhook_cannot_send_stale_balance
+    self.assert_no_send_and_permit_closed(aid)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_paid_status_refresh_removes_reminder_from_pending_ui (test_reminder_receiving.AgentReceiving.test_paid_status_refresh_removes_reminder_from_pending_ui)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 142, in test_paid_status_refresh_removes_reminder_from_pending_ui
+    self.assertNotIn(aid, {p["id"] for p in self.agent.list_pending()})
+AssertionError: 'apv_c7c9ecfb79' unexpectedly found in {'apv_c7c9ecfb79'}
+
+======================================================================
+FAIL: test_partial_payment_webhook_invalidates_old_approval (test_reminder_receiving.AgentReceiving.test_partial_payment_webhook_invalidates_old_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 102, in test_partial_payment_webhook_invalidates_old_approval
+    self.assertNotIn(aid, {p["id"] for p in self.agent.list_pending()})
+AssertionError: 'apv_81ff68934d' unexpectedly found in {'apv_81ff68934d'}
+
+======================================================================
+FAIL: test_provider_cancel_without_webhook_stops_before_request (test_reminder_receiving.AgentReceiving.test_provider_cancel_without_webhook_stops_before_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 148, in test_provider_cancel_without_webhook_stops_before_request
+    self.assert_no_send_and_permit_closed(aid)
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 90, in assert_no_send_and_permit_closed
+    self.assertEqual(len(reminders(self.mock)), before, "outgoing reminder attempted despite stale/unknown state")
+AssertionError: 1 != 0 : outgoing reminder attempted despite stale/unknown state
+
+======================================================================
+FAIL: test_status_refresh_invalidates_old_partial_payment_approval (test_reminder_receiving.AgentReceiving.test_status_refresh_invalidates_old_partial_payment_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 120, in test_status_refresh_invalidates_old_partial_payment_approval
+    self.assertNotIn(aid, {p["id"] for p in self.agent.list_pending()})
+AssertionError: 'apv_98252a88bf' unexpectedly found in {'apv_98252a88bf'}
+
+======================================================================
+FAIL: test_browser_aged_approval_returns_error_and_no_false_success (test_reminder_receiving.BrowserBridgeReceiving.test_browser_aged_approval_returns_error_and_no_false_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 269, in test_browser_aged_approval_returns_error_and_no_false_success
+    self.assertFalse(result["ok"], result)
+AssertionError: True is not false : {'ok': True, 'result': {'approved': True, 'kind': 'send_reminder', 'invoice_id': 'INV2-MOCK-0001-3D1A'}, 'state': {'today': '2026-11-11', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-3D1A', 'invoice_number': 'LDG-0001', 'client_name': 'Alex Reader', 'client_email': 'alex@example.test', 'currency': 'GBP', 'total': '800', 'paid_amount': '0.00', 'balance': '800.00', 'status': 'SENT', 'sent_on': '2026-10-01', 'due_on': '2026-10-31', 'reminders_sent': 1}], 'pending': [], 'audit': [{'at': '2026-10-08T08:20:14.566232+00:00', 'event': 'queued', 'action': 'apv_ec50c99c34', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-3D1A'}, {'at': '2026-10-08T08:20:14.566238+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.566283+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.566386+00:00', 'event': 'approved', 'action': 'apv_ec50c99c34', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-3D1A'}, {'at': '2026-10-08T08:20:14.566466+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.566488+00:00', 'event': 'queued', 'action': 'apv_bc3cb6335e', 'kind': 'send_reminder', 'invoice': 'INV2-MOCK-0001-3D1A'}, {'at': '2026-10-08T08:20:14.566491+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.566598+00:00', 'event': 'approved', 'action': 'apv_bc3cb6335e', 'kind': 'send_reminder', 'invoice': 'INV2-MOCK-0001-3D1A'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': False}}
+
+======================================================================
+FAIL: test_browser_failed_preflight_read_returns_error_without_send (test_reminder_receiving.BrowserBridgeReceiving.test_browser_failed_preflight_read_returns_error_without_send)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 278, in test_browser_failed_preflight_read_returns_error_without_send
+    self.assertFalse(result["ok"], result)
+AssertionError: True is not false : {'ok': True, 'result': {'approved': True, 'kind': 'send_reminder', 'invoice_id': 'INV2-MOCK-0001-31DB'}, 'state': {'today': '2026-11-10', 'ledger': [{'invoice_id': 'INV2-MOCK-0001-31DB', 'invoice_number': 'LDG-0001', 'client_name': 'Alex Reader', 'client_email': 'alex@example.test', 'currency': 'GBP', 'total': '800', 'paid_amount': '0.00', 'balance': '800.00', 'status': 'SENT', 'sent_on': '2026-10-01', 'due_on': '2026-10-31', 'reminders_sent': 1}], 'pending': [], 'audit': [{'at': '2026-10-08T08:20:14.566999+00:00', 'event': 'queued', 'action': 'apv_bc8f1cd9fa', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-31DB'}, {'at': '2026-10-08T08:20:14.567005+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.567089+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.567192+00:00', 'event': 'approved', 'action': 'apv_bc8f1cd9fa', 'kind': 'send_invoice', 'invoice': 'INV2-MOCK-0001-31DB'}, {'at': '2026-10-08T08:20:14.567257+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.567279+00:00', 'event': 'queued', 'action': 'apv_0174edb89b', 'kind': 'send_reminder', 'invoice': 'INV2-MOCK-0001-31DB'}, {'at': '2026-10-08T08:20:14.567282+00:00', 'event': 'tool', 'ok': True}, {'at': '2026-10-08T08:20:14.567467+00:00', 'event': 'approved', 'action': 'apv_0174edb89b', 'kind': 'send_reminder', 'invoice': 'INV2-MOCK-0001-31DB'}], 'mock_requests': 5, 'external_calls': 0, 'can_replay': False}}
+
+======================================================================
+FAIL: test_browser_partial_payment_disables_old_approval_and_fresh_draft_sends_500 (test_reminder_receiving.BrowserBridgeReceiving.test_browser_partial_payment_disables_old_approval_and_fresh_draft_sends_500)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly-review/test_reminder_receiving.py", line 251, in test_browser_partial_payment_disables_old_approval_and_fresh_draft_sends_500
+    self.assertNotIn(self.aid, {p["id"] for p in payment["state"]["pending"]})
+AssertionError: 'apv_a2c74143bd' unexpectedly found in {'apv_a2c74143bd'}
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.020s
+
+FAILED (failures=22)
