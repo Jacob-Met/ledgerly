@@ -707,6 +707,54 @@ def _strip_fence(s: str) -> str:
     return m.group(1) if m else s
 
 
+def _validate_llm_output(data: Any) -> None:
+    """Admit decoded model shapes before the shared value parser/validator."""
+    if not isinstance(data, dict):
+        raise ValueError("not an object")
+    for key in ("client_name", "client_email", "currency"):
+        if data.get(key) is not None and not isinstance(data[key], str):
+            raise ValueError(f"{key} must be a string or null")
+
+    items = data.get("line_items")
+    if items is not None:
+        if not isinstance(items, list):
+            raise ValueError("line_items must be a list or null")
+        for n, item in enumerate(items):
+            if not isinstance(item, dict):
+                raise ValueError(f"line_items[{n}] must be an object")
+            for key in ("desc", "currency", "unit"):
+                if item.get(key) is not None and not isinstance(item[key], str):
+                    raise ValueError(f"line_items[{n}].{key} must be a string or null")
+
+    issues = data.get("issues")
+    if issues is not None:
+        if not isinstance(issues, list):
+            raise ValueError("issues must be a list or null")
+        for n, issue in enumerate(issues):
+            if (not isinstance(issue, dict) or set(issue) != {"field", "severity", "message"}
+                    or not all(isinstance(value, str) for value in issue.values())
+                    or issue["severity"] not in SEVERITY_PENALTY):
+                raise ValueError(f"issues[{n}] must contain string field, severity and message with a known severity")
+
+    amount_paid = data.get("amount_paid")
+    if (amount_paid is not None
+            and (isinstance(amount_paid, bool) or not isinstance(amount_paid, (int, float, str)))):
+        raise ValueError("amount_paid must be a number, numeric text or null")
+    # Preserve the shared parser's null/empty-text defaults and numeric policy.
+
+    confidence = data.get("confidence", 0.5)
+    if isinstance(confidence, bool) or not 0 <= float(confidence) <= 1:
+        raise ValueError("confidence must be a finite number between 0 and 1")
+
+    due_days = data.get("due_days")
+    if due_days is not None:
+        if (isinstance(due_days, bool) or not isinstance(due_days, (int, float, str))
+                or isinstance(due_days, float) and not due_days.is_integer()):
+            raise ValueError("due_days must be an integer or null")
+        # Leave compatible integer text and the business range to from_dict/validate.
+        # Reject fractional floats here before int() could silently truncate them.
+
+
 class LLMExtractor:
     """Model-agnostic: inject any `complete(prompt) -> str` (OpenAI, Anthropic, local...).
 
@@ -722,14 +770,15 @@ class LLMExtractor:
     def extract(self, text: str) -> Extraction:
         raw = self.complete(LLM_PROMPT.replace("{text}", text))
         try:
+            if not isinstance(raw, str):
+                raise ValueError("completion must return a string")
             data = json.loads(_strip_fence(raw))
-            if not isinstance(data, dict):
-                raise ValueError("not an object")
+            _validate_llm_output(data)
             model_issues = data.pop("issues", []) or []
             model_conf = float(data.pop("confidence", 0.5))
             ex = Extraction.from_dict(data)
-            ex.issues = [Issue(**i) for i in model_issues if isinstance(i, dict) and {"field", "severity", "message"} <= set(i)]
-        except (ValueError, TypeError, KeyError) as e:
+            ex.issues = [Issue(**i) for i in model_issues]
+        except (ValueError, TypeError, KeyError, OverflowError) as e:
             bad = Extraction(None, None, None, [], None, source=self.name,
                              issues=[Issue("*", "error", f"LLM output unusable: {e}")])
             bad.confidence = 0.0
