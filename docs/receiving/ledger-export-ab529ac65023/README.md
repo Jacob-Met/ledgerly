@@ -1,19 +1,27 @@
 # Sandbox ledger CSV receiving
 
-This packet preserves the current state of Ledgerly PR27. The source is qualified; the actual native browser download workflow remains pending because observed Mac capacity crossed the 1 GiB guard.
+The actual browser workflow is qualified. Final current-main integration remains a separate gate.
 
-The export controller and 30 CSV tests are frozen from native commit 268155f6e1af8b41f47732c734d153f78f8a2ddd. The complete published source tree matches the clean native source through 3cef644049254c1fa0fc1798ae6cac418e934141. The maintained real-Chrome receiver is in web-demo/tools/check_ledger_export_browser.py.
+## Actual received output
 
-## Evidence
+[Hosted run 37783466720](https://github.com/Jacob-Met/ledgerly/actions/runs/37783466720) checked out d9ba98b369de41cc7b4f79bd5de1956b1b108df2, exact tree 4ad1b34c7cd15616f2ae8e98ce672e18bd31648d. Chrome 154.0.8037.97, Python 3.12.15 and Playwright 1.63.0 exercised the actual built Pyodide/Worker application on Ubuntu, with only fictional inputs and loopback traffic.
 
-- Original production build and candidate TypeScript check passed.
-- The initial native suite had 52 passes and four missing-controller VM binding failures. The exact log and the stopped native replay are retained in native/. No assertion was removed.
-- [Existing hosted CI](https://github.com/Jacob-Met/ledgerly/actions/runs/37778011219) then checked the real current-main composition: all 56 browser tests, the production build, and 141 Python tests plus 60 subtests passed.
-- Full Git tree comparison preserves all 219 unowned current-main leaves and all eight exact contribution file blobs, with no mismatch. The source change includes current main 350868091702d60f3dc340be4a017ba49d99f8a0 and the original contribution as parents.
-- [Independent production source review](https://github.com/Jacob-Met/ledgerly/pull/27#issuecomment-6060220272) accepts the actual snapshot/Decimal-string provenance and narrow controller boundary; actual browser acceptance remains separate.
+All eight real downloaded files match the observed Python ledger and Python csv.writer's complete quoted/BOM/CRLF bytes. The cases cover drafts in separate currencies, explicit sends, partial payment, reminders, a corrected Unicode/formula-like client name, byte-identical repeat/retry, and focused Enter activation at 390 px. The full state and Worker request history remain unchanged by each download. All seven control groups pass, including busy/internal guard, failed download start, reset and synthetic terminal Worker loss. There were zero page errors and zero off-origin requests.
 
-See receiving.json for source pins, command/CI receipts, limitations, and the next acceptance gate. No native browser result, Pages deployment, provider effect, or runtime adoption is claimed here.
+The same job passed 63 frontend tests and its production build; the paired job passed 179 Python tests plus 60 subtests. These figures belong to the exact source above, before the later separately owned PR30 scan-bound merge.
 
-## Hosted browser continuation
+The full 66-chunk packet was recovered from the ordinary job log: 199918 bytes, SHA256 695c72b55c70a2e0df321dca392445402f8a9e051acee1abb51070c42aa3103c. All 19 file sizes and SHA256 hashes were checked independently with Python's standard library; their original Git blob identities are retained in [bundle-integrity.json](hosted-chrome/bundle-integrity.json). The raw CSV files, exact snapshots, receipt and screenshots are in hosted-chrome/. The complete original job logs are alongside this document; no download artifact or local disk was needed to preserve the packet.
 
-The next checkpoint composes actual main5493205cd69a32be75ed2f7dfc669b122efe5563, retaining PR26 preview and PR21 webhook source. It runs the maintained receiver in the existing Ubuntu browser-engine job after its normal build. The prior native storage stop and prior qualified composition above remain historical evidence. See browser_ci_plan in receiving.json; no browser pass is claimed until the actual resulting CSV/JSON/screenshots and job status are received.
+![Desktop ledger after partial payment](hosted-chrome/desktop-ledger.png)
+
+![Narrow ledger with the export button focused](hosted-chrome/phone-ledger.png)
+
+The screenshots qualify layout/control visibility. Exact Unicode strings are qualified through the Worker/CSV values, without a claim about every platform's font glyph coverage. Failure controls cover download-start failure and a synthetic terminal Worker error; keyboard coverage is focused Enter activation.
+
+## Source and earlier evidence
+
+The CSV serializer/controller remains the exact original blob 6f65f1c5401408406b9706602cfd78ddf9277d11, with the unchanged 30-test set 3727493f7366db1771dcda96e4dd19ac4deb44f0. Native source/failure/capacity receipts remain in native/. The initial full suite's four missing-controller VM binding failures are preserved; the narrow binding fix then passed the existing hosted 56-test replay before the current 63-test composition.
+
+[Independent production source review](https://github.com/Jacob-Met/ledgerly/pull/27#issuecomment-6060220272) confirms the real bridge/Decimal-string provenance and all controller boundaries. A separate source-only review of the strengthened browser receiver and CI setup accepted exact d362ce2d86b818e13f10341b1f31072f818b1fcf before execution. No original owner source or unrelated action ref was replaced.
+
+The next composition retains actual main 2d3a90a9aa794d849ec54ca9d32a720959ddc5db and all PR21/24/26/30 work. The CSV feature and browser receiver bytes are unchanged. See receiving.json for exact pins and the final gate state. The held Mac browser run is not claimed as completed, and no live provider action is performed.

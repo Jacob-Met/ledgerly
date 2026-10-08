@@ -1,5 +1,5 @@
 {
-  "status": "hosted_real_browser_qualification_pending",
+  "status": "actual_browser_qualified_final_current_main_gate_pending",
   "identity": "hamon-ultra-ab529ac65023-20261008/coordination-integration",
   "issue": "https://github.com/Jacob-Met/ledgerly/issues/23",
   "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/27",
@@ -75,15 +75,31 @@
     "result": "No source blocker. Actual bridge.snapshot/to_dict Decimal-string and nullable-field provenance confirmed; serializer/controller/main/HTML/style/docs/harness accepted. Browser acceptance separate."
   },
   "browser": {
-    "status": "queued_for_existing_hosted_browser_engine_job",
-    "receiver": "web-demo/tools/check_ledger_export_browser.py",
-    "source_review": {
-      "reviewer": "/root/thinkpad_production",
-      "head": "99fc2917a2e1238fb370e76ca78d3efb3da37a85",
-      "receiver_blob": "0e965f70820af61641edefadccd20f7c2eb5eee7",
-      "result": "No blocking serial workflow/oracle defect. Whole-file csv.writer byte oracle added. Disabled-control event dispatch now receives the controller guard as well as UI; coverage labels retain focused Enter and synthetic failure limits."
+    "status": "passed_actual_hosted_chrome",
+    "receipt": "hosted-chrome/browser-receiving.json",
+    "packet_integrity": "hosted-chrome/bundle-integrity.json",
+    "run": 37783466720,
+    "job": 113332140792,
+    "checkout": "d9ba98b369de41cc7b4f79bd5de1956b1b108df2",
+    "tree": "4ad1b34c7cd15616f2ae8e98ce672e18bd31648d",
+    "source_head": "d362ce2d86b818e13f10341b1f31072f818b1fcf",
+    "current_main_at_run": "5493205cd69a32be75ed2f7dfc669b122efe5563",
+    "runtime": {
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "python": "3.12.15",
+      "playwright": "1.63.0",
+      "chrome": "154.0.8037.97"
     },
-    "required": "actual files compared to real Worker/Python snapshots, no-effect download, payment/reminder updates, correction/CSV text, busy/retry/reset/lost-session, phone keyboard and visual check"
+    "downloads": 8,
+    "control_groups": 7,
+    "off_origin_requests": 0,
+    "page_errors": 0,
+    "frontend_tests": 63,
+    "frontend_build": "passed",
+    "python_tests": 179,
+    "python_subtests": 60,
+    "visual_review": "Desktop and390px captures inspected: export button, focused Enter outline, wrapped layout and invoice controls fit without horizontal overflow. Unicode is qualified by exact Worker/CSV strings; platform glyph coverage is not asserted by that byte check.",
+    "boundaries": "Real installed hosted Linux Chrome against its actual built Pyodide/assets. CreateObjectURL-start failure, synthetic terminal Worker error, focused Enter activation; no asynchronous OS-download-failure/process-crash/Tab-order claim. Original Mac execution remains held, not relabeled as passed."
   },
   "runtime_effect": "none; draft source contribution only. No Pages or installed-service deployment, provider request, dependency install, cold build, worker-owner branch change or other-owner cleanup.",
   "current_composition_plan": {
@@ -108,5 +124,19 @@
     "driver": "Use actual installed google-chrome; no browser download",
     "evidence": "Versioned SHA256/base64 packet in ordinary job log; all CSV/JSON/screenshots;2MiB unencoded file cap fails explicitly; no extra artifact action or service",
     "baseline_limits": "Original native production build/source absence retained. Original baseline browser was not executed; current feature acceptance requires actual hosted candidate files."
+  },
+  "independent_receiver_review": {
+    "reviewer": "/root/thinkpad_production",
+    "accepted_source": "d362ce2d86b818e13f10341b1f31072f818b1fcf",
+    "receiver_blob": "da830c6452b395a63d3879fbc06ca0b0374b1479",
+    "workflow_blob": "58bcc64e8d6c119e91812bd6c4c0aa581911cb5e",
+    "result": "No blocking source concern across strengthened whole-file oracle, real request/state observations, internal guard dispatch, failure/Enter labels, complete log packet and same-job hosted runtime setup; execution subsequently completed separately."
+  },
+  "final_current_main_plan": {
+    "main": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+    "tree": "cb1877320fc40166cc7f10c035d5e7866be53713",
+    "delta": "Separate merged PR30 changes only the bridge chase bound and adds overdue tests/evidence; none of our10 production/test/workflow paths changed.",
+    "preservation": "Every current unowned file/mode, full PR21/24/26/30 source and existing action refs preserved. No CSV/controller/receiver/test/workflow bytes change from the passed real-Chrome composition.",
+    "gate": "Existing CI on this final composition and expected-head merge pending; no main adoption claimed."
   }
 }

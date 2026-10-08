@@ -1,0 +1,83 @@
+test_cooldown_prefix_reaches_tail_and_approval_stays_per_action (test_browser_overdue_scan.BrowserOverdueScan.test_cooldown_prefix_reaches_tail_and_approval_stays_per_action) ... FAIL
+test_empty_and_small_ledgers_keep_normal_scan_behavior (test_browser_overdue_scan.BrowserOverdueScan.test_empty_and_small_ledgers_keep_normal_scan_behavior) ... ok
+test_larger_fresh_batch_reaches_every_invoice_without_sending (test_browser_overdue_scan.BrowserOverdueScan.test_larger_fresh_batch_reaches_every_invoice_without_sending) ... FAIL
+test_pending_prefix_does_not_hide_tail_invoices (test_browser_overdue_scan.BrowserOverdueScan.test_pending_prefix_does_not_hide_tail_invoices) ... FAIL
+test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions (test_browser_overdue_scan.BrowserOverdueScan.test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions) ... FAIL
+test_unrelated_planner_retains_general_step_guard (test_browser_overdue_scan.BrowserOverdueScan.test_unrelated_planner_retains_general_step_guard) ... ok
+
+======================================================================
+FAIL: test_cooldown_prefix_reaches_tail_and_approval_stays_per_action (test_browser_overdue_scan.BrowserOverdueScan.test_cooldown_prefix_reaches_tail_and_approval_stays_per_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/hamon-68094585a1c2/ledgerly-overdue-scan/baseline-check/tests/test_browser_overdue_scan.py", line 94, in test_cooldown_prefix_reaches_tail_and_approval_stays_per_action
+    self.assertEqual([a["invoice_id"] for a in tail], ids[11:])
+AssertionError: Lists differ: [] != ['INV2-MOCK-0012-D2EC', 'INV2-MOCK-0013-00B9']
+
+Second list contains 2 additional elements.
+First extra element 0:
+'INV2-MOCK-0012-D2EC'
+
+- []
++ ['INV2-MOCK-0012-D2EC', 'INV2-MOCK-0013-00B9']
+
+======================================================================
+FAIL: test_larger_fresh_batch_reaches_every_invoice_without_sending (test_browser_overdue_scan.BrowserOverdueScan.test_larger_fresh_batch_reaches_every_invoice_without_sending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/hamon-68094585a1c2/ledgerly-overdue-scan/baseline-check/tests/test_browser_overdue_scan.py", line 69, in test_larger_fresh_batch_reaches_every_invoice_without_sending
+    self.assertEqual([a["invoice_id"] for a in pending], ids)
+AssertionError: Lists differ: ['INV[231 chars]-MOCK-0011-A726'] != ['INV[231 chars]-MOCK-0011-A726', 'INV2-MOCK-0012-872E', 'INV2-MOCK-0013-580F']
+
+Second list contains 2 additional elements.
+First extra element 11:
+'INV2-MOCK-0012-872E'
+
+  ['INV2-MOCK-0001-2EA1',
+   'INV2-MOCK-0002-C1E0',
+   'INV2-MOCK-0003-7641',
+   'INV2-MOCK-0004-FDB8',
+   'INV2-MOCK-0005-A040',
+   'INV2-MOCK-0006-1201',
+   'INV2-MOCK-0007-F666',
+   'INV2-MOCK-0008-8DC3',
+   'INV2-MOCK-0009-CE89',
+   'INV2-MOCK-0010-32AE',
+-  'INV2-MOCK-0011-A726']
+?                       ^
+
++  'INV2-MOCK-0011-A726',
+?                       ^
+
++  'INV2-MOCK-0012-872E',
++  'INV2-MOCK-0013-580F']
+
+======================================================================
+FAIL: test_pending_prefix_does_not_hide_tail_invoices (test_browser_overdue_scan.BrowserOverdueScan.test_pending_prefix_does_not_hide_tail_invoices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/hamon-68094585a1c2/ledgerly-overdue-scan/baseline-check/tests/test_browser_overdue_scan.py", line 83, in test_pending_prefix_does_not_hide_tail_invoices
+    self.assertEqual([a["invoice_id"] for a in pending[11:]], ids[11:])
+AssertionError: Lists differ: [] != ['INV2-MOCK-0012-1019', 'INV2-MOCK-0013-20A5']
+
+Second list contains 2 additional elements.
+First extra element 0:
+'INV2-MOCK-0012-1019'
+
+- []
++ ['INV2-MOCK-0012-1019', 'INV2-MOCK-0013-20A5']
+
+======================================================================
+FAIL: test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions (test_browser_overdue_scan.BrowserOverdueScan.test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/hamon-68094585a1c2/ledgerly-overdue-scan/baseline-check/tests/test_browser_overdue_scan.py", line 122, in test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions
+    self.assertEqual(demo.agent.ledger[ids[-2]].status, "PAID")
+AssertionError: 'SENT' != 'PAID'
+- SENT
++ PAID
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.049s
+
+FAILED (failures=4)

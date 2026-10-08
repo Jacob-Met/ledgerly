@@ -1,0 +1,495 @@
+{
+  "commit": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "tree": "ba5ab49270c136d86bc492411f49a5bdebdb6049",
+  "files": [
+    {
+      "path": "fixtures/01_simple_usd_hourly.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8360fea218c2509556680ab84d54a0ce2f450866",
+      "size": 282,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/8360fea218c2509556680ab84d54a0ce2f450866",
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "verified_bytes": 282
+    },
+    {
+      "path": "fixtures/02_gbp_proofreading.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "size": 293,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "verified_bytes": 293
+    },
+    {
+      "path": "fixtures/03_eur_fixed_project.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+      "size": 265,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "verified_bytes": 265
+    },
+    {
+      "path": "fixtures/04_multi_currency.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+      "size": 288,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "verified_bytes": 288
+    },
+    {
+      "path": "fixtures/05_missing_email.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+      "size": 238,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/29af9d1ad4c867f363a4d63043ededb7234531f7",
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "verified_bytes": 238
+    },
+    {
+      "path": "fixtures/06_ambiguous_qty.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+      "size": 246,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "verified_bytes": 246
+    },
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "size": 319,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "verified_bytes": 319
+    },
+    {
+      "path": "fixtures/08_jpy_zero_decimal.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+      "size": 271,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "verified_bytes": 271
+    },
+    {
+      "path": "fixtures/09_table_cad.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+      "size": 380,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "verified_bytes": 380
+    },
+    {
+      "path": "fixtures/10_billing_address_net45.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb792a9d9faf646f070c3681deebee84295c72bb",
+      "size": 330,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/cb792a9d9faf646f070c3681deebee84295c72bb",
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "verified_bytes": 330
+    },
+    {
+      "path": "fixtures/11_range_qty_approx.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a57623c866fec4554707e5c3ac35f40311792082",
+      "size": 239,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/a57623c866fec4554707e5c3ac35f40311792082",
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "verified_bytes": 239
+    },
+    {
+      "path": "fixtures/12_prompt_injection.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "667c687003d7552434a29509cdd16576c0ce6c9b",
+      "size": 315,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/667c687003d7552434a29509cdd16576c0ce6c9b",
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "verified_bytes": 315
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "size": 119,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "verified_bytes": 119
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0119c1a39745fa6d131c76824c89c4adc5bd7367",
+      "size": 30124,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/0119c1a39745fa6d131c76824c89c4adc5bd7367",
+      "sha256": "cc72f7d3ee10ac42298180f2da6736687e915e1fcbc342c4855aa2bc8aff5949",
+      "verified_bytes": 30124
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+      "size": 3169,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+      "verified_bytes": 3169
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+      "size": 28143,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "verified_bytes": 28143
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04cc47d78c29154435fb429ffa931d2727addb96",
+      "size": 24917,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/04cc47d78c29154435fb429ffa931d2727addb96",
+      "sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "verified_bytes": 24917
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46b2ea48656b953bb27026e0247efb219b03670e",
+      "size": 380,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/46b2ea48656b953bb27026e0247efb219b03670e",
+      "sha256": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+      "verified_bytes": 380
+    },
+    {
+      "path": "tests/conftest.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+      "size": 788,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+      "sha256": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+      "verified_bytes": 788
+    },
+    {
+      "path": "tests/test_agent_paypal.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7aa2e496f57ee49b090d5b8607301c81222fad94",
+      "size": 11582,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/7aa2e496f57ee49b090d5b8607301c81222fad94",
+      "sha256": "4e02c80b725c9532e3f80db8328770ce03731741bc8978991877ca25bc2f25c5",
+      "verified_bytes": 11582
+    },
+    {
+      "path": "tests/test_demo_interactive.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72eb3137be9a2f42875cdeb8b54dc40286365b7a",
+      "size": 4906,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/72eb3137be9a2f42875cdeb8b54dc40286365b7a",
+      "sha256": "dd0b507e0f542ea158ec5a6cb13907880ff774723deb5d41dae9fcbab37c1205",
+      "verified_bytes": 4906
+    },
+    {
+      "path": "tests/test_due_date_receiving.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0407aa32403435d7529854da025d862533f8851e",
+      "size": 6493,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/0407aa32403435d7529854da025d862533f8851e",
+      "sha256": "716d05966eda100eb096d7fd0331eff97bc14ac7a275f0465e6cbdeca6ecf89b",
+      "verified_bytes": 6493
+    },
+    {
+      "path": "tests/test_extract.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4205a0ac12421f6cc7ca9dd9015d15ca644d5a6",
+      "size": 6091,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/b4205a0ac12421f6cc7ca9dd9015d15ca644d5a6",
+      "sha256": "7fff678b923a7a65344390621f8e429f213179f01898b1185f8764cedf89b92e",
+      "verified_bytes": 6091
+    },
+    {
+      "path": "tests/test_prior_payment_language.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22113f0b65a9ebeb3d403c578bbe722d69f13e03",
+      "size": 8750,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/22113f0b65a9ebeb3d403c578bbe722d69f13e03",
+      "sha256": "da54e63f8d0d1c49159ec6f2e4992a478ac0b3af2439fd069bd812b278886f1e",
+      "verified_bytes": 8750
+    },
+    {
+      "path": "tests/test_receipt_term_receiving.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb5d293f3944480b86524eb98c8ee19a7ce53174",
+      "size": 14380,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/fb5d293f3944480b86524eb98c8ee19a7ce53174",
+      "sha256": "a1b0c4e396b20972a413fe1093063460f66682493e0e95407303f343aa65348e",
+      "verified_bytes": 14380
+    },
+    {
+      "path": "tests/test_reminder_freshness.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ddb97a786b0676a24b0b8d419b983071ba157bf1",
+      "size": 7270,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/ddb97a786b0676a24b0b8d419b983071ba157bf1",
+      "sha256": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+      "verified_bytes": 7270
+    },
+    {
+      "path": "tests/test_reminder_provider_changes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b967a8722940eb03d060eeb23e1893d098ece224",
+      "size": 6165,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/b967a8722940eb03d060eeb23e1893d098ece224",
+      "sha256": "b584d4ee1869fb7889c3a84a89783a7f6893c219278438c5f5906f76052f1810",
+      "verified_bytes": 6165
+    },
+    {
+      "path": "tests/test_reminder_receiving.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40746e8a4a441ec73cc345e1e5b5eef6c1b25570",
+      "size": 13993,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/40746e8a4a441ec73cc345e1e5b5eef6c1b25570",
+      "sha256": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+      "verified_bytes": 13993
+    },
+    {
+      "path": "web-demo/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e80895c88cba41d24b0d73f3103b91c6e3a6e632",
+      "size": 4223,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/e80895c88cba41d24b0d73f3103b91c6e3a6e632",
+      "sha256": "71d6f7a8483898532d23744ba1368e5a3796533a7d151ab4ec6a7031b3786dce",
+      "verified_bytes": 4223
+    },
+    {
+      "path": "web-demo/index.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9c8709634c3eb2626f72dcacf75ac71d6c2c114",
+      "size": 5606,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/a9c8709634c3eb2626f72dcacf75ac71d6c2c114",
+      "sha256": "5219a5f5ca1d3872a3ac08af8647860cf7304880ee2a02dddfd741fec21c6805",
+      "verified_bytes": 5606
+    },
+    {
+      "path": "web-demo/package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "555bceb19a4e55ad488ec2c8420b02e3756954d4",
+      "size": 36820,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/555bceb19a4e55ad488ec2c8420b02e3756954d4",
+      "sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+      "verified_bytes": 36820
+    },
+    {
+      "path": "web-demo/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c54e9f9d06988f14b3e03ca2f22629313fef5da8",
+      "size": 403,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/c54e9f9d06988f14b3e03ca2f22629313fef5da8",
+      "sha256": "8b0b04c8925248a608097bf25da0c9c9022c470dbfca0a6b64b68f9747ac39d0",
+      "verified_bytes": 403
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5573f8b488ee4421e073fce057e6928aac6f6630",
+      "size": 6223,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/5573f8b488ee4421e073fce057e6928aac6f6630",
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "verified_bytes": 6223
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "size": 4379,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "verified_bytes": 4379
+    },
+    {
+      "path": "web-demo/scripts/stage-python.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f06d27ecc0a4ff4a09517ca6d3fef5887e8be7d6",
+      "size": 974,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/f06d27ecc0a4ff4a09517ca6d3fef5887e8be7d6",
+      "sha256": "5f75440d4623b5f80da711aa66641ae34fe2ab4a2821cc5c244f9c42f7bc166d",
+      "verified_bytes": 974
+    },
+    {
+      "path": "web-demo/src/engine.worker.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efff0b9f8e88d7471f89b46cb20f1a28eaad62c1",
+      "size": 1715,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/efff0b9f8e88d7471f89b46cb20f1a28eaad62c1",
+      "sha256": "8507abb39874bef09a5e0c2bf5ed096a33a2148beae0c0675be0ee16d36cb06a",
+      "verified_bytes": 1715
+    },
+    {
+      "path": "web-demo/src/main.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a6baccafd8f22ed8f27d10eb98282a9fe5971a5",
+      "size": 18110,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/6a6baccafd8f22ed8f27d10eb98282a9fe5971a5",
+      "sha256": "16257dc41a8a9d214fad2dc512d88f589651f669c60ea5ee5c13e112285e80e1",
+      "verified_bytes": 18110
+    },
+    {
+      "path": "web-demo/src/retryable-loader.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6e49a01fccbbeffb892c0c814eaf4064c00045b",
+      "size": 404,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/d6e49a01fccbbeffb892c0c814eaf4064c00045b",
+      "sha256": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a",
+      "verified_bytes": 404
+    },
+    {
+      "path": "web-demo/src/review.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d3da08a25b21b8156c198f99930e53de315e451",
+      "size": 1829,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/8d3da08a25b21b8156c198f99930e53de315e451",
+      "sha256": "33ab6b3324264b73d0c30790fc7c2692cbdd6ff7f7e4fada78c697dc4a7ad895",
+      "verified_bytes": 1829
+    },
+    {
+      "path": "web-demo/src/review.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53463561542dfe0a5b1c3e6b0581e050c98fcc91",
+      "size": 6591,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/53463561542dfe0a5b1c3e6b0581e050c98fcc91",
+      "sha256": "cbfb069298ff5130b22f7eb5bca300cff5a9a2490338e68f2e8f459cc0b67103",
+      "verified_bytes": 6591
+    },
+    {
+      "path": "web-demo/src/style.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da0a2c54b85c2058e1a654f4a029e3e6b9c94db7",
+      "size": 7353,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/da0a2c54b85c2058e1a654f4a029e3e6b9c94db7",
+      "sha256": "94146460348e640e58e24c73ac99d9088a201dec8ef9c85d84c42e5e23ce77db",
+      "verified_bytes": 7353
+    },
+    {
+      "path": "web-demo/src/worker-client.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d56a2b3732e101f5b27fba22bd39790912caafd",
+      "size": 3972,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/0d56a2b3732e101f5b27fba22bd39790912caafd",
+      "sha256": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+      "verified_bytes": 3972
+    },
+    {
+      "path": "web-demo/tests/engine-recovery.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f77df7d5762323597390d0e0f5e845ed4c7899d",
+      "size": 15542,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/6f77df7d5762323597390d0e0f5e845ed4c7899d",
+      "sha256": "d7b2603dff05d0802685d8ba353a0323c6128543d078a684786527b2dac3550d",
+      "verified_bytes": 15542
+    },
+    {
+      "path": "web-demo/tests/engine.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a071401e01eb1eb79c687d4702c5f3ff36fd261",
+      "size": 3009,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/7a071401e01eb1eb79c687d4702c5f3ff36fd261",
+      "sha256": "f9b3c8bd1f9babbe9e01f112421679dd086629b493cc944944b9d68000356f74",
+      "verified_bytes": 3009
+    },
+    {
+      "path": "web-demo/tests/review.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd6660b4c4cdf6c112e2fb98a5a1b413570a27ff",
+      "size": 9393,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/cd6660b4c4cdf6c112e2fb98a5a1b413570a27ff",
+      "sha256": "83c05806ef215e9bd00f5f6f36e8db599965e93e88456218b0cae5fde758ebce",
+      "verified_bytes": 9393
+    },
+    {
+      "path": "web-demo/tests/worker-client.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "077aa60dd05916ca3c64144f3ea4c2bf6ac08364",
+      "size": 8569,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/077aa60dd05916ca3c64144f3ea4c2bf6ac08364",
+      "sha256": "33cfa5b305b41921b53ba8ca923f9a7ae6b243bbc7be603c4df7d20091eb1e67",
+      "verified_bytes": 8569
+    },
+    {
+      "path": "web-demo/tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "408840754fae30406085341098dd2ec7d084d528",
+      "size": 211,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/408840754fae30406085341098dd2ec7d084d528",
+      "sha256": "c5ac16e7a2b9131b0c29e742278a532ca756088b2f21561c23bdaa5f5518b432",
+      "verified_bytes": 211
+    },
+    {
+      "path": "web-demo/vite.config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "031e19417070e2b63cc48b2ae105e0f40eea6ef0",
+      "size": 173,
+      "url": "https://api.github.com/repos/Jacob-Met/ledgerly/git/blobs/031e19417070e2b63cc48b2ae105e0f40eea6ef0",
+      "sha256": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c",
+      "verified_bytes": 173
+    },
+    {
+      "path": "web-demo/public/favicon.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de1096fdf1b4568cf04715c0c90cd512a9c5d1ce",
+      "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+      "size": 240,
+      "verified_bytes": 240
+    }
+  ]
+}

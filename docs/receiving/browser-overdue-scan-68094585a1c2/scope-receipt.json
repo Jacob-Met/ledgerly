@@ -1,0 +1,95 @@
+{
+  "verified_utc": "2026-10-08T12:42:42.847074+00:00",
+  "native_input_count": 49,
+  "unowned_inputs_unchanged": 48,
+  "intended_source_paths": [
+    "tests/test_browser_overdue_scan.py",
+    "web-demo/python/bridge.py",
+    "web-demo/tests/overdue-scan.test.ts"
+  ],
+  "bridge_reverse_byte_match": true,
+  "original_tree_complete": true,
+  "new_test_paths_absent_from_original_tree": true,
+  "original_tree_agents_count": 0,
+  "native_ancestor_instructions_absent": [
+    "/AGENTS.md",
+    "/Users/AGENTS.md",
+    "/Users/me/AGENTS.md",
+    "/Users/me/hamon-towerops-decision-trace-68094585a1c2/AGENTS.md"
+  ],
+  "runtime_post_run_observations": [
+    {
+      "pre_run_cache_path": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/node_modules/pyodide/package.json",
+      "expected_sha256": "81f7cf8ee62633854d610a040efe15d3f9e80cfc78fbc32426860419b8712924",
+      "cache_path_present_now": false,
+      "owned_staged_readbacks": []
+    },
+    {
+      "pre_run_cache_path": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.mjs",
+      "expected_sha256": "23213d27e9dacbda6f25f955fb38dabfc40ada082c04ee253047ea5dddcaa3b5",
+      "cache_path_present_now": false,
+      "owned_staged_readbacks": []
+    },
+    {
+      "pre_run_cache_path": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.asm.js",
+      "expected_sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+      "cache_path_present_now": false,
+      "owned_staged_readbacks": [
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/public/pyodide/pyodide.asm.js",
+          "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+        },
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/dist/pyodide/pyodide.asm.js",
+          "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+        }
+      ]
+    },
+    {
+      "pre_run_cache_path": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/node_modules/pyodide/pyodide.asm.wasm",
+      "expected_sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+      "cache_path_present_now": false,
+      "owned_staged_readbacks": [
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/public/pyodide/pyodide.asm.wasm",
+          "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+        },
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/dist/pyodide/pyodide.asm.wasm",
+          "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+        }
+      ]
+    },
+    {
+      "pre_run_cache_path": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/node_modules/pyodide/python_stdlib.zip",
+      "expected_sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+      "cache_path_present_now": false,
+      "owned_staged_readbacks": [
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/public/pyodide/python_stdlib.zip",
+          "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+        },
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/dist/pyodide/python_stdlib.zip",
+          "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+        }
+      ]
+    },
+    {
+      "pre_run_cache_path": "/Users/me/hamon-work-ledgerly-composed-c945953fdeb7/web-demo/node_modules/pyodide/pyodide-lock.json",
+      "expected_sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+      "cache_path_present_now": false,
+      "owned_staged_readbacks": [
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/public/pyodide/pyodide-lock.json",
+          "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+        },
+        {
+          "path": "/Users/me/hamon-towerops-decision-trace-68094585a1c2/ledgerly-overdue-scan/source/web-demo/dist/pyodide/pyodide-lock.json",
+          "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+        }
+      ]
+    }
+  ],
+  "exact_dependency_lock_sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e"
+}

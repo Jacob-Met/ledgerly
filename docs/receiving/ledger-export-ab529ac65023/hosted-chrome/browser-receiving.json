@@ -1,0 +1,137 @@
+{
+  "ok": true,
+  "baseline": false,
+  "checks": [
+    "disabled before ready and for empty ledger",
+    "disabled UI and controller guard during an actual pending Worker action",
+    "actual human correction retains Unicode/commas/quotes with documented formula prefix",
+    "failed browser download has no effects and explicit retry retains exact bytes",
+    "390px layout without overflow and focused Enter activation",
+    "reset disables empty export without deleting an explicitly downloaded file",
+    "synthetic terminal Worker error blocks stale ledger through UI and controller guard; explicit restart starts empty"
+  ],
+  "downloads": [
+    {
+      "case": "01-drafts",
+      "filename": "ledgerly-sandbox-2026-10-08.csv",
+      "rows": 2,
+      "sha256": "d70a3cbeb08c1aa266dcaabfaf7d037131b4e473b197e8fad2029ec0df25aa8d",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    },
+    {
+      "case": "02-sent",
+      "filename": "ledgerly-sandbox-2026-10-08.csv",
+      "rows": 2,
+      "sha256": "8b49788c7e8ae35ed2864554e1c8054bbfdc5cd5fe5e03365b24eb09aa2918dd",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    },
+    {
+      "case": "03-partial-payment",
+      "filename": "ledgerly-sandbox-2026-10-08.csv",
+      "rows": 2,
+      "sha256": "8cdbd54c9b84327f0b008f9e356b3951f6b17acb63e9be2b32c03281f13d9992",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    },
+    {
+      "case": "04-reminders",
+      "filename": "ledgerly-sandbox-2026-11-08.csv",
+      "rows": 2,
+      "sha256": "d3864afd93b7976360b28fdb94f11fb325cefcfebd5a079f8b2917f798dfcfa0",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    },
+    {
+      "case": "05-corrected-name",
+      "filename": "ledgerly-sandbox-2026-11-08.csv",
+      "rows": 3,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    },
+    {
+      "case": "06-repeat",
+      "filename": "ledgerly-sandbox-2026-11-08.csv",
+      "rows": 3,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    },
+    {
+      "case": "07-retry",
+      "filename": "ledgerly-sandbox-2026-11-08.csv",
+      "rows": 3,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    },
+    {
+      "case": "08-phone-keyboard",
+      "filename": "ledgerly-sandbox-2026-11-08.csv",
+      "rows": 3,
+      "sha256": "62d703163511b30a7222c993da090966777282711fa75d12dd9fd4b67b0ebd03",
+      "exact_snapshot_fields": true,
+      "canonical_file_bytes": true,
+      "state_and_requests_unchanged": true
+    }
+  ],
+  "page_errors": [],
+  "off_origin_requests": [],
+  "checkout": "d9ba98b369de41cc7b4f79bd5de1956b1b108df2",
+  "python": "3.12.15",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "playwright": "1.63.0",
+  "source_sha256": {
+    "src/main.ts": "d7a3ec161dbb11ea6b057be5430d88621a4e165c84690be0767bf674d6ba9367",
+    "src/engine.worker.ts": "8507abb39874bef09a5e0c2bf5ed096a33a2148beae0c0675be0ee16d36cb06a",
+    "src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+    "src/ledger-export.ts": "ce33b1cb62b7bc54ededb8450fd9fdeee5ed4be9b5a36542357d141830acc0dc",
+    "python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "index.html": "052d3f2b7885531e54418c456f1e6630bc3b988e37d768394ba48060d59116ef",
+    "tools/check_ledger_export_browser.py": "d37c01ac93a8996684dc89caf9bd7fe05535d0df9a3d0421a4948dcc7f20d747",
+    "package-lock.json": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+    "vite.config.ts": "7df7e09dfa01f821ee0902e2703e8ea9d751da16762f0d82c6063cf79e98e21c"
+  },
+  "dist_sha256": {
+    "assets/__vite-browser-external-CyMxSyHA.js": "677185d833bde4df12bf7dd50da9a70188b6c2f3f1e32fbca1c2d5166e86278c",
+    "assets/engine.worker-x2BNq2jZ.js": "d72ef16b79626487e65308cba5df9c448604d00e070e6ca5ac880b807a38cfb3",
+    "assets/index-UOtab8va.js": "9d41e2541e76e787ecf882524e0fe2c4844c2d11bb7630f96b9afc6dd2d2db9b",
+    "assets/index-hQNJXSbf.css": "8f0102db1811ad90230972ac47a782e2809373f413f6a56247dd63fdadfd5ccb",
+    "captures/ledgerly-desktop.png": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df",
+    "captures/ledgerly-mobile.png": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5",
+    "favicon.svg": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337",
+    "fixtures/01_simple_usd_hourly.txt": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+    "fixtures/02_gbp_proofreading.txt": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+    "fixtures/03_eur_fixed_project.txt": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+    "fixtures/04_multi_currency.txt": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+    "fixtures/05_missing_email.txt": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+    "fixtures/06_ambiguous_qty.txt": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+    "fixtures/07_partial_payment_deposit.txt": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+    "fixtures/08_jpy_zero_decimal.txt": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+    "fixtures/09_table_cad.txt": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+    "fixtures/10_billing_address_net45.txt": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+    "fixtures/11_range_qty_approx.txt": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+    "fixtures/12_prompt_injection.txt": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+    "index.html": "059c0db98c0ee0eb105b366860332a56d9ae21e652fa300726de1b7c1d8732f6",
+    "pyodide/pyodide-lock.json": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac",
+    "pyodide/pyodide.asm.js": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91",
+    "pyodide/pyodide.asm.wasm": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480",
+    "pyodide/python_stdlib.zip": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b",
+    "python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "python/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "python/ledgerly/agent.py": "1547047380e848e2527374cf0f0c381d4ef1155e04d729bd9af74e1e8dd14c05",
+    "python/ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "python/ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "browser": "154.0.8037.97"
+}
