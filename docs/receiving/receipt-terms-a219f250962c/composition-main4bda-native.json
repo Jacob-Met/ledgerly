@@ -1,0 +1,215 @@
+{
+  "base_commit": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "base_tree": "00b89f15758d8c8cebcb48f6397b18d466ec355a",
+  "receipt_source_commit": "8a1be8e8163698b88108c01c7fc886f1ca542171",
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--offline",
+    "--with",
+    "pytest==9.1.1",
+    "python",
+    "-B",
+    "-m",
+    "pytest",
+    "-p",
+    "no:cacheprovider",
+    "-q"
+  ],
+  "source": "/dev/shm/ledgerly-receipt-current-a219f250962c",
+  "source_files": {
+    "README.md": {
+      "git_blob": "1f7a0df1ec6456cfe466df83072b103e43917acb",
+      "sha256": "2e084f4e3a1df30efc68772361f459755883dffd5d13f85082b01e95084bc25f",
+      "bytes": 5483
+    },
+    "fixtures/01_simple_usd_hourly.txt": {
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "bytes": 282
+    },
+    "fixtures/02_gbp_proofreading.txt": {
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "bytes": 293
+    },
+    "fixtures/03_eur_fixed_project.txt": {
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "bytes": 265
+    },
+    "fixtures/04_multi_currency.txt": {
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "bytes": 288
+    },
+    "fixtures/05_missing_email.txt": {
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "bytes": 238
+    },
+    "fixtures/06_ambiguous_qty.txt": {
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "bytes": 246
+    },
+    "fixtures/07_partial_payment_deposit.txt": {
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "bytes": 319
+    },
+    "fixtures/08_jpy_zero_decimal.txt": {
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "bytes": 271
+    },
+    "fixtures/09_table_cad.txt": {
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "bytes": 380
+    },
+    "fixtures/10_billing_address_net45.txt": {
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb",
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "bytes": 330
+    },
+    "fixtures/11_range_qty_approx.txt": {
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082",
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "bytes": 239
+    },
+    "fixtures/12_prompt_injection.txt": {
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b",
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "bytes": 315
+    },
+    "ledgerly/__init__.py": {
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "bytes": 119
+    },
+    "ledgerly/__pycache__/__init__.cpython-314.pyc": {
+      "git_blob": "acadc4f1135fc425f5a976104298cff346490730",
+      "sha256": "f7c090390db8408e8b90c9a828f07eb8f1bc8418a21eed2f3e2bfe3c8aea689b",
+      "bytes": 287
+    },
+    "ledgerly/__pycache__/agent.cpython-314.pyc": {
+      "git_blob": "0f8d6a918f6799ae20d65bed3cd7587c706582b8",
+      "sha256": "47b2b6b4768c4c78b4723356bfcce16dc743a4ea0248745886c2c6af8af3c387",
+      "bytes": 38319
+    },
+    "ledgerly/__pycache__/extract.cpython-314.pyc": {
+      "git_blob": "544704e661a0e793f41d18757820c363405bef04",
+      "sha256": "19832d75eb377890d10837e6698f05e6416ae140e69afd4c44f2d4f7c07cbf11",
+      "bytes": 48650
+    },
+    "ledgerly/__pycache__/paypal.cpython-314.pyc": {
+      "git_blob": "c5007dcc550f287536e3362f11a36706c9636d65",
+      "sha256": "19776bf2c567efda898ab2756800313f68d8372f09f83e88e9741e5b463945e4",
+      "bytes": 42676
+    },
+    "ledgerly/agent.py": {
+      "git_blob": "0119c1a39745fa6d131c76824c89c4adc5bd7367",
+      "sha256": "cc72f7d3ee10ac42298180f2da6736687e915e1fcbc342c4855aa2bc8aff5949",
+      "bytes": 30124
+    },
+    "ledgerly/demo.py": {
+      "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+      "bytes": 3169
+    },
+    "ledgerly/extract.py": {
+      "git_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "bytes": 28143
+    },
+    "ledgerly/paypal.py": {
+      "git_blob": "04cc47d78c29154435fb429ffa931d2727addb96",
+      "sha256": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+      "bytes": 24917
+    },
+    "pyproject.toml": {
+      "git_blob": "46b2ea48656b953bb27026e0247efb219b03670e",
+      "sha256": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+      "bytes": 380
+    },
+    "tests/__pycache__/conftest.cpython-314-pytest-9.0.2.pyc": {
+      "git_blob": "e4085a56e85fd2388f716f856d3988dc4fdc2971",
+      "sha256": "e187e80c9390160db15c270bc4092a48bc8bff090ccdb28a38f82517ec8e2a22",
+      "bytes": 2780
+    },
+    "tests/__pycache__/test_agent_paypal.cpython-314-pytest-9.0.2.pyc": {
+      "git_blob": "1738390c0ab4113b238909ba8728b172392db6c2",
+      "sha256": "5bd66790c17dcc1ee9cff99f73477e38b46d12e7b66b9480ae45e7205aa7359a",
+      "bytes": 65766
+    },
+    "tests/__pycache__/test_extract.cpython-314-pytest-9.0.2.pyc": {
+      "git_blob": "b064ec4f0879f15eda85663975830a032dd353b4",
+      "sha256": "df365be52b243446265ae1c6fead5fe4b6ee51b562968878231bf43fbee955e7",
+      "bytes": 48899
+    },
+    "tests/conftest.py": {
+      "git_blob": "ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+      "sha256": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+      "bytes": 788
+    },
+    "tests/test_agent_paypal.py": {
+      "git_blob": "7aa2e496f57ee49b090d5b8607301c81222fad94",
+      "sha256": "4e02c80b725c9532e3f80db8328770ce03731741bc8978991877ca25bc2f25c5",
+      "bytes": 11582
+    },
+    "tests/test_demo_interactive.py": {
+      "git_blob": "72eb3137be9a2f42875cdeb8b54dc40286365b7a",
+      "sha256": "dd0b507e0f542ea158ec5a6cb13907880ff774723deb5d41dae9fcbab37c1205",
+      "bytes": 4906
+    },
+    "tests/test_due_date_receiving.py": {
+      "git_blob": "0407aa32403435d7529854da025d862533f8851e",
+      "sha256": "716d05966eda100eb096d7fd0331eff97bc14ac7a275f0465e6cbdeca6ecf89b",
+      "bytes": 6493
+    },
+    "tests/test_extract.py": {
+      "git_blob": "b4205a0ac12421f6cc7ca9dd9015d15ca644d5a6",
+      "sha256": "7fff678b923a7a65344390621f8e429f213179f01898b1185f8764cedf89b92e",
+      "bytes": 6091
+    },
+    "tests/test_prior_payment_language.py": {
+      "git_blob": "22113f0b65a9ebeb3d403c578bbe722d69f13e03",
+      "sha256": "da54e63f8d0d1c49159ec6f2e4992a478ac0b3af2439fd069bd812b278886f1e",
+      "bytes": 8750
+    },
+    "tests/test_receipt_term_receiving.py": {
+      "git_blob": "fb5d293f3944480b86524eb98c8ee19a7ce53174",
+      "sha256": "a1b0c4e396b20972a413fe1093063460f66682493e0e95407303f343aa65348e",
+      "bytes": 14380
+    },
+    "tests/test_reminder_freshness.py": {
+      "git_blob": "ddb97a786b0676a24b0b8d419b983071ba157bf1",
+      "sha256": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+      "bytes": 7270
+    },
+    "tests/test_reminder_provider_changes.py": {
+      "git_blob": "b967a8722940eb03d060eeb23e1893d098ece224",
+      "sha256": "b584d4ee1869fb7889c3a84a89783a7f6893c219278438c5f5906f76052f1810",
+      "bytes": 6165
+    },
+    "tests/test_reminder_receiving.py": {
+      "git_blob": "40746e8a4a441ec73cc345e1e5b5eef6c1b25570",
+      "sha256": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+      "bytes": 13993
+    },
+    "web-demo/python/bridge.py": {
+      "git_blob": "5573f8b488ee4421e073fce057e6928aac6f6630",
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "bytes": 6223
+    },
+    "web-demo/python/review.py": {
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "bytes": 4379
+    }
+  },
+  "exit_code": 0,
+  "effects": "SandboxMock only; no browser or live provider"
+}

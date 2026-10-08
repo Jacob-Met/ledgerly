@@ -1,0 +1,47 @@
+{
+  "base": "b484417baf4e515a0a86cfa13a5983c99293e5f6",
+  "candidate": "8a1be8e8163698b88108c01c7fc886f1ca542171",
+  "tree": "2aabfa3b074101b859c674f91be1ef83738f1701",
+  "only_existing_file_changes": [
+    "ledgerly/agent.py",
+    "ledgerly/paypal.py"
+  ],
+  "preserved": {
+    "Agent.approve": {
+      "byte_exact": true,
+      "sha256": "6386a2e0d12068169f1d6d07d4ffbebcdc0180df8d4d0f68db0856445fb4c9e8"
+    },
+    "Agent._refresh_invoice": {
+      "byte_exact": true,
+      "sha256": "2c25612c61a91a4b484217d4e7f2f8b8a440846d76f748a706969411e37dcbcd"
+    },
+    "Agent._invalidate_reminders": {
+      "byte_exact": true,
+      "sha256": "aa87956e67810b56bdfa68bf39e03ecec355206bd369e8aaa9dc9a639dc93518"
+    },
+    "Agent.tool_create_invoice": {
+      "byte_exact": true,
+      "sha256": "8d5ac135331e8a1aaebe02d57e6639719857349b4dac64c99cdd3e4aed0af937"
+    },
+    "Agent._invoice_facts": {
+      "byte_exact": true,
+      "sha256": "59ecf889d3221ad3e316a51aa0dc71c332b4f20afce92dcf99066f2a0800e336"
+    },
+    "web-demo/python/bridge.py": {
+      "byte_exact": true,
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda"
+    },
+    "web-demo/python/review.py": {
+      "byte_exact": true,
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    },
+    "ledgerly/extract.py": {
+      "byte_exact": true,
+      "sha256": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8"
+    }
+  },
+  "production_hashes": {
+    "ledgerly/agent.py": "cc72f7d3ee10ac42298180f2da6736687e915e1fcbc342c4855aa2bc8aff5949",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f"
+  }
+}

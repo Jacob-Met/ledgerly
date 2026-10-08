@@ -1,0 +1,151 @@
+test_bad_provider_terms_do_not_replace_any_cached_fact (test_receipt_term_receiving.ReceiptTermReceiving.test_bad_provider_terms_do_not_replace_any_cached_fact) ... ok
+test_current_ledger_positional_prefix_is_unchanged (test_receipt_term_receiving.ReceiptTermReceiving.test_current_ledger_positional_prefix_is_unchanged) ... ok
+test_explicit_provider_date_and_no_due_date_replace_pending_receipt (test_receipt_term_receiving.ReceiptTermReceiving.test_explicit_provider_date_and_no_due_date_replace_pending_receipt) ... ok
+test_failed_or_unapproved_send_does_not_resolve_receipt_date (test_receipt_term_receiving.ReceiptTermReceiving.test_failed_or_unapproved_send_does_not_resolve_receipt_date) ... FAIL
+test_later_provider_date_edit_still_invalidates_the_old_reminder (test_receipt_term_receiving.ReceiptTermReceiving.test_later_provider_date_edit_still_invalidates_the_old_reminder) ... ok
+test_provider_replaces_positive_draft_with_unresolved_receipt_term (test_receipt_term_receiving.ReceiptTermReceiving.test_provider_replaces_positive_draft_with_unresolved_receipt_term) ... FAIL
+test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) ... 
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2026, 10, 8)) ... FAIL
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2027, 1, 2)) ... FAIL
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2028, 2, 29)) ... FAIL
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2027, 3, 1)) ... FAIL
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2026, 10, 8)) ... FAIL
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2027, 1, 2)) ... FAIL
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2028, 2, 29)) ... FAIL
+  test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2027, 3, 1)) ... FAIL
+test_receipt_builder_does_not_choose_a_date_before_receipt (test_receipt_term_receiving.ReceiptTermReceiving.test_receipt_builder_does_not_choose_a_date_before_receipt) ... FAIL
+test_unresolved_sent_provider_receipt_is_held_without_erasing_known_state (test_receipt_term_receiving.ReceiptTermReceiving.test_unresolved_sent_provider_receipt_is_held_without_erasing_known_state) ... ok
+
+======================================================================
+FAIL: test_failed_or_unapproved_send_does_not_resolve_receipt_date (test_receipt_term_receiving.ReceiptTermReceiving.test_failed_or_unapproved_send_does_not_resolve_receipt_date)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 158, in test_failed_or_unapproved_send_does_not_resolve_receipt_date
+    self.assertIsNone(entry.due_on)
+AssertionError: datetime.date(2026, 10, 1) is not None
+
+======================================================================
+FAIL: test_provider_replaces_positive_draft_with_unresolved_receipt_term (test_receipt_term_receiving.ReceiptTermReceiving.test_provider_replaces_positive_draft_with_unresolved_receipt_term)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 98, in test_provider_replaces_positive_draft_with_unresolved_receipt_term
+    demo.agent.tool_get_status(action["invoice_id"])
+  File "/dev/shm/ledgerly-receipt-a219f250962c/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-a219f250962c/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-a219f250962c/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 100, in test_provider_replaces_positive_draft_with_unresolved_receipt_term
+    self.fail(f"Valid undated draft receipt term was refused: {exc}")
+AssertionError: Valid undated draft receipt term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2026, 10, 8))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2026-10-01'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2026-10-01', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2027, 1, 2))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2026-12-25'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2026-12-25', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2028, 2, 29))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2028-02-20'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2028-02-20', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=False, sent_on=datetime.date(2027, 3, 1))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2027-02-28'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2027-02-28', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2026, 10, 8))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2026-10-01'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2026-10-01', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2027, 1, 2))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2026-12-25'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2026-12-25', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2028, 2, 29))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2028-02-20'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2028-02-20', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries) (reviewed=True, sent_on=datetime.date(2027, 3, 1))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 54, in test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries
+    self.assertEqual(term, {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2027-02-28'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2027-02-28', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+======================================================================
+FAIL: test_receipt_builder_does_not_choose_a_date_before_receipt (test_receipt_term_receiving.ReceiptTermReceiving.test_receipt_builder_does_not_choose_a_date_before_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-a219f250962c/tests/test_receipt_term_receiving.py", line 87, in test_receipt_builder_does_not_choose_a_date_before_receipt
+    self.assertEqual(payment_term(0, day), {"term_type": "DUE_ON_RECEIPT"})
+AssertionError: {'term_type': 'DUE_ON_RECEIPT', 'due_date': '2026-10-01'} != {'term_type': 'DUE_ON_RECEIPT'}
+- {'due_date': '2026-10-01', 'term_type': 'DUE_ON_RECEIPT'}
++ {'term_type': 'DUE_ON_RECEIPT'}
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.017s
+
+FAILED (failures=11)

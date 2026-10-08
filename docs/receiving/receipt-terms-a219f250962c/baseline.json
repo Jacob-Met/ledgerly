@@ -1,0 +1,30 @@
+{
+  "source_commit": "b484417baf4e515a0a86cfa13a5983c99293e5f6",
+  "tests_run": 11,
+  "failures": 14,
+  "errors": 0,
+  "failure_ids": [
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_failed_or_unapproved_send_does_not_resolve_receipt_date",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_provider_replaces_positive_draft_with_unresolved_receipt_term",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2026, 10, 8))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2027, 1, 2))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2028, 2, 29))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=False, sent_on=datetime.date(2027, 3, 1))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2026, 10, 8))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2027, 1, 2))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2028, 2, 29))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries (reviewed=True, sent_on=datetime.date(2027, 3, 1))",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_receipt_builder_does_not_choose_a_date_before_receipt",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_receipt_marker_does_not_survive_a_valid_provider_term_replacement (term={'term_type': 'DUE_ON_RECEIPT'})",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_receipt_marker_does_not_survive_a_valid_provider_term_replacement (term={'term_type': 'DUE_ON_RECEIPT'})",
+    "test_receipt_term_receiving.ReceiptTermReceiving.test_receipt_term_observed_after_external_send_cannot_invent_a_deadline"
+  ],
+  "error_ids": [],
+  "sources": {
+    "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "ledgerly/agent.py": "b70cc42cc5563c7037b8fc15093defffcabc76fe007349c90059286570c8ede2",
+    "ledgerly/extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+    "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4"
+  },
+  "test_sha256": "a1b0c4e396b20972a413fe1093063460f66682493e0e95407303f343aa65348e"
+}

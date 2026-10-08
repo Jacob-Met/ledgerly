@@ -110,15 +110,11 @@ class LedgerEntry:
     provider_due_on: Optional[date] = None
     provider_due_known: bool = False
     invoice_due_on: Optional[date] = None
-    provider_receipt_pending: bool = False
 
     @property
     def due_on(self) -> Optional[date]:
         if self.provider_due_known:
             return self.provider_due_on
-        if self.provider_receipt_pending:
-            # An observed draft receipt term supersedes earlier positive terms.
-            return None if self.status == "DRAFT" else self.sent_on
         if self.sent_on is None or self.due_days is None:
             return None
         # Positive terms retain the draft deadline; approval does not restart them.
@@ -500,7 +496,7 @@ class Agent:
 
         An unsupported/ambiguous invoice is held, never rebound to old local words.
         The current product supports exactly one billing recipient and an explicit
-        provider due date, NO_DUE_DATE, or an unresolved receipt term on a draft.
+        provider due date (or NO_DUE_DATE), matching its existing draft builder.
         """
         try:
             if inv["id"] != invoice_id:
@@ -527,13 +523,9 @@ class Agent:
                 raise ValueError("provider balance cannot be represented by this invoice ledger")
 
             term = detail["payment_term"]
-            receipt_pending = (status == "DRAFT" and term.get("term_type") == "DUE_ON_RECEIPT"
-                               and "due_date" not in term)
             if term.get("term_type") == "NO_DUE_DATE":
                 if term.get("due_date"):
                     raise ValueError("provider due-date fields disagree")
-                due_on = None
-            elif receipt_pending:
                 due_on = None
             else:
                 due_on = date.fromisoformat(term["due_date"])
@@ -553,8 +545,7 @@ class Agent:
             return {"status": status, "total": total, "paid_amount": paid,
                     "currency": currency, "invoice_number": number,
                     "client_email": email, "client_name": client_name,
-                    "provider_due_on": due_on, "provider_due_known": not receipt_pending,
-                    "provider_receipt_pending": receipt_pending}
+                    "provider_due_on": due_on, "provider_due_known": True}
         except (KeyError, TypeError, AttributeError, ArithmeticError) as err:
             raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
 

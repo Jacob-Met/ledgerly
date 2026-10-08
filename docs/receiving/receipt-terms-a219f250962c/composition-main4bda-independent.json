@@ -1,0 +1,37 @@
+{
+  "source_root": "/dev/shm/ledgerly-receipt-current-a219f250962c",
+  "source_sha256": {
+    "ledgerly/agent.py": "cc72f7d3ee10ac42298180f2da6736687e915e1fcbc342c4855aa2bc8aff5949",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "web-demo/python/bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "tests_run": 4,
+  "failures": 0,
+  "errors": 0,
+  "groups": {
+    "refresh_histories": {
+      "histories": 64,
+      "provider_refreshes": 256,
+      "explicit_mock_invoice_sends": 64
+    },
+    "malformed_preflight_recovery": {
+      "malformed_variants": 10,
+      "cache_pending_payload_and_audit_unchanged_on_failure": true,
+      "explicit_retry_sends_exactly_once": true
+    },
+    "mixed_ledger": {
+      "invoices": 3,
+      "mock_sends": 3,
+      "mock_reminders": 2,
+      "no_same_day_receipt_reminder": true,
+      "cooldown_preserved": true
+    },
+    "send_without_followup_read": {
+      "RulePlanner_and_direct_tool_entry": true,
+      "cases": 2
+    }
+  },
+  "passed": true,
+  "scope": "Actual Demo/RulePlanner/Agent/SandboxMock in CPython with urllib network blocked; no browser, provider, production invoice, or external message."
+}

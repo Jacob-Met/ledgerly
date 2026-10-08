@@ -111,9 +111,6 @@ def _split_name(full: Optional[str]) -> dict:
 def payment_term(due_days: Optional[int], invoice_date: date) -> dict:
     if due_days is None:
         return {"term_type": "NO_DUE_DATE"}
-    if due_days == 0:
-        # Receipt is a future event while the invoice is still a draft.
-        return {"term_type": "DUE_ON_RECEIPT"}
     if due_days in TERM_TYPES:
         term = {"term_type": TERM_TYPES[due_days]}
     else:
@@ -256,14 +253,9 @@ class SandboxMock:
         if body.get("send_to_recipient", True) and not inv["_has_recipient_email"]:
             raise PayPalError(422, "UNPROCESSABLE_ENTITY", "The requested action could not be performed.",
                               "MISSING_RECIPIENT_EMAIL", "Recipient email is required to send.")
-        sent_time = self._ts()
         inv["status"] = "SENT"
         meta = inv["detail"]["metadata"]
-        meta["last_sent_time"] = sent_time
-        term = inv["detail"].get("payment_term")
-        if isinstance(term, dict) and term.get("term_type") == "DUE_ON_RECEIPT":
-            # Mock convention: a successful send is receipt. Preserve explicit dates.
-            term.setdefault("due_date", sent_time[:10])
+        meta["last_sent_time"] = self._ts()
         meta["recipient_view_url"] = f"https://www.sandbox.paypal.com/invoice/p/#{invoice_id}"
         meta["invoicer_view_url"] = f"https://www.sandbox.paypal.com/invoice/details/{invoice_id}"
         return Response(200, {"href": meta["recipient_view_url"], "rel": "payer-view", "method": "GET"})

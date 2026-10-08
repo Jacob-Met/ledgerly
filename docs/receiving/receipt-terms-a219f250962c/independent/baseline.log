@@ -1,0 +1,1347 @@
+test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) ... 
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'none')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'explicit_receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'positive')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'none')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'explicit_receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'positive')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'none')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'explicit_receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'positive')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'none')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'explicit_receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'positive')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'none')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'explicit_receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'positive')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'none', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'explicit_receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'positive', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'none')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'explicit_receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'positive')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'none', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'explicit_receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'positive', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'none')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'explicit_receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'positive')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'none', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'explicit_receipt', 'receipt')) ... FAIL
+  test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'positive', 'receipt')) ... FAIL
+test_malformed_receipt_preflight_preserves_pending_then_exact_retry (__main__.IndependentReceiptReceiving.test_malformed_receipt_preflight_preserves_pending_then_exact_retry) ... ok
+test_mixed_ledger_chases_only_the_invoice_actually_overdue (__main__.IndependentReceiptReceiving.test_mixed_ledger_chases_only_the_invoice_actually_overdue) ... FAIL
+test_successful_send_has_no_new_dependency_on_a_post_send_read (__main__.IndependentReceiptReceiving.test_successful_send_has_no_new_dependency_on_a_post_send_read) ... 
+  test_successful_send_has_no_new_dependency_on_a_post_send_read (__main__.IndependentReceiptReceiving.test_successful_send_has_no_new_dependency_on_a_post_send_read) (direct=False) ... FAIL
+  test_successful_send_has_no_new_dependency_on_a_post_send_read (__main__.IndependentReceiptReceiving.test_successful_send_has_no_new_dependency_on_a_post_send_read) (direct=True) ... FAIL
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'none'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'explicit_receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'receipt', 'positive'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'none'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'explicit_receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'none', 'positive'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'none'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'explicit_receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'explicit_receipt', 'positive'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'none'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'explicit_receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('receipt', 'positive', 'positive'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'none'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'explicit_receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'receipt', 'positive'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'none', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'explicit_receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('none', 'positive', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'none'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'explicit_receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'receipt', 'positive'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'none', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'explicit_receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('explicit_receipt', 'positive', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'none'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'explicit_receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'receipt', 'positive'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'none', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'explicit_receipt', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_64_three_refresh_histories_keep_current_term_authority (__main__.IndependentReceiptReceiving.test_64_three_refresh_histories_keep_current_term_authority) (sequence=('positive', 'positive', 'receipt'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 531, in _invoice_presentation
+    due_on = date.fromisoformat(term["due_date"])
+                                ~~~~^^^^^^^^^^^^
+KeyError: 'due_date'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 68, in refresh
+    return demo.agent.tool_get_status(iid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 306, in tool_get_status
+    inv = self._refresh_invoice(invoice_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 485, in _refresh_invoice
+    presentation = self._invoice_presentation(invoice_id, inv)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/baseline/ledgerly/agent.py", line 550, in _invoice_presentation
+    raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
+ValueError: provider invoice facts are incomplete or malformed; review is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 81, in test_64_three_refresh_histories_keep_current_term_authority
+    self.refresh(demo, iid)
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 70, in refresh
+    self.fail(f'Valid supported provider term was refused: {exc}')
+AssertionError: Valid supported provider term was refused: provider invoice facts are incomplete or malformed; review is unavailable
+
+======================================================================
+FAIL: test_mixed_ledger_chases_only_the_invoice_actually_overdue (__main__.IndependentReceiptReceiving.test_mixed_ledger_chases_only_the_invoice_actually_overdue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 109, in test_mixed_ledger_chases_only_the_invoice_actually_overdue
+    self.assertEqual([receipt_entry.due_on, positive_entry.due_on, never_entry.due_on],
+AssertionError: Lists differ: [datetime.date(2026, 10, 1), datetime.date(2026, 10, 13), None] != [datetime.date(2026, 10, 8), datetime.date(2026, 10, 13), None]
+
+First differing element 0:
+datetime.date(2026, 10, 1)
+datetime.date(2026, 10, 8)
+
+- [datetime.date(2026, 10, 1), datetime.date(2026, 10, 13), None]
+?                          ^
+
++ [datetime.date(2026, 10, 8), datetime.date(2026, 10, 13), None]
+?                          ^
+
+
+======================================================================
+FAIL: test_successful_send_has_no_new_dependency_on_a_post_send_read (__main__.IndependentReceiptReceiving.test_successful_send_has_no_new_dependency_on_a_post_send_read) (direct=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 171, in test_successful_send_has_no_new_dependency_on_a_post_send_read
+    self.assertEqual(entry.due_on, date(2026, 10, 8))
+AssertionError: datetime.date(2026, 10, 1) != datetime.date(2026, 10, 8)
+
+======================================================================
+FAIL: test_successful_send_has_no_new_dependency_on_a_post_send_read (__main__.IndependentReceiptReceiving.test_successful_send_has_no_new_dependency_on_a_post_send_read) (direct=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/ledgerly-receipt-independent-a219f250962c/check_receipt_receiving.py", line 174, in test_successful_send_has_no_new_dependency_on_a_post_send_read
+    self.assertEqual(demo.mock.invoices[iid]['detail']['payment_term']['due_date'], '2026-10-08')
+AssertionError: '2026-10-01' != '2026-10-08'
+- 2026-10-01
+?          ^
++ 2026-10-08
+?          ^
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.078s
+
+FAILED (failures=40)
+{"passed": false, "tests_run": 4, "failures": 40, "errors": 0, "groups": {"refresh_histories": {"histories": 27, "provider_refreshes": 108, "explicit_mock_invoice_sends": 27}, "malformed_preflight_recovery": {"malformed_variants": 10, "cache_pending_payload_and_audit_unchanged_on_failure": true, "explicit_retry_sends_exactly_once": true}, "send_without_followup_read": {"RulePlanner_and_direct_tool_entry": true, "cases": 2}}}
