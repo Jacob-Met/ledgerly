@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "/home/jacob/ledgerly-approval-3dcb83a1/reproduce.py",
+    "/home/jacob/ledgerly-approval-3dcb83a1/baseline"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"source\": \"/home/jacob/ledgerly-approval-3dcb83a1/baseline\",\n  \"cases\": [\n    {\n      \"failure\": \"remind\",\n      \"first\": {\n        \"error\": \"TimeoutError\",\n        \"status\": \"PENDING\",\n        \"listed_pending\": true,\n        \"reminder_posts\": 1\n      },\n      \"retry\": {\n        \"result\": {\n          \"reminded\": true\n        }\n      },\n      \"final_status\": \"APPROVED\",\n      \"reminder_posts\": 2,\n      \"ledger_reminders_sent\": 1\n    },\n    {\n      \"failure\": \"get\",\n      \"first\": {\n        \"error\": \"TimeoutError\",\n        \"status\": \"PENDING\",\n        \"listed_pending\": true,\n        \"reminder_posts\": 0\n      },\n      \"retry\": {\n        \"result\": {\n          \"reminded\": true\n        }\n      },\n      \"final_status\": \"APPROVED\",\n      \"reminder_posts\": 1,\n      \"ledger_reminders_sent\": 1\n    }\n  ],\n  \"external_calls\": 0\n}\n",
+  "stderr": "",
+  "script_sha256": "04ce6f0a86f926c91a4ceecbfad0714d3883d8a1714f3d575e7118554c8694d2",
+  "free_bytes": 3949330432
+}

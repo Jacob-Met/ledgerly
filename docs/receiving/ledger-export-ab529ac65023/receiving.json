@@ -1,0 +1,84 @@
+{
+  "status": "source_qualified_actual_browser_held_by_native_storage",
+  "identity": "hamon-ultra-ab529ac65023-20261008/coordination-integration",
+  "issue": "https://github.com/Jacob-Met/ledgerly/issues/23",
+  "pull_request": "https://github.com/Jacob-Met/ledgerly/pull/27",
+  "production_frozen_native_commit": "268155f6e1af8b41f47732c734d153f78f8a2ddd",
+  "native_receiver_commit": "3cef644049254c1fa0fc1798ae6cac418e934141",
+  "original_native_and_published_tree": "d8625a75a473b6e038429bc8c3185c2e4edd9ec8",
+  "native_path": "/Users/me/ledgerly-export-ab529ac65023",
+  "original_logs": "/Users/me/ledgerly-export-evidence-ab529ac65023",
+  "source_blobs": {
+    "web-demo/README.md": "5868e54ea1251895caf2c20cd6f9fb38df0ecc56",
+    "web-demo/index.html": "a15b9b744276bc31570dcc14eedb3539fabbc9e8",
+    "web-demo/src/ledger-export.css": "63933b271fd025a5d21888f3373faefa7f8f593d",
+    "web-demo/src/ledger-export.test.ts": "3727493f7366db1771dcda96e4dd19ac4deb44f0",
+    "web-demo/src/ledger-export.ts": "6f65f1c5401408406b9706602cfd78ddf9277d11",
+    "web-demo/src/main.ts": "d5c69ad0cb0211f7921c9ce1947f09d38106f5e4",
+    "web-demo/tests/engine-recovery.test.ts": "54fa6c1ff563ded8d74269f2bcfda7741c2a291d",
+    "web-demo/tools/check_ledger_export_browser.py": "0e965f70820af61641edefadccd20f7c2eb5eee7"
+  },
+  "baseline": {
+    "source": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+    "production_build": "passed",
+    "actual_browser": "pending"
+  },
+  "first_candidate_native": {
+    "stage": "passed",
+    "typescript": "passed",
+    "new_csv_tests": 30,
+    "full_suite_pass": 52,
+    "full_suite_fail": 4,
+    "failure": "import-stripping existing VM harness lacked the new real controller binding; exact original failure log retained",
+    "correction": "two-line controller import/context addition; no recovery assertions changed",
+    "native_retry": "stopped before execution by1GiB capacity guard"
+  },
+  "hosted": {
+    "run": 37778011219,
+    "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37778011219",
+    "tested_checkout": "a0432f86d11eca72c0ce8f3814212e3cf9d13744",
+    "head": "99fc2917a2e1238fb370e76ca78d3efb3da37a85",
+    "base": "350868091702d60f3dc340be4a017ba49d99f8a0",
+    "browser_job": 113313682229,
+    "browser_tests_pass": 56,
+    "browser_test_files_pass": 5,
+    "production_build": "passed",
+    "audit": "passed",
+    "python_job": 113313682022,
+    "python_tests_pass": 141,
+    "python_subtests_pass": 60
+  },
+  "composition": {
+    "base": "350868091702d60f3dc340be4a017ba49d99f8a0",
+    "head": "99fc2917a2e1238fb370e76ca78d3efb3da37a85",
+    "tested_checkout": "a0432f86d11eca72c0ce8f3814212e3cf9d13744",
+    "tested_tree": "5211d803c64de60c0db7d93af01eae6e80c7a1e4",
+    "current_main_leaves": 223,
+    "resulting_leaves": 227,
+    "owned_paths": [
+      "web-demo/README.md",
+      "web-demo/index.html",
+      "web-demo/src/ledger-export.css",
+      "web-demo/src/ledger-export.test.ts",
+      "web-demo/src/ledger-export.ts",
+      "web-demo/src/main.ts",
+      "web-demo/tests/engine-recovery.test.ts",
+      "web-demo/tools/check_ledger_export_browser.py"
+    ],
+    "preserved_unowned_current_leaves": 219,
+    "composition_mismatches": []
+  },
+  "independent_source_review": {
+    "reviewer": "/root",
+    "source_pin": "268155f6e1af8b41f47732c734d153f78f8a2ddd",
+    "url": "https://github.com/Jacob-Met/ledgerly/pull/27#issuecomment-6060220272",
+    "result": "No source blocker. Actual bridge.snapshot/to_dict Decimal-string and nullable-field provenance confirmed; serializer/controller/main/HTML/style/docs/harness accepted. Browser acceptance separate."
+  },
+  "browser": {
+    "status": "not_run",
+    "receiver": "web-demo/tools/check_ledger_export_browser.py",
+    "source_review": "assigned to /root/thinkpad_production; no execution or conclusion claimed",
+    "required": "actual files compared to real Worker/Python snapshots, no-effect download, payment/reminder updates, correction/CSV text, busy/retry/reset/lost-session, phone keyboard and visual check"
+  },
+  "runtime_effect": "none; draft source contribution only. No Pages or installed-service deployment, provider request, dependency install, cold build, worker-owner branch change or other-owner cleanup."
+}
