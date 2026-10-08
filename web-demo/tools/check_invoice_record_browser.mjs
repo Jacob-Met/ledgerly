@@ -270,10 +270,10 @@ async function inspectOffline(file,width=1280,print=false) {
     await waitFor(()=>evaluate("window.__recordPrintCalls===1"),"actual standalone window.print");
     assert.equal(await evaluate("document.querySelector('.invoice-details').open"),true);
     await command("Emulation.setEmulatedMedia",{media:"print"});
-    const paper=await evaluate("({button:getComputedStyle(document.querySelector('#print-invoice-record')).display,"+
+    const paper=await evaluate("({buttonRects:document.querySelector('#print-invoice-record').getClientRects().length,"+
       "tables:[...document.querySelectorAll('table')].map(n=>({width:n.getBoundingClientRect().width,parent:n.parentElement.getBoundingClientRect().width})),"+
       "note:getComputedStyle(document.querySelector('.invoice-detail-note')).whiteSpace})");
-    assert.equal(paper.button,"none");assert.equal(paper.note,"pre-wrap");
+    assert.equal(paper.buttonRects,0,"Print control has no rendered box, including a hidden ancestor");assert.equal(paper.note,"pre-wrap");
     assert.ok(paper.tables.every(table=>table.width<=table.parent+1));
     const pdf=await command("Page.printToPDF",{printBackground:true,preferCSSPageSize:true});
     const bytes=Buffer.from(pdf.data,"base64");
