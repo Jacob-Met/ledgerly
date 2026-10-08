@@ -1,0 +1,53 @@
+{
+  "observedAt": "2026-10-08T10:00:57.501745+00:00",
+  "url": "https://jacobmetoyer.com/ledgerly/",
+  "html": {
+    "url": "https://jacobmetoyer.com/ledgerly/",
+    "finalUrl": "https://jacobmetoyer.com/ledgerly/",
+    "status": 200,
+    "bytes": 5708,
+    "sha256": "a4f7701e288f3b7658802d486026773c7ec715b60d73295b88528b31a6186690"
+  },
+  "assets": [
+    {
+      "url": "https://jacobmetoyer.com/ledgerly/assets/index-sy3oo-4J.js",
+      "finalUrl": "https://jacobmetoyer.com/ledgerly/assets/index-sy3oo-4J.js",
+      "status": 200,
+      "bytes": 17010,
+      "sha256": "f79eb1ba75f75a36fb3c43dea3b4975fba0d94b060ce1a06f2233c787a989676",
+      "containsRecoveryMarker": false,
+      "containsInvoiceReview": true
+    },
+    {
+      "url": "https://jacobmetoyer.com/ledgerly/assets/index-xwhl2_jp.css",
+      "finalUrl": "https://jacobmetoyer.com/ledgerly/assets/index-xwhl2_jp.css",
+      "status": 200,
+      "bytes": 9129,
+      "sha256": "d58fa08265fefecb72516dd1a8c6f3116461122e3671f59995975b8342b2d285",
+      "containsRecoveryMarker": false,
+      "containsInvoiceReview": true
+    },
+    {
+      "url": "https://jacobmetoyer.com/ledgerly/assets/engine.worker-37O6cZNX.js",
+      "finalUrl": "https://jacobmetoyer.com/ledgerly/assets/engine.worker-37O6cZNX.js",
+      "status": 200,
+      "bytes": 20168,
+      "sha256": "a4a768a780111884ebba05396f4f37e0181a519c4e1613805a771261abc2b175"
+    },
+    {
+      "url": "https://jacobmetoyer.com/ledgerly/python/bridge.py",
+      "finalUrl": "https://jacobmetoyer.com/ledgerly/python/bridge.py",
+      "status": 200,
+      "bytes": 6223,
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda"
+    },
+    {
+      "url": "https://jacobmetoyer.com/ledgerly/python/review.py",
+      "finalUrl": "https://jacobmetoyer.com/ledgerly/python/review.py",
+      "status": 200,
+      "bytes": 4379,
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+    }
+  ],
+  "priorReaderLimitation": "The web retrieval tool could not access this URL; the macOS framework Python default SSL context could not find a local issuer. This system-curl read retains TLS verification."
+}

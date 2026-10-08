@@ -1,0 +1,298 @@
+{
+  "recordedAt": "2026-10-08T10:20:01.426090+00:00",
+  "repository": "https://github.com/Jacob-Met/ledgerly",
+  "scopeIssue": "https://github.com/Jacob-Met/ledgerly/issues/6",
+  "scopeOwner": "estate-c945953fdeb7/product_delivery",
+  "originalProduction": "d4d3802b7f5ccd78795d91159d907b08cb3e978f",
+  "invoiceReviewParent": "2528de8b66d2b6ab0bed824e3b6ad115052840e6",
+  "parentTree": "4c9fdbf5eeb371f86aa43a1b17e4be1e7b9ff8e3",
+  "composedSourceCommit": "537eb5d587d08641c1e96150e9c0daee172366e7",
+  "composedSourceTree": "04bd5cd7b2fc4a384d9a9553e49e4e37c4392df2",
+  "source": {
+    "web-demo/src/main.ts": {
+      "sha256": "16257dc41a8a9d214fad2dc512d88f589651f669c60ea5ee5c13e112285e80e1",
+      "gitBlob": "6a6baccafd8f22ed8f27d10eb98282a9fe5971a5"
+    },
+    "web-demo/src/engine.worker.ts": {
+      "sha256": "8507abb39874bef09a5e0c2bf5ed096a33a2148beae0c0675be0ee16d36cb06a",
+      "gitBlob": "efff0b9f8e88d7471f89b46cb20f1a28eaad62c1"
+    },
+    "web-demo/src/worker-client.ts": {
+      "sha256": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1",
+      "gitBlob": "0d56a2b3732e101f5b27fba22bd39790912caafd"
+    },
+    "web-demo/src/retryable-loader.ts": {
+      "sha256": "bc3759ce040147d7cf1c80df5114958e89fae056c04694fa1ec7a2f7f7142f2a",
+      "gitBlob": "d6e49a01fccbbeffb892c0c814eaf4064c00045b"
+    },
+    "web-demo/tests/engine-recovery.test.ts": {
+      "sha256": "d7b2603dff05d0802685d8ba353a0323c6128543d078a684786527b2dac3550d",
+      "gitBlob": "6f77df7d5762323597390d0e0f5e845ed4c7899d"
+    },
+    "web-demo/tests/worker-client.test.ts": {
+      "sha256": "33cfa5b305b41921b53ba8ca923f9a7ae6b243bbc7be603c4df7d20091eb1e67",
+      "gitBlob": "077aa60dd05916ca3c64144f3ea4c2bf6ac08364"
+    }
+  },
+  "changedParentBlobs": {
+    "web-demo/src/engine.worker.ts": "5be90747348fd2863844c91e16afe978818e0ae0",
+    "web-demo/src/main.ts": "cd71f590bc87099bbae79b422291baf5aff5af1b"
+  },
+  "unchangedParentBlobs": {
+    ".github/workflows/ci.yml": "d0147e5857ffdba9a7875566e7820c8d7c6f21a3",
+    ".github/workflows/pages.yml": "1358a678c8d190c684a7f8f66ec26be07caeb1bd",
+    "LICENSE": "3757eabcdbaee0b03b44aad0a7c01ff8c5ada81b",
+    "README.md": "1f7a0df1ec6456cfe466df83072b103e43917acb",
+    "fixtures/01_simple_usd_hourly.txt": "8360fea218c2509556680ab84d54a0ce2f450866",
+    "fixtures/02_gbp_proofreading.txt": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+    "fixtures/03_eur_fixed_project.txt": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+    "fixtures/04_multi_currency.txt": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+    "fixtures/05_missing_email.txt": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+    "fixtures/06_ambiguous_qty.txt": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+    "fixtures/07_partial_payment_deposit.txt": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+    "fixtures/08_jpy_zero_decimal.txt": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+    "fixtures/09_table_cad.txt": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+    "fixtures/10_billing_address_net45.txt": "cb792a9d9faf646f070c3681deebee84295c72bb",
+    "fixtures/11_range_qty_approx.txt": "a57623c866fec4554707e5c3ac35f40311792082",
+    "fixtures/12_prompt_injection.txt": "667c687003d7552434a29509cdd16576c0ce6c9b",
+    "ledgerly/__init__.py": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+    "ledgerly/__pycache__/__init__.cpython-314.pyc": "acadc4f1135fc425f5a976104298cff346490730",
+    "ledgerly/__pycache__/agent.cpython-314.pyc": "0f8d6a918f6799ae20d65bed3cd7587c706582b8",
+    "ledgerly/__pycache__/extract.cpython-314.pyc": "544704e661a0e793f41d18757820c363405bef04",
+    "ledgerly/__pycache__/paypal.cpython-314.pyc": "c5007dcc550f287536e3362f11a36706c9636d65",
+    "ledgerly/agent.py": "5fb6c302d6c6bd343842578f39aea3b2c93866e3",
+    "ledgerly/demo.py": "c3d09bbf170efa492e5836ba25363946d910fa9f",
+    "ledgerly/extract.py": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d",
+    "ledgerly/paypal.py": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef",
+    "pyproject.toml": "46b2ea48656b953bb27026e0247efb219b03670e",
+    "tests/__pycache__/conftest.cpython-314-pytest-9.0.2.pyc": "e4085a56e85fd2388f716f856d3988dc4fdc2971",
+    "tests/__pycache__/test_agent_paypal.cpython-314-pytest-9.0.2.pyc": "1738390c0ab4113b238909ba8728b172392db6c2",
+    "tests/__pycache__/test_extract.cpython-314-pytest-9.0.2.pyc": "b064ec4f0879f15eda85663975830a032dd353b4",
+    "tests/conftest.py": "ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+    "tests/test_agent_paypal.py": "7aa2e496f57ee49b090d5b8607301c81222fad94",
+    "tests/test_extract.py": "b4205a0ac12421f6cc7ca9dd9015d15ca644d5a6",
+    "web-demo/.gitignore": "7f164a136187cb4caf8a44ed07a0b4b92de3b742",
+    "web-demo/README.md": "e80895c88cba41d24b0d73f3103b91c6e3a6e632",
+    "web-demo/docs/review-verification.md": "ff59a42aa9940f8b18d548e2ac84de1071d6f238",
+    "web-demo/index.html": "a9c8709634c3eb2626f72dcacf75ac71d6c2c114",
+    "web-demo/package-lock.json": "555bceb19a4e55ad488ec2c8420b02e3756954d4",
+    "web-demo/package.json": "c54e9f9d06988f14b3e03ca2f22629313fef5da8",
+    "web-demo/public/captures/ledgerly-desktop.png": "faed8ad0b64ea23306e5bcec7fb660885f6517a1",
+    "web-demo/public/captures/ledgerly-mobile.png": "c48b49428ba796f5e76bfc34f4cead6915755e10",
+    "web-demo/public/favicon.svg": "de1096fdf1b4568cf04715c0c90cd512a9c5d1ce",
+    "web-demo/public/fixtures/01_simple_usd_hourly.txt": "8360fea218c2509556680ab84d54a0ce2f450866",
+    "web-demo/public/fixtures/02_gbp_proofreading.txt": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+    "web-demo/public/fixtures/03_eur_fixed_project.txt": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+    "web-demo/public/fixtures/04_multi_currency.txt": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+    "web-demo/public/fixtures/05_missing_email.txt": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+    "web-demo/public/fixtures/06_ambiguous_qty.txt": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+    "web-demo/public/fixtures/07_partial_payment_deposit.txt": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+    "web-demo/public/fixtures/08_jpy_zero_decimal.txt": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+    "web-demo/public/fixtures/09_table_cad.txt": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+    "web-demo/public/fixtures/10_billing_address_net45.txt": "cb792a9d9faf646f070c3681deebee84295c72bb",
+    "web-demo/public/fixtures/11_range_qty_approx.txt": "a57623c866fec4554707e5c3ac35f40311792082",
+    "web-demo/public/fixtures/12_prompt_injection.txt": "667c687003d7552434a29509cdd16576c0ce6c9b",
+    "web-demo/python/bridge.py": "5573f8b488ee4421e073fce057e6928aac6f6630",
+    "web-demo/python/review.py": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+    "web-demo/scripts/stage-python.mjs": "f06d27ecc0a4ff4a09517ca6d3fef5887e8be7d6",
+    "web-demo/src/review.css": "8d3da08a25b21b8156c198f99930e53de315e451",
+    "web-demo/src/review.ts": "53463561542dfe0a5b1c3e6b0581e050c98fcc91",
+    "web-demo/src/style.css": "da0a2c54b85c2058e1a654f4a029e3e6b9c94db7",
+    "web-demo/tests/engine.test.ts": "7a071401e01eb1eb79c687d4702c5f3ff36fd261",
+    "web-demo/tests/review.test.ts": "cd6660b4c4cdf6c112e2fb98a5a1b413570a27ff",
+    "web-demo/tools/capture_ledgerly.py": "079d881c3db8e1dc2c43b76855d349717b2bea46",
+    "web-demo/tools/check_review_browser.py": "b44c0f2b8215c0cee34d1f7cca017d45c2d29e10",
+    "web-demo/tsconfig.json": "408840754fae30406085341098dd2ec7d084d528",
+    "web-demo/vite.config.ts": "031e19417070e2b63cc48b2ae105e0f40eea6ef0"
+  },
+  "priorStandaloneCandidate": {
+    "sourceCommit": "534cc7bda23382a7117360631f4e8f0fe57d01e5",
+    "mainSha256": "4642615d90533cc78d3dff180801244fcd11f7db8011cf3126461f138407baf1",
+    "workerSha256": "2d7619d5c18bed57f97bfdc5b4fe2c3436bd0c9143845b94efa3e769d122ad71",
+    "visualCorrectionMainSha256": "a27fcd5045b50f6699021fcbd023e9ee325e244e44476f8980bbd1497634999e",
+    "visualCorrectionHookTestSha256": "605c0783585bf9b2a7151c25b2c0deaee68d40834116ecd5aff5ae9b6d19810f",
+    "helperSource": "The two helper modules have the same hashes as the composed source."
+  },
+  "buildAssets": {
+    "assets/__vite-browser-external-CyMxSyHA.js": "677185d833bde4df12bf7dd50da9a70188b6c2f3f1e32fbca1c2d5166e86278c",
+    "assets/engine.worker-x2BNq2jZ.js": "d72ef16b79626487e65308cba5df9c448604d00e070e6ca5ac880b807a38cfb3",
+    "assets/index-CjlcxCVy.js": "366d982ca9053e42f67162896f30d9cf0d36d8a22e25f66ae0cf4e801d811f18",
+    "assets/index-xwhl2_jp.css": "d58fa08265fefecb72516dd1a8c6f3116461122e3671f59995975b8342b2d285"
+  },
+  "qualificationArtifacts": {
+    "README.md": {
+      "sha256": "d1de7f6d1bf803238d2fdae95020b8f35e2d9fad7f08b44018e3caf9eb4feca3",
+      "bytes": 10500
+    },
+    "baseline-hooks.txt": {
+      "sha256": "95ac08573288c9d8373d800ca52fa897b322c42692999ab3285d834f1082ccb5",
+      "bytes": 4733
+    },
+    "candidate-v2-validation.txt": {
+      "sha256": "897042e2756f98fea9da738631500c5d0442873bd370a57f4a472d18156644bc",
+      "bytes": 3795
+    },
+    "candidate-validation.txt": {
+      "sha256": "a6b1ef1f021040e9371baa249322b22b278906e7ae6e8d9dad2ac753a36f2fb4",
+      "bytes": 3827
+    },
+    "composed-final-validation.txt": {
+      "sha256": "91bb39a265162c1b4bff60b6d33920bb5457a842c701311a92cab4d7e2ad2a11",
+      "bytes": 3962
+    },
+    "composed-validation.txt": {
+      "sha256": "1950ccd2ee0de3aedbeeebb00db0904638eba0096235263fc66e14ac3e2be60f",
+      "bytes": 4346
+    },
+    "delivery/before-merge.json": {
+      "sha256": "ae11e8d428aee85786f0b8093c6b561923d2abcc4388990844c0b2d5bf48c661",
+      "bytes": 2170
+    },
+    "delivery/gate-readback.json": {
+      "sha256": "3637ced28d4810f68c55a5a7f6b44ea9247f78622e90f8d59f605433b058309f",
+      "bytes": 2488
+    },
+    "hosted-final-source-ci.json": {
+      "sha256": "500cd3306791715fa4be308fd6aa2ac8f15fa069f6e9437625aed4b5c6932120",
+      "bytes": 710
+    },
+    "hosted-source-ci.json": {
+      "sha256": "15ac2d58126a10fb7f03e13e125426ff2e8581563e8ea35c580f2984bb608795",
+      "bytes": 709
+    },
+    "independent-browser/baseline-results.json": {
+      "sha256": "1a032e15f014ea8a16407ffaec2cbfeb464467fb3de07dd168b64606c67bd2bc",
+      "bytes": 9041
+    },
+    "independent-browser/candidate-v1-in-flight-session-recovery.png": {
+      "sha256": "54272483804a882b52b3ddcf6b812e8b0e9590acf14095cd86283e079904d8df",
+      "bytes": 182231
+    },
+    "independent-browser/candidate-v1-results.json": {
+      "sha256": "1951ae519f2afd575f46eef8244edb844e9d71fe4f970452c49e0c3b4d2a21d6",
+      "bytes": 12050
+    },
+    "independent-browser/candidate-v2-in-flight-session-recovery.png": {
+      "sha256": "9d23169720dfae6c360ec43cc6afb645cfdbec46bc7548276b27c38dc898facb",
+      "bytes": 181592
+    },
+    "independent-browser/candidate-v2-results.json": {
+      "sha256": "c7440a1128308511bcc261bddf00893dd03f45f121fab8f0dd7b42abd55c2152",
+      "bytes": 6011
+    },
+    "independent-browser/final-general-results.json": {
+      "sha256": "1b325f9c6e98760e4d9164fe2fbc92d395729d8438b0e1fe1ad0696574a87854",
+      "bytes": 13204
+    },
+    "independent-browser/final-retained-review-recovery.png": {
+      "sha256": "19f76ad7764d9fe0ff405f88da3757d9d27df7667a4f61646f8348e5d8b8c26a",
+      "bytes": 306811
+    },
+    "independent-browser/final-review-results.json": {
+      "sha256": "70e8440e472d3a37395affb9920c2f7a6f5c072551f10816bbdb615b4eda77ac",
+      "bytes": 7155
+    },
+    "independent-browser/harness-failures/composed-review-v3-results.json": {
+      "sha256": "9a09c49f391ac7a8b5d25acab192ac1d773e25f353753c6bcd342c55e87ea136",
+      "bytes": 7040
+    },
+    "independent-browser/harness-failures/composed-review-v5-results.json": {
+      "sha256": "3b3219cf23081a0cc9164ce8c0dce059cad8be00508484d3f82b73c17d271cda",
+      "bytes": 7134
+    },
+    "independent-browser/harness-failures/recovery-browser-v3.mjs": {
+      "sha256": "a2006c4a0b34e8dd68ea92dc891ef536489106f07c5ac2ae8181ff3fb3fa767b",
+      "bytes": 17192
+    },
+    "independent-browser/harness-failures/recovery-browser-v4.mjs": {
+      "sha256": "a2006c4a0b34e8dd68ea92dc891ef536489106f07c5ac2ae8181ff3fb3fa767b",
+      "bytes": 17192
+    },
+    "independent-browser/harness-failures/recovery-browser-v5.mjs": {
+      "sha256": "2e794533146954ae44dc8933eb363ebecab2033c8158bd75b83afd0544fe0e80",
+      "bytes": 17797
+    },
+    "independent-browser/harness-limitations.md": {
+      "sha256": "2fd40d8311297627cdf82c510ca9923dacd9be9798417b5f615d256dd25dfb9c",
+      "bytes": 2488
+    },
+    "independent-browser/recovery-browser-v1.mjs": {
+      "sha256": "3758f4f580987a5ba460a1e2824cd652deb6b21830d98cf0b64cb77ead85513b",
+      "bytes": 11810
+    },
+    "independent-browser/recovery-browser-v2.mjs": {
+      "sha256": "916a15203b67436af114c8557e885f26cb8c9e16778549f25632946e2e0858a8",
+      "bytes": 12678
+    },
+    "independent-browser/recovery-browser-v6.mjs": {
+      "sha256": "88506aa2039dfee1165e6ee3bb49c425ba7da6ad3fb7655f8a7da60db3b9c13c",
+      "bytes": 17821
+    },
+    "prior-source/standalone-engine.worker.ts": {
+      "sha256": "2d7619d5c18bed57f97bfdc5b4fe2c3436bd0c9143845b94efa3e769d122ad71",
+      "bytes": 1655
+    },
+    "prior-source/standalone-main-v1.ts": {
+      "sha256": "4642615d90533cc78d3dff180801244fcd11f7db8011cf3126461f138407baf1",
+      "bytes": 12038
+    },
+    "prior-source/standalone-main-v2.ts": {
+      "sha256": "a27fcd5045b50f6699021fcbd023e9ee325e244e44476f8980bbd1497634999e",
+      "bytes": 12243
+    },
+    "python-core.txt": {
+      "sha256": "71ee4ecaa7417f87270574c0b08068166cf7f451d529d27841b90881ea53113d",
+      "bytes": 99
+    },
+    "review-marker-negative.txt": {
+      "sha256": "7284cef892d39de685ea8595e5bf55080fdcd3ef4e7f4bd66aba4078dbfc469c",
+      "bytes": 2962
+    },
+    "source-hooks-v1.ts": {
+      "sha256": "493fc10bbd159feaee7881ad543ec0c3f88ce40b06898aad29c51613b0a9b3ff",
+      "bytes": 8456
+    }
+  },
+  "qualificationNotes": "Source and qualification hashes are separate from publication or deployment. The later evidence-only commit does not modify the frozen source commit.",
+  "localComposedSourceCommit": "e47aef7838cfdb40454cfa5f13603dc05e5ec5f2",
+  "publicationBranch": "integrate/review-engine-recovery-c945953fdeb7",
+  "publishedPullRequest": "https://github.com/Jacob-Met/ledgerly/pull/14",
+  "transcriptNormalization": {
+    "baseline-hooks.txt": {
+      "operation": "Omit exactly one final LF; append LF to reconstruct the original raw transcript.",
+      "originalSha256": "11f14b37a87097cdbce896fbcf618f27a7b6a619f2fd7d36c6c4188d433825d0",
+      "retainedSha256": "95ac08573288c9d8373d800ca52fa897b322c42692999ab3285d834f1082ccb5"
+    }
+  },
+  "initialComposedSource": {
+    "publishedCommit": "84ac59dbcd20b96c8baf846a03f574840ea174f8",
+    "localCommit": "cd3f6b142917f2dc50e94d6f228d344564fe0fb4",
+    "tree": "5bc114e34fba38a0119fb16e82ab5180329ec375",
+    "mainSha256": "91887529907283555ddba14d4c239192dc6c09c48bb4a7e8fa87255af1782af8",
+    "hookTestSha256": "488a074a8a7fc332523e7012b5415634a18dc37f71495947648f3bce8d9f93c7",
+    "appAssetSha256": "ddd5ce2a03cd4a2a301fcc9c393e8bf48769d3e8a44390451880881b5bb6eeb0"
+  },
+  "initialObservedMain": "dc5e188c062bb7b45a8ddbbd23a3da75126e17a8",
+  "initialObservedMainTree": "4c9fdbf5eeb371f86aa43a1b17e4be1e7b9ff8e3",
+  "mainWhenInitialSourcePublished": "27193d726c9a7c24bbce77f5bcc961629b484ee6",
+  "initialCompositionMergePreflight": {
+    "main": "27193d726c9a7c24bbce77f5bcc961629b484ee6",
+    "source": "84ac59dbcd20b96c8baf846a03f574840ea174f8",
+    "tree": "d0000095a797b7f3df5270c171d17c8843fd7509",
+    "refChanges": false
+  },
+  "finalBrowser": {
+    "sourceCommit": "537eb5d587d08641c1e96150e9c0daee172366e7",
+    "driver": "independent-browser/recovery-browser-v6.mjs",
+    "driverSha256": "88506aa2039dfee1165e6ee3bb49c425ba7da6ad3fb7655f8a7da60db3b9c13c",
+    "passedCases": 5,
+    "receipts": [
+      "independent-browser/final-general-results.json",
+      "independent-browser/final-review-results.json"
+    ]
+  },
+  "operatorDocumentation": {
+    "path": "web-demo/docs/engine-recovery.md",
+    "sha256": "df5662158b06f28b51944af1c7901c6833674fa9629c268af496521d9e25dd30"
+  }
+}
