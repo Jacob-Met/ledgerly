@@ -13,7 +13,15 @@ A static browser demo that runs the repository's **actual Python modules** in a 
 
 Review requires explicit quantities, positive prices, supported currencies, whole payment terms from 0 to 365 days and a nonnegative prior payment. Enter plain decimal numbers without commas or exponents. Python retains its zero-decimal currency and multi-currency deposit checks. A corrected recipient may be absent from the original email because the visitor supplied it explicitly; this is not a claim that the extractor found or verified that address. The bridge supplies the validated object through the core's existing `Extractor` protocol. It does not change `Agent`, `RulePlanner`, `GatedClient` or their approval permits.
 
-No model, HTTP PayPal client, provider key, backend, analytics or localStorage is used. Pyodide and the staged Python modules load from this repo's Pages site. Email text and ledger state stay in tab memory and disappear on reset/close. The sandbox's HMAC is a test signature, not PayPal's production certificate verification; invoice actions are clearly labelled simulations. The confidence score is a heuristic, not a calibrated probability. Do not paste confidential client material.
+No model, HTTP PayPal client, provider key, backend, analytics or localStorage is used. Pyodide and the staged Python modules load from this repo's Pages site. Email text and the working ledger stay in tab memory and disappear on reset/close. An explicitly downloaded CSV is a separate local file. The sandbox's HMAC is a test signature, not PayPal's production certificate verification; invoice actions are clearly labelled simulations. The confidence score is a heuristic, not a calibrated probability. Do not paste confidential client material.
+
+## Download the displayed sandbox ledger
+
+Use **Download sandbox ledger CSV** while the local engine is ready and the ledger contains invoices. Save this local snapshot before closing or resetting the tab. Each row is explicitly marked `SANDBOX` and includes the snapshot date, invoice identity, recipient, currency, original total/paid/balance strings, status, sent/due dates and reminder count. Currencies are never combined and JavaScript does not calculate money. Downloading calls no worker or provider and approves no action.
+
+The file uses UTF-8, a header and quoted CSV fields. Formula-like text gets a leading apostrophe; this is an explicit text-export convention, not a guarantee about every spreadsheet application's later save/reopen behavior. Import identifier and amount columns as text when preserving their exact formatting matters. The [CSV format](https://www.rfc-editor.org/rfc/rfc4180) and [spreadsheet text handling](https://owasp.org/www-community/attacks/CSV_Injection) references explain the underlying conventions. This is a snapshot for inspection, not a session reload or accounting import format.
+
+An empty/reset sandbox or an unavailable engine has no current download. If the browser cannot start a download, the displayed snapshot remains available for an explicit retry. Reset clears the working ledger; it does not remove CSV files already saved by the visitor.
 
 ## Verify and run
 
