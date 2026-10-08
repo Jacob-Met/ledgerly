@@ -405,6 +405,9 @@ def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:
     valid_amounts = True
     currency_amounts: dict[str, list[Decimal]] = {}
     for n, li in enumerate(ex.line_items):
+        if isinstance(li.desc, str) and len(li.desc) > 200:
+            out.append(Issue(f"line_items[{n}].desc", "error",
+                             "Use at most 200 characters for this work description before drafting."))
         qty_ok = finite(li.qty)
         if not qty_ok:
             out.append(Issue(f"line_items[{n}].qty", "error", "Quantity is required and must be a finite number."))

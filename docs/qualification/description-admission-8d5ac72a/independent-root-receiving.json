@@ -1,0 +1,403 @@
+{
+  "schema": "ledgerly.description-admission.independent-receiving.v1",
+  "oracle_git_blob": "367ce235c470598ab8655b2f7b830cb6f65cec84",
+  "original_git_blob": "3f39e513a45a42da9dd3b498ce0a81fd83262f96",
+  "candidate_git_blob": "41795c76aef15af45e608efed43f7670168dc148",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source_sha256": {
+    "original": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "candidate": "aced2447f7134f3bb1acfedc577df03aeafa2dd1fabd21a656889504ec437f0e"
+  },
+  "boundary": "Actual original and candidate extract modules under native Python; author packet separately exercises actual review, Agent and SandboxMock allocation.",
+  "counts": {
+    "cases": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "results": [
+    {
+      "name": "ordinary",
+      "expected_new_fields": [],
+      "new_issues": [],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "ASCII 199",
+      "expected_new_fields": [],
+      "new_issues": [],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "ASCII 200",
+      "expected_new_fields": [],
+      "new_issues": [],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "ASCII 201",
+      "expected_new_fields": [
+        "line_items[0].desc"
+      ],
+      "new_issues": [
+        {
+          "field": "line_items[0].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        }
+      ],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "astral 200 codepoints",
+      "expected_new_fields": [],
+      "new_issues": [],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "astral 201 codepoints",
+      "expected_new_fields": [
+        "line_items[0].desc"
+      ],
+      "new_issues": [
+        {
+          "field": "line_items[0].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        }
+      ],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "combining 200 codepoints",
+      "expected_new_fields": [],
+      "new_issues": [],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "combining 201 codepoints",
+      "expected_new_fields": [
+        "line_items[0].desc"
+      ],
+      "new_issues": [
+        {
+          "field": "line_items[0].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        }
+      ],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "contract qualifier retained",
+      "expected_new_fields": [
+        "line_items[0].desc"
+      ],
+      "new_issues": [
+        {
+          "field": "line_items[0].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        }
+      ],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "later currency remains all-or-none",
+      "expected_new_fields": [
+        "line_items[1].desc"
+      ],
+      "new_issues": [
+        {
+          "field": "line_items[1].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        }
+      ],
+      "original_issues": [
+        {
+          "field": "currency",
+          "severity": "warning",
+          "message": "Multiple currencies ['EUR', 'USD']; a PayPal invoice has one currency_code, so this will be split into 2 invoices."
+        }
+      ],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "both issues locate exact rows",
+      "expected_new_fields": [
+        "line_items[0].desc",
+        "line_items[1].desc"
+      ],
+      "new_issues": [
+        {
+          "field": "line_items[0].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        },
+        {
+          "field": "line_items[1].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        }
+      ],
+      "original_issues": [],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    },
+    {
+      "name": "existing validation issues coexist",
+      "expected_new_fields": [
+        "line_items[0].desc"
+      ],
+      "new_issues": [
+        {
+          "field": "line_items[0].desc",
+          "severity": "error",
+          "message": "Use at most 200 characters for this work description before drafting."
+        }
+      ],
+      "original_issues": [
+        {
+          "field": "client_email",
+          "severity": "error",
+          "message": "Malformed email 'invalid'."
+        },
+        {
+          "field": "line_items[0].qty",
+          "severity": "error",
+          "message": "Quantity is required and must be a finite number."
+        },
+        {
+          "field": "line_items[0].currency",
+          "severity": "error",
+          "message": "ZZZ is not a supported invoice currency."
+        },
+        {
+          "field": "currency",
+          "severity": "error",
+          "message": "ZZZ is not a PayPal-supported currency."
+        }
+      ],
+      "existing_issues_preserved": true,
+      "source_extraction_preserved": {
+        "original": true,
+        "candidate": true
+      },
+      "pass": true
+    }
+  ],
+  "oracle": {
+    "schema": "ledgerly.description-admission.independent-contract.v1",
+    "base": "c498f55883c755553b59921199d54689d99c9730",
+    "originalExtractBlob": "3f39e513a45a42da9dd3b498ce0a81fd83262f96",
+    "authorship": "Root independently authored these cases from original dataclasses/validate and the declared serializer cap. The author disclosed the three-line predicate before this oracle; candidate file has not yet been fetched. This is not a blind independent discovery.",
+    "contract": "The only new issues are severity-error issues at each oversized string description path. Existing issues retain their messages/order; source Extraction, nested items and prior issues are unchanged. Python Unicode codepoints align with the maintained serializer's slice.",
+    "cases": [
+      {
+        "name": "ordinary",
+        "items": [
+          {
+            "desc": "Copy editing"
+          }
+        ],
+        "expectedFields": []
+      },
+      {
+        "name": "ASCII 199",
+        "items": [
+          {
+            "desc": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "expectedFields": []
+      },
+      {
+        "name": "ASCII 200",
+        "items": [
+          {
+            "desc": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "expectedFields": []
+      },
+      {
+        "name": "ASCII 201",
+        "items": [
+          {
+            "desc": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "expectedFields": [
+          "line_items[0].desc"
+        ]
+      },
+      {
+        "name": "astral 200 codepoints",
+        "items": [
+          {
+            "desc": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀"
+          }
+        ],
+        "expectedFields": []
+      },
+      {
+        "name": "astral 201 codepoints",
+        "items": [
+          {
+            "desc": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀"
+          }
+        ],
+        "expectedFields": [
+          "line_items[0].desc"
+        ]
+      },
+      {
+        "name": "combining 200 codepoints",
+        "items": [
+          {
+            "desc": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé"
+          }
+        ],
+        "expectedFields": []
+      },
+      {
+        "name": "combining 201 codepoints",
+        "items": [
+          {
+            "desc": "ééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééx"
+          }
+        ],
+        "expectedFields": [
+          "line_items[0].desc"
+        ]
+      },
+      {
+        "name": "contract qualifier retained",
+        "items": [
+          {
+            "desc": "Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work Editorial work  Excludes translation rights."
+          }
+        ],
+        "expectedFields": [
+          "line_items[0].desc"
+        ]
+      },
+      {
+        "name": "later currency remains all-or-none",
+        "items": [
+          {
+            "desc": "Valid EUR",
+            "currency": "EUR"
+          },
+          {
+            "desc": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "currency": "USD"
+          }
+        ],
+        "currency": "EUR",
+        "expectedFields": [
+          "line_items[1].desc"
+        ]
+      },
+      {
+        "name": "both issues locate exact rows",
+        "items": [
+          {
+            "desc": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          {
+            "desc": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+          }
+        ],
+        "expectedFields": [
+          "line_items[0].desc",
+          "line_items[1].desc"
+        ]
+      },
+      {
+        "name": "existing validation issues coexist",
+        "client_email": "invalid",
+        "currency": "ZZZ",
+        "items": [
+          {
+            "desc": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+            "qty": null,
+            "currency": "ZZZ"
+          }
+        ],
+        "expectedFields": [
+          "line_items[0].desc"
+        ]
+      }
+    ]
+  },
+  "scopeProof": {
+    "onlyValidateChanged": true,
+    "outsideValidateByteIdentical": true,
+    "originalBlob": "3f39e513a45a42da9dd3b498ce0a81fd83262f96",
+    "candidateBlob": "41795c76aef15af45e608efed43f7670168dc148"
+  }
+}

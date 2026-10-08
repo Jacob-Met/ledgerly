@@ -1,0 +1,335 @@
+{
+  "schema": "ledgerly.description-admission.integration-manifest.v1",
+  "repository": "Jacob-Met/ledgerly",
+  "integrator": "estate-8d5ac72a6fae / engine",
+  "createdAt": "2026-10-08T21:49:24.544897+00:00",
+  "purpose": "Receive the frozen description-admission correction and separately attributed native evidence into one isolated source branch.",
+  "base": {
+    "commit": "c498f55883c755553b59921199d54689d99c9730",
+    "tree": "efb9d2f50f79336588f7b14beca29a889899e1a9",
+    "parents": [
+      "da2e47043d7f18aa231d80b568dd30e31ed8b77c"
+    ],
+    "currentMainMatchedAuthorBase": true,
+    "newerMainCompositionNeeded": false,
+    "treeEntries": 874,
+    "leaves": 767,
+    "truncated": false,
+    "agentsFiles": []
+  },
+  "authorizedBranch": "contrib/description-admission-8d5ac72a6fae",
+  "beforeImages": [
+    {
+      "path": "ledgerly/extract.py",
+      "before": {
+        "path": "ledgerly/extract.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "3f39e513a45a42da9dd3b498ce0a81fd83262f96"
+      },
+      "after": {
+        "path": "ledgerly/extract.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "41795c76aef15af45e608efed43f7670168dc148"
+      }
+    },
+    {
+      "path": "tests/test_description_admission.py",
+      "before": null,
+      "after": {
+        "path": "tests/test_description_admission.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "0b97fb7a271ee5d7a88a5d0a96196e64765e21f1"
+      }
+    },
+    {
+      "path": "docs/qualification/description-admission-8d5ac72a/README.md",
+      "before": null,
+      "after": {
+        "path": "docs/qualification/description-admission-8d5ac72a/README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "e2e26296cf76625272d92068ec81672666bc9893"
+      }
+    },
+    {
+      "path": "docs/qualification/description-admission-8d5ac72a/author-receiving.json",
+      "before": null,
+      "after": {
+        "path": "docs/qualification/description-admission-8d5ac72a/author-receiving.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "2125c536e9151ca81f46df8686b07ef265eef623"
+      }
+    },
+    {
+      "path": "docs/qualification/description-admission-8d5ac72a/independent-root-receiving.json",
+      "before": null,
+      "after": {
+        "path": "docs/qualification/description-admission-8d5ac72a/independent-root-receiving.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "bce115984f757ec5e6d4f9f2a1f4600fef45b272"
+      }
+    },
+    {
+      "path": "docs/qualification/description-admission-8d5ac72a/integration-manifest.json",
+      "before": null,
+      "after": {
+        "path": "docs/qualification/description-admission-8d5ac72a/integration-manifest.json",
+        "mode": "100644",
+        "type": "blob",
+        "identity": "This manifest's Git blob is recorded by its containing commit tree."
+      }
+    }
+  ],
+  "contentOverlay": [
+    {
+      "path": "ledgerly/extract.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41795c76aef15af45e608efed43f7670168dc148",
+      "sha256": "aced2447f7134f3bb1acfedc577df03aeafa2dd1fabd21a656889504ec437f0e",
+      "bytes": 36992
+    },
+    {
+      "path": "tests/test_description_admission.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b97fb7a271ee5d7a88a5d0a96196e64765e21f1",
+      "sha256": "e4a203513dba96addf730eec0ea11d80ce48ca3485b614552b49fae0c31a5e4e",
+      "bytes": 9426
+    },
+    {
+      "path": "docs/qualification/description-admission-8d5ac72a/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2e26296cf76625272d92068ec81672666bc9893",
+      "sha256": "1c42ffa02f94b683d5509172cb8bf078597753f357ffb76d32805a140b088f84",
+      "bytes": 10969
+    },
+    {
+      "path": "docs/qualification/description-admission-8d5ac72a/author-receiving.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2125c536e9151ca81f46df8686b07ef265eef623",
+      "sha256": "45b03a12ee0da735c37a99a3210037030e0592eda9b1a3560062809af3c059a4",
+      "bytes": 80784
+    },
+    {
+      "path": "docs/qualification/description-admission-8d5ac72a/independent-root-receiving.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bce115984f757ec5e6d4f9f2a1f4600fef45b272",
+      "sha256": "e961e503ebcb70fe1fa2dc71ad51ff12454f817576e54c36b064b4f8e4f9997c",
+      "bytes": 14563
+    }
+  ],
+  "self": {
+    "path": "docs/qualification/description-admission-8d5ac72a/integration-manifest.json",
+    "mode": "100644",
+    "type": "blob"
+  },
+  "scope": {
+    "productionPath": "ledgerly/extract.py",
+    "function": "validate",
+    "addedLines": 3,
+    "addedUtf8Bytes": 226,
+    "removedLines": 0,
+    "exactInverseReconstructsOriginal": true,
+    "otherTopLevelAstNodesUnchanged": true,
+    "compile": "Native Python compile succeeded without executing or modifying the module",
+    "originalSha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "candidateSha256": "aced2447f7134f3bb1acfedc577df03aeafa2dd1fabd21a656889504ec437f0e"
+  },
+  "nativeClosure": [
+    {
+      "path": "ledgerly/__init__.py",
+      "sha": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "bytes": 119
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "sha": "3f39e513a45a42da9dd3b498ce0a81fd83262f96",
+      "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+      "bytes": 36766
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "sha": "e4e26ebd7259bd61d14819593a17d3d0738bbf30",
+      "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19",
+      "bytes": 39041
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "sha": "66f067204d357499b3f7010a946563a431d50aea",
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "bytes": 26243
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "sha": "c0f4f95ec193b55c1ad10cc59d980e4dfb4d0858",
+      "sha256": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81",
+      "bytes": 6994
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "sha": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "bytes": 4379
+    },
+    {
+      "path": "web-demo/python/invoice_details.py",
+      "sha": "019c1b43c3785894ec8e181983497c46bf57e015",
+      "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+      "bytes": 1196
+    }
+  ],
+  "coverage": {
+    "authorEvidenceGitBlob": "2125c536e9151ca81f46df8686b07ef265eef623",
+    "authorRuns": {
+      "original_actual_bridge": {
+        "passed": 1,
+        "failed": 1,
+        "exit_code": 1,
+        "critical_description_length": 229,
+        "retained_length": 200
+      },
+      "original_tests_v1": {
+        "methods": 8,
+        "failures": 10,
+        "exit_code": 1
+      },
+      "corrected_baseline_two_methods": {
+        "methods": 2,
+        "failures": 5,
+        "exit_code": 1
+      },
+      "candidate_tests_v2": {
+        "methods": 8,
+        "failures": 0,
+        "exit_code": 0
+      },
+      "candidate_original_bridge": {
+        "passed": 2,
+        "failed": 0,
+        "exit_code": 0
+      },
+      "retained_value_pytest": {
+        "passed": 47,
+        "failed": 0,
+        "exit_code": 0
+      },
+      "source_scope": {
+        "exit_code": 0,
+        "delta_lines": 3,
+        "executed_modules": 7
+      }
+    },
+    "independentRootEvidenceGitBlob": "bce115984f757ec5e6d4f9f2a1f4600fef45b272",
+    "independentRootCounts": {
+      "cases": 12,
+      "passed": 12,
+      "failed": 0
+    },
+    "integrationRun": "Git object, source, archive, scope, workflow and complete-tree verification only. Native behavioral suites were not repeated or added together.",
+    "authorArchiveGzipSha256": "4115ded904fa04652b2dcf1222b7873c2a492393103296b292650dab87a2352f",
+    "authorArchiveDecodedSha256": "606eba1d5870e5f012a13a86e28e6ff7c331a330d44c52e5b00ba484bb7544ff",
+    "retainedFailureEvidence": [
+      "Original bridge 229-to-200 loss",
+      "Initial and corrected negative regression runs",
+      "Primary interpreter pytest preflight failure"
+    ],
+    "limitations": [
+      "No new hosted CI, browser, live-model, provider or installed-service qualification."
+    ]
+  },
+  "workflowAudit": {
+    "allFourDefinitionsRead": true,
+    "definitions": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "gitBlob": "3bb98f82eac6a3c14711fe37b415ef1a7d928191",
+        "sha256": "1b40451c798c75fafe8774523a8d997ea5bdc33922714296d65f3c1c463b7095",
+        "events": [
+          "pull_request",
+          "push"
+        ],
+        "pushBranches": [
+          "main"
+        ],
+        "authorizedNewBranchCanTrigger": false
+      },
+      {
+        "path": ".github/workflows/invoice-record-browser.yml",
+        "gitBlob": "f51c35982a596376860df109f0a37f2e49fd3eb1",
+        "sha256": "7f1008c10e18fb39e8aaec2d9eab999622995087f380f03c7faad1e094c443c6",
+        "events": [
+          "pull_request",
+          "push"
+        ],
+        "pushBranches": [
+          "main"
+        ],
+        "authorizedNewBranchCanTrigger": false
+      },
+      {
+        "path": ".github/workflows/pages.yml",
+        "gitBlob": "1358a678c8d190c684a7f8f66ec26be07caeb1bd",
+        "sha256": "4f2612b8888fae595ff527934a7a10a07b660abec7c75e51c48d005e0367706f",
+        "events": [
+          "push",
+          "workflow_dispatch"
+        ],
+        "pushBranches": [
+          "main"
+        ],
+        "authorizedNewBranchCanTrigger": false
+      },
+      {
+        "path": ".github/workflows/receivables-browser.yml",
+        "gitBlob": "46f03bcc9511761edb423b78162d37912c868269",
+        "sha256": "0e9fdbf72261e2976c901a6e915ce321a39a5eba4eb11e312bcd248af4ef6235",
+        "events": [
+          "pull_request",
+          "push"
+        ],
+        "pushBranches": [
+          "main"
+        ],
+        "authorizedNewBranchCanTrigger": false
+      }
+    ],
+    "branchBefore": [],
+    "branchActionsBefore": {
+      "total_count": 0,
+      "workflow_runs": []
+    },
+    "conclusion": "Creating the authorized isolated branch cannot match the inspected push-main, pull_request or explicit workflow_dispatch events. No workflow definition or dispatch is changed."
+  },
+  "treeProof": {
+    "method": "Native Python reconstructs canonical Git tree objects from every leaf, verifies every original subtree hash, overlays exact path/mode/type/blob values, and checks every unrelated leaf.",
+    "baseRecomputedTree": "efb9d2f50f79336588f7b14beca29a889899e1a9",
+    "baseLeafManifestSha256": "26bfa39204362b36758a64a5b6f1d976209142197e0a4f777323fe2a1768b58f",
+    "verifiedOriginalSubtrees": 107,
+    "contentOverlayTreeBeforeThisManifest": "b3d63a7ac01cde2d6272490747387a6671629753",
+    "unrelatedOriginalLeavesPreserved": 766,
+    "unchangedOriginalLeafManifestSha256": "f3c66ed670eb70bfbc3161712b623c715f1a0cfefec97f31fb04d0705293e9a6",
+    "deletedLeaves": 0,
+    "productionLeavesEdited": 1,
+    "newLeavesIncludingThisManifest": 5,
+    "finalExpectedLeaves": 772
+  },
+  "setupHistory": [
+    {
+      "phase": "Integration evidence decoder",
+      "outcome": "Stopped before any Git mutation or behavioral test execution",
+      "message": "Traceback (most recent call last):\r\n  File \"<string>\", line 86, in <module>\r\nAssertionError: list\r\n",
+      "reason": "The author's source-inputs.json represents files as a list; the initial integrator decoder expected a mapping."
+    }
+  ],
+  "publication": "The containing commit's parent, full tree and isolated ref are to be read back exactly; Actions are queried for the resulting head. Those post-publication identities are reported separately to avoid a self-referential commit claim."
+}
