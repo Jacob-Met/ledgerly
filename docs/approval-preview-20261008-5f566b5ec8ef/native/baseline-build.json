@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-08T11:53:22.416295+00:00",
+  "base": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef-baseline",
+  "base_commit": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "exit_code": 0,
+  "log_sha256": "011584ea774aed9a583ea71d6948e8f5416a918f362744bff5f1ca0984058f25",
+  "app_sha256": "16257dc41a8a9d214fad2dc512d88f589651f669c60ea5ee5c13e112285e80e1",
+  "same_lock": true
+}

@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import {WorkerClient, WorkerUnavailableError} from '../src/worker-client';
 import {retryableLoader} from '../src/retryable-loader';
+import {approvalListMarkup} from '../src/approval-preview';
 import {readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup} from '../src/review';
 
 const sourceRoot = process.env.LEDGERLY_RECOVERY_SOURCE_ROOT || path.resolve(process.cwd(), 'src');
@@ -94,7 +95,7 @@ function app() {
     }),
   };
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup});
+    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;

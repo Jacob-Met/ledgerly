@@ -1,0 +1,114 @@
+{
+  "captured_at": "2026-10-08T12:17:01.623318+00:00",
+  "native_evidence_root": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef-evidence",
+  "files": {
+    "baseline-build.json": {
+      "sha256": "40a78539a71797154d1419d0dead6589ec2eaa3ea0976405cc2715c48e52cac7",
+      "bytes": 395
+    },
+    "baseline-build.log": {
+      "sha256": "011584ea774aed9a583ea71d6948e8f5416a918f362744bff5f1ca0984058f25",
+      "bytes": 2991
+    },
+    "browser-baseline-v1/browser.json": {
+      "sha256": "2225ce0560bb57a473d4ae3801f98e215d3234cbb05bca88cb488f1757267cfe",
+      "bytes": 5126
+    },
+    "browser-baseline-v1/baseline-hidden-invoice.png": {
+      "sha256": "43e606dd64716504c99b5ef0e9948469480dececa4e539ec8b4beac54ce6a65e",
+      "bytes": 13193
+    },
+    "browser-baseline-v1/baseline-hidden-reminder.png": {
+      "sha256": "c7262ad8f7986a7828cf6c994638c459af813d7671145141e6ecc35233c3a950",
+      "bytes": 11916
+    },
+    "browser-candidate-final/browser.json": {
+      "sha256": "1a18941e1c1c41a074f6cc61d0414438626aac47fcc908a85ba743f7436cee70",
+      "bytes": 7398
+    },
+    "browser-candidate-final/desktop-queued-invoice.png": {
+      "sha256": "4fdad94c31013231b3f2a0bdf5ad7dcceca7751491b57eaa31284cde5349b756",
+      "bytes": 48846
+    },
+    "browser-candidate-final/phone-queued-invoice.png": {
+      "sha256": "9d22dd2062166d3c2d9c8e85731d676982fc8c37ce8bbc33b4f72c4319922039",
+      "bytes": 47667
+    },
+    "browser-candidate-final/desktop-queued-reminder.png": {
+      "sha256": "3461dcab893cb2a3bfb9b55f1a54e7fd8702e0ddc64fd99a8ff5eb768daaf513",
+      "bytes": 32085
+    },
+    "browser-candidate-final/phone-queued-reminder.png": {
+      "sha256": "4e4b5e30563b4c6e280fbf8de51bb3a0750bd43389e80fdb770f8c46e9fde8ad",
+      "bytes": 33118
+    },
+    "browser-candidate-final/desktop-worker-observation.json": {
+      "sha256": "5212502a7b881d9944554fc4751d102ad17ba79e939e716b3b656e38c54e960a",
+      "bytes": 77597
+    },
+    "browser-candidate-final/phone-worker-observation.json": {
+      "sha256": "763b9da87cef88d6767020b71c4872114f82f0ef96b040f5fafddf9c89d2b0be",
+      "bytes": 77597
+    },
+    "browser-candidate-final.log": {
+      "sha256": "5faad1360114b3bd3cb68692629e1961a6df07d6fd1f1ba2a43188c05ed53b00",
+      "bytes": 175
+    },
+    "browser-candidate-v1/browser.json": {
+      "sha256": "2bf3f0bfb19e832ca36932c23762406d3da1b007a8e23a6149b9c0303a1447fa",
+      "bytes": 8367
+    },
+    "browser-candidate-v2/browser.json": {
+      "sha256": "066f00ee97fd7f445800b6fa27d7ce1435053149557d799da9b1a70106c2d7e7",
+      "bytes": 7398
+    },
+    "browser-harness-correction.json": {
+      "sha256": "c98cdd5dd7cc552ee9075643b8d485b5944f6a60a87e2d4d5919cfceb859219b",
+      "bytes": 382
+    },
+    "check_approval_preview_browser-v1.py": {
+      "sha256": "e57d0002fbe3536d18739d354bc5aeb622cbf39817820a7adad50b4b68bf280e",
+      "bytes": 18195
+    },
+    "build.log": {
+      "sha256": "295755ddb81bf9e367c55a6978f03df94ad803964b23e2bf427da76920826b32",
+      "bytes": 2991
+    },
+    "final-build.log": {
+      "sha256": "637dc03ef6fd600736738634b09a71272001abdc1b59dc41d70a8e039cbe0f20",
+      "bytes": 2992
+    },
+    "final-preview-tests.log": {
+      "sha256": "1a1902e77f0d1ab65fa56cc73db19ecd1583d25ecc682f9b04cf483b0e005242",
+      "bytes": 475
+    },
+    "final-qualification.json": {
+      "sha256": "4372d8d289cf107c0a405b7ac5dea5705fa562d736be4d470d68740d2e625b36",
+      "bytes": 1763
+    },
+    "fixture-binding-replay.json": {
+      "sha256": "758c217035ec7ec36dc6d286b65c166183cc2361b5d96e6b34bab9a75a682d8f",
+      "bytes": 1155
+    },
+    "initial-test-build.json": {
+      "sha256": "7e01318f15d1369724fa3c1de4f9e2c1f69895a2a5495cadb876fa52e27da7ff",
+      "bytes": 608
+    },
+    "recovery-binding.log": {
+      "sha256": "79340d397c0093273ef1a84c807361464da6e73cd8efddba089a26633d4a5bd3",
+      "bytes": 277
+    },
+    "source-freeze.json": {
+      "sha256": "d8cb80b586c8c24d7353684837f8e724692b06e9ee874022515a683fd508c2d9",
+      "bytes": 1105
+    },
+    "tests.log": {
+      "sha256": "a4eac4e91ca88bdc1014885cd5cc6efbe66e9ed4f2b540ec275862286cd4ecd7",
+      "bytes": 5777
+    },
+    "peer-review/mac-continuity-approval-preview-review.json": {
+      "sha256": "6520dbde91e9c6d4ae60ee070ca18560ddb7e2a8b4e4f01533ba93192427114a",
+      "bytes": 4297
+    }
+  }
+}

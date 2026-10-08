@@ -1,0 +1,85 @@
+
+> ledgerly-offline-browser-demo@0.1.0 test
+> node scripts/stage-python.mjs && vitest run --maxWorkers=2
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo[39m
+
+ [31m❯[39m tests/engine-recovery.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 109[2mms[22m[39m
+[31m   [31m×[31m actual startup hook settles a worker error, retains intake and enables an explicit empty restart[39m[32m 56[2mms[22m[39m
+[31m   [31m×[31m actual action hook disables the lost ledger and settles a pending draft without replay[39m[32m 20[2mms[22m[39m
+[31m   [31m×[31m actual startup hook refuses a completed transport whose initialization result is not ok[39m[32m 13[2mms[22m[39m
+   [32m✓[39m actual worker startup retries a rejected runtime load on the next explicit init[32m 6[2mms[22m[39m
+[31m   [31m×[31m retains typed corrections across failure and reopens analysis only on explicit revalidation[39m[32m 14[2mms[22m[39m
+ [32m✓[39m tests/review.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 1143[2mms[22m[39m
+ [32m✓[39m tests/approval-preview.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 1079[2mms[22m[39m
+ [32m✓[39m tests/worker-client.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m tests/engine.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 984[2mms[22m[39m
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m4 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m29 passed[39m[22m[90m (33)[39m
+[2m   Start at [22m 04:45:59
+[2m   Duration [22m 2.42s[2m (tests 90%, import 6%, transform 4%)[22m
+
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook settles a worker error, retains intake and enables an explicit empty restart
+[31m[1mAssertionError[22m: expected 'PYTHON UNAVAILABLE' to contain 'READY'[39m
+
+Expected: [32m"READY"[39m
+Received: [31m"PYTHON UNAVAILABLE"[39m
+
+[36m [2m❯[22m tests/engine-recovery.test.ts:[2m131:57[22m[39m
+    [90m129|[39m   await tick();
+    [90m130|[39m   expect(restart.settled()).toBe(true);
+    [90m131|[39m   expect(fixture.element('#engine-status').textContent).toContain('REA…
+    [90m   |[39m                                                         [31m^[39m
+    [90m132|[39m   expect(fixture.element('#status-message').textContent).toContain('Ne…
+    [90m133|[39m   expect(fixture.element('#engine-recovery-analysis').textContent).toB…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual action hook disables the lost ledger and settles a pending draft without replay
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'id')[39m
+[36m [2m❯[22m FakeWorker.reply tests/engine-recovery.test.ts:[2m85:93[22m[39m
+    [90m 83|[39m     terminate() { this.terminated = true; }
+    [90m 84|[39m     emit(type: string, event: any) { for (const listener of this.liste…
+    [90m 85|[39m     reply(index: number, data: any) { this.emit('message', {data: {id:…
+    [90m   |[39m                                                                                             [31m^[39m
+    [90m 86|[39m   }
+    [90m 87|[39m   const document = {
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m144:22[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mactual startup hook refuses a completed transport whose initialization result is not ok
+[31m[1mAssertionError[22m: expected 'ReferenceError: approvalListMarkup is…' to contain 'Injected bridge initialization failure'[39m
+
+Expected: [32m"Injected bridge initialization failure"[39m
+Received: [31m"ReferenceError: approvalListMarkup is not defined"[39m
+
+[36m [2m❯[22m tests/engine-recovery.test.ts:[2m175:58[22m[39m
+    [90m173|[39m   expect(fixture.element('#engine-start').disabled).toBe(false);
+    [90m174|[39m   expect(fixture.element('#engine-status').textContent).not.toContain(…
+    [90m175|[39m   expect(fixture.element('#status-message').textContent).toContain('In…
+    [90m   |[39m                                                          [31m^[39m
+    [90m176|[39m });
+    [90m177|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m tests/engine-recovery.test.ts[2m > [22mretains typed corrections across failure and reopens analysis only on explicit revalidation
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'id')[39m
+[36m [2m❯[22m FakeWorker.reply tests/engine-recovery.test.ts:[2m85:93[22m[39m
+    [90m 83|[39m     terminate() { this.terminated = true; }
+    [90m 84|[39m     emit(type: string, event: any) { for (const listener of this.liste…
+    [90m 85|[39m     reply(index: number, data: any) { this.emit('message', {data: {id:…
+    [90m   |[39m                                                                                             [31m^[39m
+    [90m 86|[39m   }
+    [90m 87|[39m   const document = {
+[90m [2m❯[22m tests/engine-recovery.test.ts:[2m219:22[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯[22m[39m
+
