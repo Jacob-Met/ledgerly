@@ -1,0 +1,1 @@
+{"baseline_gap_reproduced": true, "small_batch_queued": 10, "larger_batch_invoices": 13, "first_scan_queued": 11, "repeated_scan_new_reminders": 0, "never_visited_tail": 2, "source_inputs_verified_before_after": 48, "external_calls": 0, "output": "/dev/shm/hamon-68094585a1c2/ledgerly-approval-details/owner-receiving/overdue-batch-baseline.json"}

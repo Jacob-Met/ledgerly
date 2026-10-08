@@ -1,0 +1,234 @@
+{
+  "started_utc": "2026-10-08T12:17:49.282409+00:00",
+  "source_commit": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "source_tree": "ba5ab49270c136d86bc492411f49a5bdebdb6049",
+  "producer": "Exact bridge.Demo -> Agent/RulePlanner/GatedClient/SandboxMock",
+  "scope": "Fictional in-memory native controls, not an actual browser run or live invoice claim",
+  "small_batch_control": {
+    "invoice_count": 10,
+    "today": "2026-10-24",
+    "due_on": "2026-10-23",
+    "invoice_ids_in_native_order": [
+      "INV2-MOCK-0001-F324",
+      "INV2-MOCK-0002-12CD",
+      "INV2-MOCK-0003-3919",
+      "INV2-MOCK-0004-4BBA",
+      "INV2-MOCK-0005-C4B8",
+      "INV2-MOCK-0006-A530",
+      "INV2-MOCK-0007-51B9",
+      "INV2-MOCK-0008-CBAE",
+      "INV2-MOCK-0009-765F",
+      "INV2-MOCK-0010-727D"
+    ],
+    "attempts": [
+      {
+        "label": "first explicit scan",
+        "final": "list_overdue -> 10 overdue; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval; send_reminder -> reminder drafted (friendly); awaiting approval",
+        "pending_action_ids": [
+          "apv_1569caf6aa",
+          "apv_313dc37e22",
+          "apv_5c13ef63d1",
+          "apv_360bcb50f5",
+          "apv_72332fcf0f",
+          "apv_6716354237",
+          "apv_3cd7be0d2e",
+          "apv_314d66df1a",
+          "apv_026c546783",
+          "apv_a38ce2e827"
+        ],
+        "pending_invoice_ids": [
+          "INV2-MOCK-0001-F324",
+          "INV2-MOCK-0002-12CD",
+          "INV2-MOCK-0003-3919",
+          "INV2-MOCK-0004-4BBA",
+          "INV2-MOCK-0005-C4B8",
+          "INV2-MOCK-0006-A530",
+          "INV2-MOCK-0007-51B9",
+          "INV2-MOCK-0008-CBAE",
+          "INV2-MOCK-0009-765F",
+          "INV2-MOCK-0010-727D"
+        ],
+        "visited_invoice_ids": [
+          "INV2-MOCK-0001-F324",
+          "INV2-MOCK-0002-12CD",
+          "INV2-MOCK-0003-3919",
+          "INV2-MOCK-0004-4BBA",
+          "INV2-MOCK-0005-C4B8",
+          "INV2-MOCK-0006-A530",
+          "INV2-MOCK-0007-51B9",
+          "INV2-MOCK-0008-CBAE",
+          "INV2-MOCK-0009-765F",
+          "INV2-MOCK-0010-727D"
+        ],
+        "mock_request_delta": 10,
+        "external_calls": 0
+      }
+    ],
+    "reminders_sent_by_invoice": {
+      "INV2-MOCK-0001-F324": 0,
+      "INV2-MOCK-0002-12CD": 0,
+      "INV2-MOCK-0003-3919": 0,
+      "INV2-MOCK-0004-4BBA": 0,
+      "INV2-MOCK-0005-C4B8": 0,
+      "INV2-MOCK-0006-A530": 0,
+      "INV2-MOCK-0007-51B9": 0,
+      "INV2-MOCK-0008-CBAE": 0,
+      "INV2-MOCK-0009-765F": 0,
+      "INV2-MOCK-0010-727D": 0
+    },
+    "source_mutated": false
+  },
+  "larger_batch_reproduction": {
+    "invoice_count": 13,
+    "today": "2026-10-24",
+    "due_on": "2026-10-23",
+    "invoice_ids_in_native_order": [
+      "INV2-MOCK-0001-E71C",
+      "INV2-MOCK-0002-E7D5",
+      "INV2-MOCK-0003-DF87",
+      "INV2-MOCK-0004-B093",
+      "INV2-MOCK-0005-DDA5",
+      "INV2-MOCK-0006-151B",
+      "INV2-MOCK-0007-C3A3",
+      "INV2-MOCK-0008-82E3",
+      "INV2-MOCK-0009-32CB",
+      "INV2-MOCK-0010-3820",
+      "INV2-MOCK-0011-758F",
+      "INV2-MOCK-0012-53F8",
+      "INV2-MOCK-0013-3A12"
+    ],
+    "attempts": [
+      {
+        "label": "first explicit scan",
+        "final": "step limit reached",
+        "pending_action_ids": [
+          "apv_9378b3d42e",
+          "apv_b9a96f21bb",
+          "apv_ddb836bb89",
+          "apv_c1427744a5",
+          "apv_358ecf7c72",
+          "apv_9b2737f418",
+          "apv_7eaaf385f9",
+          "apv_f4c5f97167",
+          "apv_81fcbc745d",
+          "apv_755ec9673a",
+          "apv_ad43d83dc8"
+        ],
+        "pending_invoice_ids": [
+          "INV2-MOCK-0001-E71C",
+          "INV2-MOCK-0002-E7D5",
+          "INV2-MOCK-0003-DF87",
+          "INV2-MOCK-0004-B093",
+          "INV2-MOCK-0005-DDA5",
+          "INV2-MOCK-0006-151B",
+          "INV2-MOCK-0007-C3A3",
+          "INV2-MOCK-0008-82E3",
+          "INV2-MOCK-0009-32CB",
+          "INV2-MOCK-0010-3820",
+          "INV2-MOCK-0011-758F"
+        ],
+        "visited_invoice_ids": [
+          "INV2-MOCK-0001-E71C",
+          "INV2-MOCK-0002-E7D5",
+          "INV2-MOCK-0003-DF87",
+          "INV2-MOCK-0004-B093",
+          "INV2-MOCK-0005-DDA5",
+          "INV2-MOCK-0006-151B",
+          "INV2-MOCK-0007-C3A3",
+          "INV2-MOCK-0008-82E3",
+          "INV2-MOCK-0009-32CB",
+          "INV2-MOCK-0010-3820",
+          "INV2-MOCK-0011-758F"
+        ],
+        "mock_request_delta": 11,
+        "external_calls": 0
+      },
+      {
+        "label": "second explicit scan while first reminders await approval",
+        "final": "step limit reached",
+        "pending_action_ids": [
+          "apv_9378b3d42e",
+          "apv_b9a96f21bb",
+          "apv_ddb836bb89",
+          "apv_c1427744a5",
+          "apv_358ecf7c72",
+          "apv_9b2737f418",
+          "apv_7eaaf385f9",
+          "apv_f4c5f97167",
+          "apv_81fcbc745d",
+          "apv_755ec9673a",
+          "apv_ad43d83dc8"
+        ],
+        "pending_invoice_ids": [
+          "INV2-MOCK-0001-E71C",
+          "INV2-MOCK-0002-E7D5",
+          "INV2-MOCK-0003-DF87",
+          "INV2-MOCK-0004-B093",
+          "INV2-MOCK-0005-DDA5",
+          "INV2-MOCK-0006-151B",
+          "INV2-MOCK-0007-C3A3",
+          "INV2-MOCK-0008-82E3",
+          "INV2-MOCK-0009-32CB",
+          "INV2-MOCK-0010-3820",
+          "INV2-MOCK-0011-758F"
+        ],
+        "visited_invoice_ids": [
+          "INV2-MOCK-0001-E71C",
+          "INV2-MOCK-0002-E7D5",
+          "INV2-MOCK-0003-DF87",
+          "INV2-MOCK-0004-B093",
+          "INV2-MOCK-0005-DDA5",
+          "INV2-MOCK-0006-151B",
+          "INV2-MOCK-0007-C3A3",
+          "INV2-MOCK-0008-82E3",
+          "INV2-MOCK-0009-32CB",
+          "INV2-MOCK-0010-3820",
+          "INV2-MOCK-0011-758F"
+        ],
+        "mock_request_delta": 11,
+        "external_calls": 0
+      },
+      {
+        "label": "third explicit scan after approving all eleven queued reminders",
+        "final": "step limit reached",
+        "pending_action_ids": [],
+        "pending_invoice_ids": [],
+        "visited_invoice_ids": [
+          "INV2-MOCK-0001-E71C",
+          "INV2-MOCK-0002-E7D5",
+          "INV2-MOCK-0003-DF87",
+          "INV2-MOCK-0004-B093",
+          "INV2-MOCK-0005-DDA5",
+          "INV2-MOCK-0006-151B",
+          "INV2-MOCK-0007-C3A3",
+          "INV2-MOCK-0008-82E3",
+          "INV2-MOCK-0009-32CB",
+          "INV2-MOCK-0010-3820",
+          "INV2-MOCK-0011-758F"
+        ],
+        "mock_request_delta": 11,
+        "external_calls": 0
+      }
+    ],
+    "reminders_sent_by_invoice": {
+      "INV2-MOCK-0001-E71C": 1,
+      "INV2-MOCK-0002-E7D5": 1,
+      "INV2-MOCK-0003-DF87": 1,
+      "INV2-MOCK-0004-B093": 1,
+      "INV2-MOCK-0005-DDA5": 1,
+      "INV2-MOCK-0006-151B": 1,
+      "INV2-MOCK-0007-C3A3": 1,
+      "INV2-MOCK-0008-82E3": 1,
+      "INV2-MOCK-0009-32CB": 1,
+      "INV2-MOCK-0010-3820": 1,
+      "INV2-MOCK-0011-758F": 1,
+      "INV2-MOCK-0012-53F8": 0,
+      "INV2-MOCK-0013-3A12": 0
+    },
+    "source_mutated": false
+  },
+  "completed_utc": "2026-10-08T12:17:49.302681+00:00",
+  "source_inputs_verified_before_after": 48,
+  "baseline_gap_reproduced": true,
+  "interpretation": "Each scan spends its twelve-step budget on list_overdue plus the first eleven invoice attempts. Repeated scans revisit those same invoices, even while their reminders are pending or cooling down, leaving the last two unvisited."
+}

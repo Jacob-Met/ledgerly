@@ -1,0 +1,11 @@
+test_cooldown_prefix_reaches_tail_and_approval_stays_per_action (test_browser_overdue_scan.BrowserOverdueScan.test_cooldown_prefix_reaches_tail_and_approval_stays_per_action) ... ok
+test_empty_and_small_ledgers_keep_normal_scan_behavior (test_browser_overdue_scan.BrowserOverdueScan.test_empty_and_small_ledgers_keep_normal_scan_behavior) ... ok
+test_larger_fresh_batch_reaches_every_invoice_without_sending (test_browser_overdue_scan.BrowserOverdueScan.test_larger_fresh_batch_reaches_every_invoice_without_sending) ... ok
+test_pending_prefix_does_not_hide_tail_invoices (test_browser_overdue_scan.BrowserOverdueScan.test_pending_prefix_does_not_hide_tail_invoices) ... ok
+test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions (test_browser_overdue_scan.BrowserOverdueScan.test_scan_observes_changed_tail_invoices_and_replaces_only_stale_actions) ... ok
+test_unrelated_planner_retains_general_step_guard (test_browser_overdue_scan.BrowserOverdueScan.test_unrelated_planner_retains_general_step_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.058s
+
+OK
