@@ -78,19 +78,17 @@ _BULLET_RE = re.compile(r"^\s*(?:[-*•·]|\d+[.)])\s+")
 _PAID_RE = re.compile(
     r"\b(deposit|already paid|paid upfront|advance payment|prepaid|have paid|we paid|retainer paid)\b", re.I
 )
-_PAYMENT_KIND = r"(?:deposit|retainer|advance payment|payment)"
-_PAYMENT_AMOUNT = (
-    rf"(?:(?:(?:a|an|the) )?<M>(?: {_PAYMENT_KIND})?"
-    rf"|(?:(?:a|an|the) )?{_PAYMENT_KIND} of <M>)"
-)
 _PAID_CONFIRMED_RE = re.compile(
-    rf"(?:(?:(?:we|i) (?:have |had )?(?:already )?paid|already paid|paid upfront|prepaid)"
-    rf":? {_PAYMENT_AMOUNT}"
-    rf"|{_PAYMENT_AMOUNT} (?:(?:has|have|had) (?:already )?been (?:paid|received)"
-    rf"|(?:was|were) (?:already )?(?:paid|received)|(?:already )?paid)"
-    rf"|{_PAYMENT_KIND} (?:already )?paid: <M>)"
-    r"(?: (?:upfront|in advance|yesterday|today|last week|last month)"
-    r"| (?:by|via) (?:bank transfer|wire transfer|cash|check|cheque))*[.!]?", re.I
+    r"\b(?:already paid|paid upfront|have paid|we paid|i paid|prepaid|"
+    r"(?:has|have|had) (?:already )?been paid|(?:was|were) (?:already )?paid|"
+    r"(?:deposit|retainer|advance payment) (?:already )?paid|"
+    r"(?:was|were|has been|have been|had been) (?:already )?received)\b", re.I
+)
+_PAYMENT_UNCERTAIN_RE = re.compile(
+    r"\b(?:no|not|never|unpaid|pending|outstanding|due|owe|owed|owing|"
+    r"will|would|should|could|can|may|might|must|shall|if|unless|when|once|whether|"
+    r"please|requested|expected|scheduled|promised|refunded|refund|reversed|reversal|"
+    r"chargeback|failed|declined|cancelled|canceled|to be)\b|n['’]t\b|[?\"“”]", re.I
 )
 _TOTAL_RE = re.compile(r"\b(total|subtotal|budget|balance|altogether)\b", re.I)
 _BILLING_RE = re.compile(
@@ -439,10 +437,8 @@ class RulesExtractor:
                 # A payment label is not evidence that money was received. Keep
                 # uncertain language out of amount_paid and require the existing
                 # review flow before a draft can queue an external-payment record.
-                # Match the complete statement, not a paid phrase embedded in
-                # a condition, quotation, request or unsettled payment report.
-                statement = re.sub(r"\s+", " ", line[:monies[0].start()] + "<M>" + line[monies[0].end():])
-                if len(monies) == 1 and _PAID_CONFIRMED_RE.fullmatch(statement):
+                if (len(monies) == 1 and _PAID_CONFIRMED_RE.search(line)
+                        and not _PAYMENT_UNCERTAIN_RE.search(line)):
                     paid += amt
                 else:
                     issues.append(Issue("amount_paid", "error",

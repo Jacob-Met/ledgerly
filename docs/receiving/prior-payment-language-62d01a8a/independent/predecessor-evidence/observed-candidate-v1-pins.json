@@ -1,0 +1,8 @@
+{
+  "observed_candidate_git_blob": "ca861ba823aa534933b38fd587e910c39c30d06d",
+  "observed_candidate_sha256": "1a22a7e9b7ace7cd7b198958d56fe7c374a4399da8bdc54d58a88c990f55d11c",
+  "canonical_author_base": "27193d726c9a7c24bbce77f5bcc961629b484ee6",
+  "receiving_main": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "agent_blob": "19f261b1430769952057697d68472722a11cf643",
+  "note": "Provisional author candidate captured before tightening, solely for independent negative-control evidence."
+}

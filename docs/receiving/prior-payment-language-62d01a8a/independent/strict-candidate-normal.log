@@ -1,0 +1,16 @@
+test_explicit_human_prior_payment_amount_is_used_only_after_approval (__main__.PaymentEvidenceReview.test_explicit_human_prior_payment_amount_is_used_only_after_approval) ... ok
+test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) ... ok
+test_human_correction_is_bound_to_original_source (__main__.PaymentEvidenceReview.test_human_correction_is_bound_to_original_source) ... ok
+test_human_zero_correction_produces_truthful_invoice_and_no_payment (__main__.PaymentEvidenceReview.test_human_zero_correction_produces_truthful_invoice_and_no_payment) ... ok
+test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) ... ok
+test_inverted_counterfactuals_require_review (__main__.PaymentEvidenceReview.test_inverted_counterfactuals_require_review) ... ok
+test_negated_receipt_contractions_require_review (__main__.PaymentEvidenceReview.test_negated_receipt_contractions_require_review) ... ok
+test_original_supported_receipt_still_requires_explicit_approval (__main__.PaymentEvidenceReview.test_original_supported_receipt_still_requires_explicit_approval) ... ok
+test_quoted_email_thread_remains_excluded_without_fake_payment (__main__.PaymentEvidenceReview.test_quoted_email_thread_remains_excluded_without_fake_payment) ... ok
+test_supported_receipt_plus_uncertain_line_preserves_blocking_issue (__main__.PaymentEvidenceReview.test_supported_receipt_plus_uncertain_line_preserves_blocking_issue) ... ok
+test_unsettled_receipt_tail_is_not_discarded (__main__.PaymentEvidenceReview.test_unsettled_receipt_tail_is_not_discarded) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.005s
+
+OK

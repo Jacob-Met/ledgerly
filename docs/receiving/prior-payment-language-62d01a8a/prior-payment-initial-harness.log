@@ -1,0 +1,308 @@
+test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) ... 
+  test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='If the $500 deposit is already paid, start work.') ... FAIL
+  test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='When we have paid the $500 deposit, begin.') ... FAIL
+  test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='Once the $500 deposit has been paid, start work.') ... FAIL
+  test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='We should have paid the $500 deposit by Friday.') ... FAIL
+  test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='Was the $500 deposit already paid?') ... FAIL
+test_current_review_adapter_can_resolve_unknown_payment_without_recording_one (test_prior_payment_language.PriorPaymentLanguageTests.test_current_review_adapter_can_resolve_unknown_payment_without_recording_one) ... FAIL
+test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) ... 
+  test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='A deposit of $500 is due before work begins.') ... FAIL
+  test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='I will pay a $500 deposit next week.') ... FAIL
+  test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='Please pay a $500 deposit before work begins.') ... FAIL
+  test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='The $500 deposit will be paid upfront.') ... FAIL
+  test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='The $500 deposit payment is pending.') ... FAIL
+  test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='A $500 advance payment is to be paid upfront.') ... FAIL
+test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) ... 
+  test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='The $500 deposit has not been paid.') ... FAIL
+  test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='We have not paid the $500 deposit.') ... FAIL
+  test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line="The $500 deposit hasn't been paid.") ... FAIL
+  test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='The $500 deposit hasn’t been paid.') ... FAIL
+  test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='The $500 deposit was never received.') ... FAIL
+  test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='It is not true that we already paid the $500 deposit.') ... FAIL
+test_one_uncertain_line_blocks_draft_even_after_a_confirmed_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_one_uncertain_line_blocks_draft_even_after_a_confirmed_receipt) ... FAIL
+test_quoted_history_cannot_supply_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_history_cannot_supply_a_receipt) ... ok
+test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) ... 
+  test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='The client wrote "we already paid a $500 deposit".') ... FAIL
+  test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='We already paid a $500 deposit, but it was refunded.') ... FAIL
+  test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='We already paid $100; the remaining $400 deposit is due next week.') ... FAIL
+  test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='We already paid a $500 deposit and a $200 advance payment.') ... FAIL
+test_separate_confirmed_payments_accumulate (test_prior_payment_language.PriorPaymentLanguageTests.test_separate_confirmed_payments_accumulate) ... ok
+test_supported_completed_payment_statements (test_prior_payment_language.PriorPaymentLanguageTests.test_supported_completed_payment_statements) ... ok
+test_supported_deposit_still_requires_separate_send_approval (test_prior_payment_language.PriorPaymentLanguageTests.test_supported_deposit_still_requires_separate_send_approval) ... ERROR
+test_unqualified_payment_labels_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_unqualified_payment_labels_need_review) ... 
+  test_unqualified_payment_labels_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_unqualified_payment_labels_need_review) (line='Deposit: $500.') ... FAIL
+  test_unqualified_payment_labels_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_unqualified_payment_labels_need_review) (line='A $500 advance payment.') ... FAIL
+  test_unqualified_payment_labels_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_unqualified_payment_labels_need_review) (line='The deposit amount is $500.') ... FAIL
+
+======================================================================
+ERROR: test_supported_deposit_still_requires_separate_send_approval (test_prior_payment_language.PriorPaymentLanguageTests.test_supported_deposit_still_requires_separate_send_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 132, in test_supported_deposit_still_requires_separate_send_approval
+    self.assertTrue(approved["ok"])
+                    ~~~~~~~~^^^^^^
+KeyError: 'ok'
+
+======================================================================
+FAIL: test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='If the $500 deposit is already paid, start work.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 77, in test_conditional_payment_is_not_a_receipt
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : If the $500 deposit is already paid, start work.
+
+======================================================================
+FAIL: test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='When we have paid the $500 deposit, begin.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 77, in test_conditional_payment_is_not_a_receipt
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : When we have paid the $500 deposit, begin.
+
+======================================================================
+FAIL: test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='Once the $500 deposit has been paid, start work.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 77, in test_conditional_payment_is_not_a_receipt
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : Once the $500 deposit has been paid, start work.
+
+======================================================================
+FAIL: test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='We should have paid the $500 deposit by Friday.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 77, in test_conditional_payment_is_not_a_receipt
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : We should have paid the $500 deposit by Friday.
+
+======================================================================
+FAIL: test_conditional_payment_is_not_a_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_conditional_payment_is_not_a_receipt) (line='Was the $500 deposit already paid?')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 77, in test_conditional_payment_is_not_a_receipt
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : Was the $500 deposit already paid?
+
+======================================================================
+FAIL: test_current_review_adapter_can_resolve_unknown_payment_without_recording_one (test_prior_payment_language.PriorPaymentLanguageTests.test_current_review_adapter_can_resolve_unknown_payment_without_recording_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 158, in test_current_review_adapter_can_resolve_unknown_payment_without_recording_one
+    self.assertEqual(analysis["amount_paid"], "0")
+AssertionError: '500' != '0'
+- 500
++ 0
+
+
+======================================================================
+FAIL: test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='A deposit of $500 is due before work begins.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 66, in test_future_requested_and_pending_deposits_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : A deposit of $500 is due before work begins.
+
+======================================================================
+FAIL: test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='I will pay a $500 deposit next week.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 66, in test_future_requested_and_pending_deposits_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : I will pay a $500 deposit next week.
+
+======================================================================
+FAIL: test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='Please pay a $500 deposit before work begins.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 66, in test_future_requested_and_pending_deposits_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : Please pay a $500 deposit before work begins.
+
+======================================================================
+FAIL: test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='The $500 deposit will be paid upfront.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 66, in test_future_requested_and_pending_deposits_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The $500 deposit will be paid upfront.
+
+======================================================================
+FAIL: test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='The $500 deposit payment is pending.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 66, in test_future_requested_and_pending_deposits_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The $500 deposit payment is pending.
+
+======================================================================
+FAIL: test_future_requested_and_pending_deposits_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_future_requested_and_pending_deposits_need_review) (line='A $500 advance payment is to be paid upfront.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 66, in test_future_requested_and_pending_deposits_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : A $500 advance payment is to be paid upfront.
+
+======================================================================
+FAIL: test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='The $500 deposit has not been paid.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 54, in test_negated_deposits_are_not_receipts
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The $500 deposit has not been paid.
+
+======================================================================
+FAIL: test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='We have not paid the $500 deposit.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 54, in test_negated_deposits_are_not_receipts
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : We have not paid the $500 deposit.
+
+======================================================================
+FAIL: test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line="The $500 deposit hasn't been paid.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 54, in test_negated_deposits_are_not_receipts
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The $500 deposit hasn't been paid.
+
+======================================================================
+FAIL: test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='The $500 deposit hasn’t been paid.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 54, in test_negated_deposits_are_not_receipts
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The $500 deposit hasn’t been paid.
+
+======================================================================
+FAIL: test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='The $500 deposit was never received.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 54, in test_negated_deposits_are_not_receipts
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The $500 deposit was never received.
+
+======================================================================
+FAIL: test_negated_deposits_are_not_receipts (test_prior_payment_language.PriorPaymentLanguageTests.test_negated_deposits_are_not_receipts) (line='It is not true that we already paid the $500 deposit.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 54, in test_negated_deposits_are_not_receipts
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : It is not true that we already paid the $500 deposit.
+
+======================================================================
+FAIL: test_one_uncertain_line_blocks_draft_even_after_a_confirmed_receipt (test_prior_payment_language.PriorPaymentLanguageTests.test_one_uncertain_line_blocks_draft_even_after_a_confirmed_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 143, in test_one_uncertain_line_blocks_draft_even_after_a_confirmed_receipt
+    self.assertEqual(extraction.amount_paid, Decimal(300))
+AssertionError: Decimal('500') != Decimal('300')
+
+======================================================================
+FAIL: test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='The client wrote "we already paid a $500 deposit".')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 92, in test_quoted_unsettled_and_multi_amount_lines_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The client wrote "we already paid a $500 deposit".
+
+======================================================================
+FAIL: test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='We already paid a $500 deposit, but it was refunded.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 92, in test_quoted_unsettled_and_multi_amount_lines_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : We already paid a $500 deposit, but it was refunded.
+
+======================================================================
+FAIL: test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='We already paid $100; the remaining $400 deposit is due next week.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 92, in test_quoted_unsettled_and_multi_amount_lines_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('100') != Decimal('0') : We already paid $100; the remaining $400 deposit is due next week.
+
+======================================================================
+FAIL: test_quoted_unsettled_and_multi_amount_lines_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_quoted_unsettled_and_multi_amount_lines_need_review) (line='We already paid a $500 deposit and a $200 advance payment.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 92, in test_quoted_unsettled_and_multi_amount_lines_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : We already paid a $500 deposit and a $200 advance payment.
+
+======================================================================
+FAIL: test_unqualified_payment_labels_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_unqualified_payment_labels_need_review) (line='Deposit: $500.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 82, in test_unqualified_payment_labels_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : Deposit: $500.
+
+======================================================================
+FAIL: test_unqualified_payment_labels_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_unqualified_payment_labels_need_review) (line='A $500 advance payment.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 82, in test_unqualified_payment_labels_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : A $500 advance payment.
+
+======================================================================
+FAIL: test_unqualified_payment_labels_need_review (test_prior_payment_language.PriorPaymentLanguageTests.test_unqualified_payment_labels_need_review) (line='The deposit amount is $500.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 82, in test_unqualified_payment_labels_need_review
+    self.assert_requires_payment_review(line)
+  File "/workspace/scratch/62d01a8a6ae6/product-ledgerly-deposit/tests/test_prior_payment_language.py", line 33, in assert_requires_payment_review
+    self.assertEqual(extraction.amount_paid, Decimal(0), line)
+AssertionError: Decimal('500') != Decimal('0') : The deposit amount is $500.
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.012s
+
+FAILED (failures=26, errors=1)
