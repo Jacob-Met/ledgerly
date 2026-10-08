@@ -49,6 +49,7 @@ function app() {
         setAttribute: (key: string, value: string) => attributes.set(key, value),
         removeAttribute: (key: string) => attributes.delete(key),
         getAttribute: (key: string) => attributes.get(key),
+        remove() { elements.delete(selector); dynamicIds.delete(selector); },
         closest: (query: string) => query === '#review-form' ? elements.get('#review-form') : null,
         elements: {namedItem: (name: string) => element('#' + ({
           client_name: 'review-client-name', client_email: 'review-client-email', due_days: 'review-due-days', amount_paid: 'review-amount-paid',
@@ -104,7 +105,7 @@ function app() {
   function submitReview() {
     return element('#analysis').handlers.submit({target: element('#review-form'), preventDefault() {}});
   }
-  return {element, workers, click, input, submitReview};
+  return {element, workers, click, input, submitReview, document};
 }
 
 const empty = {ok: true, result: {}, state: {ledger: [], pending: [], audit: [], today: '2026-10-08', can_replay: false}};
@@ -249,6 +250,7 @@ it('retains typed corrections across failure and reopens analysis only on explic
   expect(fixture.workers[1].messages[2]).toMatchObject({action: 'review', payload: {text, fields, confirmed: true}});
   fixture.workers[1].reply(2, {ok: true, state: empty.state, result: {valid: true, review_id: 'new-worker-revision'}});
   await rechecked;
+  expect(fixture.document.querySelector('#engine-recovery-analysis')).toBeNull();
   expect(fixture.element('#draft').disabled).toBe(false);
   const drafted = fixture.click('#draft');
   expect(fixture.workers[1].messages[3]).toMatchObject({action: 'draft', payload: {text, review_id: 'new-worker-revision'}});

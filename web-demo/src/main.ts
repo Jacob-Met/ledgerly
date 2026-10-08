@@ -138,7 +138,7 @@ $('#analysis').addEventListener('submit',async(event)=>{
   analysisResult=analyzed.result;reviewNeedsAnalysis=false;
  }
  const reply=await runAction('review',{text,fields,confirmed:true});
- if(reply?.ok){reviewId=reply.result.valid?reply.result.review_id:null;result.innerHTML=reviewResultMarkup(reply.result);}
+ if(reply?.ok){reviewId=reply.result.valid?reply.result.review_id:null;result.innerHTML=reviewResultMarkup(reply.result);if(reply.result.valid)$<HTMLElement>('#engine-recovery-analysis')?.remove();}
  else result.textContent=reply?.message||'The fields could not be checked. Your edits are still here.';
  syncControls();
 });
