@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-08T08:38:18.760312+00:00",
+  "source": "/workspace/scratch/e82707f2bc62/ledgerly",
+  "exit_code": 0,
+  "source_sha256": {
+    "ledgerly/agent.py": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+    "web-demo/python/bridge.py": "1e2f9892b157778620d47d55c47fce502861c6d8099f0ecaf8c24edc551b4d5a"
+  },
+  "source_unchanged_during_run": true,
+  "test_sha256": {
+    "test_reminder_receiving.py": "4e62a84ac9d7fea6afbee8c10a1187327d7884546c9bf39f605ad09d529f61ec",
+    "test_provider_changes.py": "b584d4ee1869fb7889c3a84a89783a7f6893c219278438c5f5906f76052f1810"
+  },
+  "summary": [
+    "----------------------------------------------------------------------",
+    "Ran 27 tests in 0.019s",
+    "",
+    "OK"
+  ],
+  "scope": "27 independent stdlib unittest tests; actual Agent and unmodified browser bridge; synthetic SandboxMock only; no external requests",
+  "log": "/workspace/scratch/e82707f2bc62/ledgerly-review/final-receiving.log",
+  "verdict": "PASS_WITH_LIMITS: all 27 unchanged independent receiving tests pass on frozen agent SHA256 d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8; source hashes remained stable during replay.",
+  "code_review": [
+    "_invoice_presentation validates invoice identity, consistent currencies, finite nonnegative money, representable balance, supported due date, and a single billing recipient before cached state changes.",
+    "_refresh_invoice updates all displayed invoice facts before binding or comparing reminder review facts; an explicit NO_DUE_DATE is represented distinctly from an unavailable provider date.",
+    "Re-drafting after provider edits no longer binds new provider metadata to stale local amount, recipient, or due date. Failed or malformed preflight reads do not open the outgoing permit."
+  ],
+  "baseline": {
+    "tests": 27,
+    "failures": 22,
+    "passes": 5,
+    "agent_sha256": "27753ac9d8f3432dfda5526178758420908b9a42f9dea1a3e670dd09a6f4e740",
+    "log": "/workspace/scratch/e82707f2bc62/ledgerly-review/baseline-receiving.log"
+  },
+  "limits": [
+    "Evidence covers the local synthetic SandboxMock and real unchanged browser Python bridge, not a live PayPal or deployed UI run.",
+    "The provider can change after the preflight GET and before the outgoing reminder operation; this source does not provide an atomic conditional-send API.",
+    "Invoices not representable by the current single-recipient, total-minus-paid, explicit-due-date/NO_DUE_DATE model refuse review rather than reusing stale local presentation."
+  ],
+  "previous_receipt": "/workspace/scratch/e82707f2bc62/ledgerly-review/candidate2-receiving-receipt.json",
+  "exact_source_followup": "Unchanged 27-test replay after _amount_fact switched from Decimal.normalize() to fixed-point formatting and fractional trailing-zero trimming, avoiding decimal-context rounding."
+}

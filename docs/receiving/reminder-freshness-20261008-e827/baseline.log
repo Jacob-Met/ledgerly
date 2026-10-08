@@ -1,0 +1,110 @@
+test_approval_reads_status_when_webhook_was_missed (test_reminder_freshness.ReminderFreshnessTests.test_approval_reads_status_when_webhook_was_missed) ... FAIL
+test_drafting_refreshes_a_missed_partial_payment (test_reminder_freshness.ReminderFreshnessTests.test_drafting_refreshes_a_missed_partial_payment) ... FAIL
+test_failed_read_leaves_unsent_action_pending_for_explicit_retry (test_reminder_freshness.ReminderFreshnessTests.test_failed_read_leaves_unsent_action_pending_for_explicit_retry) ... FAIL
+test_full_payment_is_rejected_before_reminder_request (test_reminder_freshness.ReminderFreshnessTests.test_full_payment_is_rejected_before_reminder_request) ... ERROR
+test_new_day_requires_fresh_reminder_draft (test_reminder_freshness.ReminderFreshnessTests.test_new_day_requires_fresh_reminder_draft) ... FAIL
+test_partial_payment_rejects_old_note_and_allows_new_review (test_reminder_freshness.ReminderFreshnessTests.test_partial_payment_rejects_old_note_and_allows_new_review) ... FAIL
+test_provider_recipient_change_invalidates_existing_approval (test_reminder_freshness.ReminderFreshnessTests.test_provider_recipient_change_invalidates_existing_approval) ... FAIL
+test_status_sync_invalidates_without_webhook (test_reminder_freshness.ReminderFreshnessTests.test_status_sync_invalidates_without_webhook) ... FAIL
+test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder (test_reminder_freshness.ReminderFreshnessTests.test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder) ... FAIL
+test_unchanged_invoice_preserves_exact_reviewed_message (test_reminder_freshness.ReminderFreshnessTests.test_unchanged_invoice_preserves_exact_reviewed_message) ... ok
+
+======================================================================
+ERROR: test_full_payment_is_rejected_before_reminder_request (test_reminder_freshness.ReminderFreshnessTests.test_full_payment_is_rejected_before_reminder_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 80, in test_full_payment_is_rejected_before_reminder_request
+    self.agent.approve(rid)
+  File "/workspace/scratch/e82707f2bc62/ledgerly/ledgerly/agent.py", line 353, in approve
+    self.client.remind_invoice(a.invoice_id, {"subject": a.payload["subject"], "note": a.payload["note"],
+  File "/workspace/scratch/e82707f2bc62/ledgerly/ledgerly/agent.py", line 67, in remind_invoice
+    return self._inner.remind_invoice(invoice_id, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/e82707f2bc62/ledgerly/ledgerly/paypal.py", line 267, in remind_invoice
+    raise PayPalError(422, "UNPROCESSABLE_ENTITY", "The requested action could not be performed.",
+ledgerly.paypal.PayPalError: 422 UNPROCESSABLE_ENTITY: The requested action could not be performed. [INVALID_INVOICE_STATUS]
+
+======================================================================
+FAIL: test_approval_reads_status_when_webhook_was_missed (test_reminder_freshness.ReminderFreshnessTests.test_approval_reads_status_when_webhook_was_missed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 70, in test_approval_reads_status_when_webhook_was_missed
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_drafting_refreshes_a_missed_partial_payment (test_reminder_freshness.ReminderFreshnessTests.test_drafting_refreshes_a_missed_partial_payment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 128, in test_drafting_refreshes_a_missed_partial_payment
+    self.assertIn("GBP 500", self.agent.pending[rid].payload["note"])
+AssertionError: 'GBP 500' not found in 'Hi Oliver,\n\nInvoice LDG-0001 for GBP 800 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nExample Freelancer'
+
+======================================================================
+FAIL: test_failed_read_leaves_unsent_action_pending_for_explicit_retry (test_reminder_freshness.ReminderFreshnessTests.test_failed_read_leaves_unsent_action_pending_for_explicit_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 117, in test_failed_read_leaves_unsent_action_pending_for_explicit_retry
+    with self.assertRaises(PayPalError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PayPalError not raised
+
+======================================================================
+FAIL: test_new_day_requires_fresh_reminder_draft (test_reminder_freshness.ReminderFreshnessTests.test_new_day_requires_fresh_reminder_draft)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 88, in test_new_day_requires_fresh_reminder_draft
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_partial_payment_rejects_old_note_and_allows_new_review (test_reminder_freshness.ReminderFreshnessTests.test_partial_payment_rejects_old_note_and_allows_new_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 48, in test_partial_payment_rejects_old_note_and_allows_new_review
+    self.assertEqual(self.agent.pending[old].status, "REJECTED")
+AssertionError: 'PENDING' != 'REJECTED'
+- PENDING
++ REJECTED
+
+
+======================================================================
+FAIL: test_provider_recipient_change_invalidates_existing_approval (test_reminder_freshness.ReminderFreshnessTests.test_provider_recipient_change_invalidates_existing_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 135, in test_provider_recipient_change_invalidates_existing_approval
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_status_sync_invalidates_without_webhook (test_reminder_freshness.ReminderFreshnessTests.test_status_sync_invalidates_without_webhook)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 64, in test_status_sync_invalidates_without_webhook
+    self.assertEqual(self.agent.pending[rid].status, "REJECTED")
+AssertionError: 'PENDING' != 'REJECTED'
+- PENDING
++ REJECTED
+
+
+======================================================================
+FAIL: test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder (test_reminder_freshness.ReminderFreshnessTests.test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/e82707f2bc62/ledgerly/tests/test_reminder_freshness.py", line 150, in test_unchanged_browser_bridge_cancels_stale_partial_payment_reminder
+    self.assertEqual(after["state"]["pending"], [])
+AssertionError: Lists differ: [{'id': 'apv_d5c768cc8d', 'kind': 'send_re[542 chars]00'}] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+{'id': 'apv_d5c768cc8d', 'kind': 'send_reminder', 'invoice_id': 'INV2-MOCK-0001-F27F', 'summary': 'Send firm reminder for LDG-0001 (10d overdue, GBP 800.00 due) to oliver@thamesreads.example', 'payload': {'subject': 'Invoice LDG-0001 is 10 days overdue', 'note': 'Hi Oliver,\n\nInvoice LDG-0001 for GBP 800.00 is now 10 days past its due date (Oct 31, 2026). Could you let me know when I can expect payment? If something is holding it up, just reply and we can sort it out.\n\nBest,\nLedgerly Demo'}, 'status': 'PENDING', 'result': None, 'created_at': '2026-10-08T07:57:37.606725+00:00'}
+
+Diff is 875 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.012s
+
+FAILED (failures=8, errors=1)
