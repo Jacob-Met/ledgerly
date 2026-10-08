@@ -1,0 +1,479 @@
+{
+  "schema": "ledgerly.independent.completed-review-handoff.v1",
+  "claim": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6062908656",
+  "pullRequest": "https://github.com/Jacob-Met/ledgerly/pull/36",
+  "ownerIssue": "https://github.com/Jacob-Met/ledgerly/issues/31",
+  "originalOwner": "hamon-ultra-9319fb3272b2-20261008/integration",
+  "receiver": "estate-60b2c08feb01 / workspace_discovery",
+  "beneficiary": "A sandbox invoice reviewer can inspect an earlier original proposal and recorded decision/result after the queue, analysis or payment state changes, with no recovery/send/payment action attached to viewing history.",
+  "sourcePins": {
+    "baseline": {
+      "head": "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+      "tree": "0f457eb8ded2b462bd1be4d335c3a257cd19c630"
+    },
+    "initiallyReceived": {
+      "head": "17cc8a7ae3eb10083a037f7881c25af0510f6399",
+      "tree": "53d62c032e55af5fd45ca22a8d06521e463a5b2d"
+    },
+    "actualMainAtSuccessorAdmission": {
+      "head": "1ebfaf093b4d992799901efec0ab05957be35eb1",
+      "tree": "d1d6039a649aee46e459a3502cb2058013cbda4f"
+    },
+    "ownerSuccessor": {
+      "head": "6cd400e1a0c4c9fd79016d57d5cf24d0b49f4906",
+      "tree": "4249cf3905d4ac26dc1124e599be835982f11eb2",
+      "parents": [
+        "4062f89bc6219260c77558ec73f16fb079ece4c1",
+        "1ebfaf093b4d992799901efec0ab05957be35eb1"
+      ]
+    }
+  },
+  "accepted": "Bounded independent native and real-browser product receiving passes for the pinned owner successor, with exact source carry-forward for the unchanged earlier groups.",
+  "remainingGate": "The owner\u2019s maintained hosted completed-review receiver fails before its first check with Fetch.enable unavailable. The PR remains a draft at the inspected head; owner-side hosted qualification and source/merge authority remain with the original cohort.",
+  "qualification": {
+    "baseline": "The exact unchanged native receiver executes a healthy two-decision mock lifecycle then exits1 at the absent completed_reviews field.",
+    "initialNative": "Seven independent native lifecycle groups pass, including opposed queue/decision order, original nested-copy separation, retained UNKNOWN versus provider refusal, automatic invalidation and26 retained records beyond18 audit rows.",
+    "initialBrowser": "Six real Chromium/Pyodide groups pass, covering original proposal/result, read-only native keyboard disclosures, changed analysis/payment/new completion, action-specific nested/outer focus,375px, reset and one declared actual Worker error followed by explicit empty restart.",
+    "successorNative": "Only three changed-boundary groups run: fractional-unit refusal before allocation, canonical quantity serialization, and approved original proposal/result through a real payment.",
+    "successorBrowser": "Only one new real browser journey with three checkpoints (boot, strict-value refusal, approved review/payment with current save-record hooks) runs on6cd. The earlier keyboard/reset/unavailable groups are carried by exact unchanged source review, not relabeled as final-bundle execution.",
+    "nativeBuilds": "Both exact pinned app sources pass stage-python, strict tsc --noEmit and production Vite build.41 installed packages match the unchanged lockfile. No broad owner test suite is rerun or claimed.",
+    "delivery": "All29 initial and16 successor loopback deliveries match their frozen builds; every staged Python file matches its exact Git source. Both browser runs have zero external attempts, page errors and console errors. Native runs have zero network attempts."
+  },
+  "evidenceDistinctions": {
+    "initialTransportLoss": "Original gates completed and their hashes/results were read back, but full private files became unavailable when the exec service lost session67365. executor-loss-witness.json preserves the observed facts. The same frozen commands were reissued solely to restore durable raw evidence; recovered receipts use their own actual identities and are not reconstructed historical files.",
+    "decimalReceiverCorrection": "The first successor native receipt retains exit1 after two passing groups because the receiver demanded fixed-scale strings2.20/29.80. Actual successful readback is2.2/29.8; corrected independent exact-decimal assertions verify the same values while retaining raw strings. Original proposal price strings remain exact12.30/7.40. No product change.",
+    "staticReceiverCorrection": "A static source Merkle helper initially omitted its final return and used the recursive endpoint\u2019s echoed tree-ish instead of canonical commit.tree.sha. Raw failure, original source/input and the corrected complete-tree verification are retained. No product change.",
+    "browserFault": "The original six-group receiver forwards the native Worker unchanged and copies actual request/reply data. It injects one declared ErrorEvent on that actual Worker only for the existing unavailable-state control. It substitutes no response, Python code, API or product state. No fault is injected in the successor journey."
+  },
+  "visualReview": {
+    "inspected": "recovered completed-review-narrow.png",
+    "documentWidth": 375,
+    "viewportWidth": 375,
+    "result": "Original proposal, original result, literal markup and the summary focus outline are visible without page-level horizontal overflow. Long queued timestamps wrap inside their field.",
+    "runtimeFontLimit": "Japanese strings remain exact in DOM/native data; this isolated browser runtime lacks CJK glyph coverage, visible as fallback boxes in the screenshot. No character substitution or product font change is claimed."
+  },
+  "ownership": "No author checkout, branch, source, index, provider configuration, remote record or hosted workflow was modified. This packet is a receiving handoff for the existing owner, not a source takeover or merge approval.",
+  "rawEvidence": {
+    "logs/final-source-review-corrected.command.json": {
+      "bytes": 481,
+      "sha256": "a0147f678ba730e241772e70ec840bee644478c0381838d9cd14d502b495b85a",
+      "exitCode": 0
+    },
+    "logs/final-source-review.command.json": {
+      "bytes": 459,
+      "sha256": "9b5898cc8395a67abed6082444ed0fe7a8afd598130e291a4a7f2bef8b3fcd38",
+      "exitCode": 1
+    },
+    "logs/preserve-source-review-failure.command.json": {
+      "bytes": 533,
+      "sha256": "c90983afce9bba3d1d7ad3b83f55790a05a146cc90b044891752bd7429cc2968",
+      "exitCode": 0
+    },
+    "logs/recovered-browser-candidate.command.json": {
+      "bytes": 512,
+      "sha256": "3efee64f438c234e708e553a7dc7653d5a9a7fc4ec91631f24fb7fd4495441ce",
+      "exitCode": 0
+    },
+    "logs/recovered-candidate-build.command.json": {
+      "bytes": 456,
+      "sha256": "98af02cb700ba32e57c187baf5aa406fb2fa6cf2177e3ee38bd5a7a5803892d6",
+      "exitCode": 0
+    },
+    "logs/recovered-native-baseline.command.json": {
+      "bytes": 510,
+      "sha256": "686af584d4371acd77cd32a03763a7364d99f0c064e42ef33c16c474de1db9cd",
+      "exitCode": 1
+    },
+    "logs/recovered-native-candidate.command.json": {
+      "bytes": 513,
+      "sha256": "99cdf38678e2fdfe1fd9355786e1e98d21e06f66a30ae5c30784b8eb3ddf54e5",
+      "exitCode": 0
+    },
+    "logs/recovered-offline-install.command.json": {
+      "bytes": 601,
+      "sha256": "e5dd374b61d703749b792fecb79f962f0a87151ed32314d7dcf7692b64f500ea",
+      "exitCode": 0
+    },
+    "logs/successor-browser-decimal.command.json": {
+      "bytes": 546,
+      "sha256": "02c7584d9f3f202436770fef4150a46391f0e26d66ce2b51545a0b3da928650b",
+      "exitCode": 0
+    },
+    "logs/successor-build.command.json": {
+      "bytes": 462,
+      "sha256": "c1f881324c267f919bcf23741bdc8d1793566ea57c3c4bc03707affddc0c1ef8",
+      "exitCode": 0
+    },
+    "logs/successor-materialization.command.json": {
+      "bytes": 468,
+      "sha256": "a72417bc66115875e9b54c7b44f936e23c4108181645a0dad6a3dead8d972ea7",
+      "exitCode": 0
+    },
+    "logs/successor-native-boundary.command.json": {
+      "bytes": 539,
+      "sha256": "0fcb88b4235d34ed6239abb7ed1dd14b0dcdfbde45056f689d73c26106a8fca8",
+      "exitCode": 1
+    },
+    "logs/successor-native-decimal.command.json": {
+      "bytes": 554,
+      "sha256": "05cac27c832943faaf984c03f7367594a5ed0f3078d4fdc85bed79d78d087cd3",
+      "exitCode": 0
+    },
+    "receiving/browser-candidate/receipt.json": {
+      "bytes": 147183,
+      "sha256": "5f814a1c267580a1259dc51efb6083b0107f449edabbbbeb2b7772f1a209c9a1",
+      "passed": true,
+      "distUnchanged": true
+    },
+    "receiving/browser-successor/receipt.json": {
+      "bytes": 58691,
+      "sha256": "f092702becb523c3f65b90268205c7244ea671d0e9e66c55774019b33047b444",
+      "passed": true,
+      "distUnchanged": true
+    },
+    "receiving/final-source-review.json": {
+      "bytes": 16330,
+      "sha256": "5155c1b563d73ce064dad67fd34d83320206f67b39b72faaa8798d62b1ee7588"
+    },
+    "receiving/native-baseline/receipt.json": {
+      "bytes": 4946,
+      "sha256": "52d4f9a945f72bda73645473381e9bfba175daa931ebac1cda8db5247b1b424f",
+      "passed": false,
+      "sourceUnchanged": true
+    },
+    "receiving/native-candidate/receipt.json": {
+      "bytes": 51974,
+      "sha256": "c89de44c9db43376efeab1fc31e225895e7c15090d30eddd510ebde1684ca1ff",
+      "passed": true,
+      "sourceUnchanged": true
+    },
+    "receiving/native-successor-decimal/receipt.json": {
+      "bytes": 10111,
+      "sha256": "74739c65cec1715015d18b02889414f435086c55ed2fd50cfa760ae710e890aa",
+      "passed": true,
+      "sourceUnchanged": true
+    },
+    "receiving/native-successor/receipt.json": {
+      "bytes": 7505,
+      "sha256": "ad6e6d7bd73fc0d97613144b199198f6b1a1d738ddf9c7c56164053c83214650",
+      "passed": false,
+      "sourceUnchanged": true
+    }
+  },
+  "sourceReview": {
+    "path": "receiving/final-source-review.json",
+    "sha256": "5155c1b563d73ce064dad67fd34d83320206f67b39b72faaa8798d62b1ee7588"
+  },
+  "inspectedScreenshot": {
+    "path": "receiving/browser-candidate/completed-review-narrow.png",
+    "bytes": 56606,
+    "sha256": "4ba23da114cac26bc0e0aedad6d54224221255fe8a73195f7f11de9529a7c004"
+  },
+  "compiledCustody": {
+    "archivePaths": "compiled/17cc and compiled/6cd",
+    "mapping": [
+      {
+        "checkpoint": "final-source-review-corrected.tar.gz",
+        "originalPath": "logs/final-source-review-corrected.command.json",
+        "archivePath": "logs/final-source-review-corrected.command.json"
+      },
+      {
+        "checkpoint": "final-source-review-corrected.tar.gz",
+        "originalPath": "logs/final-source-review-corrected.stderr",
+        "archivePath": "logs/final-source-review-corrected.stderr"
+      },
+      {
+        "checkpoint": "final-source-review-corrected.tar.gz",
+        "originalPath": "logs/final-source-review-corrected.stdout",
+        "archivePath": "logs/final-source-review-corrected.stdout"
+      },
+      {
+        "checkpoint": "final-source-review-corrected.tar.gz",
+        "originalPath": "receiving/final-source-review.json",
+        "archivePath": "receiving/final-source-review.json"
+      },
+      {
+        "checkpoint": "final-source-review-corrected.tar.gz",
+        "originalPath": "receiving/static-receiver-correction.json",
+        "archivePath": "receiving/static-receiver-correction.json"
+      },
+      {
+        "checkpoint": "preserve-source-review-failure.tar.gz",
+        "originalPath": "logs/final-source-review.command.json",
+        "archivePath": "logs/final-source-review.command.json"
+      },
+      {
+        "checkpoint": "preserve-source-review-failure.tar.gz",
+        "originalPath": "logs/final-source-review.stderr",
+        "archivePath": "logs/final-source-review.stderr"
+      },
+      {
+        "checkpoint": "preserve-source-review-failure.tar.gz",
+        "originalPath": "logs/final-source-review.stdout",
+        "archivePath": "logs/final-source-review.stdout"
+      },
+      {
+        "checkpoint": "preserve-source-review-failure.tar.gz",
+        "originalPath": "logs/preserve-source-review-failure.command.json",
+        "archivePath": "logs/preserve-source-review-failure.command.json"
+      },
+      {
+        "checkpoint": "preserve-source-review-failure.tar.gz",
+        "originalPath": "logs/preserve-source-review-failure.stderr",
+        "archivePath": "logs/preserve-source-review-failure.stderr"
+      },
+      {
+        "checkpoint": "preserve-source-review-failure.tar.gz",
+        "originalPath": "logs/preserve-source-review-failure.stdout",
+        "archivePath": "logs/preserve-source-review-failure.stdout"
+      },
+      {
+        "checkpoint": "recovered-browser-candidate.tar.gz",
+        "originalPath": "logs/recovered-browser-candidate.command.json",
+        "archivePath": "logs/recovered-browser-candidate.command.json"
+      },
+      {
+        "checkpoint": "recovered-browser-candidate.tar.gz",
+        "originalPath": "logs/recovered-browser-candidate.stderr",
+        "archivePath": "logs/recovered-browser-candidate.stderr"
+      },
+      {
+        "checkpoint": "recovered-browser-candidate.tar.gz",
+        "originalPath": "logs/recovered-browser-candidate.stdout",
+        "archivePath": "logs/recovered-browser-candidate.stdout"
+      },
+      {
+        "checkpoint": "recovered-browser-candidate.tar.gz",
+        "originalPath": "receiving/browser-candidate/completed-review-narrow.png",
+        "archivePath": "receiving/browser-candidate/completed-review-narrow.png"
+      },
+      {
+        "checkpoint": "recovered-browser-candidate.tar.gz",
+        "originalPath": "receiving/browser-candidate/receipt.json",
+        "archivePath": "receiving/browser-candidate/receipt.json"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "candidate/web-demo/dist/assets/__vite-browser-external-BJKaNrHK.js",
+        "archivePath": "compiled/17cc/assets/__vite-browser-external-BJKaNrHK.js"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "candidate/web-demo/dist/assets/engine.worker-DDtPc8DO.js",
+        "archivePath": "compiled/17cc/assets/engine.worker-DDtPc8DO.js"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "candidate/web-demo/dist/assets/index-B6YHomle.css",
+        "archivePath": "compiled/17cc/assets/index-B6YHomle.css"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "candidate/web-demo/dist/assets/index-Blmem-Si.js",
+        "archivePath": "compiled/17cc/assets/index-Blmem-Si.js"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "candidate/web-demo/dist/index.html",
+        "archivePath": "compiled/17cc/index.html"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "logs/recovered-candidate-build.command.json",
+        "archivePath": "logs/recovered-candidate-build.command.json"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "logs/recovered-candidate-build.stderr",
+        "archivePath": "logs/recovered-candidate-build.stderr"
+      },
+      {
+        "checkpoint": "recovered-candidate-build.tar.gz",
+        "originalPath": "logs/recovered-candidate-build.stdout",
+        "archivePath": "logs/recovered-candidate-build.stdout"
+      },
+      {
+        "checkpoint": "recovered-native-baseline.tar.gz",
+        "originalPath": "logs/recovered-native-baseline.command.json",
+        "archivePath": "logs/recovered-native-baseline.command.json"
+      },
+      {
+        "checkpoint": "recovered-native-baseline.tar.gz",
+        "originalPath": "logs/recovered-native-baseline.stderr",
+        "archivePath": "logs/recovered-native-baseline.stderr"
+      },
+      {
+        "checkpoint": "recovered-native-baseline.tar.gz",
+        "originalPath": "logs/recovered-native-baseline.stdout",
+        "archivePath": "logs/recovered-native-baseline.stdout"
+      },
+      {
+        "checkpoint": "recovered-native-baseline.tar.gz",
+        "originalPath": "receiving/native-baseline/receipt.json",
+        "archivePath": "receiving/native-baseline/receipt.json"
+      },
+      {
+        "checkpoint": "recovered-native-candidate.tar.gz",
+        "originalPath": "logs/recovered-native-candidate.command.json",
+        "archivePath": "logs/recovered-native-candidate.command.json"
+      },
+      {
+        "checkpoint": "recovered-native-candidate.tar.gz",
+        "originalPath": "logs/recovered-native-candidate.stderr",
+        "archivePath": "logs/recovered-native-candidate.stderr"
+      },
+      {
+        "checkpoint": "recovered-native-candidate.tar.gz",
+        "originalPath": "logs/recovered-native-candidate.stdout",
+        "archivePath": "logs/recovered-native-candidate.stdout"
+      },
+      {
+        "checkpoint": "recovered-native-candidate.tar.gz",
+        "originalPath": "receiving/native-candidate/receipt.json",
+        "archivePath": "receiving/native-candidate/receipt.json"
+      },
+      {
+        "checkpoint": "recovered-offline-install.tar.gz",
+        "originalPath": "logs/recovered-offline-install.command.json",
+        "archivePath": "logs/recovered-offline-install.command.json"
+      },
+      {
+        "checkpoint": "recovered-offline-install.tar.gz",
+        "originalPath": "logs/recovered-offline-install.stderr",
+        "archivePath": "logs/recovered-offline-install.stderr"
+      },
+      {
+        "checkpoint": "recovered-offline-install.tar.gz",
+        "originalPath": "logs/recovered-offline-install.stdout",
+        "archivePath": "logs/recovered-offline-install.stdout"
+      },
+      {
+        "checkpoint": "successor-browser-decimal.tar.gz",
+        "originalPath": "logs/successor-browser-decimal.command.json",
+        "archivePath": "logs/successor-browser-decimal.command.json"
+      },
+      {
+        "checkpoint": "successor-browser-decimal.tar.gz",
+        "originalPath": "logs/successor-browser-decimal.stderr",
+        "archivePath": "logs/successor-browser-decimal.stderr"
+      },
+      {
+        "checkpoint": "successor-browser-decimal.tar.gz",
+        "originalPath": "logs/successor-browser-decimal.stdout",
+        "archivePath": "logs/successor-browser-decimal.stdout"
+      },
+      {
+        "checkpoint": "successor-browser-decimal.tar.gz",
+        "originalPath": "receiving/browser-successor/receipt.json",
+        "archivePath": "receiving/browser-successor/receipt.json"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "logs/successor-build.command.json",
+        "archivePath": "logs/successor-build.command.json"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "logs/successor-build.stderr",
+        "archivePath": "logs/successor-build.stderr"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "logs/successor-build.stdout",
+        "archivePath": "logs/successor-build.stdout"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "receiving/successor-source/web-demo/dist/assets/__vite-browser-external-BJKaNrHK.js",
+        "archivePath": "compiled/6cd/assets/__vite-browser-external-BJKaNrHK.js"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "receiving/successor-source/web-demo/dist/assets/engine.worker-DDtPc8DO.js",
+        "archivePath": "compiled/6cd/assets/engine.worker-DDtPc8DO.js"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "receiving/successor-source/web-demo/dist/assets/index-B6YHomle.css",
+        "archivePath": "compiled/6cd/assets/index-B6YHomle.css"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "receiving/successor-source/web-demo/dist/assets/index-COoYynzG.js",
+        "archivePath": "compiled/6cd/assets/index-COoYynzG.js"
+      },
+      {
+        "checkpoint": "successor-build.tar.gz",
+        "originalPath": "receiving/successor-source/web-demo/dist/index.html",
+        "archivePath": "compiled/6cd/index.html"
+      },
+      {
+        "checkpoint": "successor-materialization.tar.gz",
+        "originalPath": "logs/successor-materialization.command.json",
+        "archivePath": "logs/successor-materialization.command.json"
+      },
+      {
+        "checkpoint": "successor-materialization.tar.gz",
+        "originalPath": "logs/successor-materialization.stderr",
+        "archivePath": "logs/successor-materialization.stderr"
+      },
+      {
+        "checkpoint": "successor-materialization.tar.gz",
+        "originalPath": "logs/successor-materialization.stdout",
+        "archivePath": "logs/successor-materialization.stdout"
+      },
+      {
+        "checkpoint": "successor-materialization.tar.gz",
+        "originalPath": "receiving/successor-source-admission.json",
+        "archivePath": "receiving/successor-source-admission.json"
+      },
+      {
+        "checkpoint": "successor-native-boundary.tar.gz",
+        "originalPath": "logs/successor-native-boundary.command.json",
+        "archivePath": "logs/successor-native-boundary.command.json"
+      },
+      {
+        "checkpoint": "successor-native-boundary.tar.gz",
+        "originalPath": "logs/successor-native-boundary.stderr",
+        "archivePath": "logs/successor-native-boundary.stderr"
+      },
+      {
+        "checkpoint": "successor-native-boundary.tar.gz",
+        "originalPath": "logs/successor-native-boundary.stdout",
+        "archivePath": "logs/successor-native-boundary.stdout"
+      },
+      {
+        "checkpoint": "successor-native-boundary.tar.gz",
+        "originalPath": "receiving/native-successor/receipt.json",
+        "archivePath": "receiving/native-successor/receipt.json"
+      },
+      {
+        "checkpoint": "successor-native-decimal.tar.gz",
+        "originalPath": "logs/successor-native-decimal.command.json",
+        "archivePath": "logs/successor-native-decimal.command.json"
+      },
+      {
+        "checkpoint": "successor-native-decimal.tar.gz",
+        "originalPath": "logs/successor-native-decimal.stderr",
+        "archivePath": "logs/successor-native-decimal.stderr"
+      },
+      {
+        "checkpoint": "successor-native-decimal.tar.gz",
+        "originalPath": "logs/successor-native-decimal.stdout",
+        "archivePath": "logs/successor-native-decimal.stdout"
+      },
+      {
+        "checkpoint": "successor-native-decimal.tar.gz",
+        "originalPath": "receiving/native-successor-decimal/receipt.json",
+        "archivePath": "receiving/native-successor-decimal/receipt.json"
+      },
+      {
+        "checkpoint": "successor-native-decimal.tar.gz",
+        "originalPath": "receiving/successor-receiver-correction.json",
+        "archivePath": "receiving/successor-receiver-correction.json"
+      }
+    ],
+    "note": "Compiled application assets are relocated only for evidence so source restore can create fresh disposable source trees. Raw command/receipt paths remain unchanged."
+  },
+  "decimalClarification": "The actual successful native and browser readbacks are total32, paid_amount2.2 and balance29.8. The earlier scale-preservation explanation was an unconfirmed hypothesis; only exact numeric equality and preserved original strings are asserted."
+}
