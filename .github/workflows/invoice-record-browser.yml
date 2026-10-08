@@ -1,0 +1,64 @@
+name: invoice-record-browser
+on:
+  pull_request:
+    paths:
+      - 'web-demo/**'
+      - 'ledgerly/**'
+      - 'fixtures/**'
+      - '.github/workflows/invoice-record-browser.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'web-demo/**'
+      - 'ledgerly/**'
+      - 'fixtures/**'
+      - '.github/workflows/invoice-record-browser.yml'
+permissions:
+  contents: read
+concurrency:
+  group: invoice-record-browser-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  receive-record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # Resolved maintained v4.
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # Resolved maintained v4.
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web-demo/package-lock.json
+      - name: Install the existing locked project dependencies
+        run: npm ci
+        working-directory: web-demo
+      - name: Build the actual staged Python browser application
+        run: npm run build
+        working-directory: web-demo
+      - name: Require the installed system browser
+        id: browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          INVOICE_RECORD_BROWSER=
+          for INVOICE_RECORD_BROWSER_NAME in google-chrome google-chrome-stable chromium chromium-browser; do
+            if command -v "${INVOICE_RECORD_BROWSER_NAME}" >/dev/null 2>&1; then
+              INVOICE_RECORD_BROWSER="$(command -v "${INVOICE_RECORD_BROWSER_NAME}")"
+              break
+            fi
+          done
+          [[ -n "${INVOICE_RECORD_BROWSER}" ]] || { echo "An installed Chrome/Chromium is required."; exit 1; }
+          node --version
+          "${INVOICE_RECORD_BROWSER}" --version
+          printf 'executable=%s\n' "${INVOICE_RECORD_BROWSER}" >> "${GITHUB_OUTPUT}"
+      - name: Receive real Python invoice, actual HTML download and offline printing
+        run: 'node web-demo/tools/check_invoice_record_browser.mjs --browser "${{ steps.browser.outputs.executable }}" --output "${RUNNER_TEMP}/invoice-record-receiving"'
+      - name: Preserve bounded native snapshots, downloaded files and print evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # Previously received official v4.
+        with:
+          name: invoice-record-receiving-${{ github.run_id }}
+          path: ${{ runner.temp }}/invoice-record-receiving
+          if-no-files-found: warn
+          retention-days: 14
+          compression-level: 6
