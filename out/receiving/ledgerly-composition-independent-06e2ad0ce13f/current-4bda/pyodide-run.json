@@ -1,0 +1,16 @@
+{
+  "started_utc": "2026-10-08T11:06:04.678719+00:00",
+  "finished_utc": "2026-10-08T11:06:08.309944+00:00",
+  "command": [
+    "npm",
+    "test",
+    "--",
+    "tests/engine.test.ts",
+    "tests/review.test.ts"
+  ],
+  "cwd": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout/web-demo",
+  "exit_code": 0,
+  "inputs_unchanged": true,
+  "input_count": 44,
+  "log_sha256": "552a84a83876426f4ca4d5c4d4b3953ceed37e72009b703c5221a53bed3021af"
+}

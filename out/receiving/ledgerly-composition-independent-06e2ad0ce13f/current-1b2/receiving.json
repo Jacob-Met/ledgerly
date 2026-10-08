@@ -1,0 +1,127 @@
+{
+  "status": "accepted_for_exact_published_pair_on_pinned_latest_owner",
+  "recorded_utc": "2026-10-08T11:26:52.224064+00:00",
+  "reviewer": "HAMON independent receiving /root/github_production",
+  "baseline_commit": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+  "published_inputs": {
+    "recorded_utc": "2026-10-08T11:23:24.911542+00:00",
+    "commits": {
+      "owner-current": "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+      "extraction-published": "f67e2c4034804f657eccad38887f377f28011e98",
+      "webhook-published": "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755"
+    },
+    "trees": {
+      "owner-current": "ba5ab49270c136d86bc492411f49a5bdebdb6049",
+      "extraction-published": "ae425d9afb682b55138143780b461d1c61e9e820",
+      "webhook-published": "cd1bfada6fc4070250a73f0b6390efc755de568c"
+    },
+    "webhook_tree_exact_native_e9c4827": true,
+    "published_executable_test_web_trees_exact_previous_qualified_commits": true,
+    "prior_webhook_source_object_fetched_from_author_clone_after_initial_missing_object_check": true
+  },
+  "local_composite_commit": "4b1375645ee98af6cb0afeaacafaaf642776f98b",
+  "local_composite_tree": "7bbd3e34686e633e71908eb4f2bc4c0342451731",
+  "source": {
+    "agent.py": {
+      "git_blob": "8ba49c074571f74cbdab3e851861648322de8f17",
+      "sha256": "c187df78892ecee3993b12bb447e4df1caccbf51fad848c3251669be40b9ac65"
+    },
+    "extract.py": {
+      "git_blob": "100e581d3ef0d99555f49264859d01b535c6094f",
+      "sha256": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16"
+    },
+    "paypal.py": {
+      "git_blob": "1d805837d9ed4fe29f42ae7093764c47b0060edd",
+      "sha256": "e04fa6abc90747f9b723660aa8d76a174e4bff89e1e41067aefb4c75bc971965"
+    }
+  },
+  "scope_proof": {
+    "all_agent_ast_exact_owner_plus_three_accepted_methods_and_imports": true,
+    "tool_create_invoice_exact_published_extraction": true,
+    "init_and_handle_webhook_exact_published_webhook": true,
+    "other_agent_methods_exact_latest_owner": [
+      "run",
+      "tool_get_status",
+      "tool_list_overdue",
+      "tool_send_reminder",
+      "list_pending",
+      "approve",
+      "reject",
+      "_amount_fact",
+      "_invoice_facts",
+      "_reminder_facts",
+      "_invalidate_reminders",
+      "_refresh_invoice",
+      "_invoice_presentation",
+      "_queue",
+      "_pending_or_raise",
+      "_log",
+      "export_state"
+    ],
+    "full_ledger_entry_class_exact_latest_owner": true,
+    "invoice_presentation_receipt_handling_exact_latest_owner": true,
+    "all_paypal_ast_exact_owner_plus_accepted_build_invoice_and_import": true,
+    "payment_term_and_mock_send_invoice_exact_latest_owner": true,
+    "extractor_full_file_exact_published_extraction": true,
+    "new_owner_receipt_term_tests_exact_latest_owner": true,
+    "composite_agent_method_sha256": {
+      "__init__": "d1789677cc71e9dee258142fe61d9158298368580ea1bd08ea4a21c40993b2cb",
+      "run": "89f1e5cb7faf88d0a4b335a9c84a29dfec4b600419d7540433844c5aba86376e",
+      "tool_create_invoice": "a24d1b165dd9dd273a239bb618ba5a24d78e7090e37aef350aa60728b96f3ffb",
+      "tool_get_status": "44b76bc8df4293b9bf8885d5c8055e7ac65b5e344e6fc5cee1b0df6c874d958d",
+      "tool_list_overdue": "cfffebeee3d5c6e79a28761bbdddaa9721e7e9c926ea828a2e1323cf3803d757",
+      "tool_send_reminder": "5a9483c3371e196972dfeeeb0171856162cf5c04c533aacc4ad0d948148f63d2",
+      "list_pending": "12e4b1cedc10ef692af2a09ac39dce5f96fca422331ca207d5615189473f6531",
+      "approve": "49283029ce314bc62d04bf084c42704c4d6940d27ee71dcc4485a6ccfc315db4",
+      "reject": "bd5e14d429c582758bbc859a7b3604a037a3a09ca82ba9754ea610f8b21084a6",
+      "handle_webhook": "1aed98a1ee43bfcd7dc64d5113dc050c89a28ea7e9852d5651b395ff443c0142",
+      "_amount_fact": "8861a5e040d69b4b1d0498043d684b5fd1e327807a61b6f2e8fc171ddd3e4145",
+      "_invoice_facts": "320684a5ba9d8087012c48266f59752056ca68957595676877a88b301ba13539",
+      "_reminder_facts": "f4f28424778a136184ec9f67029e0945e003e58ff887671d3e9f5782bba54c0a",
+      "_invalidate_reminders": "541fa3fad3948582a08d21deef8a202d74f609e948fd72e6e81bce19fb609bf5",
+      "_refresh_invoice": "26e9cfd93e2a51dbcb0587f1247057f1280c71626e1ca19dae3ad36df225c990",
+      "_invoice_presentation": "9207702596161b3d0c980ec48ece1b8382c1f93a40f97c77f24dbfd7ed939a6e",
+      "_queue": "31e1eb1f91812a0f01c2a244fb86ceb241e2fd33929ae9f643f89c7542d70bc2",
+      "_pending_or_raise": "df329c4edf1710b4a756d8b1000fbe993474b8b535dd53708c7a7226ba4ab391",
+      "_log": "bbdcb618a18eb9f2c3fd4738a2abfd8072632abe52e8b8f6733feaadf07529ca",
+      "export_state": "99df8bf7d3366cc645f048a510057939e6d24d6d7bb2c955a0c65fbd400d2a61"
+    }
+  },
+  "results": {
+    "native": {
+      "passed": 246,
+      "failed": 0,
+      "subtests_passed": 60,
+      "exit_code": 0
+    },
+    "pyodide_engine_review": {
+      "passed": 10,
+      "failed": 0,
+      "test_files": 2,
+      "exit_code": 0
+    },
+    "frozen_input_files": 45,
+    "byte_equal_staged_files": 22,
+    "unchanged_runtime_inputs": 5,
+    "tracked_git_clean": true
+  },
+  "merges": [
+    {
+      "input_commit": "f67e2c4034804f657eccad38887f377f28011e98",
+      "result_commit": "e716cdcd452c381c18c052f61862e8d4b0ea1297",
+      "clean_merge": true,
+      "manual_resolution": false
+    },
+    {
+      "input_commit": "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755",
+      "result_commit": "4b1375645ee98af6cb0afeaacafaaf642776f98b",
+      "clean_merge": true,
+      "manual_resolution": false
+    }
+  ],
+  "runtime_scope": "Offline native suite and existing actual Pyodide core/SandboxMock engine and review tests. Full original npm staging executed with reused pinned runtime dependencies and owned caches. No HTTP/provider client or live payment action enabled.",
+  "integration_boundary": "Receiver composed actual published PR19 and PR21 on pinned main1b2 locally, without author-tree edits, source corrections, rebase, publication, or deployment. This qualification is bounded to these exact source inputs and does not imply acceptance of future executable changes.",
+  "historical_receipts": "Prior main187 and main4bda receiving packets remain untouched and bounded to their own inputs. Their negative controls were not rerun; published executable/test/web trees match their already qualified component commits.",
+  "artifact_manifest": "artifact-sha256.json",
+  "manifest_paths_relative_to": "repository or packet root"
+}

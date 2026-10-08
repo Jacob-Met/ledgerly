@@ -1,0 +1,667 @@
+FFFFFFFFFF.FFF.FFFFFFFFFF.                                               [100%]
+=================================== FAILURES ===================================
+_ test_delayed_partial_event_observes_current_full_payment_without_restoring_old_balance _
+
+    def test_delayed_partial_event_observes_current_full_payment_without_restoring_old_balance():
+        agent, mock, _, (iid,) = case()
+        aid = queue(agent, iid)
+        reviewed = copy.deepcopy(agent.pending[aid].payload)
+        old = mock.simulate_payer_payment(iid, Decimal("100"))
+        mock.simulate_payer_payment(iid, Decimal("700"))
+        mock.requests.clear()
+    
+        result = deliver(agent, mock, old)
+    
+>       assert result["ok"] and result["to"] == "PAID"
+E       AssertionError: assert (True and 'PARTIALLY_PAID' == 'PAID'
+E         
+E         - PAID
+E         + PARTIALLY_PAID)
+
+tests/test_webhook_current_read_receiving.py:103: AssertionError
+_ test_delayed_event_preserves_current_review_and_only_human_approval_sends_exact_text_once _
+
+    def test_delayed_event_preserves_current_review_and_only_human_approval_sends_exact_text_once():
+        agent, mock, _, (iid,) = case()
+        old = mock.simulate_payer_payment(iid, Decimal("100"))
+        mock.simulate_payer_payment(iid, Decimal("200"))
+        aid = queue(agent, iid)  # Owner refresh already reviewed the current GBP 500.
+        reviewed = copy.deepcopy(agent.pending[aid].payload)
+        assert "GBP 500" in reviewed["note"]
+        mock.requests.clear()
+    
+        deliver(agent, mock, old)
+    
+>       assert agent.ledger[iid].paid_amount == Decimal("300")
+E       AssertionError: assert Decimal('100.00') == Decimal('300')
+E        +  where Decimal('100.00') = LedgerEntry(invoice_id='INV2-MOCK-0001-4171', invoice_number='LDG-0001', client_name='Maya Reader', client_email='maya...t=0, last_reminder_on=None, prepaid=Decimal('0'), provider_due_on=datetime.date(2026, 10, 31), provider_due_known=True).paid_amount
+E        +  and   Decimal('300') = Decimal('300')
+
+tests/test_webhook_current_read_receiving.py:124: AssertionError
+_ test_current_provider_edits_and_due_date_are_applied_only_to_notified_invoice[term0] _
+
+term = {'term_type': 'DUE_ON_DATE_SPECIFIED', 'due_date': '2026-12-05'}
+
+    @pytest.mark.parametrize("term", [
+        {"term_type": "DUE_ON_DATE_SPECIFIED", "due_date": "2026-12-05"},
+        {"term_type": "NO_DUE_DATE"},
+    ])
+    def test_current_provider_edits_and_due_date_are_applied_only_to_notified_invoice(term):
+        agent, mock, _, (iid, other) = case(2)
+        aid, other_aid = queue(agent, iid), queue(agent, other)
+        reviewed = copy.deepcopy(agent.pending[aid].payload)
+        other_entry = copy.deepcopy(vars(agent.ledger[other]))
+        other_review = agent.pending[other_aid].to_dict()
+        old = updated(mock, iid)
+        inv = mock.invoices[iid]
+        inv["detail"]["invoice_number"] = "CURRENT-0042"
+        inv["detail"]["currency_code"] = "EUR"
+        inv["detail"]["payment_term"] = copy.deepcopy(term)
+        inv["amount"] = {"currency_code": "EUR", "value": "500.00"}
+        inv["due_amount"] = {"currency_code": "EUR", "value": "500.00"}
+        inv["payments"]["paid_amount"] = {"currency_code": "EUR", "value": "0.00"}
+        for item in inv["items"]:
+            item["unit_amount"] = {"currency_code": "EUR", "value": "25.00"}
+        inv["primary_recipients"][0]["billing_info"].update({
+            "email_address": "current-recipient@example.invalid",
+            "name": {"given_name": "Current", "surname": "Recipient"},
+        })
+        mock.requests.clear()
+    
+        deliver(agent, mock, old)
+    
+        entry = agent.ledger[iid]
+>       assert (entry.currency, entry.total, entry.invoice_number) == ("EUR", Decimal("500"), "CURRENT-0042")
+E       AssertionError: assert ('GBP', Decim...), 'LDG-0001') == ('EUR', Decim...CURRENT-0042')
+E         
+E         At index 0 diff: 'GBP' != 'EUR'
+E         Use -v to get more diff
+
+tests/test_webhook_current_read_receiving.py:169: AssertionError
+_ test_current_provider_edits_and_due_date_are_applied_only_to_notified_invoice[term1] _
+
+term = {'term_type': 'NO_DUE_DATE'}
+
+    @pytest.mark.parametrize("term", [
+        {"term_type": "DUE_ON_DATE_SPECIFIED", "due_date": "2026-12-05"},
+        {"term_type": "NO_DUE_DATE"},
+    ])
+    def test_current_provider_edits_and_due_date_are_applied_only_to_notified_invoice(term):
+        agent, mock, _, (iid, other) = case(2)
+        aid, other_aid = queue(agent, iid), queue(agent, other)
+        reviewed = copy.deepcopy(agent.pending[aid].payload)
+        other_entry = copy.deepcopy(vars(agent.ledger[other]))
+        other_review = agent.pending[other_aid].to_dict()
+        old = updated(mock, iid)
+        inv = mock.invoices[iid]
+        inv["detail"]["invoice_number"] = "CURRENT-0042"
+        inv["detail"]["currency_code"] = "EUR"
+        inv["detail"]["payment_term"] = copy.deepcopy(term)
+        inv["amount"] = {"currency_code": "EUR", "value": "500.00"}
+        inv["due_amount"] = {"currency_code": "EUR", "value": "500.00"}
+        inv["payments"]["paid_amount"] = {"currency_code": "EUR", "value": "0.00"}
+        for item in inv["items"]:
+            item["unit_amount"] = {"currency_code": "EUR", "value": "25.00"}
+        inv["primary_recipients"][0]["billing_info"].update({
+            "email_address": "current-recipient@example.invalid",
+            "name": {"given_name": "Current", "surname": "Recipient"},
+        })
+        mock.requests.clear()
+    
+        deliver(agent, mock, old)
+    
+        entry = agent.ledger[iid]
+>       assert (entry.currency, entry.total, entry.invoice_number) == ("EUR", Decimal("500"), "CURRENT-0042")
+E       AssertionError: assert ('GBP', Decim...), 'LDG-0001') == ('EUR', Decim...CURRENT-0042')
+E         
+E         At index 0 diff: 'GBP' != 'EUR'
+E         Use -v to get more diff
+
+tests/test_webhook_current_read_receiving.py:169: AssertionError
+_ test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[outage] _
+
+fault = 'outage'
+
+    @pytest.mark.parametrize("fault", ["outage", "wrong-invoice", "missing-due", "nonfinite-total", "incoherent-due"])
+    def test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification(fault):
+        agent, mock, _, (iid,) = case()
+        aid = queue(agent, iid)
+        event = updated(mock, iid)
+        before = state(agent)
+        original_get = mock.get_invoice
+    
+        def bad_read(invoice_id):
+            response = original_get(invoice_id)
+            if fault == "outage":
+                raise PayPalError(503, "UNAVAILABLE", "Independent receiving read outage")
+            if fault == "wrong-invoice":
+                response.body["id"] = "INV2-OTHER"
+            elif fault == "missing-due":
+                response.body.pop("due_amount")
+            elif fault == "nonfinite-total":
+                response.body["amount"]["value"] = "Infinity"
+            elif fault == "incoherent-due":
+                response.body["due_amount"]["value"] = "799.00"
+            return response
+    
+        mock.requests.clear()
+        with patch.object(mock, "get_invoice", side_effect=bad_read):
+>           with pytest.raises((PayPalError, ValueError)):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE any of (PayPalError, ValueError)
+
+tests/test_webhook_current_read_receiving.py:206: Failed
+_ test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[wrong-invoice] _
+
+fault = 'wrong-invoice'
+
+    @pytest.mark.parametrize("fault", ["outage", "wrong-invoice", "missing-due", "nonfinite-total", "incoherent-due"])
+    def test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification(fault):
+        agent, mock, _, (iid,) = case()
+        aid = queue(agent, iid)
+        event = updated(mock, iid)
+        before = state(agent)
+        original_get = mock.get_invoice
+    
+        def bad_read(invoice_id):
+            response = original_get(invoice_id)
+            if fault == "outage":
+                raise PayPalError(503, "UNAVAILABLE", "Independent receiving read outage")
+            if fault == "wrong-invoice":
+                response.body["id"] = "INV2-OTHER"
+            elif fault == "missing-due":
+                response.body.pop("due_amount")
+            elif fault == "nonfinite-total":
+                response.body["amount"]["value"] = "Infinity"
+            elif fault == "incoherent-due":
+                response.body["due_amount"]["value"] = "799.00"
+            return response
+    
+        mock.requests.clear()
+        with patch.object(mock, "get_invoice", side_effect=bad_read):
+>           with pytest.raises((PayPalError, ValueError)):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE any of (PayPalError, ValueError)
+
+tests/test_webhook_current_read_receiving.py:206: Failed
+_ test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[missing-due] _
+
+fault = 'missing-due'
+
+    @pytest.mark.parametrize("fault", ["outage", "wrong-invoice", "missing-due", "nonfinite-total", "incoherent-due"])
+    def test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification(fault):
+        agent, mock, _, (iid,) = case()
+        aid = queue(agent, iid)
+        event = updated(mock, iid)
+        before = state(agent)
+        original_get = mock.get_invoice
+    
+        def bad_read(invoice_id):
+            response = original_get(invoice_id)
+            if fault == "outage":
+                raise PayPalError(503, "UNAVAILABLE", "Independent receiving read outage")
+            if fault == "wrong-invoice":
+                response.body["id"] = "INV2-OTHER"
+            elif fault == "missing-due":
+                response.body.pop("due_amount")
+            elif fault == "nonfinite-total":
+                response.body["amount"]["value"] = "Infinity"
+            elif fault == "incoherent-due":
+                response.body["due_amount"]["value"] = "799.00"
+            return response
+    
+        mock.requests.clear()
+        with patch.object(mock, "get_invoice", side_effect=bad_read):
+>           with pytest.raises((PayPalError, ValueError)):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE any of (PayPalError, ValueError)
+
+tests/test_webhook_current_read_receiving.py:206: Failed
+_ test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[nonfinite-total] _
+
+fault = 'nonfinite-total'
+
+    @pytest.mark.parametrize("fault", ["outage", "wrong-invoice", "missing-due", "nonfinite-total", "incoherent-due"])
+    def test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification(fault):
+        agent, mock, _, (iid,) = case()
+        aid = queue(agent, iid)
+        event = updated(mock, iid)
+        before = state(agent)
+        original_get = mock.get_invoice
+    
+        def bad_read(invoice_id):
+            response = original_get(invoice_id)
+            if fault == "outage":
+                raise PayPalError(503, "UNAVAILABLE", "Independent receiving read outage")
+            if fault == "wrong-invoice":
+                response.body["id"] = "INV2-OTHER"
+            elif fault == "missing-due":
+                response.body.pop("due_amount")
+            elif fault == "nonfinite-total":
+                response.body["amount"]["value"] = "Infinity"
+            elif fault == "incoherent-due":
+                response.body["due_amount"]["value"] = "799.00"
+            return response
+    
+        mock.requests.clear()
+        with patch.object(mock, "get_invoice", side_effect=bad_read):
+>           with pytest.raises((PayPalError, ValueError)):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE any of (PayPalError, ValueError)
+
+tests/test_webhook_current_read_receiving.py:206: Failed
+_ test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[incoherent-due] _
+
+fault = 'incoherent-due'
+
+    @pytest.mark.parametrize("fault", ["outage", "wrong-invoice", "missing-due", "nonfinite-total", "incoherent-due"])
+    def test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification(fault):
+        agent, mock, _, (iid,) = case()
+        aid = queue(agent, iid)
+        event = updated(mock, iid)
+        before = state(agent)
+        original_get = mock.get_invoice
+    
+        def bad_read(invoice_id):
+            response = original_get(invoice_id)
+            if fault == "outage":
+                raise PayPalError(503, "UNAVAILABLE", "Independent receiving read outage")
+            if fault == "wrong-invoice":
+                response.body["id"] = "INV2-OTHER"
+            elif fault == "missing-due":
+                response.body.pop("due_amount")
+            elif fault == "nonfinite-total":
+                response.body["amount"]["value"] = "Infinity"
+            elif fault == "incoherent-due":
+                response.body["due_amount"]["value"] = "799.00"
+            return response
+    
+        mock.requests.clear()
+        with patch.object(mock, "get_invoice", side_effect=bad_read):
+>           with pytest.raises((PayPalError, ValueError)):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE any of (PayPalError, ValueError)
+
+tests/test_webhook_current_read_receiving.py:206: Failed
+_ test_unknown_local_invoice_remains_retryable_after_local_registration_without_early_provider_read _
+
+    def test_unknown_local_invoice_remains_retryable_after_local_registration_without_early_provider_read():
+        agent, mock, _, (iid,) = case()
+        event = updated(mock, iid)
+        entry = agent.ledger.pop(iid)
+        mock.requests.clear()
+        try:
+            result = deliver(agent, mock, event)
+            assert result["ok"] is False and result["message"] == "unknown invoice"
+            assert mock.requests == []
+>           assert event["id"] not in agent._seen_events
+E           AssertionError: assert 'WH-937560F000CC45D2B-A7F2444ADAC54B92B' not in {'WH-937560F000CC45D2B-A7F2444ADAC54B92B'}
+E            +  where {'WH-937560F000CC45D2B-A7F2444ADAC54B92B'} = <ledgerly.agent.Agent object at 0x7efc8d45b4d0>._seen_events
+
+tests/test_webhook_current_read_receiving.py:232: AssertionError
+_ test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice[invoice-rebind] _
+
+change = 'invoice-rebind'
+
+    @pytest.mark.parametrize("change", ["invoice-rebind", "paid-snapshot", "envelope"])
+    def test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice(change):
+        agent, mock, _, (iid, other) = case(2)
+        queue(agent, iid)
+        queue(agent, other)
+        event = updated(mock, iid)
+        deliver(agent, mock, event)
+        before = state(agent)
+        conflict = copy.deepcopy(event)
+        if change == "invoice-rebind":
+            event_invoice(conflict)["id"] = other
+        elif change == "paid-snapshot":
+            event_invoice(conflict)["status"] = "PARTIALLY_PAID"
+            event_invoice(conflict)["payments"]["paid_amount"]["value"] = "100.00"
+            event_invoice(conflict)["due_amount"]["value"] = "700.00"
+        else:
+            conflict["create_time"] = "2026-11-09T00:00:00Z"
+        mock.requests.clear()
+    
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:276: Failed
+_ test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice[paid-snapshot] _
+
+change = 'paid-snapshot'
+
+    @pytest.mark.parametrize("change", ["invoice-rebind", "paid-snapshot", "envelope"])
+    def test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice(change):
+        agent, mock, _, (iid, other) = case(2)
+        queue(agent, iid)
+        queue(agent, other)
+        event = updated(mock, iid)
+        deliver(agent, mock, event)
+        before = state(agent)
+        conflict = copy.deepcopy(event)
+        if change == "invoice-rebind":
+            event_invoice(conflict)["id"] = other
+        elif change == "paid-snapshot":
+            event_invoice(conflict)["status"] = "PARTIALLY_PAID"
+            event_invoice(conflict)["payments"]["paid_amount"]["value"] = "100.00"
+            event_invoice(conflict)["due_amount"]["value"] = "700.00"
+        else:
+            conflict["create_time"] = "2026-11-09T00:00:00Z"
+        mock.requests.clear()
+    
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:276: Failed
+_ test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice[envelope] _
+
+change = 'envelope'
+
+    @pytest.mark.parametrize("change", ["invoice-rebind", "paid-snapshot", "envelope"])
+    def test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice(change):
+        agent, mock, _, (iid, other) = case(2)
+        queue(agent, iid)
+        queue(agent, other)
+        event = updated(mock, iid)
+        deliver(agent, mock, event)
+        before = state(agent)
+        conflict = copy.deepcopy(event)
+        if change == "invoice-rebind":
+            event_invoice(conflict)["id"] = other
+        elif change == "paid-snapshot":
+            event_invoice(conflict)["status"] = "PARTIALLY_PAID"
+            event_invoice(conflict)["payments"]["paid_amount"]["value"] = "100.00"
+            event_invoice(conflict)["due_amount"]["value"] = "700.00"
+        else:
+            conflict["create_time"] = "2026-11-09T00:00:00Z"
+        mock.requests.clear()
+    
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:276: Failed
+__ test_noncanonical_identity_is_refused_before_read_or_state_change[event-] ___
+
+field = 'event', value = ''
+
+    @pytest.mark.parametrize("field,value", [
+        ("event", ""), ("event", "  "), ("event", True), ("event", ["WH-X"]),
+        ("invoice", True), ("invoice", ["INV-X"]), ("invoice", " INV-X "),
+    ])
+    def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        if field == "event":
+            event["id"] = value
+        else:
+            event_invoice(event)["id"] = value
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:317: Failed
+_ test_noncanonical_identity_is_refused_before_read_or_state_change[event-  ] __
+
+field = 'event', value = '  '
+
+    @pytest.mark.parametrize("field,value", [
+        ("event", ""), ("event", "  "), ("event", True), ("event", ["WH-X"]),
+        ("invoice", True), ("invoice", ["INV-X"]), ("invoice", " INV-X "),
+    ])
+    def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        if field == "event":
+            event["id"] = value
+        else:
+            event_invoice(event)["id"] = value
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:317: Failed
+_ test_noncanonical_identity_is_refused_before_read_or_state_change[event-True] _
+
+field = 'event', value = True
+
+    @pytest.mark.parametrize("field,value", [
+        ("event", ""), ("event", "  "), ("event", True), ("event", ["WH-X"]),
+        ("invoice", True), ("invoice", ["INV-X"]), ("invoice", " INV-X "),
+    ])
+    def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        if field == "event":
+            event["id"] = value
+        else:
+            event_invoice(event)["id"] = value
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:317: Failed
+_ test_noncanonical_identity_is_refused_before_read_or_state_change[event-value3] _
+
+field = 'event', value = ['WH-X']
+
+    @pytest.mark.parametrize("field,value", [
+        ("event", ""), ("event", "  "), ("event", True), ("event", ["WH-X"]),
+        ("invoice", True), ("invoice", ["INV-X"]), ("invoice", " INV-X "),
+    ])
+    def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        if field == "event":
+            event["id"] = value
+        else:
+            event_invoice(event)["id"] = value
+        before = state(agent)
+        mock.requests.clear()
+        with pytest.raises(WebhookError):
+>           deliver(agent, mock, event)
+
+tests/test_webhook_current_read_receiving.py:318: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_webhook_current_read_receiving.py:70: in deliver
+    return agent.handle_webhook(raw, mock.sign(raw))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ledgerly.agent.Agent object at 0x7efc8d462120>
+raw_body = b'{"id": ["WH-X"], "event_version": "1.0", "create_time": "2026-11-10T00:00:00Z", "resource_type": "invoices", "event_...ttps://api-m.sandbox.paypal.com/v1/notifications/webhooks-events/WH-MOCK/resend", "rel": "resend", "method": "POST"}]}'
+headers = {'PAYPAL-TRANSMISSION-ID': 'mock-tx', 'PAYPAL-TRANSMISSION-TIME': '2026-11-10T00:00:00Z', 'PAYPAL-TRANSMISSION-SIG': 'lJt4v+LoVS7rB9Whk2teX058SXm3PEkGBt89Hsc63rI=', 'PAYPAL-AUTH-ALGO': 'SHA256withRSA', ...}
+
+    def handle_webhook(self, raw_body: bytes, headers: Optional[dict] = None) -> dict:
+        if self.webhook_verifier is not None:
+            v = self.webhook_verifier(headers or {}, raw_body)
+            if v.get("verification_status") != "SUCCESS":
+                self._log("webhook_rejected", reason="bad signature")
+                raise WebhookError("signature verification failed")
+        ev = parse_webhook_event(raw_body)
+>       if ev.event_id in self._seen_events:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'list'
+
+baseline/ledgerly/agent.py:397: TypeError
+_ test_noncanonical_identity_is_refused_before_read_or_state_change[invoice-True] _
+
+field = 'invoice', value = True
+
+    @pytest.mark.parametrize("field,value", [
+        ("event", ""), ("event", "  "), ("event", True), ("event", ["WH-X"]),
+        ("invoice", True), ("invoice", ["INV-X"]), ("invoice", " INV-X "),
+    ])
+    def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        if field == "event":
+            event["id"] = value
+        else:
+            event_invoice(event)["id"] = value
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:317: Failed
+_ test_noncanonical_identity_is_refused_before_read_or_state_change[invoice-value5] _
+
+field = 'invoice', value = ['INV-X']
+
+    @pytest.mark.parametrize("field,value", [
+        ("event", ""), ("event", "  "), ("event", True), ("event", ["WH-X"]),
+        ("invoice", True), ("invoice", ["INV-X"]), ("invoice", " INV-X "),
+    ])
+    def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        if field == "event":
+            event["id"] = value
+        else:
+            event_invoice(event)["id"] = value
+        before = state(agent)
+        mock.requests.clear()
+        with pytest.raises(WebhookError):
+>           deliver(agent, mock, event)
+
+tests/test_webhook_current_read_receiving.py:318: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_webhook_current_read_receiving.py:70: in deliver
+    return agent.handle_webhook(raw, mock.sign(raw))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ledgerly.agent.Agent object at 0x7efc8d465a60>
+raw_body = b'{"id": "WH-50416B33A7F4437F9-91C7B03F842944839", "event_version": "1.0", "create_time": "2026-11-10T00:00:00Z", "res...ttps://api-m.sandbox.paypal.com/v1/notifications/webhooks-events/WH-MOCK/resend", "rel": "resend", "method": "POST"}]}'
+headers = {'PAYPAL-TRANSMISSION-ID': 'mock-tx', 'PAYPAL-TRANSMISSION-TIME': '2026-11-10T00:00:00Z', 'PAYPAL-TRANSMISSION-SIG': 'gA2jz2EO0xDCu+gr1S6YYGqj8Sl1fCM8qknu1MyAfCM=', 'PAYPAL-AUTH-ALGO': 'SHA256withRSA', ...}
+
+    def handle_webhook(self, raw_body: bytes, headers: Optional[dict] = None) -> dict:
+        if self.webhook_verifier is not None:
+            v = self.webhook_verifier(headers or {}, raw_body)
+            if v.get("verification_status") != "SUCCESS":
+                self._log("webhook_rejected", reason="bad signature")
+                raise WebhookError("signature verification failed")
+        ev = parse_webhook_event(raw_body)
+        if ev.event_id in self._seen_events:
+            return {"ok": True, "duplicate": True, "invoice_id": ev.invoice_id}
+        self._seen_events.add(ev.event_id)
+>       e = self.ledger.get(ev.invoice_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'list'
+
+baseline/ledgerly/agent.py:400: TypeError
+_ test_noncanonical_identity_is_refused_before_read_or_state_change[invoice- INV-X ] _
+
+field = 'invoice', value = ' INV-X '
+
+    @pytest.mark.parametrize("field,value", [
+        ("event", ""), ("event", "  "), ("event", True), ("event", ["WH-X"]),
+        ("invoice", True), ("invoice", ["INV-X"]), ("invoice", " INV-X "),
+    ])
+    def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        if field == "event":
+            event["id"] = value
+        else:
+            event_invoice(event)["id"] = value
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:317: Failed
+_ test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification[nan] _
+
+number = nan
+
+    @pytest.mark.parametrize("number", [float("nan"), float("inf"), float("-inf")])
+    def test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification(number):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        event["metadata"] = {"unrepresentable": number}
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:332: Failed
+_ test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification[inf] _
+
+number = inf
+
+    @pytest.mark.parametrize("number", [float("nan"), float("inf"), float("-inf")])
+    def test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification(number):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        event["metadata"] = {"unrepresentable": number}
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:332: Failed
+_ test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification[-inf] _
+
+number = -inf
+
+    @pytest.mark.parametrize("number", [float("nan"), float("inf"), float("-inf")])
+    def test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification(number):
+        agent, mock, _, (iid,) = case()
+        queue(agent, iid)
+        event = updated(mock, iid)
+        event["metadata"] = {"unrepresentable": number}
+        before = state(agent)
+        mock.requests.clear()
+>       with pytest.raises(WebhookError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_current_read_receiving.py:332: Failed
+=========================== short test summary info ============================
+FAILED tests/test_webhook_current_read_receiving.py::test_delayed_partial_event_observes_current_full_payment_without_restoring_old_balance
+FAILED tests/test_webhook_current_read_receiving.py::test_delayed_event_preserves_current_review_and_only_human_approval_sends_exact_text_once
+FAILED tests/test_webhook_current_read_receiving.py::test_current_provider_edits_and_due_date_are_applied_only_to_notified_invoice[term0]
+FAILED tests/test_webhook_current_read_receiving.py::test_current_provider_edits_and_due_date_are_applied_only_to_notified_invoice[term1]
+FAILED tests/test_webhook_current_read_receiving.py::test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[outage]
+FAILED tests/test_webhook_current_read_receiving.py::test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[wrong-invoice]
+FAILED tests/test_webhook_current_read_receiving.py::test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[missing-due]
+FAILED tests/test_webhook_current_read_receiving.py::test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[nonfinite-total]
+FAILED tests/test_webhook_current_read_receiving.py::test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification[incoherent-due]
+FAILED tests/test_webhook_current_read_receiving.py::test_unknown_local_invoice_remains_retryable_after_local_registration_without_early_provider_read
+FAILED tests/test_webhook_current_read_receiving.py::test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice[invoice-rebind]
+FAILED tests/test_webhook_current_read_receiving.py::test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice[paid-snapshot]
+FAILED tests/test_webhook_current_read_receiving.py::test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice[envelope]
+FAILED tests/test_webhook_current_read_receiving.py::test_noncanonical_identity_is_refused_before_read_or_state_change[event-]
+FAILED tests/test_webhook_current_read_receiving.py::test_noncanonical_identity_is_refused_before_read_or_state_change[event-  ]
+FAILED tests/test_webhook_current_read_receiving.py::test_noncanonical_identity_is_refused_before_read_or_state_change[event-True]
+FAILED tests/test_webhook_current_read_receiving.py::test_noncanonical_identity_is_refused_before_read_or_state_change[event-value3]
+FAILED tests/test_webhook_current_read_receiving.py::test_noncanonical_identity_is_refused_before_read_or_state_change[invoice-True]
+FAILED tests/test_webhook_current_read_receiving.py::test_noncanonical_identity_is_refused_before_read_or_state_change[invoice-value5]
+FAILED tests/test_webhook_current_read_receiving.py::test_noncanonical_identity_is_refused_before_read_or_state_change[invoice- INV-X ]
+FAILED tests/test_webhook_current_read_receiving.py::test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification[nan]
+FAILED tests/test_webhook_current_read_receiving.py::test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification[inf]
+FAILED tests/test_webhook_current_read_receiving.py::test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification[-inf]
+23 failed, 3 passed in 0.28s

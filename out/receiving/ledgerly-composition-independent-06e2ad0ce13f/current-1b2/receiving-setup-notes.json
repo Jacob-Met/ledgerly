@@ -1,0 +1,4 @@
+[
+  "Initial prior-webhook object check found the non-published local commit was not in the extraction clone. It was fetched by exact SHA from the author clone, after which all published tree comparisons passed.",
+  "Initial whole-module comparison accounted for accepted methods and hashlib but omitted the previously accepted validate import. The receiver comparator was corrected to transplant exact published extraction imports in agent and paypal; complete module AST and exact source-span checks then passed. No source edits or behavioral test failures occurred."
+]

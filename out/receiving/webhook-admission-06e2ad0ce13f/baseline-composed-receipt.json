@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-08T10:15:22.092414+00:00",
+  "base_commit": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "command": [
+    "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+    "-m",
+    "pytest",
+    "-p",
+    "no:cacheprovider",
+    "-q"
+  ],
+  "cwd": "/dev/shm/estate-06e2ad0ce13f-webhook-baseline",
+  "exit_code": 1,
+  "source_git_blob": "19f261b1430769952057697d68472722a11cf643",
+  "source_sha256": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+  "source_unchanged": true,
+  "log_sha256": "3821e0f1da51f3481253fa1757ac1d35ec893d60c76e056f3b6d7f3aca887ee2"
+}

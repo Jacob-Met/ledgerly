@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-08T10:36:37.443916+00:00",
+  "source_git_blob": "2dbf14c2eeeada3b1f26befa1039064500394c65",
+  "node": "v24.19.0",
+  "npm": "11.9.0",
+  "package_lock_sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+  "dependencies": "Reused matching package-lock dependencies installed in sibling ledgerly-core via a temporary symlink; no dependency changes.",
+  "commands": [
+    {
+      "command": "npm test",
+      "cwd": "web-demo",
+      "exit_code": 0,
+      "test_files_passed": 2,
+      "tests_passed": 10,
+      "log": "candidate-pyodide-tests.log"
+    },
+    {
+      "command": "npm run build",
+      "cwd": "web-demo",
+      "exit_code": 0,
+      "log": "candidate-build.log"
+    }
+  ],
+  "source_staging_and_dist_equal": true,
+  "python_input_sha256": {
+    "ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "ledgerly/agent.py": "e8a60aa83a9647663da1c0cf52824e26a9af6c8ede0b25134db1f156e5164091",
+    "ledgerly/extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+    "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+    "bridge.py": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+    "review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "logs": {
+    "candidate-pyodide-tests.log": "7c5e2cb7c0fcee0eeefe6bf24d1dffacefcf9aaf740124ef4e76013afdbdf61f",
+    "candidate-build.log": "2e69b026779566e42bddd341196d815158297375499547d1a566062188e23fa9"
+  },
+  "bounds": [
+    "Vitest uses actual Pyodide and the unchanged existing bridge/review sources.",
+    "No browser navigation or screenshot was repeated for this Python-only change.",
+    "No provider client activation or deployment.",
+    "Build emits existing Pyodide node-module externalization warnings."
+  ]
+}

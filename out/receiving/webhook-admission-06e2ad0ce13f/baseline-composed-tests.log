@@ -1,0 +1,275 @@
+...................................................................... [ 66%]
+........................FFFFFFFFFFFF                                     [100%]
+=================================== FAILURES ===================================
+_____ test_delayed_partial_payment_cannot_reopen_a_currently_paid_invoice ______
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec07a2a0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec07a600>
+clock = <conftest.Clock object at 0x7f55ec07b260>
+
+    def test_delayed_partial_payment_cannot_reopen_a_currently_paid_invoice(agent, mock, clock):
+        invoice_id = sent(agent)
+        older_partial = mock.simulate_payer_payment(invoice_id, Decimal("300"))
+        newer_paid = mock.simulate_payer_payment(invoice_id)
+        before = copy.deepcopy(outgoing(mock))
+    
+        assert deliver(agent, mock, newer_paid)["to"] == "PAID"
+        result = deliver(agent, mock, older_partial)
+    
+>       assert result == {"ok": True, "invoice_id": invoice_id, "from": "PAID", "to": "PAID"}
+E       AssertionError: assert {'ok': True, ...RTIALLY_PAID'} == {'ok': True, ... 'to': 'PAID'}
+E         
+E         Omitting 3 identical items, use -vv to show
+E         Differing items:
+E         {'to': 'PARTIALLY_PAID'} != {'to': 'PAID'}
+E         Use -v to get more diff
+
+tests/test_webhook_admission.py:61: AssertionError
+____ test_fresh_refund_state_is_preserved_when_an_older_paid_event_arrives _____
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec2888c0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2894c0>
+
+    def test_fresh_refund_state_is_preserved_when_an_older_paid_event_arrives(agent, mock):
+        invoice_id = sent(agent)
+        older_paid = mock.simulate_payer_payment(invoice_id)
+        mock.invoices[invoice_id]["status"] = "REFUNDED"
+        current_refund = mock.make_webhook_event("INVOICING.INVOICE.REFUNDED", invoice_id)
+    
+        assert deliver(agent, mock, current_refund)["to"] == "REFUNDED"
+>       assert deliver(agent, mock, older_paid)["to"] == "REFUNDED"
+E       AssertionError: assert 'PAID' == 'REFUNDED'
+E         
+E         - REFUNDED
+E         + PAID
+
+tests/test_webhook_admission.py:77: AssertionError
+________ test_failed_current_read_does_not_consume_the_original_webhook ________
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec2d39e0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2d3ad0>
+clock = <conftest.Clock object at 0x7f55ec2d3920>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f55ec2d3590>
+
+    def test_failed_current_read_does_not_consume_the_original_webhook(agent, mock, clock, monkeypatch):
+        invoice_id = sent(agent)
+        old = pending_reminder(agent, clock, invoice_id)
+        event = mock.simulate_payer_payment(invoice_id)
+        entry_before = agent.ledger[invoice_id].to_dict()
+        action_before = copy.deepcopy(old.to_dict())
+        effects_before = copy.deepcopy(outgoing(mock))
+        original_get = mock.get_invoice
+    
+        def unavailable(_):
+            raise PayPalError(503, "SERVICE_UNAVAILABLE", "Fixture current-state read failed")
+    
+        monkeypatch.setattr(mock, "get_invoice", unavailable)
+>       with pytest.raises(PayPalError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PayPalError
+
+tests/test_webhook_admission.py:94: Failed
+_ test_unknown_invoice_notification_can_be_received_after_local_invoice_arrives _
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec076e10>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec076c00>
+
+    def test_unknown_invoice_notification_can_be_received_after_local_invoice_arrives(agent, mock):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        retained_entry = agent.ledger.pop(invoice_id)
+        assert deliver(agent, mock, event)["ok"] is False
+    
+        agent.ledger[invoice_id] = retained_entry
+        result = deliver(agent, mock, event)
+    
+>       assert result.get("to") == "PAID" and not result.get("duplicate")
+E       AssertionError: assert (None == 'PAID')
+E        +  where None = <built-in method get of dict object at 0x7f55ebfd77c0>('to')
+E        +    where <built-in method get of dict object at 0x7f55ebfd77c0> = {'ok': True, 'duplicate': True, 'invoice_id': 'INV2-MOCK-0001-CE3E'}.get
+
+tests/test_webhook_admission.py:116: AssertionError
+_ test_event_id_replays_match_content_and_conflicting_payload_is_not_a_duplicate _
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec07b680>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec07b620>
+
+    def test_event_id_replays_match_content_and_conflicting_payload_is_not_a_duplicate(agent, mock):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        deliver(agent, mock, event)
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+        assert deliver(agent, mock, event, indent=2, sort_keys=True)["duplicate"] is True
+        assert len([request for request in mock.requests if request[0] == "GET"]) == reads_before
+        changed = copy.deepcopy(event)
+        changed["summary"] = "Different content under the already processed event ID"
+>       with pytest.raises(WebhookError, match="identity"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_admission.py:130: Failed
+______ test_invalid_event_identity_is_rejected_before_current_read[None] _______
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec2dbcb0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2dbb30>, event_id = None
+
+    @pytest.mark.parametrize("event_id", [None, "", " ", " WH-LEADING", "WH-TRAILING ", 7, ["WH-LIST"]])
+    def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        event["id"] = event_id
+        before = agent.ledger[invoice_id].to_dict()
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+>       with pytest.raises(WebhookError, match="event ID"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_admission.py:144: Failed
+________ test_invalid_event_identity_is_rejected_before_current_read[] _________
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec2d1400>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2d1070>, event_id = ''
+
+    @pytest.mark.parametrize("event_id", [None, "", " ", " WH-LEADING", "WH-TRAILING ", 7, ["WH-LIST"]])
+    def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        event["id"] = event_id
+        before = agent.ledger[invoice_id].to_dict()
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+>       with pytest.raises(WebhookError, match="event ID"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_admission.py:144: Failed
+________ test_invalid_event_identity_is_rejected_before_current_read[ ] ________
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec2ceb10>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2cf650>, event_id = ' '
+
+    @pytest.mark.parametrize("event_id", [None, "", " ", " WH-LEADING", "WH-TRAILING ", 7, ["WH-LIST"]])
+    def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        event["id"] = event_id
+        before = agent.ledger[invoice_id].to_dict()
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+>       with pytest.raises(WebhookError, match="event ID"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_admission.py:144: Failed
+___ test_invalid_event_identity_is_rejected_before_current_read[ WH-LEADING] ___
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec2cf170>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2ce1b0>
+event_id = ' WH-LEADING'
+
+    @pytest.mark.parametrize("event_id", [None, "", " ", " WH-LEADING", "WH-TRAILING ", 7, ["WH-LIST"]])
+    def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        event["id"] = event_id
+        before = agent.ledger[invoice_id].to_dict()
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+>       with pytest.raises(WebhookError, match="event ID"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_admission.py:144: Failed
+__ test_invalid_event_identity_is_rejected_before_current_read[WH-TRAILING ] ___
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec2cf500>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2cf1a0>
+event_id = 'WH-TRAILING '
+
+    @pytest.mark.parametrize("event_id", [None, "", " ", " WH-LEADING", "WH-TRAILING ", 7, ["WH-LIST"]])
+    def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        event["id"] = event_id
+        before = agent.ledger[invoice_id].to_dict()
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+>       with pytest.raises(WebhookError, match="event ID"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_admission.py:144: Failed
+________ test_invalid_event_identity_is_rejected_before_current_read[7] ________
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec075eb0>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec076480>, event_id = 7
+
+    @pytest.mark.parametrize("event_id", [None, "", " ", " WH-LEADING", "WH-TRAILING ", 7, ["WH-LIST"]])
+    def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        event["id"] = event_id
+        before = agent.ledger[invoice_id].to_dict()
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+>       with pytest.raises(WebhookError, match="event ID"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+tests/test_webhook_admission.py:144: Failed
+____ test_invalid_event_identity_is_rejected_before_current_read[event_id6] ____
+
+agent = <ledgerly.agent.Agent object at 0x7f55ec273500>
+mock = <ledgerly.paypal.SandboxMock object at 0x7f55ec2737a0>
+event_id = ['WH-LIST']
+
+    @pytest.mark.parametrize("event_id", [None, "", " ", " WH-LEADING", "WH-TRAILING ", 7, ["WH-LIST"]])
+    def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):
+        invoice_id = sent(agent)
+        event = mock.simulate_payer_payment(invoice_id)
+        event["id"] = event_id
+        before = agent.ledger[invoice_id].to_dict()
+        reads_before = len([request for request in mock.requests if request[0] == "GET"])
+    
+        with pytest.raises(WebhookError, match="event ID"):
+>           deliver(agent, mock, event)
+
+tests/test_webhook_admission.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_webhook_admission.py:42: in deliver
+    return agent.handle_webhook(raw, mock.sign(raw))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <ledgerly.agent.Agent object at 0x7f55ec273500>
+raw_body = b'{"id": ["WH-LIST"], "event_version": "1.0", "create_time": "2026-10-08T10:15:22Z", "resource_type": "invoices", "eve...ttps://api-m.sandbox.paypal.com/v1/notifications/webhooks-events/WH-MOCK/resend", "rel": "resend", "method": "POST"}]}'
+headers = {'PAYPAL-TRANSMISSION-ID': 'mock-tx', 'PAYPAL-TRANSMISSION-TIME': '2026-10-08T10:15:22Z', 'PAYPAL-TRANSMISSION-SIG': 'W9AR2Kq+4qzhNRu27aHYFd8JIitZBR6+yXaPj3EGlag=', 'PAYPAL-AUTH-ALGO': 'SHA256withRSA', ...}
+
+    def handle_webhook(self, raw_body: bytes, headers: Optional[dict] = None) -> dict:
+        if self.webhook_verifier is not None:
+            v = self.webhook_verifier(headers or {}, raw_body)
+            if v.get("verification_status") != "SUCCESS":
+                self._log("webhook_rejected", reason="bad signature")
+                raise WebhookError("signature verification failed")
+        ev = parse_webhook_event(raw_body)
+>       if ev.event_id in self._seen_events:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'list'
+
+ledgerly/agent.py:397: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_webhook_admission.py::test_delayed_partial_payment_cannot_reopen_a_currently_paid_invoice
+FAILED tests/test_webhook_admission.py::test_fresh_refund_state_is_preserved_when_an_older_paid_event_arrives
+FAILED tests/test_webhook_admission.py::test_failed_current_read_does_not_consume_the_original_webhook
+FAILED tests/test_webhook_admission.py::test_unknown_invoice_notification_can_be_received_after_local_invoice_arrives
+FAILED tests/test_webhook_admission.py::test_event_id_replays_match_content_and_conflicting_payload_is_not_a_duplicate
+FAILED tests/test_webhook_admission.py::test_invalid_event_identity_is_rejected_before_current_read[None]
+FAILED tests/test_webhook_admission.py::test_invalid_event_identity_is_rejected_before_current_read[]
+FAILED tests/test_webhook_admission.py::test_invalid_event_identity_is_rejected_before_current_read[ ]
+FAILED tests/test_webhook_admission.py::test_invalid_event_identity_is_rejected_before_current_read[ WH-LEADING]
+FAILED tests/test_webhook_admission.py::test_invalid_event_identity_is_rejected_before_current_read[WH-TRAILING ]
+FAILED tests/test_webhook_admission.py::test_invalid_event_identity_is_rejected_before_current_read[7]
+FAILED tests/test_webhook_admission.py::test_invalid_event_identity_is_rejected_before_current_read[event_id6]
+12 failed, 94 passed, 2 subtests passed in 0.35s

@@ -1,0 +1,21 @@
+{
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/REVIEW.md": "14c8dd6d50444e7c703adb3fb68dafcfbb87f3775b0acd1cb6d769671507e19c",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/accepted-agent.diff": "4747b7ddc5ef59c9b07b175215a61ff8884b4f898446c7b985e71652b40f1b98",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/baseline-agent.py": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/baseline-independent.log": "e840d403a13e46dcddbd67d78c3ef5e3a71192770fbe7c017eb6aa902cfdd59a",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/candidate-native-composition.log": "6b2d58c2867494d99bd3fa919b23e4f0c345e34b5290d2bc75c4794cc00480e0",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/candidate-original-contract-composition.log": "4b0b625364a278cd02c5d2ef5b78299cad17e06b3ab5f9be079ccc0674e3b75c",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/candidate-r1-independent.log": "0215d2a7f6e2f8f894297307e4e83ac6e840a34a8af2e8dbdbceae2ff09d5baf",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/independent-run-metadata.json": "3deeefa40fff0527dbbdc8defb0e703eafb95e211c3f354545138a3b4ac18bf1",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/native-input-sha256.json": "5250a0be2681f7f8312317f833035b6b85536f7e78fc551de7d2c0c0aec5e4c1",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/native-run-metadata.json": "70035310943eabfdfd4b846446004186a78066ae38a5287ca05ff836d1528bc9",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/original-contract-run.json": "a288543ca1ea474556ea6b8834037d9f3fba4b1f97615949c339c0f65879a0f9",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/original-native-input-sha256.json": "8c624c9fcec4e9c3d383271b03e279a14de48c2ee6ab6261f36c332892f8aa51",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/original-test_reminder_freshness.py": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/original-test_reminder_receiving.py": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/received-test-contract.diff": "bb4a23fdb58f87ea8b5ea0e0837b1cf97e8ac4f1b07f14b214e2a59ce9e88df7",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/receiving.json": "00da2c2ed3bddc447019818230e91bc76258b4055c53bb587a740f390ed8fee7",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/source-pins.json": "a2e02f03dc946336a945b740fa889269bd84f5c9f648f27d439732465e6df43b",
+  "out/receiving/webhook-admission-independent-06e2ad0ce13f/unchanged-owner-methods.json": "274fd3b2da4027403cc7714c250485ec1779f933d552ce2c21b534c4e6736f52",
+  "tests/test_webhook_current_read_receiving.py": "c76348a1b6abd856c0149fba5bd67155c081bf8142c2ad2d016ca9280e15ac7d"
+}

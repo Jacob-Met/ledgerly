@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "decision": "accepted_bounded_webhook_component_and_explicit_test_contract_updates",
+  "recorded_utc": "2026-10-08T10:23:02.161476+00:00",
+  "reviewer": "/root/github_production",
+  "author": "/root/live_access",
+  "baseline_commit": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "baseline_agent_blob": "19f261b1430769952057697d68472722a11cf643",
+  "accepted_agent": {
+    "git_blob": "2dbf14c2eeeada3b1f26befa1039064500394c65",
+    "sha256": "e8a60aa83a9647663da1c0cf52824e26a9af6c8ede0b25134db1f156e5164091"
+  },
+  "accepted_owner_tests": {
+    "tests/test_reminder_freshness.py": {
+      "before_sha256": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+      "received_sha256": "d2c697c0e515413f2fbdc60a0d7b248965e414396e004a1008818936d177bca1",
+      "git_blob": "164175c727e90a5f7b8b0e22fe9e996498c4fb4c"
+    },
+    "tests/test_reminder_receiving.py": {
+      "before_sha256": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+      "received_sha256": "8609348105ebb1ba07dd12dab5db30f9cdfbec40cac6f4d9c750452e78b789c7",
+      "git_blob": "6f1446194b9d20d4ab42b5f3652332b37f72766a"
+    }
+  },
+  "reviewer_test": {
+    "path": "tests/test_webhook_current_read_receiving.py",
+    "sha256": "c76348a1b6abd856c0149fba5bd67155c081bf8142c2ad2d016ca9280e15ac7d",
+    "cases": 26
+  },
+  "source_scope": "Only hashlib import, Agent seen-event index initialization and handle_webhook change; exact source spans of all other 18 Agent methods are unchanged.",
+  "independence": "Reviewer authored 26 cases after reading source and existing owner tests, without reading author new webhook test file during design. Independent authorship, not blind source review. Reviewer did not edit production source.",
+  "source_provenance": "Candidate copied from exact frozen observed author files before independent test design. Baseline materialized from exact current-main commit; no reconstructed source.",
+  "independent_results": [
+    {
+      "source": "main 1871942",
+      "passed": 3,
+      "failed": 23,
+      "log": "baseline-independent.log",
+      "log_sha256": "e840d403a13e46dcddbd67d78c3ef5e3a71192770fbe7c017eb6aa902cfdd59a"
+    },
+    {
+      "source": "candidate agent 2dbf14c",
+      "passed": 26,
+      "failed": 0,
+      "log": "candidate-r1-independent.log",
+      "log_sha256": "0215d2a7f6e2f8f894297307e4e83ac6e840a34a8af2e8dbdbceae2ff09d5baf"
+    }
+  ],
+  "native_before_contract_updates": {
+    "passed": 130,
+    "failed": 2,
+    "subtests_passed": 2,
+    "inputs_unchanged": true,
+    "log": "candidate-original-contract-composition.log",
+    "metadata": "original-contract-run.json",
+    "input_hashes": "original-native-input-sha256.json"
+  },
+  "native_final": {
+    "passed": 132,
+    "failed": 0,
+    "subtests_passed": 2,
+    "native_input_count": 28,
+    "native_inputs_and_reviewer_tests_unchanged_before_after": true,
+    "log": "candidate-native-composition.log",
+    "metadata": "native-run-metadata.json",
+    "input_hashes": "native-input-sha256.json"
+  },
+  "contract_judgment": [
+    {
+      "test": "tests/test_reminder_freshness.py",
+      "reason": "Owner refresh normalizes the same numeric GBP500 balance. Compare Decimal value while preserving the full stale-reminder and approval workflow."
+    },
+    {
+      "test": "tests/test_reminder_receiving.py",
+      "reason": "A delayed event whose current read equals the reviewed GBP500 facts must preserve that exact pending review; only explicit human approval sends its unchanged text once."
+    }
+  ],
+  "runtime": {
+    "python": "Python 3.12.14",
+    "pytest": "pytest 9.1.1",
+    "bytecode_disabled": true,
+    "pytest_cache_disabled": true
+  },
+  "effects": "Offline native SandboxMock only. No HTTP client activation, external provider call, GitHub publication, merge or deployment by this review.",
+  "bounds": [
+    "Exact source and received test tuple only.",
+    "Event identity remains process-local.",
+    "Owner current presentation, reminder dates, approval gates and read/send separation remain the original merged code.",
+    "Publication, integration and browser/Pyodide composition are separate owner work."
+  ],
+  "integration": "Copy packet tests and out/receiving/webhook-admission-independent-06e2ad0ce13f into native repository unchanged. Artifact manifest is relative to repository root."
+}

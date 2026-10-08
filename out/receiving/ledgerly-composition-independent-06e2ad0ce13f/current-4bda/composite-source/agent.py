@@ -25,7 +25,7 @@ from datetime import date, datetime, timezone
 from decimal import Decimal
 from typing import Any, Callable, Optional, Protocol
 
-from .extract import Extraction, Extractor, RulesExtractor, split_by_currency
+from .extract import Extraction, Extractor, RulesExtractor, split_by_currency, validate
 from .paypal import (
     OPEN_STATUSES, PAID_STATUSES, InvoicingClient, PayPalError, Response, WebhookError,
     build_invoice, parse_webhook_event,
@@ -111,15 +111,11 @@ class LedgerEntry:
     provider_due_on: Optional[date] = None
     provider_due_known: bool = False
     invoice_due_on: Optional[date] = None
-    provider_receipt_pending: bool = False
 
     @property
     def due_on(self) -> Optional[date]:
         if self.provider_due_known:
             return self.provider_due_on
-        if self.provider_receipt_pending:
-            # An observed draft receipt term supersedes earlier positive terms.
-            return None if self.status == "DRAFT" else self.sent_on
         if self.sent_on is None or self.due_days is None:
             return None
         # Positive terms retain the draft deadline; approval does not restart them.
@@ -276,10 +272,15 @@ class Agent:
     # -- tools (safe: never send, never move money)
     def tool_create_invoice(self, text: str) -> dict:
         ex = self.extractor.extract(text)
-        if ex.errors or ex.confidence < self.min_confidence:
+        # Extractor adapters may return a reviewed value with stale/no issues.
+        # Admit the whole job before allocating even the first invoice number.
+        issues = [*ex.issues]
+        issues.extend(issue for issue in validate(ex) if issue not in issues)
+        errors = [issue for issue in issues if issue.severity == "error"]
+        if errors or ex.confidence < self.min_confidence:
             return {"ok": False, "needs_review": True, "confidence": ex.confidence,
-                    "issues": [i.to_dict() for i in ex.issues],
-                    "message": f"needs human review (confidence {ex.confidence}, {len(ex.errors)} error(s))"}
+                    "issues": [i.to_dict() for i in issues],
+                    "message": f"needs human review (confidence {ex.confidence}, {len(errors)} error(s))"}
         created = []
         for part in split_by_currency(ex):
             number = self.client.generate_next_invoice_number().body["invoice_number"]
@@ -304,7 +305,7 @@ class Agent:
             created.append({"invoice_id": inv_id, "invoice_number": number, "currency": part.currency,
                             "total": str(part.total()), "approval_id": action.id})
         return {"ok": True, "invoices": created, "confidence": ex.confidence,
-                "issues": [i.to_dict() for i in ex.issues],
+                "issues": [i.to_dict() for i in issues],
                 "message": f"{len(created)} draft(s) created; awaiting approval to send"}
 
     def tool_get_status(self, invoice_id: str) -> dict:
@@ -354,12 +355,6 @@ class Agent:
         return [a.to_dict() for a in self.pending.values() if a.status == "PENDING"]
 
     def approve(self, action_id: str, approver: str = "human") -> dict:
-        """Execute an approval, consuming its ID if the outgoing phase fails.
-
-        Read-only reminder preflight may be retried. Other ordinary errors leave
-        a FAILED action with an UNKNOWN outcome: check the invoice before making
-        a new approval. The original exception still reaches the caller.
-        """
         a = self._pending_or_raise(action_id)
         if a.kind == "send_reminder":
             # Read-only preflight sits outside the effect-failure handler. A failed
@@ -394,18 +389,6 @@ class Agent:
         except PayPalError as err:
             a.status, a.result = "FAILED", err.body
             self._log("approve_failed", action=a.id, approver=approver, error=str(err))
-            raise
-        except Exception as err:
-            # A lost response does not establish whether an outgoing effect happened.
-            # Consume this ID so an explicit retry cannot repeat that effect.
-            a.status = "FAILED"
-            a.result = {
-                "outcome": "UNKNOWN",
-                "reason": "The outgoing action may have completed. Check the invoice before creating another approval.",
-                "error_type": type(err).__name__,
-            }
-            self._log("approve_failed", action=a.id, approver=approver,
-                      outcome="UNKNOWN", error=str(err), reason=a.result["reason"])
             raise
         a.status, a.result = "APPROVED", result
         self._log("approved", action=a.id, kind=a.kind, invoice=a.invoice_id, approver=approver)
@@ -532,7 +515,7 @@ class Agent:
 
         An unsupported/ambiguous invoice is held, never rebound to old local words.
         The current product supports exactly one billing recipient and an explicit
-        provider due date, NO_DUE_DATE, or an unresolved receipt term on a draft.
+        provider due date (or NO_DUE_DATE), matching its existing draft builder.
         """
         try:
             if inv["id"] != invoice_id:
@@ -559,13 +542,9 @@ class Agent:
                 raise ValueError("provider balance cannot be represented by this invoice ledger")
 
             term = detail["payment_term"]
-            receipt_pending = (status == "DRAFT" and term.get("term_type") == "DUE_ON_RECEIPT"
-                               and "due_date" not in term)
             if term.get("term_type") == "NO_DUE_DATE":
                 if term.get("due_date"):
                     raise ValueError("provider due-date fields disagree")
-                due_on = None
-            elif receipt_pending:
                 due_on = None
             else:
                 due_on = date.fromisoformat(term["due_date"])
@@ -585,8 +564,7 @@ class Agent:
             return {"status": status, "total": total, "paid_amount": paid,
                     "currency": currency, "invoice_number": number,
                     "client_email": email, "client_name": client_name,
-                    "provider_due_on": due_on, "provider_due_known": not receipt_pending,
-                    "provider_receipt_pending": receipt_pending}
+                    "provider_due_on": due_on, "provider_due_known": True}
         except (KeyError, TypeError, AttributeError, ArithmeticError) as err:
             raise ValueError("provider invoice facts are incomplete or malformed; review is unavailable") from err
 

@@ -1,0 +1,619 @@
+[
+  {
+    "command": [
+      "git",
+      "clone",
+      "--shared",
+      "--no-checkout",
+      "/workspace/scratch/06e2ad0ce13f/ledgerly-core",
+      "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f",
+    "exit_code": 0,
+    "output": "Cloning into '/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout'...\ndone.\n"
+  },
+  {
+    "command": [
+      "git",
+      "fetch",
+      "https://github.com/Jacob-Met/ledgerly.git",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365:refs/heads/receiving/owner-current",
+      "f67e2c4034804f657eccad38887f377f28011e98:refs/heads/receiving/extraction-published",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755:refs/heads/receiving/webhook-published"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "From https://github.com/Jacob-Met/ledgerly\n * [new ref]         1b2b902d5dd412a8b61c9b9075b815c1d0029365 -> receiving/owner-current\n * [new ref]         f67e2c4034804f657eccad38887f377f28011e98 -> receiving/extraction-published\n * [new ref]         d4ff41c66abe816a0c8b891bf75e0ad21ebaa755 -> receiving/webhook-published\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "ba5ab49270c136d86bc492411f49a5bdebdb6049\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "ae425d9afb682b55138143780b461d1c61e9e820\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "cd1bfada6fc4070250a73f0b6390efc755de568c\n"
+  },
+  {
+    "command": [
+      "git",
+      "merge-base",
+      "--is-ancestor",
+      "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "git",
+      "merge-base",
+      "--is-ancestor",
+      "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+      "f67e2c4034804f657eccad38887f377f28011e98"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "git",
+      "merge-base",
+      "--is-ancestor",
+      "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "47276dd3b350c6509b051e1e60cf305c9194f6c6\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "47276dd3b350c6509b051e1e60cf305c9194f6c6\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98:tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "b4c579351576c7b5cf89355bc7116b9c28fac2d0\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f:tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "b4c579351576c7b5cf89355bc7116b9c28fac2d0\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98:web-demo"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "3d6916623fb05b6bfd91947019892f0d16e90d0a\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f:web-demo"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "3d6916623fb05b6bfd91947019892f0d16e90d0a\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "6f5ef6dbc64b9e9d9e2ddbacfbb2bbf690fc4d4d\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "0f1a7f7e72d932d10698258efbcbb38a0d93f9e9:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 128,
+    "output": "fatal: path 'ledgerly' does not exist in '0f1a7f7e72d932d10698258efbcbb38a0d93f9e9'\n0f1a7f7e72d932d10698258efbcbb38a0d93f9e9:ledgerly\n"
+  },
+  {
+    "command": [
+      "git",
+      "fetch",
+      "/dev/shm/estate-06e2ad0ce13f-webhook-admission",
+      "0f1a7f7e72d932d10698258efbcbb38a0d93f9e9:refs/heads/receiving/webhook-previous-qualified"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "From /dev/shm/estate-06e2ad0ce13f-webhook-admission\n * [new ref]         0f1a7f7e72d932d10698258efbcbb38a0d93f9e9 -> receiving/webhook-previous-qualified\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "ba5ab49270c136d86bc492411f49a5bdebdb6049\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "ae425d9afb682b55138143780b461d1c61e9e820\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "cd1bfada6fc4070250a73f0b6390efc755de568c\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "47276dd3b350c6509b051e1e60cf305c9194f6c6\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "47276dd3b350c6509b051e1e60cf305c9194f6c6\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98:tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "b4c579351576c7b5cf89355bc7116b9c28fac2d0\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f:tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "b4c579351576c7b5cf89355bc7116b9c28fac2d0\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "f67e2c4034804f657eccad38887f377f28011e98:web-demo"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "3d6916623fb05b6bfd91947019892f0d16e90d0a\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f:web-demo"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "3d6916623fb05b6bfd91947019892f0d16e90d0a\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "6f5ef6dbc64b9e9d9e2ddbacfbb2bbf690fc4d4d\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "0f1a7f7e72d932d10698258efbcbb38a0d93f9e9:ledgerly"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "6f5ef6dbc64b9e9d9e2ddbacfbb2bbf690fc4d4d\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755:tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "efe7d4b67ff01cd71285d26008b34215fcb79999\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "0f1a7f7e72d932d10698258efbcbb38a0d93f9e9:tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "efe7d4b67ff01cd71285d26008b34215fcb79999\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755:web-demo"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "3d6916623fb05b6bfd91947019892f0d16e90d0a\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "0f1a7f7e72d932d10698258efbcbb38a0d93f9e9:web-demo"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "3d6916623fb05b6bfd91947019892f0d16e90d0a\n"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+      "--",
+      "ledgerly",
+      "tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "diff --git a/ledgerly/agent.py b/ledgerly/agent.py\nindex 892cf5c..0119c1a 100644\n--- a/ledgerly/agent.py\n+++ b/ledgerly/agent.py\n@@ -110,11 +110,15 @@ class LedgerEntry:\n     provider_due_on: Optional[date] = None\n     provider_due_known: bool = False\n     invoice_due_on: Optional[date] = None\n+    provider_receipt_pending: bool = False\n \n     @property\n     def due_on(self) -> Optional[date]:\n         if self.provider_due_known:\n             return self.provider_due_on\n+        if self.provider_receipt_pending:\n+            # An observed draft receipt term supersedes earlier positive terms.\n+            return None if self.status == \"DRAFT\" else self.sent_on\n         if self.sent_on is None or self.due_days is None:\n             return None\n         # Positive terms retain the draft deadline; approval does not restart them.\n@@ -496,7 +500,7 @@ class Agent:\n \n         An unsupported/ambiguous invoice is held, never rebound to old local words.\n         The current product supports exactly one billing recipient and an explicit\n-        provider due date (or NO_DUE_DATE), matching its existing draft builder.\n+        provider due date, NO_DUE_DATE, or an unresolved receipt term on a draft.\n         \"\"\"\n         try:\n             if inv[\"id\"] != invoice_id:\n@@ -523,10 +527,14 @@ class Agent:\n                 raise ValueError(\"provider balance cannot be represented by this invoice ledger\")\n \n             term = detail[\"payment_term\"]\n+            receipt_pending = (status == \"DRAFT\" and term.get(\"term_type\") == \"DUE_ON_RECEIPT\"\n+                               and \"due_date\" not in term)\n             if term.get(\"term_type\") == \"NO_DUE_DATE\":\n                 if term.get(\"due_date\"):\n                     raise ValueError(\"provider due-date fields disagree\")\n                 due_on = None\n+            elif receipt_pending:\n+                due_on = None\n             else:\n                 due_on = date.fromisoformat(term[\"due_date\"])\n \n@@ -545,7 +553,8 @@ class Agent:\n             return {\"status\": status, \"total\": total, \"paid_amount\": paid,\n                     \"currency\": currency, \"invoice_number\": number,\n                     \"client_email\": email, \"client_name\": client_name,\n-                    \"provider_due_on\": due_on, \"provider_due_known\": True}\n+                    \"provider_due_on\": due_on, \"provider_due_known\": not receipt_pending,\n+                    \"provider_receipt_pending\": receipt_pending}\n         except (KeyError, TypeError, AttributeError, ArithmeticError) as err:\n             raise ValueError(\"provider invoice facts are incomplete or malformed; review is unavailable\") from err\n \ndiff --git a/ledgerly/paypal.py b/ledgerly/paypal.py\nindex 02f7347..04cc47d 100644\n--- a/ledgerly/paypal.py\n+++ b/ledgerly/paypal.py\n@@ -111,6 +111,9 @@ def _split_name(full: Optional[str]) -> dict:\n def payment_term(due_days: Optional[int], invoice_date: date) -> dict:\n     if due_days is None:\n         return {\"term_type\": \"NO_DUE_DATE\"}\n+    if due_days == 0:\n+        # Receipt is a future event while the invoice is still a draft.\n+        return {\"term_type\": \"DUE_ON_RECEIPT\"}\n     if due_days in TERM_TYPES:\n         term = {\"term_type\": TERM_TYPES[due_days]}\n     else:\n@@ -253,9 +256,14 @@ class SandboxMock:\n         if body.get(\"send_to_recipient\", True) and not inv[\"_has_recipient_email\"]:\n             raise PayPalError(422, \"UNPROCESSABLE_ENTITY\", \"The requested action could not be performed.\",\n                               \"MISSING_RECIPIENT_EMAIL\", \"Recipient email is required to send.\")\n+        sent_time = self._ts()\n         inv[\"status\"] = \"SENT\"\n         meta = inv[\"detail\"][\"metadata\"]\n-        meta[\"last_sent_time\"] = self._ts()\n+        meta[\"last_sent_time\"] = sent_time\n+        term = inv[\"detail\"].get(\"payment_term\")\n+        if isinstance(term, dict) and term.get(\"term_type\") == \"DUE_ON_RECEIPT\":\n+            # Mock convention: a successful send is receipt. Preserve explicit dates.\n+            term.setdefault(\"due_date\", sent_time[:10])\n         meta[\"recipient_view_url\"] = f\"https://www.sandbox.paypal.com/invoice/p/#{invoice_id}\"\n         meta[\"invoicer_view_url\"] = f\"https://www.sandbox.paypal.com/invoice/details/{invoice_id}\"\n         return Response(200, {\"href\": meta[\"recipient_view_url\"], \"rel\": \"payer-view\", \"method\": \"GET\"})\ndiff --git a/tests/test_receipt_term_receiving.py b/tests/test_receipt_term_receiving.py\nnew file mode 100644\nindex 0000000..fb5d293\n--- /dev/null\n+++ b/tests/test_receipt_term_receiving.py\n@@ -0,0 +1,235 @@\n+\"\"\"Receipt terms across actual bridge, provider refresh, and approved mock sends.\"\"\"\n+from copy import deepcopy\n+from dataclasses import asdict, fields\n+from datetime import date, timedelta\n+from pathlib import Path\n+import sys\n+import unittest\n+\n+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / \"web-demo\" / \"python\"))\n+from bridge import Demo\n+from ledgerly.agent import ApprovalRequired, LedgerEntry\n+from ledgerly.paypal import PayPalError, SandboxMock, payment_term\n+\n+SOURCE = (Path(__file__).resolve().parents[1] / \"fixtures\" / \"01_simple_usd_hourly.txt\").read_text()\n+\n+\n+class ReceiptTermReceiving(unittest.TestCase):\n+    def draft(self, day=date(2026, 10, 1), reviewed=False, terms=\"due on receipt\"):\n+        demo = Demo()\n+        self.assertIsInstance(demo.mock, SandboxMock)\n+        demo.clock.day = day\n+        text = SOURCE.replace(\"Net 15\", terms)\n+        request = {\"action\": \"draft\", \"text\": text}\n+        if reviewed:\n+            demo.dispatch({\"action\": \"analyze\", \"text\": text})\n+            checked = demo.dispatch({\"action\": \"review\", \"text\": text, \"confirmed\": True,\n+                                    \"fields\": {\"client_name\": \"Maya Chen\", \"client_email\": \"maya@example.test\",\n+                                               \"due_days\": \"0\", \"amount_paid\": \"0\",\n+                                               \"line_items\": [{\"desc\": \"Reviewed copy\", \"qty\": \"1\",\n+                                                               \"unit_price\": \"40\", \"currency\": \"USD\", \"unit\": \"hours\"}]}})\n+            self.assertTrue(checked[\"result\"][\"valid\"])\n+            request[\"review_id\"] = checked[\"result\"][\"review_id\"]\n+        out = demo.dispatch(request)\n+        self.assertTrue(out[\"result\"][\"unauthorized_send_blocked\"])\n+        self.assertEqual([p[\"kind\"] for p in out[\"state\"][\"pending\"]], [\"send_invoice\"])\n+        action = out[\"state\"][\"pending\"][0]\n+        return demo, action, demo.agent.ledger[action[\"invoice_id\"]]\n+\n+    @staticmethod\n+    def sent(mock, operation):\n+        return [body for method, path, body in mock.requests\n+                if method == \"POST\" and path.endswith(\"/\" + operation)]\n+\n+    def test_raw_and_reviewed_receipt_workflows_across_calendar_boundaries(self):\n+        for reviewed in (False, True):\n+            for drafted_on, sent_on in ((date(2026, 10, 1), date(2026, 10, 8)),\n+                                       (date(2026, 12, 25), date(2027, 1, 2)),\n+                                       (date(2028, 2, 20), date(2028, 2, 29)),\n+                                       (date(2027, 2, 28), date(2027, 3, 1))):\n+                with self.subTest(reviewed=reviewed, sent_on=sent_on):\n+                    demo, action, entry = self.draft(drafted_on, reviewed)\n+                    iid = action[\"invoice_id\"]\n+                    term = demo.mock.invoices[iid][\"detail\"][\"payment_term\"]\n+                    self.assertEqual(term, {\"term_type\": \"DUE_ON_RECEIPT\"})\n+                    self.assertIsNone(entry.due_on)\n+                    self.assertTrue(getattr(entry, \"provider_receipt_pending\", False))\n+                    self.assertFalse(entry.provider_due_known)\n+                    self.assertEqual(self.sent(demo.mock, \"send\"), [])\n+                    demo.dispatch({\"action\": \"advance\", \"day\": sent_on.isoformat()})\n+                    self.assertIsNone(entry.due_on)\n+                    demo.dispatch({\"action\": \"approve\", \"action_id\": action[\"id\"]})\n+                    self.assertEqual(entry.sent_on, sent_on)\n+                    self.assertEqual(entry.due_on, sent_on)\n+                    self.assertEqual(term[\"due_date\"], sent_on.isoformat())\n+                    self.assertEqual(demo.mock.invoices[iid][\"detail\"][\"metadata\"][\"last_sent_time\"][:10], sent_on.isoformat())\n+                    self.assertEqual(demo.dispatch({\"action\": \"chase\"})[\"state\"][\"pending\"], [])\n+                    demo.agent.tool_get_status(iid)\n+                    self.assertTrue(entry.provider_due_known)\n+                    self.assertFalse(getattr(entry, \"provider_receipt_pending\", False))\n+                    self.assertEqual(entry.due_on, sent_on)\n+                    demo.dispatch({\"action\": \"advance\", \"day\": (sent_on + timedelta(days=1)).isoformat()})\n+                    chased = demo.dispatch({\"action\": \"chase\"})\n+                    reminders = chased[\"state\"][\"pending\"]\n+                    self.assertEqual([p[\"kind\"] for p in reminders], [\"send_reminder\"])\n+                    self.assertIn(\"(1d overdue,\", reminders[0][\"summary\"])\n+                    self.assertIn(sent_on.strftime(\"%b %d, %Y\"), reminders[0][\"payload\"][\"note\"])\n+                    self.assertEqual(self.sent(demo.mock, \"remind\"), [])\n+                    demo.dispatch({\"action\": \"approve\", \"action_id\": reminders[0][\"id\"]})\n+                    self.assertEqual(len(self.sent(demo.mock, \"send\")), 1)\n+                    self.assertEqual(len(self.sent(demo.mock, \"remind\")), 1)\n+                    with self.assertRaises(ValueError):\n+                        demo.agent.approve(reminders[0][\"id\"])\n+                    self.assertEqual(demo.snapshot()[\"external_calls\"], 0)\n+\n+    def test_receipt_builder_does_not_choose_a_date_before_receipt(self):\n+        for day in (date(2026, 10, 1), date(2028, 2, 29)):\n+            self.assertEqual(payment_term(0, day), {\"term_type\": \"DUE_ON_RECEIPT\"})\n+        self.assertEqual(payment_term(None, date(2026, 10, 1)), {\"term_type\": \"NO_DUE_DATE\"})\n+        self.assertEqual(payment_term(12, date(2026, 10, 1)),\n+                         {\"term_type\": \"DUE_ON_DATE_SPECIFIED\", \"due_date\": \"2026-10-13\"})\n+\n+    def test_provider_replaces_positive_draft_with_unresolved_receipt_term(self):\n+        demo, action, entry = self.draft(terms=\"Net 12\")\n+        self.assertEqual(entry.invoice_due_on, date(2026, 10, 13))\n+        self.assertEqual(entry.due_on, date(2026, 10, 13))\n+        demo.mock.invoices[action[\"invoice_id\"]][\"detail\"][\"payment_term\"] = {\"term_type\": \"DUE_ON_RECEIPT\"}\n+        try:\n+            demo.agent.tool_get_status(action[\"invoice_id\"])\n+        except ValueError as exc:\n+            self.fail(f\"Valid undated draft receipt term was refused: {exc}\")\n+        self.assertIsNone(entry.due_on)\n+        self.assertEqual(entry.invoice_due_on, date(2026, 10, 13))\n+        self.assertTrue(getattr(entry, \"provider_receipt_pending\", False))\n+        demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-08\"})\n+        demo.dispatch({\"action\": \"approve\", \"action_id\": action[\"id\"]})\n+        self.assertEqual(entry.due_on, date(2026, 10, 8))\n+        self.assertEqual(demo.dispatch({\"action\": \"chase\"})[\"state\"][\"pending\"], [])\n+        demo.agent.tool_get_status(action[\"invoice_id\"])\n+        self.assertEqual(entry.due_on, date(2026, 10, 8))\n+        self.assertFalse(getattr(entry, \"provider_receipt_pending\", False))\n+\n+    def test_explicit_provider_date_and_no_due_date_replace_pending_receipt(self):\n+        for term, expected in (({\"term_type\": \"DUE_ON_RECEIPT\", \"due_date\": \"2026-11-01\"}, date(2026, 11, 1)),\n+                               ({\"term_type\": \"DUE_ON_DATE_SPECIFIED\", \"due_date\": \"2026-11-03\"}, date(2026, 11, 3)),\n+                               ({\"term_type\": \"NO_DUE_DATE\"}, None)):\n+            with self.subTest(term=term):\n+                demo, action, entry = self.draft()\n+                demo.mock.invoices[action[\"invoice_id\"]][\"detail\"][\"payment_term\"] = deepcopy(term)\n+                demo.agent.tool_get_status(action[\"invoice_id\"])\n+                self.assertFalse(getattr(entry, \"provider_receipt_pending\", False))\n+                self.assertTrue(entry.provider_due_known)\n+                self.assertEqual(entry.due_on, expected)\n+                demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-08\"})\n+                demo.dispatch({\"action\": \"approve\", \"action_id\": action[\"id\"]})\n+                self.assertEqual(entry.due_on, expected)\n+                self.assertEqual(demo.mock.invoices[action[\"invoice_id\"]][\"detail\"][\"payment_term\"], term)\n+                demo.agent.tool_get_status(action[\"invoice_id\"])\n+                self.assertEqual(entry.due_on, expected)\n+                self.assertEqual(self.sent(demo.mock, \"remind\"), [])\n+\n+    def test_bad_provider_terms_do_not_replace_any_cached_fact(self):\n+        for term in (None, {}, {\"term_type\": \"DUE_ON_DATE_SPECIFIED\"},\n+                     *({\"term_type\": \"DUE_ON_RECEIPT\", \"due_date\": invalid}\n+                       for invalid in (None, False, 0, \"\", [], {}, \"2026-02-30\"))):\n+            with self.subTest(term=term):\n+                demo, action, entry = self.draft()\n+                before = asdict(entry)\n+                inv = demo.mock.invoices[action[\"invoice_id\"]]\n+                inv[\"detail\"][\"payment_term\"] = term\n+                inv[\"detail\"][\"invoice_number\"] = \"UNREVIEWED-BAD-TERM\"\n+                with self.assertRaises(ValueError):\n+                    demo.agent.tool_get_status(action[\"invoice_id\"])\n+                self.assertEqual(asdict(entry), before)\n+                self.assertEqual(self.sent(demo.mock, \"send\"), [])\n+                self.assertEqual(demo.agent.client._permits, set())\n+\n+    def test_failed_or_unapproved_send_does_not_resolve_receipt_date(self):\n+        demo, action, entry = self.draft()\n+        iid = action[\"invoice_id\"]\n+        with self.assertRaises(ApprovalRequired):\n+            demo.agent.client.send_invoice(iid)\n+        demo.mock.invoices[iid][\"_has_recipient_email\"] = False\n+        demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-08\"})\n+        with self.assertRaises(PayPalError):\n+            demo.agent.approve(action[\"id\"])\n+        self.assertEqual(entry.status, \"DRAFT\")\n+        self.assertIsNone(entry.sent_on)\n+        self.assertIsNone(entry.due_on)\n+        self.assertNotIn(\"due_date\", demo.mock.invoices[iid][\"detail\"][\"payment_term\"])\n+        self.assertIsNone(demo.mock.invoices[iid][\"detail\"][\"metadata\"].get(\"last_sent_time\"))\n+        self.assertEqual(self.sent(demo.mock, \"remind\"), [])\n+        self.assertEqual(demo.agent.client._permits, set())\n+\n+    def test_later_provider_date_edit_still_invalidates_the_old_reminder(self):\n+        demo, action, entry = self.draft()\n+        demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-08\"})\n+        demo.dispatch({\"action\": \"approve\", \"action_id\": action[\"id\"]})\n+        demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-09\"})\n+        reminder = demo.dispatch({\"action\": \"chase\"})[\"state\"][\"pending\"][0]\n+        old_note = reminder[\"payload\"][\"note\"]\n+        demo.mock.invoices[action[\"invoice_id\"]][\"detail\"][\"payment_term\"][\"due_date\"] = \"2026-11-01\"\n+        with self.assertRaises(ValueError):\n+            demo.agent.approve(reminder[\"id\"])\n+        self.assertEqual(demo.agent.pending[reminder[\"id\"]].status, \"REJECTED\")\n+        self.assertEqual(demo.agent.pending[reminder[\"id\"]].payload[\"note\"], old_note)\n+        self.assertEqual(entry.due_on, date(2026, 11, 1))\n+        self.assertFalse(demo.agent.tool_send_reminder(action[\"invoice_id\"])[\"ok\"])\n+        self.assertEqual(self.sent(demo.mock, \"remind\"), [])\n+\n+    def test_unresolved_sent_provider_receipt_is_held_without_erasing_known_state(self):\n+        demo, action, entry = self.draft()\n+        demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-08\"})\n+        demo.dispatch({\"action\": \"approve\", \"action_id\": action[\"id\"]})\n+        demo.agent.tool_get_status(action[\"invoice_id\"])\n+        before = asdict(entry)\n+        del demo.mock.invoices[action[\"invoice_id\"]][\"detail\"][\"payment_term\"][\"due_date\"]\n+        with self.assertRaises(ValueError):\n+            demo.agent.tool_get_status(action[\"invoice_id\"])\n+        self.assertEqual(asdict(entry), before)\n+        self.assertEqual(self.sent(demo.mock, \"remind\"), [])\n+\n+    def test_receipt_term_observed_after_external_send_cannot_invent_a_deadline(self):\n+        demo, action, entry = self.draft()\n+        before = asdict(entry)\n+        demo.mock.invoices[action[\"invoice_id\"]][\"status\"] = \"SENT\"\n+        demo.mock.invoices[action[\"invoice_id\"]][\"detail\"][\"payment_term\"] = {\"term_type\": \"DUE_ON_RECEIPT\"}\n+        demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-20\"})\n+        with self.assertRaises(ValueError):\n+            demo.agent.tool_get_status(action[\"invoice_id\"])\n+        self.assertEqual(asdict(entry), before)\n+        self.assertIsNone(entry.sent_on)\n+        self.assertIsNone(entry.due_on)\n+        self.assertEqual(self.sent(demo.mock, \"send\"), [])\n+        self.assertEqual(self.sent(demo.mock, \"remind\"), [])\n+\n+    def test_receipt_marker_does_not_survive_a_valid_provider_term_replacement(self):\n+        demo, action, entry = self.draft(terms=\"Net 12\")\n+        for term, expected, pending in (({\"term_type\": \"DUE_ON_RECEIPT\"}, None, True),\n+                                        ({\"term_type\": \"NO_DUE_DATE\"}, None, False),\n+                                        ({\"term_type\": \"NET_15\", \"due_date\": \"2026-10-30\"}, date(2026, 10, 30), False),\n+                                        ({\"term_type\": \"DUE_ON_RECEIPT\"}, None, True),\n+                                        ({\"term_type\": \"DUE_ON_DATE_SPECIFIED\", \"due_date\": \"2026-11-03\"}, date(2026, 11, 3), False)):\n+            with self.subTest(term=term):\n+                demo.mock.invoices[action[\"invoice_id\"]][\"detail\"][\"payment_term\"] = term\n+                try:\n+                    demo.agent.tool_get_status(action[\"invoice_id\"])\n+                except ValueError as exc:\n+                    self.fail(f\"Valid provider term replacement was refused: {exc}\")\n+                self.assertEqual(entry.due_on, expected)\n+                self.assertEqual(getattr(entry, \"provider_receipt_pending\", False), pending)\n+                self.assertEqual(entry.provider_due_known, not pending)\n+        demo.dispatch({\"action\": \"advance\", \"day\": \"2026-10-08\"})\n+        demo.dispatch({\"action\": \"approve\", \"action_id\": action[\"id\"]})\n+        self.assertEqual(entry.due_on, date(2026, 11, 3))\n+        self.assertEqual(self.sent(demo.mock, \"remind\"), [])\n+\n+    def test_current_ledger_positional_prefix_is_unchanged(self):\n+        prefix = [\"invoice_id\", \"invoice_number\", \"client_name\", \"client_email\", \"currency\", \"total\", \"due_days\",\n+                  \"status\", \"sent_on\", \"paid_amount\", \"reminders_sent\", \"last_reminder_on\", \"prepaid\",\n+                  \"provider_due_on\", \"provider_due_known\", \"invoice_due_on\"]\n+        self.assertEqual([f.name for f in fields(LedgerEntry)][:len(prefix)], prefix)\n+\n+\n+if __name__ == \"__main__\":\n+    unittest.main(verbosity=2)\n"
+  },
+  {
+    "command": [
+      "git",
+      "checkout",
+      "-b",
+      "receiving/current-1b2-published-composite",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "Switched to a new branch 'receiving/current-1b2-published-composite'\n"
+  },
+  {
+    "command": [
+      "git",
+      "merge",
+      "--no-ff",
+      "--no-commit",
+      "f67e2c4034804f657eccad38887f377f28011e98"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "Auto-merging ledgerly/agent.py\nAuto-merging ledgerly/paypal.py\nAutomatic merge went well; stopped before committing as requested\n"
+  },
+  {
+    "command": [
+      "git",
+      "ls-files",
+      "-u"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "git",
+      "-c",
+      "user.name=HAMON independent receiver",
+      "-c",
+      "user.email=receiving@example.invalid",
+      "commit",
+      "-m",
+      "Compose published extraction with owner receipt terms for receiving"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "[receiving/current-1b2-published-composite e716cdc] Compose published extraction with owner receipt terms for receiving\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "e716cdcd452c381c18c052f61862e8d4b0ea1297\n"
+  },
+  {
+    "command": [
+      "git",
+      "merge",
+      "--no-ff",
+      "--no-commit",
+      "d4ff41c66abe816a0c8b891bf75e0ad21ebaa755"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "Auto-merging ledgerly/agent.py\nAutomatic merge went well; stopped before committing as requested\n"
+  },
+  {
+    "command": [
+      "git",
+      "ls-files",
+      "-u"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "git",
+      "-c",
+      "user.name=HAMON independent receiver",
+      "-c",
+      "user.email=receiving@example.invalid",
+      "commit",
+      "-m",
+      "Compose published webhook with latest owner and extraction for receiving"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "[receiving/current-1b2-published-composite 4b13756] Compose published webhook with latest owner and extraction for receiving\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "4b1375645ee98af6cb0afeaacafaaf642776f98b\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "4b1375645ee98af6cb0afeaacafaaf642776f98b\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "7bbd3e34686e633e71908eb4f2bc4c0342451731\n"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "4b1375645ee98af6cb0afeaacafaaf642776f98b\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD^{tree}"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "7bbd3e34686e633e71908eb4f2bc4c0342451731\n"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "4b1375645ee98af6cb0afeaacafaaf642776f98b:web-demo/src"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "e9d202064d9576b52bd40a7d20fdd4a522456ea8\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "4b1375645ee98af6cb0afeaacafaaf642776f98b:web-demo/tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "25f4c0afe290790fdab6dc3dde79f47b9017732e\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "4b1375645ee98af6cb0afeaacafaaf642776f98b:web-demo/python"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "ec8cbd499cf031eb2f99e9e0213c94fb4a9f4250\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365:web-demo/src"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "e9d202064d9576b52bd40a7d20fdd4a522456ea8\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365:web-demo/tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "25f4c0afe290790fdab6dc3dde79f47b9017732e\n"
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365:web-demo/python"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "ec8cbd499cf031eb2f99e9e0213c94fb4a9f4250\n"
+  },
+  {
+    "command": [
+      "git",
+      "hash-object",
+      "ledgerly/agent.py"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "8ba49c074571f74cbdab3e851861648322de8f17\n"
+  },
+  {
+    "command": [
+      "git",
+      "hash-object",
+      "ledgerly/extract.py"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "100e581d3ef0d99555f49264859d01b535c6094f\n"
+  },
+  {
+    "command": [
+      "git",
+      "hash-object",
+      "ledgerly/paypal.py"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "1d805837d9ed4fe29f42ae7093764c47b0060edd\n"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "1b2b902d5dd412a8b61c9b9075b815c1d0029365",
+      "4b1375645ee98af6cb0afeaacafaaf642776f98b",
+      "--",
+      "ledgerly",
+      "tests"
+    ],
+    "cwd": "/dev/shm/ledgerly-composition-current-1b2-06e2ad0ce13f/checkout",
+    "exit_code": 0,
+    "output": "diff --git a/ledgerly/agent.py b/ledgerly/agent.py\nindex 0119c1a..8ba49c0 100644\n--- a/ledgerly/agent.py\n+++ b/ledgerly/agent.py\n@@ -17,6 +17,7 @@ from __future__ import annotations\n \n import contextlib\n import copy\n+import hashlib\n import json\n import uuid\n from dataclasses import dataclass, field\n@@ -24,7 +25,7 @@ from datetime import date, datetime, timezone\n from decimal import Decimal\n from typing import Any, Callable, Optional, Protocol\n \n-from .extract import Extraction, Extractor, RulesExtractor, split_by_currency\n+from .extract import Extraction, Extractor, RulesExtractor, split_by_currency, validate\n from .paypal import (\n     OPEN_STATUSES, PAID_STATUSES, InvoicingClient, PayPalError, Response, WebhookError,\n     build_invoice, parse_webhook_event,\n@@ -248,7 +249,7 @@ class Agent:\n         self.ledger: dict[str, LedgerEntry] = {}\n         self.pending: dict[str, PendingAction] = {}\n         self.audit: list[dict] = []\n-        self._seen_events: set[str] = set()\n+        self._seen_events: dict[str, str] = {}\n \n     # -- tool loop\n     def run(self, goal: str, planner: Planner, max_steps: int = 12) -> dict:\n@@ -275,10 +276,15 @@ class Agent:\n     # -- tools (safe: never send, never move money)\n     def tool_create_invoice(self, text: str) -> dict:\n         ex = self.extractor.extract(text)\n-        if ex.errors or ex.confidence < self.min_confidence:\n+        # Extractor adapters may return a reviewed value with stale/no issues.\n+        # Admit the whole job before allocating even the first invoice number.\n+        issues = [*ex.issues]\n+        issues.extend(issue for issue in validate(ex) if issue not in issues)\n+        errors = [issue for issue in issues if issue.severity == \"error\"]\n+        if errors or ex.confidence < self.min_confidence:\n             return {\"ok\": False, \"needs_review\": True, \"confidence\": ex.confidence,\n-                    \"issues\": [i.to_dict() for i in ex.issues],\n-                    \"message\": f\"needs human review (confidence {ex.confidence}, {len(ex.errors)} error(s))\"}\n+                    \"issues\": [i.to_dict() for i in issues],\n+                    \"message\": f\"needs human review (confidence {ex.confidence}, {len(errors)} error(s))\"}\n         created = []\n         for part in split_by_currency(ex):\n             number = self.client.generate_next_invoice_number().body[\"invoice_number\"]\n@@ -303,7 +309,7 @@ class Agent:\n             created.append({\"invoice_id\": inv_id, \"invoice_number\": number, \"currency\": part.currency,\n                             \"total\": str(part.total()), \"approval_id\": action.id})\n         return {\"ok\": True, \"invoices\": created, \"confidence\": ex.confidence,\n-                \"issues\": [i.to_dict() for i in ex.issues],\n+                \"issues\": [i.to_dict() for i in issues],\n                 \"message\": f\"{len(created)} draft(s) created; awaiting approval to send\"}\n \n     def tool_get_status(self, invoice_id: str) -> dict:\n@@ -405,19 +411,32 @@ class Agent:\n                 self._log(\"webhook_rejected\", reason=\"bad signature\")\n                 raise WebhookError(\"signature verification failed\")\n         ev = parse_webhook_event(raw_body)\n-        if ev.event_id in self._seen_events:\n+        if not isinstance(ev.event_id, str) or not ev.event_id or ev.event_id.strip() != ev.event_id:\n+            raise WebhookError(\"event ID must be a nonempty string without surrounding whitespace\")\n+        if not isinstance(ev.invoice_id, str) or not ev.invoice_id or ev.invoice_id.strip() != ev.invoice_id:\n+            raise WebhookError(\"invoice ID must be a nonempty string without surrounding whitespace\")\n+        try:\n+            canonical = json.dumps(json.loads(raw_body), sort_keys=True, separators=(\",\", \":\"), allow_nan=False)\n+        except (TypeError, ValueError) as err:\n+            raise WebhookError(\"event content must be finite JSON\") from err\n+        digest = hashlib.sha256(canonical.encode(\"utf-8\")).hexdigest()\n+        prior = self._seen_events.get(ev.event_id)\n+        if prior is not None:\n+            if prior != digest:\n+                self._log(\"webhook_rejected\", reason=\"event identity conflict\", event_id=ev.event_id)\n+                raise WebhookError(\"Webhook event identity conflict\")\n             return {\"ok\": True, \"duplicate\": True, \"invoice_id\": ev.invoice_id}\n-        self._seen_events.add(ev.event_id)\n         e = self.ledger.get(ev.invoice_id)\n         if e is None:\n             self._log(\"webhook_unknown_invoice\", invoice=ev.invoice_id)\n             return {\"ok\": False, \"message\": \"unknown invoice\"}\n         prev = e.status\n-        e.status = ev.status\n-        if ev.paid_amount is not None:\n-            e.paid_amount = ev.paid_amount\n-        self._invalidate_reminders(e, self.today())\n-        self._log(\"webhook\", event_type=ev.event_type, invoice=ev.invoice_id, transition=f\"{prev}->{e.status}\")\n+        # A signed notification can arrive late. Reuse the current-invoice read\n+        # and reminder invalidation before consuming its identity for replay.\n+        self._refresh_invoice(ev.invoice_id)\n+        self._seen_events[ev.event_id] = digest\n+        self._log(\"webhook\", event_type=ev.event_type, invoice=ev.invoice_id,\n+                  transition=f\"{prev}->{e.status}\", reported_status=ev.status, source=\"current_invoice\")\n         return {\"ok\": True, \"invoice_id\": ev.invoice_id, \"from\": prev, \"to\": e.status}\n \n     # -- internals\ndiff --git a/ledgerly/extract.py b/ledgerly/extract.py\nindex c4ee64a..100e581 100644\n--- a/ledgerly/extract.py\n+++ b/ledgerly/extract.py\n@@ -17,7 +17,7 @@ import json\n import re\n from collections import Counter\n from dataclasses import dataclass, field\n-from decimal import ROUND_HALF_UP, Decimal, InvalidOperation\n+from decimal import ROUND_HALF_UP, Decimal, DecimalException, InvalidOperation, localcontext\n from typing import Any, Callable, Optional, Protocol\n \n # Subset of PayPal-supported currency codes.\n@@ -41,20 +41,25 @@ SEVERITY_PENALTY = {\"error\": 0.25, \"warning\": 0.10, \"info\": 0.0}\n EMAIL_RE = re.compile(r\"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\")\n _SYM = \"|\".join(re.escape(s) for s in sorted(SYMBOLS, key=len, reverse=True))\n _CODE = \"|\".join(sorted(PAYPAL_CURRENCIES))\n-_NUM = r\"\\d{1,3}(?:,\\d{3})+(?:\\.\\d{1,2})?|\\d+(?:\\.\\d{1,2})?\"\n-_NO_SUFFIX = r\"(?![\\d.,]*[kKmM]\\b)\"  # don't read \"$5k\" as $5\n+# Consume a complete number-like token first. _dec checks comma grouping, so\n+# malformed text cannot be silently shortened to its first valid numeric prefix.\n+_NUM = r\"[+-]?(?:\\d(?:[\\d,]*\\d)?(?:\\.\\d+)?|\\.\\d+)(?:[eE][+-]?\\d+)?\"\n+_NO_SUFFIX = r\"(?!\\d|[\\d.,]*[kKmM]\\b|[eE]|[.,]\\d)\"\n MONEY_RE = re.compile(\n-    rf\"(?:(?P<pre>{_SYM}|\\b(?:{_CODE})\\b)\\s?(?P<num>{_NUM}){_NO_SUFFIX}\"\n-    rf\"|(?P<num2>{_NUM}){_NO_SUFFIX}\\s?(?P<post>\\b(?:{_CODE})\\b|\u20ac|\u00a3))\"\n+    rf\"(?:(?P<sign>[+-])?(?P<pre>{_SYM}|\\b(?:{_CODE})\\b)\\s?(?P<num>{_NUM}){_NO_SUFFIX}\"\n+    rf\"|(?<![\\w.,])(?P<num2>{_NUM}){_NO_SUFFIX}\\s?(?P<post>\\b(?:{_CODE})\\b|\u20ac|\u00a3))\"\n )\n+_MONEY_CANDIDATE_RE = re.compile(rf\"(?:{_SYM}|\\b(?:{_CODE})\\b)\\s*(?:[+\\-\\d(]|\\.\\d)\")\n+_GROUPED_NUMBER_RE = re.compile(r\"[+-]?\\d{1,3}(?:,\\d{3})+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?\")\n \n _WORD_NUMS = {\n     \"one\": 1, \"two\": 2, \"three\": 3, \"four\": 4, \"five\": 5, \"six\": 6, \"seven\": 7,\n     \"eight\": 8, \"nine\": 9, \"ten\": 10, \"eleven\": 11, \"twelve\": 12,\n }\n+_Q_NUMBER = r\"[+-]?(?:\\d{1,3}(?:,\\d{3})+(?:\\.\\d+)?|\\d+(?:\\.\\d+)?|\\.\\d+)\"\n _Q = (\n     r\"(?:(?:~\\s*|approx\\.?\\s*|about\\s+|around\\s+|roughly\\s+)?\"\n-    r\"\\d+(?:\\.\\d+)?(?:\\s*(?:-|\u2013|to)\\s*\\d+(?:\\.\\d+)?)?\"\n+    + _Q_NUMBER + r\"(?:\\s*(?:-|\u2013|to)\\s*\" + _Q_NUMBER + r\")?\"\n     r\"|(?:a\\s+few|a\\s+couple(?:\\s+of)?|several|some|\"\n     + \"|\".join(_WORD_NUMS) + r\")\\b)\"\n )\n@@ -217,10 +222,21 @@ class Extractor(Protocol):\n # ----------------------------------------------------------------- helpers\n \n def _dec(v: Any) -> Decimal:\n+    literal = str(v).strip()\n+    if \",\" in literal and not _GROUPED_NUMBER_RE.fullmatch(literal):\n+        raise ValueError(f\"ambiguous number grouping: {v!r}\")\n     try:\n-        return Decimal(str(v).replace(\",\", \"\").strip())\n+        value = Decimal(literal.replace(\",\", \"\"))\n     except (InvalidOperation, AttributeError):\n         raise ValueError(f\"not a number: {v!r}\")\n+    if not value.is_finite():\n+        raise ValueError(f\"not a finite number: {v!r}\")\n+    # No accepted invoice can represent more than 28 integer digits in the\n+    # existing Decimal context. Refuse before rules summaries or deposit sums\n+    # perform arithmetic, including newly recognized exponent notation.\n+    if value.adjusted() > 27:\n+        raise ValueError(f\"number exceeds supported invoice arithmetic range: {v!r}\")\n+    return value\n \n \n def quantize(value: Decimal, currency: Optional[str]) -> Decimal:\n@@ -238,7 +254,10 @@ def parse_money(m: re.Match) -> tuple[Optional[str], Decimal, str]:\n     tok = m.group(\"pre\") or m.group(\"post\") or \"\"\n     num = m.group(\"num\") or m.group(\"num2\")\n     code = SYMBOLS.get(tok, tok.upper() if tok.upper() in PAYPAL_CURRENCIES else None)\n-    return code, _dec(num), tok\n+    sign = m.group(\"sign\")\n+    if sign and num.startswith((\"+\", \"-\")):\n+        raise ValueError(\"conflicting amount signs\")\n+    return code, _dec((sign or \"\") + num), tok\n \n \n def parse_qty(raw: str) -> tuple[Optional[Decimal], Optional[str]]:\n@@ -251,14 +270,15 @@ def parse_qty(raw: str) -> tuple[Optional[Decimal], Optional[str]]:\n     if s in _WORD_NUMS:\n         return Decimal(_WORD_NUMS[s]), None\n     approx = re.match(r\"^(?:~\\s*|approx\\.?\\s*|about\\s+|around\\s+|roughly\\s+)\", s)\n-    rng = re.search(r\"(\\d+(?:\\.\\d+)?)\\s*(?:-|\u2013|to)\\s*(\\d+(?:\\.\\d+)?)\", s)\n+    numeric = s[approx.end():] if approx else s\n+    rng = re.fullmatch(rf\"({_Q_NUMBER})\\s*(?:-|\u2013|to)\\s*({_Q_NUMBER})\", numeric)\n     if rng:\n-        lo = Decimal(rng.group(1))\n+        lo = _dec(rng.group(1))\n         return lo, f\"range '{raw.strip()}' - used lower bound {lo}; confirm with client\"\n-    n = re.search(r\"\\d+(?:\\.\\d+)?\", s)\n+    n = re.fullmatch(_Q_NUMBER, numeric)\n     if not n:\n         return None, f\"unreadable quantity '{raw.strip()}'\"\n-    q = Decimal(n.group(0))\n+    q = _dec(n.group(0))\n     if approx:\n         return q, f\"approximate quantity '{raw.strip()}' - used {q}\"\n     return q, None\n@@ -311,6 +331,32 @@ def _signature_name(body: str) -> Optional[str]:\n def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:\n     \"\"\"Checks shared by every extractor. Returns NEW issues (does not mutate).\"\"\"\n     out: list[Issue] = []\n+\n+    def finite(value: Any) -> bool:\n+        return (isinstance(value, (Decimal, int)) and not isinstance(value, bool)\n+                and (not isinstance(value, Decimal) or value.is_finite()))\n+\n+    def money(value: Any, currency: Optional[str], field: str, *, positive: bool) -> bool:\n+        if not finite(value):\n+            out.append(Issue(field, \"error\", \"Amount must be a finite number.\"))\n+            return False\n+        if value < 0 or (positive and value == 0):\n+            out.append(Issue(field, \"error\", \"Amount must be positive.\" if positive else \"Prior payment cannot be negative.\"))\n+            return False\n+        if currency not in PAYPAL_CURRENCIES:\n+            return False  # the currency issue is recorded separately\n+        try:\n+            rounded = quantize(Decimal(value), currency)\n+        except DecimalException:\n+            out.append(Issue(field, \"error\", \"Amount is too large to represent at invoice precision.\"))\n+            return False\n+        if rounded != value:\n+            message = (f\"{currency} does not support decimals on PayPal.\" if currency in ZERO_DECIMAL_CURRENCIES\n+                       else f\"Amount has fractions smaller than a {currency} currency unit; review it before drafting.\")\n+            out.append(Issue(field, \"error\", message))\n+            return False\n+        return True\n+\n     if not ex.client_email:\n         out.append(Issue(\"client_email\", \"error\", \"No client email found; PayPal needs a recipient email to send an invoice.\"))\n     elif not EMAIL_RE.fullmatch(ex.client_email):\n@@ -321,28 +367,63 @@ def validate(ex: Extraction, source_text: Optional[str] = None) -> list[Issue]:\n         out.append(Issue(\"client_name\", \"warning\", \"No client name found.\"))\n     if not ex.line_items:\n         out.append(Issue(\"line_items\", \"error\", \"No priced line items found.\"))\n+    valid_amounts = True\n+    currency_amounts: dict[str, list[Decimal]] = {}\n     for n, li in enumerate(ex.line_items):\n-        if li.qty is not None and li.qty <= 0:\n-            out.append(Issue(f\"line_items[{n}].qty\", \"error\", \"Quantity must be positive.\"))\n-        if li.unit_price <= 0:\n-            out.append(Issue(f\"line_items[{n}].unit_price\", \"error\", \"Unit price must be positive.\"))\n-        if li.currency in ZERO_DECIMAL_CURRENCIES and li.unit_price != li.unit_price.to_integral_value():\n-            out.append(Issue(f\"line_items[{n}].unit_price\", \"error\", f\"{li.currency} does not support decimals on PayPal.\"))\n+        qty_ok = finite(li.qty)\n+        if not qty_ok:\n+            out.append(Issue(f\"line_items[{n}].qty\", \"error\", \"Quantity is required and must be a finite number.\"))\n+        elif not 0 < li.qty <= 1000000:\n+            out.append(Issue(f\"line_items[{n}].qty\", \"error\", \"Quantity must be positive and no greater than 1000000.\"))\n+            qty_ok = False\n+        elif Decimal(li.qty).quantize(Decimal(\"0.00001\")) != li.qty:\n+            out.append(Issue(f\"line_items[{n}].qty\", \"error\", \"Quantity supports at most five decimal places.\"))\n+            qty_ok = False\n         if not li.currency:\n             out.append(Issue(f\"line_items[{n}].currency\", \"error\", \"Currency unknown for this item.\"))\n+        elif li.currency not in PAYPAL_CURRENCIES:\n+            out.append(Issue(f\"line_items[{n}].currency\", \"error\", f\"{li.currency} is not a supported invoice currency.\"))\n+        price_ok = money(li.unit_price, li.currency, f\"line_items[{n}].unit_price\", positive=True)\n+        if qty_ok and price_ok:\n+            # Refuse implicit sub-unit rounding, including fractional quantities.\n+            # This is Ledgerly's exact-value policy, not a claimed PayPal rejection.\n+            with localcontext() as ctx:\n+                ctx.prec = max(ctx.prec, len(Decimal(li.qty).as_tuple().digits)\n+                               + len(Decimal(li.unit_price).as_tuple().digits) + 1)\n+                amount = Decimal(li.qty) * Decimal(li.unit_price)\n+            amount_ok = money(amount, li.currency, f\"line_items[{n}].amount\", positive=True)\n+            valid_amounts = valid_amounts and amount_ok\n+            if amount_ok:\n+                currency_amounts.setdefault(li.currency, []).append(amount)\n+        else:\n+            valid_amounts = False\n+    currency_totals: dict[str, Decimal] = {}\n+    for currency, amounts in currency_amounts.items():\n+        with localcontext() as ctx:\n+            ctx.prec = max(ctx.prec, max(len(amount.as_tuple().digits) for amount in amounts)\n+                           + len(str(len(amounts))) + 1)\n+            total = sum(amounts, Decimal(0))\n+        currency_totals[currency] = total\n+        if not money(total, currency, f\"currency_totals[{currency}]\", positive=True):\n+            valid_amounts = False\n     ccys = ex.currencies()\n     if len(ccys) > 1:\n         out.append(Issue(\"currency\", \"warning\",\n                          f\"Multiple currencies {ccys}; a PayPal invoice has one currency_code, so this will be split into {len(ccys)} invoices.\"))\n-    if ex.currency and ex.currency not in PAYPAL_CURRENCIES:\n+    if not ex.currency:\n+        out.append(Issue(\"currency\", \"error\", \"Invoice currency is required.\"))\n+    elif ex.currency not in PAYPAL_CURRENCIES:\n         out.append(Issue(\"currency\", \"error\", f\"{ex.currency} is not a PayPal-supported currency.\"))\n+    elif ccys and ex.currency not in ccys:\n+        out.append(Issue(\"currency\", \"error\", f\"Invoice currency {ex.currency} does not match item currencies {ccys}; review rather than convert the amounts.\"))\n     if ex.due_days is not None and not (0 <= ex.due_days <= 365):\n         out.append(Issue(\"due_days\", \"error\", f\"Implausible payment term: {ex.due_days} days.\"))\n-    if ex.amount_paid > 0:\n+    paid_ok = money(ex.amount_paid, ex.currency, \"amount_paid\", positive=False)\n+    if paid_ok and ex.amount_paid > 0:\n         if len(ccys) > 1:\n             out.append(Issue(\"amount_paid\", \"error\", \"Prior payment reported on a multi-currency job; assign it manually.\"))\n-        elif ex.line_items and ex.amount_paid >= ex.total():\n-            out.append(Issue(\"amount_paid\", \"error\", f\"Reported payment {ex.amount_paid} >= invoice total {ex.total()}.\"))\n+        elif valid_amounts and ex.currency in currency_totals and ex.amount_paid >= currency_totals[ex.currency]:\n+            out.append(Issue(\"amount_paid\", \"error\", f\"Reported payment {ex.amount_paid} >= invoice total {currency_totals[ex.currency]}.\"))\n     return out\n \n \n@@ -419,6 +500,7 @@ class RulesExtractor:\n         issues: list[Issue] = []\n         stated: list[tuple[Optional[str], Decimal]] = []\n         paid = Decimal(0)\n+        payments: list[tuple[Optional[str], Decimal]] = []\n \n         t_items, consumed, t_issues, t_totals = self._table(lines, doc_ccy)\n         items += t_items\n@@ -433,8 +515,16 @@ class RulesExtractor:\n                 continue\n             monies = list(MONEY_RE.finditer(line))\n             if not monies:\n+                if _MONEY_CANDIDATE_RE.search(line):\n+                    issues.append(Issue(\"line_items\", \"error\", f\"Ambiguous monetary amount; review the entire priced line: {line!r}\"))\n                 continue\n-            ccy, amt, tok = parse_money(monies[0])\n+            try:\n+                ccy, amt, tok = parse_money(monies[0])\n+            except ValueError as error:\n+                issues.append(Issue(\"line_items\", \"error\", f\"Unreadable monetary amount ({error}); review line: {line!r}\"))\n+                continue\n+            if tok == \"$\" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES:\n+                ccy = doc_ccy\n             if _PAID_RE.search(line):\n                 # A payment label is not evidence that money was received. Keep\n                 # uncertain language out of amount_paid and require the existing\n@@ -443,7 +533,13 @@ class RulesExtractor:\n                 # a condition, quotation, request or unsettled payment report.\n                 statement = re.sub(r\"\\s+\", \" \", line[:monies[0].start()] + \"<M>\" + line[monies[0].end():])\n                 if len(monies) == 1 and _PAID_CONFIRMED_RE.fullmatch(statement):\n-                    paid += amt\n+                    payments.append((ccy, amt))\n+                    try:\n+                        valid_payment = amt >= 0 and quantize(amt, ccy) == amt\n+                    except DecimalException:\n+                        valid_payment = False\n+                    if not valid_payment:\n+                        issues.append(Issue(\"amount_paid\", \"error\", f\"Prior payment {ccy} {amt} must be nonnegative and exactly representable in its currency; review it before drafting.\"))\n                 else:\n                     issues.append(Issue(\"amount_paid\", \"error\",\n                                         f\"Prior payment is not unambiguously confirmed; review the amount already received: {line!r}\"))\n@@ -463,6 +559,15 @@ class RulesExtractor:\n                 sev = \"error\" if item.qty is None else \"warning\"\n                 issues.append(Issue(f\"line_items[{len(items)}].qty\", sev, reason))\n             items.append(item)\n+        if payments:\n+            with localcontext() as ctx:\n+                ctx.prec = max(ctx.prec, max(len(amount.as_tuple().digits) for _, amount in payments)\n+                               + len(str(len(payments))) + 1)\n+                paid = sum((amount for _, amount in payments), Decimal(0))\n+            item_currencies = {item.currency for item in items}\n+            payment_currencies = {currency for currency, _ in payments}\n+            if len(item_currencies) != 1 or payment_currencies != item_currencies:\n+                issues.append(Issue(\"amount_paid\", \"error\", f\"Prior payment currencies {sorted(payment_currencies)} do not match a single item currency {sorted(item_currencies, key=str)}; assign payments manually without currency conversion.\"))\n         return items, paid, stated, issues\n \n     @staticmethod\n@@ -516,15 +621,23 @@ class RulesExtractor:\n                 continue\n             mm = MONEY_RE.search(raw_price)\n             if mm:\n-                ccy, price, tok = parse_money(mm)\n+                try:\n+                    ccy, price, tok = parse_money(mm)\n+                except ValueError as error:\n+                    issues.append(Issue(\"line_items\", \"error\", f\"Unreadable table amount ({error}): {raw_price!r}\"))\n+                    continue\n                 if tok == \"$\" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES and doc_ccy != \"USD\":\n                     ccy = doc_ccy\n             else:\n-                bare = re.search(_NUM, raw_price)\n+                bare = re.fullmatch(_NUM, raw_price)\n                 if not bare:\n-                    issues.append(Issue(\"line_items\", \"warning\", f\"No price in table row: {lines[i].strip()!r}\"))\n+                    issues.append(Issue(\"line_items\", \"error\", f\"No unambiguous price in table row: {lines[i].strip()!r}\"))\n+                    continue\n+                try:\n+                    ccy, price = None, _dec(bare.group(0))\n+                except ValueError as error:\n+                    issues.append(Issue(\"line_items\", \"error\", f\"Unreadable table amount ({error}): {raw_price!r}\"))\n                     continue\n-                ccy, price = None, _dec(bare.group(0))\n             if _TOTAL_RE.search(desc):\n                 totals.append((ccy or doc_ccy, price))\n                 continue\ndiff --git a/ledgerly/paypal.py b/ledgerly/paypal.py\nindex 04cc47d..1d80583 100644\n--- a/ledgerly/paypal.py\n+++ b/ledgerly/paypal.py\n@@ -38,7 +38,7 @@ from datetime import date, datetime, timedelta, timezone\n from decimal import Decimal\n from typing import Any, Callable, Optional, Protocol\n \n-from .extract import Extraction, quantize\n+from .extract import Extraction, quantize, validate\n \n SANDBOX_BASE = \"https://api-m.sandbox.paypal.com\"\n LIVE_BASE = \"https://api-m.paypal.com\"\n@@ -126,15 +126,21 @@ def payment_term(due_days: Optional[int], invoice_date: date) -> dict:\n def build_invoice(ex: Extraction, invoicer: dict, invoice_number: str, invoice_date: date,\n                   note: str = \"\", allow_partial: bool = False) -> dict:\n     \"\"\"Extraction -> Invoicing v2 create-draft request body. Single-currency only.\"\"\"\n+    errors = [*ex.errors, *(issue for issue in validate(ex) if issue.severity == \"error\")]\n+    if errors:\n+        raise ValueError(\"Invoice needs review: \" + \"; \".join(f\"{i.field}: {i.message}\" for i in errors))\n     ccy = ex.currency\n-    if not ccy or len(ex.currencies()) > 1:\n+    if not ccy or ex.currencies() != [ccy]:\n         raise ValueError(\"build_invoice needs exactly one currency; use extract.split_by_currency first\")\n     items = []\n     for li in ex.line_items:\n         uom = \"HOURS\" if (li.unit or \"\").lower().startswith((\"h\", \"hr\")) else \"QUANTITY\"\n+        quantity = format(li.qty, \"f\")\n+        if \".\" in quantity:\n+            quantity = quantity.rstrip(\"0\").rstrip(\".\")\n         items.append({\n             \"name\": li.desc[:200],\n-            \"quantity\": str(li.qty),\n+            \"quantity\": quantity,\n             \"unit_amount\": _money(li.unit_price, ccy),\n             \"unit_of_measure\": uom,\n         })\ndiff --git a/tests/test_invoice_value_boundaries.py b/tests/test_invoice_value_boundaries.py\nnew file mode 100644\nindex 0000000..7d2b648\n--- /dev/null\n+++ b/tests/test_invoice_value_boundaries.py\n@@ -0,0 +1,140 @@\n+\"\"\"Exercise invoice values at extraction, serialization and draft receiving boundaries.\"\"\"\n+import json\n+from datetime import date\n+from decimal import Decimal\n+\n+import pytest\n+\n+from ledgerly.agent import Agent\n+from ledgerly.extract import Extraction, LLMExtractor, RulesExtractor, validate\n+from ledgerly.paypal import SandboxMock, build_invoice\n+\n+\n+SOURCE = \"From: Client <client@example.test>\\n\\n- 2 x Work @ $10\\nNet 30\\n\"\n+INVOICER = {\"name\": \"Freelancer\", \"email_address\": \"freelancer@example.test\"}\n+\n+\n+def payload(**changes):\n+    return {\n+        \"client_name\": \"Client\", \"client_email\": \"client@example.test\", \"currency\": \"USD\",\n+        \"line_items\": [{\"desc\": \"Work\", \"qty\": \"2\", \"unit_price\": \"10\", \"currency\": \"USD\"}],\n+        \"due_days\": 30, \"amount_paid\": \"0\", \"confidence\": 1.0, **changes,\n+    }\n+\n+\n+def line_payload(**changes):\n+    return payload(line_items=[{\"desc\": \"Work\", \"qty\": \"2\", \"unit_price\": \"10\",\n+                                \"currency\": \"USD\", **changes}])\n+\n+\n+def draft(data, extractor=None):\n+    mock = SandboxMock()\n+    extractor = extractor or LLMExtractor(lambda _: json.dumps(data))\n+    agent = Agent(mock, INVOICER, extractor=extractor, today=lambda: date(2026, 10, 8))\n+    return agent.tool_create_invoice(SOURCE), agent, mock\n+\n+\n+@pytest.mark.parametrize(\"data\", [\n+    line_payload(qty=None),\n+    line_payload(qty=\"0\"),\n+    line_payload(qty=\"-1\"),\n+    line_payload(qty=\"1000001\"),\n+    line_payload(qty=\"0.000001\"),\n+    line_payload(unit_price=\"0.015\"),\n+    line_payload(currency=\"EUR\"),\n+    line_payload(currency=\"XYZ\"),\n+    payload(currency=\"XYZ\", line_items=[{\"desc\": \"Work\", \"qty\": 1,\n+                                        \"unit_price\": \"10\", \"currency\": \"XYZ\"}]),\n+    payload(amount_paid=\"-1\"),\n+    payload(amount_paid=\"0.001\"),\n+    line_payload(qty=\"0.5\", unit_price=\"0.01\"),\n+])\n+def test_invalid_invoice_is_reviewable_before_any_provider_call(data):\n+    result, agent, mock = draft(data)\n+    assert result[\"ok\"] is False and result[\"needs_review\"] is True\n+    assert any(issue[\"severity\"] == \"error\" for issue in result[\"issues\"])\n+    assert mock.requests == []\n+    assert mock.invoices == {} and agent.ledger == {} and agent.list_pending() == []\n+\n+\n+@pytest.mark.parametrize(\"field\", [\"qty\", \"unit_price\", \"amount_paid\"])\n+@pytest.mark.parametrize(\"value\", [\"NaN\", \"sNaN\", \"Infinity\", \"-Infinity\"])\n+def test_nonfinite_model_values_return_review_without_decimal_errors(field, value):\n+    data = payload(amount_paid=value) if field == \"amount_paid\" else line_payload(**{field: value})\n+    result, agent, mock = draft(data)\n+    assert result[\"ok\"] is False and result[\"needs_review\"] is True\n+    assert mock.requests == [] and agent.list_pending() == []\n+\n+\n+@pytest.mark.parametrize(\"field\", [\"qty\", \"unit_price\", \"amount_paid\"])\n+@pytest.mark.parametrize(\"value\", [\"NaN\", \"sNaN\", \"Infinity\", \"-Infinity\"])\n+def test_direct_decimal_values_are_refused_by_validator_and_builder(field, value):\n+    ex = Extraction.from_dict(payload())\n+    target = ex if field == \"amount_paid\" else ex.line_items[0]\n+    setattr(target, field, Decimal(value))\n+    assert any(i.severity == \"error\" for i in validate(ex))\n+    with pytest.raises(ValueError):\n+        build_invoice(ex, INVOICER, \"N\", date(2026, 10, 8))\n+\n+\n+def test_custom_extractor_cannot_skip_the_core_validation_before_drafting():\n+    ex = Extraction.from_dict(line_payload(currency=\"EUR\"))\n+    ex.confidence = 1.0\n+\n+    class AlreadyReviewed:\n+        def extract(self, _):\n+            return ex\n+\n+    result, agent, mock = draft({}, extractor=AlreadyReviewed())\n+    assert result[\"ok\"] is False and result[\"needs_review\"] is True\n+    assert mock.requests == [] and agent.list_pending() == []\n+    assert ex.issues == []  # admission does not mutate the custom extractor's value\n+\n+\n+@pytest.mark.parametrize(\"data\", [line_payload(currency=\"EUR\"), line_payload(qty=None),\n+                                  line_payload(unit_price=\"0.015\"), payload(amount_paid=\"-1\")])\n+def test_direct_builder_revalidates_even_when_issue_list_is_empty(data):\n+    ex = Extraction.from_dict(data)\n+    assert ex.issues == []\n+    with pytest.raises(ValueError):\n+        build_invoice(ex, INVOICER, \"N\", date(2026, 10, 8))\n+\n+\n+def test_rules_keep_the_entire_price_instead_of_truncating_at_two_decimals():\n+    source = SOURCE.replace(\"$10\", \"$0.015\")\n+    ex = RulesExtractor().extract(source)\n+    assert ex.line_items[0].unit_price == Decimal(\"0.015\")\n+    assert any(i.field == \"line_items[0].unit_price\" and i.severity == \"error\" for i in ex.issues)\n+    mock = SandboxMock()\n+    result = Agent(mock, INVOICER).tool_create_invoice(source)\n+    assert result[\"needs_review\"] is True and mock.requests == []\n+\n+\n+@pytest.mark.parametrize(\"qty,price,currency\", [\n+    (\"0.5\", \"85.00\", \"USD\"), (\"1E+2\", \"0.01\", \"USD\"),\n+    (\"2.000000\", \"10.000\", \"USD\"), (\"0.5\", \"100\", \"JPY\"),\n+])\n+def test_accepted_values_preserve_currency_and_amount_across_the_real_draft_path(qty, price, currency):\n+    data = payload(currency=currency, line_items=[{\"desc\": \"Work\", \"qty\": qty,\n+                    \"unit_price\": price, \"currency\": currency}])\n+    result, agent, mock = draft(data)\n+    assert result[\"ok\"] is True, result\n+    summary = result[\"invoices\"][0]\n+    invoice = mock.invoices[summary[\"invoice_id\"]]\n+    assert invoice[\"detail\"][\"currency_code\"] == currency\n+    assert Decimal(invoice[\"items\"][0][\"unit_amount\"][\"value\"]) == Decimal(price)\n+    assert Decimal(invoice[\"items\"][0][\"quantity\"]) == Decimal(qty)\n+    assert \"E\" not in invoice[\"items\"][0][\"quantity\"]\n+    assert Decimal(summary[\"total\"]) == Decimal(invoice[\"amount\"][\"value\"])\n+    assert agent.ledger[summary[\"invoice_id\"]].total == Decimal(invoice[\"amount\"][\"value\"])\n+    assert len(agent.list_pending()) == 1\n+    assert not any(path.endswith((\"/send\", \"/remind\", \"/payments\")) for _, path, _ in mock.requests)\n+\n+\n+def test_one_invalid_currency_part_prevents_all_drafts():\n+    data = payload(line_items=[\n+        {\"desc\": \"Good\", \"qty\": \"1\", \"unit_price\": \"10\", \"currency\": \"USD\"},\n+        {\"desc\": \"Bad\", \"qty\": \"1\", \"unit_price\": \"0.015\", \"currency\": \"EUR\"},\n+    ])\n+    result, _, mock = draft(data)\n+    assert result[\"needs_review\"] is True and mock.requests == []\ndiff --git a/tests/test_invoice_values_followup_receiving.py b/tests/test_invoice_values_followup_receiving.py\nnew file mode 100644\nindex 0000000..02bee9e\n--- /dev/null\n+++ b/tests/test_invoice_values_followup_receiving.py\n@@ -0,0 +1,32 @@\n+\"\"\"Controls discovered while inspecting the first correction (r2).\n+\n+Kept separate so the initial 26 independent cases remain byte-identical.\n+\"\"\"\n+\n+from decimal import Decimal\n+\n+import pytest\n+\n+from test_invoice_values_receiving import (\n+    SOURCE_PREFIX, SuppliedExtraction, assert_refused_without_requests, extraction, make_agent,\n+)\n+\n+\n+def test_currency_mismatch_still_returns_review_when_a_deposit_is_present():\n+    ex = extraction(paid=\"25.00\")\n+    ex.line_items[0].currency = \"EUR\"\n+    agent, mock = make_agent(SuppliedExtraction(ex))\n+    result = agent.tool_create_invoice(\"Known currency mismatch with a prior payment\")\n+    assert_refused_without_requests(agent, mock, result)\n+    assert ex.amount_paid == Decimal(\"25.00\")\n+    assert ex.currency == \"USD\" and ex.line_items[0].currency == \"EUR\"\n+\n+\n+@pytest.mark.parametrize(\"lines\", [\n+    \"- 1 x Service @ USD 100.00\\nDeposit already paid: USD 1e999999999\\n\",\n+    \"- 1 x Service @ USD 1e999999999\\nTotal: USD 100.00\\n\",\n+])\n+def test_unsupported_finite_exponent_returns_review_before_aggregate_or_summary_arithmetic(lines):\n+    agent, mock = make_agent()\n+    result = agent.tool_create_invoice(SOURCE_PREFIX + lines + \"Net 30\\n\")\n+    assert_refused_without_requests(agent, mock, result)\ndiff --git a/tests/test_invoice_values_receiving.py b/tests/test_invoice_values_receiving.py\nnew file mode 100644\nindex 0000000..e8645e2\n--- /dev/null\n+++ b/tests/test_invoice_values_receiving.py\n@@ -0,0 +1,247 @@\n+\"\"\"Independent exact-value receiving through extraction, draft and approval.\n+\n+All provider operations use Ledgerly's native offline SandboxMock. A refused\n+complete job must not allocate an invoice number or create a partial draft.\n+\"\"\"\n+\n+import copy\n+import json\n+from datetime import date\n+from decimal import Decimal\n+\n+import pytest\n+\n+from ledgerly.agent import Agent, ApprovalRequired\n+from ledgerly.extract import Extraction, LineItem, LLMExtractor, RulesExtractor, validate\n+from ledgerly.paypal import SandboxMock, build_invoice\n+\n+\n+INVOICER = {\"name\": \"Receiving Fixture\", \"email_address\": \"reviewer@example.invalid\"}\n+SOURCE_PREFIX = \"From: Fixture Payer <payer@example.invalid>\\n\\n\"\n+TODAY = date(2026, 10, 1)\n+\n+\n+class SuppliedExtraction:\n+    def __init__(self, extraction):\n+        self.extraction = extraction\n+\n+    def extract(self, text):\n+        return self.extraction\n+\n+\n+def extraction(*, currency=\"USD\", qty=\"1\", price=\"100.00\", paid=\"0\"):\n+    return Extraction(\n+        \"Fixture Payer\", \"payer@example.invalid\", currency,\n+        [LineItem(\"Reviewed service\", Decimal(qty), Decimal(price), currency)],\n+        30, Decimal(paid), confidence=1.0,\n+    )\n+\n+\n+def make_agent(extractor=None):\n+    mock = SandboxMock()\n+    agent = Agent(mock, INVOICER, extractor=extractor, today=lambda: TODAY)\n+    return agent, mock\n+\n+\n+def assert_refused_without_requests(agent, mock, result):\n+    assert result[\"ok\"] is False, result\n+    assert result[\"needs_review\"] is True, result\n+    assert any(issue[\"severity\"] == \"error\" for issue in result[\"issues\"]), result\n+    assert mock.requests == []\n+    assert mock.invoices == {}\n+    assert agent.ledger == {}\n+    assert agent.list_pending() == []\n+\n+\n+def assert_draft_amounts(agent, mock, result, currency, total):\n+    assert result[\"ok\"] is True, result\n+    assert len(result[\"invoices\"]) == 1\n+    row = result[\"invoices\"][0]\n+    iid = row[\"invoice_id\"]\n+    current = mock.get_invoice(iid).body\n+    assert row[\"currency\"] == currency\n+    assert Decimal(row[\"total\"]) == total\n+    assert agent.ledger[iid].total == total\n+    assert current[\"detail\"][\"currency_code\"] == currency\n+    assert Decimal(current[\"amount\"][\"value\"]) == total\n+    assert Decimal(current[\"due_amount\"][\"value\"]) == total\n+    assert agent.pending[row[\"approval_id\"]].status == \"PENDING\"\n+    assert not any(r[1].endswith((\"/send\", \"/remind\", \"/payments\")) for r in mock.requests)\n+    return row, current\n+\n+\n+@pytest.mark.parametrize(\"invalid\", [\"missing-quantity\", \"nonfinite-price\", \"currency-mismatch\", \"negative-deposit\"])\n+def test_public_admission_rechecks_stale_issue_free_extraction_without_mutation(invalid):\n+    ex = extraction()\n+    if invalid == \"missing-quantity\":\n+        ex.line_items[0].qty = None\n+    elif invalid == \"nonfinite-price\":\n+        ex.line_items[0].unit_price = Decimal(\"NaN\")\n+    elif invalid == \"currency-mismatch\":\n+        ex.line_items[0].currency = \"EUR\"\n+    elif invalid == \"negative-deposit\":\n+        ex.amount_paid = Decimal(\"-25\")\n+    before = repr(ex)\n+    assert ex.issues == [] and ex.confidence == 1.0\n+    assert any(issue.severity == \"error\" for issue in validate(ex))\n+    with pytest.raises(ValueError):\n+        build_invoice(ex, INVOICER, \"RECEIVING\", TODAY)\n+    agent, mock = make_agent(SuppliedExtraction(ex))\n+    result = agent.tool_create_invoice(\"Explicitly supplied review fixture\")\n+    assert_refused_without_requests(agent, mock, result)\n+    assert repr(ex) == before\n+\n+\n+def test_invalid_later_currency_part_cannot_leave_an_earlier_draft():\n+    ex = extraction()\n+    ex.line_items = [\n+        LineItem(\"Earlier EUR part\", Decimal(1), Decimal(\"100.00\"), \"EUR\"),\n+        LineItem(\"Later sub-cent USD part\", Decimal(2), Decimal(\"0.015\"), \"USD\"),\n+    ]\n+    agent, mock = make_agent(SuppliedExtraction(ex))\n+    result = agent.tool_create_invoice(\"Explicitly supplied mixed-currency fixture\")\n+    assert_refused_without_requests(agent, mock, result)\n+\n+\n+@pytest.mark.parametrize(\"currency,maximum\", [\n+    (\"USD\", \"99999999999999999999999999.99\"),\n+    (\"JPY\", \"9999999999999999999999999999\"),\n+])\n+def test_complete_currency_sum_is_admitted_before_any_number_or_partial_draft(currency, maximum):\n+    ex = extraction(currency=currency)\n+    ex.line_items = [\n+        LineItem(\"Earlier EUR part\", Decimal(1), Decimal(\"100.00\"), \"EUR\"),\n+        LineItem(\"Individually exact one\", Decimal(1), Decimal(maximum), currency),\n+        LineItem(\"Individually exact two\", Decimal(1), Decimal(maximum), currency),\n+    ]\n+    agent, mock = make_agent(SuppliedExtraction(ex))\n+    try:\n+        result = agent.tool_create_invoice(\"Whole-job sum receiving fixture\")\n+    except Exception as error:\n+        pytest.fail(\n+            f\"Expected whole-job review before requests, got {type(error).__name__}: {error}; \"\n+            f\"calls={[(r[0], r[1]) for r in mock.requests]}, \"\n+            f\"retained_drafts={len(mock.invoices)}, retained_pending={len(agent.list_pending())}\"\n+        )\n+    assert_refused_without_requests(agent, mock, result)\n+    assert any(issue.severity == \"error\" for issue in validate(ex))\n+\n+    single_currency = copy.deepcopy(ex)\n+    single_currency.line_items = single_currency.line_items[1:]\n+    with pytest.raises(ValueError):\n+        build_invoice(single_currency, INVOICER, \"RECEIVING-SUM\", TODAY)\n+\n+\n+@pytest.mark.parametrize(\"context,item,deposit_lines\", [\n+    (\"\", \"USD 100.00\", [\"Deposit already paid: EUR 25.00\"]),\n+    (\"\", \"EUR 100.00\", [\"Deposit already paid: USD 25.00\"]),\n+    (\"Prices are in CAD\\n\", \"$100.00\", [\"Deposit already paid: US$25.00\"]),\n+    (\"\", \"USD 100.00\", [\"Deposit already paid: USD 10.00\", \"Already paid: EUR 15.00\"]),\n+])\n+def test_foreign_deposit_never_becomes_a_payment_in_the_invoice_currency(context, item, deposit_lines):\n+    text = SOURCE_PREFIX + context + f\"- 1 x Project @ {item}\\n\" + \"\\n\".join(deposit_lines) + \"\\nNet 30\\n\"\n+    agent, mock = make_agent()\n+    result = agent.tool_create_invoice(text)\n+    assert_refused_without_requests(agent, mock, result)\n+\n+\n+def test_two_subunit_deposits_do_not_hide_each_others_invalid_precision():\n+    text = (SOURCE_PREFIX + \"- 1 x Project @ USD 100.00\\n\"\n+            \"Deposit already paid: USD 0.005\\nAlready paid: USD 0.005\\nNet 30\\n\")\n+    agent, mock = make_agent()\n+    result = agent.tool_create_invoice(text)\n+    assert_refused_without_requests(agent, mock, result)\n+\n+\n+@pytest.mark.parametrize(\"context,item,deposit_lines,currency,paid\", [\n+    (\"\", \"USD 100.00\", [\"Deposit already paid: USD 25.00\", \"Already paid: USD 10.00\"], \"USD\", \"35.00\"),\n+    (\"\", \"EUR 100.00\", [\"Deposit already paid: EUR 25.00\"], \"EUR\", \"25.00\"),\n+    (\"Prices are in CAD\\n\", \"$100.00\", [\"Deposit already paid: $25.00\"], \"CAD\", \"25.00\"),\n+])\n+def test_supported_deposit_currency_and_exact_value_survive_human_approval(context, item, deposit_lines, currency, paid):\n+    text = SOURCE_PREFIX + context + f\"- 1 x Project @ {item}\\n\" + \"\\n\".join(deposit_lines) + \"\\nNet 30\\n\"\n+    agent, mock = make_agent()\n+    result = agent.tool_create_invoice(text)\n+    row, _ = assert_draft_amounts(agent, mock, result, currency, Decimal(\"100.00\"))\n+    assert agent.ledger[row[\"invoice_id\"]].prepaid == Decimal(paid)\n+\n+    agent.approve(row[\"approval_id\"])\n+    payments = [r for r in mock.requests if r[1].endswith(\"/payments\")]\n+    assert len(payments) == 1\n+    assert payments[0][2][\"amount\"][\"currency_code\"] == currency\n+    assert Decimal(payments[0][2][\"amount\"][\"value\"]) == Decimal(paid)\n+    assert agent.ledger[row[\"invoice_id\"]].paid_amount == Decimal(paid)\n+    assert agent.ledger[row[\"invoice_id\"]].balance == Decimal(\"100.00\") - Decimal(paid)\n+    with pytest.raises(ApprovalRequired):\n+        agent.client.record_payment(row[\"invoice_id\"], {\"amount\": {\"currency_code\": currency, \"value\": paid}})\n+    assert len([r for r in mock.requests if r[1].endswith(\"/payments\")]) == 1\n+\n+\n+@pytest.mark.parametrize(\"currency,qty,price,total,serialized_qty\", [\n+    (\"USD\", \"0.5\", \"85.00\", \"42.50\", \"0.5\"),\n+    (\"USD\", \"0.00001\", \"1000.00\", \"0.01\", \"0.00001\"),\n+    (\"USD\", \"1E+6\", \"0.01\", \"10000.00\", \"1000000\"),\n+    (\"JPY\", \"0.5\", \"100\", \"50\", \"0.5\"),\n+])\n+def test_accepted_fractional_and_exponent_values_keep_draft_ledger_and_review_equal(currency, qty, price, total, serialized_qty):\n+    ex = extraction(currency=currency, qty=qty, price=price)\n+    assert not [issue for issue in validate(ex) if issue.severity == \"error\"]\n+    built = build_invoice(ex, INVOICER, \"RECEIVING-EXACT\", TODAY)\n+    assert built[\"items\"][0][\"quantity\"] == serialized_qty\n+    assert Decimal(built[\"items\"][0][\"unit_amount\"][\"value\"]) == Decimal(price)\n+    assert built[\"items\"][0][\"unit_amount\"][\"currency_code\"] == currency\n+\n+    agent, mock = make_agent(SuppliedExtraction(ex))\n+    result = agent.tool_create_invoice(\"Explicit exact-value receiving fixture\")\n+    assert_draft_amounts(agent, mock, result, currency, Decimal(total))\n+\n+\n+@pytest.mark.parametrize(\"spelling,exact_price\", [\n+    (\"-$10\", None),\n+    (\"$1e3\", Decimal(\"1000\")),\n+    (\"$1,23\", None),\n+])\n+def test_unsupported_money_spelling_cannot_silently_change_value_or_drop_a_priced_line(spelling, exact_price):\n+    text = SOURCE_PREFIX + \"- 1 x Valid anchor @ USD 5.00\\n\" + f\"- 1 x Service @ {spelling}\\nNet 30\\n\"\n+    agent, mock = make_agent()\n+    result = agent.tool_create_invoice(text)\n+    if exact_price is None or not result[\"ok\"]:\n+        assert_refused_without_requests(agent, mock, result)\n+    else:\n+        # Exact support for exponent notation is permissible; interpreting only\n+        # its prefix, or silently dropping that line, is not.\n+        row, current = assert_draft_amounts(agent, mock, result, \"USD\", Decimal(\"5.00\") + exact_price)\n+        assert len(current[\"items\"]) == 2\n+        assert Decimal(current[\"items\"][1][\"unit_amount\"][\"value\"]) == exact_price\n+\n+\n+@pytest.mark.parametrize(\"quantity,expected\", [(\".5\", Decimal(\"0.5\")), (\"-1\", None)])\n+def test_table_quantity_is_read_completely_or_held_before_any_draft(quantity, expected):\n+    text = (SOURCE_PREFIX + \"Invoice in USD\\n| Item | Qty | Unit price |\\n\"\n+            \"| Valid anchor | 1 | 5.00 |\\n\"\n+            f\"| Service | {quantity} | 100.00 |\\nNet 30\\n\")\n+    agent, mock = make_agent()\n+    result = agent.tool_create_invoice(text)\n+    if expected is None or not result[\"ok\"]:\n+        assert_refused_without_requests(agent, mock, result)\n+    else:\n+        row, current = assert_draft_amounts(agent, mock, result, \"USD\", Decimal(\"5.00\") + expected * 100)\n+        assert Decimal(current[\"items\"][1][\"quantity\"]) == expected\n+\n+\n+@pytest.mark.parametrize(\"field\", [\"unit_price\", \"amount_paid\"])\n+def test_nonfinite_fake_model_money_returns_review_without_exception_or_request(field):\n+    data = {\n+        \"client_name\": \"Fixture Payer\", \"client_email\": \"payer@example.invalid\", \"currency\": \"USD\",\n+        \"line_items\": [{\"desc\": \"Project\", \"qty\": 1, \"unit_price\": 100, \"currency\": \"USD\"}],\n+        \"due_days\": 30, \"amount_paid\": 0, \"confidence\": 1.0,\n+    }\n+    if field == \"unit_price\":\n+        data[\"line_items\"][0][\"unit_price\"] = \"NaN\"\n+    else:\n+        data[\"amount_paid\"] = \"Infinity\"\n+    extractor = LLMExtractor(lambda prompt: json.dumps(data))\n+    source = SOURCE_PREFIX + \"- 1 x Project @ USD 100.00\\nNet 30\\n\"\n+    agent, mock = make_agent(extractor)\n+    result = agent.tool_create_invoice(source)\n+    assert_refused_without_requests(agent, mock, result)\ndiff --git a/tests/test_money_token_receiving.py b/tests/test_money_token_receiving.py\nnew file mode 100644\nindex 0000000..0d2c9ad\n--- /dev/null\n+++ b/tests/test_money_token_receiving.py\n@@ -0,0 +1,14 @@\n+\"\"\"The numeric matcher must not backtrack into a valid-looking price prefix.\"\"\"\n+\n+import pytest\n+\n+from test_invoice_values_receiving import SOURCE_PREFIX, assert_refused_without_requests, make_agent\n+\n+\n+@pytest.mark.parametrize(\"token\", [\"USD 12.345.67\", \"USD 1e33e2\"])\n+def test_malformed_numeric_tail_cannot_be_silently_discarded(token):\n+    text = (SOURCE_PREFIX + \"- 1 x Valid anchor @ USD 5.00\\n\"\n+            f\"- 1 x Service @ {token}\\nNet 30\\n\")\n+    agent, mock = make_agent()\n+    result = agent.tool_create_invoice(text)\n+    assert_refused_without_requests(agent, mock, result)\ndiff --git a/tests/test_reminder_freshness.py b/tests/test_reminder_freshness.py\nindex ddb97a7..164175c 100644\n--- a/tests/test_reminder_freshness.py\n+++ b/tests/test_reminder_freshness.py\n@@ -153,7 +153,7 @@ class ReminderFreshnessTests(unittest.TestCase):\n                                \"amount\": \"300\"})\n         self.assertEqual(after[\"state\"][\"pending\"], [])\n         self.assertEqual(demo.agent.pending[old[\"id\"]].status, \"REJECTED\")\n-        self.assertEqual(after[\"state\"][\"ledger\"][0][\"balance\"], \"500.00\")\n+        self.assertEqual(Decimal(after[\"state\"][\"ledger\"][0][\"balance\"]), Decimal(\"500\"))\n         fresh = demo.dispatch({\"action\": \"chase\"})[\"state\"][\"pending\"][0]\n         self.assertIn(\"GBP 500\", fresh[\"payload\"][\"note\"])\n         self.assertFalse(any(r[1].endswith(\"/remind\") for r in demo.mock.requests))\ndiff --git a/tests/test_reminder_receiving.py b/tests/test_reminder_receiving.py\nindex 40746e8..6f14461 100644\n--- a/tests/test_reminder_receiving.py\n+++ b/tests/test_reminder_receiving.py\n@@ -211,16 +211,27 @@ class AgentReceiving(unittest.TestCase):\n         self.assertEqual(self.agent.list_pending(), [], result)\n         self.assertEqual(reminders(self.mock), [])\n \n-    def test_delayed_old_payment_event_cannot_restore_obsolete_balance_draft(self):\n+    def test_delayed_old_payment_event_preserves_the_current_balance_review(self):\n         old_event = self.pay(100, deliver=False)\n         self.pay(200)\n         aid = self.queue()\n-        self.assertIn(\"GBP 500\", self.agent.pending[aid].payload[\"note\"])\n+        payload = copy.deepcopy(self.agent.pending[aid].payload)\n+        self.assertIn(\"GBP 500\", payload[\"note\"])\n         self.deliver(old_event)\n-        self.assert_no_send_and_permit_closed(aid)\n-        fresh_id = self.queue()\n-        self.assertIn(\"GBP 500\", self.agent.pending[fresh_id].payload[\"note\"])\n-        self.assertNotIn(\"GBP 700\", self.agent.pending[fresh_id].payload[\"note\"])\n+        self.assertEqual(self.agent.ledger[self.iid].balance, Decimal(\"500\"))\n+        self.assertEqual(self.agent.pending[aid].status, \"PENDING\")\n+        self.assertEqual(self.agent.pending[aid].payload, payload)\n+        self.assertNotIn(\"GBP 700\", payload[\"note\"])\n+        self.assertEqual(reminders(self.mock), [])\n+        with self.assertRaises(ApprovalRequired):\n+            self.agent.client.remind_invoice(self.iid)\n+        self.assertTrue(self.agent.approve(aid)[\"reminded\"])\n+        self.assertEqual(len(reminders(self.mock)), 1)\n+        self.assertEqual(reminders(self.mock)[0][2][\"subject\"], payload[\"subject\"])\n+        self.assertEqual(reminders(self.mock)[0][2][\"note\"], payload[\"note\"])\n+        with self.assertRaises(ValueError):\n+            self.agent.approve(aid)\n+        self.assertEqual(len(reminders(self.mock)), 1)\n \n     def test_invoice_send_approval_unchanged_when_status_refreshed(self):\n         other = self.agent.tool_create_invoice(JOB)[\"invoices\"][0]\ndiff --git a/tests/test_webhook_admission.py b/tests/test_webhook_admission.py\nnew file mode 100644\nindex 0000000..f7176dd\n--- /dev/null\n+++ b/tests/test_webhook_admission.py\n@@ -0,0 +1,148 @@\n+\"\"\"Webhook admission must retain current invoice facts across replay and retry.\n+\n+These twelve regression cases were reproduced against the exact merged reminder\n+implementation before changing webhook admission. All effects use SandboxMock.\n+\"\"\"\n+\n+\n+import copy\n+\n+\n+import json\n+\n+\n+from datetime import date\n+\n+\n+from decimal import Decimal\n+\n+\n+import pytest\n+\n+\n+from conftest import load\n+\n+\n+from ledgerly.paypal import PayPalError, WebhookError\n+\n+\n+def sent(agent):\n+    invoice = agent.tool_create_invoice(load(\"02_gbp_proofreading.txt\"))[\"invoices\"][0]\n+    agent.approve(invoice[\"approval_id\"])\n+    return invoice[\"invoice_id\"]\n+\n+\n+def outgoing(mock):\n+    return [request for request in mock.requests if request[1].endswith((\"/send\", \"/remind\", \"/payments\"))]\n+\n+\n+def deliver(agent, mock, event, **json_options):\n+    agent.webhook_verifier = mock.verify_webhook_signature\n+    raw = json.dumps(event, **json_options).encode(\"utf-8\")\n+    return agent.handle_webhook(raw, mock.sign(raw))\n+\n+\n+def pending_reminder(agent, clock, invoice_id):\n+    clock.d = date(2026, 11, 10)\n+    result = agent.tool_send_reminder(invoice_id)\n+    assert result[\"ok\"], result\n+    return agent.pending[result[\"approval_id\"]]\n+\n+\n+def test_delayed_partial_payment_cannot_reopen_a_currently_paid_invoice(agent, mock, clock):\n+    invoice_id = sent(agent)\n+    older_partial = mock.simulate_payer_payment(invoice_id, Decimal(\"300\"))\n+    newer_paid = mock.simulate_payer_payment(invoice_id)\n+    before = copy.deepcopy(outgoing(mock))\n+\n+    assert deliver(agent, mock, newer_paid)[\"to\"] == \"PAID\"\n+    result = deliver(agent, mock, older_partial)\n+\n+    assert result == {\"ok\": True, \"invoice_id\": invoice_id, \"from\": \"PAID\", \"to\": \"PAID\"}\n+    assert agent.ledger[invoice_id].paid_amount == Decimal(\"800\")\n+    assert agent.ledger[invoice_id].balance == 0\n+    clock.d = date(2026, 11, 10)\n+    assert agent.tool_list_overdue()[\"overdue\"] == []\n+    assert agent.tool_send_reminder(invoice_id)[\"ok\"] is False\n+    assert outgoing(mock) == before\n+\n+\n+def test_fresh_refund_state_is_preserved_when_an_older_paid_event_arrives(agent, mock):\n+    invoice_id = sent(agent)\n+    older_paid = mock.simulate_payer_payment(invoice_id)\n+    mock.invoices[invoice_id][\"status\"] = \"REFUNDED\"\n+    current_refund = mock.make_webhook_event(\"INVOICING.INVOICE.REFUNDED\", invoice_id)\n+\n+    assert deliver(agent, mock, current_refund)[\"to\"] == \"REFUNDED\"\n+    assert deliver(agent, mock, older_paid)[\"to\"] == \"REFUNDED\"\n+    assert agent.ledger[invoice_id].status == \"REFUNDED\"\n+\n+\n+def test_failed_current_read_does_not_consume_the_original_webhook(agent, mock, clock, monkeypatch):\n+    invoice_id = sent(agent)\n+    old = pending_reminder(agent, clock, invoice_id)\n+    event = mock.simulate_payer_payment(invoice_id)\n+    entry_before = agent.ledger[invoice_id].to_dict()\n+    action_before = copy.deepcopy(old.to_dict())\n+    effects_before = copy.deepcopy(outgoing(mock))\n+    original_get = mock.get_invoice\n+\n+    def unavailable(_):\n+        raise PayPalError(503, \"SERVICE_UNAVAILABLE\", \"Fixture current-state read failed\")\n+\n+    monkeypatch.setattr(mock, \"get_invoice\", unavailable)\n+    with pytest.raises(PayPalError):\n+        deliver(agent, mock, event)\n+    assert agent.ledger[invoice_id].to_dict() == entry_before\n+    assert old.to_dict() == action_before\n+    assert outgoing(mock) == effects_before\n+\n+    monkeypatch.setattr(mock, \"get_invoice\", original_get)\n+    result = deliver(agent, mock, event)\n+    assert result[\"to\"] == \"PAID\" and not result.get(\"duplicate\")\n+    assert old.status == \"REJECTED\"\n+    assert deliver(agent, mock, event)[\"duplicate\"] is True\n+\n+\n+def test_unknown_invoice_notification_can_be_received_after_local_invoice_arrives(agent, mock):\n+    invoice_id = sent(agent)\n+    event = mock.simulate_payer_payment(invoice_id)\n+    retained_entry = agent.ledger.pop(invoice_id)\n+    assert deliver(agent, mock, event)[\"ok\"] is False\n+\n+    agent.ledger[invoice_id] = retained_entry\n+    result = deliver(agent, mock, event)\n+\n+    assert result.get(\"to\") == \"PAID\" and not result.get(\"duplicate\")\n+    assert retained_entry.balance == 0\n+\n+\n+def test_event_id_replays_match_content_and_conflicting_payload_is_not_a_duplicate(agent, mock):\n+    invoice_id = sent(agent)\n+    event = mock.simulate_payer_payment(invoice_id)\n+    deliver(agent, mock, event)\n+    reads_before = len([request for request in mock.requests if request[0] == \"GET\"])\n+\n+    assert deliver(agent, mock, event, indent=2, sort_keys=True)[\"duplicate\"] is True\n+    assert len([request for request in mock.requests if request[0] == \"GET\"]) == reads_before\n+    changed = copy.deepcopy(event)\n+    changed[\"summary\"] = \"Different content under the already processed event ID\"\n+    with pytest.raises(WebhookError, match=\"identity\"):\n+        deliver(agent, mock, changed)\n+    assert agent.ledger[invoice_id].status == \"PAID\"\n+    assert len([request for request in mock.requests if request[0] == \"GET\"]) == reads_before\n+\n+\n+@pytest.mark.parametrize(\"event_id\", [None, \"\", \" \", \" WH-LEADING\", \"WH-TRAILING \", 7, [\"WH-LIST\"]])\n+def test_invalid_event_identity_is_rejected_before_current_read(agent, mock, event_id):\n+    invoice_id = sent(agent)\n+    event = mock.simulate_payer_payment(invoice_id)\n+    event[\"id\"] = event_id\n+    before = agent.ledger[invoice_id].to_dict()\n+    reads_before = len([request for request in mock.requests if request[0] == \"GET\"])\n+\n+    with pytest.raises(WebhookError, match=\"event ID\"):\n+        deliver(agent, mock, event)\n+\n+    assert agent.ledger[invoice_id].to_dict() == before\n+    assert len([request for request in mock.requests if request[0] == \"GET\"]) == reads_before\ndiff --git a/tests/test_webhook_current_read_receiving.py b/tests/test_webhook_current_read_receiving.py\nnew file mode 100644\nindex 0000000..c661cfa\n--- /dev/null\n+++ b/tests/test_webhook_current_read_receiving.py\n@@ -0,0 +1,357 @@\n+\"\"\"Independent receiving for webhook admission on the merged reminder owner code.\n+\n+The source is selected by PYTHONPATH. All effects use native offline SandboxMock;\n+the reviewer never activates HttpPayPalClient or reads provider credentials.\n+\"\"\"\n+\n+import copy\n+import json\n+from datetime import date, datetime, time, timedelta, timezone\n+from decimal import Decimal\n+from unittest.mock import patch\n+\n+import pytest\n+\n+from ledgerly.agent import Agent, ApprovalRequired\n+from ledgerly.paypal import PayPalError, SandboxMock, WebhookError\n+\n+\n+JOB = \"\"\"From: Maya Reader <maya@example.invalid>\n+Subject: Manuscript proofreading\n+\n+Proofreading: 18 hours @ \u00a340/hr\n+Style sheet preparation: 2 hrs @ \u00a340/hr\n+We pay within 30 days of invoice.\n+\"\"\"\n+INVOICER = {\"name\": \"Receiving Freelancer\", \"email_address\": \"reviewer@example.invalid\"}\n+\n+\n+class Clock:\n+    def __init__(self):\n+        self.day = date(2026, 10, 1)\n+\n+    def __call__(self):\n+        return self.day\n+\n+\n+def case(count=1):\n+    clock = Clock()\n+    mock = SandboxMock(now=lambda: datetime.combine(clock.day, time.min, tzinfo=timezone.utc))\n+    agent = Agent(mock, INVOICER, today=clock, webhook_verifier=mock.verify_webhook_signature)\n+    invoices = []\n+    for _ in range(count):\n+        result = agent.tool_create_invoice(JOB)\n+        assert result[\"ok\"], result\n+        row = result[\"invoices\"][0]\n+        agent.approve(row[\"approval_id\"])\n+        invoices.append(row[\"invoice_id\"])\n+    clock.day = date(2026, 11, 10)\n+    mock.requests.clear()\n+    return agent, mock, clock, invoices\n+\n+\n+def queue(agent, invoice_id):\n+    result = agent.tool_send_reminder(invoice_id)\n+    assert result[\"ok\"], result\n+    return result[\"approval_id\"]\n+\n+\n+def updated(mock, invoice_id):\n+    return mock.make_webhook_event(\"INVOICING.INVOICE.UPDATED\", invoice_id)\n+\n+\n+def event_invoice(event):\n+    resource = event[\"resource\"]\n+    return resource.get(\"invoice\", resource)\n+\n+\n+def deliver(agent, mock, event, **encoding):\n+    raw = json.dumps(event, **encoding).encode()\n+    return agent.handle_webhook(raw, mock.sign(raw))\n+\n+\n+def state(agent):\n+    # Observe exact cached facts without invoking list_pending's date refresh.\n+    return copy.deepcopy({\n+        \"ledger\": {iid: vars(entry) for iid, entry in agent.ledger.items()},\n+        \"actions\": {aid: action.to_dict() for aid, action in agent.pending.items()},\n+    })\n+\n+\n+def outgoing(mock):\n+    return [request for request in mock.requests\n+            if request[1].endswith((\"/send\", \"/remind\", \"/payments\"))]\n+\n+\n+def assert_closed(agent, mock, invoice_id):\n+    assert outgoing(mock) == []\n+    with pytest.raises(ApprovalRequired):\n+        agent.client.remind_invoice(invoice_id)\n+    assert outgoing(mock) == []\n+\n+\n+def test_delayed_partial_event_observes_current_full_payment_without_restoring_old_balance():\n+    agent, mock, _, (iid,) = case()\n+    aid = queue(agent, iid)\n+    reviewed = copy.deepcopy(agent.pending[aid].payload)\n+    old = mock.simulate_payer_payment(iid, Decimal(\"100\"))\n+    mock.simulate_payer_payment(iid, Decimal(\"700\"))\n+    mock.requests.clear()\n+\n+    result = deliver(agent, mock, old)\n+\n+    assert result[\"ok\"] and result[\"to\"] == \"PAID\"\n+    assert agent.ledger[iid].status == \"PAID\"\n+    assert agent.ledger[iid].paid_amount == Decimal(\"800\")\n+    assert agent.ledger[iid].balance == 0\n+    assert agent.pending[aid].status == \"REJECTED\"\n+    assert agent.pending[aid].payload == reviewed\n+    assert mock.requests == [(\"GET\", f\"/v2/invoicing/invoices/{iid}\", None)]\n+    assert_closed(agent, mock, iid)\n+\n+\n+def test_delayed_event_preserves_current_review_and_only_human_approval_sends_exact_text_once():\n+    agent, mock, _, (iid,) = case()\n+    old = mock.simulate_payer_payment(iid, Decimal(\"100\"))\n+    mock.simulate_payer_payment(iid, Decimal(\"200\"))\n+    aid = queue(agent, iid)  # Owner refresh already reviewed the current GBP 500.\n+    reviewed = copy.deepcopy(agent.pending[aid].payload)\n+    assert \"GBP 500\" in reviewed[\"note\"]\n+    mock.requests.clear()\n+\n+    deliver(agent, mock, old)\n+\n+    assert agent.ledger[iid].paid_amount == Decimal(\"300\")\n+    assert agent.ledger[iid].balance == Decimal(\"500\")\n+    assert agent.pending[aid].status == \"PENDING\"\n+    assert agent.pending[aid].payload == reviewed\n+    assert mock.requests == [(\"GET\", f\"/v2/invoicing/invoices/{iid}\", None)]\n+    assert_closed(agent, mock, iid)\n+    assert agent.approve(aid)[\"reminded\"] is True\n+    sent = outgoing(mock)\n+    assert len(sent) == 1 and sent[0][1].endswith(\"/remind\")\n+    assert sent[0][2][\"subject\"] == reviewed[\"subject\"]\n+    assert sent[0][2][\"note\"] == reviewed[\"note\"]\n+    with pytest.raises(ValueError):\n+        agent.approve(aid)\n+    assert len(outgoing(mock)) == 1\n+\n+\n+@pytest.mark.parametrize(\"term\", [\n+    {\"term_type\": \"DUE_ON_DATE_SPECIFIED\", \"due_date\": \"2026-12-05\"},\n+    {\"term_type\": \"NO_DUE_DATE\"},\n+])\n+def test_current_provider_edits_and_due_date_are_applied_only_to_notified_invoice(term):\n+    agent, mock, _, (iid, other) = case(2)\n+    aid, other_aid = queue(agent, iid), queue(agent, other)\n+    reviewed = copy.deepcopy(agent.pending[aid].payload)\n+    other_entry = copy.deepcopy(vars(agent.ledger[other]))\n+    other_review = agent.pending[other_aid].to_dict()\n+    old = updated(mock, iid)\n+    inv = mock.invoices[iid]\n+    inv[\"detail\"][\"invoice_number\"] = \"CURRENT-0042\"\n+    inv[\"detail\"][\"currency_code\"] = \"EUR\"\n+    inv[\"detail\"][\"payment_term\"] = copy.deepcopy(term)\n+    inv[\"amount\"] = {\"currency_code\": \"EUR\", \"value\": \"500.00\"}\n+    inv[\"due_amount\"] = {\"currency_code\": \"EUR\", \"value\": \"500.00\"}\n+    inv[\"payments\"][\"paid_amount\"] = {\"currency_code\": \"EUR\", \"value\": \"0.00\"}\n+    for item in inv[\"items\"]:\n+        item[\"unit_amount\"] = {\"currency_code\": \"EUR\", \"value\": \"25.00\"}\n+    inv[\"primary_recipients\"][0][\"billing_info\"].update({\n+        \"email_address\": \"current-recipient@example.invalid\",\n+        \"name\": {\"given_name\": \"Current\", \"surname\": \"Recipient\"},\n+    })\n+    mock.requests.clear()\n+\n+    deliver(agent, mock, old)\n+\n+    entry = agent.ledger[iid]\n+    assert (entry.currency, entry.total, entry.invoice_number) == (\"EUR\", Decimal(\"500\"), \"CURRENT-0042\")\n+    assert (entry.client_name, entry.client_email) == (\"Current Recipient\", \"current-recipient@example.invalid\")\n+    expected_due = date(2026, 12, 5) if \"due_date\" in term else None\n+    assert entry.due_on == expected_due\n+    assert agent.pending[aid].status == \"REJECTED\"\n+    assert agent.pending[aid].payload == reviewed\n+    assert vars(agent.ledger[other]) == other_entry\n+    assert agent.pending[other_aid].to_dict() == other_review\n+    assert mock.requests == [(\"GET\", f\"/v2/invoicing/invoices/{iid}\", None)]\n+    assert agent.tool_send_reminder(iid)[\"ok\"] is False\n+    assert_closed(agent, mock, iid)\n+\n+\n+@pytest.mark.parametrize(\"fault\", [\"outage\", \"wrong-invoice\", \"missing-due\", \"nonfinite-total\", \"incoherent-due\"])\n+def test_failed_current_read_does_not_mutate_or_consume_event_and_can_retry_same_notification(fault):\n+    agent, mock, _, (iid,) = case()\n+    aid = queue(agent, iid)\n+    event = updated(mock, iid)\n+    before = state(agent)\n+    original_get = mock.get_invoice\n+\n+    def bad_read(invoice_id):\n+        response = original_get(invoice_id)\n+        if fault == \"outage\":\n+            raise PayPalError(503, \"UNAVAILABLE\", \"Independent receiving read outage\")\n+        if fault == \"wrong-invoice\":\n+            response.body[\"id\"] = \"INV2-OTHER\"\n+        elif fault == \"missing-due\":\n+            response.body.pop(\"due_amount\")\n+        elif fault == \"nonfinite-total\":\n+            response.body[\"amount\"][\"value\"] = \"Infinity\"\n+        elif fault == \"incoherent-due\":\n+            response.body[\"due_amount\"][\"value\"] = \"799.00\"\n+        return response\n+\n+    mock.requests.clear()\n+    with patch.object(mock, \"get_invoice\", side_effect=bad_read):\n+        with pytest.raises((PayPalError, ValueError)):\n+            deliver(agent, mock, event)\n+    assert state(agent) == before\n+    assert agent.pending[aid].status == \"PENDING\"\n+    assert event[\"id\"] not in agent._seen_events\n+    assert_closed(agent, mock, iid)\n+    mock.requests.clear()\n+\n+    result = deliver(agent, mock, event)\n+    assert result[\"ok\"] and not result.get(\"duplicate\", False)\n+    assert state(agent) == before\n+    assert mock.requests == [(\"GET\", f\"/v2/invoicing/invoices/{iid}\", None)]\n+    mock.requests.clear()\n+    assert deliver(agent, mock, event)[\"duplicate\"] is True\n+    assert mock.requests == []\n+\n+\n+def test_unknown_local_invoice_remains_retryable_after_local_registration_without_early_provider_read():\n+    agent, mock, _, (iid,) = case()\n+    event = updated(mock, iid)\n+    entry = agent.ledger.pop(iid)\n+    mock.requests.clear()\n+    try:\n+        result = deliver(agent, mock, event)\n+        assert result[\"ok\"] is False and result[\"message\"] == \"unknown invoice\"\n+        assert mock.requests == []\n+        assert event[\"id\"] not in agent._seen_events\n+    finally:\n+        agent.ledger[iid] = entry\n+\n+    result = deliver(agent, mock, event)\n+    assert result[\"ok\"] and not result.get(\"duplicate\", False)\n+    assert mock.requests == [(\"GET\", f\"/v2/invoicing/invoices/{iid}\", None)]\n+    assert_closed(agent, mock, iid)\n+\n+\n+def test_verified_reencoded_duplicate_preserves_state_without_second_current_read():\n+    agent, mock, _, (iid,) = case()\n+    queue(agent, iid)\n+    event = updated(mock, iid)\n+    deliver(agent, mock, event, separators=(\",\", \":\"))\n+    before = state(agent)\n+    mock.requests.clear()\n+    with patch.object(mock, \"get_invoice\", side_effect=AssertionError(\"duplicate must not reread\")):\n+        result = deliver(agent, mock, event, sort_keys=True, indent=2)\n+    assert result[\"ok\"] and result[\"duplicate\"] is True\n+    assert state(agent) == before\n+    assert mock.requests == []\n+    assert_closed(agent, mock, iid)\n+\n+\n+@pytest.mark.parametrize(\"change\", [\"invoice-rebind\", \"paid-snapshot\", \"envelope\"])\n+def test_accepted_event_id_cannot_be_reused_for_changed_content_or_another_invoice(change):\n+    agent, mock, _, (iid, other) = case(2)\n+    queue(agent, iid)\n+    queue(agent, other)\n+    event = updated(mock, iid)\n+    deliver(agent, mock, event)\n+    before = state(agent)\n+    conflict = copy.deepcopy(event)\n+    if change == \"invoice-rebind\":\n+        event_invoice(conflict)[\"id\"] = other\n+    elif change == \"paid-snapshot\":\n+        event_invoice(conflict)[\"status\"] = \"PARTIALLY_PAID\"\n+        event_invoice(conflict)[\"payments\"][\"paid_amount\"][\"value\"] = \"100.00\"\n+        event_invoice(conflict)[\"due_amount\"][\"value\"] = \"700.00\"\n+    else:\n+        conflict[\"create_time\"] = \"2026-11-09T00:00:00Z\"\n+    mock.requests.clear()\n+\n+    with pytest.raises(WebhookError):\n+        deliver(agent, mock, conflict)\n+\n+    assert state(agent) == before\n+    assert mock.requests == []\n+    assert_closed(agent, mock, iid)\n+    assert deliver(agent, mock, event)[\"duplicate\"] is True\n+\n+\n+def test_duplicate_never_bypasses_signature_verification():\n+    agent, mock, _, (iid,) = case()\n+    queue(agent, iid)\n+    event = updated(mock, iid)\n+    raw = json.dumps(event).encode()\n+    agent.handle_webhook(raw, mock.sign(raw))\n+    before = state(agent)\n+    headers = mock.sign(raw)\n+    headers[\"PAYPAL-TRANSMISSION-SIG\"] = \"independent-invalid-signature\"\n+    mock.requests.clear()\n+    with pytest.raises(WebhookError):\n+        agent.handle_webhook(raw, headers)\n+    assert state(agent) == before\n+    assert mock.requests == []\n+    assert_closed(agent, mock, iid)\n+    assert agent.handle_webhook(raw, mock.sign(raw))[\"duplicate\"] is True\n+\n+\n+@pytest.mark.parametrize(\"field,value\", [\n+    (\"event\", \"\"), (\"event\", \"  \"), (\"event\", True), (\"event\", [\"WH-X\"]),\n+    (\"invoice\", True), (\"invoice\", [\"INV-X\"]), (\"invoice\", \" INV-X \"),\n+])\n+def test_noncanonical_identity_is_refused_before_read_or_state_change(field, value):\n+    agent, mock, _, (iid,) = case()\n+    queue(agent, iid)\n+    event = updated(mock, iid)\n+    if field == \"event\":\n+        event[\"id\"] = value\n+    else:\n+        event_invoice(event)[\"id\"] = value\n+    before = state(agent)\n+    mock.requests.clear()\n+    with pytest.raises(WebhookError):\n+        deliver(agent, mock, event)\n+    assert state(agent) == before\n+    assert mock.requests == []\n+    assert_closed(agent, mock, iid)\n+\n+\n+@pytest.mark.parametrize(\"number\", [float(\"nan\"), float(\"inf\"), float(\"-inf\")])\n+def test_nonfinite_json_metadata_is_refused_without_consuming_a_known_notification(number):\n+    agent, mock, _, (iid,) = case()\n+    queue(agent, iid)\n+    event = updated(mock, iid)\n+    event[\"metadata\"] = {\"unrepresentable\": number}\n+    before = state(agent)\n+    mock.requests.clear()\n+    with pytest.raises(WebhookError):\n+        deliver(agent, mock, event)\n+    assert state(agent) == before\n+    assert event[\"id\"] not in agent._seen_events\n+    assert mock.requests == []\n+    assert_closed(agent, mock, iid)\n+\n+\n+def test_new_notification_keeps_owner_review_date_invalidation_and_retains_reviewed_words():\n+    agent, mock, clock, (iid,) = case()\n+    aid = queue(agent, iid)\n+    reviewed = copy.deepcopy(agent.pending[aid].payload)\n+    event = updated(mock, iid)\n+    clock.day += timedelta(days=1)\n+    mock.requests.clear()\n+\n+    deliver(agent, mock, event)\n+\n+    assert agent.pending[aid].status == \"REJECTED\"\n+    assert agent.pending[aid].payload == reviewed\n+    with pytest.raises(ValueError):\n+        agent.approve(aid)\n+    assert_closed(agent, mock, iid)\n+    fresh = queue(agent, iid)\n+    assert fresh != aid\n+    assert \"11 days\" in agent.pending[fresh].payload[\"subject\"]\n"
+  }
+]
