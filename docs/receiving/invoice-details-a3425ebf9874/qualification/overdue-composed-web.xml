@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="5" failures="0" errors="0" time="6.024756784">
+    <testsuite name="tests/invoice-details.test.ts" timestamp="2026-10-08T13:30:20.985Z" hostname="hamon-thinkpad" tests="4" failures="0" errors="0" skipped="0" time="2.340448491">
+        <testcase classname="tests/invoice-details.test.ts" name="keeps exact original items available when approval removes the queued payload" time="0.019136217">
+        </testcase>
+        <testcase classname="tests/invoice-details.test.ts" name="reports a real partial payment and zero-decimal invoice through Python WASM" time="0.022046374">
+        </testcase>
+        <testcase classname="tests/invoice-details.test.ts" name="keeps per-invoice currencies and original records after analyzing another input" time="0.00786348">
+        </testcase>
+        <testcase classname="tests/invoice-details.test.ts" name="copies nested records without mock requests and clears them on reset" time="0.004360026">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/overdue-scan.test.ts" timestamp="2026-10-08T13:30:20.988Z" hostname="hamon-thinkpad" tests="1" failures="0" errors="0" skipped="0" time="3.684308293">
+        <testcase classname="tests/overdue-scan.test.ts" name="executes the native overdue-batch contracts in the actual Pyodide runtime" time="3.68175406">
+            <system-out>
+{&quot;native_tests_run&quot;:6,&quot;successful&quot;:true,&quot;python&quot;:&quot;3.13.2 (main, Jan 28 2026, 03:36:02) [Clang 21.0.0git (https:/github.com/llvm/llvm-project 2f05451198e2f222ec66cec489&quot;}
+
+            </system-out>
+        </testcase>
+    </testsuite>
+</testsuites>

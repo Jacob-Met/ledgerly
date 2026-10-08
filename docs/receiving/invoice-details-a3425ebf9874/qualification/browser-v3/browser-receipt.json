@@ -1,0 +1,55 @@
+{
+  "schema": "ledgerly.invoice-details.browser-receiving.v1",
+  "started_at": "2026-10-08T13:07:29.270229+00:00",
+  "status": "failed",
+  "synthetic_only": true,
+  "checks": [
+    "actual local Python engine starts with an empty inspector and no external calls",
+    "keyboard opens original draft details without changing the queued approval, snapshot or request count",
+    "details stay open and retain the original invoice when explicit approval removes its queued payload"
+  ],
+  "requests": [
+    "http://127.0.0.1:36635/",
+    "http://127.0.0.1:36635/assets/index-BUchsWg5.js",
+    "http://127.0.0.1:36635/assets/index-D5P5nj3J.css",
+    "http://127.0.0.1:36635/favicon.svg",
+    "http://127.0.0.1:36635/assets/engine.worker-B5Sd8fS4.js",
+    "http://127.0.0.1:36635/pyodide/pyodide-lock.json",
+    "http://127.0.0.1:36635/pyodide/python_stdlib.zip",
+    "http://127.0.0.1:36635/pyodide/pyodide.asm.wasm",
+    "http://127.0.0.1:36635/pyodide/pyodide.asm.js",
+    "http://127.0.0.1:36635/python/ledgerly/__init__.py",
+    "http://127.0.0.1:36635/python/ledgerly/agent.py",
+    "http://127.0.0.1:36635/python/ledgerly/extract.py",
+    "http://127.0.0.1:36635/python/ledgerly/paypal.py",
+    "http://127.0.0.1:36635/python/bridge.py",
+    "http://127.0.0.1:36635/python/review.py",
+    "http://127.0.0.1:36635/python/invoice_details.py",
+    "http://127.0.0.1:36635/fixtures/01_simple_usd_hourly.txt"
+  ],
+  "blocked_requests": [],
+  "errors": [],
+  "files": {
+    "desktop-original-details.png": {
+      "bytes": 94109,
+      "sha256": "b9086f3eb3654fcdc1e515a5463f80aed79295bb3d9a09864cf043857ea75c28"
+    }
+  },
+  "source": {
+    "ledgerly/agent.py": "743d283a5525a33820b1a2616054384e0013927c5e54cd12275c9160b9b8fd3a",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "web-demo/python/bridge.py": "f2af2c3e569569baff9ff7856c79211fbd9ef8640ccd272977fbb9d843973f2a",
+    "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "web-demo/src/invoice-details.ts": "5c579b46532a45bf5a8862bf80ae6a0e93d1da0072240bee5dc9a20bda8ff5a3",
+    "web-demo/src/invoice-details.css": "e3a05c0df6296e2e23d344c54e53e5a33470363413c87ee61f8cc7a21c3bcc16",
+    "web-demo/src/main.ts": "c203d9430a6565a966789a571696e542f7c5793f7068097587031f98d9602dea",
+    "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1"
+  },
+  "origin": "http://127.0.0.1:36635",
+  "browser": "153.0.8010.47",
+  "failure": "Traceback (most recent call last):\n  File \"/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py\", line 190, in main\n    load_fixture(\"02_gbp_proofreading.txt\")\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py\", line 133, in load_fixture\n    page.locator(\"#fixture-select\").select_option(name)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/sync_api/_generated.py\", line 17531, in select_option\n    self._sync(\n    ~~~~~~~~~~^\n        self._impl_obj.select_option(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<7 lines>...\n        )\n        ^\n    )\n    ^\n  File \"/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ~~~~~~~~~~~^^\n  File \"/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_locator.py\", line 579, in select_option\n    return await self._frame.select_option(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_frame.py\", line 763, in select_option\n    return await self._channel.send(\"selectOption\", self._timeout, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.select_option: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#fixture-select\")\n    - locator resolved to <select id=\"fixture-select\">…</select>\n  - attempting select option action\n    2 × waiting for element to be visible and enabled\n      - did not find some options\n    - retrying select option action\n    - waiting 20ms\n    2 × waiting for element to be visible and enabled\n      - did not find some options\n    - retrying select option action\n      - waiting 100ms\n    60 × waiting for element to be visible and enabled\n       - did not find some options\n     - retrying select option action\n       - waiting 500ms\n\n",
+  "finished_at": "2026-10-08T13:08:21.309164+00:00"
+}

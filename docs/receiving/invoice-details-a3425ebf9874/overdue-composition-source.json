@@ -1,0 +1,13 @@
+{
+  "schema": "ledgerly.invoice-details.overdue-composition.v1",
+  "prior_head": "d8c33cf5ed16fc96be3883313c80d56a8bbc752e",
+  "upstream": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "actual_common_ancestor": "5493205cd69a32be75ed2f7dfc669b122efe5563",
+  "source_merge_head": "e5e761e204f9bead1351d0a80d392d5c0d9755d4",
+  "head": "47f9f427f66ff69b7ba356359905965d96d0111f",
+  "bridge_sha256": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+  "bridge_blob": "6a3391bcba29ea65a2c6155914bda5a51d152db3",
+  "fixture_before_sha256": "33b665302ea8117f1d122914aaed6270b0afae78b59cfc7c1b7846e7208eaf8f",
+  "fixture_after_sha256": "dff470bf583ef7d0b55b705e34f9997db400635035cf897e8adcb7ab3a6d4202",
+  "receiving_note": "Initial depth-one fetch did not expose the shared ancestor and git refused a merge. No override was used. Depth-two fetch established exact shared5493205 ancestry; normal merge then succeeded."
+}

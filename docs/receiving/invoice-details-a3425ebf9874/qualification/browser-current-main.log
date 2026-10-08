@@ -1,0 +1,13 @@
+PASS actual local Python engine starts with an empty inspector and no external calls
+PASS keyboard opens original draft details without changing the queued approval, snapshot or request count
+PASS details stay open and retain the original invoice when explicit approval removes its queued payload
+PASS analyzing another email does not replace the retained invoice record
+PASS real signed mock payment and duplicate replay update the correct retained payment facts
+PASS whole-ledger updates preserve disclosure state and keyboard focus while labeling the new sandbox clock
+PASS the existing reminder preview and approval remain separate from read-only invoice inspection
+PASS reset clears old details and mixed-currency invoices retain separate exact identities and amount strings
+PASS actual corrected Python invoice renders Unicode and hostile-looking text literally without active markup
+PASS 390px viewport contains long invoice text and keyboard users can focus and scroll the item table
+PASS terminal worker loss labels retained details inactive while inspection remains read-only
+PASS explicit empty restart clears old invoice details, retains source text and replays no prior action
+PASS all browser and worker requests stay on the loopback build, with no page error or source change

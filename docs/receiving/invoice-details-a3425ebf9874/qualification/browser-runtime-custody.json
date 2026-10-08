@@ -1,0 +1,10 @@
+{
+  "source": "https://pypi.org/pypi/playwright/1.55.0/json",
+  "filename": "playwright-1.55.0-py3-none-manylinux1_x86_64.whl",
+  "url": "https://files.pythonhosted.org/packages/08/33/858312628aa16a6de97839adc2ca28031ebc5391f96b6fb8fdf1fcb15d6c/playwright-1.55.0-py3-none-manylinux1_x86_64.whl",
+  "sha256": "c6d4d8f6f8c66c483b0835569c7f0caa03230820af8e500c181c93509c92d831",
+  "bytes": 45905643,
+  "target": "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/browser-runtime",
+  "system_python_package": "1.55.0+ds with missing system JS driver; unchanged",
+  "receiver_runtime": "Unmodified official 1.55.0 wheel extracted exclusively to RAM; existing native Node selected through PLAYWRIGHT_NODEJS_PATH; system dependencies unchanged"
+}

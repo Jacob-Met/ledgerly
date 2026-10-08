@@ -1,0 +1,48 @@
+{
+  "schema": "hamon.independent_browser_control.v1",
+  "source": "/dev/shm/hamon-a3425ebf9874/local-estate/ledgerly-invoice-details-review/invoice-details-reviewed.ts",
+  "source_sha256": "5c579b46532a45bf5a8862bf80ae6a0e93d1da0072240bee5dc9a20bda8ff5a3",
+  "stripped_javascript_sha256": "88a6087aaae295ace1cae627f5b63dc563d62ec3e8de144a4cf387556a242978",
+  "receiver_sha256": "5380fb8bced68fdd2ab1bcd210f58ced82c50fde5781ac6e9e0b23ecc0d66794",
+  "chromium": "153.0.8010.0",
+  "executable": "/workspace/scratch/ce7eb129730f/project-browser-runtime/tmp/chromium",
+  "executable_sha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+  "node": "v24.19.0",
+  "scope": "Isolated synthetic DOM using the exact production renderer and integration hook order; no Pyodide, native-host, provider, layout or full-app qualification claimed.",
+  "cases": [
+    {
+      "id": "just_opened_disclosure_survives_refresh",
+      "expected": true,
+      "observed": {
+        "before": true,
+        "after": false,
+        "focusRestored": true,
+        "newSnapshotRendered": true
+      },
+      "passed": false
+    },
+    {
+      "id": "just_closed_disclosure_stays_closed_on_refresh",
+      "expected": false,
+      "observed": {
+        "before": false,
+        "after": true,
+        "focusRestored": true,
+        "newSnapshotRendered": true
+      },
+      "passed": false
+    },
+    {
+      "id": "settled_toggle_and_removed_identity_negative_control",
+      "observed": {
+        "retained": true,
+        "removed": true,
+        "reopenedIdentityStartsClosed": true
+      },
+      "passed": true
+    }
+  ],
+  "external_request_attempts": [],
+  "page_errors": [],
+  "passed": false
+}

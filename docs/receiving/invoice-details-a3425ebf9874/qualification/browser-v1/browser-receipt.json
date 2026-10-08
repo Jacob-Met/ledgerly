@@ -1,0 +1,27 @@
+{
+  "schema": "ledgerly.invoice-details.browser-receiving.v1",
+  "started_at": "2026-10-08T13:03:19.642168+00:00",
+  "status": "failed",
+  "synthetic_only": true,
+  "checks": [],
+  "requests": [],
+  "blocked_requests": [],
+  "errors": [],
+  "files": {},
+  "source": {
+    "ledgerly/agent.py": "743d283a5525a33820b1a2616054384e0013927c5e54cd12275c9160b9b8fd3a",
+    "ledgerly/paypal.py": "6cacfd8a09dec18a936690965d8177e73f5787d157bfc9670bc9c3ffcebde82f",
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "web-demo/python/bridge.py": "f2af2c3e569569baff9ff7856c79211fbd9ef8640ccd272977fbb9d843973f2a",
+    "web-demo/python/invoice_details.py": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6",
+    "web-demo/src/invoice-details.ts": "5c579b46532a45bf5a8862bf80ae6a0e93d1da0072240bee5dc9a20bda8ff5a3",
+    "web-demo/src/invoice-details.css": "e3a05c0df6296e2e23d344c54e53e5a33470363413c87ee61f8cc7a21c3bcc16",
+    "web-demo/src/main.ts": "c203d9430a6565a966789a571696e542f7c5793f7068097587031f98d9602dea",
+    "web-demo/src/engine.worker.ts": "6634ed73679e178348216335844656c782e2b29194f133dedea030c42ede505b",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/src/worker-client.ts": "e3d5cd58451fd99efe7ff9fb09f263a2df1a9694be482ef101e7af1292e58cc1"
+  },
+  "origin": "http://127.0.0.1:46717",
+  "failure": "Traceback (most recent call last):\n  File \"/srv/hamon-estate/receivers/estate-a3425ebf9874-ledgerly-invoice-details/source/web-demo/tools/check_invoice_details_browser.py\", line 92, in main\n    with sync_playwright() as playwright:\n         ~~~~~~~~~~~~~~~^^\n  File \"/usr/lib/python3/dist-packages/playwright/sync_api/_context_manager.py\", line 79, in __enter__\n    playwright = self._playwright\n                 ^^^^^^^^^^^^^^^^\nAttributeError: 'PlaywrightContextManager' object has no attribute '_playwright'\n",
+  "finished_at": "2026-10-08T13:03:20.150567+00:00"
+}

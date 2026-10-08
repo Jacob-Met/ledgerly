@@ -1,0 +1,34 @@
+{
+  "schema": "hamon.independent_composition_review.v1",
+  "reviewer": "estate-a3425ebf9874-local-estate",
+  "reviewed_at": "2026-10-08T13:34:37.798415+00:00",
+  "disposition": "ACCEPT_SCOPED_COMPOSITION",
+  "source_modified": false,
+  "source_head": "47f9f427f66ff69b7ba356359905965d96d0111f",
+  "actual_parent": "2d3a90a9aa794d849ec54ca9d32a720959ddc5db",
+  "supplied_manifest_sha256": "7a86418434b8480b168e04c9524ac5fe02d2cfb9eda565966f14bfa9b0f683d6",
+  "files": [
+    {
+      "path": "web-demo/python/bridge.py",
+      "sha256": "89aac0928d7e0281e9d3c65871340197917a6a63625756946cba5cce7ed69df1",
+      "git_blob": "6a3391bcba29ea65a2c6155914bda5a51d152db3",
+      "parent_sha256": "2a1a779a7cab981487fc37c0b87f81f6ecd8b2b587c1f787213aa12818d0bec7"
+    },
+    {
+      "path": "web-demo/tests/overdue-scan.test.ts",
+      "sha256": "dff470bf583ef7d0b55b705e34f9997db400635035cf897e8adcb7ab3a6d4202",
+      "git_blob": "772a4595d6444221a5b9fb46d5d7833bf09f67da",
+      "parent_sha256": "33b665302ea8117f1d122914aaed6270b0afae78b59cfc7c1b7846e7208eaf8f"
+    }
+  ],
+  "original_review_receipt_sha256": "6ceaba8df4148b76cbf98233bdbe248e88a6b330ee43e8c51b16e8f69ca5ef7c",
+  "original_review_manifest_sha256": "ab1249f4e8b57de33430d8df293ee5ae7c675621b0fd007453c7990c2e4da7b9",
+  "findings": [
+    "Current-parent bridge differs only by the already-reviewed projection import and snapshot field. Its native chase budget is preserved byte-for-byte.",
+    "The new owner overdue-scan fixture differs only by adding invoice_details.py to the existing Python-module staging filename list. Every assertion and executed test selection stays unchanged.",
+    "Relative to the former reviewed bridge, the only source change is the current owner fixed-planner chase budget max(12, len(ledger)+2). The inspector still receives the completed synchronous dispatch snapshot."
+  ],
+  "qualification": "Static complete two-file delta and four source-byte hash checks only. No tests, native browser, AX, provider or deployed-state execution claimed by this addendum. Original independent 1/2 negative and 3/0 corrected browser controls remain immutable.",
+  "renderer_sha256": "db7a572da2d00bbddb230efd66931f5732160c67ab4cd1b5ae1262e39e8755ff",
+  "remaining_gate": "Final public-head blob/receipt parity and normal source integration; owner native qualification remains separately attributed."
+}

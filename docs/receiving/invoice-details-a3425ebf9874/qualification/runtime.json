@@ -1,0 +1,17 @@
+{
+  "schema": "ledgerly.invoice-details.native-runtime.v1",
+  "python": "Python 3.14.4",
+  "node": "v22.22.1",
+  "npm_packages": {
+    "typescript": "5.9.3",
+    "vite": "8.3.3",
+    "vitest": "5.0.3",
+    "pyodide": "0.29.3"
+  },
+  "package_lock_sha256": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+  "transient_dependencies": "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dependencies",
+  "transient_build": "/dev/shm/hamon-a3425ebf9874-ledgerly-invoice-details/dist",
+  "ephemeral_test_dependency_install": true,
+  "application_runtime_deployment": false,
+  "time": "2026-10-08T13:35:09.207882+00:00"
+}

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="45" failures="0" errors="0" time="17.395489656">
+    <testsuite name="src/invoice-details.test.ts" timestamp="2026-10-08T12:56:56.444Z" hostname="hamon-thinkpad" tests="8" failures="0" errors="0" skipped="0" time="0.031237167">
+        <testcase classname="src/invoice-details.test.ts" name="shows retained item, recipient, terms and provider fields with explicit provenance" time="0.014457139">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="escapes all imported text and identifiers without generating active elements" time="0.00196559">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="retains original decimal strings and each amount currency without arithmetic" time="0.001585491">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="requires one exact matching identity and never falls back to another record" time="0.001365925">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="labels absent, empty and malformed data without inventing zero amounts or actions" time="0.000875922">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="does not change the received snapshot or add pending approval semantics" time="0.001259261">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="provides native disclosure semantics and labeled scrollable tables" time="0.002841194">
+        </testcase>
+        <testcase classname="src/invoice-details.test.ts" name="preserves unknown provider status and receipt terms instead of inventing interpretations" time="0.000734625">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/approval-preview.test.ts" timestamp="2026-10-08T12:56:56.447Z" hostname="hamon-thinkpad" tests="7" failures="0" errors="0" skipped="0" time="6.447930779">
+        <testcase classname="tests/approval-preview.test.ts" name="renders exact multiline reminder content and action identifiers as literal text" time="0.007130749">
+        </testcase>
+        <testcase classname="tests/approval-preview.test.ts" name="keeps queued invoice values exact without rounding or merging currencies" time="0.002229833">
+        </testcase>
+        <testcase classname="tests/approval-preview.test.ts" name="does not invent a date for a queued due-on-receipt invoice" time="0.000638264">
+        </testcase>
+        <testcase classname="tests/approval-preview.test.ts" name="renders every recipient and replaces an invalidated queue with its existing empty state" time="0.001058303">
+        </testcase>
+        <testcase classname="tests/approval-preview.test.ts" name="previews the actual queued invoice after a different email is analyzed without any effect" time="0.040746574">
+        </testcase>
+        <testcase classname="tests/approval-preview.test.ts" name="shows the actual queued reminder subject and body that the existing approval sends" time="0.039515612">
+        </testcase>
+        <testcase classname="tests/approval-preview.test.ts" name="keeps separate currency actions and rejection independent while displaying the queued deposit" time="0.04677018">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/engine-recovery.test.ts" timestamp="2026-10-08T12:56:56.449Z" hostname="hamon-thinkpad" tests="5" failures="0" errors="0" skipped="0" time="0.703054349">
+        <testcase classname="tests/engine-recovery.test.ts" name="actual startup hook settles a worker error, retains intake and enables an explicit empty restart" time="0.340846278">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="actual action hook disables the lost ledger and settles a pending draft without replay" time="0.129398458">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="actual startup hook refuses a completed transport whose initialization result is not ok" time="0.088568769">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="actual worker startup retries a rejected runtime load on the next explicit init" time="0.033944214">
+        </testcase>
+        <testcase classname="tests/engine-recovery.test.ts" name="retains typed corrections across failure and reopens analysis only on explicit revalidation" time="0.101149751">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/engine.test.ts" timestamp="2026-10-08T12:56:56.450Z" hostname="hamon-thinkpad" tests="2" failures="0" errors="0" skipped="0" time="2.525754184">
+        <testcase classname="tests/engine.test.ts" name="runs the actual Python invoice workflow through approval, signed webhook and overdue reminder" time="0.034885792">
+        </testcase>
+        <testcase classname="tests/engine.test.ts" name="keeps draft sends blocked until the visitor approves or rejects the action" time="0.005307385">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/invoice-details.test.ts" timestamp="2026-10-08T12:56:56.450Z" hostname="hamon-thinkpad" tests="4" failures="0" errors="0" skipped="0" time="3.590171076">
+        <testcase classname="tests/invoice-details.test.ts" name="keeps exact original items available when approval removes the queued payload" time="0.019780839">
+        </testcase>
+        <testcase classname="tests/invoice-details.test.ts" name="reports a real partial payment and zero-decimal invoice through Python WASM" time="0.015730655">
+        </testcase>
+        <testcase classname="tests/invoice-details.test.ts" name="keeps per-invoice currencies and original records after analyzing another input" time="0.008349348">
+        </testcase>
+        <testcase classname="tests/invoice-details.test.ts" name="copies nested records without mock requests and clears them on reset" time="0.00520374">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/review.test.ts" timestamp="2026-10-08T12:56:56.452Z" hostname="hamon-thinkpad" tests="8" failures="0" errors="0" skipped="0" time="4.035318417">
+        <testcase classname="tests/review.test.ts" name="lets a visitor correct a missing recipient without changing the extraction or approving a send" time="0.049100952">
+        </testcase>
+        <testcase classname="tests/review.test.ts" name="requires explicit confirmation and refuses client-supplied derived metadata" time="0.011863506">
+        </testcase>
+        <testcase classname="tests/review.test.ts" name="keeps invalid recipient, quantity, price, currency and terms out of the draft queue" time="0.022629452">
+        </testcase>
+        <testcase classname="tests/review.test.ts" name="refuses non-finite and ambiguous numeric edits before invoice side effects" time="0.022702654">
+        </testcase>
+        <testcase classname="tests/review.test.ts" name="consumes a checked revision once and refuses a stale revision without duplicate drafts" time="0.035849684">
+        </testcase>
+        <testcase classname="tests/review.test.ts" name="invalidates checked fields after another analysis, failed correction or reset" time="0.034358269">
+        </testcase>
+        <testcase classname="tests/review.test.ts" name="keeps per-currency totals separate and gates every reviewed split invoice" time="0.02001227">
+        </testcase>
+        <testcase classname="tests/review.test.ts" name="preserves zero-decimal currency checks and requires a confirmed quantity" time="0.017888648">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/worker-client.test.ts" timestamp="2026-10-08T12:56:56.454Z" hostname="hamon-thinkpad" tests="11" failures="0" errors="0" skipped="0" time="0.062023684">
+        <testcase classname="tests/worker-client.test.ts" name="correlates concurrent replies and treats ready as a notification, not an action result" time="0.019509502">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="keeps action errors distinct from a lost worker and permits another explicit request" time="0.007681718">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="settles every pending request on a fatal error and does not automatically recreate or replay" time="0.006765564">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="ignores late replies, ready notifications and failures from the discarded connection" time="0.002966148">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="settles unreadable worker messages as a lost session" time="0.002572065">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="allows a fresh explicit init after the Worker constructor itself fails" time="0.002251941">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="settles a synchronous postMessage failure without discarding the healthy sandbox" time="0.003310296">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="rejects a malformed correlated reply while leaving the running worker usable" time="0.001980248">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="shares one concurrent loader attempt and keeps its successful runtime" time="0.004391686">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="shares the failed loader attempt, then retries only when called again" time="0.002239268">
+        </testcase>
+        <testcase classname="tests/worker-client.test.ts" name="also releases a synchronously thrown loader failure for an explicit retry" time="0.001915949">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -5,6 +5,7 @@ from ledgerly.agent import Agent,RulePlanner,ApprovalRequired
 from ledgerly.paypal import SandboxMock
 from ledgerly.extract import PAYPAL_CURRENCIES, split_by_currency
 from review import ReviewableExtractor, prepare_review
+from invoice_details import snapshot_invoice_details
 from uuid import uuid4
 
 class Clock:
@@ -38,7 +39,7 @@ class Demo:
         audit=[]
         for row in self.agent.audit[-18:]:
             audit.append({k:row[k] for k in ("at","event","action","kind","invoice","ok","event_type","from","to") if k in row})
-        return {"today":self.clock.day.isoformat(),"ledger":[e.to_dict() for e in self.agent.ledger.values()],"pending":self.agent.list_pending(),"audit":audit,"mock_requests":len(self.mock.requests),"external_calls":0,"can_replay":self.last_event is not None}
+        return {"today":self.clock.day.isoformat(),"ledger":[e.to_dict() for e in self.agent.ledger.values()],"invoice_details":snapshot_invoice_details(self.mock.invoices,self.agent.ledger),"pending":self.agent.list_pending(),"audit":audit,"mock_requests":len(self.mock.requests),"external_calls":0,"can_replay":self.last_event is not None}
     def dispatch(self,req):
         action=req.get("action")
         if action=="init": result={"ready":True,"engine":"RulesExtractor + RulePlanner + SandboxMock"}

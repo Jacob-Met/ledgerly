@@ -1,0 +1,20 @@
+{
+  "schema": "hamon.independent_composition_manifest.v1",
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "bytes": 796,
+      "sha256": "62e472c53f3bfc8868263490e70db6c68661459a7d660d2a02b319b91122c242"
+    },
+    {
+      "path": "actual-parent-composition.diff",
+      "bytes": 2355,
+      "sha256": "b253802ccded2f59af597ee5068cdf76b68caa684272cb33856ae22d65c7f351"
+    },
+    {
+      "path": "composition-review.json",
+      "bytes": 2378,
+      "sha256": "f6cafc8fa32bd7046409e269d1abc13d61339fe7e561cdfd5419484aed5f5895"
+    }
+  ]
+}

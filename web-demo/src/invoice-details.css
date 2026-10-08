@@ -1,0 +1,24 @@
+.invoice-card-with-details { min-width: 0; }
+.invoice-details { margin-top: 16px; border-top: 1px solid var(--line, #d6ddd6); padding-top: 12px; min-width: 0; }
+.invoice-details summary { cursor: pointer; padding: 8px 0; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.invoice-details summary span { font-size: .8rem; font-weight: 400; }
+.invoice-details summary:focus-visible, .invoice-detail-table:focus-visible { outline: 3px solid #276749; outline-offset: 3px; }
+.invoice-detail-content { padding-top: 8px; font-size: .84rem; min-width: 0; }
+.invoice-detail-content p { line-height: 1.6; }
+.invoice-detail-provenance, .invoice-detail-state, .invoice-detail-explanation { color: #46594f; overflow-wrap: anywhere; }
+.invoice-detail-state[data-inactive="true"] { color: #773a13; font-weight: 600; }
+.invoice-detail-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; margin: 18px 0; }
+.invoice-detail-fields > div { min-width: 0; }
+.invoice-detail-fields dt { color: #52665a; font-size: .72rem; font-weight: 700; margin-bottom: 4px; }
+.invoice-detail-fields dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.invoice-detail-table { max-width: 100%; overflow-x: auto; margin: 16px 0; border: 1px solid var(--line, #d6ddd6); border-radius: 6px; }
+.invoice-detail-table table { width: 100%; min-width: 380px; border-collapse: collapse; font-size: .78rem; }
+.invoice-detail-table caption { text-align: left; padding: 10px; font-weight: 700; }
+.invoice-detail-table th, .invoice-detail-table td { padding: 10px; text-align: left; vertical-align: top; border-top: 1px solid var(--line, #d6ddd6); white-space: pre-wrap; overflow-wrap: anywhere; }
+.invoice-detail-table td:first-child { max-width: 24rem; }
+.invoice-detail-table th { color: #46594f; font-size: .7rem; }
+.invoice-detail-description { display: block; margin-top: 4px; }
+.invoice-detail-content h4 { margin: 18px 0 8px; font-size: .8rem; }
+.invoice-detail-note { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.invoice-detail-empty { color: #46594f; }
+@media (max-width: 520px) { .invoice-detail-fields { grid-template-columns: minmax(0, 1fr); } }
