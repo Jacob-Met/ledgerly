@@ -353,6 +353,12 @@ class Agent:
         return [a.to_dict() for a in self.pending.values() if a.status == "PENDING"]
 
     def approve(self, action_id: str, approver: str = "human") -> dict:
+        """Execute an approval, consuming its ID if the outgoing phase fails.
+
+        Read-only reminder preflight may be retried. Other ordinary errors leave
+        a FAILED action with an UNKNOWN outcome: check the invoice before making
+        a new approval. The original exception still reaches the caller.
+        """
         a = self._pending_or_raise(action_id)
         if a.kind == "send_reminder":
             # Read-only preflight sits outside the effect-failure handler. A failed
@@ -387,6 +393,18 @@ class Agent:
         except PayPalError as err:
             a.status, a.result = "FAILED", err.body
             self._log("approve_failed", action=a.id, approver=approver, error=str(err))
+            raise
+        except Exception as err:
+            # A lost response does not establish whether an outgoing effect happened.
+            # Consume this ID so an explicit retry cannot repeat that effect.
+            a.status = "FAILED"
+            a.result = {
+                "outcome": "UNKNOWN",
+                "reason": "The outgoing action may have completed. Check the invoice before creating another approval.",
+                "error_type": type(err).__name__,
+            }
+            self._log("approve_failed", action=a.id, approver=approver,
+                      outcome="UNKNOWN", error=str(err), reason=a.result["reason"])
             raise
         a.status, a.result = "APPROVED", result
         self._log("approved", action=a.id, kind=a.kind, invoice=a.invoice_id, approver=approver)

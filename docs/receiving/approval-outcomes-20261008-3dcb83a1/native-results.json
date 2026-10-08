@@ -1,0 +1,117 @@
+{
+  "at": "2026-10-08T10:21:05.227402+00:00",
+  "base": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "pytest": "9.0.2",
+  "python_executable": "/usr/bin/python3.14",
+  "python_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+  "source_collection": "29 selected exact text files; baseline control overlays only the new test",
+  "guards": {
+    "minimum_free_bytes": 536870912,
+    "maximum_own_bytes": 16777216,
+    "command_timeout_seconds": 45,
+    "limits": "Checks before/after commands and subprocess deadline; not kernel memory/disk quotas"
+  },
+  "native_check_sha256": "526b32c1ececa9114b394d1215d416e90026d07189c07528a9e15605c5c282ed",
+  "commands": [
+    {
+      "name": "original_core_suite",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "cwd": "/home/jacob/ledgerly-approval-3dcb83a1/baseline",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "stdout": "...................................................................... [ 74%]\n........................                                                 [100%]\n94 passed, 2 subtests passed in 0.40s\n",
+      "stderr": "",
+      "before": {
+        "free_bytes": 3808673792,
+        "own_bytes": 665880
+      },
+      "after": {
+        "free_bytes": 3863662592,
+        "own_bytes": 665880
+      }
+    },
+    {
+      "name": "new_controls_on_original_source",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_approval_outcomes.py"
+      ],
+      "cwd": "/home/jacob/ledgerly-approval-3dcb83a1/baseline-control",
+      "returncode": 1,
+      "expected_returncode": 1,
+      "stdout": "FFFFFFFF...                                                              [100%]\n=================================== FAILURES ===================================\n______ test_completed_reminder_with_lost_response_cannot_replay[timeout] _______\n\nclock = <conftest.Clock object at 0x7d1cd9bdbb60>\nerror = TimeoutError('authored lost reminder response')\n\n    @pytest.mark.parametrize(\"error\", [\n        TimeoutError(\"authored lost reminder response\"),\n        URLError(\"authored transport response failure\"),\n        json.JSONDecodeError(\"authored malformed response\", \"?\", 0),\n    ], ids=[\"timeout\", \"transport\", \"decode\"])\n    def test_completed_reminder_with_lost_response_cannot_replay(clock, error):\n        agent, mock, invoice = setup_invoice(clock)\n        action_id = queue_reminder(agent, invoice, clock)\n        mock.fail(\"after_reminder\", error)\n    \n        with pytest.raises(type(error)) as caught:\n            agent.approve(action_id)\n        assert caught.value is error\n        assert len(outgoing(mock, \"/remind\")) == 1\n        assert agent.ledger[invoice[\"invoice_id\"]].reminders_sent == 0\n>       assert_consumed(agent, mock, action_id, type(error).__name__)\n\ntests/test_approval_outcomes.py:121: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd97b06e0>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd97b0590>\naction_id = 'apv_c53617c5fb', error_type = 'TimeoutError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n_____ test_completed_reminder_with_lost_response_cannot_replay[transport] ______\n\nclock = <conftest.Clock object at 0x7d1cd99fa350>\nerror = URLError('authored transport response failure')\n\n    @pytest.mark.parametrize(\"error\", [\n        TimeoutError(\"authored lost reminder response\"),\n        URLError(\"authored transport response failure\"),\n        json.JSONDecodeError(\"authored malformed response\", \"?\", 0),\n    ], ids=[\"timeout\", \"transport\", \"decode\"])\n    def test_completed_reminder_with_lost_response_cannot_replay(clock, error):\n        agent, mock, invoice = setup_invoice(clock)\n        action_id = queue_reminder(agent, invoice, clock)\n        mock.fail(\"after_reminder\", error)\n    \n        with pytest.raises(type(error)) as caught:\n            agent.approve(action_id)\n        assert caught.value is error\n        assert len(outgoing(mock, \"/remind\")) == 1\n        assert agent.ledger[invoice[\"invoice_id\"]].reminders_sent == 0\n>       assert_consumed(agent, mock, action_id, type(error).__name__)\n\ntests/test_approval_outcomes.py:121: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd99fa5d0>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd99fa490>\naction_id = 'apv_001590ff3f', error_type = 'URLError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n_______ test_completed_reminder_with_lost_response_cannot_replay[decode] _______\n\nclock = <conftest.Clock object at 0x7d1cd99f9bd0>\nerror = JSONDecodeError('authored malformed response: line 1 column 1 (char 0)')\n\n    @pytest.mark.parametrize(\"error\", [\n        TimeoutError(\"authored lost reminder response\"),\n        URLError(\"authored transport response failure\"),\n        json.JSONDecodeError(\"authored malformed response\", \"?\", 0),\n    ], ids=[\"timeout\", \"transport\", \"decode\"])\n    def test_completed_reminder_with_lost_response_cannot_replay(clock, error):\n        agent, mock, invoice = setup_invoice(clock)\n        action_id = queue_reminder(agent, invoice, clock)\n        mock.fail(\"after_reminder\", error)\n    \n        with pytest.raises(type(error)) as caught:\n            agent.approve(action_id)\n        assert caught.value is error\n        assert len(outgoing(mock, \"/remind\")) == 1\n        assert agent.ledger[invoice[\"invoice_id\"]].reminders_sent == 0\n>       assert_consumed(agent, mock, action_id, type(error).__name__)\n\ntests/test_approval_outcomes.py:121: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd99fac10>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd99f9a90>\naction_id = 'apv_547c0f1f01', error_type = 'JSONDecodeError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n_ test_send_transport_failure_conservatively_consumes_approval[before_send-0] __\n\nclock = <conftest.Clock object at 0x7d1cd9a02060>, phase = 'before_send'\nexpected_posts = 0\n\n    @pytest.mark.parametrize(\"phase,expected_posts\", [\n        (\"before_send\", 0), (\"after_send\", 1),\n    ])\n    def test_send_transport_failure_conservatively_consumes_approval(clock, phase, expected_posts):\n        agent, mock, invoice = setup_invoice(clock)\n        error = URLError(\"authored send transport interruption\")\n        mock.fail(phase, error)\n    \n        with pytest.raises(URLError) as caught:\n            agent.approve(invoice[\"approval_id\"])\n        assert caught.value is error\n        assert len(outgoing(mock, \"/send\")) == expected_posts\n>       assert_consumed(agent, mock, invoice[\"approval_id\"], \"URLError\")\n\ntests/test_approval_outcomes.py:136: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd9a02190>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd9a00e90>\naction_id = 'apv_df06e14096', error_type = 'URLError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n__ test_send_transport_failure_conservatively_consumes_approval[after_send-1] __\n\nclock = <conftest.Clock object at 0x7d1cd9a02b10>, phase = 'after_send'\nexpected_posts = 1\n\n    @pytest.mark.parametrize(\"phase,expected_posts\", [\n        (\"before_send\", 0), (\"after_send\", 1),\n    ])\n    def test_send_transport_failure_conservatively_consumes_approval(clock, phase, expected_posts):\n        agent, mock, invoice = setup_invoice(clock)\n        error = URLError(\"authored send transport interruption\")\n        mock.fail(phase, error)\n    \n        with pytest.raises(URLError) as caught:\n            agent.approve(invoice[\"approval_id\"])\n        assert caught.value is error\n        assert len(outgoing(mock, \"/send\")) == expected_posts\n>       assert_consumed(agent, mock, invoice[\"approval_id\"], \"URLError\")\n\ntests/test_approval_outcomes.py:136: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd9a02d70>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd9a02c40>\naction_id = 'apv_fa0234ab7a', error_type = 'URLError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n_____ test_malformed_success_response_after_send_does_not_reopen_approval ______\n\nclock = <conftest.Clock object at 0x7d1cd9a9c050>\n\n    def test_malformed_success_response_after_send_does_not_reopen_approval(clock):\n        agent, mock, invoice = setup_invoice(clock)\n        mock.fail(\"malformed_send\", None)\n    \n        with pytest.raises(AttributeError):\n            agent.approve(invoice[\"approval_id\"])\n        assert mock.invoices[invoice[\"invoice_id\"]][\"status\"] == \"SENT\"\n        assert len(outgoing(mock, \"/send\")) == 1\n>       assert_consumed(agent, mock, invoice[\"approval_id\"], \"AttributeError\")\n\ntests/test_approval_outcomes.py:147: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd9a9c290>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd9a9c170>\naction_id = 'apv_49b93cb52b', error_type = 'AttributeError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n_ test_partial_send_sequence_cannot_replay_after_recorded_deposit[after_payment] _\n\nclock = <conftest.Clock object at 0x7d1cd99c3ce0>, phase = 'after_payment'\n\n    @pytest.mark.parametrize(\"phase\", [\"after_payment\", \"after_deposit_status\"])\n    def test_partial_send_sequence_cannot_replay_after_recorded_deposit(clock, phase):\n        agent, mock, invoice = setup_invoice(clock, \"07_partial_payment_deposit.txt\")\n        error = TimeoutError(\"authored response loss after deposit\")\n        mock.fail(phase, error)\n    \n        with pytest.raises(TimeoutError) as caught:\n            agent.approve(invoice[\"approval_id\"])\n        assert caught.value is error\n        provider = mock.invoices[invoice[\"invoice_id\"]]\n        assert provider[\"status\"] == \"PARTIALLY_PAID\"\n        assert Decimal(provider[\"payments\"][\"paid_amount\"][\"value\"]) == Decimal(\"1000\")\n        assert len(provider[\"payments\"][\"transactions\"]) == 1\n        assert len(outgoing(mock, \"/send\")) == 1\n        assert len(outgoing(mock, \"/payments\")) == 1\n>       assert_consumed(agent, mock, invoice[\"approval_id\"], \"TimeoutError\")\n\ntests/test_approval_outcomes.py:165: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd99c3f00>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd99c3df0>\naction_id = 'apv_fd0816aa37', error_type = 'TimeoutError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n_ test_partial_send_sequence_cannot_replay_after_recorded_deposit[after_deposit_status] _\n\nclock = <conftest.Clock object at 0x7d1cd99c3130>\nphase = 'after_deposit_status'\n\n    @pytest.mark.parametrize(\"phase\", [\"after_payment\", \"after_deposit_status\"])\n    def test_partial_send_sequence_cannot_replay_after_recorded_deposit(clock, phase):\n        agent, mock, invoice = setup_invoice(clock, \"07_partial_payment_deposit.txt\")\n        error = TimeoutError(\"authored response loss after deposit\")\n        mock.fail(phase, error)\n    \n        with pytest.raises(TimeoutError) as caught:\n            agent.approve(invoice[\"approval_id\"])\n        assert caught.value is error\n        provider = mock.invoices[invoice[\"invoice_id\"]]\n        assert provider[\"status\"] == \"PARTIALLY_PAID\"\n        assert Decimal(provider[\"payments\"][\"paid_amount\"][\"value\"]) == Decimal(\"1000\")\n        assert len(provider[\"payments\"][\"transactions\"]) == 1\n        assert len(outgoing(mock, \"/send\")) == 1\n        assert len(outgoing(mock, \"/payments\")) == 1\n>       assert_consumed(agent, mock, invoice[\"approval_id\"], \"TimeoutError\")\n\ntests/test_approval_outcomes.py:165: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nagent = <ledgerly.agent.Agent object at 0x7d1cd99c3350>\nmock = <test_approval_outcomes.InterruptedMock object at 0x7d1cd99c3460>\naction_id = 'apv_f3fa5a8765', error_type = 'TimeoutError'\n\n    def assert_consumed(agent, mock, action_id, error_type):\n        action = agent.pending[action_id]\n>       assert action.status == \"FAILED\"\nE       AssertionError: assert 'PENDING' == 'FAILED'\nE         \nE         - FAILED\nE         + PENDING\n\ntests/test_approval_outcomes.py:79: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_approval_outcomes.py::test_completed_reminder_with_lost_response_cannot_replay[timeout]\nFAILED tests/test_approval_outcomes.py::test_completed_reminder_with_lost_response_cannot_replay[transport]\nFAILED tests/test_approval_outcomes.py::test_completed_reminder_with_lost_response_cannot_replay[decode]\nFAILED tests/test_approval_outcomes.py::test_send_transport_failure_conservatively_consumes_approval[before_send-0]\nFAILED tests/test_approval_outcomes.py::test_send_transport_failure_conservatively_consumes_approval[after_send-1]\nFAILED tests/test_approval_outcomes.py::test_malformed_success_response_after_send_does_not_reopen_approval\nFAILED tests/test_approval_outcomes.py::test_partial_send_sequence_cannot_replay_after_recorded_deposit[after_payment]\nFAILED tests/test_approval_outcomes.py::test_partial_send_sequence_cannot_replay_after_recorded_deposit[after_deposit_status]\n8 failed, 3 passed in 0.22s\n",
+      "stderr": "",
+      "before": {
+        "free_bytes": 3862683648,
+        "own_bytes": 665880
+      },
+      "after": {
+        "free_bytes": 3833139200,
+        "own_bytes": 665880
+      }
+    },
+    {
+      "name": "candidate_core_suite",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "cwd": "/home/jacob/ledgerly-approval-3dcb83a1/source",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "stdout": "...................................................................... [ 66%]\n...................................                                      [100%]\n105 passed, 2 subtests passed in 0.57s\n",
+      "stderr": "",
+      "before": {
+        "free_bytes": 3832860672,
+        "own_bytes": 665880
+      },
+      "after": {
+        "free_bytes": 3822952448,
+        "own_bytes": 665880
+      }
+    },
+    {
+      "name": "candidate_actual_api_receiving",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/jacob/ledgerly-approval-3dcb83a1/reproduce.py",
+        "/home/jacob/ledgerly-approval-3dcb83a1/source"
+      ],
+      "cwd": "/home/jacob/ledgerly-approval-3dcb83a1",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "stdout": "{\n  \"source\": \"/home/jacob/ledgerly-approval-3dcb83a1/source\",\n  \"cases\": [\n    {\n      \"failure\": \"remind\",\n      \"first\": {\n        \"error\": \"TimeoutError\",\n        \"status\": \"FAILED\",\n        \"listed_pending\": false,\n        \"reminder_posts\": 1\n      },\n      \"retry\": {\n        \"error\": \"ValueError\",\n        \"message\": \"action apv_9756aa768b already FAILED: The outgoing action may have completed. Check the invoice before creating another approval.\"\n      },\n      \"final_status\": \"FAILED\",\n      \"reminder_posts\": 1,\n      \"ledger_reminders_sent\": 0\n    },\n    {\n      \"failure\": \"get\",\n      \"first\": {\n        \"error\": \"TimeoutError\",\n        \"status\": \"PENDING\",\n        \"listed_pending\": true,\n        \"reminder_posts\": 0\n      },\n      \"retry\": {\n        \"result\": {\n          \"reminded\": true\n        }\n      },\n      \"final_status\": \"APPROVED\",\n      \"reminder_posts\": 1,\n      \"ledger_reminders_sent\": 1\n    }\n  ],\n  \"external_calls\": 0\n}\n",
+      "stderr": "",
+      "before": {
+        "free_bytes": 3820916736,
+        "own_bytes": 665880
+      },
+      "after": {
+        "free_bytes": 3808071680,
+        "own_bytes": 665880
+      }
+    }
+  ]
+}

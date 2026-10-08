@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-08T10:28:16.438480+00:00",
+  "reason": "Main integrated PR13 after frozen original-base receiving; check its actual date rules compose with ordinary approval failure handling.",
+  "current_commit": "327bd786dcca35a990152e7430eaf3d303975d27",
+  "current_tree": "04cb386caa190308946e367c2c6990e1d81ee66a",
+  "original_approval_method_equals_current": true,
+  "composition": "Replace only Agent.approve in current main with independently received frozen candidate method.",
+  "all_other_current_agent_bytes_preserved": true,
+  "current_inputs": [
+    {
+      "path": "ledgerly/agent.py",
+      "git_blob": "892cf5c59cdc0ad9eafa2926164f45b5b0b36441",
+      "sha256": "b70cc42cc5563c7037b8fc15093defffcabc76fe007349c90059286570c8ede2"
+    },
+    {
+      "path": "tests/test_due_date_receiving.py",
+      "git_blob": "0407aa32403435d7529854da025d862533f8851e",
+      "sha256": "716d05966eda100eb096d7fd0331eff97bc14ac7a275f0465e6cbdeca6ecf89b"
+    }
+  ],
+  "frozen_agent_sha256": "416ecbadf7c1024dbc1538b0da8ea7bee3f6c5af81140fe15031cfc211e16525",
+  "composed_agent_git_blob": "defa9fa5f96726713f9b1254716a15d2aeba2a14",
+  "composed_agent_sha256": "f4051a876d0ef1f6e5d1cb29eff4aaf6948994143ecea33e1df09f3c17976e7d",
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_approval_outcomes.py",
+    "tests/test_due_date_receiving.py"
+  ],
+  "cwd": "/home/jacob/ledgerly-approval-3dcb83a1/current-composed",
+  "returncode": 0,
+  "stdout": ".........................                                                [100%]\n25 passed in 0.09s\n",
+  "stderr": "",
+  "script_sha256": "19582f1d7d8f393d5ab4d324a99d0c24f54c287282619af64f7c27ba905b1608",
+  "scope": "Only current due-date and approval controls; original full-suite and independent bridge receipts stay pinned to1871942.",
+  "free_bytes_after": 3387207680
+}

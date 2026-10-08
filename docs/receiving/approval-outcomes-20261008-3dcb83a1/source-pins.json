@@ -1,0 +1,182 @@
+{
+  "repository": "Jacob-Met/ledgerly",
+  "base": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+  "collection": "selected exact text source; not a full clone",
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "git_blob": "d0147e5857ffdba9a7875566e7820c8d7c6f21a3",
+      "sha256": "34cd2b973737165359ad0be936ea8adf07927c768ec0f0a824a97bbc0f89db33",
+      "bytes": 860
+    },
+    {
+      "path": "README.md",
+      "git_blob": "1f7a0df1ec6456cfe466df83072b103e43917acb",
+      "sha256": "2e084f4e3a1df30efc68772361f459755883dffd5d13f85082b01e95084bc25f",
+      "bytes": 5483
+    },
+    {
+      "path": "fixtures/01_simple_usd_hourly.txt",
+      "git_blob": "8360fea218c2509556680ab84d54a0ce2f450866",
+      "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902",
+      "bytes": 282
+    },
+    {
+      "path": "fixtures/02_gbp_proofreading.txt",
+      "git_blob": "6891023a80b0a980c3cb7bec0c69a4e1f4221f05",
+      "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e",
+      "bytes": 293
+    },
+    {
+      "path": "fixtures/03_eur_fixed_project.txt",
+      "git_blob": "6385b30900a74e105e1e0d70e9b4e8f2022b5786",
+      "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540",
+      "bytes": 265
+    },
+    {
+      "path": "fixtures/04_multi_currency.txt",
+      "git_blob": "7c8e430065ce86c2a9eaafb95e34fe9b33b7424e",
+      "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3",
+      "bytes": 288
+    },
+    {
+      "path": "fixtures/05_missing_email.txt",
+      "git_blob": "29af9d1ad4c867f363a4d63043ededb7234531f7",
+      "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9",
+      "bytes": 238
+    },
+    {
+      "path": "fixtures/06_ambiguous_qty.txt",
+      "git_blob": "8a8f5e2dca331a21b6fe42297573c7650ec7dab9",
+      "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0",
+      "bytes": 246
+    },
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "bytes": 319
+    },
+    {
+      "path": "fixtures/08_jpy_zero_decimal.txt",
+      "git_blob": "4dc3363c1af0fb24ed7048604b4b1b3b2860af6c",
+      "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28",
+      "bytes": 271
+    },
+    {
+      "path": "fixtures/09_table_cad.txt",
+      "git_blob": "606c0e12a0d5ea2a8a70b0a093bd81e3ef7ee2b1",
+      "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97",
+      "bytes": 380
+    },
+    {
+      "path": "fixtures/10_billing_address_net45.txt",
+      "git_blob": "cb792a9d9faf646f070c3681deebee84295c72bb",
+      "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d",
+      "bytes": 330
+    },
+    {
+      "path": "fixtures/11_range_qty_approx.txt",
+      "git_blob": "a57623c866fec4554707e5c3ac35f40311792082",
+      "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee",
+      "bytes": 239
+    },
+    {
+      "path": "fixtures/12_prompt_injection.txt",
+      "git_blob": "667c687003d7552434a29509cdd16576c0ce6c9b",
+      "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e",
+      "bytes": 315
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "bytes": 119
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "git_blob": "19f261b1430769952057697d68472722a11cf643",
+      "sha256": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+      "bytes": 29113
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "git_blob": "df4444802d9b3d97844a57d7e8a1db14b9439cb9",
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f",
+      "bytes": 3169
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "git_blob": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d",
+      "sha256": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+      "bytes": 26624
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "git_blob": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef",
+      "sha256": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+      "bytes": 24474
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "46b2ea48656b953bb27026e0247efb219b03670e",
+      "sha256": "930ecd530950e1c9d5254393410da98d5294e1fbc4e22609de69edeb6afee35b",
+      "bytes": 380
+    },
+    {
+      "path": "tests/conftest.py",
+      "git_blob": "ef97ed13cbd2a899f54b81b557b363593fcea7a6",
+      "sha256": "fb1e3de94ada14b4b8b9085e93942ea067ce42b15cdeaaa3e99fcc27b376c7c5",
+      "bytes": 788
+    },
+    {
+      "path": "tests/test_agent_paypal.py",
+      "git_blob": "7aa2e496f57ee49b090d5b8607301c81222fad94",
+      "sha256": "4e02c80b725c9532e3f80db8328770ce03731741bc8978991877ca25bc2f25c5",
+      "bytes": 11582
+    },
+    {
+      "path": "tests/test_demo_interactive.py",
+      "git_blob": "72eb3137be9a2f42875cdeb8b54dc40286365b7a",
+      "sha256": "dd0b507e0f542ea158ec5a6cb13907880ff774723deb5d41dae9fcbab37c1205",
+      "bytes": 4906
+    },
+    {
+      "path": "tests/test_extract.py",
+      "git_blob": "b4205a0ac12421f6cc7ca9dd9015d15ca644d5a6",
+      "sha256": "7fff678b923a7a65344390621f8e429f213179f01898b1185f8764cedf89b92e",
+      "bytes": 6091
+    },
+    {
+      "path": "tests/test_reminder_freshness.py",
+      "git_blob": "ddb97a786b0676a24b0b8d419b983071ba157bf1",
+      "sha256": "6fcc053e5a99b580987c45d365a4400084b5c5d4d995d29b25e19ae1fa1d7726",
+      "bytes": 7270
+    },
+    {
+      "path": "tests/test_reminder_provider_changes.py",
+      "git_blob": "b967a8722940eb03d060eeb23e1893d098ece224",
+      "sha256": "b584d4ee1869fb7889c3a84a89783a7f6893c219278438c5f5906f76052f1810",
+      "bytes": 6165
+    },
+    {
+      "path": "tests/test_reminder_receiving.py",
+      "git_blob": "40746e8a4a441ec73cc345e1e5b5eef6c1b25570",
+      "sha256": "d111bb56f5612230d0d0e881798cacde195e24d430dd6f36cc4e62fb1d32f273",
+      "bytes": 13993
+    },
+    {
+      "path": "web-demo/python/bridge.py",
+      "git_blob": "5573f8b488ee4421e073fce057e6928aac6f6630",
+      "sha256": "3e589806d38909801fd4307bf54b9f1f28d3ba7c653d158122e7f18302779eda",
+      "bytes": 6223
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "bytes": 4379
+    }
+  ]
+}

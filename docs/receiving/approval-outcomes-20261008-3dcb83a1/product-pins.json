@@ -1,0 +1,25 @@
+{
+  "base": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+  "product_files": [
+    {
+      "path": "ledgerly/agent.py",
+      "git_blob": "c1c88bd74bc96328f296688ef6592e67cd5c38cb",
+      "sha256": "416ecbadf7c1024dbc1538b0da8ea7bee3f6c5af81140fe15031cfc211e16525",
+      "bytes": 30090
+    },
+    {
+      "path": "tests/test_approval_outcomes.py",
+      "git_blob": "f4c7abe598388131fd207b935e87a8bf3ca68024",
+      "sha256": "a7fbdfb6f73657a8a3f7c5f7b4c9444e9381783567aea83e89d30032f6f935c2",
+      "bytes": 8203
+    }
+  ],
+  "diff_sha256": "1fbff68f756d1c3a50dcc3aef65a1510523ceb950da1ed7ba44df7cc0999338b",
+  "unchanged_selected_files": 28,
+  "baseline_and_control_source_pins_unchanged": true,
+  "final_resource_state": {
+    "free_bytes": 3808043008,
+    "own_bytes": 694694
+  }
+}
