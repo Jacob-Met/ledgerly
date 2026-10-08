@@ -1,0 +1,144 @@
+test_explicit_human_prior_payment_amount_is_used_only_after_approval (__main__.PaymentEvidenceReview.test_explicit_human_prior_payment_amount_is_used_only_after_approval) ... ok
+test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) ... 
+  test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) (text="We'll have paid a $500 deposit by Friday.") ... FAIL
+  test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) (text='We’ll have paid a $500 deposit by Friday.') ... FAIL
+  test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) (text="I'll have paid a $500 deposit by tomorrow.") ... FAIL
+test_human_correction_is_bound_to_original_source (__main__.PaymentEvidenceReview.test_human_correction_is_bound_to_original_source) ... ok
+test_human_zero_correction_produces_truthful_invoice_and_no_payment (__main__.PaymentEvidenceReview.test_human_zero_correction_produces_truthful_invoice_and_no_payment) ... FAIL
+test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) ... 
+  test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) (text="Earlier you wrote 'we paid a $500 deposit' for another project.") ... FAIL
+  test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) (text='Earlier you wrote ‘we paid a $500 deposit’ for another project.') ... FAIL
+  test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) (text='Example wording: `we paid a $500 deposit`.') ... FAIL
+test_inverted_counterfactuals_require_review (__main__.PaymentEvidenceReview.test_inverted_counterfactuals_require_review) ... 
+  test_inverted_counterfactuals_require_review (__main__.PaymentEvidenceReview.test_inverted_counterfactuals_require_review) (text="Had we paid a $500 deposit, we'd have a receipt.") ... FAIL
+  test_inverted_counterfactuals_require_review (__main__.PaymentEvidenceReview.test_inverted_counterfactuals_require_review) (text="Had we already paid a $500 deposit, we'd proceed.") ... FAIL
+test_negated_receipt_contractions_require_review (__main__.PaymentEvidenceReview.test_negated_receipt_contractions_require_review) ... ok
+test_original_supported_receipt_still_requires_explicit_approval (__main__.PaymentEvidenceReview.test_original_supported_receipt_still_requires_explicit_approval) ... ok
+test_quoted_email_thread_remains_excluded_without_fake_payment (__main__.PaymentEvidenceReview.test_quoted_email_thread_remains_excluded_without_fake_payment) ... ok
+test_supported_receipt_plus_uncertain_line_preserves_blocking_issue (__main__.PaymentEvidenceReview.test_supported_receipt_plus_uncertain_line_preserves_blocking_issue) ... FAIL
+test_unsettled_receipt_tail_is_not_discarded (__main__.PaymentEvidenceReview.test_unsettled_receipt_tail_is_not_discarded) ... 
+  test_unsettled_receipt_tail_is_not_discarded (__main__.PaymentEvidenceReview.test_unsettled_receipt_tail_is_not_discarded) (text='We already paid a $500 deposit, subject to successful clearance.') ... FAIL
+  test_unsettled_receipt_tail_is_not_discarded (__main__.PaymentEvidenceReview.test_unsettled_receipt_tail_is_not_discarded) (text='We already paid a $500 deposit but it is awaiting confirmation.') ... FAIL
+
+======================================================================
+FAIL: test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) (text="We'll have paid a $500 deposit by Friday.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 78, in test_future_perfect_contractions_are_not_completed_payments
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) (text='We’ll have paid a $500 deposit by Friday.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 78, in test_future_perfect_contractions_are_not_completed_payments
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_future_perfect_contractions_are_not_completed_payments (__main__.PaymentEvidenceReview.test_future_perfect_contractions_are_not_completed_payments) (text="I'll have paid a $500 deposit by tomorrow.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 78, in test_future_perfect_contractions_are_not_completed_payments
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_human_zero_correction_produces_truthful_invoice_and_no_payment (__main__.PaymentEvidenceReview.test_human_zero_correction_produces_truthful_invoice_and_no_payment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 165, in test_human_zero_correction_produces_truthful_invoice_and_no_payment
+    self.assertTrue(tool_result.get("needs_review"))
+AssertionError: None is not true
+
+======================================================================
+FAIL: test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) (text="Earlier you wrote 'we paid a $500 deposit' for another project.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 95, in test_inline_quoted_previous_project_is_not_current_payment
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) (text='Earlier you wrote ‘we paid a $500 deposit’ for another project.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 95, in test_inline_quoted_previous_project_is_not_current_payment
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_inline_quoted_previous_project_is_not_current_payment (__main__.PaymentEvidenceReview.test_inline_quoted_previous_project_is_not_current_payment) (text='Example wording: `we paid a $500 deposit`.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 95, in test_inline_quoted_previous_project_is_not_current_payment
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_inverted_counterfactuals_require_review (__main__.PaymentEvidenceReview.test_inverted_counterfactuals_require_review) (text="Had we paid a $500 deposit, we'd have a receipt.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 86, in test_inverted_counterfactuals_require_review
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_inverted_counterfactuals_require_review (__main__.PaymentEvidenceReview.test_inverted_counterfactuals_require_review) (text="Had we already paid a $500 deposit, we'd proceed.")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 86, in test_inverted_counterfactuals_require_review
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_supported_receipt_plus_uncertain_line_preserves_blocking_issue (__main__.PaymentEvidenceReview.test_supported_receipt_plus_uncertain_line_preserves_blocking_issue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 116, in test_supported_receipt_plus_uncertain_line_preserves_blocking_issue
+    self.require_review(text, expected_paid=Decimal(200))
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('700') != Decimal('200')
+
+======================================================================
+FAIL: test_unsettled_receipt_tail_is_not_discarded (__main__.PaymentEvidenceReview.test_unsettled_receipt_tail_is_not_discarded) (text='We already paid a $500 deposit, subject to successful clearance.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 112, in test_unsettled_receipt_tail_is_not_discarded
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+======================================================================
+FAIL: test_unsettled_receipt_tail_is_not_discarded (__main__.PaymentEvidenceReview.test_unsettled_receipt_tail_is_not_discarded) (text='We already paid a $500 deposit but it is awaiting confirmation.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 112, in test_unsettled_receipt_tail_is_not_discarded
+    self.require_review(text)
+  File "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/independent-payment-review.py", line 57, in require_review
+    self.assertEqual(ex.amount_paid, expected_paid)
+AssertionError: Decimal('500') != Decimal('0')
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.007s
+
+FAILED (failures=12)

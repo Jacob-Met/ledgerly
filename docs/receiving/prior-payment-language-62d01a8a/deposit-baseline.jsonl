@@ -1,0 +1,4 @@
+{"amount_paid": "500", "created": true, "errors": [], "queued": ["Send invoice LDG-0001 for USD 2,000 to client@synthetic.example and record USD 500 deposit already received"], "sentence": "A deposit of $500 is due before work begins."}
+{"amount_paid": "500", "created": true, "errors": [], "queued": ["Send invoice LDG-0001 for USD 2,000 to client@synthetic.example and record USD 500 deposit already received"], "sentence": "The $500 deposit has not been paid."}
+{"amount_paid": "500", "created": true, "errors": [], "queued": ["Send invoice LDG-0001 for USD 2,000 to client@synthetic.example and record USD 500 deposit already received"], "sentence": "I will pay a $500 deposit next week."}
+{"amount_paid": "500", "created": true, "errors": [], "queued": ["Send invoice LDG-0001 for USD 2,000 to client@synthetic.example and record USD 500 deposit already received"], "sentence": "I already paid a $500 deposit by bank transfer."}

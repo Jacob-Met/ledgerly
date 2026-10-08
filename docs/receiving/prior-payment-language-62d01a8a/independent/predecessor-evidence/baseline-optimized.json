@@ -1,0 +1,25 @@
+{
+  "source_root": "/workspace/scratch/62d01a8a6ae6/coordination-review-ledgerly-payment/baseline",
+  "mode": "optimized",
+  "command": [
+    "python",
+    "-O",
+    "independent-payment-review.py"
+  ],
+  "exit_code": 1,
+  "signal": null,
+  "source_sha256": {
+    "ledgerly/extract.py": "dfcfdb1c0f186757d87696cdac92bd50a32f800c95ff0099050713d65ffe3ec8",
+    "ledgerly/agent.py": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+    "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "source_unchanged": true,
+  "evaluator_sha256": "9ab16e70c968cc678bff03c80417415f0521d272be1cae092885567a987f566e",
+  "log": "baseline-optimized.log",
+  "log_sha256": "3904202c6d516e9eb4e20836420f659b8c96c7f672f1d77ce5dbc458133805fb",
+  "summary": [
+    "Ran 11 tests in 0.008s",
+    "FAILED (failures=15)"
+  ]
+}

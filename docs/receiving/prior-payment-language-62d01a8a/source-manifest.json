@@ -1,0 +1,43 @@
+{
+  "repository": "Jacob-Met/ledgerly",
+  "issue": 15,
+  "author_base": {
+    "commit": "27193d726c9a7c24bbce77f5bcc961629b484ee6",
+    "tree": "1b64c91887f203b694e72af694e9ada95c2c16ab",
+    "extract_blob": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d",
+    "agent_blob": "5fb6c302d6c6bd343842578f39aea3b2c93866e3"
+  },
+  "receiving_base": {
+    "commit": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+    "tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+    "extract_blob": "a0130ab7cd9930a05a05c0a42e9eb38a8d10711d",
+    "agent_blob": "19f261b1430769952057697d68472722a11cf643"
+  },
+  "candidate": {
+    "path": "ledgerly/extract.py",
+    "blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+    "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653"
+  },
+  "authored_test": {
+    "path": "tests/test_prior_payment_language.py",
+    "blob": "22113f0b65a9ebeb3d403c578bbe722d69f13e03",
+    "sha256": "da54e63f8d0d1c49159ec6f2e4992a478ac0b3af2439fd069bd812b278886f1e"
+  },
+  "independent_evaluator_sha256": "9ab16e70c968cc678bff03c80417415f0521d272be1cae092885567a987f566e",
+  "inspections": {
+    "no_agents_files": true,
+    "all_unowned_extractor_bytes_preserved": true,
+    "fixture_extractions_equal": 12
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "pytest_available": false,
+    "provider": "SandboxMock only"
+  },
+  "limitations": [
+    "native source qualification only",
+    "no real browser or provider",
+    "no full pytest or hosted CI result",
+    "recognition limited to existing payment-cue path and supported completed statement forms"
+  ]
+}

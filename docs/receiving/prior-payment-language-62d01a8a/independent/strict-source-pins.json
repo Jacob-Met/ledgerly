@@ -1,0 +1,44 @@
+{
+  "extract_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+  "extract_sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+  "receiving_main": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "receiving_tree": "a26d5ff9705e83bc248857d4b501068da0b6fb16",
+  "files": [
+    {
+      "path": "fixtures/07_partial_payment_deposit.txt",
+      "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42",
+      "git_blob": "ec831d260eec8f5a2a0bb479a25269b3adb8fc7b",
+      "bytes": 319
+    },
+    {
+      "path": "ledgerly/__init__.py",
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "git_blob": "46c63c63f1a4695e2abedeb7715a49b6480892bf",
+      "bytes": 119
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "sha256": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+      "git_blob": "19f261b1430769952057697d68472722a11cf643",
+      "bytes": 29113
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "sha256": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+      "git_blob": "c4ee64a72f6b7613d5ded235de4ca09a9bbd55f6",
+      "bytes": 28143
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "sha256": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+      "git_blob": "02f73474cfb5e6bbb8ac0f791d6595c8d756deef",
+      "bytes": 24474
+    },
+    {
+      "path": "web-demo/python/review.py",
+      "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447",
+      "git_blob": "35abc10433174d3f5282c7dbd88b1e2c0df4c5d8",
+      "bytes": 4379
+    }
+  ]
+}

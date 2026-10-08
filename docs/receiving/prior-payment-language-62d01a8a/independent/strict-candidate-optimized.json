@@ -1,0 +1,25 @@
+{
+  "source_root": "/dev/shm/hamon-62d01a8a-coordination-ledgerly/source",
+  "mode": "optimized",
+  "command": [
+    "python",
+    "-O",
+    "independent-payment-review.py"
+  ],
+  "exit_code": 0,
+  "signal": null,
+  "source_sha256": {
+    "ledgerly/extract.py": "1a1d733f366b648f9acb5465c50f708fa30fb2f6021045c0764a8c9a914fd653",
+    "ledgerly/agent.py": "d59821b88b140edd0e0d2f826006651257cd1e2023d0b0e98d977679094e82e8",
+    "ledgerly/paypal.py": "37188cd3493c40a2f17ce6ed40234dbeb7ebe9fbc3a7c89b57cd2a46349e5ed4",
+    "web-demo/python/review.py": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  },
+  "source_unchanged": true,
+  "evaluator_sha256": "9ab16e70c968cc678bff03c80417415f0521d272be1cae092885567a987f566e",
+  "log": "strict-candidate-optimized.log",
+  "log_sha256": "b20e505525743be55c0f6540165e10b4f6aadc0ce1151cb6eb0085381163c4be",
+  "summary": [
+    "Ran 11 tests in 0.006s",
+    "OK"
+  ]
+}
