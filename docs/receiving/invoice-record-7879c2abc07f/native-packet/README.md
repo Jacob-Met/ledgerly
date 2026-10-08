@@ -29,3 +29,11 @@ The final hosted environment uses Node 22.23.3 and unchanged system Chrome 154.0
 ## Scope
 
 Acceptance covers these authored fixtures and the recorded browser/font environment. No physical printer, operating-system print dialog, universal font coverage or arbitrary document pagination was received. These documents are saved sandbox snapshots; they do not refresh a provider, authorize an action, restore a sandbox, or establish a real payable invoice or payment receipt.
+
+## Integrated main and automatic push receiving
+
+PR35 was normally merged as `8a122cf637610880e23716823a5eb71d78187391` at 2026-10-08T14:53:29Z, with exact base `b9c24ace6b57a17215a53c50b674bd187d13f8ed` and reviewed head `de24842a91314fdb89e1b8121d206693fbceb5d3` as its two parents. Its tree is unchanged `cbe35389f27031b0c0162fec7ebfd5e6053d5b0f`. [The integration receipt](integration-receiving.json) records the exact graph, independent acceptance and actual raw checkout for all four automatic jobs.
+
+[Verify 37796190754](https://github.com/Jacob-Met/ledgerly/actions/runs/37796190754) passes 205 Python tests + 96 subtests, 88 frontend tests, audit/build and the unchanged CSV eight-download/seven-group gate. [Invoice browser 37796190818](https://github.com/Jacob-Met/ledgerly/actions/runs/37796190818) passes all eight groups / 14 artifacts. Its 25 source inputs and 31 built assets match the accepted candidate exactly. All 228 chunks and all 12 members of the new native bundle are decoded and rehashed; their exact bytes remain in the raw browser log. These newly generated PDF copies were not rerasterized; the unchanged qualified source's actual two-reader/four-page acceptance above remains the visual receipt.
+
+The existing [Pages job 37796190781](https://github.com/Jacob-Met/ledgerly/actions/runs/37796190781) also reports a successful automatic deployment for this merge. No manual deployment or live-site browser receiving was performed. Four exact raw logs are appended under `logs/integrated-main/`; all previous evidence remains intact.

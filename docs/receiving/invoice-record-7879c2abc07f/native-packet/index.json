@@ -1,6 +1,6 @@
 {
   "schema": "ledgerly.invoice-record.native-packet.v1",
-  "status": "Accepted for the authored offline sandbox invoice HTML and actual PDF fixture scope; final font-qualified current-payment composition independently received.",
+  "status": "Integrated through expected-head merge 8a122cf637610880e23716823a5eb71d78187391; exact qualified source, all native main-push gates and preserved independent print receiving accepted.",
   "repo": "Jacob-Met/ledgerly",
   "issue": 34,
   "pull_request": 35,
@@ -364,6 +364,16 @@
       "browser_run": 37793910451,
       "maintained_run": 37793910271,
       "outcome": "Only the owned hosted CJK font environment changed. Eight browser groups / 14 artifacts, 205 Python + 96 subtests, 88 frontend plus original CSV gates pass. Actual 12-member bundle received; independent exact PDF text and all four page rasters accepted."
+    },
+    {
+      "path": "logs/integrated-main",
+      "head": "8a122cf637610880e23716823a5eb71d78187391",
+      "tree": "cbe35389f27031b0c0162fec7ebfd5e6053d5b0f",
+      "actual_checkout": "8a122cf637610880e23716823a5eb71d78187391",
+      "browser_run": 37796190818,
+      "maintained_run": 37796190754,
+      "pages_run": 37796190781,
+      "outcome": "Automatic main-push qualification passes all existing and new gates on the exact integrated tree. Native bundle fully decoded and rehashed; prior independently received print source remains exact."
     }
   ],
   "files": [
@@ -612,6 +622,36 @@
       "sha": "a22702042777913526f42635458ecdb6c94a9714",
       "bytes": 15987,
       "sha256": "050ade34c488a8b5680b5ac7d53419a7946efb123e54eec33eae1b60f7b7be87"
+    },
+    {
+      "path": "logs/integrated-main/browser.log",
+      "sha": "67435bae5725dfa54a19f1b2a5a7d66329747359",
+      "bytes": 995185,
+      "sha256": "6bb1ef192d4541bad4bdef147295b6f0ef7b99319a0474fd2b4fc5059cd28692"
+    },
+    {
+      "path": "logs/integrated-main/engine.log",
+      "sha": "cf5479b67ea5b2c1d002fa6adeea05812219e0d4",
+      "bytes": 461544,
+      "sha256": "c8f212a0ced3c767ecaea53f76f9208a8c62e3c8dd8077fd6a1e4afca4d810c1"
+    },
+    {
+      "path": "logs/integrated-main/python.log",
+      "sha": "b45975c5ff9ff0c2cd693fbacd44ab8b9cce6b68",
+      "bytes": 14807,
+      "sha256": "9c2097944d64bfd39f49d056cb944e4e4cdd07c96a9b0b255aaa1e1864ed1efa"
+    },
+    {
+      "path": "logs/integrated-main/pages.log",
+      "sha": "5160b7a87781fe0f1dacd0acc6c3d407caf04f47",
+      "bytes": 26194,
+      "sha256": "410c5802f679cafd93195ea739939437107ddc7aaccaafdd92faf69735f2bce2"
+    },
+    {
+      "path": "integration-receiving.json",
+      "sha": "67dc7811eeef35e15cc7e980dc7475c0ca7b869f",
+      "bytes": 18482,
+      "sha256": "d6b56deceaaf5e0c59b70433b1b3b4bf0dc6f64afa279a1b21ae6c8e352766f4"
     }
   ],
   "storage_boundary": "Evidence-only native Git branch. Every source leaf from the actual qualified head is preserved. Raw logs and rendered fixtures contain only the authorized fictional receiving data; no arbitrary environment, browser profile or user session files are included.",
@@ -630,19 +670,68 @@
     "buildChanges": []
   },
   "evidence_graph": {
-    "previous_evidence_commit": "b6bbaa6f78949b8fd6048d12428561cc9dfd5844",
-    "source_parent": "de24842a91314fdb89e1b8121d206693fbceb5d3",
+    "previous_evidence_commit": "7e8ee4b902e2595680d0651f77e5df90db0356e0",
+    "source_parent": "8a122cf637610880e23716823a5eb71d78187391",
     "source_tree": "cbe35389f27031b0c0162fec7ebfd5e6053d5b0f",
     "source_leaves_preserved": 610,
-    "evidence_files": 43,
-    "preserved_old_nonmetadata_files": 25,
-    "new_received_artifact_log_files": 15,
-    "new_independent_receipt_files": 1,
+    "evidence_files": 48,
+    "preserved_old_nonmetadata_files": 41,
+    "new_raw_log_files": 4,
+    "new_integration_receipt_files": 1,
     "metadata_files_replaced": 2
   },
   "limits": [
     "Authored fixtures and the specified Chrome/font environment only; no universal installed-font or arbitrary document pagination claim.",
     "No physical printer or operating-system print dialog was exercised.",
     "Standalone sandbox snapshot only; no real payable invoice, payment receipt, provider refresh, provider action or sandbox restore claim."
-  ]
+  ],
+  "integration": {
+    "receipt": "integration-receiving.json",
+    "receipt_blob": "67dc7811eeef35e15cc7e980dc7475c0ca7b869f",
+    "merge": {
+      "sha": "8a122cf637610880e23716823a5eb71d78187391",
+      "tree": "cbe35389f27031b0c0162fec7ebfd5e6053d5b0f",
+      "parents": [
+        "b9c24ace6b57a17215a53c50b674bd187d13f8ed",
+        "de24842a91314fdb89e1b8121d206693fbceb5d3"
+      ],
+      "expected_head": "de24842a91314fdb89e1b8121d206693fbceb5d3",
+      "merged_at": "2026-10-08T14:53:29Z",
+      "main_ref_verified": true,
+      "qualified_tree_identical": true,
+      "production_changes_since_qualified_head": 0
+    },
+    "runs": [
+      {
+        "id": 37796190781,
+        "name": "Publish Ledgerly browser demo",
+        "event": "push",
+        "head": "8a122cf637610880e23716823a5eb71d78187391",
+        "path": ".github/workflows/pages.yml",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37796190781"
+      },
+      {
+        "id": 37796190754,
+        "name": "Verify Ledgerly",
+        "event": "push",
+        "head": "8a122cf637610880e23716823a5eb71d78187391",
+        "path": ".github/workflows/ci.yml",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37796190754"
+      },
+      {
+        "id": 37796190818,
+        "name": "invoice-record-browser",
+        "event": "push",
+        "head": "8a122cf637610880e23716823a5eb71d78187391",
+        "path": ".github/workflows/invoice-record-browser.yml",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37796190818"
+      }
+    ]
+  }
 }
