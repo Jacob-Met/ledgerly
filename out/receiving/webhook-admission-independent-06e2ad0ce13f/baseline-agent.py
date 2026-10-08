@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import contextlib
 import copy
-import hashlib
 import json
 import uuid
 from dataclasses import dataclass, field
@@ -110,7 +109,6 @@ class LedgerEntry:
     prepaid: Decimal = Decimal(0)
     provider_due_on: Optional[date] = None
     provider_due_known: bool = False
-    invoice_due_on: Optional[date] = None
 
     @property
     def due_on(self) -> Optional[date]:
@@ -118,9 +116,6 @@ class LedgerEntry:
             return self.provider_due_on
         if self.sent_on is None or self.due_days is None:
             return None
-        # Positive terms retain the draft deadline; approval does not restart them.
-        if self.due_days > 0 and self.invoice_due_on is not None:
-            return self.invoice_due_on
         return date.fromordinal(self.sent_on.toordinal() + self.due_days)
 
     @property
@@ -245,7 +240,7 @@ class Agent:
         self.ledger: dict[str, LedgerEntry] = {}
         self.pending: dict[str, PendingAction] = {}
         self.audit: list[dict] = []
-        self._seen_events: dict[str, str] = {}
+        self._seen_events: set[str] = set()
 
     # -- tool loop
     def run(self, goal: str, planner: Planner, max_steps: int = 12) -> dict:
@@ -284,14 +279,11 @@ class Agent:
                 note += f" Deposit of {part.currency} {ex.amount_paid} received with thanks."
             body = build_invoice(part, self.invoicer, number, self.today(), note,
                                  allow_partial=ex.amount_paid > 0)
-            invoice_due_on = (date.fromisoformat(body["detail"]["payment_term"]["due_date"])
-                              if part.due_days is not None and part.due_days > 0 else None)
             resp = self.client.create_draft_invoice(body)
             inv_id = resp.body["href"].rsplit("/", 1)[-1] if "href" in resp.body else resp.body["id"]
             entry = LedgerEntry(inv_id, number, part.client_name, part.client_email, part.currency,
                                 part.total(), part.due_days,
-                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0),
-                                invoice_due_on=invoice_due_on)
+                                prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0))
             self.ledger[inv_id] = entry
             summary = f"Send invoice {number} for {part.currency} {part.total():,} to {part.client_email}"
             if entry.prepaid:
@@ -402,32 +394,19 @@ class Agent:
                 self._log("webhook_rejected", reason="bad signature")
                 raise WebhookError("signature verification failed")
         ev = parse_webhook_event(raw_body)
-        if not isinstance(ev.event_id, str) or not ev.event_id or ev.event_id.strip() != ev.event_id:
-            raise WebhookError("event ID must be a nonempty string without surrounding whitespace")
-        if not isinstance(ev.invoice_id, str) or not ev.invoice_id or ev.invoice_id.strip() != ev.invoice_id:
-            raise WebhookError("invoice ID must be a nonempty string without surrounding whitespace")
-        try:
-            canonical = json.dumps(json.loads(raw_body), sort_keys=True, separators=(",", ":"), allow_nan=False)
-        except (TypeError, ValueError) as err:
-            raise WebhookError("event content must be finite JSON") from err
-        digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
-        prior = self._seen_events.get(ev.event_id)
-        if prior is not None:
-            if prior != digest:
-                self._log("webhook_rejected", reason="event identity conflict", event_id=ev.event_id)
-                raise WebhookError("Webhook event identity conflict")
+        if ev.event_id in self._seen_events:
             return {"ok": True, "duplicate": True, "invoice_id": ev.invoice_id}
+        self._seen_events.add(ev.event_id)
         e = self.ledger.get(ev.invoice_id)
         if e is None:
             self._log("webhook_unknown_invoice", invoice=ev.invoice_id)
             return {"ok": False, "message": "unknown invoice"}
         prev = e.status
-        # A signed notification can arrive late. Reuse the current-invoice read
-        # and reminder invalidation before consuming its identity for replay.
-        self._refresh_invoice(ev.invoice_id)
-        self._seen_events[ev.event_id] = digest
-        self._log("webhook", event_type=ev.event_type, invoice=ev.invoice_id,
-                  transition=f"{prev}->{e.status}", reported_status=ev.status, source="current_invoice")
+        e.status = ev.status
+        if ev.paid_amount is not None:
+            e.paid_amount = ev.paid_amount
+        self._invalidate_reminders(e, self.today())
+        self._log("webhook", event_type=ev.event_type, invoice=ev.invoice_id, transition=f"{prev}->{e.status}")
         return {"ok": True, "invoice_id": ev.invoice_id, "from": prev, "to": e.status}
 
     # -- internals

@@ -1,0 +1,36 @@
+{
+  "comparison": "Exact source text of Agent methods from AST source spans",
+  "changed_methods": [
+    "__init__",
+    "handle_webhook"
+  ],
+  "unchanged_methods_sha256": {
+    "run": "aa68378a49335050b65182a32ee39c245ab12ea7399e02867859460bf50a6e77",
+    "tool_create_invoice": "8eee1e4c732dcd7162c74d35f0db497906de10b46f5a376a144b01d96e36c2d8",
+    "tool_get_status": "63dbcf65943b2a5edb3a40c04b899453a5d92cffe5bbc3a8b408dc71889e10c9",
+    "tool_list_overdue": "ac8e7dd9c4b8828af7a86b5f719b6da6441f78b30acd4e3e60019ac17a1886a1",
+    "tool_send_reminder": "a07792862af30a9944d9593241c13bc4244ae99739cf055cc6fc4b7693ccc787",
+    "list_pending": "95149d2fadb48f0caa1ae94ed3729a79e8ac0486664cd788453c93000d398b26",
+    "approve": "6386a2e0d12068169f1d6d07d4ffbebcdc0180df8d4d0f68db0856445fb4c9e8",
+    "reject": "577c7dd820841781ef2d0638c3fe7e04598b4c4c08f3313987b92ba3a5319f99",
+    "_amount_fact": "1c19014c4ceaa24cdeed8858d226e70ea05f26eaba2b70e4d1825048530484e7",
+    "_invoice_facts": "59ecf889d3221ad3e316a51aa0dc71c332b4f20afce92dcf99066f2a0800e336",
+    "_reminder_facts": "a7120254a9794eff9e767de73a8f31c7e7215a6b360e97ec89b7e2f418eb871c",
+    "_invalidate_reminders": "aa87956e67810b56bdfa68bf39e03ecec355206bd369e8aaa9dc9a639dc93518",
+    "_refresh_invoice": "2c25612c61a91a4b484217d4e7f2f8b8a440846d76f748a706969411e37dcbcd",
+    "_invoice_presentation": "bb8bd0293737bb0299c26ca9e8a1d8468f13595a67e751733826eb6586c46aad",
+    "_queue": "3218674726d68fb6bc1b7c163122798838a778cebbb54a39f711839fc6cbda65",
+    "_pending_or_raise": "2671ef5513a1ef144d867360fdcac4a49624b4ebde8346770eb6da78321f8484",
+    "_log": "a8ee1d1e56b5a722d9f8673428f7a6c3480212808950e60607fa50a28cc1af2f",
+    "export_state": "bfa8fb2600f5c0429cabc70e2c130b3f8348b155872fd91162be1142291ee7fc"
+  },
+  "required_owner_methods_unchanged": [
+    "_invalidate_reminders",
+    "_invoice_facts",
+    "_invoice_presentation",
+    "_refresh_invoice",
+    "_reminder_facts",
+    "approve",
+    "tool_send_reminder"
+  ]
+}

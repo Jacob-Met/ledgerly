@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-08T10:28:53.161457+00:00",
+  "base_commit": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+  "source_git_blob": "2dbf14c2eeeada3b1f26befa1039064500394c65",
+  "source_sha256": "e8a60aa83a9647663da1c0cf52824e26a9af6c8ede0b25134db1f156e5164091",
+  "command": [
+    "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+    "-m",
+    "pytest",
+    "-p",
+    "no:cacheprovider",
+    "-q"
+  ],
+  "cwd": "/workspace/scratch/06e2ad0ce13f/ledgerly-webhook-admission",
+  "python": "Python 3.12.14",
+  "pytest": "pytest 9.1.1",
+  "exit_code": 0,
+  "inputs_unchanged": true,
+  "input_count": 29,
+  "log_sha256": "d97782cd6a7f3585d2dc3d63d5cc84acd85a3aa7da54361ab24572e89e354f60"
+}

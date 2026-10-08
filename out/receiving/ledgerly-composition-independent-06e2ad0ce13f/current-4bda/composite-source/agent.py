@@ -25,7 +25,7 @@ from datetime import date, datetime, timezone
 from decimal import Decimal
 from typing import Any, Callable, Optional, Protocol
 
-from .extract import Extraction, Extractor, RulesExtractor, split_by_currency
+from .extract import Extraction, Extractor, RulesExtractor, split_by_currency, validate
 from .paypal import (
     OPEN_STATUSES, PAID_STATUSES, InvoicingClient, PayPalError, Response, WebhookError,
     build_invoice, parse_webhook_event,
@@ -272,10 +272,15 @@ class Agent:
     # -- tools (safe: never send, never move money)
     def tool_create_invoice(self, text: str) -> dict:
         ex = self.extractor.extract(text)
-        if ex.errors or ex.confidence < self.min_confidence:
+        # Extractor adapters may return a reviewed value with stale/no issues.
+        # Admit the whole job before allocating even the first invoice number.
+        issues = [*ex.issues]
+        issues.extend(issue for issue in validate(ex) if issue not in issues)
+        errors = [issue for issue in issues if issue.severity == "error"]
+        if errors or ex.confidence < self.min_confidence:
             return {"ok": False, "needs_review": True, "confidence": ex.confidence,
-                    "issues": [i.to_dict() for i in ex.issues],
-                    "message": f"needs human review (confidence {ex.confidence}, {len(ex.errors)} error(s))"}
+                    "issues": [i.to_dict() for i in issues],
+                    "message": f"needs human review (confidence {ex.confidence}, {len(errors)} error(s))"}
         created = []
         for part in split_by_currency(ex):
             number = self.client.generate_next_invoice_number().body["invoice_number"]
@@ -300,7 +305,7 @@ class Agent:
             created.append({"invoice_id": inv_id, "invoice_number": number, "currency": part.currency,
                             "total": str(part.total()), "approval_id": action.id})
         return {"ok": True, "invoices": created, "confidence": ex.confidence,
-                "issues": [i.to_dict() for i in ex.issues],
+                "issues": [i.to_dict() for i in issues],
                 "message": f"{len(created)} draft(s) created; awaiting approval to send"}
 
     def tool_get_status(self, invoice_id: str) -> dict:

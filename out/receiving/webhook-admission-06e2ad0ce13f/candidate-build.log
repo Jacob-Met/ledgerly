@@ -1,0 +1,25 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ledgerly-offline-browser-demo@0.1.0 build
+> node scripts/stage-python.mjs && tsc --noEmit && vite build
+
+Staged the real Python core, fictional fixtures and self-hosted Pyodide assets.
+vite v8.3.3 building client environment for production...
+transforming...
+[plugin rolldown:vite-resolve] Module "node:fs/promises" has been externalized for browser compatibility, imported by "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:path" has been externalized for browser compatibility, imported by "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:url" has been externalized for browser compatibility, imported by "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:vm" has been externalized for browser compatibility, imported by "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:crypto" has been externalized for browser compatibility, imported by "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:child_process" has been externalized for browser compatibility, imported by "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+[plugin rolldown:vite-resolve] Module "node:fs" has been externalized for browser compatibility, imported by "/workspace/scratch/06e2ad0ce13f/ledgerly-core/web-demo/node_modules/pyodide/pyodide.mjs". See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+✓ 7 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/__vite-browser-external-DUTr-DWw.js   0.11 kB
+dist/index.html                                   5.70 kB │ gzip: 2.36 kB
+dist/assets/engine.worker-37O6cZNX.js            20.16 kB
+dist/assets/index-xwhl2_jp.css                    9.12 kB │ gzip: 2.67 kB
+dist/assets/index-sy3oo-4J.js                    17.01 kB │ gzip: 6.11 kB
+
+✓ built in 173ms

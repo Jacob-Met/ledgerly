@@ -1,0 +1,76 @@
+{
+  "recorded_utc": "2026-10-08T11:03:02.429506+00:00",
+  "baseline_commit": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "extraction_commit": "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f",
+  "webhook_commit": "0f1a7f7e72d932d10698258efbcbb38a0d93f9e9",
+  "local_composite_commit": "4e42e1d283ac1b452b1534b86a42adb6629568ee",
+  "local_composite_tree": "92358850d62ec8bdd1e8bd34e0170281f88c4a23",
+  "clean_merge": true,
+  "manual_resolution": false,
+  "source": {
+    "agent.py": {
+      "git_blob": "962e8ec37a9fa09dec30e4f13f4f70c05c6022f0",
+      "sha256": "1f260b563ed657522bed777d438029b035bd43baa0b30b2f024950875d8f5a15"
+    },
+    "extract.py": {
+      "git_blob": "100e581d3ef0d99555f49264859d01b535c6094f",
+      "sha256": "4921f5df19cb35089afc8db3641cae9b8fbd089279dd84ef9555c10b759e2f16"
+    },
+    "paypal.py": {
+      "git_blob": "43554a287c3b94b48e5376d9fa10f9287e1bea3f",
+      "sha256": "61e86702ffd72eeadb680fb5bddb3e8498427852a9130b064ec7a63ce9ac4dfe"
+    }
+  },
+  "method_proof": {
+    "tool_create_invoice_exact_extraction_commit": true,
+    "init_and_handle_webhook_exact_webhook_commit": true,
+    "other_agent_methods_exact_owner_main": [
+      "_amount_fact",
+      "_invalidate_reminders",
+      "_invoice_facts",
+      "_invoice_presentation",
+      "_log",
+      "_pending_or_raise",
+      "_queue",
+      "_refresh_invoice",
+      "_reminder_facts",
+      "approve",
+      "export_state",
+      "list_pending",
+      "reject",
+      "run",
+      "tool_get_status",
+      "tool_list_overdue",
+      "tool_send_reminder"
+    ],
+    "ledger_entry_and_deadline_class_exact_owner_main": true,
+    "composite_method_sha256": {
+      "__init__": "f9ac2232b2bb297a786df08ab80461997cf7a310a90241ebc68dd1729c2da55a",
+      "run": "aa68378a49335050b65182a32ee39c245ab12ea7399e02867859460bf50a6e77",
+      "tool_create_invoice": "dbb5c2b0950fc80db5983f0fe7d324a5108287633d0b554b4755d7c4be6b5701",
+      "tool_get_status": "63dbcf65943b2a5edb3a40c04b899453a5d92cffe5bbc3a8b408dc71889e10c9",
+      "tool_list_overdue": "ac8e7dd9c4b8828af7a86b5f719b6da6441f78b30acd4e3e60019ac17a1886a1",
+      "tool_send_reminder": "a07792862af30a9944d9593241c13bc4244ae99739cf055cc6fc4b7693ccc787",
+      "list_pending": "95149d2fadb48f0caa1ae94ed3729a79e8ac0486664cd788453c93000d398b26",
+      "approve": "6386a2e0d12068169f1d6d07d4ffbebcdc0180df8d4d0f68db0856445fb4c9e8",
+      "reject": "577c7dd820841781ef2d0638c3fe7e04598b4c4c08f3313987b92ba3a5319f99",
+      "handle_webhook": "a930f90ba5fdca3ec57f9f224aa02cae4f6331f59eff56181018fae741e32515",
+      "_amount_fact": "1c19014c4ceaa24cdeed8858d226e70ea05f26eaba2b70e4d1825048530484e7",
+      "_invoice_facts": "59ecf889d3221ad3e316a51aa0dc71c332b4f20afce92dcf99066f2a0800e336",
+      "_reminder_facts": "a7120254a9794eff9e767de73a8f31c7e7215a6b360e97ec89b7e2f418eb871c",
+      "_invalidate_reminders": "aa87956e67810b56bdfa68bf39e03ecec355206bd369e8aaa9dc9a639dc93518",
+      "_refresh_invoice": "2c25612c61a91a4b484217d4e7f2f8b8a440846d76f748a706969411e37dcbcd",
+      "_invoice_presentation": "bb8bd0293737bb0299c26ca9e8a1d8468f13595a67e751733826eb6586c46aad",
+      "_queue": "3218674726d68fb6bc1b7c163122798838a778cebbb54a39f711839fc6cbda65",
+      "_pending_or_raise": "2671ef5513a1ef144d867360fdcac4a49624b4ebde8346770eb6da78321f8484",
+      "_log": "a8ee1d1e56b5a722d9f8673428f7a6c3480212808950e60607fa50a28cc1af2f",
+      "export_state": "bfa8fb2600f5c0429cabc70e2c130b3f8348b155872fd91162be1142291ee7fc"
+    }
+  },
+  "ui_source_test_and_bridge_trees_unchanged_from_main": {
+    "web-demo/src": "e9d202064d9576b52bd40a7d20fdd4a522456ea8",
+    "web-demo/tests": "25f4c0afe290790fdab6dc3dde79f47b9017732e",
+    "web-demo/python": "ec8cbd499cf031eb2f99e9e0213c94fb4a9f4250"
+  },
+  "scope": "Exact main4bda and two immutable accepted commits. Local merge only; no author tree or publication mutation."
+}

@@ -1,0 +1,21 @@
+{
+  "started_utc": "2026-10-08T10:17:07.568674+00:00",
+  "command": [
+    "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-p",
+    "no:cacheprovider",
+    "-q",
+    "tests",
+    "/workspace/scratch/06e2ad0ce13f/independent-webhook-admission/tests"
+  ],
+  "cwd": "/dev/shm/estate-06e2ad0ce13f-webhook-admission",
+  "exit_code": 1,
+  "summary": "2 failed, 130 passed, 2 subtests passed in 0.48s",
+  "log": "candidate-original-contract-composition.log",
+  "log_sha256": "4b0b625364a278cd02c5d2ef5b78299cad17e06b3ab5f9be079ccc0674e3b75c",
+  "inputs_unchanged_before_after": true,
+  "input_count": 28
+}

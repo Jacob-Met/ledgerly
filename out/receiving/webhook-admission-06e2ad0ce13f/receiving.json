@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "component": "webhook-admission-current-invoice",
+  "decision": "qualified_component_carried_to_current_main_without_webhook_logic_changes",
+  "recorded_utc": "2026-10-08T11:06:44.944684+00:00",
+  "base_commit": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+  "source": {
+    "sha256": "7860c686c0d172dbcdcb96bb64f688ab09b6f04790db794b20e90a35f6ee641d",
+    "git_blob": "91ef4680698f0db52258c6ce7a5e982de3f421c9"
+  },
+  "scope": [
+    "hashlib import",
+    "Agent.__init__ event identity index",
+    "Agent.handle_webhook"
+  ],
+  "owner_preservation": "All eighteen other Agent methods and extract.py/paypal.py remain exact current-main4bda; see current-main-method-preservation.json.",
+  "accepted_predecessor": {
+    "base_commit": "1871942ecb19aa9756bb36b380795bc6c7bf238d",
+    "local_commit": "e95af915da6a1d90a91d6a3204adb72937dc6e09",
+    "agent_blob": "2dbf14c2eeeada3b1f26befa1039064500394c65",
+    "agent_sha256": "e8a60aa83a9647663da1c0cf52824e26a9af6c8ede0b25134db1f156e5164091",
+    "independent_cases": 26,
+    "independent_baseline_passed": 3,
+    "independent_baseline_failed": 23,
+    "native_passed": 132,
+    "native_subtests_passed": 2,
+    "actual_pyodide_tests_passed": 10,
+    "production_build_exit_code": 0
+  },
+  "current_main_native": {
+    "passed": 157,
+    "subtests_passed": 34,
+    "failed": 0,
+    "receipt": "current-main-native-receipt.json"
+  },
+  "independent_packet": "../webhook-admission-independent-06e2ad0ce13f",
+  "author_test": {
+    "path": "tests/test_webhook_admission.py",
+    "cases": 12,
+    "sha256": "054c14fb3ba421ada6c15149528b8a12d7538ed70177fa575f21c429ac74a878"
+  },
+  "reviewer_test": {
+    "path": "tests/test_webhook_current_read_receiving.py",
+    "cases": 26,
+    "sha256": "c76348a1b6abd856c0149fba5bd67155c081bf8142c2ad2d016ca9280e15ac7d"
+  },
+  "test_contract_updates": [
+    "Bridge balance compares monetary Decimal value, retaining the stale-action workflow.",
+    "An unchanged current GBP500 review survives a delayed notification; sending remains explicitly approved, exact-text, once-only."
+  ],
+  "bounds": [
+    "Index is in memory and process-local.",
+    "Signature verifier behavior is preserved; verifier runs before duplicate checks when configured.",
+    "Offline native SandboxMock only; no HTTP client activation.",
+    "No browser navigation or screenshot repeated for this Python-only change.",
+    "This receipt does not claim integration, deployment or recovered HAMON live-host coordination."
+  ],
+  "current_main_independent_composition": {
+    "base_commit": "4bdaaa9995987c3e4a0134dfe792d4afb0d8fe7e",
+    "extraction_commit": "22b7b5404e0bde8c6796d3abd8c5d177b5e84e1f",
+    "webhook_source_freeze": "0f1a7f7e72d932d10698258efbcbb38a0d93f9e9",
+    "agent_blob": "962e8ec37a9fa09dec30e4f13f4f70c05c6022f0",
+    "native_passed": 235,
+    "native_subtests_passed": 34,
+    "actual_npm_staging_and_pyodide_passed": 10,
+    "clean_merge": true,
+    "packet": "../ledgerly-composition-independent-06e2ad0ce13f/current-4bda",
+    "packet_manifest_sha256": "d089ee996d959f9806ff8f342749c7492a0c4dcdc945595540b818a693faa214",
+    "publication_scope": "Combined source is evidence only; executable branch source remains webhook component."
+  }
+}

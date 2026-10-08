@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-10-08T11:06:04.677149+00:00",
+  "finished_utc": "2026-10-08T11:06:05.800889+00:00",
+  "command": [
+    "/dev/shm/estate-60b2c08feb01-runtime/suite-venv/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-p",
+    "no:cacheprovider",
+    "-q",
+    "tests"
+  ],
+  "cwd": "/dev/shm/ledgerly-composition-current-4bda-06e2ad0ce13f/checkout",
+  "exit_code": 0,
+  "inputs_unchanged": true,
+  "input_count": 44,
+  "log_sha256": "c0882d78cab9591d14e9b4ac302c283b36bcc01b64e7a680594b9211c0352eb8"
+}
