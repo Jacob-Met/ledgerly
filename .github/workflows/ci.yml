@@ -44,3 +44,8 @@ jobs:
           chrome_bin="$(command -v google-chrome)"
           "$chrome_bin" --version
           python tools/check_ledger_export_browser.py dist "$RUNNER_TEMP/ledger-export-receiving" --chrome "$chrome_bin" --emit-bundle
+      - name: Receive completed reviews in installed Chrome
+        working-directory: web-demo
+        run: |
+          chrome_bin="$(command -v google-chrome)"
+          node tools/check_review_history_browser.mjs --source .. --dist dist --chrome "$chrome_bin" --output "$RUNNER_TEMP/completed-reviews-receiving"

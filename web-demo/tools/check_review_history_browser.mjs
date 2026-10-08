@@ -4,7 +4,7 @@
  */
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {spawn} from 'node:child_process';
+import {spawn,execFileSync} from 'node:child_process';
 import {createServer} from 'node:http';
 import {readFile,writeFile,mkdir,mkdtemp,rm,readdir} from 'node:fs/promises';
 import {join,resolve,extname} from 'node:path';
@@ -14,12 +14,25 @@ for(let i=2;i<process.argv.length;i+=2){
  const key=process.argv[i];assert.ok(['--source','--dist','--chrome','--output','--source-manifest'].includes(key)&&process.argv[i+1]);
  options[key.slice(2)]=process.argv[i+1];
 }
-for(const key of ['source','dist','chrome','output','source-manifest'])assert.ok(options[key],key);
+for(const key of ['source','dist','chrome','output'])assert.ok(options[key],key);
 const source=resolve(options.source),dist=resolve(options.dist),output=resolve(options.output);
 await mkdir(output);
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const bindingBytes=await readFile(options['source-manifest']),binding=JSON.parse(bindingBytes);
+function checkoutBinding(){
+ const sourcePin=execFileSync('git',['-C',source,'rev-parse','HEAD'],{encoding:'utf8'}).trim();
+ const raw=execFileSync('git',['-C',source,'ls-tree','-rz','HEAD','--','ledgerly','fixtures','web-demo/src',
+  'web-demo/python','web-demo/index.html','web-demo/package.json','web-demo/package-lock.json',
+  'web-demo/vite.config.ts','web-demo/tsconfig.json','web-demo/scripts/stage-python.mjs'],{encoding:'utf8'});
+ const files=raw.split('\0').filter(Boolean).map(line=>{
+  const [header,path]=line.split('\t'),[mode,type,git_blob]=header.split(' ');
+  return {path,mode,type,git_blob};
+ }).filter(row=>row.type==='blob'&&!row.path.includes('__pycache__'));
+ return {schema:'hamon.ledgerly.history-source-binding.v1',source_pin:sourcePin,scope:'Tracked application inputs from this exact checkout',files};
+}
+const bindingBytes=options['source-manifest']?await readFile(options['source-manifest']):
+ Buffer.from(JSON.stringify(checkoutBinding(),null,2)+'\n');
+const binding=JSON.parse(bindingBytes);
 const observer="\nwindow.__historyObservation = {sent: [], received: [], workerCount: 0};\nwindow.__historyWorkers = [];\nconst NativeWorker = window.Worker;\nwindow.Worker = class extends NativeWorker {\n  constructor(url, options) {\n    super(url, options);\n    window.__historyWorkers.push(this);\n    window.__historyObservation.workerCount++;\n    this.addEventListener('message', event => {\n      window.__historyObservation.received.push(structuredClone(event.data));\n    });\n  }\n  postMessage(message, ...rest) {\n    window.__historyObservation.sent.push(structuredClone(message));\n    return super.postMessage(message, ...rest);\n  }\n};\n";
 const faultSuffix="\n# Receiving-only injection: the real mock send succeeds before its response is lost.\n_history_original_handle_json = handle_json\n_history_lost_response_used = False\ndef handle_json(raw):\n    global _history_lost_response_used\n    request = json.loads(raw)\n    if request.get(\"action\") != \"approve\" or _history_lost_response_used:\n        return _history_original_handle_json(raw)\n    _history_lost_response_used = True\n    original_send = SESSION.mock.send_invoice\n    def send_then_lose_response(*args, **kwargs):\n        original_send(*args, **kwargs)\n        raise TimeoutError(\"Receiving-only lost response after the real mock send\")\n    SESSION.mock.send_invoice = send_then_lose_response\n    try:\n        return _history_original_handle_json(raw)\n    finally:\n        SESSION.mock.send_invoice = original_send\n";
 const report={format:'ledgerly-completed-review-receiving/1',startedAt:new Date().toISOString(),
@@ -42,6 +55,12 @@ async function walk(path,prefix=''){
  }
 }
 await walk(dist);
+const pythonAssets={'python/ledgerly/__init__.py':'ledgerly/__init__.py',
+ 'python/ledgerly/agent.py':'ledgerly/agent.py','python/ledgerly/extract.py':'ledgerly/extract.py',
+ 'python/ledgerly/paypal.py':'ledgerly/paypal.py','python/bridge.py':'web-demo/python/bridge.py',
+ 'python/review.py':'web-demo/python/review.py','python/invoice_details.py':'web-demo/python/invoice_details.py',
+ 'python/review_history.py':'web-demo/python/review_history.py'};
+for(const [asset,path] of Object.entries(pythonAssets))assert.equal(report.distFiles[asset],report.sourceFiles[path],asset+' binds actual source');
 await writeFile(join(output,'source-binding.json'),bindingBytes,{flag:'wx'});
 await writeFile(join(output,'lost-response-suffix.py'),faultSuffix,{flag:'wx'});
 async function save(){await writeFile(join(output,'browser.json'),JSON.stringify(report,null,2)+'\n');}
@@ -122,7 +141,7 @@ class Browser{
  }
  async launch(){
   this.profile=await mkdtemp(join(output,'profile-'+this.label+'-'));
-  this.child=spawn(options.chrome,['--headless=new','--disable-gpu','--disable-background-networking',
+  this.child=spawn(options.chrome,['--headless=new','--no-sandbox','--disable-gpu','--disable-background-networking',
    '--disable-component-update','--disable-sync','--no-first-run','--no-default-browser-check',
    '--disk-cache-size=1048576','--media-cache-size=1048576','--remote-debugging-address=127.0.0.1',
    '--remote-debugging-port=0','--user-data-dir='+this.profile,'about:blank'],{stdio:['ignore','ignore','pipe']});
@@ -172,16 +191,19 @@ class Browser{
  }
  async close(){
   if(this.closed)return;this.closed=true;
-  try{if(this.socket?.readyState===WebSocket.OPEN)await this.command('Browser.close',{},null);}catch{}
+  const cleanup={phase:this.label,pid:this.child?.pid,requestedClose:false,fallbackSignals:[],profileRemoved:false};
+  try{if(this.socket?.readyState===WebSocket.OPEN){await this.command('Browser.close',{},null);cleanup.requestedClose=true;}}catch{}
   if(this.child){const exited=()=>this.child.exitCode!==null||this.child.signalCode!==null;
    for(let i=0;i<30&&!exited();i++)await sleep(100);
-   if(!exited()){this.child.kill('SIGTERM');for(let i=0;i<20&&!exited();i++)await sleep(100);}
-   if(!exited()){this.child.kill('SIGKILL');await this.waitFor(exited,'owned browser exit',5000);}
+   if(!exited()){cleanup.fallbackSignals.push('SIGTERM');this.child.kill('SIGTERM');for(let i=0;i<20&&!exited();i++)await sleep(100);}
+   if(!exited()){cleanup.fallbackSignals.push('SIGKILL');this.child.kill('SIGKILL');await this.waitFor(exited,'owned browser exit',5000);}
   }
   this.socket?.close();
   for(const p of this.pending.values()){clearTimeout(p.timer);p.reject(new Error('Receiver closed'));}
   this.pending.clear();
-  if(this.profile)await rm(this.profile,{recursive:true,maxRetries:5,retryDelay:100});
+  if(this.profile){await rm(this.profile,{recursive:true,maxRetries:5,retryDelay:100});cleanup.profileRemoved=true;}
+  cleanup.exitCode=this.child?.exitCode;cleanup.signal=this.child?.signalCode;
+  (report.cleanup??=[]).push(cleanup);
   await writeFile(join(output,this.label+'-chromium.log'),this.log,{flag:'wx'});
  }
 }
@@ -321,9 +343,12 @@ try{
    }finally{try{await b.close();}finally{current=null;}}
   }
  }
+ await check('both browser contexts requested the exact staged Python modules',
+  ['healthy','lost-response'].every(label=>Object.entries(pythonAssets).every(([asset,path])=>report.servedPython[label+':'+asset]===report.sourceFiles[path])));
  await check('page and Worker requests remained on loopback',report.offOrigin.length===0);
  await check('no uncaught page or Worker exceptions',report.pageErrors.length===0);
- await check('exactly one labeled fault bridge served',report.fault.bridgeServed===1);report.ok=true;
+ await check('exactly one labeled fault bridge served',report.fault.bridgeServed===1);
+ await check('both owned browsers exited and profiles were removed',report.cleanup?.length===2&&report.cleanup.every(x=>x.exitCode===0&&x.signal===null&&x.profileRemoved));report.ok=true;
 }catch(error){report.error=String(error);report.stack=error.stack;}
 finally{
  if(current)await current.close().catch(error=>{report.cleanupError=String(error);});
