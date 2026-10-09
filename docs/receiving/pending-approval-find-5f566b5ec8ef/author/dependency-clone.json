@@ -1,0 +1,9 @@
+{
+  "source": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef/web-demo/node_modules",
+  "destination": "/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source/web-demo/node_modules",
+  "command": "cp -cR",
+  "exit": 0,
+  "stderr": "",
+  "lockSHA": "1b46de590a9d0d9f055ea1af172c68edaf3a83f45cf0816ae55ee89c61155e7e",
+  "noInstall": true
+}

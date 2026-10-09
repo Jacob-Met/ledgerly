@@ -1,0 +1,34 @@
+{
+  "schema": "hamon.native-receiving.v1",
+  "actor": "chatgpt:5f566b5ec8ef:production",
+  "repository": "Jacob-Met/ledgerly",
+  "base": "c498f55883c755553b59921199d54689d99c9730",
+  "product": "82e89f1e2e2296fb62debd82d507a694cd93f01b",
+  "namespace": "docs/receiving/pending-approval-find-5f566b5ec8ef",
+  "outcome": "Literal pending-approval query/type intersection on original cards; exact original human action gates retained.",
+  "phases": {
+    "originalNative": "author/baseline-native.json",
+    "originalActualBrowser": "author/browser-baseline/receipt.json",
+    "focused": "author/candidate-focused-first.json",
+    "focused24Passed": true,
+    "TypeScriptVite": "author/candidate-build-first.json",
+    "actualChrome": "author/browser-candidate-first/receipt.json",
+    "actualChrome13Passed": true,
+    "peer": "peer-coordination/independent-review.json",
+    "peerDistinct7": "six accepted groups in first exit1; only affected literal group in corrected exit0; no product correction or full replay"
+  },
+  "failuresRetained": [
+    "One functions code evaluation parse error occurred before candidate writes; no nested tool/source operation happened in that failed call.",
+    "Peer whole-document script-count assertion counted its own module scripts; original exit1 and affected-only replay retained.",
+    "Peer first custody inverse used moving HEAD during author commit; pinned c498 correction retained without behavior replay.",
+    "Initial workflow-audit summary overstated Pages PR trigger; first summary and exact unchanged workflow bodies retained alongside corrected summary."
+  ],
+  "preservation": "All763 original unowned leaves/modes exact. Inverse reconstruction restores complete main/index/recovery-test; README exact original prefix. Full declarations in source-freeze.",
+  "visual": "Author personally inspected retained desktop and390px screenshots; peer does not claim author engine/browser execution. No root personal review claimed.",
+  "limits": [
+    "Native Mac qualification only; no Pages deployment or hosted CI pass.",
+    "Current standalone no-Actions policy holds PR/main/deployment. Source-only branch requires fresh complete workflow check.",
+    "No native Conscience append or scheduler lease while DB storage is unavailable."
+  ],
+  "utc": "2026-10-09T05:25:41.994137+00:00"
+}

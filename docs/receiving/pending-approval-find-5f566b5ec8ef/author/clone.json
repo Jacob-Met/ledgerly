@@ -1,0 +1,15 @@
+{
+  "command": [
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "--branch",
+    "main",
+    "https://github.com/Jacob-Met/ledgerly.git",
+    "/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": "Cloning into '/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source'...\n"
+}

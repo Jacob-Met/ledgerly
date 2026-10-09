@@ -182,8 +182,3 @@ or PDF-text inspection.
 ## Continue unfinished intake
 
 Use **Save intake** to keep source text and unfinished correction fields in a local file. **Open intake** previews that file; **Replace current intake** runs fresh Python source analysis and restores any fields unchecked. See [the intake workflow and format](docs/intake-files.md) for source-only behavior, fresh review and receiving instructions.
-
-
-## Find pending approvals
-
-Use the human gate's literal search and action-type filter to locate an original pending invoice or reminder without changing the queue. [Usage and qualification](APPROVAL-FINDER.md).

@@ -1,0 +1,97 @@
+diff --git a/web-demo/README.md b/web-demo/README.md
+index 67acd96..047484a 100644
+--- a/web-demo/README.md
++++ b/web-demo/README.md
+@@ -182,3 +182,8 @@ or PDF-text inspection.
+ ## Continue unfinished intake
+ 
+ Use **Save intake** to keep source text and unfinished correction fields in a local file. **Open intake** previews that file; **Replace current intake** runs fresh Python source analysis and restores any fields unchecked. See [the intake workflow and format](docs/intake-files.md) for source-only behavior, fresh review and receiving instructions.
++
++
++## Find pending approvals
++
++Use the human gate's literal search and action-type filter to locate an original pending invoice or reminder without changing the queue. [Usage and qualification](APPROVAL-FINDER.md).
+diff --git a/web-demo/index.html b/web-demo/index.html
+index 587525b..2574cf0 100644
+--- a/web-demo/index.html
++++ b/web-demo/index.html
+@@ -2,6 +2,6 @@
+ <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#edf0e9"/><meta name="description" content="A local browser demo of Ledgerly's real Python invoice extraction and approval-gated payment workflow, backed only by an in-memory sandbox."/><title>Ledgerly - Human-Gated Invoice Studio</title><link rel="icon" href="./favicon.svg"/></head><body><div class="shell">
+ <header class="masthead"><a class="brand" href="#top"><span class="brand-mark">L</span><span><strong>LEDGERLY</strong><small>INVOICE OPS / LOCAL SIMULATION</small></span></a><div class="engine-pill"><i id="engine-dot"></i><span id="engine-status">Python engine not loaded</span></div></header><main id="top"><section class="hero"><div class="hero-copy"><p class="eyebrow">PAYMENT AUTOMATION / HUMAN IN CONTROL</p><h1>Move the work.<br/><em>Keep the switch.</em></h1><p class="lede">Paste a job email. Ledgerly's actual Python rules extract line items, flag uncertainty and prepare an in-memory invoice draft. You choose if the sandbox invoice is sent, whether a webhook is trusted and if an overdue reminder is approved.</p><div class="hero-tags"><span>NO MODEL CALL</span><span>NO PAYPAL NETWORK</span><span>NO REAL MONEY</span></div></div><aside class="engine-card"><span class="card-kicker">RUNTIME / WASM</span><strong>Python, in this tab.</strong><p>Pyodide runs Ledgerly source modules on the page. Close or reset to discard this sandbox ledger.</p><button id="engine-start" class="button button-primary">Load local engine</button><p id="engine-note" class="fine-print">First load includes the local Python runtime. No external API or cloud worker is used.</p></aside></section>
+ <section class="workflow" aria-label="Ledgerly invoice workflow"><article class="intake panel"><header class="panel-heading"><p class="eyebrow">01 / INTAKE</p><h2>Bring a job email.</h2><p>Try a fictional fixture or paste your own non-sensitive text. Save intake keeps an explicit local file of your source and unfinished corrections.</p></header><div class="sample-row"><label for="fixture-select">FICTIONAL FIXTURE</label><select id="fixture-select"><option value="01_simple_usd_hourly.txt">USD / hourly</option><option value="04_multi_currency.txt">Two currencies</option><option value="05_missing_email.txt">Missing recipient</option><option value="07_partial_payment_deposit.txt">Deposit already paid</option><option value="12_prompt_injection.txt">Untrusted email text</option></select><button id="load-fixture" class="button button-secondary" type="button">Load example</button></div><label class="input-label" for="job-email">JOB EMAIL / PASTE HERE</label><textarea id="job-email" rows="10" placeholder="From: Client Name &lt;billing@example.test&gt; ..." disabled></textarea><div class="button-row"><button id="analyze" class="button button-primary" disabled>Analyze with Python rules</button></div><section id="analysis" class="analysis" aria-live="polite"><p class="empty">Load the engine, then analyze a visitor-provided job email. Results are computed by Ledgerly's RulesExtractor.</p></section><div class="button-row"><button id="draft" class="button button-secondary" disabled>Create sandbox draft</button></div></article>
+-<aside class="operations"><section class="approval-panel panel"><header class="panel-heading"><p class="eyebrow">02 / HUMAN GATE</p><h2>Nothing sends itself.</h2><p>Invoice sends and reminders appear here as pending actions. The Python GatedClient blocks them until you approve.</p></header><div id="approval-list" class="approval-list"><p class="empty">No approvals waiting.</p></div></section>
++<aside class="operations"><section class="approval-panel panel"><header class="panel-heading"><p class="eyebrow">02 / HUMAN GATE</p><h2>Nothing sends itself.</h2><p>Invoice sends and reminders appear here as pending actions. The Python GatedClient blocks them until you approve.</p></header><section class="approval-filters" aria-label="Find pending approvals"><label class="approval-filter-query" for="approval-search">FIND IN QUEUED PROPOSALS<input id="approval-search" type="search" placeholder="Recipient, invoice ID, item or message" autocomplete="off" aria-describedby="approval-filter-note" disabled></label><label for="approval-kind">ACTION TYPE<select id="approval-kind" disabled><option value="all">All pending</option><option value="send_invoice">Invoice sends</option><option value="send_reminder">Reminders</option></select></label><button id="approval-filter-clear" type="button" class="button button-secondary" disabled>Clear filters</button><p id="approval-filter-note" role="status" aria-live="polite">Load the local engine to find pending approvals.</p><p id="approval-filter-empty" class="approval-filter-empty" hidden>No pending approvals match these filters. Clear the filters to see the full queue.</p></section><div id="approval-list" class="approval-list"><p class="empty">No approvals waiting.</p></div></section>
+ <section class="ledger-panel panel"><header class="panel-heading"><p class="eyebrow">03 / SANDBOX LEDGER</p><h2>Payment, then follow-up.</h2><p>Simulate payment webhooks, advance the local demo clock and draft an overdue reminder.</p><div class="ledger-export-row"><button id="ledger-export" type="button" class="button button-secondary" aria-describedby="ledger-export-note" disabled>Download sandbox ledger CSV</button><p id="ledger-export-note" class="fine-print" role="status" aria-live="polite">Download is available when the local engine is ready.</p></div></header><div class="clock-row"><label for="demo-date">DEMO DATE</label><input id="demo-date" type="date" disabled><button id="advance-clock" class="button button-secondary" disabled>Advance clock</button><button id="run-chase" class="button button-secondary" disabled>Scan overdue</button></div><div class="payment-row"><label for="payment-amount">OPTIONAL PARTIAL PAYMENT</label><input id="payment-amount" inputmode="decimal" placeholder="blank = pay full balance" disabled><button id="replay-webhook" class="button button-link" disabled>Replay last webhook</button></div><div id="ledger-list" class="ledger-list"><p class="empty">Drafted invoices appear here after approval.</p></div></section><div class="ledger-footer"><span><b id="mock-requests">0</b> in-memory PayPal-style calls / <b id="external-calls">0</b> external calls</span><button id="reset-sandbox" class="button button-link" disabled>Reset sandbox</button></div><section id="receivables-view" class="receivables-panel receivables-view panel" aria-labelledby="receivables-heading"><header class="panel-heading"><p class="eyebrow">CLIENT BALANCES / LOCAL SNAPSHOT</p><h2 id="receivables-heading">See what each client owes.</h2><p>Review positive open balances by billing email and due date. Every currency keeps its own total. This view reads the in-memory sandbox ledger.</p></header><div class="receivables-controls"><label for="receivables-client">CLIENT<select id="receivables-client" disabled><option value="">All clients</option></select></label><label for="receivables-due">DUE STATE<select id="receivables-due" disabled><option value="all">All due states</option><option value="overdue">Overdue</option><option value="today">Due today</option><option value="later">Due later</option><option value="undated">No due date</option></select></label><button id="receivables-reset" class="button button-secondary" type="button" disabled>Clear balance filters</button></div><p id="receivables-note" class="receivables-note" role="status" aria-live="polite">Load the local engine to review client balances.</p><div id="receivables-summary"></div><div id="receivables-list"></div></section><section class="audit-panel panel"><header class="panel-heading"><p class="eyebrow">04 / EVENT TRACE</p><h2>Replayable decisions.</h2><p>Summaries from Ledgerly's actual agent audit list; visitor text is not displayed here.</p></header><ol id="audit-list"><li class="empty">No workflow events yet.</li></ol><p id="status-message" role="status" aria-live="polite">Waiting for the local Python engine.</p></section></aside></section></main>
+ <footer class="footer"><p><strong>LOCAL SANDBOX ONLY.</strong> RulePlanner + RulesExtractor run in Pyodide. PayPal behavior is the repository's in-memory SandboxMock, not a live PayPal integration. Do not paste confidential client data.</p><span>Pyodide 0.29.3 / MPL-2.0</span></footer></div><script type="module" src="/src/main.ts"></script></body></html>
+diff --git a/web-demo/src/main.ts b/web-demo/src/main.ts
+index 0c78b36..f2cd360 100644
+--- a/web-demo/src/main.ts
++++ b/web-demo/src/main.ts
+@@ -6,6 +6,8 @@ import type {IntakeFile} from './intake-file';
+ import './ledger-export.css';
+ import {createLedgerExport} from './ledger-export';
+ import './approval-preview.css';
++import './approval-filter.css';
++import {createApprovalFilters} from './approval-filter';
+ import './invoice-details.css';
+ import {createInvoiceDetailsView} from './invoice-details';
+ import {createInvoiceRecordDownloads} from './invoice-record';
+@@ -23,6 +25,7 @@ const invoiceDetails=createInvoiceDetailsView($<HTMLElement>('#ledger-list'));
+ const invoiceRecords=createInvoiceRecordDownloads($<HTMLElement>('#ledger-list'),status);
+ const receivables=createReceivablesView({mount:$<HTMLElement>('#receivables-view'),note:$<HTMLElement>('#receivables-note'),client:$<HTMLSelectElement>('#receivables-client'),due:$<HTMLSelectElement>('#receivables-due'),reset:$<HTMLButtonElement>('#receivables-reset'),summary:$<HTMLElement>('#receivables-summary'),list:$<HTMLElement>('#receivables-list')});
+ const rejectionReasons=createRejectionReasons($<HTMLElement>('#approval-list'));
++const approvalFilters=createApprovalFilters({list:$<HTMLElement>('#approval-list'),query:$<HTMLInputElement>('#approval-search'),kind:$<HTMLSelectElement>('#approval-kind'),clear:$<HTMLButtonElement>('#approval-filter-clear'),note:$<HTMLElement>('#approval-filter-note'),empty:$<HTMLElement>('#approval-filter-empty')});
+ const worker=new WorkerClient(()=>new Worker(new URL('./engine.worker.ts',import.meta.url),{type:'module'}),{
+  ready:()=>status('Python loaded locally. No external service is connected.','ready'),
+  unavailable:engineUnavailable,
+@@ -89,6 +92,7 @@ function analysisBlocked(ex:any){return !ex||ex.issues?.some((x:any)=>x.severity
+ function syncControls(){
+  const enabled=ready&&!busy;
+  rejectionReasons.setAvailability(ready,busy);
++ approvalFilters.setAvailability(ready,busy);
+  intakeFiles.setAvailability(ready,busy);
+  ledgerExport.setAvailable(enabled);
+  invoiceDetails.setAvailability(ready,busy);
+@@ -133,6 +137,7 @@ function renderAnalysis(ex:any){
+  const dateInput=$<HTMLInputElement>('#demo-date');if(document.activeElement!==dateInput)dateInput.value=state.today||'';$<HTMLButtonElement>('#replay-webhook').disabled=!ready||!state.can_replay||busy;
+  const queue=state.pending||[];$<HTMLElement>('#approval-list').innerHTML=approvalListMarkup(queue);
+  rejectionReasons.afterRender(queue.map((action:any)=>action.id));
++ approvalFilters.update(queue);
+  const ledger=state.ledger||[];invoiceDetails.beforeRender(ledger.map((entry:any)=>entry.invoice_id));$<HTMLElement>('#ledger-list').innerHTML=ledger.length?ledger.map((e:any)=>{const open=['SENT','PARTIALLY_PAID','UNPAID'].includes(e.status)&&Number(e.balance)>0;return `<article class="invoice-card invoice-card-with-details" data-due="${esc(e.due_on||'')}"><div class="invoice-head"><div><span class="eyebrow">${esc(e.invoice_number)}</span><h3>${esc(e.client_name||e.client_email||'Client')}</h3></div><span class="status-chip ${esc(String(e.status).toLowerCase())}">${esc(e.status)}</span></div><div class="invoice-meta"><span>${esc(e.currency)} ${esc(e.total)}</span><span>PAID ${esc(e.paid_amount)}</span><span>BALANCE ${esc(e.balance)}</span></div><div class="invoice-meta"><span>DUE ${esc(e.due_on||'Terms missing')}</span><span>REMINDERS ${esc(e.reminders_sent)}</span></div>${open?`<button class="button button-payment" data-pay="${esc(e.invoice_id)}">Simulate sandbox payment</button>`:''}${invoiceDetails.markup(e.invoice_id,state)}${invoiceRecords.markup(e.invoice_id)}</article>`;}).join(''):'<p class="empty">No invoices in this sandbox ledger yet.</p>';
+  invoiceDetails.afterRender();invoiceDetails.setAvailability(ready,busy);
+  invoiceRecords.setAvailability(ready,busy);
+@@ -156,6 +161,7 @@ $('#engine-start').addEventListener('click',async()=>{
+  const b=$<HTMLButtonElement>('#engine-start'),restarting=needsFreshSandbox;b.disabled=true;
+  status('Loading local Python and Ledgerly source...','loading');const reply=await runAction('init');
+  if(reply?.ok){
++  if(restarting&&Array.isArray(reply.state?.pending)&&reply.state.pending.length===0&&Array.isArray(reply.state?.ledger)&&reply.state.ledger.length===0)approvalFilters.clear();
+   needsFreshSandbox=false;setControls(true);b.textContent='Python engine loaded';
+   $<HTMLElement>('#engine-status').textContent='PYTHON READY / OFFLINE';$<HTMLElement>('#engine-dot').classList.add('ready');
+   $<HTMLElement>('#engine-note').textContent='The sandbox stays in this tab. Close or reset it to discard its ledger.';
+@@ -241,4 +247,4 @@ $('#ledger-list').addEventListener('click',async(event)=>{const b=(event.target
+ $('#advance-clock').addEventListener('click',async()=>{const day=$<HTMLInputElement>('#demo-date').value;if(!day){status('Choose a date for the local clock.','error');return;}await runAction('advance',{day});});
+ $('#run-chase').addEventListener('click',async()=>{status('Running the overdue scan and reminder rules...','loading');await runAction('chase');});
+ $('#replay-webhook').addEventListener('click',async()=>{const reply=await runAction('replay');if(reply?.ok)status(reply.result.duplicate?'Duplicate webhook safely ignored by Ledgerly.':'Webhook processed.','ready');});
+-$('#reset-sandbox').addEventListener('click',async()=>{if(busy||!confirm('Discard the in-memory ledger and clear the pasted email?'))return;const reply=await runAction('reset');if(reply?.ok){$<HTMLTextAreaElement>('#job-email').value='';invalidateAnalysis('Sandbox reset. Load a fixture or paste a new email.');$<HTMLInputElement>('#payment-amount').value='';status('Sandbox reset. The in-memory ledger was cleared.','ready');}});
++$('#reset-sandbox').addEventListener('click',async()=>{if(busy||!confirm('Discard the in-memory ledger and clear the pasted email?'))return;const reply=await runAction('reset');if(reply?.ok){approvalFilters.clear();$<HTMLTextAreaElement>('#job-email').value='';invalidateAnalysis('Sandbox reset. Load a fixture or paste a new email.');$<HTMLInputElement>('#payment-amount').value='';status('Sandbox reset. The in-memory ledger was cleared.','ready');}});
+diff --git a/web-demo/tests/engine-recovery.test.ts b/web-demo/tests/engine-recovery.test.ts
+index 532deb0..a2f39ae 100644
+--- a/web-demo/tests/engine-recovery.test.ts
++++ b/web-demo/tests/engine-recovery.test.ts
+@@ -11,6 +11,7 @@ import {createInvoiceDetailsView} from '../src/invoice-details';
+ import {createInvoiceRecordDownloads} from '../src/invoice-record';
+ import {createReceivablesView} from '../src/receivables';
+ import {createRejectionReasons} from '../src/rejection-reason';
++import {createApprovalFilters} from '../src/approval-filter';
+ import {readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup} from '../src/review';
+ 
+ const sourceRoot = process.env.LEDGERLY_RECOVERY_SOURCE_ROOT || path.resolve(process.cwd(), 'src');
+@@ -100,7 +101,7 @@ function app() {
+     }),
+   };
+   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
+-    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons,
++    readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons, createApprovalFilters,
+     // File picking and download DOM behavior is received by the actual browser gate.
+     createIntakeFileControls: () => ({setAvailability() {}, currentChanged() {}})});
+   vm.runInContext(executable('main.ts'), context);

@@ -1,0 +1,88 @@
+{
+  "schema": "hamon.product-contract.v1",
+  "actor": "chatgpt:5f566b5ec8ef:production",
+  "repository": "Jacob-Met/ledgerly",
+  "source": {
+    "head": "c498f55883c755553b59921199d54689d99c9730",
+    "tree": "efb9d2f50f79336588f7b14beca29a889899e1a9",
+    "leaves": 767,
+    "mainBlob": "0c78b368dede7d7232215659852ebc6d3e573de1",
+    "rendererBlob": "d57fdd6eaeea2e3c41f0b3f3841dca08a3fe8d3d"
+  },
+  "outcome": "Locate a particular pending invoice or reminder by literal displayed proposal text or queued identity, then inspect and explicitly act through the unchanged human gate.",
+  "scope": [
+    "new web-demo/src/approval-filter.ts and scoped CSS",
+    "persistent controls before existing approval-list",
+    "main.ts additive import/construction, post-render current queue binding, availability and successful reset/restart hooks only",
+    "focused model/controller tests and actual staged-Python browser receiver",
+    "additive guide/README and unique receiving evidence"
+  ],
+  "preserve": [
+    "approval-preview.ts/css and exact card markup",
+    "rejection-reason controller and existing approve/reject delegation",
+    "Agent, PayPal, extractor, bridge, worker and all Python source",
+    "queue identity/order/payload and pending/completed lifecycle",
+    "intake edits/reviews, personal follow-up and client balances owners",
+    "dependencies/lock/workflows/global environment"
+  ],
+  "semantics": [
+    "Explicit case-insensitive literal substring search over each existing rendered proposal text plus exact queued action/invoice IDs; no regex, token inference, amount parsing or recomputed recipients.",
+    "Intersect text search with All pending, Invoice sends, or Reminders. Preserve relative queue order and every hidden action in the original pending list; filtering has no model/Worker/provider effect.",
+    "Show matching and total pending counts, a distinct no-match message and explicit Clear filters. Clearing only view controls restores all original cards.",
+    "Controls live outside replaced list. Preserve typed query/type across accepted snapshots and busy/unavailable transitions; disable filter controls when engine unavailable/busy and label availability truthfully.",
+    "Rebind cards to the exact accepted queue after each original render; refuse to hide cards if DOM/source count or identity association is inconsistent. No index-to-ID reassignment or replacement card rendering.",
+    "Existing approve/reject buttons still carry original queued IDs and use unchanged handlers. No bulk operation, keyboard shortcut approval, automatic action, queue dismissal or new confirmation policy.",
+    "Clear filters only after successful explicit sandbox Reset or successful empty Restart. Failed reset/restart leaves filters intact. Source intake/review edits remain unchanged.",
+    "No file/download/storage/clipboard/network operation added; filter controls are in-memory only."
+  ],
+  "qualification": [
+    "Freeze original actual Python bridge/Agent/SandboxMock pending invoice/reminder snapshot and current DOM no-finder witness before product edits.",
+    "Native literal/Unicode/type/count/order/identity mismatch and snapshot-retirement controls; preserved complete pending values, original card markup and action IDs.",
+    "Actual built app in Chrome with its real staged Pyodide Python: at least two recipients and both action types, real keyboard filtering, clear/no-match, accepted queue changes, native approve/reject ID evidence, busy/unavailable/reset, desktop390px.",
+    "Retain all failures. Reuse exact admitted old task-owned Pyodide/dependencies only after lock/runtime parity; no repeated historical tests solely for capacity."
+  ],
+  "ownership": {
+    "openIssuesRead": 16,
+    "nativeCoordRecordsRead": 858,
+    "nativeErrors": 0,
+    "noPendingFinderOwnerFound": true,
+    "preserveIssues": [
+      31,
+      46,
+      49,
+      52,
+      53,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64
+    ],
+    "nativeDB": "confirmed disk I/O outage; external source claim only, no resident lease or append"
+  },
+  "actions": {
+    "hold": true,
+    "workflows": [
+      "ci.yml",
+      "invoice-record-browser.yml",
+      "pages.yml",
+      "receivables-browser.yml"
+    ],
+    "completeBodiesRead": true,
+    "events": "push/main (some path filters), pull_request (some path filters), pages manualdispatch; no issues/comments",
+    "remoteSourceMutation": false
+  },
+  "native": {
+    "root": "/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef",
+    "macRoute": "0b4ac27b-8500-47d0-8f11-5a35402e9abc",
+    "freeBytesAtDiscovery": 6897643520,
+    "Python": "/Users/me/.pyenv/versions/3.13.7/bin/python3",
+    "Node": "/opt/homebrew/bin/node",
+    "ownReusableRoot": "/Users/me/ledgerly-approval-preview-20261008-5f566b5ec8ef"
+  }
+}

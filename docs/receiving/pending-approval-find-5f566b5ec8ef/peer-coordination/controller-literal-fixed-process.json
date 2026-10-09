@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-09T05:20:48.877688+00:00",
+  "command": [
+    "/Users/me/.pyenv/versions/3.13.7/bin/python3",
+    "-B",
+    "/Users/me/ledgerly-approval-find-peer-20261009-5f566b5ec8ef/run-controller-literal-fixed.py"
+  ],
+  "exit": 0,
+  "seconds": 1.370396959129721,
+  "stdoutSHA256": "7563555ac3ead87d7ae56845dc7a09c296c0871ce2a86979b1c9420fc0a70659",
+  "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

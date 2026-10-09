@@ -1,0 +1,64 @@
+{
+  "schema": "hamon.independent-review.v1",
+  "actor": "chatgpt:5f566b5ec8ef:coordination",
+  "at": "2026-10-09T05:24:07.070892+00:00",
+  "decision": "accepted within bounded source and real DOM controller receiving",
+  "contractSHA256": "c90c7ab389510a1b1d80425dad766b57a6e77c5c8437473658f39655336084e6",
+  "blindFreeze": {
+    "path": "blind-expectations.json",
+    "sha256": "cbe55c5df514f15c090c6a0c9860df12cfa6203d4db51784eed9d3760bed25bd",
+    "beforeProductAndOwnerTests": true,
+    "cases": 12
+  },
+  "source": {
+    "web-demo/src/approval-filter.ts": "2297f6a5550ddf0bdfccd4eb56ce3839d29f8f9626a879226b1fd7f46ef568f7",
+    "web-demo/src/approval-filter.css": "525547035b1ed6ea699086d8e73a511eda1807aa34cbe6d6eb86ff44208ddf8c",
+    "web-demo/src/main.ts": "1c66b4a657776c7e82988336ae130e67acc3618c793506972c160a3946d16c9b",
+    "web-demo/index.html": "ea1c781c09d99b331476847bdceb83939ce0b9cde24082536abdce63a46adff3",
+    "web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "web-demo/APPROVAL-FINDER.md": "79999f1b2c74bba9cae76e65f910d5ac98cdb3d79fcc1f25c480d9100f386cc4"
+  },
+  "sourceFindings": [
+    "Exact ordered IDs and both unique action buttons are revalidated on each paint; invalid association reveals current cards and disables filter inputs without discarding view values.",
+    "Identity metadata is copied. Filtering reads current original proposal text and changes only hidden attributes; action handlers and renderer remain original.",
+    "Persistent controls are outside replacement list. Availability hooks retain values. Reset and restart clear only inside their existing successful reply branches, with restart additionally requiring empty pending and ledger arrays.",
+    "Guide explicitly documents trimmed query boundaries, literal lowercased matching, collapsed original text, omitted rejection-note text, and no-match versus empty semantics.",
+    "Inverse removes only six added hook/import lines plus reset clear and reproduces entire current canonical main.ts; removing only the isolated HTML section reproduces original index. Complete original renderer remains exact."
+  ],
+  "nativePhases": [
+    {
+      "receipt": "controller-first/receipt.json",
+      "sha256": "c46565ead9da93b28f930d2c8cd2cf37b2c036dca5e0b37b26a98b507f8f2198",
+      "processExit": 1,
+      "passedGroups": 6,
+      "totalGroups": 7,
+      "failure": "Receiver-only whole-document script selector counted the two injected module scripts; literal group stopped before its remaining assertions. No product finding."
+    },
+    {
+      "receipt": "controller-literal-fixed/receipt.json",
+      "sha256": "a54e539d89fde85fdd65539b59733a95e3e06daaffb5ce24d1a349269824322e",
+      "processExit": 0,
+      "passedGroups": 1,
+      "totalGroups": 1,
+      "change": "Only execute affected literal group and scope markup assertion to rendered list. No product change or six-group replay."
+    }
+  ],
+  "nativeOutcome": "Seven distinct groups accepted across retained phases; not a single whole-current 7/7 process.",
+  "runtime": {
+    "Chrome": "154.0.8037.99",
+    "method": "Existing Python Playwright private headless persistent contexts; TypeScript transpileModule produces exact-source browser modules. Launch uses installed library defaults; no normal-sandbox assertion.",
+    "requests": [],
+    "pageErrors": [],
+    "filterEffects": [],
+    "contextsClosed": true,
+    "remainingOwnedChromeProcesses": []
+  },
+  "limits": [
+    "No personal execution of author full app/real Python engine or approve/reject provider workflow. The explicit delegate witness is a local original-ID observer, not an Agent action.",
+    "No author suite, SDK, installation, Pages, source publication, CI or hosted gate replay.",
+    "Failed reset/restart success ordering is source reviewed here; actual engine fault controls belong to the author receiver.",
+    "No root personal review or execution attribution."
+  ],
+  "custodyPhase": "Original seal stopped at inverse comparison because owner committed unchanged source82e89 while HEAD was used; no behavior rerun. Corrected seal pins canonical c498 explicitly.",
+  "ownerTestSourcesRead": false
+}

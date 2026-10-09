@@ -1,0 +1,15 @@
+{
+  "name": "focused",
+  "command": [
+    "/opt/homebrew/bin/node",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "tests/approval-filter.test.ts",
+    "tests/engine-recovery.test.ts",
+    "tests/approval-preview.test.ts"
+  ],
+  "exit": 0,
+  "stdout": "\n\u001b[1m\u001b[30m\u001b[46m RUN \u001b[49m\u001b[39m\u001b[22m \u001b[36mv5.0.3 \u001b[39m\u001b[90m/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source/web-demo\u001b[39m\n\n \u001b[32m\u2713\u001b[39m tests/approval-filter.test.ts \u001b[2m(\u001b[22m\u001b[2m12 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 7\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m tests/engine-recovery.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 209\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m tests/approval-preview.test.ts \u001b[2m(\u001b[22m\u001b[2m7 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 1477\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m3 passed\u001b[39m\u001b[22m\u001b[90m (3)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m24 passed\u001b[39m\u001b[22m\u001b[90m (24)\u001b[39m\n\u001b[2m   Start at \u001b[22m 22:15:54\n\u001b[2m   Duration \u001b[22m 1.75s\u001b[2m (tests 77%, import 11%, transform 11%, worker 1%)\u001b[22m\n\n",
+  "stderr": "",
+  "utc": "2026-10-09T05:15:56.641977+00:00"
+}

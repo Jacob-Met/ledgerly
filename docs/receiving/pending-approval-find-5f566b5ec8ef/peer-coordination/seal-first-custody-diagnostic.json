@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-09T05:23:20.887928+00:00",
+  "original": "seal-review.py",
+  "observed": "AssertionError at inverse.encode()==original",
+  "cause": "Owner committed82e89 while seal used moving HEAD; exact runtime pins unchanged.",
+  "correction": "Pin all inverse comparisons and diff to c498 canonical input.",
+  "behaviorRepeated": false
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "hamon.ledgerly.approval-finder.peer-expectations.v1",
+  "actor": "chatgpt:5f566b5ec8ef:coordination",
+  "frozen_at": "2026-10-09T05:07:58.971902+00:00",
+  "contract_sha256": "c90c7ab389510a1b1d80425dad766b57a6e77c5c8437473658f39655336084e6",
+  "source_exposure": "Only complete public CONTRACT.json and issue65; no baseline or candidate implementation, author tests, or browser receiver read before this freeze.",
+  "cases": [
+    {
+      "id": "permuted_equal_count",
+      "given": "Two accepted queue entries have distinct IDs and types; DOM contains the same two cards in reversed identity order.",
+      "expect": "Identity/order inconsistency is observable; no card is hidden or rebound to a different queue entry merely by index. The original cards/action attributes are unchanged."
+    },
+    {
+      "id": "split_action_identity",
+      "given": "One rendered card's approve target matches its accepted ID but its reject target names a different accepted ID.",
+      "expect": "Inconsistent action identity refuses filtering of that bound list, rather than allowing a search result to suggest the mismatched target. No approve/reject operation occurs."
+    },
+    {
+      "id": "duplicate_and_unknown_identity",
+      "given": "Counts match, but DOM has duplicate IDs, one unknown ID, or queue IDs are duplicated while DOM looks unique.",
+      "expect": "Ambiguous association refuses hiding, preserves original cards and source payloads, and does not silently choose the first identity."
+    },
+    {
+      "id": "count_change_and_recovery",
+      "given": "A valid filtered list is followed by accepted queue/DOM mismatch; then a later exact complete queue/render is supplied.",
+      "expect": "Mismatch leaves currently rendered cards visible with truthful unavailable state; later valid binding re-applies the retained query/type to the new exact cards. Old nodes/old counts cannot grant current hiding authority."
+    },
+    {
+      "id": "snapshot_replacement",
+      "given": "While a literal query/type is set, accepted snapshot removes one queued item, adds a distinct item and changes visible content of another.",
+      "expect": "Only current rendered text/current IDs determine new matching and counts, with current queue order retained. The typed query/type persists; detached old cards are not authoritative."
+    },
+    {
+      "id": "literal_search",
+      "given": "Rendered text includes regex punctuation, mixed case and literal whitespace; the queue includes action/invoice IDs not otherwise displayed.",
+      "expect": "Punctuation matches literally; ordinary case differences match; queued IDs are searchable without altering the ID sent by existing actions. Typed query bytes are preserved. Whitespace matching interpretation must be documented if trimmed."
+    },
+    {
+      "id": "type_intersection_and_zero",
+      "given": "Both invoice and reminder cards share a text match, plus an empty accepted queue.",
+      "expect": "Type and text intersect, relative order persists, and empty queue differs from nonempty no-match. Clear resets view controls, not the queue or completed lifecycle."
+    },
+    {
+      "id": "unavailable_preservation",
+      "given": "A nonempty query and Reminder type are set, engine becomes busy/unavailable, then available with a new accepted snapshot.",
+      "expect": "Controls are disabled and availability is truthful during the interruption; query/type survives and applies to the new snapshot afterward. No background clear, reload or action is added."
+    },
+    {
+      "id": "failed_reset_restart",
+      "given": "Reset or Restart rejects/fails before success, after the user has typed filters.",
+      "expect": "Failure preserves filters. Clear is allowed only after the owner-documented successful Reset or successful empty Restart; actual code hook ordering must be checked separately."
+    },
+    {
+      "id": "no_effects",
+      "given": "User types, changes type, clears, presses Enter within finder, or a new binding occurs.",
+      "expect": "No Worker/provider/API, approve/reject, queue mutation, storage, download or network effect. Original delegated IDs, card bytes, source entries and nested payloads remain unchanged."
+    },
+    {
+      "id": "existing_action_rebind",
+      "given": "A surviving card is filtered into view after a replacement snapshot and the user explicitly clicks its original action.",
+      "expect": "The original action identity still reaches the original gate. Peer controller/source checks may verify attributes/callback boundaries; real staged-Python action receiving remains the author's separate gate."
+    },
+    {
+      "id": "literal_dom_text",
+      "given": "Proposal DOM contains nested visible text and HTML-like literal text, and search input contains those literal characters.",
+      "expect": "Search reads the existing rendered proposal text, creates no replacement cards/HTML from query, and does not reinterpret payload or recompute recipient/amount."
+    }
+  ],
+  "receiver_scope": "Prioritize consequential association refusal and state preservation; actual source/controller with narrow native DOM boundary. No broad author suite or staged Python browser replay.",
+  "no_claim": "These are independent expected outcomes, not observed results; unchanged action/Worker behavior requires source and separately attributed author receiving."
+}

@@ -1,0 +1,17 @@
+{
+  "python": {
+    "exit": 0,
+    "stdout": "Python 3.13.7\n",
+    "stderr": ""
+  },
+  "node": {
+    "exit": 0,
+    "stdout": "v26.3.0\n",
+    "stderr": ""
+  },
+  "chrome": {
+    "exit": 0,
+    "stdout": "Google Chrome 154.0.8037.99 \n",
+    "stderr": ""
+  }
+}

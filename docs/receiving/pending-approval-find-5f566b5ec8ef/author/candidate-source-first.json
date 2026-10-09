@@ -1,0 +1,8 @@
+{
+  "web-demo/src/approval-filter.ts": "2297f6a5550ddf0bdfccd4eb56ce3839d29f8f9626a879226b1fd7f46ef568f7",
+  "web-demo/src/approval-filter.css": "525547035b1ed6ea699086d8e73a511eda1807aa34cbe6d6eb86ff44208ddf8c",
+  "web-demo/src/main.ts": "1c66b4a657776c7e82988336ae130e67acc3618c793506972c160a3946d16c9b",
+  "web-demo/index.html": "ea1c781c09d99b331476847bdceb83939ce0b9cde24082536abdce63a46adff3",
+  "web-demo/tests/approval-filter.test.ts": "546c0d3c2a590d104dc33543cf488950f7cc780ce0b45ecb7e86dcb8c812a68c",
+  "web-demo/tests/engine-recovery.test.ts": "b21fdc0d3140b9ccadf5cbace611ca7cc3f4420c35ff7c09606af6816caa4957"
+}

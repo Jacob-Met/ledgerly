@@ -1,0 +1,40 @@
+{
+  "actor": "chatgpt:5f566b5ec8ef:coordination",
+  "boundary": "Independent real DOM controller on exact module and unchanged real renderer; no Python/Agent/app integration or provider action",
+  "at": "2026-10-09T05:20:47.863256+00:00",
+  "before": {
+    "/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source/web-demo/src/approval-filter.ts": "2297f6a5550ddf0bdfccd4eb56ce3839d29f8f9626a879226b1fd7f46ef568f7",
+    "/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source/web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "/Users/me/ledgerly-approval-find-peer-20261009-5f566b5ec8ef/blind-expectations.json": "cbe55c5df514f15c090c6a0c9860df12cfa6203d4db51784eed9d3760bed25bd",
+    "/Users/me/ledgerly-approval-find-peer-20261009-5f566b5ec8ef/controller-literal-fixed.js": "30d762f0cf52c139021fd4acaa5bbb8d47e11c07a81a1d93701234cfd825b448"
+  },
+  "transpileExit": 0,
+  "pageErrors": [],
+  "requests": [],
+  "browser": "154.0.8037.99",
+  "result": {
+    "groups": [
+      {
+        "name": "literal nested text, trimmed query and type intersection do not reinterpret markup",
+        "passed": true,
+        "details": {
+          "trimInterpretation": "leading/trailing whitespace ignored for matching; typed value retained until Clear"
+        }
+      }
+    ],
+    "passed": 1,
+    "total": 1,
+    "effects": [],
+    "actionEvents": []
+  },
+  "success": true,
+  "contextClosed": true,
+  "seconds": 0.9971630829386413,
+  "after": {
+    "/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source/web-demo/src/approval-filter.ts": "2297f6a5550ddf0bdfccd4eb56ce3839d29f8f9626a879226b1fd7f46ef568f7",
+    "/Users/me/ledgerly-approval-find-20261009-5f566b5ec8ef/source/web-demo/src/approval-preview.ts": "b284a7b7e646b916272266566e3c7740062123505ade1913b803f80b8a6091ff",
+    "/Users/me/ledgerly-approval-find-peer-20261009-5f566b5ec8ef/blind-expectations.json": "cbe55c5df514f15c090c6a0c9860df12cfa6203d4db51784eed9d3760bed25bd",
+    "/Users/me/ledgerly-approval-find-peer-20261009-5f566b5ec8ef/controller-literal-fixed.js": "30d762f0cf52c139021fd4acaa5bbb8d47e11c07a81a1d93701234cfd825b448"
+  },
+  "unchanged": true
+}

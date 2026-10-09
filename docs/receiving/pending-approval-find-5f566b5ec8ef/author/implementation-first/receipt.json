@@ -1,0 +1,17 @@
+{
+  "paths": {
+    "web-demo/src/main.ts": {
+      "before": "36528266060f1e01e0c13c319d33c35aeeec7c1e5059bc5bff1c36bd120e13fb",
+      "after": "1c66b4a657776c7e82988336ae130e67acc3618c793506972c160a3946d16c9b"
+    },
+    "web-demo/index.html": {
+      "before": "a5b390f10a95ced1bbc124319eda8d7a2b3ac1043b8d8736b4ce90e0521c5949",
+      "after": "ea1c781c09d99b331476847bdceb83939ce0b9cde24082536abdce63a46adff3"
+    },
+    "web-demo/tests/engine-recovery.test.ts": {
+      "before": "9b5942457d864876ba157651164ab9aa9997209b47f06e08b0dbd0b32bf2d6a0",
+      "after": "b21fdc0d3140b9ccadf5cbace611ca7cc3f4420c35ff7c09606af6816caa4957"
+    }
+  },
+  "compatibility": "Recovery VM import/binding only; every original assertion is unchanged."
+}
