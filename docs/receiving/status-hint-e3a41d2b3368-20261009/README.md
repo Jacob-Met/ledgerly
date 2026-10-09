@@ -68,3 +68,13 @@ node docs/receiving/status-hint-e3a41d2b3368-20261009/verify-evidence.mjs
 The verifier reads only. It verifies the exact stored gzip hash, decompressed content hash, unique bounded member paths, every member length/SHA-256, source-file hashes, raw Vitest counts and successful native gate receipt. It does not recompress the archive, rerun tests, launch a browser or deploy.
 
 `SOURCE-TRIGGER-ADMISSION.json` contains every current workflow body, ruleset result and open-PR path assessment. PR36 overlaps the same two file paths for completed-review history; its branch is untouched and this candidate makes no integration claim. Source publication uses a unique branch only, with no PR/main/workflow/dispatch operation or skip marker.
+
+## Windows admission follow-up: October 9, 05:35 UTC
+
+The existing strict SSH route recovered the original Windows driver and runtime pins without writes. Original driver `ddb7673c…`, acceptance `731ec7f8…`, Node 24.21.0 and Chrome 154.0.8037.98 matched their known bytes on the same account, UUID and boot generation.
+
+After the separately coordinated native workload’s scoped process closure, the single fresh browser admission observed **1,132,441,600 bytes available RAM**, below its **2,147,483,648-byte (2 GiB) floor**. Disk had 573,084,852,224 bytes available. The wrapper exited 3 and closed normally. The refusal occurred before the proposed new root was inspected or created, before any of the 31 built assets were transferred, and before any browser or Worker action. No capacity poll or retry followed. This uses the browser’s own 2 GiB admission, not the compiler lane’s 4 GiB floor.
+
+[WINDOWS-ADMISSION.json](WINDOWS-ADMISSION.json) preserves the primary source read, exact admission script/output, runtime pins and the prior ThinkPad write refusal. [windows-prepared-driver.mjs](windows-prepared-driver.mjs) preserves the prepared 28,492-byte receiver (SHA-256 `dd6c23cf9eb23dd774f9cfe42efa59d9ab18c81360afec9b4f89a4827c4a662d`). It passed a read-only Node syntax check and was **not executed on Windows**. It derives from the original native driver, verifies the new 31-asset manifest and actual browser responses, and contains three new status groups with intended init/analyze/review actions only. Its paths are for a new owned Windows receiving root; it is an evidence artifact, not a command to run directly from this docs folder.
+
+The qualified source commit remains `ada2658b0291f094d4786aeec346b072fe357be4`; the evidence continuation changes only documentation. The original public PASS, native Vitest/build results, 45-member archive and product source hashes are unchanged. Actual browser receiving of this correction and public deployment remain pending a newly admitted route.

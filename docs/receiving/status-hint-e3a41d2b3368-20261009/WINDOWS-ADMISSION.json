@@ -1,0 +1,388 @@
+{
+  "schema": "ledgerly-status-windows-admission-continuation/1",
+  "qualified_source_commit": "ada2658b0291f094d4786aeec346b072fe357be4",
+  "qualified_tree": "b66e37bcae50c8493f137631f38d92044e59b808",
+  "qualified_asset_manifest_sha256": "af1676d4f243a56be6921c2b1a6706947f8d3bdc654c7b671bba8b556f4186da",
+  "qualified_assets": 31,
+  "qualified_asset_bytes": 12837983,
+  "route": {
+    "origin_device": "d55b2499-5e82-4805-819a-d0d7ddea1efe",
+    "origin": "hamon-thinkpad/jacob",
+    "destination": "minec@desktop-la7cmta",
+    "ssh_options": [
+      "-T",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "StrictHostKeyChecking=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "-o",
+      "ConnectionAttempts=1"
+    ],
+    "command": "powershell.exe -NoLogo -NoProfile -NonInteractive -Command -",
+    "source_final_blank_line": true,
+    "outer_deadline_seconds": 30,
+    "primary_wrapper_repository": "Jacob-Met/hamon",
+    "primary_wrapper_git_blob": "b29afb63a6a8d260f3d23728dcf947b2f219a772",
+    "no_new_credentials_or_route": true
+  },
+  "original_public_files_read": {
+    "schema": "ledgerly-status-windows-known-source-read/1",
+    "started_utc": "2026-10-09T05:21:44.8223736Z",
+    "identity": {
+      "account": "DESKTOP-LA7CMTA\\minec",
+      "uuid": "08921B7B-4B24-CBFE-1494-244BFECB1493",
+      "powershell_version": "5.1.19041.6456",
+      "machine_name": "DESKTOP-LA7CMTA",
+      "boot_utc": "2026-10-09T00:18:50.5000000Z",
+      "process_id": 1520,
+      "sid": "S-1-5-21-1008789132-1857296646-1312768420-1001"
+    },
+    "resources": {
+      "read_only_memory_floor": 268435456,
+      "capture_limit_bytes": 131072,
+      "cooperative_limit_ms": 20000,
+      "free_memory_bytes": 1517477888
+    },
+    "files": [
+      {
+        "path": "C:\\Users\\minec\\Hamon\\receiving\\autonomous-e3a41d2b3368-ledgerly-public\\receive-public.mjs",
+        "bytes": 25782,
+        "sha256": "ddb7673c1d3b4c622151a66c6f10ac4939b5dcfc27390a5fbfb4d8cd524f2a90",
+        "last_write_ticks": "639270990128997460",
+        "attributes": 32,
+        "product_version": null
+      },
+      {
+        "path": "C:\\Users\\minec\\Hamon\\receiving\\autonomous-e3a41d2b3368-ledgerly-public\\ACCEPTANCE.json",
+        "bytes": 2501,
+        "sha256": "731ec7f8ac24ed231877c3f676b6418b04c1dbfea86eaa6b45e736b8573d6864",
+        "last_write_ticks": "639270993945789308",
+        "attributes": 32,
+        "product_version": null
+      },
+      {
+        "path": "C:\\Users\\minec\\Hamon\\receiving\\autonomous-e3a41d2b3368-ledgerly-public\\ADMISSION.json",
+        "bytes": 478,
+        "sha256": "3a8d2ef82d46179734a229f07efe6f42a9c89dc4913cbdaf6a81c179fc9258bc",
+        "last_write_ticks": "639270959137794005",
+        "attributes": 32,
+        "product_version": null
+      },
+      {
+        "path": "C:\\Users\\minec\\Hamon\\runtime\\node-v24.21.0-win-x64\\node.exe",
+        "bytes": 93580104,
+        "sha256": "ba4e6d110e8c1592a1ecd390f6b05f3da124b13871a5be62b341a07a853c6c32",
+        "last_write_ticks": "639244479580000000",
+        "attributes": 32,
+        "product_version": "24.21.0"
+      },
+      {
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "bytes": 4496024,
+        "sha256": "6849d2982038de9f9489a7b3858f3b785b7fec06a842c93c517281d21995c8ca",
+        "last_write_ticks": "639264220693797030",
+        "attributes": 32,
+        "product_version": "154.0.8037.98"
+      }
+    ],
+    "root_names": [
+      {
+        "Name": ".git",
+        "Length": null,
+        "Attributes": 18
+      },
+      {
+        "Name": "run-20261008T231609653Z",
+        "Length": null,
+        "Attributes": 16
+      },
+      {
+        "Name": "run-20261008T232309399Z",
+        "Length": null,
+        "Attributes": 16
+      },
+      {
+        "Name": "run-20261008T232714234Z",
+        "Length": null,
+        "Attributes": 16
+      },
+      {
+        "Name": "run-20261008T233101517Z",
+        "Length": null,
+        "Attributes": 16
+      },
+      {
+        "Name": "ACCEPTANCE.json",
+        "Length": 2501,
+        "Attributes": 32
+      },
+      {
+        "Name": "ADMISSION.json",
+        "Length": 478,
+        "Attributes": 32
+      },
+      {
+        "Name": "check-offline-v2.mjs",
+        "Length": 1576,
+        "Attributes": 32
+      },
+      {
+        "Name": "check-offline-v3.mjs",
+        "Length": 1327,
+        "Attributes": 32
+      },
+      {
+        "Name": "check-offline-v4.mjs",
+        "Length": 1331,
+        "Attributes": 32
+      },
+      {
+        "Name": "check-offline-v5.mjs",
+        "Length": 1772,
+        "Attributes": 32
+      },
+      {
+        "Name": "check-offline.mjs",
+        "Length": 1573,
+        "Attributes": 32
+      },
+      {
+        "Name": "deployment.json",
+        "Length": 1022,
+        "Attributes": 32
+      },
+      {
+        "Name": "ECHO-WORKSPACE-CONFIG-ADDENDUM.json",
+        "Length": 978,
+        "Attributes": 32
+      },
+      {
+        "Name": "EXPECTED-ASSETS.json",
+        "Length": 9578,
+        "Attributes": 32
+      },
+      {
+        "Name": "freeze-receipt.mjs",
+        "Length": 5417,
+        "Attributes": 32
+      },
+      {
+        "Name": "OFFLINE-CHECK-v2.json",
+        "Length": 1479,
+        "Attributes": 32
+      },
+      {
+        "Name": "OFFLINE-CHECK-v3.json",
+        "Length": 874,
+        "Attributes": 32
+      },
+      {
+        "Name": "OFFLINE-CHECK-v4.json",
+        "Length": 876,
+        "Attributes": 32
+      },
+      {
+        "Name": "OFFLINE-CHECK-v5.json",
+        "Length": 1071,
+        "Attributes": 32
+      },
+      {
+        "Name": "OFFLINE-CHECK.json",
+        "Length": 1479,
+        "Attributes": 32
+      },
+      {
+        "Name": "POST-RUN-CLEANUP.json",
+        "Length": 539,
+        "Attributes": 32
+      },
+      {
+        "Name": "READINESS.json",
+        "Length": 3319,
+        "Attributes": 32
+      },
+      {
+        "Name": "receive-public-v1-preflight-label.mjs",
+        "Length": 24531,
+        "Attributes": 32
+      },
+      {
+        "Name": "receive-public-v2-worker-fetch-rejected.mjs",
+        "Length": 24583,
+        "Attributes": 32
+      },
+      {
+        "Name": "receive-public-v3-worker-network-rejected.mjs",
+        "Length": 27132,
+        "Attributes": 32
+      },
+      {
+        "Name": "receive-public-v4-incomplete-review-expectation-rejected.mjs",
+        "Length": 25233,
+        "Attributes": 32
+      },
+      {
+        "Name": "receive-public.mjs",
+        "Length": 25782,
+        "Attributes": 32
+      },
+      {
+        "Name": "RECEIVER.md",
+        "Length": 7105,
+        "Attributes": 32
+      },
+      {
+        "Name": "SOURCE-AND-EVIDENCE-MANIFEST.json",
+        "Length": 8700,
+        "Attributes": 32
+      }
+    ],
+    "completed": true,
+    "error": null,
+    "file_writes": 0,
+    "browser_invocations": 0,
+    "compiler_invocations": 0,
+    "elapsed_ms": 438,
+    "finished_utc": "2026-10-09T05:21:45.2612295Z",
+    "exit_code": 0
+  },
+  "known_source_read_ps": "function Read-E3LedgerlyStatusSources {\n $ErrorActionPreference='Stop'\n $e3Timer=[Diagnostics.Stopwatch]::StartNew()\n $e3Root='C:\\Users\\minec\\Hamon\\receiving\\autonomous-e3a41d2b3368-ledgerly-public'\n $e3Result=[ordered]@{schema='ledgerly-status-windows-known-source-read/1';started_utc=[DateTime]::UtcNow.ToString('o');identity=$null;resources=$null;files=@();root_names=@();completed=$false;error=$null;file_writes=0;browser_invocations=0;compiler_invocations=0}\n $e3Exit=3\n try {\n  $e3Who=[Security.Principal.WindowsIdentity]::GetCurrent()\n  $e3OS=Get-CimInstance Win32_OperatingSystem\n  $e3Uuid=(Get-CimInstance Win32_ComputerSystemProduct).UUID\n  $e3Result.identity=@{machine_name=[Environment]::MachineName;account=$e3Who.Name;sid=$e3Who.User.Value;uuid=$e3Uuid;boot_utc=$e3OS.LastBootUpTime.ToUniversalTime().ToString('o');powershell_version=$PSVersionTable.PSVersion.ToString();process_id=$PID}\n  if([Environment]::MachineName -cne 'DESKTOP-LA7CMTA' -or $e3Who.Name -cne 'DESKTOP-LA7CMTA\\minec' -or $e3Who.User.Value -cne 'S-1-5-21-1008789132-1857296646-1312768420-1001' -or $e3Uuid -cne '08921B7B-4B24-CBFE-1494-244BFECB1493' -or $e3OS.LastBootUpTime.ToUniversalTime().ToString('o') -cne '2026-10-09T00:18:50.5000000Z'){throw 'Known post-return identity/generation mismatch'}\n  $e3Free=[long]$e3OS.FreePhysicalMemory*1024\n  $e3Result.resources=@{free_memory_bytes=$e3Free;read_only_memory_floor=268435456;capture_limit_bytes=131072;cooperative_limit_ms=20000}\n  if($e3Free -lt 268435456){throw 'Read-only memory admission declined'}\n  $e3Anc=@('C:\\','C:\\Users','C:\\Users\\minec','C:\\Users\\minec\\Hamon','C:\\Users\\minec\\Hamon\\receiving',$e3Root)\n  foreach($e3Path in $e3Anc){$e3Info=Get-Item -LiteralPath $e3Path -Force;if(($e3Info.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0){throw ('Reparse ancestor '+$e3Path)}}\n  $e3Result.root_names=@(Get-ChildItem -LiteralPath $e3Root -Force | Select-Object Name,Length,Attributes)\n  $e3Plan=@(\n   @{path=(Join-Path $e3Root 'receive-public.mjs');expected='ddb7673c1d3b4c622151a66c6f10ac4939b5dcfc27390a5fbfb4d8cd524f2a90';capture=$true},\n   @{path=(Join-Path $e3Root 'ACCEPTANCE.json');expected='731ec7f8ac24ed231877c3f676b6418b04c1dbfea86eaa6b45e736b8573d6864';capture=$true},\n   @{path=(Join-Path $e3Root 'ADMISSION.json');expected='3a8d2ef82d46179734a229f07efe6f42a9c89dc4913cbdaf6a81c179fc9258bc';capture=$true},\n   @{path='C:\\Users\\minec\\Hamon\\runtime\\node-v24.21.0-win-x64\\node.exe';expected=$null;capture=$false},\n   @{path='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';expected=$null;capture=$false}\n  )\n  $e3Captured=0\n  foreach($e3Entry in $e3Plan){\n   if($e3Timer.ElapsedMilliseconds -gt 20000){throw '20-second read boundary'}\n   $e3Info=Get-Item -LiteralPath $e3Entry.path -Force\n   if($e3Info.PSIsContainer -or ($e3Info.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0){throw ('Nonregular known file '+$e3Entry.path)}\n   $e3Hash=(Get-FileHash -LiteralPath $e3Entry.path -Algorithm SHA256).Hash.ToLowerInvariant()\n   if($e3Entry.expected -and $e3Hash -cne $e3Entry.expected){throw ('Known source hash mismatch '+$e3Entry.path)}\n   $e3Row=[ordered]@{path=$e3Entry.path;bytes=$e3Info.Length;sha256=$e3Hash;last_write_ticks=$e3Info.LastWriteTimeUtc.Ticks.ToString();attributes=[int]$e3Info.Attributes;product_version=$e3Info.VersionInfo.ProductVersion;content=$null}\n   if($e3Entry.capture){$e3Captured+=$e3Info.Length;if($e3Captured -gt 131072){throw 'Capture exceeds128KiB'};$e3Row.content=[IO.File]::ReadAllText($e3Entry.path)}\n   $e3Result.files+=,$e3Row\n  }\n  $e3Result.completed=$true;$e3Exit=0\n }catch{$e3Result.error=$_.Exception.Message}\n finally{$e3Result.elapsed_ms=$e3Timer.ElapsedMilliseconds;$e3Result.finished_utc=[DateTime]::UtcNow.ToString('o');$e3Result.exit_code=$e3Exit;$e3Json=$e3Result|ConvertTo-Json -Depth 8 -Compress;if([Text.Encoding]::UTF8.GetByteCount($e3Json) -gt 262144){[Console]::Error.WriteLine('Read capture exceeds256KiB');exit 4};[Console]::Out.WriteLine($e3Json)}\n exit $e3Exit\n}\n\nRead-E3LedgerlyStatusSources\n\n",
+  "known_source_read_terminal": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[Reading 10 new lines (total: 10 lines)]\n\n{\"schema\": \"ledgerly-known-source-relay/1\", \"source_bytes\": 4036, \"source_sha256\": \"b0251e4ae9cb6a416d05e13ee42792647fd9736dc78787e20f48585ac6f0f9f8\", \"wrapper_sha256\": \"e4c42e8a9e26fffcc506aa778b6549936e55924a9efa98ecdcda8e759978f169\", \"file_writes\": 0}\nWRAPPER_BEGIN utc=2026-10-09T05:21:42Z host=hamon-thinkpad account=jacob pid=385774 source_bytes=4036 source_sha256=b0251e4ae9cb6a416d05e13ee42792647fd9736dc78787e20f48585ac6f0f9f8 source_final_blank_line=true route=thinkpad-tailscale-windows-ssh outer_deadline_s=30\n{\"schema\":\"ledgerly-status-windows-known-source-read/1\",\"started_utc\":\"2026-10-09T05:21:44.8223736Z\",\"identity\":{\"account\":\"DESKTOP-LA7CMTA\\\\minec\",\"uuid\":\"08921B7B-4B24-CBFE-1494-244BFECB1493\",\"powershell_version\":\"5.1.19041.6456\",\"machine_name\":\"DESKTOP-LA7CMTA\",\"boot_utc\":\"2026-10-09T00:18:50.5000000Z\",\"process_id\":1520,\"sid\":\"S-1-5-21-1008789132-1857296646-1312768420-1001\"},\"resources\":{\"read_only_memory_floor\":268435456,\"capture_limit_bytes\":131072,\"cooperative_limit_ms\":20000,\"free_memory_bytes\":1517477888},\"files\":[{\"path\":\"C:\\\\Users\\\\minec\\\\Hamon\\\\receiving\\\\autonomous-e3a41d2b3368-ledgerly-public\\\\receive-public.mjs\",\"bytes\":25782,\"sha256\":\"ddb7673c1d3b4c622151a66c6f10ac4939b5dcfc27390a5fbfb4d8cd524f2a90\",\"last_write_ticks\":\"639270990128997460\",\"attributes\":32,\"product_version\":null,\"content\":\"import assert from \\u0027node:assert/strict\\u0027;\\nimport {readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, rmSync, statfsSync} from \\u0027node:fs\\u0027;\\nimport {resolve, dirname} from \\u0027node:path\\u0027;\\nimport {fileURLToPath} from \\u0027node:url\\u0027;\\nimport {createHash} from \\u0027node:crypto\\u0027;\\nimport {spawn} from \\u0027node:child_process\\u0027;\\nimport {cpus, freemem} from \\u0027node:os\\u0027;\\n\\nconst root = dirname(fileURLToPath(import.meta.url));\\nconst chrome = \\u0027C:\\\\\\\\Program Files\\\\\\\\Google\\\\\\\\Chrome\\\\\\\\Application\\\\\\\\chrome.exe\\u0027;\\nconst referenceBytes = readFileSync(resolve(root, \\u0027EXPECTED-ASSETS.json\\u0027));\\nconst reference = JSON.parse(referenceBytes);\\nconst sha = bytes =\\u003e createHash(\\u0027sha256\\u0027).update(bytes).digest(\\u0027hex\\u0027);\\nconst sleep = ms =\\u003e new Promise(done =\\u003e setTimeout(done, ms));\\nconst sourceText = \\u0027Subject: Fictional receiving example - logo work\\\\n\\\\n3 x Logo concepts @ $250 each\\\\n1 x Brand colour guide @ $180\\\\n\\\\nPlease invoice within 7 days. This is fictional test input, with no recipient email.\\\\n\\u0027;\\nconst allowedActions = new Set([\\u0027init\\u0027, \\u0027analyze\\u0027, \\u0027review\\u0027]);\\nassert.equal(sha(referenceBytes), \\u0027233504667e8a0e4fd41649bca1a7c8e3068b29adea44d85c86d7f38b61f7c098\\u0027, \\u0027Exact retained hosted asset reference\\u0027);\\nassert.equal(reference.schema, \\u0027ledgerly-published-intake-reference/1\\u0027);\\nassert.equal(reference.source_merge, \\u0027c498f55883c755553b59921199d54689d99c9730\\u0027);\\nassert.equal(reference.source_tree, \\u0027efb9d2f50f79336588f7b14beca29a889899e1a9\\u0027);\\nassert.equal(reference.hosted_report_sha256, \\u0027bfb07c3965a74f8ca1d55c3eeee5b3ef606beee947c51665ba6d3f1be06a5bf7\\u0027);\\nassert.equal(Object.keys(reference.assets).length, 31);\\nfor (const [path, pin] of Object.entries(reference.assets)) {\\n  assert(/^[A-Za-z0-9_.\\\\/-]+$/.test(path) \\u0026\\u0026 !path.split(\\u0027/\\u0027).includes(\\u0027..\\u0027));\\n  assert(/^[a-f0-9]{64}$/.test(pin));\\n}\\nif (process.argv[2] === \\u0027--validate-only\\u0027) {\\n  assert.equal(process.argv.length, 3);\\n  console.log(JSON.stringify({status:\\u0027offline-preparation-valid\\u0027, assets:31,\\n    sourcePins:Object.keys(reference.sources).length, referenceSha256:sha(referenceBytes),\\n    boundary:\\u0027No network, deployment attribution, browser or application execution.\\u0027}));\\n  process.exit(0);\\n}\\nassert.equal(process.argv[2], \\u0027--run\\u0027, \\u0027Use --validate-only, or --run deployment.json\\u0027);\\nassert.equal(process.argv.length, 4, \\u0027Supply exactly one evidenced deployment JSON path.\\u0027);\\nconst deploymentBytes = readFileSync(resolve(process.argv[3]));\\nconst deployment = JSON.parse(deploymentBytes);\\nassert.equal(deployment.schema, \\u0027ledgerly-public-deployment/1\\u0027);\\nassert.equal(typeof deployment.url, \\u0027string\\u0027);\\nassert.equal(typeof deployment.source_reference, \\u0027string\\u0027);\\nassert(deployment.source_reference.trim().length \\u003e 20 \\u0026\\u0026 !/[\\u003c\\u003e]/.test(deployment.source_reference));\\nassert.equal(typeof deployment.evidence_text, \\u0027string\\u0027);\\nassert(deployment.evidence_text.includes(deployment.url), \\u0027Retain actual evidence containing the URL.\\u0027);\\nassert(Number.isSafeInteger(deployment.deployment_run_id) \\u0026\\u0026 deployment.deployment_run_id \\u003e 0);\\nassert(Number.isFinite(Date.parse(deployment.observed_at)));\\nconst documentURL = new URL(deployment.url);\\nassert.equal(documentURL.protocol, \\u0027https:\\u0027);\\nassert(!documentURL.username \\u0026\\u0026 !documentURL.password \\u0026\\u0026 !documentURL.search \\u0026\\u0026 !documentURL.hash);\\nassert(documentURL.pathname.endsWith(\\u0027/\\u0027) || documentURL.pathname.endsWith(\\u0027/index.html\\u0027));\\nconst baseURL = new URL(\\u0027./\\u0027, documentURL);\\nconst urls = new Map(Object.keys(reference.assets).map(path =\\u003e [new URL(path, baseURL).href, path]));\\nurls.set(documentURL.href, \\u0027index.html\\u0027);\\nconst stamp = new Date().toISOString().replace(/[-:.]/g, \\u0027\\u0027);\\nconst out = resolve(root, \\u0027run-\\u0027 + stamp);\\nmkdirSync(out);\\nconst downloads = resolve(out, \\u0027downloads\\u0027), inputs = resolve(out, \\u0027inputs\\u0027), profile = resolve(out, \\u0027profile\\u0027);\\nmkdirSync(downloads); mkdirSync(inputs);\\nconst started = Date.now(), deadline = started + 8 * 60 * 1000;\\nlet fatal = null, browser, cdp, exited = false, exitInfo = null, browserLog = \\u0027\\u0027, sessionId;\\nconst interceptionTasks = new Set();\\nconst report = {schema:\\u0027ledgerly.actual-public-intake/1\\u0027, status:\\u0027running\\u0027,\\n  started_at:new Date().toISOString(), deployment, deploymentSha256:sha(deploymentBytes),\\n  expectedSource:reference.source_merge, expectedTree:reference.source_tree,\\n  qualifiedHead:reference.qualified_head, referenceSha256:sha(referenceBytes),\\n  observer:\\u0027Passive copies of actual native Worker requests/replies and trusted input events. No synthetic Python result, application callback or failure injection.\\u0027,\\n  browserAssetBinding:\\u0027The parent page-target Fetch stream pauses actual page and worker-initiated HTTP responses; accepted bodies are verified before continuation. Dedicated-worker targets are resumed without unsupported or duplicate network-domain observation. The required browser asset set must be present before sourceBound.\\u0027,\\n  targetAttachments:[],\\n  noInvoicesOrProviderActions:true, preflightAssets:[], browserAssets:[], groups:[], screenshots:[],\\n  networkRefusals:[], downloads:[], pageErrors:[], cleanup:{}, preflightBound:false, sourceBound:false};\\nfunction save(name, value) {\\n  const bytes = Buffer.isBuffer(value) ? value : Buffer.from(typeof value === \\u0027string\\u0027 ? value : JSON.stringify(value,null,2)+\\u0027\\\\n\\u0027);\\n  writeFileSync(resolve(out,name), bytes, {flag:\\u0027wx\\u0027});\\n  return {name,bytes:bytes.length,sha256:sha(bytes)};\\n}\\nfunction guard() {\\n  if (fatal) throw fatal;\\n  if (Date.now() \\u003e deadline) throw Error(\\u0027Bounded receiving deadline exceeded.\\u0027);\\n}\\nasync function until(fn, label, ms = 20000) {\\n  const end = Math.min(deadline, Date.now()+ms);\\n  while (Date.now()\\u003cend) { guard(); const value=await fn(); if(value)return value; await sleep(100); }\\n  throw Error(\\u0027Timed out: \\u0027+label);\\n}\\nfunction group(name, details) { guard(); report.groups.push({name,status:\\u0027pass\\u0027,details}); }\\nfunction checkBody(path, bytes) {\\n  const actual = sha(bytes), expected=reference.assets[path];\\n  if (actual !== expected) throw Error(\\u0027PUBLIC_ASSET_MISMATCH \\u0027+path+\\u0027 expected=\\u0027+expected+\\u0027 actual=\\u0027+actual);\\n  return actual;\\n}\\nasync function fetchAsset(path) {\\n  guard();\\n  const url=path===\\u0027index.html\\u0027?documentURL.href:new URL(path,baseURL).href;\\n  const response=await fetch(url,{redirect:\\u0027manual\\u0027,signal:AbortSignal.timeout(25000),cache:\\u0027no-store\\u0027});\\n  const rec={path,url,status:response.status,finalURL:response.url,\\n    etag:response.headers.get(\\u0027etag\\u0027),lastModified:response.headers.get(\\u0027last-modified\\u0027),\\n    contentType:response.headers.get(\\u0027content-type\\u0027),date:response.headers.get(\\u0027date\\u0027)};\\n  report.preflightAssets.push(rec);\\n  assert.equal(response.status,200,\\u0027Public response must be successful without an unreviewed redirect: \\u0027+path);\\n  const chunks=[];let total=0;\\n  for await(const chunk of response.body) {\\n    total+=chunk.length;assert(total\\u003c=64*1024*1024,\\u0027Bounded public asset \\u0027+path);chunks.push(chunk);guard();\\n  }\\n  const bytes=Buffer.concat(chunks);rec.bytes=bytes.length;rec.sha256=sha(bytes);\\n  checkBody(path,bytes);\\n  if(path===\\u0027index.html\\u0027) save(\\u0027public-index.html\\u0027,bytes);\\n}\\nclass CDP {\\n  constructor(ws) {\\n    this.ws=ws;this.next=1;this.pending=new Map();this.events=[];\\n    ws.addEventListener(\\u0027message\\u0027,event=\\u003e{\\n      const message=JSON.parse(event.data);\\n      if(message.id) {\\n        const p=this.pending.get(message.id);if(!p)return;\\n        clearTimeout(p.timer);this.pending.delete(message.id);\\n        message.error?p.reject(Error(JSON.stringify(message.error))):p.resolve(message.result);\\n      } else {this.events.push(message);this.onEvent?.(message);}\\n    });\\n  }\\n  static async open(url) {\\n    const ws=new WebSocket(url);\\n    await new Promise((done,reject)=\\u003e{\\n      const timer=setTimeout(()=\\u003ereject(Error(\\u0027Private CDP connection timeout\\u0027)),10000);\\n      ws.addEventListener(\\u0027open\\u0027,()=\\u003e{clearTimeout(timer);done();},{once:true});\\n      ws.addEventListener(\\u0027error\\u0027,()=\\u003e{clearTimeout(timer);reject(Error(\\u0027Private CDP connection failed\\u0027));},{once:true});\\n    });\\n    return new CDP(ws);\\n  }\\n  send(method,params={},sid) {\\n    const id=this.next++;\\n    return new Promise((done,reject)=\\u003e{\\n      const timer=setTimeout(()=\\u003e{this.pending.delete(id);reject(Error(\\u0027CDP timeout \\u0027+method));},15000);\\n      this.pending.set(id,{resolve:done,reject,timer});\\n      this.ws.send(JSON.stringify({id,method,params,...(sid?{sessionId:sid}:{})}));\\n    });\\n  }\\n  close(){this.ws.close();}\\n}\\nconst observer=\\u0027(\\u0027+function(){\\n  const NativeWorker=window.Worker;\\n  const p=window.__publicIntake={calls:[],replies:[],states:[],events:[]};\\n  window.Worker=class extends NativeWorker {\\n    constructor(...args){\\n      super(...args);\\n      this.addEventListener(\\u0027message\\u0027,event=\\u003e{\\n        if(event.data?.data){\\n          p.replies.push(JSON.parse(JSON.stringify(event.data)));\\n          if(event.data.data.state)p.states.push(JSON.parse(JSON.stringify(event.data.data.state)));\\n        }\\n      });\\n    }\\n    postMessage(...args){p.calls.push(JSON.parse(JSON.stringify(args[0])));return super.postMessage(...args);}\\n  };\\n  for(const type of [\\u0027keydown\\u0027,\\u0027input\\u0027,\\u0027change\\u0027])document.addEventListener(type,event=\\u003e{\\n    if(event.isTrusted)p.events.push({type,key:event.key??null,id:event.target?.id??null,trusted:true});\\n  },true);\\n}.toString()+\\u0027)()\\u0027;\\nconst fieldsExpression=\\u0027(()=\\u003e{const f=document.querySelector(\\\"#review-form\\\");if(!f)return null;const v=n=\\u003ef.elements.namedItem(n).value;return {client_name:v(\\\"client_name\\\"),client_email:v(\\\"client_email\\\"),due_days:v(\\\"due_days\\\"),amount_paid:v(\\\"amount_paid\\\"),line_items:[...f.querySelectorAll(\\\"[data-review-line]\\\")].map(row=\\u003eObject.fromEntries([\\\"desc\\\",\\\"qty\\\",\\\"unit_price\\\",\\\"currency\\\",\\\"unit\\\"].map(k=\\u003e[k,row.querySelector(\\\"[data-field=\\\"+k+\\\"]\\\").value])))};})()\\u0027;\\nlet evaluate, send;\\nconst calls=()=\\u003eevaluate(\\u0027window.__publicIntake.calls\\u0027);\\nconst replies=()=\\u003eevaluate(\\u0027window.__publicIntake.replies\\u0027);\\nconst snapshot=()=\\u003eevaluate(\\u0027({source:document.querySelector(\\\"#job-email\\\").value,fields:\\u0027+fieldsExpression+\\u0027,confirmed:document.querySelector(\\\"#review-confirm\\\")?.checked??false,draftDisabled:document.querySelector(\\\"#draft\\\").disabled})\\u0027);\\nasync function focus(selector) {\\n  const ok=await evaluate(\\u0027(()=\\u003e{const e=document.querySelector(\\u0027+JSON.stringify(selector)+\\u0027);if(!e||e.disabled||!e.getClientRects().length)return false;e.scrollIntoView({block:\\\"center\\\"});e.focus();return document.activeElement===e;})()\\u0027);\\n  assert(ok,\\u0027Available focused control \\u0027+selector);\\n}\\nasync function key(key,code,keyCode,modifiers=0) {\\n  await send(\\u0027Input.dispatchKeyEvent\\u0027,{type:\\u0027keyDown\\u0027,key,code,windowsVirtualKeyCode:keyCode,nativeVirtualKeyCode:keyCode,modifiers,...(key===\\u0027Enter\\u0027?{text:\\u0027\\\\r\\u0027,unmodifiedText:\\u0027\\\\r\\u0027}:{}),...(key===\\u0027 \\u0027?{text:\\u0027 \\u0027,unmodifiedText:\\u0027 \\u0027}:{})});\\n  await send(\\u0027Input.dispatchKeyEvent\\u0027,{type:\\u0027keyUp\\u0027,key,code,windowsVirtualKeyCode:keyCode,nativeVirtualKeyCode:keyCode,modifiers});\\n}\\nasync function activate(selector){await focus(selector);await key(\\u0027Enter\\u0027,\\u0027Enter\\u0027,13);}\\nasync function input(selector,value) {\\n  await focus(selector);await key(\\u0027a\\u0027,\\u0027KeyA\\u0027,65,2);await key(\\u0027Backspace\\u0027,\\u0027Backspace\\u0027,8);\\n  if(value)await send(\\u0027Input.insertText\\u0027,{text:value});\\n  assert.equal(await evaluate(\\u0027document.querySelector(\\u0027+JSON.stringify(selector)+\\u0027).value\\u0027),value);\\n}\\nasync function action(selector, expectedOK=true) {\\n  const before=(await replies()).length;\\n  await activate(selector);\\n  await until(()=\\u003eevaluate(\\u0027window.__publicIntake.replies.length\\u003e\\u0027+before+\\u0027\\u0026\\u0026!document.querySelector(\\\"#analyze\\\").disabled\\u0027),\\u0027real Python reply \\u0027+selector,90000);\\n  const reply=(await replies()).at(-1).data;assert.equal(reply.ok,expectedOK);return reply;\\n}\\nasync function noRecords() {\\n  const states=await evaluate(\\u0027window.__publicIntake.states\\u0027);\\n  assert(states.length\\u003e0);\\n  for(const state of states){\\n    assert.deepEqual(state.ledger??[],[]);assert.deepEqual(state.pending??[],[]);\\n    assert.equal(state.external_calls??0,0);assert.equal(state.mock_requests??0,0);\\n  }\\n  assert((await calls()).every(call=\\u003eallowedActions.has(call.action)));\\n  assert.equal(await evaluate(\\u0027document.querySelector(\\\"#external-calls\\\").textContent\\u0027),\\u00270\\u0027);\\n}\\nasync function screenshot(name) {\\n  const data=await send(\\u0027Page.captureScreenshot\\u0027,{format:\\u0027png\\u0027,captureBeyondViewport:false});\\n  report.screenshots.push(save(name,Buffer.from(data.data,\\u0027base64\\u0027)));\\n}\\nasync function openFile(path,admit=true) {\\n  const before=cdp.events.length;\\n  await activate(\\u0027#intake-open\\u0027);\\n  await until(()=\\u003ecdp.events.slice(before).some(e=\\u003ee.sessionId===sessionId\\u0026\\u0026e.method===\\u0027Page.fileChooserOpened\\u0027),\\u0027real Open intake chooser\\u0027);\\n  const dom=await send(\\u0027DOM.getDocument\\u0027,{depth:0});\\n  const {nodeId}=await send(\\u0027DOM.querySelector\\u0027,{nodeId:dom.root.nodeId,selector:\\u0027#intake-file\\u0027});\\n  assert(nodeId\\u003e0);await send(\\u0027DOM.setFileInputFiles\\u0027,{nodeId,files:[path]});\\n  if(admit)await until(()=\\u003eevaluate(\\u0027!document.querySelector(\\\"#intake-preview\\\").hidden\\u0027),\\u0027saved file preview\\u0027);\\n  else await until(()=\\u003eevaluate(\\u0027document.querySelector(\\\"#intake-file-status\\\").textContent.includes(\\\"not valid JSON\\\")\\u0027),\\u0027malformed file refusal\\u0027);\\n}\\nasync function replaceFile() {\\n  const before=(await calls()).length;\\n  await activate(\\u0027#intake-replace\\u0027);\\n  await until(()=\\u003eevaluate(\\u0027document.querySelector(\\\"#intake-preview\\\").hidden\\u0026\\u0026!document.querySelector(\\\"#analyze\\\").disabled\\u0026\\u0026document.querySelector(\\\"#intake-file-status\\\").textContent.includes(\\\"restored\\\")\\u0027),\\u0027fresh replacement analysis\\u0027,90000);\\n  assert.deepEqual((await calls()).slice(before).map(x=\\u003ex.action),[\\u0027analyze\\u0027]);\\n}\\nasync function checkFields(expectedOK=true) {\\n  await focus(\\u0027#review-confirm\\u0027);\\n  if(!await evaluate(\\u0027document.querySelector(\\\"#review-confirm\\\").checked\\u0027))await key(\\u0027 \\u0027,\\u0027Space\\u0027,32);\\n  return action(\\u0027#review-check\\u0027,expectedOK);\\n}\\ntry {\\n  const disk=statfsSync(root);assert(disk.bavail*disk.bsize\\u003e=256*1024*1024);assert(freemem()\\u003e=512*1024*1024);\\n  report.admission={freeBytes:disk.bavail*disk.bsize,freeMemory:freemem(),cpus:cpus().length};\\n  save(\\u0027deployment-evidence.json\\u0027,deploymentBytes);\\n  await fetchAsset(\\u0027index.html\\u0027);\\n  for(const path of Object.keys(reference.assets).filter(p=\\u003ep!==\\u0027index.html\\u0027))await fetchAsset(path);\\n  report.preflightBound=true;\\n  group(\\u0027public-build-assets-match-qualified-reference\\u0027,{assets:report.preflightAssets.length,sourceTree:reference.source_tree});\\n  const args=[\\u0027--headless=new\\u0027,\\u0027--disable-gpu\\u0027,\\u0027--no-first-run\\u0027,\\u0027--no-default-browser-check\\u0027,\\u0027--disable-background-networking\\u0027,\\u0027--disable-component-update\\u0027,\\u0027--disable-default-apps\\u0027,\\u0027--disable-sync\\u0027,\\u0027--remote-debugging-address=127.0.0.1\\u0027,\\u0027--remote-debugging-port=0\\u0027,\\u0027--user-data-dir=\\u0027+profile,\\u0027--window-size=1280,1000\\u0027,\\u0027about:blank\\u0027];\\n  assert(!existsSync(profile));\\n  report.browserCommand={executable:chrome,args};\\n  browser=spawn(chrome,args,{stdio:[\\u0027ignore\\u0027,\\u0027pipe\\u0027,\\u0027pipe\\u0027],windowsHide:true});\\n  report.browserPid=browser.pid;\\n  browser.stdout.on(\\u0027data\\u0027,b=\\u003ebrowserLog+=b);browser.stderr.on(\\u0027data\\u0027,b=\\u003ebrowserLog+=b);\\n  browser.once(\\u0027exit\\u0027,(code,signal)=\\u003e{exited=true;exitInfo={code,signal};});\\n  browser.once(\\u0027error\\u0027,error=\\u003e{fatal=error;});\\n  const active=await until(()=\\u003e{const p=resolve(profile,\\u0027DevToolsActivePort\\u0027);if(existsSync(p))return readFileSync(p,\\u0027utf8\\u0027).trim().split(/\\\\r?\\\\n/);if(exited)throw Error(\\u0027Chrome exited before private debugger admission\\u0027);return null;},\\u0027private Chrome debugger\\u0027,25000);\\n  cdp=await CDP.open(\\u0027ws://127.0.0.1:\\u0027+active[0]+active[1]);\\n  report.browser=await cdp.send(\\u0027Browser.getVersion\\u0027);\\n  await cdp.send(\\u0027Browser.setDownloadBehavior\\u0027,{behavior:\\u0027allow\\u0027,downloadPath:downloads,eventsEnabled:true});\\n  const {targetId}=await cdp.send(\\u0027Target.createTarget\\u0027,{url:\\u0027about:blank\\u0027});\\n  ({sessionId}=await cdp.send(\\u0027Target.attachToTarget\\u0027,{targetId,flatten:true}));\\n  send=(method,params={})=\\u003e{guard();return cdp.send(method,params,sessionId);};\\n  evaluate=async expression=\\u003e{\\n    const value=await send(\\u0027Runtime.evaluate\\u0027,{expression,returnByValue:true,awaitPromise:true});\\n    if(value.exceptionDetails)throw Error(\\u0027Page evaluation: \\u0027+JSON.stringify(value.exceptionDetails));\\n    return value.result.value;\\n  };\\n  async function guardPage(sid) {\\n    await cdp.send(\\u0027Network.enable\\u0027,{},sid);\\n    await cdp.send(\\u0027Network.setCacheDisabled\\u0027,{cacheDisabled:true},sid);\\n    await cdp.send(\\u0027Fetch.enable\\u0027,{patterns:[{urlPattern:\\u0027http*\\u0027,requestStage:\\u0027Request\\u0027},{urlPattern:\\u0027http*\\u0027,requestStage:\\u0027Response\\u0027}]},sid);\\n  }\\n  async function intercept(event) {\\n    if(event.method===\\u0027Target.attachedToTarget\\u0027){\\n      const sid=event.params.sessionId;\\n      assert.equal(event.params.targetInfo.type,\\u0027worker\\u0027,\\u0027Only the expected dedicated worker is admitted.\\u0027);\\n      report.targetAttachments.push({sessionId:sid,type:event.params.targetInfo.type,url:event.params.targetInfo.url});\\n      await cdp.send(\\u0027Runtime.runIfWaitingForDebugger\\u0027,{},sid);\\n      return;\\n    }\\n    if(event.method!==\\u0027Fetch.requestPaused\\u0027)return;\\n    const p=event.params,sid=event.sessionId,path=urls.get(p.request.url);\\n    if(!path||p.request.method!==\\u0027GET\\u0027){\\n      report.networkRefusals.push({url:p.request.url,method:p.request.method});\\n      await cdp.send(\\u0027Fetch.failRequest\\u0027,{requestId:p.requestId,errorReason:\\u0027BlockedByClient\\u0027},sid);\\n      throw Error(\\u0027Unqualified public request refused: \\u0027+p.request.url);\\n    }\\n    if(p.responseStatusCode!==undefined){\\n      assert.equal(p.responseStatusCode,200,\\u0027Actual browser asset status \\u0027+path);\\n      const body=await cdp.send(\\u0027Fetch.getResponseBody\\u0027,{requestId:p.requestId},sid);\\n      const bytes=Buffer.from(body.body,body.base64Encoded?\\u0027base64\\u0027:\\u0027utf8\\u0027);\\n      const hash=checkBody(path,bytes);\\n      report.browserAssets.push({path,url:p.request.url,bytes:bytes.length,sha256:hash,sessionId:sid});\\n    }\\n    await cdp.send(\\u0027Fetch.continueRequest\\u0027,{requestId:p.requestId},sid);\\n  }\\n  cdp.onEvent=event=\\u003e{\\n    if(event.method===\\u0027Runtime.exceptionThrown\\u0027)report.pageErrors.push(event.params);\\n    if(event.method!==\\u0027Fetch.requestPaused\\u0027\\u0026\\u0026event.method!==\\u0027Target.attachedToTarget\\u0027)return;\\n    const task=intercept(event).catch(error=\\u003e{fatal=error;}).finally(()=\\u003einterceptionTasks.delete(task));\\n    interceptionTasks.add(task);\\n  };\\n  await send(\\u0027Page.enable\\u0027);await send(\\u0027Runtime.enable\\u0027);await guardPage(sessionId);\\n  await send(\\u0027Target.setAutoAttach\\u0027,{autoAttach:true,waitForDebuggerOnStart:true,flatten:true});\\n  await send(\\u0027Page.setInterceptFileChooserDialog\\u0027,{enabled:true});\\n  await send(\\u0027Page.addScriptToEvaluateOnNewDocument\\u0027,{source:observer});\\n  await send(\\u0027Emulation.setDeviceMetricsOverride\\u0027,{width:1280,height:1000,deviceScaleFactor:1,mobile:false});\\n  await send(\\u0027Page.navigate\\u0027,{url:documentURL.href});\\n  await until(()=\\u003eevaluate(\\u0027document.readyState===\\\"complete\\\"\\u0026\\u0026!!document.querySelector(\\\"#intake-open\\\")\\u0027),\\u0027published intake page\\u0027);\\n  assert.equal(await evaluate(\\u0027location.href\\u0027),documentURL.href);\\n  await action(\\u0027#engine-start\\u0027);await noRecords();\\n  group(\\u0027public-real-python-engine-ready-with-empty-sandbox\\u0027,{requests:(await calls()).map(x=\\u003ex.action)});\\n  await input(\\u0027#job-email\\u0027,sourceText);\\n  const original=await action(\\u0027#analyze\\u0027);\\n  assert(original.result.issues.some(issue=\\u003eissue.severity===\\u0027error\\u0027));\\n  if(!await evaluate(\\u0027document.querySelector(\\\"#review-editor\\\").open\\u0027))await activate(\\u0027#review-editor \\u003e summary\\u0027);\\n  await input(\\u0027#review-client-name\\u0027,\\u0027Fictional Cedar Studio\\u0027);\\n  await input(\\u0027#review-client-email\\u0027,\\u0027billing@example.test\\u0027);\\n  await input(\\u0027#review-due-days\\u0027,\\u00277\\u0027);\\n  await input(\\u0027#review-amount-paid\\u0027,\\u00270\\u0027);\\n  await input(\\u0027#review-line-0-qty\\u0027,\\u0027\\u0027);\\n  const unfinished=await snapshot();assert.equal(unfinished.confirmed,false);assert.equal(unfinished.draftDisabled,true);\\n  const downloadBefore=cdp.events.length;\\n  await activate(\\u0027#intake-save\\u0027);\\n  const completed=await until(()=\\u003e{\\n    const events=cdp.events.slice(downloadBefore);\\n    const start=events.find(e=\\u003ee.method===\\u0027Browser.downloadWillBegin\\u0027);\\n    if(!start)return null;\\n    const done=events.find(e=\\u003ee.method===\\u0027Browser.downloadProgress\\u0027\\u0026\\u0026e.params.guid===start.params.guid\\u0026\\u0026e.params.state===\\u0027completed\\u0027);\\n    return done\\u0026\\u0026existsSync(resolve(downloads,start.params.suggestedFilename))?{...start.params,completion:done.params}:null;\\n  },\\u0027actual saved intake download\\u0027);\\n  assert.match(completed.suggestedFilename,/^ledgerly-intake-\\\\d{8}T\\\\d{9}Z\\\\.json$/);\\n  const savedPath=resolve(downloads,completed.suggestedFilename),savedBytes=readFileSync(savedPath),saved=JSON.parse(savedBytes);\\n  assert.deepEqual(Object.keys(saved).sort(),[\\u0027format\\u0027,\\u0027version\\u0027,\\u0027saved_at\\u0027,\\u0027source_text\\u0027,\\u0027review_fields\\u0027].sort());\\n  assert.equal(saved.format,\\u0027ledgerly-intake\\u0027);assert.equal(saved.version,1);\\n  assert.equal(saved.source_text,sourceText);assert.deepEqual(saved.review_fields,unfinished.fields);\\n  report.downloads.push({filename:completed.suggestedFilename,bytes:savedBytes.length,sha256:sha(savedBytes),event:completed});\\n  save(\\u0027saved-intake.json\\u0027,savedBytes);await noRecords();\\n  group(\\u0027save-preserves-unfinished-input-without-authority\\u0027,{filename:completed.suggestedFilename,sha256:sha(savedBytes)});\\n  await input(\\u0027#review-client-name\\u0027,\\u0027Keep this unsaved fictional edit\\u0027);\\n  const changed=await snapshot(),beforePreview=(await calls()).length;\\n  await openFile(savedPath);\\n  assert.deepEqual(await snapshot(),changed);assert.equal((await calls()).length,beforePreview);\\n  await activate(\\u0027#intake-cancel\\u0027);assert.deepEqual(await snapshot(),changed);\\n  await openFile(savedPath);await replaceFile();\\n  const restored=await snapshot();\\n  assert.equal(restored.source,sourceText);assert.deepEqual(restored.fields,saved.review_fields);\\n  assert.equal(restored.confirmed,false);assert.equal(restored.draftDisabled,true);\\n  assert((await replies()).at(-1).data.result.issues.some(issue=\\u003eissue.severity===\\u0027error\\u0027));\\n  await noRecords();await screenshot(\\u0027restored-unchecked.png\\u0027);\\n  group(\\u0027open-preview-keeps-current-and-replace-analyzes-fresh\\u0027,{restoredFieldsExact:true,confirmationRestored:false});\\n  const invalid=await checkFields(false);\\n  assert.equal(invalid.error,\\u0027ValueError\\u0027);\\n  assert.equal(invalid.message,\\u0027Line item 1 quantity needs a plain decimal number, such as 2 or 12.50.\\u0027);\\n  assert.equal(invalid.result,undefined);\\n  assert.equal((await snapshot()).draftDisabled,true);\\n  await input(\\u0027#review-line-0-qty\\u0027,\\u00272\\u0027);\\n  assert.equal((await snapshot()).confirmed,false);\\n  const valid=await checkFields();assert.equal(valid.result.valid,true);\\n  assert.equal(typeof valid.result.review_id,\\u0027string\\u0027);assert.equal((await snapshot()).draftDisabled,false);\\n  await openFile(savedPath);await replaceFile();\\n  const retired=await snapshot();\\n  assert.deepEqual(retired.fields,saved.review_fields);assert.equal(retired.confirmed,false);assert.equal(retired.draftDisabled,true);\\n  await noRecords();\\n  group(\\u0027fresh-review-check-and-replacement-retire-old-authority\\u0027,{invalidUnfinishedReviewRefused:true,validReviewReceived:true,noDraftAction:true,oldAuthorityRetired:true});\\n  const badPath=resolve(inputs,\\u0027malformed-intake.json\\u0027);writeFileSync(badPath,\\u0027{\\u0027,{flag:\\u0027wx\\u0027});\\n  const beforeBad=await snapshot(),callsBeforeBad=(await calls()).length;\\n  await openFile(badPath,false);\\n  assert.deepEqual(await snapshot(),beforeBad);assert.equal((await calls()).length,callsBeforeBad);\\n  assert.equal(await evaluate(\\u0027document.querySelector(\\\"#intake-preview\\\").hidden\\u0027),true);\\n  await noRecords();await screenshot(\\u0027malformed-file-retains-input.png\\u0027);\\n  group(\\u0027malformed-open-preserves-unfinished-input\\u0027,{noPythonRequest:true,inputUnchanged:true});\\n  save(\\u0027actual-worker-and-input-observation.json\\u0027,await evaluate(\\u0027window.__publicIntake\\u0027));\\n  await until(async()=\\u003e{await Promise.all([...interceptionTasks]);return interceptionTasks.size===0;},\\u0027all intercepted response bodies verified\\u0027);guard();\\n  const observed=new Set(report.browserAssets.map(x=\\u003ex.path));\\n  for(const path of [\\u0027index.html\\u0027,\\u0027assets/index-B6qcFmyu.js\\u0027,\\u0027assets/engine.worker-B5Sd8fS4.js\\u0027,\\u0027python/bridge.py\\u0027,\\u0027python/ledgerly/extract.py\\u0027,\\u0027python/review.py\\u0027])assert(observed.has(path),\\u0027Actual browser bytes bound: \\u0027+path);\\n  assert.deepEqual(report.networkRefusals,[]);assert.deepEqual(report.pageErrors,[]);\\n  report.sourceBound=true;\\n  report.status=\\u0027pass\\u0027;\\n} catch(error) {\\n  report.status=String(error).includes(\\u0027PUBLIC_ASSET_MISMATCH\\u0027)?\\u0027asset-mismatch-stop\\u0027:\\u0027failed\\u0027;\\n  report.error=error.stack??String(error);\\n} finally {\\n  if(cdp\\u0026\\u0026sessionId){\\n    try{\\n      const observed=await cdp.send(\\u0027Runtime.evaluate\\u0027,{expression:\\u0027window.__publicIntake\\u0027,returnByValue:true},sessionId);\\n      if(observed.result?.value)report.finalObservation=save(\\u0027final-passive-observation.json\\u0027,observed.result.value);\\n    }catch(error){report.finalObservationDiagnostic=error.message;}\\n  }\\n  if(cdp){try{await cdp.send(\\u0027Browser.close\\u0027);}catch(error){report.cleanup.closeDiagnostic=error.message;}cdp.close();}\\n  if(browser\\u0026\\u0026!exited){\\n    const end=Date.now()+10000;while(!exited\\u0026\\u0026Date.now()\\u003cend)await sleep(100);\\n    if(!exited){report.cleanup.termination=\\u0027Owned child handle only\\u0027;browser.kill();const until=Date.now()+5000;while(!exited\\u0026\\u0026Date.now()\\u003cuntil)await sleep(100);}\\n  }\\n  report.cleanup.browserStarted=Boolean(browser);report.cleanup.browserExited=exited;report.cleanup.exit=exitInfo;\\n  if(browser\\u0026\\u0026exited\\u0026\\u0026existsSync(profile)){\\n    try{rmSync(profile,{recursive:true,force:false,maxRetries:3,retryDelay:250});}\\n    catch(error){report.cleanup.profileError=error.message;}\\n  }\\n  report.cleanup.profileAbsent=!existsSync(profile);\\n  if(browser\\u0026\\u0026(!exited||!report.cleanup.profileAbsent))report.status=\\u0027failed-cleanup\\u0027;\\n  save(\\u0027browser.log\\u0027,browserLog);\\n  report.referenceUnchanged=sha(readFileSync(resolve(root,\\u0027EXPECTED-ASSETS.json\\u0027)))===sha(referenceBytes);\\n  if(!report.referenceUnchanged)report.status=\\u0027failed\\u0027;\\n  report.finished_at=new Date().toISOString();\\n  save(\\u0027RESULTS.json\\u0027,report);\\n  console.log(JSON.stringify({status:report.status,groups:report.groups.length,preflightAssets:report.preflightAssets.length,browserAssets:report.browserAssets.length,sourceBound:report.sourceBound,cleanup:report.cleanup,error:report.error??null,receipt:resolve(out,\\u0027RESULTS.json\\u0027)},null,2));\\n  process.exitCode=report.status===\\u0027pass\\u0027?0:1;\\n}\\n\"},{\"path\":\"C:\\\\Users\\\\minec\\\\Hamon\\\\receiving\\\\autonomous-e3a41d2b3368-ledgerly-public\\\\ACCEPTANCE.json\",\"bytes\":2501,\"sha256\":\"731ec7f8ac24ed231877c3f676b6418b04c1dbfea86eaa6b45e736b8573d6864\",\"last_write_ticks\":\"639270993945789308\",\"attributes\":32,\"product_version\":null,\"content\":\"{\\n  \\\"schema\\\": \\\"ledgerly-public-intake-acceptance/1\\\",\\n  \\\"status\\\": \\\"pass\\\",\\n  \\\"observed_at\\\": \\\"2026-10-08T23:31:06.293Z\\\",\\n  \\\"url\\\": \\\"https://jacobmetoyer.com/ledgerly/\\\",\\n  \\\"sourceMerge\\\": \\\"c498f55883c755553b59921199d54689d99c9730\\\",\\n  \\\"sourceTree\\\": \\\"efb9d2f50f79336588f7b14beca29a889899e1a9\\\",\\n  \\\"deploymentRun\\\": 37841104151,\\n  \\\"groups\\\": [\\n    \\\"public-build-assets-match-qualified-reference\\\",\\n    \\\"public-real-python-engine-ready-with-empty-sandbox\\\",\\n    \\\"save-preserves-unfinished-input-without-authority\\\",\\n    \\\"open-preview-keeps-current-and-replace-analyzes-fresh\\\",\\n    \\\"fresh-review-check-and-replacement-retire-old-authority\\\",\\n    \\\"malformed-open-preserves-unfinished-input\\\"\\n  ],\\n  \\\"preflightAssets\\\": 31,\\n  \\\"actualBrowserAssets\\\": 16,\\n  \\\"actions\\\": {\\n    \\\"init\\\": 1,\\n    \\\"analyze\\\": 3,\\n    \\\"review\\\": 2\\n  },\\n  \\\"trustedEventCounts\\\": {\\n    \\\"keydown\\\": 31,\\n    \\\"input\\\": 26,\\n    \\\"change\\\": 12\\n  },\\n  \\\"noInvoicesOrProviderActions\\\": true,\\n  \\\"sourceBound\\\": true,\\n  \\\"sourceReferenceSha256\\\": \\\"233504667e8a0e4fd41649bca1a7c8e3068b29adea44d85c86d7f38b61f7c098\\\",\\n  \\\"driverSha256\\\": \\\"ddb7673c1d3b4c622151a66c6f10ac4939b5dcfc27390a5fbfb4d8cd524f2a90\\\",\\n  \\\"resultSha256\\\": \\\"6299c04be8958a071715336fe3d5e8ddd3a322745935e2f4f9baf12b5d011102\\\",\\n  \\\"observationSha256\\\": \\\"839ce4e13cc0bd5b9dc398630ae3d61d8da3b83f5dcad1a523d8f937fa6366a1\\\",\\n  \\\"downloadSha256\\\": \\\"2b89ed0320b107929caeaa1c86e93098bbff3909c382aa2d153bf50f2ff9a1cb\\\",\\n  \\\"screenshotHashes\\\": [\\n    {\\n      \\\"name\\\": \\\"restored-unchecked.png\\\",\\n      \\\"bytes\\\": 100425,\\n      \\\"sha256\\\": \\\"c22ce335a5e1b0a9e4452143b0e74604a541309ec3e2a81e929fe10ff1733c68\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"malformed-file-retains-input.png\\\",\\n      \\\"bytes\\\": 52652,\\n      \\\"sha256\\\": \\\"62078c260771a9d77f9d5c2999fde05c9d3e0205933fb1c343f4a0617b21cfc8\\\"\\n    }\\n  ],\\n  \\\"manifestSha256\\\": \\\"c5f52d4659909316dcbcf588fec864f626e809cd926b10ab4abe3d1eaf4561f2\\\",\\n  \\\"cleanupSha256\\\": \\\"d96471518487e7a1cc11ec606e5277cc4a2ea859a77630371b0d0157ba13b027\\\",\\n  \\\"cleanupPassed\\\": true,\\n  \\\"sourceAndEvidenceMembers\\\": 49,\\n  \\\"retainedPriorRuns\\\": [\\n    \\\"run-20261008T231609653Z\\\",\\n    \\\"run-20261008T232309399Z\\\",\\n    \\\"run-20261008T232714234Z\\\"\\n  ],\\n  \\\"bounds\\\": [\\n    \\\"No application source, service, deployment, Actions or GitHub write.\\\",\\n    \\\"Only private fictional unfinished intake; no financial records/provider operations.\\\",\\n    \\\"This ordinary public gate does not repeat or broaden the prior 405 hosted assertions.\\\",\\n    \\\"Served byte equality is established; no inspection of web-host internal checkout and no future stability claim.\\\"\\n  ]\\n}\\n\"},{\"path\":\"C:\\\\Users\\\\minec\\\\Hamon\\\\receiving\\\\autonomous-e3a41d2b3368-ledgerly-public\\\\ADMISSION.json\",\"bytes\":478,\"sha256\":\"3a8d2ef82d46179734a229f07efe6f42a9c89dc4913cbdaf6a81c179fc9258bc\",\"last_write_ticks\":\"639270959137794005\",\"attributes\":32,\"product_version\":null,\"content\":\"{\\r\\n    \\\"utc\\\":  \\\"2026-10-08T22:38:33.6252605Z\\\",\\r\\n    \\\"computer\\\":  null,\\r\\n    \\\"free_bytes\\\":  417964109824,\\r\\n    \\\"free_memory_bytes\\\":  7825457152,\\r\\n    \\\"existing_chrome\\\":  0,\\r\\n    \\\"node\\\":  \\\"C:\\\\\\\\Users\\\\\\\\minec\\\\\\\\Hamon\\\\\\\\runtime\\\\\\\\node-v24.21.0-win-x64\\\\\\\\node.exe\\\",\\r\\n    \\\"chrome\\\":  \\\"C:\\\\\\\\Program Files\\\\\\\\Google\\\\\\\\Chrome\\\\\\\\Application\\\\\\\\chrome.exe\\\",\\r\\n    \\\"scope\\\":  \\\"Isolated actual public Ledgerly intake receiving; fictional fixtures; no invoices, provider calls, deployment or installation\\\"\\r\\n}\"},{\"path\":\"C:\\\\Users\\\\minec\\\\Hamon\\\\runtime\\\\node-v24.21.0-win-x64\\\\node.exe\",\"bytes\":93580104,\"sha256\":\"ba4e6d110e8c1592a1ecd390f6b05f3da124b13871a5be62b341a07a853c6c32\",\"last_write_ticks\":\"639244479580000000\",\"attributes\":32,\"product_version\":\"24.21.0\",\"content\":null},{\"path\":\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\",\"bytes\":4496024,\"sha256\":\"6849d2982038de9f9489a7b3858f3b785b7fec06a842c93c517281d21995c8ca\",\"last_write_ticks\":\"639264220693797030\",\"attributes\":32,\"product_version\":\"154.0.8037.98\",\"content\":null}],\"root_names\":[{\"Name\":\".git\",\"Length\":null,\"Attributes\":18},{\"Name\":\"run-20261008T231609653Z\",\"Length\":null,\"Attributes\":16},{\"Name\":\"run-20261008T232309399Z\",\"Length\":null,\"Attributes\":16},{\"Name\":\"run-20261008T232714234Z\",\"Length\":null,\"Attributes\":16},{\"Name\":\"run-20261008T233101517Z\",\"Length\":null,\"Attributes\":16},{\"Name\":\"ACCEPTANCE.json\",\"Length\":2501,\"Attributes\":32},{\"Name\":\"ADMISSION.json\",\"Length\":478,\"Attributes\":32},{\"Name\":\"check-offline-v2.mjs\",\"Length\":1576,\"Attributes\":32},{\"Name\":\"check-offline-v3.mjs\",\"Length\":1327,\"Attributes\":32},{\"Name\":\"check-offline-v4.mjs\",\"Length\":1331,\"Attributes\":32},{\"Name\":\"check-offline-v5.mjs\",\"Length\":1772,\"Attributes\":32},{\"Name\":\"check-offline.mjs\",\"Length\":1573,\"Attributes\":32},{\"Name\":\"deployment.json\",\"Length\":1022,\"Attributes\":32},{\"Name\":\"ECHO-WORKSPACE-CONFIG-ADDENDUM.json\",\"Length\":978,\"Attributes\":32},{\"Name\":\"EXPECTED-ASSETS.json\",\"Length\":9578,\"Attributes\":32},{\"Name\":\"freeze-receipt.mjs\",\"Length\":5417,\"Attributes\":32},{\"Name\":\"OFFLINE-CHECK-v2.json\",\"Length\":1479,\"Attributes\":32},{\"Name\":\"OFFLINE-CHECK-v3.json\",\"Length\":874,\"Attributes\":32},{\"Name\":\"OFFLINE-CHECK-v4.json\",\"Length\":876,\"Attributes\":32},{\"Name\":\"OFFLINE-CHECK-v5.json\",\"Length\":1071,\"Attributes\":32},{\"Name\":\"OFFLINE-CHECK.json\",\"Length\":1479,\"Attributes\":32},{\"Name\":\"POST-RUN-CLEANUP.json\",\"Length\":539,\"Attributes\":32},{\"Name\":\"READINESS.json\",\"Length\":3319,\"Attributes\":32},{\"Name\":\"receive-public-v1-preflight-label.mjs\",\"Length\":24531,\"Attributes\":32},{\"Name\":\"receive-public-v2-worker-fetch-rejected.mjs\",\"Length\":24583,\"Attributes\":32},{\"Name\":\"receive-public-v3-worker-network-rejected.mjs\",\"Length\":27132,\"Attributes\":32},{\"Name\":\"receive-public-v4-incomplete-review-expectation-rejected.mjs\",\"Length\":25233,\"Attributes\":32},{\"Name\":\"receive-public.mjs\",\"Length\":25782,\"Attributes\":32},{\"Name\":\"RECEIVER.md\",\"Length\":7105,\"Attributes\":32},{\"Name\":\"SOURCE-AND-EVIDENCE-MANIFEST.json\",\"Length\":8700,\"Attributes\":32}],\"completed\":true,\"error\":null,\"file_writes\":0,\"browser_invocations\":0,\"compiler_invocations\":0,\"elapsed_ms\":438,\"finished_utc\":\"2026-10-09T05:21:45.2612295Z\",\"exit_code\":0}\nWRAPPER_END utc=2026-10-09T05:21:45Z host=hamon-thinkpad account=jacob pid=385774 exit=0 pipeline_status=0,0,0 closure=complete\n\n** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\n\n\n✅ Process completed with exit code 0 (runtime: 2.98s)"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+      }
+    ],
+    "isError": false
+  },
+  "prepared_driver": {
+    "path": "windows-prepared-driver.mjs",
+    "git_blob": "725466cb4d70c18db6d2258bb941f32cad844977",
+    "bytes": 28492,
+    "sha256": "dd6c23cf9eb23dd774f9cfe42efa59d9ab18c81360afec9b4f89a4827c4a662d",
+    "derived_from_original_sha256": "ddb7673c1d3b4c622151a66c6f10ac4939b5dcfc27390a5fbfb4d8cd524f2a90",
+    "syntax_only_native_result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "[Reading 2 new lines (total: 2 lines)]\n\n{\"schema\": \"ledgerly-status-windows-driver-readonly-syntax/1\", \"bytes\": 28492, \"sha256\": \"dd6c23cf9eb23dd774f9cfe42efa59d9ab18c81360afec9b4f89a4827c4a662d\", \"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"\", \"files_written\": 0}\n\n✅ Process completed with exit code 0 (runtime: 0.20s)"
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    },
+    "new_status_groups": 3,
+    "intended_worker_actions": {
+      "init": 1,
+      "analyze": 3,
+      "review": 3
+    },
+    "windows_executed": false
+  },
+  "preceding_workload_coordination": "Root released the own-process overlap boundary after the05:32:14 scoped observation found known LP consumer/supervisor PIDs and direct children absent. The earlier LP JobObject accounting qualification remains failed; no global orphan-free or LP replay claim is inherited.",
+  "browser_admission": {
+    "schema": "ledgerly-status-windows-browser-admission/1",
+    "started_utc": "2026-10-09T05:35:48.9027037Z",
+    "status": "declined-memory",
+    "source_commit": "ada2658b0291f094d4786aeec346b072fe357be4",
+    "source_tree": "b66e37bcae50c8493f137631f38d92044e59b808",
+    "driver_git_blob": "725466cb4d70c18db6d2258bb941f32cad844977",
+    "driver_sha256": "dd6c23cf9eb23dd774f9cfe42efa59d9ab18c81360afec9b4f89a4827c4a662d",
+    "asset_manifest_sha256": "af1676d4f243a56be6921c2b1a6706947f8d3bdc654c7b671bba8b556f4186da",
+    "assets": 31,
+    "asset_bytes": 12837983,
+    "identity": {
+      "account": "DESKTOP-LA7CMTA\\minec",
+      "uuid": "08921B7B-4B24-CBFE-1494-244BFECB1493",
+      "process_id": 34388,
+      "machine_name": "DESKTOP-LA7CMTA",
+      "boot_utc": "2026-10-09T00:18:50.5000000Z",
+      "sid": "S-1-5-21-1008789132-1857296646-1312768420-1001"
+    },
+    "resources": {
+      "free_memory_bytes": 1132441600,
+      "intended_actions": [
+        "init",
+        "analyze",
+        "review"
+      ],
+      "observed_utc": "2026-10-09T05:35:49.0920921Z",
+      "browser_app_deadline_seconds": 60,
+      "available_disk_bytes": 573084852224,
+      "memory_floor_bytes": 2147483648,
+      "native_compiler_floor_not_used": true,
+      "disk_floor_bytes": 268435456
+    },
+    "new_root": "C:\\Users\\minec\\Hamon\\receiving\\autonomous-e3a41d2b3368-ledgerly-status-20261009",
+    "new_root_absent": null,
+    "file_pins": [],
+    "file_writes": 0,
+    "browser_invocations": 0,
+    "compiler_invocations": 0,
+    "error": "Fresh2GiB browser memory admission declined; no retry or materialization",
+    "finished_utc": "2026-10-09T05:35:49.1170958Z",
+    "exit_code": 3
+  },
+  "browser_admission_ps": "function Admit-E3LedgerlyStatusBrowser {\n $ErrorActionPreference='Stop'\n $e3Start=[DateTime]::UtcNow.ToString('o')\n $e3Exit=3\n $e3Result=[ordered]@{schema='ledgerly-status-windows-browser-admission/1';started_utc=$e3Start;status='not-admitted';source_commit='ada2658b0291f094d4786aeec346b072fe357be4';source_tree='b66e37bcae50c8493f137631f38d92044e59b808';driver_git_blob='725466cb4d70c18db6d2258bb941f32cad844977';driver_sha256='dd6c23cf9eb23dd774f9cfe42efa59d9ab18c81360afec9b4f89a4827c4a662d';asset_manifest_sha256='af1676d4f243a56be6921c2b1a6706947f8d3bdc654c7b671bba8b556f4186da';assets=31;asset_bytes=12837983;identity=$null;resources=$null;new_root='C:\\Users\\minec\\Hamon\\receiving\\autonomous-e3a41d2b3368-ledgerly-status-20261009';new_root_absent=$null;file_pins=@();file_writes=0;browser_invocations=0;compiler_invocations=0;error=$null}\n try{\n  $e3Who=[Security.Principal.WindowsIdentity]::GetCurrent()\n  $e3OS=Get-CimInstance Win32_OperatingSystem\n  $e3UUID=(Get-CimInstance Win32_ComputerSystemProduct).UUID\n  $e3Result.identity=@{machine_name=[Environment]::MachineName;account=$e3Who.Name;sid=$e3Who.User.Value;uuid=$e3UUID;boot_utc=$e3OS.LastBootUpTime.ToUniversalTime().ToString('o');process_id=$PID}\n  if([Environment]::MachineName -cne 'DESKTOP-LA7CMTA' -or $e3Who.Name -cne 'DESKTOP-LA7CMTA\\minec' -or $e3Who.User.Value -cne 'S-1-5-21-1008789132-1857296646-1312768420-1001' -or $e3UUID -cne '08921B7B-4B24-CBFE-1494-244BFECB1493' -or $e3OS.LastBootUpTime.ToUniversalTime().ToString('o') -cne '2026-10-09T00:18:50.5000000Z'){throw 'Known identity/generation mismatch'}\n  $e3Memory=[long]$e3OS.FreePhysicalMemory*1024\n  $e3Drive=New-Object IO.DriveInfo('C:\\')\n  $e3Result.resources=@{observed_utc=[DateTime]::UtcNow.ToString('o');free_memory_bytes=$e3Memory;memory_floor_bytes=2147483648;available_disk_bytes=$e3Drive.AvailableFreeSpace;disk_floor_bytes=268435456;browser_app_deadline_seconds=60;intended_actions=@('init','analyze','review');native_compiler_floor_not_used=$true}\n  if($e3Memory -lt 2147483648){$e3Result.status='declined-memory';throw 'Fresh2GiB browser memory admission declined; no retry or materialization'}\n  if($e3Drive.AvailableFreeSpace -lt 268435456){$e3Result.status='declined-disk';throw 'Fresh256MiB browser disk admission declined'}\n  foreach($e3Path in @('C:\\','C:\\Users','C:\\Users\\minec','C:\\Users\\minec\\Hamon','C:\\Users\\minec\\Hamon\\receiving')){\n   $e3Info=Get-Item -LiteralPath $e3Path -Force\n   if(($e3Info.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0){throw ('Reparse ancestor '+$e3Path)}\n  }\n  $e3Result.new_root_absent= -not (Test-Path -LiteralPath $e3Result.new_root)\n  if(-not $e3Result.new_root_absent){throw 'Proposed new status root already exists; preserve without overwrite'}\n  $e3Plan=@(\n   @{path='C:\\Users\\minec\\Hamon\\runtime\\node-v24.21.0-win-x64\\node.exe';sha256='ba4e6d110e8c1592a1ecd390f6b05f3da124b13871a5be62b341a07a853c6c32';version='24.21.0'},\n   @{path='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';sha256='6849d2982038de9f9489a7b3858f3b785b7fec06a842c93c517281d21995c8ca';version='154.0.8037.98'}\n  )\n  foreach($e3Pin in $e3Plan){\n   $e3Info=Get-Item -LiteralPath $e3Pin.path -Force\n   if($e3Info.PSIsContainer -or ($e3Info.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0){throw 'Known runtime path is not regular'}\n   $e3Hash=(Get-FileHash -LiteralPath $e3Pin.path -Algorithm SHA256).Hash.ToLowerInvariant()\n   if($e3Hash -cne $e3Pin.sha256 -or $e3Info.VersionInfo.ProductVersion -cne $e3Pin.version){throw 'Known runtime pin changed'}\n   $e3Result.file_pins+=@{path=$e3Pin.path;sha256=$e3Hash;bytes=$e3Info.Length;product_version=$e3Info.VersionInfo.ProductVersion}\n  }\n  $e3Result.status='admitted';$e3Exit=0\n }catch{$e3Result.error=$_.Exception.Message}\n finally{$e3Result.finished_utc=[DateTime]::UtcNow.ToString('o');$e3Result.exit_code=$e3Exit;[Console]::Out.WriteLine(($e3Result|ConvertTo-Json -Depth 8 -Compress))}\n exit $e3Exit\n}\n\nAdmit-E3LedgerlyStatusBrowser\n\n",
+  "browser_admission_terminal": {
+    "content": [
+      {
+        "type": "text",
+        "text": "[Reading 10 new lines (total: 10 lines)]\n\n{\"schema\": \"ledgerly-status-browser-admission-relay/1\", \"source_bytes\": 3978, \"source_sha256\": \"7ead175ca27141a77f97e35fbe71f718001aeacd59ea086cd120fa2e8b41db51\", \"wrapper_sha256\": \"d20b2e145e5748aedecb6177e35002a08aab3901b37f9efd680131883761546b\", \"file_writes\": 0}\nWRAPPER_BEGIN utc=2026-10-09T05:35:48Z host=hamon-thinkpad account=jacob pid=431037 source_bytes=3978 source_sha256=7ead175ca27141a77f97e35fbe71f718001aeacd59ea086cd120fa2e8b41db51 source_final_blank_line=true route=thinkpad-tailscale-windows-ssh outer_deadline_s=30\n{\"schema\":\"ledgerly-status-windows-browser-admission/1\",\"started_utc\":\"2026-10-09T05:35:48.9027037Z\",\"status\":\"declined-memory\",\"source_commit\":\"ada2658b0291f094d4786aeec346b072fe357be4\",\"source_tree\":\"b66e37bcae50c8493f137631f38d92044e59b808\",\"driver_git_blob\":\"725466cb4d70c18db6d2258bb941f32cad844977\",\"driver_sha256\":\"dd6c23cf9eb23dd774f9cfe42efa59d9ab18c81360afec9b4f89a4827c4a662d\",\"asset_manifest_sha256\":\"af1676d4f243a56be6921c2b1a6706947f8d3bdc654c7b671bba8b556f4186da\",\"assets\":31,\"asset_bytes\":12837983,\"identity\":{\"account\":\"DESKTOP-LA7CMTA\\\\minec\",\"uuid\":\"08921B7B-4B24-CBFE-1494-244BFECB1493\",\"process_id\":34388,\"machine_name\":\"DESKTOP-LA7CMTA\",\"boot_utc\":\"2026-10-09T00:18:50.5000000Z\",\"sid\":\"S-1-5-21-1008789132-1857296646-1312768420-1001\"},\"resources\":{\"free_memory_bytes\":1132441600,\"intended_actions\":[\"init\",\"analyze\",\"review\"],\"observed_utc\":\"2026-10-09T05:35:49.0920921Z\",\"browser_app_deadline_seconds\":60,\"available_disk_bytes\":573084852224,\"memory_floor_bytes\":2147483648,\"native_compiler_floor_not_used\":true,\"disk_floor_bytes\":268435456},\"new_root\":\"C:\\\\Users\\\\minec\\\\Hamon\\\\receiving\\\\autonomous-e3a41d2b3368-ledgerly-status-20261009\",\"new_root_absent\":null,\"file_pins\":[],\"file_writes\":0,\"browser_invocations\":0,\"compiler_invocations\":0,\"error\":\"Fresh2GiB browser memory admission declined; no retry or materialization\",\"finished_utc\":\"2026-10-09T05:35:49.1170958Z\",\"exit_code\":3}\nWRAPPER_END utc=2026-10-09T05:35:49Z host=hamon-thinkpad account=jacob pid=431037 exit=3 pipeline_status=0,0,3 closure=complete\n\n** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\n\n\n✅ Process completed with exit code 3 (runtime: 0.93s)"
+      },
+      {
+        "type": "text",
+        "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+      }
+    ],
+    "isError": false
+  },
+  "consequences": {
+    "transferred_assets": 0,
+    "new_windows_files": 0,
+    "browser_invocations": 0,
+    "worker_actions": 0,
+    "compiler_invocations": 0,
+    "new_root_state_observed": false,
+    "public_deployment": false,
+    "admission_retries": 0,
+    "capacity_polls_after_refusal": 0
+  },
+  "thinkpad_boundary": {
+    "optional_checkpoint_written": false,
+    "prewrite_floor_bytes": 805322752,
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "[Reading 6 new lines (total: 6 lines)]\n\nTraceback (most recent call last):\n  File \"<string>\", line 5, in <module>\n    assert before>=768*1024**2+16384\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n\n✅ Process completed with exit code 1 (runtime: 0.16s)"
+        },
+        {
+          "type": "text",
+          "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+        }
+      ],
+      "isError": false
+    },
+    "further_writes": false,
+    "read_only_driver_syntax_executed": true
+  },
+  "scope": "The source fix remains qualified by actual native Vitest/typecheck/build. This is a concrete browser admission refusal before materialization, not a browser test failure or pass. Runtime/driver pins came from the separate successful read, not from checks after the declined memory gate. No Windows materialization or browser launch occurred; the original public packet remains immutable.",
+  "source_comment": "https://github.com/Jacob-Met/ledgerly/issues/41#issuecomment-6074814018",
+  "preceding_workload_evidence": {
+    "repository": "Jacob-Met/hamon",
+    "git_blob": "538f4c2a4f48069eb379468e81dae4e3a90f2f40",
+    "sha256": "9d1e6fecf60d1934afde68fea5b43c7c6e2d4a1a7cb40e05958a62acf301a83a",
+    "provenance": "Reported by the native recovery lane after its exact Git readback; root released own-process overlap. The original failed accounting outcome is preserved."
+  }
+}
