@@ -1,4 +1,5 @@
 import {expect, it} from 'vitest';
+import type {IntakeFile} from '../src/intake-file';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -25,6 +26,7 @@ function executable(file: string) {
 }
 
 function app() {
+  let replaceIntake!: (file: IntakeFile) => Promise<boolean>;
   const elements = new Map<string, any>(), dynamicIds = new Set<string>();
   const dynamic = (selector: string) => selector.startsWith('#review-') || selector === '#engine-recovery-analysis';
   const decode = (value: string) => value.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
@@ -56,6 +58,8 @@ function app() {
         removeAttribute: (key: string) => attributes.delete(key),
         getAttribute: (key: string) => attributes.get(key),
         remove() { elements.delete(selector); dynamicIds.delete(selector); },
+        focus() {},
+        querySelector: (query: string) => elements.get(query) || null,
         closest: (query: string) => query === '#review-form' ? elements.get('#review-form') : null,
         elements: {namedItem: (name: string) => element('#' + ({
           client_name: 'review-client-name', client_email: 'review-client-email', due_days: 'review-due-days', amount_paid: 'review-amount-paid',
@@ -102,18 +106,22 @@ function app() {
   const context = vm.createContext({document, Worker: FakeWorker, URL, WorkerClient, WorkerUnavailableError,
     readReviewFields, reviewMarkup, reviewLinesMarkup, reviewResultMarkup, approvalListMarkup, createLedgerExport, createInvoiceDetailsView, createInvoiceRecordDownloads, createReceivablesView, createRejectionReasons,
     // File picking and download DOM behavior is received by the actual browser gate.
-    createIntakeFileControls: () => ({setAvailability() {}, currentChanged() {}})});
+    createIntakeFileControls: (_mount: HTMLElement, callbacks: {replace: (file: IntakeFile) => Promise<boolean>}) => {
+      replaceIntake = callbacks.replace;
+      return {setAvailability() {}, currentChanged() {}};
+    }});
   vm.runInContext(executable('main.ts'), context);
   function click(selector: string) {
     let settled = false;
     const promise = element(selector).handlers.click().then(() => { settled = true; });
     return {promise, settled: () => settled};
   }
-  function input(selector: string) { element('#analysis').handlers.input({target: element(selector)}); }
+  function input(selector: string) { element(selector === '#job-email' ? selector : '#analysis').handlers.input({target: element(selector)}); }
   function submitReview() {
     return element('#analysis').handlers.submit({target: element('#review-form'), preventDefault() {}});
   }
-  return {element, workers, click, input, submitReview, document};
+  return {element, workers, click, input, submitReview, document,
+    replaceIntake: (file: IntakeFile) => replaceIntake(file)};
 }
 
 const empty = {ok: true, result: {}, state: {ledger: [], pending: [], audit: [], today: '2026-10-08', can_replay: false}};
@@ -267,4 +275,107 @@ it('retains typed corrections across failure and reopens analysis only on explic
   await fixture.click('#draft').promise;
   expect(fixture.workers[1].messages.map(message => message.action)).toEqual(['init', 'analyze', 'review', 'draft']);
   for (const [id, value] of Object.entries(edits)) expect(fixture.element(id).value).toBe(value);
+});
+
+const checkedHint = 'Fields checked. Create the reviewed draft, then approve its send separately.';
+
+async function checkedIntake() {
+  const fixture = app();
+  const started = fixture.click('#engine-start');
+  fixture.workers[0].reply(0, empty); await started.promise;
+  const text = 'Fictional work for billing@example.test: 2 hours at USD 50, due in 30 days.';
+  const extraction = {confidence: 0.9, client_name: 'Fictional client', client_email: 'billing@example.test',
+    due_days: 30, amount_paid: '0', issues: [], review_currencies: ['USD'], currency: 'USD',
+    line_items: [{desc: 'Fictional work', qty: 2, unit_price: '50', currency: 'USD', unit: 'hours'}]};
+  fixture.element('#job-email').value = text;
+  const analyzed = fixture.click('#analyze');
+  fixture.workers[0].reply(1, {ok: true, state: empty.state, result: extraction}); await analyzed.promise;
+  fixture.element('#review-line-0-currency').value = 'USD';
+  fixture.element('#review-confirm').checked = true; fixture.input('#review-confirm');
+  const checked = fixture.submitReview();
+  fixture.workers[0].reply(2, {ok: true, state: empty.state,
+    result: {...extraction, valid: true, review_id: 'checked-before-change', message: checkedHint}});
+  await checked;
+  expect(fixture.element('#status-message').textContent).toBe(checkedHint);
+  expect(fixture.element('#draft').disabled).toBe(false);
+  return {fixture, extraction, text};
+}
+
+for (const change of ['field edit', 'confirmation removal', 'source edit']) {
+  it('retires the global checked-field hint after ' + change + ' without a draft request', async () => {
+    const {fixture} = await checkedIntake();
+    if (change === 'field edit') {
+      fixture.element('#review-client-name').value = 'Corrected fictional client';
+      fixture.input('#review-client-name');
+    } else if (change === 'confirmation removal') {
+      fixture.element('#review-confirm').checked = false; fixture.input('#review-confirm');
+    } else {
+      fixture.element('#job-email').value += ' Updated source.';
+      fixture.input('#job-email');
+    }
+    await fixture.click('#draft').promise;
+    expect(fixture.element('#status-message').textContent).not.toBe(checkedHint);
+    expect(fixture.element('#status-message').dataset.kind).toBe('info');
+    expect(fixture.element('#draft').disabled).toBe(true);
+    if (change !== 'source edit') {
+      expect(fixture.element('#review-confirm').checked).toBe(false);
+      expect(fixture.element('#status-message').textContent).toBe(fixture.element('#review-result').textContent);
+    } else expect(fixture.element('#status-message').textContent).toContain('Source text changed');
+    expect(fixture.workers[0].messages.map(message => message.action)).toEqual(['init', 'analyze', 'review']);
+  });
+}
+
+it('replaces the checked-field hint while analyzing and after restoring unfinished fields', async () => {
+  const {fixture, extraction, text} = await checkedIntake();
+  const fields = readReviewFields(fixture.element('#review-form'));
+  fields.client_name = 'Saved unfinished client'; fields.line_items[0].qty = '';
+  const replacing = fixture.replaceIntake({format: 'ledgerly-intake', version: 1, saved_at: '2026-10-08T00:00:00Z', source_text: text,
+    review_fields: fields});
+  const pendingStatus = fixture.element('#status-message').textContent;
+  const pendingKind = fixture.element('#status-message').dataset.kind;
+  const pendingDraftDisabled = fixture.element('#draft').disabled;
+  fixture.workers[0].reply(3, {ok: true, state: empty.state, result: extraction});
+  expect(await replacing).toBe(true);
+  await fixture.click('#draft').promise;
+  expect(pendingStatus).toContain('previous review is retired');
+  expect(pendingKind).toBe('loading'); expect(pendingDraftDisabled).toBe(true);
+  expect(fixture.element('#review-client-name').value).toBe(fields.client_name);
+  expect(fixture.element('#review-line-0-qty').value).toBe('');
+  expect(fixture.element('#review-confirm').checked).toBe(false);
+  expect(fixture.element('#draft').disabled).toBe(true);
+  expect(fixture.element('#status-message').textContent).toBe(fixture.element('#review-result').textContent);
+  expect(fixture.element('#status-message').textContent).toContain('Restored unfinished fields');
+  expect(fixture.workers[0].messages.map(message => message.action)).toEqual(['init', 'analyze', 'review', 'analyze']);
+});
+
+it('replaces the checked-field hint for source-only input while retaining its explicit draft path', async () => {
+  const {fixture, extraction, text} = await checkedIntake();
+  const replacing = fixture.replaceIntake({format: 'ledgerly-intake', version: 1, saved_at: '2026-10-08T00:00:00Z', source_text: text,
+    review_fields: null});
+  fixture.workers[0].reply(3, {ok: true, state: empty.state, result: extraction});
+  expect(await replacing).toBe(true);
+  expect(fixture.element('#review-confirm').checked).toBe(false);
+  expect(fixture.element('#draft').disabled).toBe(false);
+  expect(fixture.element('#draft').textContent).toBe('Create sandbox draft');
+  expect(fixture.element('#status-message').textContent).toBe('Source restored and freshly analyzed. Review the current Python result before drafting.');
+  expect(fixture.workers[0].messages.map(message => message.action)).toEqual(['init', 'analyze', 'review', 'analyze']);
+});
+
+it('keeps a replacement failure visible and the previous input recoverable without the old review', async () => {
+  const {fixture, text} = await checkedIntake();
+  const previous = readReviewFields(fixture.element('#review-form'));
+  const replacing = fixture.replaceIntake({format: 'ledgerly-intake', version: 1, saved_at: '2026-10-08T00:00:00Z',
+    source_text: 'Replacement source rejected by Python.', review_fields: null});
+  const pendingStatus = fixture.element('#status-message').textContent;
+  fixture.workers[0].reply(3, {ok: false, state: empty.state, message: 'Injected replacement analysis failure'});
+  expect(await replacing).toBe(false);
+  await fixture.click('#draft').promise;
+  expect(pendingStatus).not.toBe(checkedHint);
+  expect(fixture.element('#status-message').textContent).toBe('Injected replacement analysis failure');
+  expect(fixture.element('#status-message').dataset.kind).toBe('error');
+  expect(fixture.element('#job-email').value).toBe(text);
+  expect(readReviewFields(fixture.element('#review-form'))).toEqual(previous);
+  expect(fixture.element('#review-confirm').checked).toBe(false);
+  expect(fixture.element('#draft').disabled).toBe(true);
+  expect(fixture.workers[0].messages.map(message => message.action)).toEqual(['init', 'analyze', 'review', 'analyze']);
 });

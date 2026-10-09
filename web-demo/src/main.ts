@@ -38,6 +38,7 @@ async function replaceIntake(file:IntakeFile):Promise<boolean>{
  if(!ready||busy)return false;
  const previousForm=$<HTMLFormElement>('#review-form');
  reviewId=null;rawDraftUsed=false;reviewEngaged=Boolean(previousForm);reviewNeedsAnalysis=Boolean(previousForm);
+ status('Checking the opened intake with Python. Any previous review is retired.','loading');
  if(previousForm){
   $<HTMLInputElement>('#review-confirm').checked=false;
   $<HTMLElement>('#review-result').textContent='The old review is retired. The incoming source is being checked; existing input remains until that check completes.';
@@ -59,7 +60,10 @@ async function replaceIntake(file:IntakeFile):Promise<boolean>{
   markReviewDirty('Restored unfinished fields. Read the current original warnings, confirm your review and check these fields with Python.');
   $<HTMLDetailsElement>('#review-editor').open=true;
   $<HTMLInputElement>('#review-client-name').focus();
- }else $<HTMLDetailsElement>('#review-editor').querySelector<HTMLElement>('summary')?.focus();
+ }else{
+  status('Source restored and freshly analyzed. Review the current Python result before drafting.','ready');
+  $<HTMLDetailsElement>('#review-editor').querySelector<HTMLElement>('summary')?.focus();
+ }
  syncControls();return true;
 }
 function status(text:string,kind='info'){$<HTMLElement>('#status-message').textContent=text;$<HTMLElement>('#status-message').dataset.kind=kind;}
@@ -106,14 +110,14 @@ function setControls(enabled:boolean){ready=enabled;syncControls();}
 function invalidateAnalysis(message:string){
  intakeFiles.currentChanged();
  analysisResult=null;reviewId=null;reviewEngaged=false;rawDraftUsed=false;reviewNeedsAnalysis=false;
- $<HTMLElement>('#analysis').innerHTML=`<p class="empty">${esc(message)}</p>`;syncControls();
+ $<HTMLElement>('#analysis').innerHTML=`<p class="empty">${esc(message)}</p>`;status(message);syncControls();
 }
 function markReviewDirty(message='Fields changed. Confirm your review and check them again.'){
  intakeFiles.currentChanged();
  reviewEngaged=true;reviewId=null;
  const check=$<HTMLInputElement>('#review-confirm');if(check)check.checked=false;
  const result=$<HTMLElement>('#review-result');if(result)result.textContent=message;
- syncControls();
+ status(message);syncControls();
 }
 function renderAnalysis(ex:any){
  intakeFiles.currentChanged();
@@ -182,7 +186,7 @@ $('#analyze').addEventListener('click',async()=>{
 $('#analysis').addEventListener('input',(event)=>{
  const target=event.target as HTMLInputElement;
  if(!target.closest('#review-form'))return;
- if(target.id==='review-confirm'){intakeFiles.currentChanged();reviewEngaged=true;reviewId=null;$<HTMLElement>('#review-result').textContent=target.checked?'Review confirmed. Check the fields with Python to prepare a draft.':'Confirm your review before checking the fields.';syncControls();return;}
+ if(target.id==='review-confirm'){intakeFiles.currentChanged();reviewEngaged=true;reviewId=null;const message=target.checked?'Review confirmed. Check the fields with Python to prepare a draft.':'Confirm your review before checking the fields.';$<HTMLElement>('#review-result').textContent=message;status(message);syncControls();return;}
  markReviewDirty();
 });
 $('#analysis').addEventListener('click',(event)=>{
@@ -200,7 +204,7 @@ $('#analysis').addEventListener('submit',async(event)=>{
  if(busy||!$<HTMLInputElement>('#review-confirm').checked)return;
  reviewEngaged=true;reviewId=null;syncControls();
  const result=$<HTMLElement>('#review-result'),text=$<HTMLTextAreaElement>('#job-email').value,fields=readReviewFields(form);
- result.textContent='Checking the corrected fields with Python...';
+ result.textContent='Checking the corrected fields with Python...';status(result.textContent,'loading');
  if(reviewNeedsAnalysis){
   const analyzed=await runAction('analyze',{text});
   if(!analyzed?.ok){result.textContent='The source could not be checked in the new sandbox. Your edits remain here.';return;}

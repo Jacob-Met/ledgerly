@@ -1,0 +1,179 @@
+{
+  "schema": "ledgerly-status-hint-native-gates/1",
+  "status": "pass",
+  "source_parent": "c498f55883c755553b59921199d54689d99c9730",
+  "source_tree": "efb9d2f50f79336588f7b14beca29a889899e1a9",
+  "candidate_hashes": {
+    "src/main.ts": "f478fa3ccbf8d0f75e4a150a23e13fcb6acf8656608944e9584fb3bdd6e5d34c",
+    "tests/engine-recovery.test.ts": "03a250b265a1b570fb04ad662e689fe196551053033a02cc92592393c0198339"
+  },
+  "baseline": {
+    "passed": 5,
+    "failed": 6,
+    "failed_titles": [
+      "retires the global checked-field hint after field edit without a draft request",
+      "retires the global checked-field hint after confirmation removal without a draft request",
+      "retires the global checked-field hint after source edit without a draft request",
+      "replaces the checked-field hint while analyzing and after restoring unfinished fields",
+      "replaces the checked-field hint for source-only input while retaining its explicit draft path",
+      "keeps a replacement failure visible and the previous input recoverable without the old review"
+    ]
+  },
+  "candidate": {
+    "passed": 11,
+    "failed": 0
+  },
+  "steps": [
+    {
+      "step": "stage-python",
+      "args": [
+        "/usr/bin/node",
+        "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo/scripts/stage-python.mjs"
+      ],
+      "cwd": "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo",
+      "exit_code": 0,
+      "seconds": 0.116,
+      "stdout_sha256": "ab54b6ee123bec03b52e093ebadfeb9665a971ba12b5601671a588d82a2b89d5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "capacity_before": {
+        "available_bytes": 1122045952,
+        "available_memory_bytes": 4606193664
+      },
+      "capacity_after": {
+        "available_bytes": 1122041856,
+        "available_memory_bytes": 4718399488
+      }
+    },
+    {
+      "step": "baseline-vitest",
+      "args": [
+        "/usr/bin/node",
+        "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo/node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/engine-recovery.test.ts",
+        "--config",
+        "status-receiving/vite.config.mjs",
+        "--configLoader",
+        "runner",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--no-cache",
+        "--reporter=json",
+        "--outputFile",
+        "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo/status-receiving/baseline-vitest.json"
+      ],
+      "cwd": "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo",
+      "exit_code": 1,
+      "seconds": 1.386,
+      "stdout_sha256": "ced30bee3675d8edbf3ef4073109f880ed06d40aa57b8e7349610e307bf6aac2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "capacity_before": {
+        "available_bytes": 1122037760,
+        "available_memory_bytes": 4718399488
+      },
+      "capacity_after": {
+        "available_bytes": 1121980416,
+        "available_memory_bytes": 4704501760
+      }
+    },
+    {
+      "step": "candidate-vitest",
+      "args": [
+        "/usr/bin/node",
+        "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo/node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/engine-recovery.test.ts",
+        "--config",
+        "status-receiving/vite.config.mjs",
+        "--configLoader",
+        "runner",
+        "--maxWorkers",
+        "1",
+        "--no-file-parallelism",
+        "--no-cache",
+        "--reporter=json",
+        "--outputFile",
+        "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo/status-receiving/candidate-vitest.json"
+      ],
+      "cwd": "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo",
+      "exit_code": 0,
+      "seconds": 1.41,
+      "stdout_sha256": "14937474d27df5e3ec2d7cae503e2227614c4880c804b8e7cafc95b6e805cfe0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "capacity_before": {
+        "available_bytes": 1121980416,
+        "available_memory_bytes": 4704501760
+      },
+      "capacity_after": {
+        "available_bytes": 1121939456,
+        "available_memory_bytes": 4700213248
+      }
+    },
+    {
+      "step": "typecheck",
+      "args": [
+        "/usr/bin/node",
+        "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "cwd": "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo",
+      "exit_code": 0,
+      "seconds": 1.139,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "capacity_before": {
+        "available_bytes": 1121939456,
+        "available_memory_bytes": 4700213248
+      },
+      "capacity_after": {
+        "available_bytes": 1120542720,
+        "available_memory_bytes": 4742156288
+      }
+    },
+    {
+      "step": "production-build",
+      "args": [
+        "/usr/bin/node",
+        "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo/node_modules/vite/bin/vite.js",
+        "build",
+        "--config",
+        "status-receiving/vite.config.mjs",
+        "--configLoader",
+        "runner"
+      ],
+      "cwd": "/home/jacob/hamon-universal-e3a41d2b3368-ledgerly-intake/candidate-status-20261009/web-demo",
+      "exit_code": 0,
+      "seconds": 0.488,
+      "stdout_sha256": "93faa04cff113758bb47e01f80b857bcf4bdc607f264d391a9512de24ff7eb1c",
+      "stderr_sha256": "604040441615fa23d4af4fc14b0b6ea6cb856d90c14d64d9eddf6eccf69580ee",
+      "capacity_before": {
+        "available_bytes": 1120538624,
+        "available_memory_bytes": 4742156288
+      },
+      "capacity_after": {
+        "available_bytes": 1106599936,
+        "available_memory_bytes": 4734799872
+      }
+    }
+  ],
+  "borrowed_dependencies_unchanged": true,
+  "selected_unmodified_source_files": 124,
+  "dist_files": 31,
+  "dist_bytes": 12837983,
+  "owned_footprint_bytes": 28964362,
+  "capacity_before": {
+    "available_bytes": 1122045952,
+    "available_memory_bytes": 4606423040
+  },
+  "capacity_after": {
+    "available_bytes": 1106477056,
+    "available_memory_bytes": 4726685696
+  },
+  "bounds": [
+    "Actual native Vitest5.0.3/TypeScript5.9.3/Vite8.3.3, existing locked dependencies.",
+    "No Actions, PR/main, dependency installation or configuration mutation.",
+    "No actual browser, financial record, provider or deployment operation in this gate.",
+    "Prior adapter checks and first native type-discovery failures remain separate."
+  ]
+}

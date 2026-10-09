@@ -1,0 +1,157 @@
+[
+  {
+    "path": "assets/__vite-browser-external-DKcLY8Mr.js",
+    "bytes": 116,
+    "sha256": "0b0407c730ba9092905cec839e53d9188f668741b08033eca051f18fa5361b7c"
+  },
+  {
+    "path": "assets/engine.worker-B5Sd8fS4.js",
+    "bytes": 20229,
+    "sha256": "5f69847ea9537a30355a22f644477709c3afc6f78814b6b1294a8ad8b0116b94"
+  },
+  {
+    "path": "assets/index-B2j3K_eH.js",
+    "bytes": 60134,
+    "sha256": "c31079735489be88a314646fdbb3f62a6522f6c8014b462df9c5138b45795731"
+  },
+  {
+    "path": "assets/index-Cdu9JSVN.css",
+    "bytes": 16716,
+    "sha256": "46f68f3471dd4c61305a7b03025bc5872bb442b5f9cf1d4883700a7a7c6ddaa8"
+  },
+  {
+    "path": "captures/ledgerly-desktop.png",
+    "bytes": 189051,
+    "sha256": "8f46d3e6dcc9c5926a52a2a4904e86c82fa25d20ceba2dc1149255e6745807df"
+  },
+  {
+    "path": "captures/ledgerly-mobile.png",
+    "bytes": 159981,
+    "sha256": "294031646b330ffcba25ee7d9bf2332a297529624fbac472ba0a5183397a47a5"
+  },
+  {
+    "path": "favicon.svg",
+    "bytes": 240,
+    "sha256": "187826beea14a1065d3fd219b4dc5d1752ba775c20aed27ee7608d520189b337"
+  },
+  {
+    "path": "fixtures/01_simple_usd_hourly.txt",
+    "bytes": 282,
+    "sha256": "e48dcc2f587e8978b1a97008c7e3fec7a7a489f7ef7571dc3c95d8b8e8036902"
+  },
+  {
+    "path": "fixtures/02_gbp_proofreading.txt",
+    "bytes": 293,
+    "sha256": "6fea1fc278fa8eacf021ce6e7deb62f16d784faed75d116ce6e327d99211088e"
+  },
+  {
+    "path": "fixtures/03_eur_fixed_project.txt",
+    "bytes": 265,
+    "sha256": "79d7e4ba30848db240dc4d291ab4a70d5d5db2a903cdcb6257b319636ee4a540"
+  },
+  {
+    "path": "fixtures/04_multi_currency.txt",
+    "bytes": 288,
+    "sha256": "950860f635a4acd8502a323805f24008e8c64b05808093a3064c65fead281ec3"
+  },
+  {
+    "path": "fixtures/05_missing_email.txt",
+    "bytes": 238,
+    "sha256": "0a1ed04caef18ce50c7fdebfd18f9d402d74bcb4888b896d96b92a3366a46de9"
+  },
+  {
+    "path": "fixtures/06_ambiguous_qty.txt",
+    "bytes": 246,
+    "sha256": "2a7e6e6291d3f0d584212648f46fe939dfe4a1388d140a901a55bd643a7a11f0"
+  },
+  {
+    "path": "fixtures/07_partial_payment_deposit.txt",
+    "bytes": 319,
+    "sha256": "0a489fb985bbdaa4d50269be6bc90ba6a07f6a933cf865b8a654d4103792fc42"
+  },
+  {
+    "path": "fixtures/08_jpy_zero_decimal.txt",
+    "bytes": 271,
+    "sha256": "f232bf42365676d3128b5aa157d19a64d5fd0f383fc748534014f160425a6e28"
+  },
+  {
+    "path": "fixtures/09_table_cad.txt",
+    "bytes": 380,
+    "sha256": "0d06f17995efff38b6dcc526bb7c89a5bfad543e2478ee7e8cc5b337a9196a97"
+  },
+  {
+    "path": "fixtures/10_billing_address_net45.txt",
+    "bytes": 330,
+    "sha256": "086198eaceab3cc6d8d9b57a0c8a3e5a3d58fbbafdc3e0e2d3198affa9aa5c7d"
+  },
+  {
+    "path": "fixtures/11_range_qty_approx.txt",
+    "bytes": 239,
+    "sha256": "82bc3cdd4820f7405f8c86f0ea041e83d38c403aba4e78ff361035d5bf7d6bee"
+  },
+  {
+    "path": "fixtures/12_prompt_injection.txt",
+    "bytes": 315,
+    "sha256": "20ee6a863e7fe2c41c970516d51b96046737ec3f6b8de7468f5b899eafd7be9e"
+  },
+  {
+    "path": "index.html",
+    "bytes": 7307,
+    "sha256": "e84c7b59a65335441a8ef598e56c86b4aaee6dcb16615b8048237e8111c59498"
+  },
+  {
+    "path": "pyodide/pyodide-lock.json",
+    "bytes": 120010,
+    "sha256": "3256ffc76388de0e37f4b34d42ab484268d1afc675179ff97b2a5bb14f84ccac"
+  },
+  {
+    "path": "pyodide/pyodide.asm.js",
+    "bytes": 1074322,
+    "sha256": "1263f02b5b26099b96112378156f242dd98b39a8201ba7765e5fe3d455c5ce91"
+  },
+  {
+    "path": "pyodide/pyodide.asm.wasm",
+    "bytes": 8647684,
+    "sha256": "e2f4ee75b325e35eb31bfb8c613d4dd5098f5502c156a97847686875b5025480"
+  },
+  {
+    "path": "pyodide/python_stdlib.zip",
+    "bytes": 2423989,
+    "sha256": "4298b6ee445cb724c3973437da47789752b9e6ff4e26619026b283ec801fc46b"
+  },
+  {
+    "path": "python/bridge.py",
+    "bytes": 6994,
+    "sha256": "29fc87a066111b6d3dd214797cb51b7727d0585a104a71ad20593a0de3425e81"
+  },
+  {
+    "path": "python/invoice_details.py",
+    "bytes": 1196,
+    "sha256": "6c0e0bfa93779047ccd58ba6b95ad42d7a0a3d74a0f52236557b25aafa518fa6"
+  },
+  {
+    "path": "python/ledgerly/__init__.py",
+    "bytes": 119,
+    "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+  },
+  {
+    "path": "python/ledgerly/agent.py",
+    "bytes": 39041,
+    "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+  },
+  {
+    "path": "python/ledgerly/extract.py",
+    "bytes": 36766,
+    "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20"
+  },
+  {
+    "path": "python/ledgerly/paypal.py",
+    "bytes": 26243,
+    "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3"
+  },
+  {
+    "path": "python/review.py",
+    "bytes": 4379,
+    "sha256": "08e07817db8d106d3e3c3b281082845a46987e66b1e275d2183c9d5d81a37447"
+  }
+]
