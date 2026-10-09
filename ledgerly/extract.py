@@ -586,6 +586,12 @@ class RulesExtractor:
             if item is None:
                 issues.append(Issue("line_items", "warning", f"Could not parse priced line: {line!r}"))
                 continue
+            if len(monies) > 1:
+                issues.append(Issue(
+                    "line_items", "error",
+                    f"Multiple monetary amounts in one work line; split the work into one-price lines "
+                    f"or correct it before drafting: {raw.strip()!r}"))
+                continue
             item.currency = ccy or doc_ccy
             if tok == "$" and doc_ccy and doc_ccy in DOLLAR_CURRENCIES and doc_ccy != "USD":
                 item.currency = doc_ccy
