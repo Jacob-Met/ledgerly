@@ -78,3 +78,37 @@ After the separately coordinated native workload’s scoped process closure, the
 [WINDOWS-ADMISSION.json](WINDOWS-ADMISSION.json) preserves the primary source read, exact admission script/output, runtime pins and the prior ThinkPad write refusal. [windows-prepared-driver.mjs](windows-prepared-driver.mjs) preserves the prepared 28,492-byte receiver (SHA-256 `dd6c23cf9eb23dd774f9cfe42efa59d9ab18c81360afec9b4f89a4827c4a662d`). It passed a read-only Node syntax check and was **not executed on Windows**. It derives from the original native driver, verifies the new 31-asset manifest and actual browser responses, and contains three new status groups with intended init/analyze/review actions only. Its paths are for a new owned Windows receiving root; it is an evidence artifact, not a command to run directly from this docs folder.
 
 The qualified source commit remains `ada2658b0291f094d4786aeec346b072fe357be4`; the evidence continuation changes only documentation. The original public PASS, native Vitest/build results, 45-member archive and product source hashes are unchanged. Actual browser receiving of this correction and public deployment remain pending a newly admitted route.
+
+## 2026-10-09 Raider continuation — original browser failure retained
+
+The qualified product source is unchanged at `ada2658b0291f094d4786aeec346b072fe357be4`. Actual native Vitest still gives **baseline 5 pass / 6 expected failures** and **candidate 11/11 pass**, with production typecheck/build passed. This continuation received the exact already-built candidate on a separately established Windows machine and attempted its three new status groups once. **The browser attempt failed before CDP admission: zero application groups, zero actual browser responses and no Python Worker call reached.** It adds no browser acceptance or public deployment.
+
+### Exact alternate receiver and transport
+
+Raider registration `edc358ed-5ad6-4036-b7aa-8667bf0e14e0` was bound to `MSI\jacob`, SID `S-1-5-21-878538442-3911721743-4092253737-1001`, UUID `3F26B307-4CE1-D64C-A7E5-349723FA9CF8`, session 1 and the 2026-09-30T22:56:56.500Z boot. The separate Spire registration `9ea77fe9-bb87-46e0-a5a8-8b3e25f6ff7e` was not treated as the same machine.
+
+Existing Node 24.14.0, Python 3.14.3 and Chrome 154.0.8037.97 executable paths/hashes were read, then matched again under a fresh admission. At 06:14:20, available memory was **9,878,188,032 bytes**, above the unchanged 2 GiB floor. Only new `D:\hamon-autonomous-e3a41d2b3368-ledgerly-status-20261009` was created, with a protected current-SID ACL; peers' projects, caches and settings were untouched. The [coexistence notice](https://github.com/Jacob-Met/hamon/issues/143#issuecomment-6075143009) retains other Raider owners and does not reserve the host exclusively.
+
+The ThinkPad export made **zero filesystem writes**. Its original interactive transfer hit the 190-second outer timeout (exit 124); seven chunks were retained. A short noninteractive successor emitted the remaining 20 chunks and exited 0 in 0.63s, reproducing the same frozen archive. All 27 chunks were copied through existing RDC into the new receiver, then reassembled and verified natively: **6,994,504 compressed bytes / SHA256 `8afcf54c679480e34deee5dc09b82dc8c6de2ddc44111b80c18c16d656a43733`**; **17,189,893 decoded bytes / SHA256 `1bc8d077f77a8d3e24006d2eb771267fdecec7b07724abf8644dbce58318d0b8`**. Every one of 31 built files (12,837,983 bytes), both qualified source files and the build manifest matched.
+
+The first PowerShell preparation wrapper exited 1 before Node ran because a concatenation inside a pin array absorbed its size/hash fields into the pathname. Only explicit parentheses were corrected. The corrected wrapper 56716 exited 0 in 3.31s at 06:22:35; native preparation took 1974ms. Actual Node syntax and receiver validation-only checks passed. The original wrapper failure and both exact sources remain in `RAIDER-RECEIVING.json`.
+
+### Single actual attempt and closure
+
+The independently reviewed supervisor fixed an anonymous kill-on-close job, **1.5 GiB aggregate committed memory**, **16 associated processes**, a 100-second total bound, bounded pipes and exclusive receipt files. It created Node suspended, established the job limits and assignment, then resumed that exact child. The fresh pre-child memory reading was 10,299,777,024 bytes.
+
+Outer 2884 exited 3 in 2.01s. Supervisor 74960 observed Node 61708 exit 1, exact handle signaling/closure and unchanged runtime/driver pins. The driver made 31 successful, hash-matched private-loopback GETs, then launched Chrome PID 85548 exited 0 before `DevToolsActivePort` was observed. Browser log and Node stderr were empty. The driver retained **FAIL / groups 0 / browser responses 0**, with private server closed and profile absent at its cleanup.
+
+The job reported six total associations and three active associations (PIDs 57832, 19728, 77520) just before its handle was closed; peak committed job memory was 81,428,480 bytes. These are association observations, not a count of successfully executed consumers or proof of descendant closure. The original supervisor result remains failed.
+
+A separate scoped read at **06:27:48.721Z**, observer 89748 exit 0 in 1.73s, queried only the seven known outer/supervisor/Node/Chrome/job IDs and their direct children. It returned **rows[]**, and the private profile was absent. No process kill, capacity probe, replay or global orphan-free claim accompanied that observation. The startup cause remains unestablished; launcher exit 0 alone does not explain why CDP readiness was not reached.
+
+### Recoverable evidence
+
+- `raider-native-evidence.json.gz` contains **16 exact original native files / 215,647 member bytes**, including actual preparation, driver, supervisor, raw `SUPERVISOR.json`, failed `RESULTS.json`, stdout/stderr and native index.
+- Compressed **98,635 bytes**, SHA256 `56881f8685374992210a663301a96f0f8f2b7068ca8ce2da54e8a6ed6c7f0e90`; decoded **289,978 bytes**, SHA256 `faad13a633b5a105c5a0b4c8412ac287f09ea9bef4930e0b424602da65256aa6`.
+- `RAIDER-ARCHIVE-MANIFEST.json` names/hashes all 16 members. Independent local in-memory Python verification exited 0 and preserved raw large-integer bytes. Gzip recompression identity is not required.
+- `RAIDER-RECEIVING.json` contains exact control sources, original transport/wrapper failures, current admission, actual outer results, scoped closure and full current workflow bodies.
+- The two `raider-receive-*` source copies match their native archived originals. `verify-raider-evidence.mjs` is a read-only custody utility; its source is provided without a new native execution claim.
+
+The immutable old public PASS and its six groups remain historical and unchanged. The single LA7 low-memory refusal remains refused, with no retry. Ledgerly main remains c498; this evidence-only continuation uses the existing source branch. No PR transition, main push, merge, dispatch, skip marker, GitHub Actions or public deployment was used. Further work is source/evidence analysis; this browser failure will not be replaced by another native attempt.
