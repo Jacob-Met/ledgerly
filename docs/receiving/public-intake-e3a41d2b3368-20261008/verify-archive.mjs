@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {dirname,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+import {gunzipSync,gzipSync} from 'node:zlib';
+const root=dirname(fileURLToPath(import.meta.url));
+const manifest=JSON.parse(readFileSync(resolve(root,'ARCHIVE-MANIFEST.json')));
+const gz=readFileSync(resolve(root,'public-receiving.bundle.json.gz'));
+const hash=(kind,b)=>createHash(kind).update(b).digest('hex');
+assert.equal(hash('sha256',gz),manifest.archive.sha256);
+const raw=gunzipSync(gz,{maxOutputLength:8*1024*1024});
+assert.equal(raw.length,manifest.archive.uncompressed_bytes);
+assert.equal(hash('sha256',raw),manifest.archive.uncompressed_sha256);
+assert.deepEqual(gzipSync(raw,{level:9,mtime:0}),gz,'Deterministic gzip round trip');
+const bundle=JSON.parse(raw);
+assert.equal(bundle.schema,'ledgerly-public-receiving-bundle/1');
+assert.equal(bundle.members.length,manifest.members.length);
+const seen=new Set();
+for(let i=0;i<bundle.members.length;i++){
+ const row=bundle.members[i], expected=manifest.members[i];
+ assert.equal(row.mode,'100644');assert.equal(row.encoding,'base64');
+ assert(/^[A-Za-z0-9_./-]+$/.test(row.path)&&!row.path.split('/').some(x=>!x||x==='.'||x==='..'));
+ assert(!seen.has(row.path));seen.add(row.path);
+ const b=Buffer.from(row.content,'base64');assert.equal(b.toString('base64'),row.content);
+ const sha256=hash('sha256',b),git_blob=hash('sha1',Buffer.concat([Buffer.from('blob '+b.length+'\0'),b]));
+ assert.deepEqual({path:row.path,mode:row.mode,bytes:b.length,sha256,git_blob},expected);
+ assert.equal(row.bytes,b.length);assert.equal(row.sha256,sha256);assert.equal(row.git_blob,git_blob);
+}
+assert(![...seen].some(x=>x.includes('ECHO')));
+for(const path of ['run-20261008T231609653Z/RESULTS.json','run-20261008T232309399Z/RESULTS.json','run-20261008T232714234Z/RESULTS.json','run-20261008T233101517Z/RESULTS.json'])assert(seen.has(path));
+const final=JSON.parse(Buffer.from(bundle.members.find(x=>x.path==='run-20261008T233101517Z/RESULTS.json').content,'base64'));
+assert.equal(final.status,'pass');assert.equal(final.groups.length,6);assert.equal(final.sourceBound,true);
+console.log(JSON.stringify({status:'pass',archiveSha256:manifest.archive.sha256,members:seen.size,allMemberBytesVerified:true,deterministicGzip:true,sourceMerge:final.expectedSource,sourceTree:final.expectedTree,boundary:'Archive receiving only; no browser/test execution.'}));

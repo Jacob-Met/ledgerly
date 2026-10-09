@@ -1,0 +1,133 @@
+{
+  "schema": "ledgerly-public-receiving-source-trigger-admission/1",
+  "prepared_at": "2026-10-09T00:00:42.614Z",
+  "repository": "Jacob-Met/ledgerly",
+  "repo_id": 1404688459,
+  "default_branch": "main",
+  "actual_parent": "c498f55883c755553b59921199d54689d99c9730",
+  "actual_parent_tree": "efb9d2f50f79336588f7b14beca29a889899e1a9",
+  "actual_parent_leaf_count": 767,
+  "branch": "autonomous-e3a41d2b3368-ledgerly-public-receiving-20261008",
+  "contribution_prefix": "docs/receiving/public-intake-e3a41d2b3368-20261008",
+  "served_lineage": {
+    "commit": "c498f55883c755553b59921199d54689d99c9730",
+    "tree": "efb9d2f50f79336588f7b14beca29a889899e1a9"
+  },
+  "workflow_inventory": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "gitBlob": "3bb98f82eac6a3c14711fe37b415ef1a7d928191",
+      "source": "name: Verify Ledgerly\non:\n  pull_request:\n  push:\n    branches: [main]\npermissions:\n  contents: read\njobs:\n  python-core:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-python@v5\n        with:\n          python-version: '3.12'\n      - run: python -m pip install pytest\n      - run: python -m pytest -q\n  browser-engine:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n          cache: npm\n          cache-dependency-path: web-demo/package-lock.json\n      - run: npm ci\n        working-directory: web-demo\n      - run: npm audit --audit-level=moderate\n        working-directory: web-demo\n      - run: npm test\n        working-directory: web-demo\n      - run: npm run build\n        working-directory: web-demo\n      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5\n        with:\n          python-version: '3.12'\n      - name: Install browser receiver dependency\n        run: python -m pip install --disable-pip-version-check -r tools/requirements-browser.txt\n        working-directory: web-demo\n      - name: Receive sandbox ledger CSV in installed Chrome\n        working-directory: web-demo\n        run: |\n          chrome_bin=\"$(command -v google-chrome)\"\n          \"$chrome_bin\" --version\n          python tools/check_ledger_export_browser.py dist \"$RUNNER_TEMP/ledger-export-receiving\" --chrome \"$chrome_bin\" --emit-bundle\n      - name: Receive unfinished intake files in installed Chrome\n        working-directory: web-demo\n        run: |\n          chrome_bin=\"$(command -v google-chrome)\"\n          \"$chrome_bin\" --version\n          node tools/check_intake_file_browser.mjs --browser \"$chrome_bin\" --output \"$RUNNER_TEMP/intake-file-receiving\" --emit-bundle\n      - name: Preserve intake file browser evidence\n        if: always()\n        uses: actions/upload-artifact@v4\n        with:\n          name: intake-file-browser-receiving\n          path: |\n            ${{ runner.temp }}/intake-file-receiving/receiving-report.json\n            ${{ runner.temp }}/intake-file-receiving/*.json\n            ${{ runner.temp }}/intake-file-receiving/*.png\n            ${{ runner.temp }}/intake-file-receiving/*.log\n          if-no-files-found: ignore\n          retention-days: 14\n"
+    },
+    {
+      "path": ".github/workflows/invoice-record-browser.yml",
+      "gitBlob": "f51c35982a596376860df109f0a37f2e49fd3eb1",
+      "source": "name: invoice-record-browser\non:\n  pull_request:\n    paths:\n      - 'web-demo/**'\n      - 'ledgerly/**'\n      - 'fixtures/**'\n      - '.github/workflows/invoice-record-browser.yml'\n  push:\n    branches: [main]\n    paths:\n      - 'web-demo/**'\n      - 'ledgerly/**'\n      - 'fixtures/**'\n      - '.github/workflows/invoice-record-browser.yml'\npermissions:\n  contents: read\nconcurrency:\n  group: invoice-record-browser-${{ github.ref }}\n  cancel-in-progress: true\njobs:\n  receive-record:\n    runs-on: ubuntu-latest\n    timeout-minutes: 10\n    steps:\n      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # Resolved maintained v4.\n      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # Resolved maintained v4.\n        with:\n          node-version: 22\n          cache: npm\n          cache-dependency-path: web-demo/package-lock.json\n      - name: Install the existing locked project dependencies\n        run: npm ci\n        working-directory: web-demo\n      - name: Build the actual staged Python browser application\n        run: npm run build\n        working-directory: web-demo\n      - name: Require the installed system browser\n        id: browser\n        shell: bash\n        run: |\n          set -euo pipefail\n          INVOICE_RECORD_BROWSER=\n          for INVOICE_RECORD_BROWSER_NAME in google-chrome google-chrome-stable chromium chromium-browser; do\n            if command -v \"${INVOICE_RECORD_BROWSER_NAME}\" >/dev/null 2>&1; then\n              INVOICE_RECORD_BROWSER=\"$(command -v \"${INVOICE_RECORD_BROWSER_NAME}\")\"\n              break\n            fi\n          done\n          [[ -n \"${INVOICE_RECORD_BROWSER}\" ]] || { echo \"An installed Chrome/Chromium is required.\"; exit 1; }\n          node --version\n          \"${INVOICE_RECORD_BROWSER}\" --version\n          printf 'executable=%s\\n' \"${INVOICE_RECORD_BROWSER}\" >> \"${GITHUB_OUTPUT}\"\n      - name: Qualify Japanese glyphs in the installed browser's print environment\n        shell: bash\n        run: |\n          set -euo pipefail\n          sudo apt-get update\n          sudo apt-get install --yes --no-install-recommends fonts-noto-cjk\n          dpkg-query -W -f='${binary:Package} ${Version}\\n' fonts-noto-cjk\n          command -v fc-match\n          INVOICE_RECORD_JP_FONT_FAMILY=\"$(fc-match --format='%{family}\\n' 'sans-serif:lang=ja')\"\n          INVOICE_RECORD_JP_FONT_FILE=\"$(fc-match --format='%{file}\\n' 'sans-serif:lang=ja')\"\n          printf 'Japanese font family: %s\\nJapanese font file: %s\\n' \\\n            \"${INVOICE_RECORD_JP_FONT_FAMILY}\" \"${INVOICE_RECORD_JP_FONT_FILE}\"\n          [[ \"${INVOICE_RECORD_JP_FONT_FAMILY}\" == *\"Noto Sans CJK JP\"* ]]\n          [[ -f \"${INVOICE_RECORD_JP_FONT_FILE}\" ]]\n          dpkg-query -S -- \"${INVOICE_RECORD_JP_FONT_FILE}\"\n          sha256sum -- \"${INVOICE_RECORD_JP_FONT_FILE}\"\n      - name: Receive real Python invoice, actual HTML download and offline printing\n        run: 'node web-demo/tools/check_invoice_record_browser.mjs --browser \"${{ steps.browser.outputs.executable }}\" --output \"${RUNNER_TEMP}/invoice-record-receiving\"'\n      - name: Preserve bounded native snapshots, downloaded files and print evidence\n        if: always()\n        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # Previously received official v4.\n        with:\n          name: invoice-record-receiving-${{ github.run_id }}\n          path: ${{ runner.temp }}/invoice-record-receiving\n          if-no-files-found: warn\n          retention-days: 14\n          compression-level: 6\n"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "gitBlob": "1358a678c8d190c684a7f8f66ec26be07caeb1bd",
+      "source": "name: Publish Ledgerly browser demo\non:\n  push:\n    branches: [main]\n    paths: [ledgerly/**, fixtures/**, web-demo/**, .github/workflows/pages.yml]\n  workflow_dispatch:\npermissions:\n  contents: read\njobs:\n  deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      pages: write\n      id-token: write\n      contents: read\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 22\n          cache: npm\n          cache-dependency-path: web-demo/package-lock.json\n      - run: npm ci\n        working-directory: web-demo\n      - run: npm run build\n        working-directory: web-demo\n      - uses: actions/configure-pages@v5\n      - uses: actions/upload-pages-artifact@v4\n        with:\n          path: web-demo/dist\n      - id: deployment\n        uses: actions/deploy-pages@v4"
+    },
+    {
+      "path": ".github/workflows/receivables-browser.yml",
+      "gitBlob": "46f03bcc9511761edb423b78162d37912c868269",
+      "source": "name: receivables-browser\non:\n  pull_request:\n    paths:\n      - 'web-demo/**'\n      - 'ledgerly/**'\n      - 'fixtures/**'\n      - '.github/workflows/receivables-browser.yml'\n  push:\n    branches: [main]\n    paths:\n      - 'web-demo/**'\n      - 'ledgerly/**'\n      - 'fixtures/**'\n      - '.github/workflows/receivables-browser.yml'\npermissions:\n  contents: read\nconcurrency:\n  group: receivables-browser-${{ github.ref }}\n  cancel-in-progress: true\njobs:\n  receive-client-balances:\n    runs-on: ubuntu-24.04\n    timeout-minutes: 10\n    steps:\n      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # Same maintained pin as invoice-record receiving.\n      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # Same maintained pin as invoice-record receiving.\n        with:\n          node-version: 22\n          cache: npm\n          cache-dependency-path: web-demo/package-lock.json\n      - name: Receive real native snapshots with the independent protocol\n        env:\n          PYTHON: python3\n          LEDGERLY_RECEIVABLES_PEER_OUTPUT: ${{ runner.temp }}/receivables-peer/cases\n        shell: bash\n        run: |\n          set -euo pipefail\n          mkdir -p \"${RUNNER_TEMP}/receivables-peer\"\n          python3 --version\n          node --experimental-strip-types --test web-demo/tests/receivables-peer.mjs 2>&1 \\\n            | tee \"${RUNNER_TEMP}/receivables-peer/node-test.log\"\n      - name: Install the existing locked project dependencies\n        run: npm ci\n        working-directory: web-demo\n      - name: Build the real staged Python browser application\n        run: npm run build\n        working-directory: web-demo\n      - name: Require the installed system browser and built-in CDP client\n        id: browser\n        shell: bash\n        run: |\n          set -euo pipefail\n          RECEIVABLES_BROWSER=\"$(command -v google-chrome)\"\n          [[ -x \"${RECEIVABLES_BROWSER}\" ]]\n          \"${RECEIVABLES_BROWSER}\" --version\n          node --version\n          node -e 'if (typeof WebSocket !== \"function\") throw new Error(\"Built-in WebSocket is required\")'\n          printf 'executable=%s\\n' \"${RECEIVABLES_BROWSER}\" >> \"${GITHUB_OUTPUT}\"\n      - name: Receive actual balances, native keyboard filters and session lifecycle\n        run: >-\n          node web-demo/tools/check_receivables_browser.mjs\n          --browser \"${{ steps.browser.outputs.executable }}\"\n          --output \"${RUNNER_TEMP}/receivables-browser\"\n          --emit-bundle\n      - name: Preserve exact snapshots, screenshots and receiving logs\n        if: always()\n        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # Same received official v4 pin as invoice-record receiving.\n        with:\n          name: receivables-receiving-${{ github.run_id }}\n          path: |\n            ${{ runner.temp }}/receivables-browser\n            ${{ runner.temp }}/receivables-peer\n          if-no-files-found: warn\n          retention-days: 14\n          compression-level: 6\n\n"
+    }
+  ],
+  "workflow_directory": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha": "3bb98f82eac6a3c14711fe37b415ef1a7d928191",
+      "size": 2351
+    },
+    {
+      "path": ".github/workflows/invoice-record-browser.yml",
+      "sha": "f51c35982a596376860df109f0a37f2e49fd3eb1",
+      "size": 3530
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha": "1358a678c8d190c684a7f8f66ec26be07caeb1bd",
+      "size": 930
+    },
+    {
+      "path": ".github/workflows/receivables-browser.yml",
+      "sha": "46f03bcc9511761edb423b78162d37912c868269",
+      "size": 3001
+    }
+  ],
+  "rulesets_including_parents": [],
+  "proposed_refs_before": [],
+  "open_pr_ownership": [
+    {
+      "number": 54,
+      "title": "Retain known drafts and unknown outcomes after interrupted creation",
+      "head": "estate/06e2ad0ce13f-draft-creation-outcomes",
+      "sha": "0eeb7177f312ea6abd75380c6610b58b5ad686f5"
+    },
+    {
+      "number": 50,
+      "title": "Keep separate invoice tables aligned with their own headers",
+      "head": "fix/table-boundaries-44df5c2e45ae",
+      "sha": "72b19a2c876ab9b78c10b41ca3cba61262c90d76"
+    },
+    {
+      "number": 45,
+      "title": "Review selected job emails in one local intake report",
+      "head": "work/batch-intake-review-58d79b68",
+      "sha": "e43514621bb414444f6a8a2cb18644761d3f0b4b"
+    },
+    {
+      "number": 44,
+      "title": "Receive completed-review history independently for PR36",
+      "head": "estate/60b2c08feb01-completed-review-receiving",
+      "sha": "54dca267755c3aed682d25e6043e9f7fdb3779d0"
+    },
+    {
+      "number": 36,
+      "title": "Keep completed sandbox reviews and their recorded outcomes inspectable",
+      "head": "estate/ledgerly-completed-reviews-9319fb3272b2",
+      "sha": "0982583b19b3ddcb94ca9dbf63b98a85d28039dd"
+    },
+    {
+      "number": 4,
+      "title": "Docs: link the live browser demo in README",
+      "head": "estate/ledgerly-docs-demo-link-20261007",
+      "sha": "e2aa12769f5a3a296b867db8a09ede1c94bcdec8"
+    },
+    {
+      "number": 3,
+      "title": "Pin workflow actions to SHAs (supply-chain policy)",
+      "head": "estate/ledgerly-pin-actions-20261007",
+      "sha": "8d69fdee31ef54e5d6218c9776e21d00bda10a70"
+    },
+    {
+      "number": 1,
+      "title": "Add .gitignore for Python/OS artifacts",
+      "head": "repo-hygiene/gitignore-ledgerly",
+      "sha": "6eb917e9cb813cb0f48d45013a742cd2af2c68df"
+    }
+  ],
+  "source_read_urls": {
+    "repo": "https://api.github.com/repos/Jacob-Met/ledgerly",
+    "main": "https://api.github.com/repos/Jacob-Met/ledgerly/git/ref/heads/main",
+    "rulesets": "https://api.github.com/repos/Jacob-Met/ledgerly/rulesets?includes_parents=true",
+    "prs": "https://api.github.com/repos/Jacob-Met/ledgerly/pulls?state=open&per_page=100",
+    "proposed": "https://api.github.com/repos/Jacob-Met/ledgerly/git/matching-refs/heads/autonomous-e3a41d2b3368-ledgerly-public-receiving-20261008"
+  },
+  "read_limit": {
+    "error": "HTTPError: 400: GitHub Fetch URL is not an allowed public GitHub repository or search endpoint. (Response: None)",
+    "error_code": "INVALID_ARGUMENT"
+  },
+  "event_assessment": {
+    "branch_creation": "No create trigger in complete exact source inventory.",
+    "push": "All push triggers require main; this unique branch is not main. Docs-only additions also miss path-filtered workflows.",
+    "pull_request": "No PR is created or updated; these triggers do not apply.",
+    "issue_comment": "No issue_comment or issues trigger in complete default-source inventory; one ordinary evidence comment is admitted only after a final current-source recheck.",
+    "workflow_dispatch": "Not invoked.",
+    "schedule_or_workflow_run": "Neither appears in any current workflow.",
+    "rulesets": "None returned, including parents."
+  },
+  "scope": "Native-qualified immutable evidence storage only. No PR/main/merge/dispatch/workflow/deployment operation and no synthetic native ancestry."
+}

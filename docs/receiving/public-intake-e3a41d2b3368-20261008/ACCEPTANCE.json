@@ -1,0 +1,63 @@
+{
+  "schema": "ledgerly-public-intake-acceptance/1",
+  "status": "pass",
+  "observed_at": "2026-10-08T23:31:06.293Z",
+  "url": "https://jacobmetoyer.com/ledgerly/",
+  "sourceMerge": "c498f55883c755553b59921199d54689d99c9730",
+  "sourceTree": "efb9d2f50f79336588f7b14beca29a889899e1a9",
+  "deploymentRun": 37841104151,
+  "groups": [
+    "public-build-assets-match-qualified-reference",
+    "public-real-python-engine-ready-with-empty-sandbox",
+    "save-preserves-unfinished-input-without-authority",
+    "open-preview-keeps-current-and-replace-analyzes-fresh",
+    "fresh-review-check-and-replacement-retire-old-authority",
+    "malformed-open-preserves-unfinished-input"
+  ],
+  "preflightAssets": 31,
+  "actualBrowserAssets": 16,
+  "actions": {
+    "init": 1,
+    "analyze": 3,
+    "review": 2
+  },
+  "trustedEventCounts": {
+    "keydown": 31,
+    "input": 26,
+    "change": 12
+  },
+  "noInvoicesOrProviderActions": true,
+  "sourceBound": true,
+  "sourceReferenceSha256": "233504667e8a0e4fd41649bca1a7c8e3068b29adea44d85c86d7f38b61f7c098",
+  "driverSha256": "ddb7673c1d3b4c622151a66c6f10ac4939b5dcfc27390a5fbfb4d8cd524f2a90",
+  "resultSha256": "6299c04be8958a071715336fe3d5e8ddd3a322745935e2f4f9baf12b5d011102",
+  "observationSha256": "839ce4e13cc0bd5b9dc398630ae3d61d8da3b83f5dcad1a523d8f937fa6366a1",
+  "downloadSha256": "2b89ed0320b107929caeaa1c86e93098bbff3909c382aa2d153bf50f2ff9a1cb",
+  "screenshotHashes": [
+    {
+      "name": "restored-unchecked.png",
+      "bytes": 100425,
+      "sha256": "c22ce335a5e1b0a9e4452143b0e74604a541309ec3e2a81e929fe10ff1733c68"
+    },
+    {
+      "name": "malformed-file-retains-input.png",
+      "bytes": 52652,
+      "sha256": "62078c260771a9d77f9d5c2999fde05c9d3e0205933fb1c343f4a0617b21cfc8"
+    }
+  ],
+  "manifestSha256": "c5f52d4659909316dcbcf588fec864f626e809cd926b10ab4abe3d1eaf4561f2",
+  "cleanupSha256": "d96471518487e7a1cc11ec606e5277cc4a2ea859a77630371b0d0157ba13b027",
+  "cleanupPassed": true,
+  "sourceAndEvidenceMembers": 49,
+  "retainedPriorRuns": [
+    "run-20261008T231609653Z",
+    "run-20261008T232309399Z",
+    "run-20261008T232714234Z"
+  ],
+  "bounds": [
+    "No application source, service, deployment, Actions or GitHub write.",
+    "Only private fictional unfinished intake; no financial records/provider operations.",
+    "This ordinary public gate does not repeat or broaden the prior 405 hosted assertions.",
+    "Served byte equality is established; no inspection of web-host internal checkout and no future stability claim."
+  ]
+}
