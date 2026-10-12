@@ -91,6 +91,12 @@ npm run build
 npm run dev
 ```
 
+`npm run dev` stages the current Python core, browser adapters, fictional fixtures
+and self-hosted runtime before starting Vite. A fresh checkout can therefore run
+`npm ci` followed by `npm run dev` without a prior test or production build. After
+changing Python source or fixtures, restart the development server and reload the
+browser tab to load the updated engine; reloading starts a new in-memory sandbox.
+
 `npm test` runs the original Python workflow under Pyodide and covers extraction, the gate, payment/webhook verification, duplicate replay and overdue reminder approval. It also checks missing-recipient correction, invalid fields, one-use revisions, source invalidation, multi-currency reviewed drafts and detached retained invoice details. `npm run build` stages the unmodified Python core, the browser-only review and invoice-detail adapters, fictional fixtures and self-hosted runtime assets into ignored `public/` directories. `tools/capture_ledgerly.py` performs a browser walkthrough and saves phone/desktop captures (requires Playwright and Chrome).
 
 To check the correction UI against a locally served production build, install Playwright in your test environment and run:
