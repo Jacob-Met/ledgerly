@@ -14,7 +14,7 @@ You need Python 3.12+. The core uses only the standard library, and the tests ne
 
 ```bash
 python3.12 -m venv .venv && source .venv/bin/activate
-pip install pytest
+python -m pip install -e ".[dev]"
 pytest -q                     # fully offline
 python -m ledgerly.demo       # scripted end-to-end run (add --interactive to approve by hand)
 ```
