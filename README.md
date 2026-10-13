@@ -19,6 +19,11 @@ pytest -q                     # fully offline
 python -m ledgerly.demo       # scripted end-to-end run (add --interactive to approve by hand)
 ```
 
+The regular wheel also includes the four fictional demo inputs. After installing
+it, `python -m ledgerly.demo` works outside the source checkout; add `--interactive`
+to make each mock approval decision yourself. See [the installed demo guide](docs/INSTALLED_DEMO.md)
+for a clean-environment wheel run and its offline scope.
+
 ## Architecture
 
 ```
