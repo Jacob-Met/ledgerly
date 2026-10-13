@@ -1,0 +1,55 @@
+{
+  "repository": "Jacob-Met/ledgerly",
+  "issue": 79,
+  "reviewer": "estate-1caa1d8e028a/remote_consumer",
+  "verdict": "PASS for bounded synchronous token-lifetime repair",
+  "candidate": {
+    "path": "/dev/shm/hamon-1caa-ledgerly-auth/candidate/ledgerly/paypal.py",
+    "bytes": 27725,
+    "sha256": "e519d1e1d63f2534b9e9d5574b779a6b7d42ee2e5f18b54b70fa8737522cd451"
+  },
+  "receiver": {
+    "path": "/dev/shm/hamon-1caa-receive-ledgerly-token-expiry.py",
+    "sha256": "593035663ae51ccf2db8c0e246a9f180ef25cd89c3a8a7871f98750ab5ab8583"
+  },
+  "source_review": {
+    "changed_methods": [
+      "HttpPayPalClient.__init__",
+      "HttpPayPalClient._auth"
+    ],
+    "all_bytes_outside_changed_methods_exact": true,
+    "other_35_class_methods_text_exact": true,
+    "issue77_call_exact": true,
+    "both_dependency_inputs_exact": true
+  },
+  "qualification": [
+    {
+      "path": "/dev/shm/hamon-1caa-ledgerly-token-independent-original/receipt.json",
+      "bytes": 21864,
+      "sha256": "cc4d7781282e90d8223e8cefacbd28d736459017b6679d2e0d3c2654dd0b5ba0",
+      "passed": 3,
+      "total": 13,
+      "process_exit_code": 1,
+      "source_unchanged": true,
+      "source_sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3"
+    },
+    {
+      "path": "/dev/shm/hamon-1caa-ledgerly-token-independent-candidate/receipt.json",
+      "bytes": 22709,
+      "sha256": "72b9be54cdce7f3a1f1b555dc66b0d41ba0baabb775a0356a02f6f99deb5eea5",
+      "passed": 13,
+      "total": 13,
+      "process_exit_code": 0,
+      "source_unchanged": true,
+      "source_sha256": "e519d1e1d63f2534b9e9d5574b779a6b7d42ee2e5f18b54b70fa8737522cd451"
+    }
+  ],
+  "findings": [
+    "Frozen oracle executed against the original before candidate or author tests were inspected. The same receiver then passed all 13 candidate contracts; the original retained 3 passing controls and 10 failures.",
+    "Actual public GET requests reuse an unexpired token at 1011.999, then refresh at 1012 after a token requested at 1000 with a 12-second lifetime and 3-second response latency.",
+    "Already-expired and malformed responses are refused before an invoice request; a separately requested next call can recover with a new valid response.",
+    "Refresh HTTP 503 propagates the identical exception before an invoice call, clears stale access, and does not replay the failed requested operation.",
+    "A separate invoice POST failure control remains one attempted operation with its existing 503 error; the constructor network gate and request shapes/timeouts stay intact."
+  ],
+  "limits": "Cloud Linux CPython 3.12.14 with authored in-memory urllib responses, synthetic credentials, and a deterministic monotonic clock. No socket, real PayPal account, installed/native client, persisted invoice or payment was used. The author suite was not rerun."
+}

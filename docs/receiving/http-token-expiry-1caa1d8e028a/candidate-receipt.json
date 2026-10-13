@@ -1,0 +1,73 @@
+{
+  "schema": "ledgerly.http-token-expiry.original-consumer.v1",
+  "source_sha256": "e519d1e1d63f2534b9e9d5574b779a6b7d42ee2e5f18b54b70fa8737522cd451",
+  "source_unchanged": true,
+  "runtime": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "transport": "in-memory urlopen replacement; no socket or provider",
+  "calls": [
+    {
+      "operation": "token",
+      "time": 100.0,
+      "method": "POST",
+      "timeout": 20,
+      "body": "grant_type=client_credentials"
+    },
+    {
+      "operation": "invoice_get",
+      "time": 100.0,
+      "method": "GET",
+      "timeout": 30,
+      "synthetic_bearer": "Bearer synthetic-token-1",
+      "accepted": true
+    },
+    {
+      "operation": "invoice_get",
+      "time": 109.999,
+      "method": "GET",
+      "timeout": 30,
+      "synthetic_bearer": "Bearer synthetic-token-1",
+      "accepted": true
+    },
+    {
+      "operation": "token",
+      "time": 110.0,
+      "method": "POST",
+      "timeout": 20,
+      "body": "grant_type=client_credentials"
+    },
+    {
+      "operation": "invoice_get",
+      "time": 110.0,
+      "method": "GET",
+      "timeout": 30,
+      "synthetic_bearer": "Bearer synthetic-token-2",
+      "accepted": true
+    }
+  ],
+  "results": [
+    {
+      "time": 100.0,
+      "status": 200,
+      "body": {
+        "id": "INV-SYNTHETIC",
+        "status": "DRAFT"
+      }
+    },
+    {
+      "time": 109.999,
+      "status": 200,
+      "body": {
+        "id": "INV-SYNTHETIC",
+        "status": "DRAFT"
+      }
+    },
+    {
+      "time": 110.0,
+      "status": 200,
+      "body": {
+        "id": "INV-SYNTHETIC",
+        "status": "DRAFT"
+      }
+    }
+  ]
+}

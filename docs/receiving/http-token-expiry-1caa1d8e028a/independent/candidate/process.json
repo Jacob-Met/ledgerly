@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-B",
+    "-S",
+    "/dev/shm/hamon-1caa-receive-ledgerly-token-expiry.py",
+    "--source",
+    "/dev/shm/hamon-1caa-ledgerly-auth/candidate",
+    "--out",
+    "/dev/shm/hamon-1caa-ledgerly-token-independent-candidate"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.13414377099252306
+}

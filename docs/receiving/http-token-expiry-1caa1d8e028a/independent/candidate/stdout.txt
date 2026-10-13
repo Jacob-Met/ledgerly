@@ -1,0 +1,1 @@
+{"receipt": "/dev/shm/hamon-1caa-ledgerly-token-independent-candidate/receipt.json", "passed": 13, "total": 13, "source_unchanged": true, "pass": true, "failed": []}

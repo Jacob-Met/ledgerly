@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "path": "ledgerly/paypal.py",
+      "bytes": 27725,
+      "sha256": "e519d1e1d63f2534b9e9d5574b779a6b7d42ee2e5f18b54b70fa8737522cd451",
+      "git_blob": "385a81efb3cbb17b8d49482e4b06bbae61110219"
+    },
+    {
+      "path": "tests/test_http_paypal_token_expiry.py",
+      "bytes": 9581,
+      "sha256": "38264bc4bba6bf8c5c083372e37161ebea6efc015f00b825f7603c4786f62143",
+      "git_blob": "b7348c1527e5c408c7c2d48b1487f10ad8fde4d4"
+    }
+  ],
+  "unchanged_outside_cache_and_auth": true,
+  "auth_scope_bytes_before": 622,
+  "auth_scope_bytes_after": 2104
+}

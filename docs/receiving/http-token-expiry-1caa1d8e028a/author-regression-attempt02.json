@@ -1,0 +1,21 @@
+{
+  "schema": "ledgerly.http-token-expiry.regression.v1",
+  "command": [
+    "/dev/shm/hamon-source-delivery-f0f66340f637/venv/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "pythonpath=. tests"
+  ],
+  "cwd": "/dev/shm/hamon-1caa-ledgerly-auth/candidate",
+  "exit_code": 0,
+  "candidate_sha256": "e519d1e1d63f2534b9e9d5574b779a6b7d42ee2e5f18b54b70fa8737522cd451",
+  "stdout_sha256": "deca4717cf1414452f070c4adde74c6f5125b8ae077a16b81d6c15ee94a976b3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "dependency_note": "Reused existing pytest 9.1.1 runtime read-only; no installation or changes to it; plugin autoload and bytecode writes disabled.",
+  "pytest_version": "9.1.1"
+}

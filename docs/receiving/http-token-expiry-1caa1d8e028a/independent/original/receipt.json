@@ -1,0 +1,803 @@
+{
+  "receiver": {
+    "bytes": 13548,
+    "sha256": "593035663ae51ccf2db8c0e246a9f180ef25cd89c3a8a7871f98750ab5ab8583",
+    "mtime_ns": 1791854908747686628,
+    "mode": 33188,
+    "inode": 681432
+  },
+  "source": "/dev/shm/hamon-1caa-ledgerly-auth/original",
+  "source_before": {
+    "ledgerly/__init__.py": {
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "mtime_ns": 1791853654189741917,
+      "mode": 33188,
+      "inode": 628666
+    },
+    "ledgerly/extract.py": {
+      "bytes": 36766,
+      "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+      "mtime_ns": 1791853654190114037,
+      "mode": 33188,
+      "inode": 628670
+    },
+    "ledgerly/paypal.py": {
+      "bytes": 26243,
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "mtime_ns": 1791853654190447228,
+      "mode": 33188,
+      "inode": 628672
+    }
+  },
+  "source_after": {
+    "ledgerly/__init__.py": {
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+      "mtime_ns": 1791853654189741917,
+      "mode": 33188,
+      "inode": 628666
+    },
+    "ledgerly/extract.py": {
+      "bytes": 36766,
+      "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+      "mtime_ns": 1791853654190114037,
+      "mode": 33188,
+      "inode": 628670
+    },
+    "ledgerly/paypal.py": {
+      "bytes": 26243,
+      "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+      "mtime_ns": 1791853654190447228,
+      "mode": 33188,
+      "inode": 628672
+    }
+  },
+  "source_bytes_mtime_mode_inode_unchanged": true,
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39"
+  },
+  "scope": "Actual public HttpPayPalClient methods with authored in-memory urlopen and monotonic clock. No socket, real credential, provider account, persisted invoice or native installation was used.",
+  "checks": [
+    {
+      "name": "constructor_network_gate_remains_required",
+      "pass": true
+    },
+    {
+      "name": "reuse_until_request_start_deadline_then_refresh_at_exact_expiry",
+      "pass": false,
+      "operations": [
+        {
+          "returned": true,
+          "status": 200,
+          "body": {
+            "id": "FICTIONAL-INVOICE",
+            "status": "DRAFT"
+          }
+        },
+        {
+          "returned": true,
+          "status": 200,
+          "body": {
+            "id": "FICTIONAL-INVOICE",
+            "status": "DRAFT"
+          }
+        },
+        {
+          "returned": false,
+          "exception": "PayPalError",
+          "message": "401 FICTIONAL_REFUSAL: receiver control",
+          "http_status": 401
+        }
+      ],
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 1000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-token-one",
+            "expires_in": 12
+          },
+          "completed_at": 1003.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-FIRST",
+          "clock": 1003.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-token-one",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-SECOND",
+          "clock": 1011.999,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-token-one",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-THIRD",
+          "clock": 1012.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-token-one",
+          "shape_ok": true,
+          "result": "HTTP401"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "token_expired_during_response_is_refused_before_invoice",
+      "pass": false,
+      "outcome": {
+        "returned": false,
+        "exception": "PayPalError",
+        "message": "401 FICTIONAL_REFUSAL: receiver control",
+        "http_status": 401
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 2000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-too-late",
+            "expires_in": 7
+          },
+          "completed_at": 2007.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-LATENCY",
+          "clock": 2007.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-too-late",
+          "shape_ok": true,
+          "result": "HTTP401"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_missing_lifetime",
+      "pass": false,
+      "invalid_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-invalid"
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-INVALID",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_zero_lifetime",
+      "pass": false,
+      "invalid_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-invalid",
+            "expires_in": 0
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-INVALID",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_negative_lifetime",
+      "pass": false,
+      "invalid_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-invalid",
+            "expires_in": -8
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-INVALID",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_boolean_lifetime",
+      "pass": false,
+      "invalid_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-invalid",
+            "expires_in": true
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-INVALID",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_unreadable_lifetime",
+      "pass": false,
+      "invalid_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-invalid",
+            "expires_in": "twelve"
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-INVALID",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_nonfinite_lifetime",
+      "pass": false,
+      "invalid_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-invalid",
+            "expires_in": Infinity
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-INVALID",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-invalid",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_empty_access_token",
+      "pass": false,
+      "invalid_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "",
+            "expires_in": 10
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-INVALID",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-recovered",
+            "expires_in": 10
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-recovered",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invalid_response_nonobject_response",
+      "pass": true,
+      "invalid_call": {
+        "returned": false,
+        "exception": "TypeError",
+        "message": "list indices must be integers or slices, not str",
+        "http_status": null
+      },
+      "separate_next_call": {
+        "returned": true,
+        "status": 200,
+        "body": {
+          "id": "FICTIONAL-INVOICE",
+          "status": "DRAFT"
+        }
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": [],
+          "completed_at": 3000.0
+        },
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 3000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-recovered",
+            "expires_in": 10
+          },
+          "completed_at": 3000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-RECOVERED",
+          "clock": 3000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-recovered",
+          "shape_ok": true,
+          "result": "HTTP200"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "failed_refresh_propagates_without_stale_fallback_or_replay",
+      "pass": false,
+      "operations": [
+        {
+          "returned": true,
+          "status": 200,
+          "body": {
+            "id": "FICTIONAL-INVOICE",
+            "status": "DRAFT"
+          }
+        },
+        {
+          "returned": false,
+          "exception": "PayPalError",
+          "message": "401 FICTIONAL_REFUSAL: receiver control",
+          "http_status": 401
+        },
+        {
+          "returned": false,
+          "exception": "PayPalError",
+          "message": "401 FICTIONAL_REFUSAL: receiver control",
+          "http_status": 401
+        }
+      ],
+      "same_exception_object": false,
+      "events_at_refresh_failure": [
+        "oauth",
+        "invoice",
+        "invoice"
+      ],
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 4000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-before-failure",
+            "expires_in": 5
+          },
+          "completed_at": 4000.0
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-BEFORE-FAILURE",
+          "clock": 4000.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-before-failure",
+          "shape_ok": true,
+          "result": "HTTP200"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-FAILED-REFRESH",
+          "clock": 4005.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-before-failure",
+          "shape_ok": true,
+          "result": "HTTP401"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/invoicing/invoices/FICTIONAL-NEXT-REQUEST",
+          "clock": 4006.0,
+          "timeout": 30,
+          "body": null,
+          "kind": "invoice",
+          "token": "fictional-before-failure",
+          "shape_ok": true,
+          "result": "HTTP401"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    },
+    {
+      "name": "invoice_failure_is_not_automatically_replayed",
+      "pass": true,
+      "outcome": {
+        "returned": false,
+        "exception": "PayPalError",
+        "message": "503 FICTIONAL_REFUSAL: receiver control",
+        "http_status": 503
+      },
+      "events": [
+        {
+          "method": "POST",
+          "path": "/v1/oauth2/token",
+          "clock": 5000.0,
+          "timeout": 20,
+          "body": "grant_type=client_credentials",
+          "kind": "oauth",
+          "shape_ok": true,
+          "payload": {
+            "access_token": "fictional-post-control",
+            "expires_in": 15
+          },
+          "completed_at": 5000.0
+        },
+        {
+          "method": "POST",
+          "path": "/v2/invoicing/invoices",
+          "clock": 5000.0,
+          "timeout": 30,
+          "body": "{\"detail\": {\"reference\": \"FICTIONAL-DRAFT-CONTROL\"}}",
+          "kind": "invoice",
+          "token": "fictional-post-control",
+          "shape_ok": true,
+          "result": "HTTP503"
+        }
+      ],
+      "returned_response_contexts_closed": true,
+      "request_shapes_ok": true
+    }
+  ],
+  "passed": 3,
+  "total": 13,
+  "pass": false
+}
