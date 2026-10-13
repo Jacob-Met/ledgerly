@@ -1,0 +1,52 @@
+{
+  "source_commit": "a4c7f05d511fb6e9ae4e357d78f696b464625ffc",
+  "extract_sha256": "48914627d13bc4c69fd94e6a92fb79da2a1534808fa533a614858c93db3dee58",
+  "utc": "2026-10-08T19:19:26.503167+00:00",
+  "input": "From: Alex Example <alex@studio.example>\n\nPrices are in USD.\nNet 30\n\n| Item | Qty | Unit price |\n| --- | --- | --- |\n| Editing | 2 | $100 |\n\nAdditional work:\n\n| Unit price | Qty | Description |\n| --- | --- | --- |\n| $75 | 3 | Photos |\n",
+  "expected_items": [
+    [
+      "Editing",
+      "2",
+      "100",
+      "USD"
+    ],
+    [
+      "Photos",
+      "3",
+      "75",
+      "USD"
+    ]
+  ],
+  "actual": {
+    "client_name": "Alex Example",
+    "client_email": "alex@studio.example",
+    "currency": "USD",
+    "line_items": [
+      {
+        "desc": "Editing",
+        "qty": "2",
+        "unit_price": "100",
+        "currency": "USD",
+        "unit": null
+      }
+    ],
+    "due_days": 30,
+    "amount_paid": "0",
+    "total": "200",
+    "confidence": 0.5,
+    "issues": [
+      {
+        "field": "line_items",
+        "severity": "error",
+        "message": "No unambiguous price in table row: '| Unit price | Qty | Description |'"
+      },
+      {
+        "field": "line_items",
+        "severity": "error",
+        "message": "No unambiguous price in table row: '| $75 | 3 | Photos |'"
+      }
+    ],
+    "source": "rules"
+  },
+  "observation": "Second table omitted by first-table column mapping; native original-source witness."
+}
