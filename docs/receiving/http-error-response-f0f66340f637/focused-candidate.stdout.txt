@@ -1,0 +1,16 @@
+............                                                             [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_read_timeout_closes_real_response
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[401]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[429]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[503]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[{"-JSONDecodeError-Unterminated string]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[[]-AttributeError-'list' object has no attribute 'get']
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_empty_body_preserves_translation
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_incomplete_body_keeps_original_exception
+PASSED ../author-tests/test_http_paypal_error_response.py::test_error_interrupted_read_closes_unread_response
+PASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[200-{"id":"fixture-id","description":"\xe3\x83\x86\xe3\x82\xb9\xe3\x83\x88"}-expected0]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[204--None]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_constructor_still_requires_explicit_network_opt_in
+12 passed in 0.35s

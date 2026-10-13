@@ -1,0 +1,1076 @@
+{
+  "schema": "hamon.independent-http-receiving.v1",
+  "actor": "/root/runtime_integration",
+  "identity": "f0f66340f637",
+  "phase": "candidate",
+  "started": {
+    "utc": "2026-10-13T00:58:20.152582+00:00",
+    "pid": 2,
+    "label": "candidate",
+    "source_root": "/dev/shm/hamon-source-delivery-f0f66340f637/ledgerly-http-error/candidate",
+    "source_sha256": "1dd14b0612f2806855213478d9ccc2bb63afe3edc5d98f25d554b00379ad4310"
+  },
+  "finished_utc": "2026-10-13T00:58:20.410107+00:00",
+  "elapsed_seconds": 0.22654655399674084,
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "executable": "/dev/shm/hamon-source-delivery-f0f66340f637/venv/bin/python",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "pid": 2
+  },
+  "contract_sha256": "e6a43a9fbf8098bff6aec2364fe80d6cad88380ad649db4dc14abf48bb0a749a",
+  "runner_sha256": "69a81967e754f8d357770e7a4a5a7bd385c6134fb4bd4344dfc408e0e23d999d",
+  "source_before": {
+    "ledgerly/__init__.py": {
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    "ledgerly/extract.py": {
+      "bytes": 36766,
+      "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20"
+    },
+    "ledgerly/paypal.py": {
+      "bytes": 26449,
+      "sha256": "1dd14b0612f2806855213478d9ccc2bb63afe3edc5d98f25d554b00379ad4310"
+    }
+  },
+  "source_after": {
+    "ledgerly/__init__.py": {
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    "ledgerly/extract.py": {
+      "bytes": 36766,
+      "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20"
+    },
+    "ledgerly/paypal.py": {
+      "bytes": 26449,
+      "sha256": "1dd14b0612f2806855213478d9ccc2bb63afe3edc5d98f25d554b00379ad4310"
+    }
+  },
+  "cases": [
+    {
+      "id": "network_guard",
+      "passed": true,
+      "detail": {
+        "transport_calls": 0
+      },
+      "check_count": 3
+    },
+    {
+      "id": "success_json",
+      "passed": true,
+      "detail": {
+        "result": {
+          "status": 201,
+          "body": {
+            "invoice": "試験",
+            "nested": {
+              "items": [
+                1,
+                "café"
+              ]
+            }
+          }
+        },
+        "resources": {
+          "/v1/oauth2/token": {
+            "http_error_closed": null,
+            "http_response_closed": true,
+            "captured_socket_file_closed": true
+          },
+          "/success": {
+            "http_error_closed": null,
+            "http_response_closed": true,
+            "captured_socket_file_closed": true
+          }
+        }
+      },
+      "check_count": 7
+    },
+    {
+      "id": "success_empty",
+      "passed": true,
+      "detail": {
+        "result": {
+          "status": 204,
+          "body": null
+        },
+        "resources": {
+          "http_error_closed": null,
+          "http_response_closed": true,
+          "captured_socket_file_closed": true
+        }
+      },
+      "check_count": 5
+    },
+    {
+      "id": "http_error_stall",
+      "passed": true,
+      "detail": {
+        "exception_type": "TimeoutError",
+        "message": "timed out",
+        "resources": {
+          "http_error_closed": true,
+          "http_response_closed": true,
+          "captured_socket_file_closed": true
+        },
+        "http_error_context_identity": true
+      },
+      "check_count": 7
+    },
+    {
+      "id": "http_error_truncated",
+      "passed": true,
+      "detail": {
+        "exception_type": "IncompleteRead",
+        "message": "IncompleteRead(9 bytes read, 13 more expected)",
+        "resources": {
+          "http_error_closed": true,
+          "http_response_closed": true,
+          "captured_socket_file_closed": true
+        },
+        "http_error_context_identity": true,
+        "partial_hex": "7b2273686f7274223a",
+        "expected_missing_bytes": 13
+      },
+      "check_count": 8
+    },
+    {
+      "id": "translated_error",
+      "passed": true,
+      "detail": {
+        "exception_type": "PayPalError",
+        "message": "422 UNPROCESSABLE_ENTITY: 請求を確認 [FIRST_ISSUE]",
+        "resources": {
+          "http_error_closed": true,
+          "http_response_closed": true,
+          "captured_socket_file_closed": true
+        },
+        "http_error_context_identity": true,
+        "translated_body": {
+          "name": "UNPROCESSABLE_ENTITY",
+          "message": "請求を確認",
+          "debug_id": "cf1625cd91674",
+          "details": [
+            {
+              "issue": "FIRST_ISSUE",
+              "description": "説明 café"
+            }
+          ]
+        },
+        "before_translation": {
+          "http_error_closed": true,
+          "http_response_closed": true,
+          "captured_socket_file_closed": true
+        }
+      },
+      "check_count": 15
+    }
+  ],
+  "checks": [
+    {
+      "case": "network_guard",
+      "name": "exact_type",
+      "ok": true,
+      "actual": "RuntimeError",
+      "expected": "RuntimeError"
+    },
+    {
+      "case": "network_guard",
+      "name": "exact_message",
+      "ok": true,
+      "actual": "Network disabled. Set LEDGERLY_ALLOW_NETWORK=1 to use the real sandbox.",
+      "expected": "Network disabled. Set LEDGERLY_ALLOW_NETWORK=1 to use the real sandbox."
+    },
+    {
+      "case": "network_guard",
+      "name": "transport_calls",
+      "ok": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "case": "success_json",
+      "name": "response_type",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "success_json",
+      "name": "status",
+      "ok": true,
+      "actual": 201,
+      "expected": 201
+    },
+    {
+      "case": "success_json",
+      "name": "body",
+      "ok": true,
+      "actual": {
+        "invoice": "試験",
+        "nested": {
+          "items": [
+            1,
+            "café"
+          ]
+        }
+      },
+      "expected": {
+        "invoice": "試験",
+        "nested": {
+          "items": [
+            1,
+            "café"
+          ]
+        }
+      }
+    },
+    {
+      "case": "success_json",
+      "name": "/v1/oauth2/token.http_response_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "success_json",
+      "name": "/v1/oauth2/token.captured_socket_file_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "success_json",
+      "name": "/success.http_response_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "success_json",
+      "name": "/success.captured_socket_file_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "success_empty",
+      "name": "response_type",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "success_empty",
+      "name": "status",
+      "ok": true,
+      "actual": 204,
+      "expected": 204
+    },
+    {
+      "case": "success_empty",
+      "name": "body",
+      "ok": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "success_empty",
+      "name": "before_cleanup.http_response_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "success_empty",
+      "name": "before_cleanup.captured_socket_file_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_stall",
+      "name": "exception_escaped",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_stall",
+      "name": "before_cleanup.http_error_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_stall",
+      "name": "before_cleanup.http_response_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_stall",
+      "name": "before_cleanup.captured_socket_file_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_stall",
+      "name": "HTTPError_context_preserved",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_stall",
+      "name": "real_timeout",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_stall",
+      "name": "HTTP_status",
+      "ok": true,
+      "actual": 503,
+      "expected": 503
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "exception_escaped",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "before_cleanup.http_error_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "before_cleanup.http_response_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "before_cleanup.captured_socket_file_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "HTTPError_context_preserved",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "real_incomplete_read",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "exact_partial_hex",
+      "ok": true,
+      "actual": "7b2273686f7274223a",
+      "expected": "7b2273686f7274223a"
+    },
+    {
+      "case": "http_error_truncated",
+      "name": "exact_missing_bytes",
+      "ok": true,
+      "actual": 13,
+      "expected": 13
+    },
+    {
+      "case": "translated_error",
+      "name": "exception_escaped",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "before_cleanup.http_error_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "before_cleanup.http_response_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "before_cleanup.captured_socket_file_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "HTTPError_context_preserved",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "original_error_class",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "http_status",
+      "ok": true,
+      "actual": 422,
+      "expected": 422
+    },
+    {
+      "case": "translated_error",
+      "name": "name",
+      "ok": true,
+      "actual": "UNPROCESSABLE_ENTITY",
+      "expected": "UNPROCESSABLE_ENTITY"
+    },
+    {
+      "case": "translated_error",
+      "name": "message",
+      "ok": true,
+      "actual": "請求を確認",
+      "expected": "請求を確認"
+    },
+    {
+      "case": "translated_error",
+      "name": "first_detail_only",
+      "ok": true,
+      "actual": [
+        {
+          "issue": "FIRST_ISSUE",
+          "description": "説明 café"
+        }
+      ],
+      "expected": [
+        {
+          "issue": "FIRST_ISSUE",
+          "description": "説明 café"
+        }
+      ]
+    },
+    {
+      "case": "translated_error",
+      "name": "debug_id_shape",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "exact_exception_message",
+      "ok": true,
+      "actual": "422 UNPROCESSABLE_ENTITY: 請求を確認 [FIRST_ISSUE]",
+      "expected": "422 UNPROCESSABLE_ENTITY: 請求を確認 [FIRST_ISSUE]"
+    },
+    {
+      "case": "translated_error",
+      "name": "before_translation.http_error_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "before_translation.http_response_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "translated_error",
+      "name": "before_translation.captured_socket_file_closed",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "shared",
+      "name": "one_cached_auth",
+      "ok": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "case": "shared",
+      "name": "five_API_calls",
+      "ok": true,
+      "actual": 5,
+      "expected": 5
+    },
+    {
+      "case": "shared",
+      "name": "auth_method",
+      "ok": true,
+      "actual": "POST",
+      "expected": "POST"
+    },
+    {
+      "case": "shared",
+      "name": "auth_form_body",
+      "ok": true,
+      "actual": "6772616e745f747970653d636c69656e745f63726564656e7469616c73",
+      "expected": "6772616e745f747970653d636c69656e745f63726564656e7469616c73"
+    },
+    {
+      "case": "shared",
+      "name": "auth_header",
+      "ok": true,
+      "actual": "Basic Zml4dHVyZS1jbGllbnQ6Zml4dHVyZS1zZWNyZXQ=",
+      "expected": "Basic Zml4dHVyZS1jbGllbnQ6Zml4dHVyZS1zZWNyZXQ="
+    },
+    {
+      "case": "shared",
+      "name": "auth_content_type",
+      "ok": true,
+      "actual": "application/x-www-form-urlencoded",
+      "expected": "application/x-www-form-urlencoded"
+    },
+    {
+      "case": "shared",
+      "name": "auth_declared_timeout",
+      "ok": true,
+      "actual": 20,
+      "expected": 20
+    },
+    {
+      "case": "shared",
+      "name": "/success.path",
+      "ok": true,
+      "actual": "/success",
+      "expected": "/success"
+    },
+    {
+      "case": "shared",
+      "name": "/success.method",
+      "ok": true,
+      "actual": "POST",
+      "expected": "POST"
+    },
+    {
+      "case": "shared",
+      "name": "/success.body",
+      "ok": true,
+      "actual": "7b22696e766f696365223a20225c75386136365c7539613133222c20226e6573746564223a207b226974656d73223a205b312c20226361665c7530306539225d7d7d",
+      "expected": "7b22696e766f696365223a20225c75386136365c7539613133222c20226e6573746564223a207b226974656d73223a205b312c20226361665c7530306539225d7d7d"
+    },
+    {
+      "case": "shared",
+      "name": "/success.bearer",
+      "ok": true,
+      "actual": "Bearer fixture-token",
+      "expected": "Bearer fixture-token"
+    },
+    {
+      "case": "shared",
+      "name": "/success.content_type",
+      "ok": true,
+      "actual": "application/json",
+      "expected": "application/json"
+    },
+    {
+      "case": "shared",
+      "name": "/success.extra",
+      "ok": true,
+      "actual": "success",
+      "expected": "success"
+    },
+    {
+      "case": "shared",
+      "name": "/success.declared_timeout",
+      "ok": true,
+      "actual": 30,
+      "expected": 30
+    },
+    {
+      "case": "shared",
+      "name": "/empty.path",
+      "ok": true,
+      "actual": "/empty",
+      "expected": "/empty"
+    },
+    {
+      "case": "shared",
+      "name": "/empty.method",
+      "ok": true,
+      "actual": "GET",
+      "expected": "GET"
+    },
+    {
+      "case": "shared",
+      "name": "/empty.body",
+      "ok": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "case": "shared",
+      "name": "/empty.bearer",
+      "ok": true,
+      "actual": "Bearer fixture-token",
+      "expected": "Bearer fixture-token"
+    },
+    {
+      "case": "shared",
+      "name": "/empty.content_type",
+      "ok": true,
+      "actual": "application/json",
+      "expected": "application/json"
+    },
+    {
+      "case": "shared",
+      "name": "/empty.extra",
+      "ok": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "shared",
+      "name": "/empty.declared_timeout",
+      "ok": true,
+      "actual": 30,
+      "expected": 30
+    },
+    {
+      "case": "shared",
+      "name": "/stall.path",
+      "ok": true,
+      "actual": "/stall",
+      "expected": "/stall"
+    },
+    {
+      "case": "shared",
+      "name": "/stall.method",
+      "ok": true,
+      "actual": "POST",
+      "expected": "POST"
+    },
+    {
+      "case": "shared",
+      "name": "/stall.body",
+      "ok": true,
+      "actual": "7b2263617365223a20227374616c6c227d",
+      "expected": "7b2263617365223a20227374616c6c227d"
+    },
+    {
+      "case": "shared",
+      "name": "/stall.bearer",
+      "ok": true,
+      "actual": "Bearer fixture-token",
+      "expected": "Bearer fixture-token"
+    },
+    {
+      "case": "shared",
+      "name": "/stall.content_type",
+      "ok": true,
+      "actual": "application/json",
+      "expected": "application/json"
+    },
+    {
+      "case": "shared",
+      "name": "/stall.extra",
+      "ok": true,
+      "actual": "stall",
+      "expected": "stall"
+    },
+    {
+      "case": "shared",
+      "name": "/stall.declared_timeout",
+      "ok": true,
+      "actual": 30,
+      "expected": 30
+    },
+    {
+      "case": "shared",
+      "name": "/truncated.path",
+      "ok": true,
+      "actual": "/truncated",
+      "expected": "/truncated"
+    },
+    {
+      "case": "shared",
+      "name": "/truncated.method",
+      "ok": true,
+      "actual": "GET",
+      "expected": "GET"
+    },
+    {
+      "case": "shared",
+      "name": "/truncated.body",
+      "ok": true,
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "case": "shared",
+      "name": "/truncated.bearer",
+      "ok": true,
+      "actual": "Bearer fixture-token",
+      "expected": "Bearer fixture-token"
+    },
+    {
+      "case": "shared",
+      "name": "/truncated.content_type",
+      "ok": true,
+      "actual": "application/json",
+      "expected": "application/json"
+    },
+    {
+      "case": "shared",
+      "name": "/truncated.extra",
+      "ok": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "case": "shared",
+      "name": "/truncated.declared_timeout",
+      "ok": true,
+      "actual": 30,
+      "expected": 30
+    },
+    {
+      "case": "shared",
+      "name": "/translated.path",
+      "ok": true,
+      "actual": "/translated",
+      "expected": "/translated"
+    },
+    {
+      "case": "shared",
+      "name": "/translated.method",
+      "ok": true,
+      "actual": "POST",
+      "expected": "POST"
+    },
+    {
+      "case": "shared",
+      "name": "/translated.body",
+      "ok": true,
+      "actual": "7b226c6162656c223a20225c75386163625c7536633432227d",
+      "expected": "7b226c6162656c223a20225c75386163625c7536633432227d"
+    },
+    {
+      "case": "shared",
+      "name": "/translated.bearer",
+      "ok": true,
+      "actual": "Bearer fixture-token",
+      "expected": "Bearer fixture-token"
+    },
+    {
+      "case": "shared",
+      "name": "/translated.content_type",
+      "ok": true,
+      "actual": "application/json",
+      "expected": "application/json"
+    },
+    {
+      "case": "shared",
+      "name": "/translated.extra",
+      "ok": true,
+      "actual": "translated",
+      "expected": "translated"
+    },
+    {
+      "case": "shared",
+      "name": "/translated.declared_timeout",
+      "ok": true,
+      "actual": 30,
+      "expected": 30
+    },
+    {
+      "case": "shared",
+      "name": "request_IDs",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "shared",
+      "name": "outside_origin_attempts",
+      "ok": true,
+      "actual": [],
+      "expected": []
+    },
+    {
+      "case": "shared",
+      "name": "server_received_exact_requests",
+      "ok": true,
+      "actual": [
+        [
+          "/v1/oauth2/token",
+          "POST",
+          "6772616e745f747970653d636c69656e745f63726564656e7469616c73"
+        ],
+        [
+          "/success",
+          "POST",
+          "7b22696e766f696365223a20225c75386136365c7539613133222c20226e6573746564223a207b226974656d73223a205b312c20226361665c7530306539225d7d7d"
+        ],
+        [
+          "/empty",
+          "GET",
+          ""
+        ],
+        [
+          "/stall",
+          "POST",
+          "7b2263617365223a20227374616c6c227d"
+        ],
+        [
+          "/truncated",
+          "GET",
+          ""
+        ],
+        [
+          "/translated",
+          "POST",
+          "7b226c6162656c223a20225c75386163625c7536633432227d"
+        ]
+      ],
+      "expected": [
+        [
+          "/v1/oauth2/token",
+          "POST",
+          "6772616e745f747970653d636c69656e745f63726564656e7469616c73"
+        ],
+        [
+          "/success",
+          "POST",
+          "7b22696e766f696365223a20225c75386136365c7539613133222c20226e6573746564223a207b226974656d73223a205b312c20226361665c7530306539225d7d7d"
+        ],
+        [
+          "/empty",
+          "GET",
+          ""
+        ],
+        [
+          "/stall",
+          "POST",
+          "7b2263617365223a20227374616c6c227d"
+        ],
+        [
+          "/truncated",
+          "GET",
+          ""
+        ],
+        [
+          "/translated",
+          "POST",
+          "7b226c6162656c223a20225c75386163625c7536633432227d"
+        ]
+      ]
+    },
+    {
+      "case": "shared",
+      "name": "source_bytes_unchanged",
+      "ok": true,
+      "actual": {
+        "ledgerly/__init__.py": {
+          "bytes": 119,
+          "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+        },
+        "ledgerly/extract.py": {
+          "bytes": 36766,
+          "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20"
+        },
+        "ledgerly/paypal.py": {
+          "bytes": 26449,
+          "sha256": "1dd14b0612f2806855213478d9ccc2bb63afe3edc5d98f25d554b00379ad4310"
+        }
+      },
+      "expected": {
+        "ledgerly/__init__.py": {
+          "bytes": 119,
+          "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+        },
+        "ledgerly/extract.py": {
+          "bytes": 36766,
+          "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20"
+        },
+        "ledgerly/paypal.py": {
+          "bytes": 26449,
+          "sha256": "1dd14b0612f2806855213478d9ccc2bb63afe3edc5d98f25d554b00379ad4310"
+        }
+      }
+    },
+    {
+      "case": "shared",
+      "name": "server_thread_joined",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "case": "shared",
+      "name": "all_captured_resources_closed_after_cleanup",
+      "ok": true,
+      "actual": true,
+      "expected": true
+    }
+  ],
+  "requests": [
+    {
+      "case": "success_json",
+      "url": "http://127.0.0.1:45497/v1/oauth2/token",
+      "path": "/v1/oauth2/token",
+      "method": "POST",
+      "declared_timeout": 20,
+      "transport_timeout": 20,
+      "body_hex": "6772616e745f747970653d636c69656e745f63726564656e7469616c73",
+      "headers": {
+        "authorization": "Basic Zml4dHVyZS1jbGllbnQ6Zml4dHVyZS1zZWNyZXQ=",
+        "content-type": "application/x-www-form-urlencoded"
+      }
+    },
+    {
+      "case": "success_json",
+      "url": "http://127.0.0.1:45497/success",
+      "path": "/success",
+      "method": "POST",
+      "declared_timeout": 30,
+      "transport_timeout": 30,
+      "body_hex": "7b22696e766f696365223a20225c75386136365c7539613133222c20226e6573746564223a207b226974656d73223a205b312c20226361665c7530306539225d7d7d",
+      "headers": {
+        "authorization": "Bearer fixture-token",
+        "content-type": "application/json",
+        "paypal-request-id": "48dcacf9390d44c2a38311ab433b2420",
+        "x-receiver-case": "success"
+      }
+    },
+    {
+      "case": "success_empty",
+      "url": "http://127.0.0.1:45497/empty",
+      "path": "/empty",
+      "method": "GET",
+      "declared_timeout": 30,
+      "transport_timeout": 30,
+      "body_hex": "",
+      "headers": {
+        "authorization": "Bearer fixture-token",
+        "content-type": "application/json",
+        "paypal-request-id": "43527e454acc4aaab8fee56309653d08"
+      }
+    },
+    {
+      "case": "http_error_stall",
+      "url": "http://127.0.0.1:45497/stall",
+      "path": "/stall",
+      "method": "POST",
+      "declared_timeout": 30,
+      "transport_timeout": 0.2,
+      "body_hex": "7b2263617365223a20227374616c6c227d",
+      "headers": {
+        "authorization": "Bearer fixture-token",
+        "content-type": "application/json",
+        "paypal-request-id": "5f4511b3205546bf844fd62d8021b27b",
+        "x-receiver-case": "stall"
+      }
+    },
+    {
+      "case": "http_error_truncated",
+      "url": "http://127.0.0.1:45497/truncated",
+      "path": "/truncated",
+      "method": "GET",
+      "declared_timeout": 30,
+      "transport_timeout": 30,
+      "body_hex": "",
+      "headers": {
+        "authorization": "Bearer fixture-token",
+        "content-type": "application/json",
+        "paypal-request-id": "89c2783e13144f8d824e290e551eff95"
+      }
+    },
+    {
+      "case": "translated_error",
+      "url": "http://127.0.0.1:45497/translated",
+      "path": "/translated",
+      "method": "POST",
+      "declared_timeout": 30,
+      "transport_timeout": 30,
+      "body_hex": "7b226c6162656c223a20225c75386163625c7536633432227d",
+      "headers": {
+        "authorization": "Bearer fixture-token",
+        "content-type": "application/json",
+        "paypal-request-id": "87e00c1fe9c943c18a3eaa4f19957f23",
+        "x-receiver-case": "translated"
+      }
+    }
+  ],
+  "server_requests": [
+    {
+      "path": "/v1/oauth2/token",
+      "method": "POST",
+      "body_hex": "6772616e745f747970653d636c69656e745f63726564656e7469616c73"
+    },
+    {
+      "path": "/success",
+      "method": "POST",
+      "body_hex": "7b22696e766f696365223a20225c75386136365c7539613133222c20226e6573746564223a207b226974656d73223a205b312c20226361665c7530306539225d7d7d"
+    },
+    {
+      "path": "/empty",
+      "method": "GET",
+      "body_hex": ""
+    },
+    {
+      "path": "/stall",
+      "method": "POST",
+      "body_hex": "7b2263617365223a20227374616c6c227d"
+    },
+    {
+      "path": "/truncated",
+      "method": "GET",
+      "body_hex": ""
+    },
+    {
+      "path": "/translated",
+      "method": "POST",
+      "body_hex": "7b226c6162656c223a20225c75386163625c7536633432227d"
+    }
+  ],
+  "case_passes": 6,
+  "case_count": 6,
+  "check_passes": 93,
+  "check_count": 93,
+  "fatal_error": null,
+  "accepted": true,
+  "limitations": [
+    "Actual local IPv4 HTTP only, fake fixture credentials and token.",
+    "The fixture's transport timeout is 0.20s only for the stalled path; product requested 30.",
+    "No PayPal service, provider request, dependency installation, deployed receiving, or maintained-suite execution.",
+    "Resource observations precede explicit fixture cleanup; underlying response objects were captured before product handling."
+  ],
+  "cleanup": {
+    "server_thread_joined": true,
+    "all_captured_resources_closed": true,
+    "urlopen_restored": true,
+    "source_unchanged": true
+  }
+}

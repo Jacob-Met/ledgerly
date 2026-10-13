@@ -1,0 +1,80 @@
+FFFFFFFFF...                                                             [100%]
+=================================== FAILURES ===================================
+_________________ test_error_read_timeout_closes_real_response _________________
+../author-tests/test_http_paypal_error_response.py:110: in test_error_read_timeout_closes_real_response
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 503: 'Service Unavailable'>.closed
+_______________ test_error_translation_closes_real_response[401] _______________
+../author-tests/test_http_paypal_error_response.py:128: in test_error_translation_closes_real_response
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 401: 'Unauthorized'>.closed
+_______________ test_error_translation_closes_real_response[429] _______________
+../author-tests/test_http_paypal_error_response.py:128: in test_error_translation_closes_real_response
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 429: 'Too Many Requests'>.closed
+_______________ test_error_translation_closes_real_response[503] _______________
+../author-tests/test_http_paypal_error_response.py:128: in test_error_translation_closes_real_response
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 503: 'Service Unavailable'>.closed
+_ test_error_parse_failure_closes_real_response[{"-JSONDecodeError-Unterminated string] _
+../author-tests/test_http_paypal_error_response.py:141: in test_error_parse_failure_closes_real_response
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 503: 'Service Unavailable'>.closed
+_ test_error_parse_failure_closes_real_response[[]-AttributeError-'list' object has no attribute 'get'] _
+../author-tests/test_http_paypal_error_response.py:141: in test_error_parse_failure_closes_real_response
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 503: 'Service Unavailable'>.closed
+_________________ test_error_empty_body_preserves_translation __________________
+../author-tests/test_http_paypal_error_response.py:152: in test_error_empty_body_preserves_translation
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 503: 'Service Unavailable'>.closed
+_____________ test_error_incomplete_body_keeps_original_exception ______________
+../author-tests/test_http_paypal_error_response.py:164: in test_error_incomplete_body_keeps_original_exception
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 503: 'Service Unavailable'>.closed
+______________ test_error_interrupted_read_closes_unread_response ______________
+../author-tests/test_http_paypal_error_response.py:175: in test_error_interrupted_read_closes_unread_response
+    assert_closed(state)
+../author-tests/test_http_paypal_error_response.py:98: in assert_closed
+    assert wrapper.closed
+E   AssertionError: assert False
+E    +  where False = <HTTPError 503: 'Service Unavailable'>.closed
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[200-{"id":"fixture-id","description":"\xe3\x83\x86\xe3\x82\xb9\xe3\x83\x88"}-expected0]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[204--None]
+PASSED ../author-tests/test_http_paypal_error_response.py::test_constructor_still_requires_explicit_network_opt_in
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_read_timeout_closes_real_response
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[401]
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[429]
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[503]
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[{"-JSONDecodeError-Unterminated string]
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[[]-AttributeError-'list' object has no attribute 'get']
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_empty_body_preserves_translation
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_incomplete_body_keeps_original_exception
+FAILED ../author-tests/test_http_paypal_error_response.py::test_error_interrupted_read_closes_unread_response
+9 failed, 3 passed in 0.36s

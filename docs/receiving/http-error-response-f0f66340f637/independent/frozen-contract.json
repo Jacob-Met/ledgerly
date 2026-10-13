@@ -1,0 +1,48 @@
+{
+  "schema": "hamon.independent-http-receiving-contract.v1",
+  "actor": "/root/runtime_integration",
+  "identity": "f0f66340f637",
+  "product": "Jacob-Met/ledgerly HttpPayPalClient._call",
+  "original_source": "/dev/shm/hamon-source-delivery-f0f66340f637/ledgerly-http-error/original",
+  "original_paypal_sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+  "frozen_before_candidate_or_author_tests": true,
+  "scope": "One original and one subsequently disclosed exact candidate run, stdlib actual IPv4 loopback transport only. No PayPal requests, installation, provider settings, native host action, or repository mutation.",
+  "cases": [
+    {
+      "id": "network_guard",
+      "expect": "Without LEDGERLY_ALLOW_NETWORK=1, construction raises the existing exact RuntimeError before any transport invocation."
+    },
+    {
+      "id": "success_json",
+      "expect": "OAuth form/Basic authentication remains exact and declares timeout 20. A POST with nested Unicode JSON and extra headers returns Response(201, exact parsed JSON); API declares timeout 30; success response is closed."
+    },
+    {
+      "id": "success_empty",
+      "expect": "A subsequent empty 204 returns Response(204, None), closes response, reuses cached token, and preserves the unique request ID."
+    },
+    {
+      "id": "http_error_stall",
+      "expect": "A real 503 response whose advertised body never completes produces the original TimeoutError; HTTPError wrapper, HTTPResponse, and captured socket-backed file are closed before escape. Only the fixture's actual transport timeout is shortened to 0.20s, while the product's requested timeout remains recorded as 30."
+    },
+    {
+      "id": "http_error_truncated",
+      "expect": "A real 503 response that closes after a short body produces http.client.IncompleteRead with exact partial and missing-byte count; HTTPError wrapper, response and captured file are closed before escape."
+    },
+    {
+      "id": "translated_error",
+      "expect": "A real 422 Unicode JSON body preserves PayPalError type, status, name/message, first detail, formatted message, debug ID shape, HTTPError exception context, request data and timeout. HTTPError and its resources are already closed at PayPalError construction and after escape."
+    }
+  ],
+  "shared_checks": [
+    "One auth request across the five actual API calls, expected local paths/methods/body/headers, no requests outside the exact bound loopback origin.",
+    "Each captured API request ID is a distinct 32-character lowercase hexadecimal value.",
+    "Capture resources before product handling, observe closed states before fixture cleanup, then close retained resources and release/join all owned server work.",
+    "Capture original and candidate source/supporting hashes before and after. Supporting files must match original. No bytecode or product file writes.",
+    "Record actual outcomes and assertion failures without inferring cause, expanding cases, changing expectations, or rerunning a completed course."
+  ],
+  "limitations": [
+    "Transport timeout shortening is an explicit local fixture seam, not a change to product source or its requested timeout.",
+    "Synthetic local transport only; no PayPal authentication or service acceptance.",
+    "No maintained-suite or deployed-version acceptance."
+  ]
+}
