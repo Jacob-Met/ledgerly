@@ -8,6 +8,12 @@ reminders also need approval.
 
 Entry for the PayPal AI Hackathon. License: MIT (see `LICENSE`).
 
+## Browser demo
+
+A live, fully-offline demo runs the repo's actual Python modules in the browser (Pyodide):
+<https://jacobmetoyer.com/ledgerly/> — paste a fictional fixture, approve or reject the
+gated sends, and replay webhook events. See [web-demo/README.md](web-demo/README.md).
+
 ## Setup
 
 You need Python 3.12+. The core uses only the standard library, and the tests need pytest.
