@@ -59,6 +59,24 @@ job email ──► extract.py ──────────► agent.py ──
   `parse_webhook_event()` handles `INVOICING.INVOICE.*` events, including `PAID`. The
   comments in the module list the doc URLs this was based on.
 
+## Interrupted draft creation
+
+A job with several currencies creates separate drafts. If an invoice-number request,
+draft preparation, create request, or create receipt fails, Ledgerly stops and returns
+the confirmed invoice and approval IDs together with the failed currency, allocated
+number when known, and currencies it has not attempted. The ordinary tool-loop summary
+also names the retained drafts.
+
+A failed create request or unusable receipt has an **UNKNOWN** creation outcome: a
+remote draft may already exist. Inspect provider drafts before repeating the whole job,
+because a new invocation can create duplicates. Ledgerly does not automatically retry,
+resume, roll back, delete, or reconcile drafts. Each confirmed draft still needs its
+separate approval before sending. This result describes the current call; it is not
+durable storage or cross-call idempotency.
+
+Offline failure and recovery evidence is retained in
+[`docs/receiving/draft-creation-outcomes-06e2ad0ce13f`](docs/receiving/draft-creation-outcomes-06e2ad0ce13f).
+
 ## Invoice-send review freshness
 
 Approving a queued invoice first reads the current provider draft. Changed recipients,

@@ -1,0 +1,837 @@
+{
+  "source_sha256": {
+    "ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+    "ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "input": "From: Alex Client <alex@example.test>\n\nEditing — EUR 120\nDesign — GBP 80\nConsultation — USD 60\nNet 14\n",
+  "cases": [
+    {
+      "failure": "none",
+      "first_result": {
+        "final": "create_invoice -> 3 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0001-64EE is DRAFT; get_status -> INV2-MOCK-0002-272F is DRAFT; get_status -> INV2-MOCK-0003-17FB is DRAFT",
+        "first_tool": {
+          "ok": true,
+          "invoices": [
+            {
+              "invoice_id": "INV2-MOCK-0001-64EE",
+              "invoice_number": "LDG-0001",
+              "currency": "EUR",
+              "total": "120",
+              "approval_id": "apv_b1b1dfdd77"
+            },
+            {
+              "invoice_id": "INV2-MOCK-0002-272F",
+              "invoice_number": "LDG-0002",
+              "currency": "GBP",
+              "total": "80",
+              "approval_id": "apv_f8abc096c7"
+            },
+            {
+              "invoice_id": "INV2-MOCK-0003-17FB",
+              "invoice_number": "LDG-0003",
+              "currency": "USD",
+              "total": "60",
+              "approval_id": "apv_80d67ab8db"
+            }
+          ],
+          "confidence": 0.9,
+          "issues": [
+            {
+              "field": "currency",
+              "severity": "warning",
+              "message": "Multiple currencies ['EUR', 'GBP', 'USD']; a PayPal invoice has one currency_code, so this will be split into 3 invoices."
+            }
+          ],
+          "message": "3 draft(s) created; awaiting approval to send"
+        },
+        "pending_count": 3
+      },
+      "first_provider_drafts": [
+        {
+          "id": "INV2-MOCK-0001-64EE",
+          "currency": "EUR",
+          "invoice_number": "LDG-0001"
+        },
+        {
+          "id": "INV2-MOCK-0002-272F",
+          "currency": "GBP",
+          "invoice_number": "LDG-0002"
+        },
+        {
+          "id": "INV2-MOCK-0003-17FB",
+          "currency": "USD",
+          "invoice_number": "LDG-0003"
+        }
+      ],
+      "first_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-64EE",
+          "invoice_number": "LDG-0001",
+          "client_name": "Alex Client",
+          "client_email": "alex@example.test",
+          "currency": "EUR",
+          "total": "120",
+          "paid_amount": "0",
+          "balance": "120",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": "2026-10-22",
+          "reminders_sent": 0
+        },
+        {
+          "invoice_id": "INV2-MOCK-0002-272F",
+          "invoice_number": "LDG-0002",
+          "client_name": "Alex Client",
+          "client_email": "alex@example.test",
+          "currency": "GBP",
+          "total": "80",
+          "paid_amount": "0",
+          "balance": "80",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": "2026-10-22",
+          "reminders_sent": 0
+        },
+        {
+          "invoice_id": "INV2-MOCK-0003-17FB",
+          "invoice_number": "LDG-0003",
+          "client_name": "Alex Client",
+          "client_email": "alex@example.test",
+          "currency": "USD",
+          "total": "60",
+          "paid_amount": "0",
+          "balance": "60",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": "2026-10-22",
+          "reminders_sent": 0
+        }
+      ],
+      "first_pending": [
+        {
+          "id": "apv_b1b1dfdd77",
+          "invoice_id": "INV2-MOCK-0001-64EE",
+          "status": "PENDING"
+        },
+        {
+          "id": "apv_f8abc096c7",
+          "invoice_id": "INV2-MOCK-0002-272F",
+          "status": "PENDING"
+        },
+        {
+          "id": "apv_80d67ab8db",
+          "invoice_id": "INV2-MOCK-0003-17FB",
+          "status": "PENDING"
+        }
+      ],
+      "first_requests": [
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "EUR",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Editing",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "EUR",
+                  "value": "120.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0002",
+              "invoice_date": "2026-10-08",
+              "currency_code": "GBP",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Design",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "GBP",
+                  "value": "80.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0003",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Consultation",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "60.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "GET",
+          "/v2/invoicing/invoices/INV2-MOCK-0001-64EE",
+          null
+        ],
+        [
+          "GET",
+          "/v2/invoicing/invoices/INV2-MOCK-0002-272F",
+          null
+        ],
+        [
+          "GET",
+          "/v2/invoicing/invoices/INV2-MOCK-0003-17FB",
+          null
+        ]
+      ]
+    },
+    {
+      "failure": "refusal",
+      "first_result": {
+        "final": "create_invoice -> PayPalError: 503 SERVICE_UNAVAILABLE: Synthetic second draft refusal",
+        "first_tool": {
+          "ok": false,
+          "message": "PayPalError: 503 SERVICE_UNAVAILABLE: Synthetic second draft refusal"
+        },
+        "pending_count": 1
+      },
+      "first_provider_drafts": [
+        {
+          "id": "INV2-MOCK-0001-9AA7",
+          "currency": "EUR",
+          "invoice_number": "LDG-0001"
+        }
+      ],
+      "first_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-9AA7",
+          "invoice_number": "LDG-0001",
+          "client_name": "Alex Client",
+          "client_email": "alex@example.test",
+          "currency": "EUR",
+          "total": "120",
+          "paid_amount": "0",
+          "balance": "120",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": null,
+          "reminders_sent": 0
+        }
+      ],
+      "first_pending": [
+        {
+          "id": "apv_8a11cd8fc0",
+          "invoice_id": "INV2-MOCK-0001-9AA7",
+          "status": "PENDING"
+        }
+      ],
+      "first_requests": [
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "EUR",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Editing",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "EUR",
+                  "value": "120.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0002",
+              "invoice_date": "2026-10-08",
+              "currency_code": "EUR",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Editing",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "EUR",
+                  "value": "120.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0003",
+              "invoice_date": "2026-10-08",
+              "currency_code": "GBP",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Design",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "GBP",
+                  "value": "80.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0004",
+              "invoice_date": "2026-10-08",
+              "currency_code": "USD",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Consultation",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "USD",
+                  "value": "60.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "GET",
+          "/v2/invoicing/invoices/INV2-MOCK-0002-9C14",
+          null
+        ],
+        [
+          "GET",
+          "/v2/invoicing/invoices/INV2-MOCK-0003-01DB",
+          null
+        ],
+        [
+          "GET",
+          "/v2/invoicing/invoices/INV2-MOCK-0004-32FE",
+          null
+        ]
+      ],
+      "retried_result": {
+        "final": "create_invoice -> 3 draft(s) created; awaiting approval to send; get_status -> INV2-MOCK-0002-9C14 is DRAFT; get_status -> INV2-MOCK-0003-01DB is DRAFT; get_status -> INV2-MOCK-0004-32FE is DRAFT",
+        "first_tool": {
+          "ok": true,
+          "invoices": [
+            {
+              "invoice_id": "INV2-MOCK-0002-9C14",
+              "invoice_number": "LDG-0002",
+              "currency": "EUR",
+              "total": "120",
+              "approval_id": "apv_f1c70e181e"
+            },
+            {
+              "invoice_id": "INV2-MOCK-0003-01DB",
+              "invoice_number": "LDG-0003",
+              "currency": "GBP",
+              "total": "80",
+              "approval_id": "apv_e12f1104ae"
+            },
+            {
+              "invoice_id": "INV2-MOCK-0004-32FE",
+              "invoice_number": "LDG-0004",
+              "currency": "USD",
+              "total": "60",
+              "approval_id": "apv_d514f17891"
+            }
+          ],
+          "confidence": 0.9,
+          "issues": [
+            {
+              "field": "currency",
+              "severity": "warning",
+              "message": "Multiple currencies ['EUR', 'GBP', 'USD']; a PayPal invoice has one currency_code, so this will be split into 3 invoices."
+            }
+          ],
+          "message": "3 draft(s) created; awaiting approval to send"
+        }
+      },
+      "provider_drafts_after_retry": [
+        {
+          "id": "INV2-MOCK-0001-9AA7",
+          "currency": "EUR",
+          "invoice_number": "LDG-0001"
+        },
+        {
+          "id": "INV2-MOCK-0002-9C14",
+          "currency": "EUR",
+          "invoice_number": "LDG-0002"
+        },
+        {
+          "id": "INV2-MOCK-0003-01DB",
+          "currency": "GBP",
+          "invoice_number": "LDG-0003"
+        },
+        {
+          "id": "INV2-MOCK-0004-32FE",
+          "currency": "USD",
+          "invoice_number": "LDG-0004"
+        }
+      ]
+    },
+    {
+      "failure": "lost_response",
+      "exception": {
+        "type": "TimeoutError",
+        "message": "Synthetic lost response after second draft exists"
+      },
+      "first_provider_drafts": [
+        {
+          "id": "INV2-MOCK-0001-F7E4",
+          "currency": "EUR",
+          "invoice_number": "LDG-0001"
+        },
+        {
+          "id": "INV2-MOCK-0002-1D73",
+          "currency": "GBP",
+          "invoice_number": "LDG-0002"
+        }
+      ],
+      "first_ledger": [
+        {
+          "invoice_id": "INV2-MOCK-0001-F7E4",
+          "invoice_number": "LDG-0001",
+          "client_name": "Alex Client",
+          "client_email": "alex@example.test",
+          "currency": "EUR",
+          "total": "120",
+          "paid_amount": "0",
+          "balance": "120",
+          "status": "DRAFT",
+          "sent_on": null,
+          "due_on": null,
+          "reminders_sent": 0
+        }
+      ],
+      "first_pending": [
+        {
+          "id": "apv_04dca8a65d",
+          "invoice_id": "INV2-MOCK-0001-F7E4",
+          "status": "PENDING"
+        }
+      ],
+      "first_requests": [
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0001",
+              "invoice_date": "2026-10-08",
+              "currency_code": "EUR",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Editing",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "EUR",
+                  "value": "120.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ],
+        [
+          "POST",
+          "/v2/invoicing/generate-next-invoice-number",
+          null
+        ],
+        [
+          "POST",
+          "/v2/invoicing/invoices",
+          {
+            "detail": {
+              "invoice_number": "LDG-0002",
+              "invoice_date": "2026-10-08",
+              "currency_code": "GBP",
+              "note": "Thank you for your business.",
+              "payment_term": {
+                "term_type": "DUE_ON_DATE_SPECIFIED",
+                "due_date": "2026-10-22"
+              }
+            },
+            "invoicer": {
+              "name": {
+                "given_name": "Test",
+                "surname": "Freelancer"
+              },
+              "email_address": "freelancer@example.test"
+            },
+            "primary_recipients": [
+              {
+                "billing_info": {
+                  "name": {
+                    "given_name": "Alex",
+                    "surname": "Client"
+                  },
+                  "email_address": "alex@example.test"
+                }
+              }
+            ],
+            "items": [
+              {
+                "name": "Design",
+                "quantity": "1",
+                "unit_amount": {
+                  "currency_code": "GBP",
+                  "value": "80.00"
+                },
+                "unit_of_measure": "QUANTITY"
+              }
+            ],
+            "configuration": {
+              "partial_payment": {
+                "allow_partial_payment": false
+              },
+              "allow_tip": false,
+              "tax_calculated_after_discount": true,
+              "tax_inclusive": false
+            }
+          }
+        ]
+      ]
+    }
+  ]
+}
