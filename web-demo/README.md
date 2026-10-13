@@ -18,6 +18,19 @@ Review requires explicit quantities, positive prices, supported currencies, whol
 
 No model, HTTP PayPal client, provider key, backend, analytics or localStorage is used. Pyodide and the staged Python modules load from this repo's Pages site. Email text and the working ledger stay in tab memory and disappear on reset/close. An explicitly downloaded CSV is a separate local file. The sandbox's HMAC is a test signature, not PayPal's production certificate verification; invoice actions are clearly labelled simulations. The confidence score is a heuristic, not a calibrated probability. Do not paste confidential client material.
 
+## Recover the browser engine
+
+Use **Retry loading engine** to retry a failed runtime load. If the Python worker becomes
+unavailable, **Restart empty sandbox** creates a new empty ledger while keeping
+the source email and typed correction fields in the open page. Existing invoices
+are not recovered, and no previous action is replayed automatically.
+
+After a restart, confirm the review again and choose **Check corrected fields
+with Python** before drafting from retained corrections. Sending still requires
+its separate approval. See [engine recovery](docs/engine-recovery.md) for the
+steps, retained-state limits and original qualification record. Closing or
+reloading the page discards its in-memory workflow.
+
 ## Give a reason when rejecting a queued action
 
 Each pending send or reminder has **Reason for rejecting (optional)**. You can
