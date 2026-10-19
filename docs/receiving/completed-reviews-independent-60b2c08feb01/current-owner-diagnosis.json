@@ -1,0 +1,96 @@
+{
+  "current_ci_addition": "LEDGERLY_HISTORY_EMIT_BUNDLE: '1'",
+  "current_qualification": {
+    "browser_step": "Receive completed reviews in installed Chrome",
+    "checks": 29,
+    "chrome": "154.0.8037.97",
+    "conclusion": "success",
+    "distUnchanged": true,
+    "excerpt": "2026-10-08T15:54:23.3466906Z Google Chrome 154.0.8037.97 \n2026-10-08T15:54:39.9471316Z \u001b[36;1mnode tools/check_review_history_browser.mjs --source .. --dist dist --chrome \"$chrome_bin\" --output \"$RUNNER_TEMP/completed-reviews-receiving\"\u001b[0m\n2026-10-08T15:54:42.5107434Z PASS healthy actual empty Python session\n2026-10-08T15:54:42.8423118Z PASS healthy pending stays out of history\n2026-10-08T15:54:42.9819752Z PASS retained original approved\n2026-10-08T15:54:43.0924099Z PASS keyboard disclosure and result selection are read only\n2026-10-08T15:54:43.2652502Z PASS outer disclosure and focus survive immediate snapshot\n2026-10-08T15:54:43.4848760Z PASS nested disclosure and focus survive immediate snapshot\n2026-10-08T15:54:43.5213104Z PASS existing invoice details remain independently usable\n2026-10-08T15:54:43.9625180Z PASS retained original rejected\n2026-10-08T15:54:43.9777745Z PASS reviewed literal fields and rejection reason stay exact\n2026-10-08T15:54:44.2120377Z PASS retained original rejected\n2026-10-08T15:54:44.2339991Z PASS automatic rejection retains its original message and actual reason\n2026-10-08T15:54:44.4531419Z PASS retained original approved\n2026-10-08T15:54:44.4647206Z PASS explicit reminder approval retains its separate identity\n2026-10-08T15:54:44.6892851Z PASS phone history has no horizontal overflow or Worker effect\n2026-10-08T15:54:44.7109534Z PASS authored unavailable event labels retained history without replay\n2026-10-08T15:54:46.4662138Z PASS explicit restart opens empty history and retains source email\n2026-10-08T15:54:46.8017671Z PASS fresh session retains its own completed review\n2026-10-08T15:54:46.9155056Z PASS explicit confirmed Reset clears history\n2026-10-08T15:54:49.4789427Z PASS lost-response actual empty Python session\n2026-10-08T15:54:49.8013347Z PASS lost-response pending stays out of history\n2026-10-08T15:54:49.8119831Z PASS real send then lost response reaches FAILED UNKNOWN\n2026-10-08T15:54:49.8166959Z PASS UNKNOWN label is visibly rendered while collapsed\n2026-10-08T15:54:49.8193184Z PASS retained original failed\n2026-10-08T15:54:49.8913743Z PASS reading FAILED history does not retry or change provider state\n2026-10-08T15:54:50.0019562Z PASS both browser contexts requested the exact staged Python modules\n2026-10-08T15:54:50.0024612Z PASS page and Worker requests remained on loopback\n2026-10-08T15:54:50.0029624Z PASS no uncaught page or Worker exceptions\n2026-10-08T15:54:50.0034140Z PASS exactly one labeled fault bridge served\n2026-10-08T15:54:50.0040397Z PASS both owned browsers exited and profiles were removed\n2026-10-08T15:54:53.0029111Z {\"ok\":true,\"checks\":29,\"sourceUnchanged\":true,\"distUnchanged\":true,\"output\":\"/home/runner/work/_temp/completed-reviews-receiving\"}",
+    "head": "7c5b96af1a43e8408a150c733fc00042d98ec490",
+    "job": 113405133292,
+    "other_workflow": {
+      "conclusion": "success",
+      "name": "invoice-record-browser",
+      "run": 37804505269
+    },
+    "run": 37804505265,
+    "sourceUnchanged": true,
+    "status": "completed"
+  },
+  "diagnosis": {
+    "fixture_followup": "The next owner commit preserves every unrelated pending approval instead of incorrectly requiring the pending list to be empty, and verifies bridge requests belong to the recorded dedicated-worker session.",
+    "inference": "An unsupported Fetch domain on an auto-attached worker is strongly supported by the exact source change and successful current run on the same Chrome version. The failed log alone does not prove which session rejected it.",
+    "observed": "Failed source enabled Fetch on every auto-attached session after Runtime and Network. The owner now enables Runtime/Network and resumes only dedicated workers, retains page Fetch interception, records worker session IDs/requests and enforces same-origin worker CSP.",
+    "remaining": "No additional gate execution or broad CDP changes justified by this resolved failure. PR merge readiness and latest publication state remain root/owner responsibilities.",
+    "smallest_credible_repair": "The owner has already implemented the bounded session-specific domain setup. No competing source repair is required."
+  },
+  "exact_command": "node tools/check_review_history_browser.mjs --source .. --dist dist --chrome \"$chrome_bin\" --output \"$RUNNER_TEMP/completed-reviews-receiving\"",
+  "failed": {
+    "checks": 0,
+    "chrome": "154.0.8037.97",
+    "error": "'Fetch.enable' wasn't found",
+    "excerpt": [
+      "2026-10-08T15:27:46.1682862Z Google Chrome 154.0.8037.97 ",
+      "2026-10-08T15:28:24.2753985Z \u001b[36;1mnode tools/check_review_history_browser.mjs --source .. --dist dist --chrome \"$chrome_bin\" --output \"$RUNNER_TEMP/completed-reviews-receiving\"\u001b[0m",
+      "2026-10-08T15:28:25.8335208Z {\"ok\":false,\"checks\":0,\"sourceUnchanged\":true,\"distUnchanged\":true,\"error\":\"Error: 'Fetch.enable' wasn't found\",\"output\":\"/home/runner/work/_temp/completed-reviews-receiving\"}",
+      "2026-10-08T15:28:25.8416711Z ##[error]Process completed with exit code 1."
+    ],
+    "harness_blob": "25e9b4d54770ce78f08834f597291c81d5c31f49",
+    "head": "6cd400e1a0c4c9fd79016d57d5cf24d0b49f4906",
+    "job": 113392372682,
+    "run": 37800859512,
+    "target_identification": "The failing log does not identify the rejecting target/session.",
+    "workflow_blob": "0697b338b6752cf8b28fdd59c4d4e6418f15edd9"
+  },
+  "owner_repair": {
+    "application_paths_changed": [],
+    "commits": [
+      {
+        "date": "2026-10-08T15:41:44Z",
+        "message": "Receive history through supported Worker CDP and preserve exact browser evidence\n\nKeep all application inputs unchanged. Retain the first hosted compatibility failure, normal current-composition gates, and independent original/corrected disclosure evidence. Observe Worker networking under the served same-origin CSP, keep page interception, and emit bounded hash-indexed receiver receipts through normal CI logs.",
+        "parents": [
+          "6cd400e1a0c4c9fd79016d57d5cf24d0b49f4906"
+        ],
+        "sha": "b64ce4354f315d350475bc27eaa05765620a5f91"
+      },
+      {
+        "date": "2026-10-08T15:53:45Z",
+        "message": "Qualify reminder history while preserving unrelated pending approvals\n\nRetain the complete first actual browser journey and its honest failure. The multi-currency fixture leaves an unrelated USD send awaiting review, so assert exact preservation of every other pending action after explicit reminder approval. Correlate Worker bridge requests to the recorded dedicated-worker session. No application source changes.",
+        "parents": [
+          "b64ce4354f315d350475bc27eaa05765620a5f91"
+        ],
+        "sha": "7c5b96af1a43e8408a150c733fc00042d98ec490"
+      }
+    ],
+    "evidence_additions": 22,
+    "files_changed": 24,
+    "harness_blob": "82b1cce16f97c24090c9ca886912dd0678265617",
+    "head": "7c5b96af1a43e8408a150c733fc00042d98ec490",
+    "non_evidence_paths": [
+      ".github/workflows/ci.yml",
+      "web-demo/tools/check_review_history_browser.mjs"
+    ],
+    "workflow_blob": "4be0a88d67b4b4513197696eff9f8aaa679ed322"
+  },
+  "pr": 36,
+  "primary_log_sizes": {
+    "current": 1431787,
+    "failed": 547383
+  },
+  "primary_stores": [
+    "ledgerFetchDiagnosis_run",
+    "ledgerFetchDiagnosis_pr",
+    "ledgerFetchDiagnosis_compare",
+    "ledgerFetchDiagnosis_failed_ci",
+    "ledgerFetchDiagnosis_failed_harness",
+    "ledgerFetchDiagnosis_current_harness",
+    "ledgerFetchDiagnosis_current_runs",
+    "ledgerFetchDiagnosis_current_jobs",
+    "ledgerFetchDiagnosis_logText",
+    "ledgerFetchDiagnosis_current_logText"
+  ],
+  "repository": "Jacob-Met/ledgerly",
+  "schema": "ledgerly-pr36-hosted-cdp-diagnosis/1",
+  "scope": "Independent read-only diagnosis; no source edits, test/browser execution, claims, publication, or other GitHub writes."
+}

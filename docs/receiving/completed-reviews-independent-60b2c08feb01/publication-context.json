@@ -1,0 +1,54 @@
+{
+  "schema": "ledgerly.independent.receiving-publication-context.v1",
+  "receiver": "estate-60b2c08feb01",
+  "claim": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6062908656",
+  "productPullRequest": "https://github.com/Jacob-Met/ledgerly/pull/36",
+  "publicationParent": "7c5b96af1a43e8408a150c733fc00042d98ec490",
+  "publicationParentTree": "6377d26bad90efd212bcc3c0bd8c22a678e9c03f",
+  "scope": "Only the six files in this independent receiving directory are added. Every owner application, workflow, evidence and other source leaf is preserved.",
+  "historicalReceiving": {
+    "initial": "17cc8a7ae3eb10083a037f7881c25af0510f6399",
+    "successor": "6cd400e1a0c4c9fd79016d57d5cf24d0b49f4906",
+    "review": "independent-review.json",
+    "archive": "independent-native-evidence-6cd400e1.tar.gz",
+    "archiveSha256": "4ab14003f379e1ccfc706cd0cf76dfdb19d58f1c36a9e7dc1bb30bb980a50e25",
+    "clarification": "The unchanged README/review/archive describe the source and remaining hosted gate observed during receiving of6cd. Their recorded failure is historical. They do not assert that the current owner's gate still fails."
+  },
+  "subsequentOwnerQualification": {
+    "head": "7c5b96af1a43e8408a150c733fc00042d98ec490",
+    "receiverBlob": "82b1cce16f97c24090c9ca886912dd0678265617",
+    "changes": "The owner corrected worker CDP domain handling, then a fixture assertion concerning unrelated pending approvals and per-worker bridge observation. The6cd-to7c delta contains the maintained receiver, two workflow lines and22 evidence additions; no application paths changed.",
+    "primaryDiagnosis": "current-owner-diagnosis.json",
+    "verifyRun": {
+      "id": 37804505265,
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37804505265"
+    },
+    "browserJob": {
+      "id": 113405133292,
+      "conclusion": "success",
+      "completedReviewChecks": 29,
+      "sourceUnchanged": true,
+      "distUnchanged": true,
+      "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37804505265/job/113405133292"
+    },
+    "invoiceRecordRun": {
+      "id": 37804505269,
+      "conclusion": "success",
+      "url": "https://github.com/Jacob-Met/ledgerly/actions/runs/37804505269"
+    },
+    "distinction": "These are the owner's separately executed hosted results, independently read from GitHub. Our original product gates were not repeated or relabeled as execution of7c."
+  },
+  "preservedNegatives": [
+    "Expected missing-history baseline failure",
+    "Initial private executor loss and distinct evidence-recovery receipts",
+    "Fixed-scale decimal assertion failure and exact-numeric receiver correction",
+    "Static tree-reconstruction receiver correction",
+    "Original owner's6cd hosted Fetch.enable failure before any checks"
+  ],
+  "rootReadback": {
+    "archiveMembers": 83,
+    "reviewRawEvidencePathsMatched": true
+  },
+  "authority": "The original PR36 cohort retains product source, final qualification and canonical merge. This contribution targets their feature branch as an additive evidence handoff."
+}
