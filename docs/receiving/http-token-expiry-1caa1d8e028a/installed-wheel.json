@@ -1,0 +1,62 @@
+{
+  "schema": "ledgerly.http-token-expiry.installed-wheel.v1",
+  "wheel": {
+    "path": "ledgerly-0.1.0-py3-none-any.whl",
+    "bytes": 34254,
+    "sha256": "de7904f06e837834b11d55786027629370e5db1777440dc41bc0fc1729ac5a06",
+    "record_entries_verified": 10
+  },
+  "build_source_modules": [
+    {
+      "path": "ledgerly/__init__.py",
+      "bytes": 119,
+      "sha256": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a"
+    },
+    {
+      "path": "ledgerly/agent.py",
+      "bytes": 39041,
+      "sha256": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+    },
+    {
+      "path": "ledgerly/demo.py",
+      "bytes": 3169,
+      "sha256": "6c4106f9a2fdc5ab4555a5efa1b95c61b2da2cee5c864661f7063540af572a1f"
+    },
+    {
+      "path": "ledgerly/extract.py",
+      "bytes": 36766,
+      "sha256": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20"
+    },
+    {
+      "path": "ledgerly/paypal.py",
+      "bytes": 27725,
+      "sha256": "e519d1e1d63f2534b9e9d5574b779a6b7d42ee2e5f18b54b70fa8737522cd451"
+    }
+  ],
+  "all_five_installed_module_hashes_match": true,
+  "install_command": [
+    "/dev/shm/hamon-source-delivery-f0f66340f637/venv/bin/python",
+    "-B",
+    "-m",
+    "pip",
+    "--python",
+    "/dev/shm/hamon-1caa-ledgerly-auth/installed-env/bin/python",
+    "install",
+    "--no-index",
+    "--no-deps",
+    "/dev/shm/hamon-1caa-ledgerly-auth/wheel/ledgerly-0.1.0-py3-none-any.whl"
+  ],
+  "install_exit_code": 0,
+  "consumer_command": [
+    "/dev/shm/hamon-1caa-ledgerly-auth/installed-env/bin/python",
+    "-I",
+    "-B",
+    "/dev/shm/hamon-1caa-ledgerly-auth/probe_token_expiry.py",
+    "/dev/shm/hamon-1caa-ledgerly-auth/installed-env/lib/python3.12/site-packages",
+    "/dev/shm/hamon-1caa-ledgerly-auth/installed-consumer-receipt.json"
+  ],
+  "consumer_cwd": "/dev/shm/hamon-1caa-ledgerly-auth",
+  "consumer_exit_code": 0,
+  "consumer_receipt_sha256": "adf469e600c5e8b2fb53b5b8742778aa615aa102e5200606379994ae4d1015a6",
+  "qualification": "Cloud Linux CPython 3.12.14; isolated regular wheel, outside checkout, in-memory transport. No real provider/account/native/browser qualification."
+}

@@ -1,0 +1,9 @@
+Processing ./candidate
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: ledgerly
+  Building wheel for ledgerly (pyproject.toml): started
+  Building wheel for ledgerly (pyproject.toml): finished with status 'done'
+  Created wheel for ledgerly: filename=ledgerly-0.1.0-py3-none-any.whl size=34254 sha256=de7904f06e837834b11d55786027629370e5db1777440dc41bc0fc1729ac5a06
+  Stored in directory: /dev/shm/hamon-1caa-ledgerly-auth/build-tmp/pip-ephem-wheel-cache-tnp9dl9s/wheels/bd/5a/68/63a8856384b6e0cd1c819a9082c62f9a03679622538b835e6c
+Successfully built ledgerly

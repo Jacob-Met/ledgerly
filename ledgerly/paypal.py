@@ -472,17 +472,43 @@ class HttpPayPalClient:
             raise RuntimeError("Network disabled. Set LEDGERLY_ALLOW_NETWORK=1 to use the real sandbox.")
         self.base, self._cid, self._sec = base_url, client_id, client_secret
         self._token: Optional[str] = None
+        self._token_expires_at = 0.0
 
     def _auth(self) -> str:
+        import math
+        import time
         import urllib.request
-        if self._token:
+        started_at = time.monotonic()
+        if self._token and started_at < self._token_expires_at:
             return self._token
+        # A failed refresh must never restore an expired credential.
+        self._token = None
+        self._token_expires_at = 0.0
         req = urllib.request.Request(
             self.base + "/v1/oauth2/token", data=b"grant_type=client_credentials", method="POST",
             headers={"Authorization": "Basic " + base64.b64encode(f"{self._cid}:{self._sec}".encode()).decode(),
                      "Content-Type": "application/x-www-form-urlencoded"})
         with urllib.request.urlopen(req, timeout=20) as r:
-            self._token = json.load(r)["access_token"]
+            body = json.load(r)
+        if not isinstance(body, dict):
+            raise ValueError("OAuth response must be a JSON object.")
+        token = body.get("access_token")
+        if not isinstance(token, str) or not token or any(not 33 <= ord(c) <= 126 for c in token):
+            raise ValueError("OAuth access_token must be nonempty printable ASCII without spaces.")
+        lifetime = body.get("expires_in")
+        if type(lifetime) not in (int, float):
+            raise ValueError("OAuth expires_in must be a positive finite number of seconds.")
+        try:
+            lifetime = float(lifetime)
+        except OverflowError:
+            raise ValueError("OAuth expires_in must be a positive finite number of seconds.") from None
+        expires_at = started_at + lifetime
+        if not math.isfinite(lifetime) or lifetime <= 0 or not math.isfinite(expires_at):
+            raise ValueError("OAuth expires_in must be a positive finite number of seconds.")
+        # Count request/response time against validity rather than extending it.
+        if expires_at <= time.monotonic():
+            raise ValueError("OAuth access token expired before it could be used.")
+        self._token, self._token_expires_at = token, expires_at
         return self._token
 
     def _call(self, method: str, path: str, body: Any = None, extra: dict | None = None) -> Response:

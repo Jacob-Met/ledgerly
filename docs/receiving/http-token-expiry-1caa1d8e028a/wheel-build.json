@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/dev/shm/hamon-source-delivery-f0f66340f637/venv/bin/python",
+    "-B",
+    "-m",
+    "pip",
+    "wheel",
+    "--no-deps",
+    "--no-build-isolation",
+    "--no-index",
+    "--wheel-dir",
+    "/dev/shm/hamon-1caa-ledgerly-auth/wheel",
+    "/dev/shm/hamon-1caa-ledgerly-auth/candidate"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "253e4dbe7a2124e534c722cd4990a5bad26c9296b7d80555ee03446152a7fe61",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "setuptools": "84.0.0",
+  "wheel_backend": "0.48.0",
+  "network": "pip --no-index --no-deps --no-build-isolation; no dependency downloads"
+}
