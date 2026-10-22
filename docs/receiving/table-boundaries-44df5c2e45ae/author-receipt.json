@@ -1,0 +1,36 @@
+{
+  "schema": "hamon.external_contribution.v1",
+  "worker_id": "estate-44df5c2e45ae/native_production",
+  "identity_kind": "External source contributor; no resident lease",
+  "repository": "Jacob-Met/ledgerly",
+  "base_commit": "a4c7f05d511fb6e9ae4e357d78f696b464625ffc",
+  "base_tree": "d67d6d0479ea2fad0e4778365c6fcd06aa13edf6",
+  "issue": "https://github.com/Jacob-Met/ledgerly/issues/49",
+  "central_claim": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6067426812",
+  "advisory_journal": "https://app.notion.com/p/3f3aedcdf4a581518f79d34897ddac64",
+  "paths": [
+    "ledgerly/extract.py:RulesExtractor._table header/segment lifecycle only",
+    "tests/test_table_boundaries.py",
+    "docs/receiving/table-boundaries-44df5c2e45ae/"
+  ],
+  "adjacent_owner": "hamon-3dc74ef3b04d total-label classification under HAMON140 comment6067056409; regex and classification call sites unchanged",
+  "native_original": "/home/jacob/ledgerly-table-boundaries-44df5c2e45ae",
+  "native_execution": "/dev/shm/ledgerly-table-boundaries-44df5c2e45ae/source",
+  "capacity_limit": "Home free0 after original baseline; only exclusive source/evidence copied to RAM; no unrelated cleanup",
+  "original_focused": {
+    "failed": 13,
+    "passed": 4
+  },
+  "candidate_focused": {
+    "passed": 17,
+    "failed": 0
+  },
+  "candidate_full": {
+    "passed": 360,
+    "subtests_passed": 126,
+    "failed": 0
+  },
+  "native_coverage": "297 JSON coord records readable,17 unreadable; no native write/lease",
+  "provider_actions": "None; only local Python implementation and tests with SandboxMock",
+  "independent_receiving": "estate_coordination frozen literal contract422e623d6eee237f34dffaee1fe9007e0976298c3021d3950e77b1cbf874b063; candidate execution pending"
+}
