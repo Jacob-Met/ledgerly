@@ -1,0 +1,151 @@
+{
+  "schema": "hamon.independent-source-receiving-review.v1",
+  "actor": "/root/runtime_integration",
+  "identity": "f0f66340f637",
+  "repository": "https://github.com/Jacob-Met/ledgerly",
+  "reservation": "https://github.com/Jacob-Met/ledgerly/issues/77",
+  "decision": "ACCEPT exact candidate for source publication within this bounded synthetic HTTP contract; no service/deployment/financial acceptance",
+  "original": {
+    "bytes": 26243,
+    "sha256": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3"
+  },
+  "candidate": {
+    "bytes": 26449,
+    "sha256": "1dd14b0612f2806855213478d9ccc2bb63afe3edc5d98f25d554b00379ad4310",
+    "git_blob": "a1194a0b5577b10f5e81378c0ec222e8bea4d6a5"
+  },
+  "source_review": {
+    "functional_delta": "The existing json.loads(e.read() or b\"{}\") statement is enclosed in try/finally that calls e.close() before subsequent translation or before an error-body read/parse exception escapes.",
+    "docstring_delta": "Two module/class descriptions accurately distinguish synthetic loopback tests from unverified real sandbox behavior.",
+    "full_module_AST_equal_after_removing_docstrings_and_unwrapping_exact_added_cleanup": true,
+    "supporting_init_extract_byte_identical": true,
+    "preserved": "Guard/auth, request construction, timeout arguments, successful response handling, translated error details, and all other financial/client code remain unchanged."
+  },
+  "frozen_contract_before_candidate_exposure": true,
+  "receiving": {
+    "original": {
+      "cases_passed": 3,
+      "case_count": 6,
+      "checks_passed": 84,
+      "check_count": 93,
+      "failed_checks": [
+        {
+          "case": "http_error_stall",
+          "name": "before_cleanup.http_error_closed"
+        },
+        {
+          "case": "http_error_stall",
+          "name": "before_cleanup.http_response_closed"
+        },
+        {
+          "case": "http_error_stall",
+          "name": "before_cleanup.captured_socket_file_closed"
+        },
+        {
+          "case": "http_error_truncated",
+          "name": "before_cleanup.http_error_closed"
+        },
+        {
+          "case": "http_error_truncated",
+          "name": "before_cleanup.http_response_closed"
+        },
+        {
+          "case": "translated_error",
+          "name": "before_cleanup.http_error_closed"
+        },
+        {
+          "case": "translated_error",
+          "name": "before_cleanup.http_response_closed"
+        },
+        {
+          "case": "translated_error",
+          "name": "before_translation.http_error_closed"
+        },
+        {
+          "case": "translated_error",
+          "name": "before_translation.http_response_closed"
+        }
+      ]
+    },
+    "candidate": {
+      "cases_passed": 6,
+      "case_count": 6,
+      "checks_passed": 93,
+      "check_count": 93,
+      "accepted": true
+    },
+    "observed_exception_semantics_comparison": {
+      "http_error_stall": {
+        "exception_type_equal": true,
+        "exception_message_equal": true,
+        "same_HTTPError_context_control": true
+      },
+      "http_error_truncated": {
+        "exception_type_equal": true,
+        "exception_message_equal": true,
+        "same_HTTPError_context_control": true
+      },
+      "translated_error": {
+        "exception_type_equal": true,
+        "exception_message_equal": true,
+        "same_HTTPError_context_control": true
+      }
+    },
+    "source_unchanged_both_phases": true,
+    "cleanup_both_phases": {
+      "original": {
+        "server_thread_joined": true,
+        "all_captured_resources_closed": true,
+        "urlopen_restored": true,
+        "source_unchanged": true
+      },
+      "candidate": {
+        "server_thread_joined": true,
+        "all_captured_resources_closed": true,
+        "urlopen_restored": true,
+        "source_unchanged": true
+      }
+    },
+    "runs": "Each phase executed once; no author-test exposure or maintained-suite rerun."
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "executable": "/dev/shm/hamon-source-delivery-f0f66340f637/venv/bin/python",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "pid": 2
+  },
+  "limits": [
+    "Actual stdlib IPv4 loopback transport with fake fixture credentials; never a PayPal service request.",
+    "Wrapper captures real HTTPError/HTTPResponse/socket file before product handling; the 503 stall alone shortens actual transport timeout to 0.20s while recording the unchanged declared timeout 30.",
+    "Observed states precede fixture cleanup; underlying resources and server are closed afterward in both phases.",
+    "The receiver temporarily observes PayPalError construction while returning the exact original class instance.",
+    "Only the three product/support files were imported; candidate author tests and docs were not read.",
+    "No source write, dependency installation, deployed tool replacement, Pages/Actions execution, full-suite waiver, or provider/financial-state acceptance."
+  ],
+  "evidence": {
+    "frozen-contract.json": {
+      "bytes": 3338,
+      "sha256": "e6a43a9fbf8098bff6aec2364fe80d6cad88380ad649db4dc14abf48bb0a749a"
+    },
+    "receive_http.py": {
+      "bytes": 18934,
+      "sha256": "69a81967e754f8d357770e7a4a5a7bd385c6134fb4bd4344dfc408e0e23d999d"
+    },
+    "original-started.json": {
+      "bytes": 263,
+      "sha256": "ba4ca6bdf3c372f9ac8f4316cb444e76ed7b58fc5d63907a72d75d34483c0486"
+    },
+    "original-receipt.json": {
+      "bytes": 26926,
+      "sha256": "1c82b2db4f0f92d06eed06b4c1194174d9b0bbb98abb61f9a76d80b272eaa99f"
+    },
+    "candidate-started.json": {
+      "bytes": 265,
+      "sha256": "1ea4b6582e9e8c58f834d564966bbc27440bd02f355a4f6a87accc776a51938b"
+    },
+    "candidate-receipt.json": {
+      "bytes": 26898,
+      "sha256": "ac26fa4eb79d1163d44049f45ee63a559e199a847468d1d3cfa8dee3bb496d83"
+    }
+  }
+}

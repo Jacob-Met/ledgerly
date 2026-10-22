@@ -1,7 +1,8 @@
 """PayPal Invoicing v2 client interface + an offline `SandboxMock`.
 
 Nothing in this module talks to the network unless you construct `HttpPayPalClient`
-yourself AND set LEDGERLY_ALLOW_NETWORK=1. Tests and the demo only use `SandboxMock`.
+yourself AND set LEDGERLY_ALLOW_NETWORK=1. Tests use `SandboxMock` and synthetic
+loopback HTTP fixtures; the demo only uses `SandboxMock`.
 
 Shapes below were written from the PayPal developer docs (field names, enums, status
 codes). Where I was not certain of an exact detail it is marked "ASSUMPTION" - verify
@@ -460,7 +461,10 @@ def parse_webhook_event(event: dict | str | bytes) -> InvoiceEvent:
 # --------------------------------------------------------------- live client (unused offline)
 
 class HttpPayPalClient:
-    """Thin urllib client for the real sandbox. NOT exercised by tests.
+    """Thin urllib client for the real sandbox.
+
+    Tests exercise synthetic loopback HTTP responses only; real sandbox behavior
+    has not been verified.
 
     Refuses to run unless LEDGERLY_ALLOW_NETWORK=1, so a stray import can never hit PayPal.
     Credentials come from the caller (env PAYPAL_CLIENT_ID / PAYPAL_CLIENT_SECRET) - never
@@ -497,7 +501,10 @@ class HttpPayPalClient:
                 raw = r.read()
                 return Response(r.status, json.loads(raw) if raw else None)
         except urllib.error.HTTPError as e:
-            b = json.loads(e.read() or b"{}")
+            try:
+                b = json.loads(e.read() or b"{}")
+            finally:
+                e.close()
             d = (b.get("details") or [{}])[0]
             raise PayPalError(e.code, b.get("name", "HTTP_ERROR"), b.get("message", str(e)), d.get("issue"), d.get("description", ""))
 

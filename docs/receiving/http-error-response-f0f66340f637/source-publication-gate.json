@@ -1,0 +1,66 @@
+{
+  "schema": "hamon.ledgerly.http-response-source-publication-gate.v1",
+  "actor": "f0f66340f637/source_delivery",
+  "observed_utc": "2026-10-13 00:57:12 UTC",
+  "repository": "Jacob-Met/ledgerly",
+  "coordination_issue": "https://github.com/Jacob-Met/ledgerly/issues/77",
+  "source_base_commit": "79c16c51e5766c5091ba5b5b06b23b24c3ffc1f0",
+  "source_base_tree": "1f2125102c19b3b89ae56ca7b6590a0fd7afb7fb",
+  "main_protected": false,
+  "required_status_contexts": [],
+  "rulesets": [],
+  "new_branch": "fix-http-error-response-f0f66340f637",
+  "branch_read_result": "404 Branch not found before source publication",
+  "open_pr_source_owner_check": "All eight current open PR complete file lists exclude ledgerly/paypal.py. Scoped issue77 has only this lane's receiving comment.",
+  "owner_limits": "Existing issue/PR owners and held source are preserved. No other product path changes.",
+  "workflow_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "git_blob": "3bb98f82eac6a3c14711fe37b415ef1a7d928191",
+      "full_body_read": true
+    },
+    {
+      "path": ".github/workflows/invoice-record-browser.yml",
+      "git_blob": "f51c35982a596376860df109f0a37f2e49fd3eb1",
+      "full_body_read": true
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "git_blob": "1358a678c8d190c684a7f8f66ec26be07caeb1bd",
+      "full_body_read": true
+    },
+    {
+      "path": ".github/workflows/receivables-browser.yml",
+      "git_blob": "46f03bcc9511761edb423b78162d37912c868269",
+      "full_body_read": true
+    }
+  ],
+  "declared_events": [
+    "push (main only)",
+    "pull_request",
+    "workflow_dispatch (pages.yml only)"
+  ],
+  "declared_unsupported_skip_events_present": false,
+  "no_issue_or_comment_or_pull_request_target_or_page_build_event": true,
+  "required_source_and_pr_message_markers": [
+    "[skip ci]",
+    "[skip actions]"
+  ],
+  "repository_has_pages": true,
+  "current_pages_publishing_mode": "Not exposed by the connected tool; no Pages administration endpoint was probed.",
+  "source_branch_safety": "This unique absent branch cannot be an already-selected Pages source. Source push excludes main-only workflows; PR-head skip markers suppress declared pull_request workflows.",
+  "main_merge_disposition": "Held until current Pages publishing-mode / implicit-trigger safety is established and ordinary owner/head/review gates remain satisfied. No source publication implies a merge.",
+  "no_workflow_or_pages_or_native_execution_requested": true,
+  "primary_docs": [
+    "https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs",
+    "https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site"
+  ],
+  "docs_boundary": "Commit markers suppress push and pull_request events; they do not generally suppress other events. A branch must already exist before it can be selected as the Pages publishing source.",
+  "receiving_steps": [
+    "Receive exact source/test and independent receipts.",
+    "Before a main merge, read current Pages publishing mode through an authorized available capability and establish that no implicit Pages event would run.",
+    "Refresh current main, PR head, complete workflow/owner/rule gates without altering settings or dispatching workflows.",
+    "If allowed, merge only the reviewed head with [skip ci] [skip actions] in the actual merge title/message.",
+    "Read back exact merge source/tree/parents and Actions run counts; keep deployment and real-provider qualification separate."
+  ]
+}

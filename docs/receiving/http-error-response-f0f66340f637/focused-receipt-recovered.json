@@ -1,0 +1,68 @@
+{
+  "source_commit": "79c16c51e5766c5091ba5b5b06b23b24c3ffc1f0",
+  "all_seven_source_test_files_unchanged": true,
+  "inputs": {
+    "author-tests/test_http_paypal_error_response.py": "5071233b7174df4c0a70835fa92bd7f180d0513b9a667b861c9c2371dbacd935",
+    "original/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "original/ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "original/ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+    "candidate/ledgerly/__init__.py": "a8233412d496773ed05f664cad4d88a0e1642c804e33e019daf6487e11b5b32a",
+    "candidate/ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "candidate/ledgerly/paypal.py": "1dd14b0612f2806855213478d9ccc2bb63afe3edc5d98f25d554b00379ad4310"
+  },
+  "runs": [
+    {
+      "label": "original",
+      "command": [
+        "/dev/shm/hamon-source-delivery-f0f66340f637/venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-rA",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "/dev/shm/hamon-source-delivery-f0f66340f637/ledgerly-http-error/author-tests/test_http_paypal_error_response.py"
+      ],
+      "cwd": "/dev/shm/hamon-source-delivery-f0f66340f637/ledgerly-http-error/original",
+      "exit_code": 1,
+      "elapsed_s": 0.585,
+      "stdout_bytes": 5558,
+      "stdout_sha256": "4d58e2d3a1f8903e33fb1e81e91a357dd3fedcc4f142fade1e7bc085e892fa35",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "FFFFFFFFF...                                                             [100%]\n=================================== FAILURES ===================================\n_________________ test_error_read_timeout_closes_real_response _________________\n../author-tests/test_http_paypal_error_response.py:110: in test_error_read_timeout_closes_real_response\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 503: 'Service Unavailable'>.closed\n_______________ test_error_translation_closes_real_response[401] _______________\n../author-tests/test_http_paypal_error_response.py:128: in test_error_translation_closes_real_response\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 401: 'Unauthorized'>.closed\n_______________ test_error_translation_closes_real_response[429] _______________\n../author-tests/test_http_paypal_error_response.py:128: in test_error_translation_closes_real_response\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 429: 'Too Many Requests'>.closed\n_______________ test_error_translation_closes_real_response[503] _______________\n../author-tests/test_http_paypal_error_response.py:128: in test_error_translation_closes_real_response\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 503: 'Service Unavailable'>.closed\n_ test_error_parse_failure_closes_real_response[{\"-JSONDecodeError-Unterminated string] _\n../author-tests/test_http_paypal_error_response.py:141: in test_error_parse_failure_closes_real_response\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 503: 'Service Unavailable'>.closed\n_ test_error_parse_failure_closes_real_response[[]-AttributeError-'list' object has no attribute 'get'] _\n../author-tests/test_http_paypal_error_response.py:141: in test_error_parse_failure_closes_real_response\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 503: 'Service Unavailable'>.closed\n_________________ test_error_empty_body_preserves_translation __________________\n../author-tests/test_http_paypal_error_response.py:152: in test_error_empty_body_preserves_translation\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 503: 'Service Unavailable'>.closed\n_____________ test_error_incomplete_body_keeps_original_exception ______________\n../author-tests/test_http_paypal_error_response.py:164: in test_error_incomplete_body_keeps_original_exception\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 503: 'Service Unavailable'>.closed\n______________ test_error_interrupted_read_closes_unread_response ______________\n../author-tests/test_http_paypal_error_response.py:175: in test_error_interrupted_read_closes_unread_response\n    assert_closed(state)\n../author-tests/test_http_paypal_error_response.py:98: in assert_closed\n    assert wrapper.closed\nE   AssertionError: assert False\nE    +  where False = <HTTPError 503: 'Service Unavailable'>.closed\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[200-{\"id\":\"fixture-id\",\"description\":\"\\xe3\\x83\\x86\\xe3\\x82\\xb9\\xe3\\x83\\x88\"}-expected0]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[204--None]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_constructor_still_requires_explicit_network_opt_in\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_read_timeout_closes_real_response\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[401]\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[429]\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[503]\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[{\"-JSONDecodeError-Unterminated string]\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[[]-AttributeError-'list' object has no attribute 'get']\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_empty_body_preserves_translation\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_incomplete_body_keeps_original_exception\nFAILED ../author-tests/test_http_paypal_error_response.py::test_error_interrupted_read_closes_unread_response\n9 failed, 3 passed in 0.36s\n",
+      "stderr": "",
+      "stdout_save_error": "[Errno 28] No space left on device"
+    },
+    {
+      "label": "candidate",
+      "command": [
+        "/dev/shm/hamon-source-delivery-f0f66340f637/venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-rA",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "/dev/shm/hamon-source-delivery-f0f66340f637/ledgerly-http-error/author-tests/test_http_paypal_error_response.py"
+      ],
+      "cwd": "/dev/shm/hamon-source-delivery-f0f66340f637/ledgerly-http-error/candidate",
+      "exit_code": 0,
+      "elapsed_s": 0.551,
+      "stdout_bytes": 1751,
+      "stdout_sha256": "1c701b0ec841a766bdc4c9196f4a6efe0a4438c98fd70391d90dd4557767e790",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "............                                                             [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_read_timeout_closes_real_response\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[401]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[429]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_translation_closes_real_response[503]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[{\"-JSONDecodeError-Unterminated string]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_parse_failure_closes_real_response[[]-AttributeError-'list' object has no attribute 'get']\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_empty_body_preserves_translation\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_incomplete_body_keeps_original_exception\nPASSED ../author-tests/test_http_paypal_error_response.py::test_error_interrupted_read_closes_unread_response\nPASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[200-{\"id\":\"fixture-id\",\"description\":\"\\xe3\\x83\\x86\\xe3\\x82\\xb9\\xe3\\x83\\x88\"}-expected0]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_success_response_and_transport_are_preserved[204--None]\nPASSED ../author-tests/test_http_paypal_error_response.py::test_constructor_still_requires_explicit_network_opt_in\n12 passed in 0.35s\n",
+      "stderr": "",
+      "stdout_save_error": "[Errno 28] No space left on device"
+    }
+  ],
+  "provider_requests": 0,
+  "test_plugins_autoload": false,
+  "receipt_save_error": "[Errno 28] No space left on device"
+}
