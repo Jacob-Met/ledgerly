@@ -1,0 +1,35 @@
+{
+  "base_commit": "da2e47043d7f18aa231d80b568dd30e31ed8b77c",
+  "base_tree": "ea9857cebc1fa91582f1f65ea6be34cd86eb23c0",
+  "source_scope": "Agent.tool_create_invoice only",
+  "baseline_source_sha256": {
+    "ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+    "ledgerly/agent.py": "17ff5ce43a46df14071b39d5d410ee0760c5ef5ce55c88ad697b3ba0497cdb19"
+  },
+  "candidate_source_sha256": {
+    "ledgerly/extract.py": "f7644fb7a0d2fedd2e564da8ca490523aa924793b2a67f84fab151d6404e5b20",
+    "ledgerly/paypal.py": "de61591ef00eb77ea6efb76fc100a9b6c72b38b10361a1e64a13d811a76ddbb3",
+    "ledgerly/agent.py": "8510ba4b6d76229ea11484b0b166bc0d0ed8445d5a57c87743bbcd0bda1741ac"
+  },
+  "test_sha256": "2cfd7b57ae0d233455be7cebbdf9a334710a8db8b0cce729438331cc728a1064",
+  "runtime": "CPython 3.12.14 (Clang 22.1.3), native execution of exact source modules from memory; LEDGERLY_ALLOW_NETWORK=0; bytecode disabled",
+  "branch": "estate/06e2ad0ce13f-draft-creation-outcomes",
+  "contract": "https://github.com/Jacob-Met/ledgerly/issues/52",
+  "ownership": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6068334794",
+  "original_source_bundle_sha256": "d6ab0ad4598cc6486cae5187c3c9c4956bbc16bf83bb050a8db7e6812e5c2c6c",
+  "candidate_source_bundle_sha256": "3455de5480757f29413fd94ebc11d92d4ed5c0d2f6b1a88cc6090394c9bcc86c",
+  "author_tests": {
+    "methods": 11,
+    "parameter_subcases": 10,
+    "candidate": "passed",
+    "original": {
+      "failures": 4,
+      "errors": 11,
+      "success_controls": 3
+    }
+  },
+  "independent_receiving": "Frozen original receiving: https://github.com/Jacob-Met/ledgerly/issues/52#issuecomment-6068393407; candidate receiving pending.",
+  "inherited_gate": "Normal repository CI required on published current composition; local pytest unavailable.",
+  "provider_scope": "Synthetic SandboxMock only; no live request or provider acceptance claim."
+}

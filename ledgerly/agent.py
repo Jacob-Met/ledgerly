@@ -286,17 +286,71 @@ class Agent:
                     "issues": [i.to_dict() for i in issues],
                     "message": f"needs human review (confidence {ex.confidence}, {len(errors)} error(s))"}
         created = []
-        for part in split_by_currency(ex):
-            number = self.client.generate_next_invoice_number().body["invoice_number"]
-            note = "Thank you for your business."
-            if ex.amount_paid > 0 and len(ex.currencies()) == 1:
-                note += f" Deposit of {part.currency} {ex.amount_paid} received with thanks."
-            body = build_invoice(part, self.invoicer, number, self.today(), note,
-                                 allow_partial=ex.amount_paid > 0)
-            invoice_due_on = (date.fromisoformat(body["detail"]["payment_term"]["due_date"])
-                              if part.due_days is not None and part.due_days > 0 else None)
-            resp = self.client.create_draft_invoice(body)
-            inv_id = resp.body["href"].rsplit("/", 1)[-1] if "href" in resp.body else resp.body["id"]
+        parts = split_by_currency(ex)
+        for index, part in enumerate(parts):
+            number = None
+            stage = "invoice_number"
+            try:
+                number = self.client.generate_next_invoice_number().body["invoice_number"]
+                if not isinstance(number, str) or not number.strip():
+                    number = None
+                    raise ValueError("Invoice number response has no usable invoice number.")
+                stage = "draft_body"
+                note = "Thank you for your business."
+                if ex.amount_paid > 0 and len(ex.currencies()) == 1:
+                    note += f" Deposit of {part.currency} {ex.amount_paid} received with thanks."
+                body = build_invoice(part, self.invoicer, number, self.today(), note,
+                                     allow_partial=ex.amount_paid > 0)
+                invoice_due_on = (date.fromisoformat(body["detail"]["payment_term"]["due_date"])
+                                  if part.due_days is not None and part.due_days > 0 else None)
+                # Once this call starts, any missing or unusable receipt leaves
+                # the remote outcome unknown. Never replay it automatically.
+                stage = "create_draft"
+                resp = self.client.create_draft_invoice(body)
+                stage = "draft_response"
+                receipt = resp.body
+                if not 200 <= resp.status < 300 or not isinstance(receipt, dict):
+                    raise ValueError("Draft response has no successful invoice receipt.")
+                inv_id = receipt.get("id")
+                if "href" in receipt:
+                    href = receipt["href"]
+                    if not isinstance(href, str) or "/v2/invoicing/invoices/" not in href:
+                        raise ValueError("Draft response has no usable invoice link.")
+                    linked_id = href.rsplit("/", 1)[-1]
+                    if inv_id is not None and inv_id != linked_id:
+                        raise ValueError("Draft response invoice identities disagree.")
+                    inv_id = linked_id
+                if (not isinstance(inv_id, str) or not inv_id.strip()
+                        or inv_id != inv_id.strip() or any(c.isspace() or c in "/?#" for c in inv_id)):
+                    raise ValueError("Draft response has no usable invoice ID.")
+                if inv_id in self.ledger:
+                    raise ValueError("Draft response repeats an already tracked invoice ID.")
+            except Exception as exc:
+                outcome = "UNKNOWN" if stage in {"create_draft", "draft_response"} else "NOT_ATTEMPTED"
+                error = {"type": type(exc).__name__, "message": str(exc)}
+                if isinstance(exc, PayPalError):
+                    error.update(http_status=exc.http_status, provider=copy.deepcopy(exc.body))
+                failure = {"currency": part.currency, "invoice_number": number,
+                           "stage": stage, "outcome": outcome, "error": error}
+                remaining = [p.currency for p in parts[index + 1:]]
+                known = ", ".join(f"{row['currency']} {row['invoice_number']} ({row['invoice_id']})"
+                                  for row in created)
+                message = (f"Draft creation stopped for {part.currency}: {type(exc).__name__}: {exc}. "
+                           + (f"{len(created)} confirmed draft(s) retained: {known}. " if created
+                              else "No draft creation confirmed. "))
+                if outcome == "UNKNOWN":
+                    message += (f"{part.currency} creation outcome is UNKNOWN"
+                                + (f" for invoice number {number}" if number else "") + ". ")
+                else:
+                    message += f"No draft request was made for {part.currency}. "
+                if remaining:
+                    message += f"Not attempted: {', '.join(remaining)}. "
+                message += ("Inspect provider drafts before retrying this job; retrying can create duplicates. "
+                            "Confirmed drafts still require separate approval to send.")
+                return {"ok": False, "creation_incomplete": True, "invoices": created,
+                        "draft_failure": failure, "unattempted_currencies": remaining,
+                        "confidence": ex.confidence, "issues": [i.to_dict() for i in issues],
+                        "message": message}
             entry = LedgerEntry(inv_id, number, part.client_name, part.client_email, part.currency,
                                 part.total(), part.due_days,
                                 prepaid=ex.amount_paid if len(ex.currencies()) == 1 else Decimal(0),
