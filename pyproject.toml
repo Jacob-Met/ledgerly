@@ -17,3 +17,6 @@ pythonpath = [".", "tests"]
 [tool.setuptools.packages.find]
 include = ["ledgerly", "ledgerly.*"]
 namespaces = false
+
+[tool.setuptools.package-data]
+"ledgerly._demo_fixtures" = ["*.txt"]
